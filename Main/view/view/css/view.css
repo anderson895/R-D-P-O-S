@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  main {
+    flex: 1;
+  }
+  
+  @media (max-width: 375px) and (max-height: 667px) {
+.related-products-section {
+  display: none;
+}
+
+}

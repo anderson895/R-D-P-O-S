@@ -1,0 +1,22 @@
+.custom-switch .custom-control-label::before {
+    content: "";
+    width: 36px; /* Adjust the width of the switch */
+    height: 18px; /* Adjust the height of the switch */
+    background-color: #28a745; /* Background color when switch is on */
+}
+
+.custom-switch .custom-control-label::after {
+    content: "";
+    width: 20px; /* Width of the switch knob */
+    height: 20px; /* Height of the switch knob */
+    background-color: #fff; /* Color of the switch knob */
+    transform: translateX(16px); /* Initial position of the switch knob */
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #007bff; /* Background color when switch is off */
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(0); /* Position of the switch knob when it's on */
+}

@@ -1,0 +1,79 @@
+.table-div{
+    overflow: auto;
+    height: 470px;
+    /* border: 1px solid gray; */
+}
+
+.table-div-stocks{
+    overflow: auto;
+    height: 417px;
+    /* border: 1px solid gray; */
+}
+
+thead{
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* You can adjust the background color as needed */
+    z-index: 1;
+}
+
+
+.btn img{
+    width: 20px;
+}
+
+.option{
+    height: 50px;
+    overflow: auto;
+}
+
+
+
+/* For webkit-based browsers (e.g., Chrome) */
+/* Style the main scrollbar */
+/* Style the scrollbar track */
+       
+::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+    border-radius: 5px; /* Make it rounded */
+    background-color: white; /* Background color of the scrollbar track */
+  }
+
+::-webkit-scrollbar:hover {
+    width: 10px; /* Set the width of the scrollbar */
+    border-radius: 5px; /* Make it rounded */
+    background-color: rgb(236, 236, 236); /* Background color of the scrollbar track */
+  }
+  
+  /* Style the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: white; /* Color of the thumb */
+    border-radius: 5px; /* Make it rounded */
+  }
+  
+  /* Add hover effect for the scrollbar thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #dadada; /* Change the color on hover */
+  }
+  
+  /* For Firefox */
+  /* Style the scrollbar thumb */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0;
+  }
+
+/* Show the element when the screen width is less than 768px (adjust as needed for your mobile breakpoint)
+@media (max-width: 768px) {
+    .right-menu-burger {
+        display: flex;
+        justify-content: flex-end; 
+    }
+
+    .add .btn{
+        width: 50%;
+        background-color: white;
+        color: blue;
+    }
+
+} */

@@ -1,0 +1,78 @@
+nav {
+    background-color: rgb(131, 0, 0); 
+    color: #fff; /* Text color */
+    display: flex;
+    flex-direction: row;
+    padding: 0px 20px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    /* border: 1px solid green; */
+    margin: 0px;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.standard-menu{
+    width: 30%;
+}
+
+
+.right-menu{
+    width: 70%;
+    justify-content: flex-end; 
+}
+
+.right-menu li{
+    margin: 0px 5px;
+}
+
+.right-menu li .a{
+    color: white;
+}
+
+
+.standard-menu li img{
+    width: 30px;
+    height: 30px;
+}
+
+.standard-menu li h1{
+    margin-left: 10px;
+    
+}
+
+.right-menu-burger{
+    display: none;
+    width: 70%;
+}
+
+
+.burger{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* Show the element when the screen width is less than 768px (adjust as needed for your mobile breakpoint) */
+@media (max-width: 768px) {
+    .right-menu-burger {
+        display: flex;
+        justify-content: flex-end; 
+    }
+
+    .right-menu{
+        display: none;
+    }
+}

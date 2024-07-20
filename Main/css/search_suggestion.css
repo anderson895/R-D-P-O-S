@@ -1,0 +1,38 @@
+/* Dagdag na CSS para sa mga suggestion */
+.suggestion {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    
+}
+
+.suggestion:hover {
+    background-color: #e0e0e0;
+}
+
+/* CSS para sa pagkakaayos ng search container */
+.search-container {
+    display: flex;
+    width: 100%;
+    align-items: center; /* Vertically center the search input */
+}
+
+#searchInput {
+    flex: 1;
+    width: 50%; /* I-adjust ang lapad kung kinakailangan */
+    margin-right: 10px; /* Magdagdag ng puwang sa pagitan ng input at suggestions */
+}
+
+.suggestion {
+    width: 30%; /* I-adjust ang lapad kung kinakailangan */
+    padding: 5px; /* Magdagdag ng padding para sa mas magandang aesthetics */
+    border: 1px solid #ccc; /* Magdagdag ng border para sa bawat suggestion */
+    margin-bottom: 5px; /* Magdagdag ng puwang sa pagitan ng mga suggestion */
+}
+
+#suggestionsContainer {
+    width: 100%;
+}
+
+/* Iba pang mga istilo o CSS na maaaring idagdag batay sa iyong pangangailangan */

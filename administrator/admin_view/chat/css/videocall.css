@@ -1,0 +1,23 @@
+.modal-body {
+    display: flex;
+}
+
+#videoContainerForUser1,
+#videoContainerForUser2 {
+    flex: 1; /* Equal width for both video containers */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 50vh; /* Split the height for both containers */
+}
+
+#videoContainerForUser1 video,
+#videoContainerForUser2 video,
+#videoContainerForUser1 img,
+#videoContainerForUser2 img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+

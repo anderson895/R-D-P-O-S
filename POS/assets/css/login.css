@@ -1,0 +1,92 @@
+
+body{
+    background-image: url('../images/login-background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Background overlay for dimming */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Adjust the last value (alpha) for the desired opacity */
+    z-index: -1;
+}
+
+.form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form img{
+    width: 100px;
+    height: 100px;
+}
+
+.form h1{
+    font-size: 50px;
+    color: rgb(114, 0, 0);
+}
+
+.form input{
+    border: 1px solid gray;
+    height: 50%;
+}
+
+.form .login{
+    background-color: rgb(114, 0, 0); 
+    color: white;
+}
+
+.form .login:hover{
+    background-color: rgb(212, 0, 0); 
+    border: 1px solid gray;
+    color: rgb(255, 255, 255);
+}
+
+.form button{
+    height: 50px;
+}
+
+.form .loading{
+  height: 50px;
+  border: 1px solid gray;
+}
+
+@keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-15px); /* Adjust the initial bounce height as needed */
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-10px); /* Adjust the second bounce height as needed */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .form .error {
+    background-color: white; /* Change to the background color you desire */
+    border: 1px solid red;
+    color: red;
+    height: 50px;
+    animation: bounce .4s ease;
+
+  }
+  
+ 

@@ -1,0 +1,16 @@
+.payment-image {
+    width: auto; /* Set a fixed width */
+    height: 500px; /* Set a fixed height */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px auto;
+}
+
+@media (max-width: 767px) {
+    /* Adjust styles for screens smaller than 768px (e.g., mobile devices) */
+    .payment-image {
+        display: block; /* Ensure the image is displayed */
+        margin: 10px auto;
+    }
+}

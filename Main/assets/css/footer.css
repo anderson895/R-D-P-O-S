@@ -1,0 +1,128 @@
+/* main button */
+.div-main-buttom{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1px;
+    height: auto;
+    width: 100%;
+    
+}
+
+.div-main-buttom-top{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(241, 241, 241);
+    height: 300px;
+    width: 100%;
+}
+
+
+.div-main-buttom-mid{
+    width: 100%;
+    height: 100px; 
+    background-color: gray; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.copyright{
+    height: 40px;
+    text-align: center;
+    padding-top: 30px;
+    width: 100%;
+    background-color: rgb(104, 0, 0);
+}
+
+.copyright p{
+    font-size: 12px;
+}
+
+.card-cart, .card-pay, .card-deliver {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 33.33%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-cart-image, .card-pay-image, .card-deliver-image{
+    width: 130px;
+    height: 130px;
+}
+
+.card-deliver-image img{
+    margin-top: 30px;
+}
+
+.card-cart-image img, .card-pay-image img, .card-deliver-image img{
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+}
+
+.card-cart-details, .card-pay-details, .card-deliver-details{
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: gray;
+}
+
+.bottom-link{
+    padding: 20px;
+    
+}
+
+@media (max-width: 800px) {
+
+    .card-cart, .card-pay, .card-deliver {
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+        border-top: 1px solid gray;
+        
+        
+    }
+    
+    .div-main-buttom-mid{
+        height: 100px;
+    }
+    
+    .bottom-link{
+        padding: 0px;
+        font-size: 12px;
+        
+    }
+
+    .div-main-buttom-top{
+        height: 260px;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: baseline;
+    }
+
+    .card-deliver-image img{
+        margin-top: 15px;
+    }
+    
+    .card-cart-image img, .card-pay-image img, .card-deliver-image img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-cart-image, .card-pay-image, .card-deliver-image{
+        width: 65px;
+        height: 65px;
+        
+    }
+
+    .card-cart-details, .card-pay-details, .card-deliver-details{
+        margin-left: 50px;
+        font-size: 15px;
+    }
+    
+}

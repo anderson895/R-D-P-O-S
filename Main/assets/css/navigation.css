@@ -1,0 +1,166 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+nav{
+    background-color: rgb(128, 0, 0);
+    display: flex;
+    
+}
+
+ul{
+    margin-right: 30px;
+}
+
+li{
+    display: inline;
+    float: right;
+    padding: 10px 0px;
+    margin-top: 5px;
+    transition: transform 0.3s ease-in-out; 
+    
+}
+
+li:hover{
+    transform: translateY(-2px); 
+}
+
+a{
+    text-decoration: none;
+    margin: 0px 10px;
+    color: white;
+}
+
+
+.navigation{
+    width: 100%;
+}
+
+.logo{
+    width: 10%;
+    height: 40px;
+    margin-top: 5px;
+    
+}
+
+.logo img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    padding: 4px;
+    
+    
+    
+}
+
+.logo-frame{
+    width: 38px;
+    height: 38px;
+    margin-left: 30px;
+}
+
+.burger{
+    width: 10%;
+    height: 40px;
+    margin-top: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.burger:hover{
+    transform: translateY(-5px); 
+}
+
+.burger img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    padding: 4px;
+}
+
+.burger-frame{
+    width: 38px;
+    height: 38px;
+}
+
+.burger-frame button{
+    background-color: transparent;
+    border: none;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: absolute; /* Position the menu absolutely */
+    top: 0%; /* Position the menu under the navigation bar */
+    left: 0;
+    margin-top: 45px;
+    width: 100%;
+    height: 100px;
+    z-index: 3; /* Ensure the menu appears above other content */
+    transition: top 0.3s ease; /* Smooth transition for opening and closing */
+}
+
+.modal.active {
+    top: 100%; /* Slide the menu into view */
+}
+
+.modal-content {
+    padding: 20px; /* Add padding for content */
+    background-color: rgb(128, 0, 0);
+    height: 250px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+p a{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    
+}
+
+.menu{
+    margin-top: 0px;
+}
+
+p{
+    color: white;
+    font-size: 20px;
+    border: 1px yellow;
+    
+}
+
+.close {
+    position: absolute;
+    top: 0px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* responsive */
+
+@media (max-width: 800px) {
+    .burger {
+        display: block; /* Show the burger icon */
+        margin-right: 25px;
+    }
+
+    li {
+        display: none; /* Hide the list items */
+    }
+}
+
+/* This media query will only be applied when the screen width is more than 800px */
+@media (min-width: 801px) {
+    .burger {
+        display: none; /* Hide the burger icon */
+    }
+}
+

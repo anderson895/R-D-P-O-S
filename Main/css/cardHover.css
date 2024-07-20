@@ -1,0 +1,37 @@
+/* styles.css */
+.custom-card {
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.cart-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: #d2b48c; /* Change background color of the card to light brown on hover */
+    cursor: pointer; /* Palitan ang cursor ng mouse kapag in-hover */
+}
+
+.custom-card:hover .cart-logo {
+    background-color: #6d0f0f; /* Change background color of the cart logo on hover */
+    color: #fff; /* Change text color of the cart logo on hover */
+}
+
+/* Media Query para itago ang cart sa mobile view */
+@media (max-width: 768px) {
+    .cart-logo {
+        display: none;
+    }
+}

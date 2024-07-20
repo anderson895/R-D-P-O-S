@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Montserrat', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   text-transform: capitalize;
+   transition: all .2s linear;
+}
+
+body{
+ background-color: #dc143c22; 
+}
+
+.lalagyanan1{
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding:25px 20px;
+}
+
+.lalagyanan1 .heading{
+  font-size: 40px;
+  margin-bottom: 20px;
+  color:#334;
+}
+
+.lalagyanan1 .box-lalagyanan1{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap:20px;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box{
+  background-color: #fff;
+  padding:20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  display: none;
+}
+
+
+
+.lalagyanan1 .box-lalagyanan1 .box .image{
+  margin-bottom: 20px;
+  overflow: hidden;
+  height: 250px;
+  border-radius: 5px;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box:hover .image img{
+  transform: scale(1.1);
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content h3{
+  font-size: 20px;
+  color:#334;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content p{
+  font-size: 15px;
+  color:#777;
+  line-height: 2;
+  padding:15px 0;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content .btn{
+  display: inline-block;
+  padding:10px 30px;
+  border:1px solid #334;
+  color:#334;
+  font-size: 16px;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content .btn:hover{
+  background-color: crimson;
+  border-color: crimson;
+  color:#fff;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content .icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top:1px solid #334;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content .icons span{
+  font-size: 14px;
+  color:#777;
+}
+
+.lalagyanan1 .box-lalagyanan1 .box .content .icons span i{
+  color:crimson;
+  padding-right: 5px;
+}
+
+#load-more{
+  margin-top: 20px;
+  display: inline-block;
+  padding:13px 30px;
+  border:1px solid #334;
+  color:#334;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#load-more:hover{
+  background-color: crimson;
+  border-color: crimson;
+  color:#fff;
+}
+
+#load-morefilter{
+    margin-top: 20px;
+    display: inline-block;
+    padding:13px 30px;
+    border:1px solid #334;
+    color:#334;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  #load-morefilter:hover{
+    background-color: crimson;
+    border-color: crimson;
+    color:#fff;
+  }
+
+@media (max-width:450px){
+
+  .lalagyanan1 .heading{
+    font-size: 25px;
+  }
+
+  .lalagyanan1 .box-lalagyanan1{
+    grid-template-columns: 1fr;
+  }
+
+  .lalagyanan1 .box-lalagyanan1 .box .image{
+    height: 200px;
+  }
+
+  .lalagyanan1 .box-lalagyanan1 .box .content p{
+    font-size: 12px;
+  }
+
+  .lalagyanan1 .box-lalagyanan1 .box .content .icons span{
+    font-size: 12px;
+  }
+
+}

@@ -1,0 +1,311 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.div-main-product{
+    border: none;
+}
+
+/* design for the product list */
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding-left: 15px;
+    height: auto;
+    padding-bottom: 15px;
+}
+
+.product{
+    border: 1px solid rgb(196, 196, 196);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    height: 250px;
+    width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.product-image{
+    
+    height: 120px;
+    width: 120px;
+    margin: 20px auto;
+}
+
+.product-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.product-details{
+    height: 80px;
+    margin: 5px 20px;
+}
+
+.product-details button{
+    width: 100%;
+    height: 30px;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.product-details button:hover{
+    background-color: rgb(1, 105, 1);
+}
+
+.product-details p{
+    color: black;
+    font-size: 12px;
+    margin: 5px 0px;
+}
+
+/* design for filters */
+
+.filters {
+    width: 100%;
+    height: auto;
+    /* border: 1px solid green; */
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: row;
+}
+
+
+.filters div{
+    margin: 10px;
+    width: auto;
+}
+
+.filters div select {
+    border: 1px solid gray;
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    padding-left: 10px;
+    /* Hide the default arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Add a custom background image as the arrow */
+    background: url('../images/arrow.png') no-repeat right center;
+    /* Add some padding to give space for the arrow image */
+    padding-right: 20px;
+    /* Adjust the background image size */
+    background-size: 12px;
+    /* Adjust the margin-right for the background image icon */
+    background-position: right 10px center; /* You can adjust the value as needed */
+}
+
+.filters div select::-ms-expand{
+    display: none; /* Remove the default arrow in Internet Explorer */
+}
+
+.filters div input{
+    width: 350px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: 1px solid gray;
+}
+
+.filters .search{
+    margin-left: 25px;
+}
+
+/* pagination design */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page-item {
+    list-style: none;
+    margin: 10px 0px;
+  }
+
+  .page-link, .prev-next-link {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .page-link:hover, .prev-next-link:hover {
+    background-color: #ddd;
+  }
+
+  .active {
+    background-color: #007bff;
+    color: white;
+  }
+
+  /* responsive */
+
+@media (max-width: 1080px) {
+    .parent {
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+    
+}
+
+@media (max-width: 1040px) {
+
+    .filters .sort-by select, .filters .show-no select{
+        width: 100px;
+    }
+    
+}
+
+@media (max-width: 940px) {
+
+    .filters .sort-by select{
+        width: 100px;
+    }
+    
+}
+
+@media (max-width: 930px) {
+    .filters .category select{
+        width: 160px;
+    }
+
+    .parent {
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+
+    .filters .search input{
+        width: 200px;
+    }
+    
+    .pagination ul li{
+        display: block;
+    }
+
+    .pagination{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .page-item {
+        list-style: none;
+        margin: 5px -10px;
+      }
+    
+      .page-link, .prev-next-link {
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+        background-color: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+    
+}
+
+@media (max-width: 700px) {
+    .parent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product{
+        height: 270px;
+    }
+    .product-details{
+        height: 90px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .filters .category, .filters .category select,.filters .sort-by, .filters .sort-by select,.filters .show-no, .filters .show-no select{
+        display: none;
+    }
+    .filters .search input{
+        
+        width: 100%;
+    }
+
+    .filters{
+        width: 100%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+        
+    }
+
+    .parent {
+        border: none;
+        place-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        padding: 0px;
+        height: auto;
+        padding: 15px;
+        border: 1px solid red;
+    }
+    
+    .product{
+        margin: 5px ;
+        border: none;
+        height: 230px;
+        width: 90%;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    
+    .product-image{
+        
+        height: 100px;
+        width: 100px;
+        margin: 20px auto;
+    }
+    
+    .product-image img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    
+    .product-details{
+        height: 80px;
+        margin: 5px 20px;
+    }
+    
+    .product-details button{
+        width: 100%;
+        height: 30px;
+        background-color: green;
+        border: none;
+        color: white;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+    
+    .product-details button:hover{
+        background-color: rgb(1, 105, 1);
+    }
+    
+    .product-details p{
+        color: black;
+        font-size: 12px;
+        margin: 5px 0px;
+    }
+}

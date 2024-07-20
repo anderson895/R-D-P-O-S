@@ -1,0 +1,401 @@
+/* reset */
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* pos design*/
+.m-btn{
+    height: 20px;
+    width: 20px;
+}
+
+.color-gray{
+    color: rgb(95, 95, 95);
+    margin-left: 20px;
+}
+
+.border-1px{
+    border: 1px solid gray;
+}
+
+.button-rounded{
+    display: inline-block;
+    padding: 10px 10px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 12px;
+    color: gray;
+    transition: transform 0.3s ease-in-out; 
+
+}
+
+
+.button-rounded:hover{
+    border: 1px solid red;
+    transform: translateY(-2px); 
+}
+
+.main-screen{
+    display: flex;
+    height: 710px;
+    margin: 0px 20px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.tables{
+    background-color: white;
+    height: 550px;
+    width: 65%;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+}
+
+.items{
+    background-color: white;
+    height: 550px;
+    width: 40%;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+}
+
+.container{
+    margin: 0px 10px;
+}
+
+a{
+    margin: 5px;
+}
+
+.category{
+    margin: 0px 20px;
+}
+
+.button-add{
+    background-color: red;
+    border: none;
+    width: 100%;
+    color: white;
+    height: 25px;
+    font-size: 12px;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+
+.button-add:hover{
+    background-color: rgb(104, 0, 0);
+
+}
+
+
+
+
+.head-row{
+    font-size: 12px;
+    
+}
+.table-cart{
+    width: 95%;
+    border-collapse: collapse;
+    color: rgb(156, 156, 156);
+    font-size: 12px;
+    margin-left: 5px;   
+    
+}
+
+td{ 
+    border-collapse: collapse;
+    border-bottom: 1px solid rgb(156, 156, 156);
+    padding: 15px 5px
+    
+}
+
+.div-table{
+    margin-left: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 220px;
+    margin-left: 30px;
+
+}
+
+.cartlist-bottom{
+   margin: 10px 30px;
+}
+
+.discount{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+}
+
+
+.div-table-head{
+    margin: 0px 10px;
+}
+
+ .checkout, .clear{
+    width: 98%;
+    height: 50px;
+    color: white;
+    margin: 5px 0px;
+    border: none;
+    border-radius: 10px;
+}
+
+.purchase-buttons{
+    display: flex;
+}
+
+.button-down1, .button-down2{
+    width: 100%;
+}
+
+.button-down2{
+    text-align: right;
+}
+
+.clear{
+    background-color: red;
+    transition: transform 0.3s ease-in-out; 
+}
+.clear:hover{
+    background-color: rgb(230, 0, 0);
+    transform: translateY(-2px); 
+}
+
+.computation{
+    width: 100%;
+    color: gray;
+    font-size: 12px;
+    margin: 10px 0px;
+    height: 120px;
+}
+
+.description-left{
+    border: none;
+    padding: 0px 0px;
+}
+
+.description-right{
+    border: none;
+    padding: 0px 0px;
+    text-align: right;
+}
+
+
+.checkout{
+    background-color: rgb(48, 163, 2);
+    transition: transform 0.3s ease-in-out; 
+    
+}
+
+.checkout:hover{
+    background-color: rgb(0, 168, 28);
+    transform: translateY(-2px); 
+
+}
+
+.empty-cart{
+    text-align: center;
+}
+
+.product:hover{
+    border: 1px solid red;
+    transform: translateY(-2px); 
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 420;
+    padding: 0px 20px;
+}
+
+
+.product{
+    width: 160px;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+    margin: 5px 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.image{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 150px;
+    border-radius: 5px;
+    border-bottom: 1px solid rgb(158, 158, 158);
+    background-color: none;
+    display: block;
+
+}
+
+.image  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.description{
+    margin: 5px 10px;
+    font-size: 10px;
+    text-align: center;
+}
+
+a.a-class {
+    margin: 0;
+    padding: 0;
+    text-decoration: none; /* Optional, remove underline */
+}
+
+/* Styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(85, 85, 85);
+}
+
+.modal-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.modal-header{
+    padding: 10px 0px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    margin: 0px;
+    background-color: none;
+}
+
+.modal-bottom{
+    padding: 10px 0px;
+    border-top: 1px solid rgb(223, 223, 223);
+}
+
+.modal-body{
+    padding: 20px 0px;
+
+}
+
+body{
+    overflow: hidden; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.delete{
+    background-color: white;
+    border-radius: 5px; 
+    margin: 0px 5px;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.delete:hover{
+    transform: translateY(-5px); 
+}
+
+.modal-bottom input{
+    height: 40px;
+    padding: 5px;
+    border: 1px solid gray;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.modal-bottom button{
+    height: 40px;
+    padding: 5px;
+    width: 48%;
+    border: 1px solid gray;
+    background-color: rgb(48, 163, 2);
+    color: white;
+    border-radius: 5px;
+}
+
+.modal-bottom button:hover{
+    background-color: rgb(48, 163, 2);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 0px;
+
+}
+
+.validation-compatibility{
+    background-color: white;
+    color: gray;
+    height: 250px;
+    width: 350px;
+    border-radius: 10px;
+    justify-content: center;
+    padding: 40px;
+    display: flex;
+    margin: 0px 20px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.message{
+    margin-top: 100px;
+}
+
+
+
+
+@media  (max-width: 1142px) {
+    .tables{
+        display: none;
+    }
+
+    .items{
+        display: none;
+    }
+    
+}
+
+@media only screen and (min-width: 1142px) {
+    .validation-compatibility{
+        display: none;
+    }
+}
+
+
+

@@ -1,0 +1,50 @@
+
+/* Kulay ng background ng modal */
+.modal-content {
+    background-color: #FFFFFF; /* Kulay ng background */
+}
+
+/* Kulay ng header ng modal */
+.modal-header {
+    background-color: #600000; /* Kulay ng header */
+    color: #FFFFFF; /* Kulay ng text sa header */
+}
+
+/* Kulay ng mga button sa loob ng modal */
+
+
+/* Kulay ng mga form fields */
+.form-control {
+    background-color: #F5F5F5; /* Kulay ng form field background */
+   
+}
+
+/* Kulay ng mga labels */
+label {
+    color: #000000; /* Kulay ng text sa label */
+}
+
+/* Kulay ng mga alert messages */
+
+
+
+
+      /* Style for flat buttons */
+      .btn.btn-flat {
+        background-color: transparent; /* Set the background color to transparent */
+        border: none; /* Remove the border */
+        padding: 0.5rem 1rem; /* Adjust padding as needed */
+        font-size: 16px; /* Set the font size as needed */
+        cursor: pointer; /* Change the cursor to a pointer on hover */
+        transition: background-color 0.3s; /* Add a smooth transition effect for the background color */
+    }
+    
+    /* Style for flat buttons on hover */
+    .btn.btn-flat:hover {
+        background-color: #f0f0f0; /* Change the background color on hover */
+    }
+    
+    /* Style for active flat buttons */
+    .btn.btn-flat.active {
+        background-color: #ccc; /* Change the background color for the active state */
+    }

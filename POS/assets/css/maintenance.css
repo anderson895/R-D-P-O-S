@@ -1,0 +1,26 @@
+.table-div{
+    overflow-y: auto;
+    height: 376px;
+}
+
+/* For webkit-based browsers (e.g., Chrome) */
+/* Style the main scrollbar */
+::-webkit-scrollbar {
+    height: 100px;
+    width: 10px; /* Set the width of the scrollbar */
+    border-radius: 5px; /* Make it rounded */
+    background-color: white; /* Background color of the scrollbar track */
+  }
+  
+  /* Style the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #ebebeb; /* Color of the thumb */
+    border-radius: 5px; /* Make it rounded */
+  }
+  
+  /* For Firefox */
+  /* Style the scrollbar thumb */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0;
+  }
