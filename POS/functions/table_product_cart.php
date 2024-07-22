@@ -1,6 +1,6 @@
-<div class="border shadow rounded p-3" style="height: 530px">
+<div class="border shadow rounded p-3" style="height: 85vh">
     <h5 class="fw-bold m-0"> Shopping Cart</h5>
-    <div class="mb-2" style="overflow-y:scroll; height:250px; margin-right: -10px">
+    <div class="mb-2" style="overflow-y: auto; height: 520px; margin-right: -10px">
         <table class="table">
             <thead>
                 <tr style="font-size: 12px;">
@@ -29,7 +29,7 @@
                 }
 
                 if (mysqli_num_rows($result) == 0) {
-                    echo '<tr><td colspan="4" class="py-4 "><div class=" d-flex flex-column justify-content-center "><div class="d-flex mt-2 justify-content-center"><img src="../assets/images/empty.png" style="width: 100px; margin-right: 15px;"></div><p class="text-center mt-2 text-secondary">Empty Cart</p></div></td></tr>';
+                    echo '<tr><td colspan="4" class="py-4 "><div class=" d-flex flex-column justify-content-center "><div class="d-flex mt-2 justify-content-center"><img src="../assets/images/empty.png" style="width: 150px; margin-top: 100px; margin-right: 15px;"></div><p class="text-center mt-2 text-secondary" style=" margin-bottom: 140px;">Empty Cart</p></div></td></tr>';
                 } else {
                     while ($row = mysqli_fetch_assoc($result)) {
 
