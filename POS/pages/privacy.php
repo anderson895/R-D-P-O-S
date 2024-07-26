@@ -9,7 +9,7 @@ include ('../functions/session.php');
     <!-- Your head content here... -->
     <link rel="stylesheet" href="../assets/css/maintenance.css">
     <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
-    <title>Account setting</title>
+    <title>Account privacy</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -38,30 +38,27 @@ include ('../functions/session.php');
         <div class="col-12 col-md-8 mt-3">
             <div class="card h-100">
                 <div class="card-body mt-4">
-                    <h2 class="fw-bold mb-4 text-center">Account Information</h2>
+                    <h2 class="fw-bold mb-4 text-center">Update Password</h2>
                 
                     
                     <div class="form-floating mb-2">
-                        <input class="form-control" type="text" value="<?=$db_acc_fname?>" id="fname" placeholder="First Name">
-                        <label for="fname">First Name</label>
+                        <input class="form-control" type="text" value="" id="npsw" placeholder="New Password">
+                        <label for="fname">New Password</label>
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input class="form-control" type="text" value="<?=$db_acc_lname?>" id="lname" placeholder="Last Name">
-                        <label for="lname">Last Name</label>
+                        <input class="form-control" type="text" value="" id="cpsw" placeholder="Confirm Password">
+                        <label for="lname">Confirm Password</label>
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input class="form-control" type="text" value="<?=$db_acc_username?>" id="uname" placeholder="Username">
-                        <label for="uname">Username</label>
+                        <input class="form-control" type="text" value="" id="opsw" placeholder="Old Password">
+                        <label for="uname">Old Password</label>
                     </div>
 
-                    <div class="form-floating">
-                        <input class="form-control" type="text" value="<?=$db_acc_contact?>" id="contact" placeholder="Contact">
-                        <label for="contact">Contact</label>
-                    </div>
+                   
 
-                    <button type="button" id="btnSave" class="btn btn-secondary mt-3">Save</button>
+                    <button type="button" id="btnUpdatePass" class="btn btn-secondary mt-3">Update</button>
                 </div>
             </div>
         </div>

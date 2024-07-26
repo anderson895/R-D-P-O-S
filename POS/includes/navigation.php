@@ -34,8 +34,8 @@
                     Settings
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="../pages/maintenance">Maintenance</a></li>
+                    <li><a class="dropdown-item" href="../pages/maintenance.php">Settings</a></li>
+                    <li><a class="dropdown-item" href="../pages/privacy.php">Privacy</a></li>
                     <li><a class="dropdown-item" href="../functions/logout.php">Logout</a></li>
                 </ul>
             </li>
