@@ -7,7 +7,7 @@ function fetStoreTable() {
             // Ensure response is an array
             let data = Array.isArray(response) ? response : [];
             let currentPage = 1;
-            let rowsPerPage = 10;
+            let rowsPerPage = 15; // Default value for rows per page
             let currentSortColumn = null;
             let currentSortDirection = 'asc';
 
@@ -34,7 +34,8 @@ function fetStoreTable() {
                 const searchText = $('#search').val().toLowerCase();
                 const filteredData = data.filter(item =>
                     item.orders_tcode.toLowerCase().includes(searchText) ||
-                    item.orders_discount_name.toLowerCase().includes(searchText)
+                    item.orders_discount_name.toLowerCase().includes(searchText) ||
+                    item.orders_date.toLowerCase().includes(searchText)
                 );
 
                 if (filteredData.length === 0) {
@@ -46,14 +47,13 @@ function fetStoreTable() {
                     paginatedData.forEach(item => {
                         const row = `<tr id="viewPOS" data-pos-id="${item.orders_tcode}" style="font-size: 14px; cursor: pointer">
                                         <td class="orders-tcode">${item.orders_tcode}</td>
+                                        <td class="orders-date">${item.orders_date}</td>
                                         <td class="orders-discount">${item.orders_discount}</td>
                                         <td class="orders-discount-name">${item.orders_discount_name}</td>
                                         <td class="orders-tax">${item.orders_tax}</td>
-                                        <td class="orders-date">${item.orders_date}</td>
                                         <td class="orders-final">${item.orders_final}</td>
                                         <td class="orders-payment">${item.orders_payment}</td>
                                         <td class="orders-change">${item.orders_change}</td>
-                                        <td class="orders-user-id">${item.orders_user_id}</td>
                                     </tr>`;
                         
                         tableBody.append(row);
@@ -163,6 +163,5 @@ fetStoreTable();
 
 $(document).on('click', '#viewPOS', function() {
     const tcode = $(this).data('pos-id');
-    console.log(tcode)
+    window.location.href = `view_transactions?id=${tcode}`;
 });
-

@@ -11,7 +11,7 @@
           </button>
         </div>
         <div class="col-6 col-sm-6 col-md-2">
-          <select id="itemsPerPage" class="form-select form-select-sm w-100">
+          <select class="form-select form-select-sm w-100">
           <option disabled selected>View As</option>
             <option value="10">Transaction</option>
             <option value="20">Return</option>
@@ -20,7 +20,7 @@
         <div class="col-6 col-sm-6 col-md-3">
             <select id="itemsPerPage" class="form-select form-select-sm w-100">
                 <option disabled selected>Show Entries</option>
-                <option value="10">10 items</option>
+                <option value="15">15 items</option>
                 <option value="20">20 items</option>
                 <option value="100">100 items</option>
             </select>
