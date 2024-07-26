@@ -118,7 +118,7 @@ if (isset($_POST['prod_id'], $_POST['amount'], $_POST['acc_id'])) {
     <?php include('../includes/navigation.php'); ?>
 
     <div class="container">
-        <div class="row mt-3 " style="height: 520px">
+        <div class="row mt-3 " style="height: 90vh">
             <div class="col-12 col-md-7 ">
                 <div class="input-group shadow rounded">
 
@@ -126,7 +126,7 @@ if (isset($_POST['prod_id'], $_POST['amount'], $_POST['acc_id'])) {
                     <button class="btn btn-primary">Search</button>
                 </div>
                 <div class="container mt-3 px-0 ">
-                    <div class="row product" style="overflow:scroll; height: 491px;"></div>
+                    <div class="row product" style="overflow-y:scroll; height: 80vh;"></div>
                 </div>
             </div>
             <div class="col-12 col-md-5 ">
