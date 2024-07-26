@@ -337,6 +337,7 @@ if ($result->num_rows > 0) {
 
 <script src="../../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
 <script src="../../administrator/admin_view/assets/js/jquery.slimscroll.min.js"></script>
+<script src="../assets/js/alert_js_fyke.js"></script>
 <script>
     $(document).ready(function() {
         const $checkAllBox = $('#checkAll');
@@ -451,6 +452,8 @@ if ($result->num_rows > 0) {
         $returnButton.on('click', function() {
             $('#clabel').hide();
             $('#cloader').show();
+            // Assuming $returnButton is a jQuery object representing your button
+            $returnButton.prop('disabled', true);
 
             // Ensure rcode is properly handled as a JSON object
             const rcode = <?php echo json_encode($id); ?>; // PHP variable encoded as JSON
@@ -468,23 +471,29 @@ if ($result->num_rows > 0) {
             // Make the POST request
             setTimeout(function() {
                 $.ajax({
-                    url: '../functions/insert_return.php', // Replace with your server endpoint URL
+                    url: '../functions/insert_return_fyke.php', // Replace with your server endpoint URL
                     type: 'POST',
                     data: postData,
                     success: function(response) {
                         console.log('Success:', response);
                         $('#clabel').show();
                         $('#cloader').hide();
+                        // Assuming $returnButton is a jQuery object representing your button
+                        showAlert('Return Success', 'success')
                         setTimeout(function () {
                             // Reload the current page
                             window.location.reload();
+                            $returnButton.prop('disabled', false);
+
                         }, 2000)
                     },
                     error: function(xhr, status, error) {
                         console.log('Error:', error);
                         $('#cloader').hide();
                         $('#clabel').show();
+                        showAlert('Internal Server Error', 'danger')
                         setTimeout(function () {
+                            $returnButton.prop('disabled', false);
                             // Reload the current page
                             window.location.reload();
                         }, 2000)
