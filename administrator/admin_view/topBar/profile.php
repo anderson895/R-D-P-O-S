@@ -15,7 +15,7 @@
 </div>
 </div>
 <hr class="m-0">
-<a class="dropdown-item" onclick="window.location.href='profile.php?account_id=<?=$db_acc_id?>';"> <i class="me-2" data-feather="user"></i> My Profile</a>
+<!-- <a class="dropdown-item" onclick="window.location.href='profile.php?account_id=<?=$db_acc_id?>';"> <i class="me-2" data-feather="user"></i> My Profile</a> -->
 <a class="dropdown-item" onclick="window.location.href='generalsettings.php?account_id=<?=$db_acc_id?>';"><i class="me-2" data-feather="settings"></i>Settings</a>
 <a class="dropdown-item" onclick="window.location.href='privacysettings.php?account_id=<?=$db_acc_id?>';"><i class="me-2" data-feather="lock"></i>Privacy</a>
 
