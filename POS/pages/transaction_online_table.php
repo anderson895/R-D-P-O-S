@@ -1,12 +1,12 @@
 <div class=" mt-3">
     <div class="row g-2 mb-2">
         <div class="col-6 col-sm-6 col-md-2">
-          <a type="button" class="btn btn-secondary btn-sm border w-100">
+          <a href="../pages/transaction_pos"  type="button" class="btn btn-sm border w-100">
             <i class="bi bi-clipboard-plus me-2"></i>POS Transaction
           </a>
         </div>
         <div class="col-6 col-sm-6 col-md-2">
-          <a href="../pages/transaction_online" type="button" class="btn btn-sm border w-100">
+          <a type="button" class="btn btn-secondary btn-sm border w-100">
             <i class="bi bi-clipboard-plus me-2"></i>Online Transaction
           </a>
         </div>

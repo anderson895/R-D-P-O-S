@@ -28,7 +28,7 @@
 
         <ul class="right-menu">
             <li><a class="btn a" href="../pages/pos">Pos</a></li>
-            <li><a class="btn a" href="../pages/transaction">Transaction</a></li>
+            <li><a class="btn a" href="../pages/transaction_pos">Transaction</a></li>
            
             <li class=" dropdown">
                 <a class="btn a dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

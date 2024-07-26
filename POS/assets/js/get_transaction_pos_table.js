@@ -101,7 +101,7 @@ function fetStoreTable() {
                     const button = $('<button></button>')
                         .text(i)
                         .addClass('pagination-button btn')
-                        .toggleClass('active border-warning btn-warning', i === currentPage)
+                        .toggleClass('active border-danger btn-danger', i === currentPage)
                         .on('click', function() {
                             currentPage = i;
                             renderTable();
