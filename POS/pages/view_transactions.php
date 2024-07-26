@@ -50,14 +50,16 @@ if ($result->num_rows > 0) {
     foreach ($rows as $row) {
         $maxQty = $row["orders_prodQty"];
         $prod_id = $row["prod_id"];
-        
+        $prod_name = (strlen($row["prod_name"]) > 20) ? substr($row["prod_name"], 0, 20) . '...' : $row["prod_name"];
+        $prod_currprice = $row["prod_currprice"];
+        $orders_prodQty = $row["orders_prodQty"];
         $tbodyModal .= '
         <tr>
             <td><input class="checked_checkbox" type="checkbox" name="itemReturn" data-prod_id="' . $prod_id . '"></td>
-            <td class="text-end pt-1"> <input class="form-control text-center quantityInput" type="number" value="'.$maxQty.'" max="'.$maxQty.'" min="1" data-prod_id="' . $prod_id . '"></td>
-            <td class="pt-1">' . (strlen($row["prod_name"]) > 20 ? substr($row["prod_name"], 0, 20) . '...' : $row["prod_name"]) . '</td>
-            <td class="text-end pt-1"> ₱' . $row["prod_currprice"] . ' <input hidden type="text" value="'.$row["prod_currprice"].'" class="currPrice""></td>
-            <td class="text-end pt-1">'.$row["orders_prodQty"].'</td>
+            <td class="text-end pt-1"> <input class="form-control text-center quantityInput" type="number" value="' . $maxQty . '" max="' . $maxQty . '" min="1" data-prod_id="' . $prod_id . '"></td>
+            <td class="pt-1">' . $prod_name . '</td>
+            <td class="text-end pt-1">₱' . $prod_currprice . ' <input hidden type="text" value="' . $prod_currprice . '" class="currPrice"></td>
+            <td class="text-end pt-1">' . $orders_prodQty . '</td>
             <td></td>
         </tr>';
     }
@@ -161,7 +163,7 @@ if ($result->num_rows > 0) {
             <div class="border rounded p-4 shadow">
             <h5 class="fw-bold">Transaction Details</h5>
             <div class="container border rounded py-2" >
-            <table style="width: 100%;">
+            <table id="productTable" style="width: 100%;">
                 <tr>
                     <td>Transaction Code <input hidden type="text" value="<?=$id?>" id='transactionCode'></td>
                     <td class="right"><?php echo $id?></td>
@@ -220,7 +222,7 @@ if ($result->num_rows > 0) {
                     <td class="right">₱<?php echo $discount?></td>
                 </tr>
                 <tr class="border-bottom">
-                    <td>VAT (100%)</td>
+                    <td>VAT </td>
                     <td class="right">₱<?php echo $tax?></td>
                 </tr>
                 <tr >
@@ -229,7 +231,29 @@ if ($result->num_rows > 0) {
                 </tr>
             </table>
             </div>
-            <button class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>
+            <?php
+                // Assuming you have an existing database connection in $conn
+                $id = $_GET['id']; // Or however you are getting the $id value
+                $query = "SELECT orders_status FROM pos_orders WHERE orders_tcode = ?";
+                
+                if ($stmt = $conn->prepare($query)) {
+                    $stmt->bind_param("s", $id);
+                    $stmt->execute();
+                    $stmt->bind_result($button_status);
+                    $stmt->fetch();
+                    $stmt->close();
+
+                    if ($button_status == 0) {
+                        echo '<button class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>';
+                    } elseif ($button_status == 1) {
+                        echo '<button disabled class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>';
+                    } else {
+                        echo '<button>Error</button>';
+                    }
+                } else {
+                    echo "Error preparing statement: " . $conn->error;
+                }
+            ?>
             <button class="btn mt-3 w-100 text-primary border-primary ">Print As Document</button>
             <button class="btn mt-3 w-100 text-primary border-primary">Print As Reciept</button>
             
@@ -257,47 +281,54 @@ if ($result->num_rows > 0) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="container mb-3 border rounded py-2" >
-                    <div style="overflow: auto; height: 250px;">
-                <table class="table" style="width: 100%; ">
-                <thead>
-                    <td class="text-secondary"><input class="checkAll" type="checkbox" ></td>
-                    <th>Return Quantity</th>
-                    <th>Product</th>
-                    <th class="text-end">Price</th>
-                    <th class="text-end">Qty</th>
-                    <th class="text-end"></th>
-                </thead>
-                    <div >
-                    <?php echo $tbodyModal?>
-                    
+            <div class="container mb-3 border rounded py-2" >
+                        <div style="overflow: auto; height: 250px;">
+                    <table class="table" style="width: 100%; ">
+                    <thead>
+                        <td class="text-secondary"><input id="checkAll" type="checkbox" ></td>
+                        <th>Return Quantity</th>
+                        <th>Product</th>
+                        <th class="text-end">Price</th>
+                        <th class="text-end">Qty</th>
+                        <th class="text-end"></th>
+                    </thead>
+                        <div >
+                        <?php echo $tbodyModal?>
+                        
+                        </div>
+                    </table>
                     </div>
-                </table>
-                </div>
-                
-      </div>
+                    
+        </div>
 
 
-    <label for="reason">Reason</label>
-    <select class="form-select mb-3" aria-label="Default select example" id="reason">
-                <option value="" selected>Select reason</option>
-                <option value="expired">Expired</option>
-                <option value="defective">Defective</option>
-                <option value="wrongProd">Wrong product</option>
-    </select>
+        <label for="reason">Reason</label>
+        <select class="form-select mb-3" aria-label="Default select example" id="reason">
+            <option  value="" selected>Select reason</option>
+            <option value="expired">Expired</option>
+            <option value="defective">Defective</option>
+            <option value="wrongProd">Wrong product</option>
+        </select>
 
-    <label for="returnType">Return type</label>
-    <select class="form-select mb-3" aria-label="Default select example" id="returnType">
-                <option value="" selected>Select Type Request</option>
-                <option value="replace">Replace</option>
-             
-    </select>
+
+        <label for="returnType">Return type</label>
+        <select class="form-select mb-3" aria-label="Default select example" id="returnType">
+            <option  value="" selected>Select Type Request</option>
+            <option value="replace">Replace</option>
+            <!-- You can add more options here if needed -->
+        </select>
+
                 
       <div class="modal-footer">
 
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <div id="loadingSpinner"></div>
-        <button style="display:block;" disabled type="button" class="btn btn-primary btnCunfirmReturn">Confirm</button>
+        <button style="display:block;" id="returnButton" disabled type="button" class="btn w-25 btn-primary">
+            <p id="clabel" class="m-0 p-0">Confirm</p>
+            <div id="cloader" style="display: none" class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </button>
       </div>
     </div>
   </div>
@@ -306,10 +337,174 @@ if ($result->num_rows > 0) {
 
 <script src="../../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
 <script src="../../administrator/admin_view/assets/js/jquery.slimscroll.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const $checkAllBox = $('#checkAll');
+        const $checkboxes = $('.checked_checkbox');
+        const $quantityInputs = $('.quantityInput');
+        const $returnButton = $('#returnButton');
+        const $reason = $('#reason');
+        const $returnType = $('#returnType');
+
+        // Clear localStorage (ensure this is intended)
+        localStorage.clear();
+
+        $checkAllBox.on('change', handleCheckAllChange);
+        $checkboxes.on('change', handleCheckboxChange);
+        $quantityInputs.on('input', handleQuantityChange);
+        $reason.on('change', updateButtonState); // Added event listener
+        $returnType.on('change', updateButtonState); // Added event listener
+
+        function handleCheckAllChange(event) {
+            const isChecked = $(event.target).is(':checked');
+            $checkboxes.each(function() {
+                $(this).prop('checked', isChecked);
+                const prodId = $(this).data('prod_id');
+                const $quantityInput = $(`.quantityInput[data-prod_id="${prodId}"]`);
+                const prodName = $(this).closest('tr').find('td:nth-child(3)').text().trim();
+                const quantity = $quantityInput.val();
+
+                if (isChecked) {
+                    addToLocalStorage(prodId, prodName, quantity);
+                } else {
+                    removeFromLocalStorage(prodId);
+                }
+            });
+            updateButtonState();
+        }
+
+        function handleCheckboxChange(event) {
+            const $checkbox = $(event.target);
+            const prodId = $checkbox.data('prod_id');
+            const $quantityInput = $(`.quantityInput[data-prod_id="${prodId}"]`);
+            const prodName = $checkbox.closest('tr').find('td:nth-child(3)').text().trim();
+            const quantity = $quantityInput.val();
+
+            if ($checkbox.is(':checked')) {
+                addToLocalStorage(prodId, prodName, quantity);
+            } else {
+                removeFromLocalStorage(prodId);
+            }
+
+            // Uncheck the "Select All" checkbox if any individual checkbox is unchecked
+            if (!$checkbox.is(':checked')) {
+                $checkAllBox.prop('checked', false);
+            }
+
+            updateButtonState();
+        }
+
+        function handleQuantityChange(event) {
+            const $input = $(event.target);
+            const prodId = $input.data('prod_id');
+            const maxQty = parseInt($input.attr('max'), 10);
+
+            if (parseInt($input.val(), 10) > maxQty) {
+                $input.val(maxQty);
+            }
+
+            const $checkbox = $(`.checked_checkbox[data-prod_id="${prodId}"]`);
+            if ($checkbox.is(':checked')) {
+                updateLocalStorage(prodId, $input.val());
+            }
+
+            updateButtonState();
+        }
+
+        function addToLocalStorage(prodId, prodName, quantity) {
+            const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
+            items[prodId] = { prodName, quantity };
+            localStorage.setItem('selectedItems', JSON.stringify(items));
+        }
+
+        function removeFromLocalStorage(prodId) {
+            const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
+            delete items[prodId];
+            localStorage.setItem('selectedItems', JSON.stringify(items));
+        }
+
+        function updateLocalStorage(prodId, quantity) {
+            const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
+            if (items[prodId]) {
+                items[prodId].quantity = quantity;
+                localStorage.setItem('selectedItems', JSON.stringify(items));
+            }
+        }
+
+        function updateButtonState() {
+            const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
+            const hasSelectedItems = Object.keys(items).length > 0;
+            const hasReason = $reason.val() !== '';
+            const hasReturnType = $returnType.val() !== '';
+
+            if (hasSelectedItems && hasReason && hasReturnType) {
+                $returnButton.prop('disabled', false);
+            } else {
+                $returnButton.prop('disabled', true);
+            }
+            console.log('Selected Items:', items); // Log items every time the button state is updated
+        }
+
+        // Initial check to set the correct button state when the page loads
+        updateButtonState();
+
+        $returnButton.on('click', function() {
+            $('#clabel').hide();
+            $('#cloader').show();
+
+            // Ensure rcode is properly handled as a JSON object
+            const rcode = <?php echo json_encode($id); ?>; // PHP variable encoded as JSON
+            const rreason = $reason.val(); // Fixed to .val()
+            const rtype = $returnType.val(); // Fixed to .val()
+
+            // Prepare the data to send in the POST request
+            const postData = {
+                rcode: rcode,
+                rreason: rreason,
+                rtype: rtype,
+                selectedItems: JSON.parse(localStorage.getItem('selectedItems')) || {}
+            };
+
+            // Make the POST request
+            setTimeout(function() {
+                $.ajax({
+                    url: '../functions/insert_return.php', // Replace with your server endpoint URL
+                    type: 'POST',
+                    data: postData,
+                    success: function(response) {
+                        console.log('Success:', response);
+                        $('#clabel').show();
+                        $('#cloader').hide();
+                        setTimeout(function () {
+                            // Reload the current page
+                            window.location.reload();
+                        }, 2000)
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', error);
+                        $('#cloader').hide();
+                        $('#clabel').show();
+                        setTimeout(function () {
+                            // Reload the current page
+                            window.location.reload();
+                        }, 2000)
+                    }
+                });
+            }, 3000); // Delay in milliseconds (3000 ms = 3 seconds)
+
+
+                // console.log(rcode);
+                // console.log(rreason);
+                // console.log(rtype);
+                // console.log('Selected Items:', postData.selectedItems);
+            });
+
+    });
+</script>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
 
-
-<script src='../assets/js/checkbox.js'></script>
