@@ -11,7 +11,7 @@ include "php/session_dir.php";
 <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
 <meta name="author" content="Dreamguys - Bootstrap Admin Template">
 <meta name="robots" content="noindex, nofollow">
-<title>Admin test</title>
+<title>AdminJ</title>
 
 <link rel="shortcut icon" type="image/x-icon" href="../../upload_system/<?= $db_system_logo ?>">
 
