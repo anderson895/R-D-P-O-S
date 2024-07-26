@@ -110,13 +110,9 @@ include ('../functions/session.php');
                         <tr>
                         <th scope="col" width="5%"></th>
                         <th scope="col" width="15%">Transaction Code POS</th>
-             
-                       
-                 
-                        <th scope="col" width="10%">Total</th>
-                        <th scope="col" width="10%">Name</th>
-                        <th scope="col" width="20%">Date Recieved</th>
-                        <th scope="col" width="20%">Date Return</th>
+                        <th scope="col" width="10%">Date Return</th>
+                        <th scope="col" width="10%">Return Reason</th>
+                        <th scope="col" width="20%">Return Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -126,19 +122,6 @@ include ('../functions/session.php');
                     </table>
                 <!-- table Transactions -->
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 <div class="table-div" style="display: none;" id="view_return_order">
@@ -209,34 +192,5 @@ include ('../functions/session.php');
 
 <!-- Add this script below your existing jQuery script -->
 <!-- Add this script below your existing jQuery script -->
-<script>
-    $(document).ready(function () {
-        // Function to handle search for both offline and online transactions
-        $('#searchInput').on('input', function () {
-            var searchTerm = $(this).val().toLowerCase();
-
-            // Hide/show rows based on search term in offline transactions
-            $('#view_transaction .clickable-row').each(function () {
-                var transactionCode = $(this).find('#tcode').text().toLowerCase();
-
-                if (transactionCode.includes(searchTerm)) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-
-            // Hide/show rows based on search term in online transactions
-            $('#view_online .clickable-row').each(function () {
-                var transactionCode = $(this).find('#tcode').text().toLowerCase();
-
-                if (transactionCode.includes(searchTerm)) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-        });
-    });
-</script>
+<script src="../assets/js/view_as.js"></script>
 
