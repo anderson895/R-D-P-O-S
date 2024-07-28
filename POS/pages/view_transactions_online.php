@@ -271,7 +271,7 @@ try {
             <?php
                 // Assuming you have an existing database connection in $conn
                 $id = $_GET['id']; // Or however you are getting the $id value
-                $query = "SELECT orders_status FROM pos_orders WHERE orders_tcode = ?";
+                $query = "SELECT t_status FROM new_tbl_orders WHERE order_id = ?";
                 
                 if ($stmt = $conn->prepare($query)) {
                     $stmt->bind_param("s", $id);
@@ -534,7 +534,7 @@ try {
             // Make the POST request
             setTimeout(function() {
                 $.ajax({
-                    url: '../functions/insert_return_fyke.php', // Replace with your server endpoint URL
+                    url: '../functions/insert_online_return_fyke.php', // Replace with your server endpoint URL
                     type: 'POST',
                     data: postData,
                     success: function(response) {

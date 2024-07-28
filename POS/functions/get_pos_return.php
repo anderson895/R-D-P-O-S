@@ -14,6 +14,7 @@ $sql = "
         rtype
     FROM
         return_pos_table
+    WHERE rtransaction = 0
 ";
 
 // Execute the query
