@@ -31,7 +31,7 @@
            
             <li class=" dropdown">
                 <a class="btn a dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Settings
+                <img src="../../upload_img/<?=$db_emp_image?>" class="rounded profile-img img-fluid" alt="Profile Picture" style="width: 25px;"> <?=ucfirst($db_acc_fname)?>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="../pages/maintenance.php">Profile</a></li>
