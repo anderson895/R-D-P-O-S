@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
     <title>navigation</title>
 </head>
 
@@ -27,7 +28,7 @@
 
         <ul class="right-menu">
             <li><a class="btn a" href="../pages/pos">Pos</a></li>
-            <li><a class="btn a" href="../pages/transaction">Transaction</a></li>
+            <li><a class="btn a" href="../pages/transaction_pos">Transaction</a></li>
            
             <li class=" dropdown">
                 <a class="btn a dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

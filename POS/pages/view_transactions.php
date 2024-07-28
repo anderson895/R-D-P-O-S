@@ -364,9 +364,10 @@ if ($result->num_rows > 0) {
                 const $quantityInput = $(`.quantityInput[data-prod_id="${prodId}"]`);
                 const prodName = $(this).closest('tr').find('td:nth-child(3)').text().trim();
                 const quantity = $quantityInput.val();
+                const priceString = $(this).closest('tr').find('td:nth-child(4)').text().trim();
 
                 if (isChecked) {
-                    addToLocalStorage(prodId, prodName, quantity);
+                    addToLocalStorage(prodId, prodName, quantity, priceString);
                 } else {
                     removeFromLocalStorage(prodId);
                 }
@@ -380,20 +381,22 @@ if ($result->num_rows > 0) {
             const $quantityInput = $(`.quantityInput[data-prod_id="${prodId}"]`);
             const prodName = $checkbox.closest('tr').find('td:nth-child(3)').text().trim();
             const quantity = $quantityInput.val();
+            const priceString = $checkbox.closest('tr').find('td:nth-child(4)').text().trim();
 
             if ($checkbox.is(':checked')) {
-                addToLocalStorage(prodId, prodName, quantity);
+                addToLocalStorage(prodId, prodName, quantity, priceString);
             } else {
                 removeFromLocalStorage(prodId);
             }
 
-            // Uncheck the "Select All" checkbox if any individual checkbox is unchecked
             if (!$checkbox.is(':checked')) {
                 $checkAllBox.prop('checked', false);
             }
 
             updateButtonState();
         }
+
+
 
         function handleQuantityChange(event) {
             const $input = $(event.target);
@@ -412,11 +415,15 @@ if ($result->num_rows > 0) {
             updateButtonState();
         }
 
-        function addToLocalStorage(prodId, prodName, quantity) {
+        function addToLocalStorage(prodId, prodName, quantity, priceString) {
+            // Remove the peso sign (₱) from the price string and convert to float
+            const price = parseFloat(priceString.replace('₱', '').trim());
             const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
-            items[prodId] = { prodName, quantity };
+            items[prodId] = { prodName, quantity, price };
             localStorage.setItem('selectedItems', JSON.stringify(items));
         }
+
+
 
         function removeFromLocalStorage(prodId) {
             const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
@@ -467,6 +474,12 @@ if ($result->num_rows > 0) {
                 rtype: rtype,
                 selectedItems: JSON.parse(localStorage.getItem('selectedItems')) || {}
             };
+
+            // Make sure to include price in the postData
+            for (let key in postData.selectedItems) {
+                postData.selectedItems[key].price = postData.selectedItems[key].price.toFixed(2); // Format price as needed
+            }
+
 
             // Make the POST request
             setTimeout(function() {
