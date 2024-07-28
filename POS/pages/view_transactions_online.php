@@ -55,15 +55,91 @@ try {
         // Extract the associative array into variables
         extract($row);
         
-        // Assuming selected_items is JSON, decode it if needed
-        $selected_items_array = json_decode($selected_items, true);
+    } else {
+        echo "No rows found.";
+    }
+
+    $query = "
+    SELECT             
+        i.product_id,	
+        i.qty,	
+        p.prod_code,	
+        p.prod_name,	
+        p.prod_currprice
+    FROM 
+        new_tbl_order_items as i
+    JOIN 
+        product as p ON p.prod_id = i.product_id
+    WHERE  
+        i.order_id = ?;
+    ";
+    // Prepare statement
+    $stmt = $conn->prepare($query);
+    
+    // Bind parameters
+    $stmt->bind_param('s', $id);
+    
+    // Execute query
+    $stmt->execute();
+    
+    // Get result
+    $result = $stmt->get_result();
+    
+    // Check if query executed successfully
+    if ($result->num_rows > 0) {
+        // Fetch result as associative array
+        $row = $result->fetch_assoc();
+        
+        // Extract the associative array into variables
+        extract($row);
+        
     } else {
         echo "No rows found.";
     }
     
     // Close statement
     $stmt->close();
-    
+
+    // Second query to fetch order items
+    $query2 = "
+    SELECT             
+        i.product_id,    
+        i.qty,    
+        p.prod_code,    
+        p.prod_name,    
+        p.prod_currprice
+    FROM 
+        new_tbl_order_items as i
+    JOIN 
+        product as p ON p.prod_id = i.product_id
+    WHERE  
+        i.order_id = ?;
+    ";
+
+    // Prepare and execute the second query
+    $stmt2 = $conn->prepare($query2);
+    if (!$stmt2) {
+        throw new Exception("Query preparation failed: " . $conn->error);
+    }
+    $stmt2->bind_param('s', $id);
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
+
+    if ($result2->num_rows > 0) {
+        $orderItems = [];
+        while ($item = $result2->fetch_assoc()) {
+            $orderItems[] = $item;
+        }
+    } else {
+        throw new Exception("No items found for the given order ID.");
+    }
+
+    // Close the second statement
+    $stmt2->close();
+
+    // Output the fetched data (for debugging or further processing)
+    // echo "Order Details: <pre>" . print_r($orderDetails, true) . "</pre>";
+    // echo "Order Items: <pre>" . print_r($orderItems, true) . "</pre>";
 } catch(Exception $e) {
     echo "Error: " . $e->getMessage();
 }
@@ -137,17 +213,31 @@ try {
             </div>
             <div class="container mt-3 border rounded py-2" >
                 <div style="overflow: auto; height: 250px;">
-            <table class="table" style="width: 100%; ">
-            <thead>
-                <th>Product</th>
-                <th class="text-end">Price</th>
-                <th class="text-end">Qty</th>
-                <th class="text-end"></th>
-            </thead>
-                <div >
-                <?php echo $tbody?>
-                </div>
-            </table>
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th class="text-end">Qty</th>
+                            <th class="text-end">Product Code</th>
+                            <th class="text-end">Product Name</th>
+                            <th class="text-end">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            foreach ($orderItems as $item) {
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($item['product_id']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['qty']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['prod_code']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['prod_name']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['prod_currprice']) . "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+
             </div>
             </div>
             </div>
