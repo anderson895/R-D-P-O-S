@@ -159,5 +159,5 @@ fetchStoreTableReturn();
 
 $(document).on('click', '#viewPOSReturn', function() {
     const tcode = $(this).data('pos-id');
-    window.location.href = `view_transactions?id=${tcode}`;
+    window.location.href = `view_returns?id=${tcode}`;
 });
