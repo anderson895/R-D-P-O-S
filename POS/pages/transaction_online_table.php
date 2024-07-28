@@ -35,14 +35,14 @@
             <table class="table table-hover">
               <thead id="tableHead">
                   <tr style="font-size: 14px;">
-                      <th class="store-image" >Transaction Code</th>
-                      <th class="store-name" >Purchase Date</th>
-                      <th class="store-owner" >Discount</th>
-                      <th class="store-address" >Discount Type</th>
-                      <th class="store-email" >Tax</th>
-                      <th class="store-action" >Total</th>
-                      <th class="store-action" >Payment</th>
-                      <th class="store-action" >Change</th>
+                      <th>Transaction Code</th>
+                      <th>Ordered Date</th>
+                      <th>Delivery Date</th>
+                      <th>Status</th>
+                      <th>Subtotal</th>
+                      <th>VAT</th>
+                      <th>Shipping Fee</th>
+                      <th>Total</th>
                   </tr>
               </thead>
               <tbody id="tableBody">
