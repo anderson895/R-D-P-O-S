@@ -330,7 +330,20 @@ try {
                         <th class="text-end"></th>
                     </thead>
                         <div >
-                        <?php echo $tbodyModal?>
+                        <?php
+                        foreach ($orderItems as $item) {
+                            echo '<tr>
+                                    <td><input class="checked_checkbox" type="checkbox" name="itemReturn" data-prod_id="' . htmlspecialchars($item['product_id']) . '"></td>
+                                    <td class="text-end pt-1"> <input class="form-control text-center quantityInput" type="number" value="' . htmlspecialchars($item['qty']) . '" max="' . htmlspecialchars($item['qty']) . '" min="1" data-prod_id="' . htmlspecialchars($item['product_id']) . '"></td>
+                                    <td class="pt-1">' . htmlspecialchars($item['prod_name']) . '</td>
+                                    <td class="text-end pt-1">₱' . htmlspecialchars($item['prod_currprice']) . ' <input hidden type="text" value="' . htmlspecialchars($item['prod_currprice']) . '" class="currPrice"></td>
+                                    <td class="text-end pt-1">' . htmlspecialchars($item['qty']) . '</td>
+                                    <td></td>
+                                </tr>';
+                        }
+                        ?>
+
+                        
                         
                         </div>
                     </table>
@@ -375,7 +388,7 @@ try {
 <script src="../../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
 <script src="../../administrator/admin_view/assets/js/jquery.slimscroll.min.js"></script>
 <script src="../assets/js/alert_js_fyke.js"></script>
-<!-- <script>
+<script>
     $(document).ready(function() {
         const $checkAllBox = $('#checkAll');
         const $checkboxes = $('.checked_checkbox');
@@ -559,7 +572,7 @@ try {
             });
 
     });
-</script> -->
+</script>
 
 
 
