@@ -1,4 +1,5 @@
 <?php 
+
 include ('../config/config.php');
 include ('../functions/session.php');
 
@@ -7,14 +8,17 @@ header('Content-Type: application/json');
 
 // Prepare the SQL query
 $sql = "
-    SELECT	
-        rdate,	
-        rcode,	
-        rreason,	
-        rtype
-    FROM
-        return_pos_table
-    WHERE rtransaction = 0
+    SELECT order_id	,
+    payment_id,
+    subtotal,
+    vat,
+    sf,
+    total,
+    order_date,
+    delivered_date,
+    status	 FROM `new_tbl_orders`
+    WHERE 
+    status = 'Delivered'
 ";
 
 // Execute the query

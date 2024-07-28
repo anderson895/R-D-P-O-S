@@ -14,7 +14,7 @@ $sql = "
         rtype
     FROM
         return_pos_table
-    WHERE rtransaction = 0
+    WHERE rtransaction = 1
 ";
 
 // Execute the query
