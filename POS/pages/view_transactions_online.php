@@ -356,16 +356,16 @@ try {
                 <label for="reason">Reason</label>
                 <select class="form-select mb-3" aria-label="Default select example" id="reason">
                     <option  value="" selected>Select reason</option>
-                    <option value="expired">Expired</option>
-                    <option value="defective">Defective</option>
-                    <option value="wrongProd">Wrong product</option>
+                    <option value="Expired">Expired</option>
+                    <option value="Defective">Defective</option>
+                    <option value="Wrong Product">Wrong Product</option>
                 </select>
 
 
                 <label for="returnType">Return type</label>
                 <select class="form-select mb-3" aria-label="Default select example" id="returnType">
                     <option  value="" selected>Select Type Request</option>
-                    <option value="replace">Replace</option>
+                    <option value="Replace">Replace</option>
                     <!-- You can add more options here if needed -->
                 </select>
             </div>
