@@ -23,6 +23,8 @@
     .product-photo-sm:hover {
       opacity: 0.8; /* Slight hover effect */
     }
+
+    /* t */
 </style>
 
 
