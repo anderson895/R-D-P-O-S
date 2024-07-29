@@ -69,7 +69,7 @@ include('components/header.php');
                         }
                     }
                 ?>
-                    <button class="m-2 p-0 product-container btnViewProduct" data-id="<?= $newProduct['prod_id'] ?>" data-name="<?= $newProduct['prod_name'] ?>" data-mg="<?= $newProduct['prod_mg'] ?>" data-g="<?= $newProduct['prod_g'] ?>" data-ml="<?= $newProduct['prod_ml'] ?>" data-unitType="<?= $newProduct['unit_type'] ?>" data-category="<?= $newProduct['prod_category_id'] ?>" data-description="<?= $newProduct['prod_description'] ?>" data-image="<?= $newProduct['prod_image'] ?>" data-price="<?= $newProduct['prod_currprice'] ?>" data-stock="<?= $productQty ?>">
+                    <button class="m-2 p-0 product-container btnViewProduct" id="btnViewProduct" data-id="<?= $newProduct['prod_id'] ?>" data-name="<?= $newProduct['prod_name'] ?>" data-mg="<?= $newProduct['prod_mg'] ?>" data-g="<?= $newProduct['prod_g'] ?>" data-ml="<?= $newProduct['prod_ml'] ?>" data-unitType="<?= $newProduct['unit_type'] ?>" data-category="<?= $newProduct['prod_category_id'] ?>" data-description="<?= $newProduct['prod_description'] ?>" data-image="<?= $newProduct['prod_image'] ?>" data-price="<?= $newProduct['prod_currprice'] ?>" data-stock="<?= $productQty ?>">
                         <?= ($outOfStock) ? '<span class="txt-out-of-stock text-danger">Out of stock.</span>' : '' ?>
                         <img class="product-image" src="../upload_prodImg/<?= $newProduct['prod_image'] ?>">
                         <div class="p-1 product-contents-container">
@@ -88,6 +88,8 @@ include('components/header.php');
     }
     ?>
 </div>
+
+
 <hr>
 <?php
 // $getProducts = $db->getAllProducts();
@@ -124,4 +126,11 @@ include('components/footer.php');
 ?>
 <script>
     $('.nav-all-products').addClass('nav-active');
+
+
+   
+
+
 </script>
+
+

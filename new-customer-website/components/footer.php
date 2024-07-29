@@ -35,6 +35,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <input type="hidden" id="rate_prod_id">
           <!-- Main Product Image -->
           <div class="text-center mb-3">
             <img src="" id="viewProductPicture" class="product-image img-fluid" alt="Product Image">
@@ -52,6 +53,92 @@
             <label for="viewProductDescription" class="form-label">Product Description</label>
             <textarea id="viewProductDescription" class="form-control" readonly></textarea>
           </div>
+
+
+
+
+          <!-- Start reviews -->
+            <div class="container mt-5 mb-4">
+                <h4>Reviews</h4>
+                <div class="scrollable-div">
+                    
+            <div id="reviews-container" style="display:none; "></div>
+
+            <!-- Your existing HTML content -->
+            <script>
+         $(document).on("click", ".btnViewProduct", function (e) {
+                    e.preventDefault();
+                    var rate_prod_id = $(this).data('id');
+
+                    console.log('click');
+
+                    $.ajax({
+                        url: 'backend/end-points/fetch_reviews.php',
+                        method: 'POST',
+                        data: { rate_prod_id: rate_prod_id },
+                        success: function (data) {
+                            console.log(data);
+                            displayReviews(data);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error fetching reviews:', status, error);
+                        }
+                    });
+                });
+
+                function displayReviews(reviews) {
+                var reviewsContainer = $('#reviews-container');
+                var scrollableDiv = $('.scrollable-div');
+
+                // Check if reviews array is empty
+                if (reviews.length === 0) {
+                    reviewsContainer.empty(); // Clear any existing content
+                    reviewsContainer.append('<p>No reviews available.</p>'); // Display no review message
+                    reviewsContainer.show(); // Show the container with the message
+                    scrollableDiv.css('border', 'none'); // Remove border from .scrollable-div
+                    return;
+                }
+
+                // Clear existing content
+                reviewsContainer.empty();
+
+                // Append new reviews
+                $.each(reviews, function (index, review) {
+                    reviewsContainer.append(`
+                        <div class="review">
+                            <h4>${review.acc_username}</h4>
+                            <p>Rate: ${generateStarButtons(review.r_rate)}</p>
+                            <p>Comment: ${review.r_feedback}</p>
+                        </div>
+                    `);
+                });
+
+                // Show container and set border
+                reviewsContainer.show();
+                scrollableDiv.css('border', '1px solid #ccc'); // Set border for .scrollable-div
+            }
+
+
+
+
+                function generateStarButtons(starCount) {
+                    let buttons = '';
+                    for (let i = 1; i <= 5; i++) {
+                        const activeClass = i <= starCount ? 'text-warning' : 'text-secondary';
+                        buttons += `<button style="width:20px;" type="button" class="btn ${activeClass} " data-id="${i}"><i class="bi bi-star"></i></button>`;
+                    }
+                    return buttons;
+                
+            };
+            </script>
+                <!-- Add more reviews as needed -->
+                </div>
+            </div>
+
+  <!-- End reviews -->
+
+
+
 
           <!-- Available Stock -->
           <div id="viewProductStocks" class="text-center mb-2"></div>
