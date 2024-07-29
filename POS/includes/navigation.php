@@ -16,6 +16,8 @@
 
 
     <title>navigation</title>
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
 </head>
 
 <body>
