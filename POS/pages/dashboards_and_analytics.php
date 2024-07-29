@@ -1,6 +1,6 @@
 <div class="row m-2 g-3">
     <div class="col-12 col-md-3">
-        <div class="border p-3" style="background-color: white; border-radius: 20px;">
+        <div class="border shadow p-3" style="background-color: white; border-radius: 20px;">
             <div class="row d-flex-wrap">
                 <div class="col-7">
                     <h5 class="mt-3 color_red">Good Afternoon </h5>
@@ -16,7 +16,7 @@
 </div>
 <div class="row m-2 g-3">
     <div class="col-12 col-md-3">
-        <div class="border p-3" style="background-color: white; border-radius: 20px;">
+        <div class="border shadow p-3 pb-4" style="background-color: white; border-radius: 20px;">
             <h5 class="mb-2 fw-bolder mt-3">Stock Levels</h5>
             <div class="d-flex text-muted flex-row justify-content-between">
                 <p>Product</p>
