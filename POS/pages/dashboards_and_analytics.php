@@ -16,7 +16,7 @@
 </div>
 <div class="row m-2 g-3">
     <div class="col-12 col-md-3">
-        <div class="border shadow p-3 pb-4" style="background-color: white; border-radius: 20px;">
+        <div class="border text-muted shadow p-3 pb-4" style="background-color: white; border-radius: 20px;">
             <h5 class="mb-2 fw-bolder mt-3">Stock Levels</h5>
             <div class="d-flex text-muted flex-row justify-content-between">
                 <p>Product</p>
@@ -38,7 +38,11 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <p class="fw-bold text-end">100.00</p>
+                    <p class="fw-bold text-end m-0">0 pcs</p>
+                    <div style="width: auto;" class="status-disable text-center">
+                        <p class="m-0">No Stock</p>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row mb-3">
@@ -56,7 +60,11 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <p class="fw-bold text-end">100.00</p>
+                    <p class="fw-bold text-end m-0">20 pcs</p>
+                    <div style="width: auto;" class="status-warning text-center">
+                        <p class="m-0">Critical</p>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row mb-3">
@@ -74,7 +82,11 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <p class="fw-bold text-end">100.00</p>
+                    <p class="fw-bold text-end m-0">90 pcs</p>
+                    <div style="width: auto;" class="status-active text-center">
+                        <p class="m-0">In-Stock</p>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row mb-3">
@@ -92,10 +104,14 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <p class="fw-bold text-end">100.00</p>
+                    <p class="fw-bold text-end m-0">100 pcs</p>
+                    <div style="width: auto;" class="status-active text-center">
+                        <p class="m-0">In-Stock</p>
+                    </div>
+                    
                 </div>
             </div>
-            <button class="btn bg_red border w-100">
+            <button style="border-radius: 10px;" class="btn mb-2 border w-100">
                 view all
             </button>
             

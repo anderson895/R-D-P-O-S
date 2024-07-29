@@ -2,10 +2,20 @@
     color: #760106;
 }
 
-.dim_green{
-    color: rgb(133, 226, 112);
+.status-active{
+    background-color: #E9FBE6;
+    color: #7ABE74;
+    border-radius: 15px;
 }
 
-.bg_red{
-    background-color: #760106;
+.status-warning{
+    background-color: #fbf1e6;
+    color: #bea374;
+    border-radius: 15px;
+}
+
+.status-disable{
+    background-color: #fbe6e6;
+    color: #be7474;
+    border-radius: 15px;
 }
