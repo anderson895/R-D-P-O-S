@@ -2,131 +2,148 @@
 include('../config/config.php');
 include('../functions/session.php');
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-// Execute the SQL query to retrieve all records
-$table_sql = "
-SELECT
-    t.orders_prodQty,
-    p.prod_currprice,
-    p.prod_name,
-    p.prod_id
-FROM
-    pos_orders AS t
-JOIN
-    product AS p
-ON
-    t.orders_prod_id = p.prod_id
-WHERE
-    t.orders_tcode = '$id' AND return_availability='0'; 
-";
-
-$result = $conn->query($table_sql);
-
-if ($result->num_rows > 0) {
-    $tbody = '';
-    $tbodyModal = '';
-    $rows = [];
-
-    // Fetch all rows and store them in an array
-    while ($row = $result->fetch_assoc()) {
-        $rows[] = $row;
-    }
-
-    // Loop through the array for the first while loop
-    foreach ($rows as $row) {
-        $tbody .= '
-        <tr>
+try {
+    // Sanitize and retrieve the ID from GET request
+    $id = $_GET['id'] ?? '';
+    
+    // Prepare your query using prepared statements to prevent SQL injection
+    
+    $query = "
+    SELECT
+        o.order_id,	
+        o.cust_id,	
+        o.payment_id,	
+        o.pof,	
+        o.subtotal,	
+        o.vat,	
+        o.sf,	
+        o.total,	
+        o.order_date,	
+        o.delivered_date,	
+        o.rider_id,	
+        o.status,	
+        o.reject_reason,	
+        o.proof_of_del,
+        CONCAT(c.acc_fname, ' ', c.acc_lname) as cname,
+        CONCAT(r.acc_fname, ' ', r.acc_lname) as rname
+    FROM 
+        new_tbl_orders as o
+    JOIN 
+        account as c ON c.acc_id = o.cust_id
+    JOIN 
+        account as r ON r.acc_id = o.rider_id
+    WHERE  
+        o.order_id = ?;
+    ";
+    // Prepare statement
+    $stmt = $conn->prepare($query);
+    
+    // Bind parameters
+    $stmt->bind_param('s', $id);
+    
+    // Execute query
+    $stmt->execute();
+    
+    // Get result
+    $result = $stmt->get_result();
+    
+    // Check if query executed successfully
+    if ($result->num_rows > 0) {
+        // Fetch result as associative array
+        $row = $result->fetch_assoc();
         
-        <td class="pt-1">' . (strlen($row["prod_name"]) > 20 ? substr($row["prod_name"], 0, 20) . '...' : $row["prod_name"]) . '</td>
-        <td class="text-end pt-1"> ₱' . $row["prod_currprice"] . '</td>
-        <td class="text-end pt-1">' . $row["orders_prodQty"] . '</td>
-        <td></td>
-      </tr>';
+        // Extract the associative array into variables
+        extract($row);
+        
+    } else {
+        echo "No rows found.";
     }
 
-    // Loop through the array for the second while loop
-    foreach ($rows as $row) {
-        $maxQty = $row["orders_prodQty"];
-        $prod_id = $row["prod_id"];
-        $prod_name = (strlen($row["prod_name"]) > 20) ? substr($row["prod_name"], 0, 20) . '...' : $row["prod_name"];
-        $prod_currprice = $row["prod_currprice"];
-        $orders_prodQty = $row["orders_prodQty"];
-        $tbodyModal .= '
-        <tr>
-            <td><input class="checked_checkbox" type="checkbox" name="itemReturn" data-prod_id="' . $prod_id . '"></td>
-            <td class="text-end pt-1"> <input class="form-control text-center quantityInput" type="number" value="' . $maxQty . '" max="' . $maxQty . '" min="1" data-prod_id="' . $prod_id . '"></td>
-            <td class="pt-1">' . $prod_name . '</td>
-            <td class="text-end pt-1">₱' . $prod_currprice . ' <input hidden type="text" value="' . $prod_currprice . '" class="currPrice"></td>
-            <td class="text-end pt-1">' . $orders_prodQty . '</td>
-            <td></td>
-        </tr>';
+    $query = "
+    SELECT             
+        i.product_id,	
+        i.qty,	
+        p.prod_code,	
+        p.prod_name,	
+        p.prod_currprice
+    FROM 
+        new_tbl_order_items as i
+    JOIN 
+        product as p ON p.prod_id = i.product_id
+    WHERE  
+        i.order_id = ?;
+    ";
+    // Prepare statement
+    $stmt = $conn->prepare($query);
+    
+    // Bind parameters
+    $stmt->bind_param('s', $id);
+    
+    // Execute query
+    $stmt->execute();
+    
+    // Get result
+    $result = $stmt->get_result();
+    
+    // Check if query executed successfully
+    if ($result->num_rows > 0) {
+        // Fetch result as associative array
+        $row = $result->fetch_assoc();
+        
+        // Extract the associative array into variables
+        extract($row);
+        
+    } else {
+        echo "No rows found.";
     }
     
-} else {
-    echo "No results found.";
-}
+    // Close statement
+    $stmt->close();
 
-
-
-    // Execute the SQL query
-    $sql = "
-    SELECT
-    t.orders_barcode,
-    SUM(t.orders_prodQty * orders_prod_price) Allsubtotal,
-        CONCAT(
-            t.orders_date, ',',
-            t.orders_subtotal, ',',
-            t.orders_discount, ', ',
-            t.orders_tax, ', ',
-            t.orders_final, ', ',
-            t.orders_payment, ', ',
-            t.orders_change, ', ',
-             CONCAT(a.acc_fname, ' ', a.acc_lname)
-        ) AS transaction_info
-    FROM
-        pos_orders AS t
-    JOIN
-        product AS p
-    ON
-        t.orders_prod_id = p.prod_id
-    JOIN
-        account AS a
-    ON
-        t.orders_user_id = a.acc_id
-    WHERE
-        t.orders_tcode = '$id';
+    // Second query to fetch order items
+    $query2 = "
+    SELECT             
+        i.product_id,    
+        i.qty,    
+        p.prod_code,    
+        p.prod_name,    
+        p.prod_currprice
+    FROM 
+        new_tbl_order_items as i
+    JOIN 
+        product as p ON p.prod_id = i.product_id
+    WHERE  
+        i.order_id = ?;
     ";
 
-    $result = $conn->query($sql);
-    
-    // Check if there are results
-    if ($result->num_rows > 0) {
-        
-        
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $db_order_barcode = $row["orders_barcode"];
-            $Allsubtotal = $row["Allsubtotal"];
-            $data = $row["transaction_info"];
-        }
-        
-        $dataArray = explode(",", $data);
-
-        if (count($dataArray) === 8) {
-            list($date, $subtotal, $discount, $tax, $total, $payment, $change, $cashier) = $dataArray;
-            
-        } else {
-            echo "The input data does not contain exactly six values separated by commas.";
-        }
-
-    } else {
-        echo "No results found.";
+    // Prepare and execute the second query
+    $stmt2 = $conn->prepare($query2);
+    if (!$stmt2) {
+        throw new Exception("Query preparation failed: " . $conn->error);
     }
-} else {
-    header("location: pos");
+    $stmt2->bind_param('s', $id);
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
+
+    if ($result2->num_rows > 0) {
+        $orderItems = [];
+        while ($item = $result2->fetch_assoc()) {
+            $orderItems[] = $item;
+        }
+    } else {
+        throw new Exception("No items found for the given order ID.");
+    }
+
+    // Close the second statement
+    $stmt2->close();
+
+    // Output the fetched data (for debugging or further processing)
+    // echo "Order Details: <pre>" . print_r($orderDetails, true) . "</pre>";
+    // echo "Order Items: <pre>" . print_r($orderItems, true) . "</pre>";
+} catch(Exception $e) {
+    echo "Error: " . $e->getMessage();
 }
+
 ?>
 
 <!doctype html>
@@ -165,42 +182,62 @@ if ($result->num_rows > 0) {
             <div class="container border rounded py-2" >
             <table id="productTable" style="width: 100%;">
                 <tr>
-                    <td>Transaction Code <input hidden type="text" value="<?=$id?>" id='transactionCode'></td>
+                    <td>Transaction Code</td>
                     <td class="right"><?php echo $id?></td>
                 </tr>
                 <tr>
-                    <td>Date <input hidden type="text" value="<?=$date?>" id='datePurchase'></td>
-                    <td class="right"><?= date("Y F j H:i A", strtotime($date)) ?></td>
+                    <td>Order Date</td>
+                    <td class="right"><?php  echo $order_date?></td>
 
 
                 </tr>
                 <tr>
-                    <td>Cashier Name</td>
-                    <td class="right"><?php echo $cashier?></td>
+                    <td>Delivered Date</td>
+                    <td class="right"><?php  echo $delivered_date?></td>
+
+
+                </tr>
+                <tr>
+                    <td>Customer Name</td>
+                    <td class="right"><?php echo $cname?></td>
                 </tr>
                 <tr>
                     <td>Payment</td>
-                    <td class="right">₱<?php echo $payment?></td>
+                    <td class="right"><?php echo $payment_id?></td>
                 </tr>
                 <tr>
-                    <td>Change</td>
-                    <td class="right">₱<?php echo $change?></td>
+                    <td>Status</td>
+                    <td class="right"><?php echo $status?></td>
                 </tr>
             </table>
             </div>
             <div class="container mt-3 border rounded py-2" >
                 <div style="overflow: auto; height: 250px;">
-            <table class="table" style="width: 100%; ">
-            <thead>
-                <th>Product</th>
-                <th class="text-end">Price</th>
-                <th class="text-end">Qty</th>
-                <th class="text-end"></th>
-            </thead>
-                <div >
-                <?php echo $tbody?>
-                </div>
-            </table>
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th class="text-end">Qty</th>
+                            <th class="text-end">Product Code</th>
+                            <th class="text-end">Product Name</th>
+                            <th class="text-end">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            foreach ($orderItems as $item) {
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($item['product_id']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['qty']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['prod_code']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['prod_name']) . "</td>";
+                                echo "<td class='text-end'>" . htmlspecialchars($item['prod_currprice']) . "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+
             </div>
             </div>
             </div>
@@ -215,15 +252,15 @@ if ($result->num_rows > 0) {
             <table style="width: 100%;">
                 <tr>
                     <td>Subtotal</td>
-                    <td class="right">₱<?php echo $Allsubtotal?></td>
+                    <td class="right">₱<?php echo $subtotal?></td>
                 </tr>
                 <tr>
-                    <td>Discount</td>
-                    <td class="right">₱<?php echo $discount?></td>
+                    <td>Shippimg Fee</td>
+                    <td class="right">₱<?php echo $sf?></td>
                 </tr>
                 <tr class="border-bottom">
                     <td>VAT </td>
-                    <td class="right">₱<?php echo $tax?></td>
+                    <td class="right">₱<?php echo $vat?></td>
                 </tr>
                 <tr >
                     <td class="fw-bold fs-3">₱TOTAL</td>
@@ -234,7 +271,7 @@ if ($result->num_rows > 0) {
             <?php
                 // Assuming you have an existing database connection in $conn
                 $id = $_GET['id']; // Or however you are getting the $id value
-                $query = "SELECT orders_status FROM pos_orders WHERE orders_tcode = ?";
+                $query = "SELECT t_status FROM new_tbl_orders WHERE order_id = ?";
                 
                 if ($stmt = $conn->prepare($query)) {
                     $stmt->bind_param("s", $id);
@@ -293,7 +330,20 @@ if ($result->num_rows > 0) {
                         <th class="text-end"></th>
                     </thead>
                         <div >
-                        <?php echo $tbodyModal?>
+                        <?php
+                        foreach ($orderItems as $item) {
+                            echo '<tr>
+                                    <td><input class="checked_checkbox" type="checkbox" name="itemReturn" data-prod_id="' . htmlspecialchars($item['product_id']) . '"></td>
+                                    <td class="text-end pt-1"> <input class="form-control text-center quantityInput" type="number" value="' . htmlspecialchars($item['qty']) . '" max="' . htmlspecialchars($item['qty']) . '" min="1" data-prod_id="' . htmlspecialchars($item['product_id']) . '"></td>
+                                    <td class="pt-1">' . htmlspecialchars($item['prod_name']) . '</td>
+                                    <td class="text-end pt-1">₱' . htmlspecialchars($item['prod_currprice']) . ' <input hidden type="text" value="' . htmlspecialchars($item['prod_currprice']) . '" class="currPrice"></td>
+                                    <td class="text-end pt-1">' . htmlspecialchars($item['qty']) . '</td>
+                                    <td></td>
+                                </tr>';
+                        }
+                        ?>
+
+                        
                         
                         </div>
                     </table>
@@ -484,7 +534,7 @@ if ($result->num_rows > 0) {
             // Make the POST request
             setTimeout(function() {
                 $.ajax({
-                    url: '../functions/insert_return_fyke.php', // Replace with your server endpoint URL
+                    url: '../functions/insert_online_return_fyke.php', // Replace with your server endpoint URL
                     type: 'POST',
                     data: postData,
                     success: function(response) {

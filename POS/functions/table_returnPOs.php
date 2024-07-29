@@ -1,78 +1,57 @@
-
-
 <?php
 include('../config/config.php');
 
-    $sql = "SELECT
-    t.*,
-    CONCAT(a.acc_fname, ' ', a.acc_lname) as cashier
-    FROM (
-    SELECT
-    t.*,
-    a.*,
-    SUM(t.ret_qty*ret_prod_price) as subtotal
+// Updated SQL query to retrieve data from return_pos_table
+$sql = "SELECT
+        r.id,
+        r.rdate,
+        r.rcode,
+        r.rreason,
+        r.rtype,
+        r.selected_items,
+        SUM(t.orders_prodQty * t.orders_prod_price) as Allsubtotal
     FROM
-    returns_pos AS t
+        return_pos_table AS r
     JOIN
-    product AS p ON t.ret_product_id = p.prod_id
+        pos_orders AS t
+    ON
+        r.rcode = t.orders_tcode
     JOIN
-    account AS a ON t.ret_cashier_id = a.acc_id
-    GROUP BY t.ret_transaction_code
-    ) AS t
-    JOIN
-    product AS p ON t.ret_product_id = p.prod_id
-    JOIN
-    account AS a ON t.ret_cashier_id = a.acc_id
-    LIMIT 0, 25;
-
-
-;";
-
-
+        account AS a
+    ON
+        t.orders_user_id = a.acc_id
+    GROUP BY
+        r.rcode";
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
- $tax=0;
-
-
- 
     while ($row = $result->fetch_assoc()) {
-        $fullname=ucfirst($row["acc_fname"])." ".$row["acc_lname"];
-        $ret_id=$row["ret_id"];
-        $subtotal=$row["subtotal"];
-        $ret_transaction_code=$row["ret_transaction_code"];
-        $ret_datepurchase=$row["ret_datepurchase"];
-        $ret_date=$row["ret_date"];
-        
-        
-  
-      
-        echo "<tr class='clickable-row row-select' data-href='view_product.php?product_code=" . $row["ret_transaction_code"] . "'>
-        <td></td>
-        <td id='tcode'>" . $ret_transaction_code   . "</td>
-        <td>₱" . $subtotal. "</td>
-   
-        
-       
-     
-        <td>" . $fullname . "</td>
-        <td class='right'>" . date('Y F j h:i A', strtotime($ret_datepurchase)) . "</td>
-        <td class='right'>" . date('Y F j h:i A', strtotime($ret_date)) . "</td>
 
-    </tr>";
-
-
+        if ($row["rcode"] !== null) {
+            echo "<tr class='clickable-row row-select' data-href='view_transactions?id=". $row["rcode"] ."'>
+                <td></td>
+                <td id='tcode'>" . $row["rcode"] . "</td>
+                <td>" . $row["rdate"] . "</td>
+                <td>" . $row["rreason"] . "</td>
+                <td>" . $row["rtype"] . "</td>
+            </tr>";
+        } else {
+            echo "<tr>
+                <td colspan='14'>Empty transactions.</td>
+            </tr>";
+        }
     }
 
     echo "</table>";
 } else {
     echo "<tr>
-    <td colspan='10'>Empty transactions.</td>
+        <td colspan='14'>Empty transactions.</td>
     </tr>";
 }
 ?>
+
 
 <!-- Modal Add -->
 <div class="modal fade mt-4" id="add_Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
