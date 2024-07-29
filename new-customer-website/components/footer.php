@@ -23,8 +23,8 @@
     .product-photo-sm:hover {
       opacity: 0.8; /* Slight hover effect */
     }
-
-
+  
+  
     .scrollable-div {
       max-height: 300px; /* Set the maximum height for the scrollable div */
       overflow-y: auto; /* Enable vertical scrollbar if needed */
@@ -32,7 +32,7 @@
       border-radius:10px;
       padding: 10px; /* Add padding for better appearance */
     }
-
+  
 </style>
 
 
