@@ -24,7 +24,15 @@
       opacity: 0.8; /* Slight hover effect */
     }
 
-    /* t */
+
+    .scrollable-div {
+      max-height: 300px; /* Set the maximum height for the scrollable div */
+      overflow-y: auto; /* Enable vertical scrollbar if needed */
+      border: 1px solid #ddd; /* Add a border for styling */
+      border-radius:10px;
+      padding: 10px; /* Add padding for better appearance */
+    }
+
 </style>
 
 
@@ -63,10 +71,7 @@
             <div class="container mt-5 mb-4">
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
-                    
-            <div id="reviews-container" style="display:none; "></div>
-
-            <!-- Your existing HTML content -->
+                <div id="reviews-container" style="display:none; "></div>
             <script>
          $(document).on("click", ".btnViewProduct", function (e) {
                     e.preventDefault();
@@ -115,9 +120,9 @@
                     `);
                 });
 
-                // Show container and set border
-                reviewsContainer.show();
-                scrollableDiv.css('border', '1px solid #ccc'); // Set border for .scrollable-div
+                    // Show container and set border
+                    reviewsContainer.show();
+                    scrollableDiv.css('border', '1px solid #ccc'); // Set border for .scrollable-div
             }
 
 
