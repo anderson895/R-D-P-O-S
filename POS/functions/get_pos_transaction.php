@@ -20,8 +20,6 @@ $sql = "
         orders_user_id
     FROM
         pos_orders	
-    WHERE 
-        orders_status = 0
     GROUP BY
         orders_tcode,	
         orders_discount,	

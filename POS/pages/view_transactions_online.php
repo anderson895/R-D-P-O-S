@@ -351,24 +351,35 @@ try {
                     
         </div>
 
+        <div class="row g-2">
+            <div class="col-12 col-md-6">
+                <label for="reason">Reason</label>
+                <select class="form-select mb-3" aria-label="Default select example" id="reason">
+                    <option  value="" selected>Select reason</option>
+                    <option value="Expired">Expired</option>
+                    <option value="Defective">Defective</option>
+                    <option value="Wrong Product">Wrong Product</option>
+                </select>
 
-        <label for="reason">Reason</label>
-        <select class="form-select mb-3" aria-label="Default select example" id="reason">
-            <option  value="" selected>Select reason</option>
-            <option value="expired">Expired</option>
-            <option value="defective">Defective</option>
-            <option value="wrongProd">Wrong product</option>
-        </select>
+
+                <label for="returnType">Return type</label>
+                <select class="form-select mb-3" aria-label="Default select example" id="returnType">
+                    <option  value="" selected>Select Type Request</option>
+                    <option value="Replace">Replace</option>
+                    <!-- You can add more options here if needed -->
+                </select>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="customer">Customer Name</label>
+                <input type="text" id="rcustomer" class="form-control mb-3" placeholder="Enter Customer Name">
 
 
-        <label for="returnType">Return type</label>
-        <select class="form-select mb-3" aria-label="Default select example" id="returnType">
-            <option  value="" selected>Select Type Request</option>
-            <option value="replace">Replace</option>
-            <!-- You can add more options here if needed -->
-        </select>
-
-                
+                <label for="returnType">Upload Verification</label>
+                <div class="mb-3">
+                    <input class="form-control" type="file" id="rupload">
+                </div>
+            </div>
+        </div>
       <div class="modal-footer">
 
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -396,15 +407,23 @@ try {
         const $returnButton = $('#returnButton');
         const $reason = $('#reason');
         const $returnType = $('#returnType');
+        const $customer = $('#rcustomer');
+        const $upload = $('#rupload');
+
+        // Set the accept attribute to restrict file types
+        $upload.attr('accept', 'image/jpeg, image/png');
 
         // Clear localStorage (ensure this is intended)
         localStorage.clear();
 
+        // Event listeners
         $checkAllBox.on('change', handleCheckAllChange);
         $checkboxes.on('change', handleCheckboxChange);
         $quantityInputs.on('input', handleQuantityChange);
-        $reason.on('change', updateButtonState); // Added event listener
-        $returnType.on('change', updateButtonState); // Added event listener
+        $reason.on('change input', updateButtonState);
+        $returnType.on('change input', updateButtonState);
+        $customer.on('change input', updateButtonState);
+        $upload.on('change input', updateButtonState);
 
         function handleCheckAllChange(event) {
             const isChecked = $(event.target).is(':checked');
@@ -446,8 +465,6 @@ try {
             updateButtonState();
         }
 
-
-
         function handleQuantityChange(event) {
             const $input = $(event.target);
             const prodId = $input.data('prod_id');
@@ -466,14 +483,11 @@ try {
         }
 
         function addToLocalStorage(prodId, prodName, quantity, priceString) {
-            // Remove the peso sign (₱) from the price string and convert to float
             const price = parseFloat(priceString.replace('₱', '').trim());
             const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
             items[prodId] = { prodName, quantity, price };
             localStorage.setItem('selectedItems', JSON.stringify(items));
         }
-
-
 
         function removeFromLocalStorage(prodId) {
             const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
@@ -492,90 +506,103 @@ try {
         function updateButtonState() {
             const items = JSON.parse(localStorage.getItem('selectedItems')) || {};
             const hasSelectedItems = Object.keys(items).length > 0;
-            const hasReason = $reason.val() !== '';
-            const hasReturnType = $returnType.val() !== '';
+            const hasReason = $reason.val().trim() !== '';
+            const hasReturnType = $returnType.val().trim() !== '';
+            const hasCustomer = $customer.val().trim() !== '';
+            const hasUpload = $upload.val() !== '';
+            const isUploadValid = validateUploadFile($upload[0]);
 
-            if (hasSelectedItems && hasReason && hasReturnType) {
+            if (hasSelectedItems && hasReason && hasReturnType && hasCustomer && hasUpload && isUploadValid) {
                 $returnButton.prop('disabled', false);
             } else {
                 $returnButton.prop('disabled', true);
             }
+
             console.log('Selected Items:', items); // Log items every time the button state is updated
+        }
+
+        function validateUploadFile(fileInput) {
+            const file = fileInput.files[0];
+            if (!file) {
+                return false;
+            }
+            const fileType = file.type;
+            return fileType === 'image/jpeg' || fileType === 'image/png';
         }
 
         // Initial check to set the correct button state when the page loads
         updateButtonState();
 
+        
         $returnButton.on('click', function() {
-            $('#clabel').hide();
-            $('#cloader').show();
-            // Assuming $returnButton is a jQuery object representing your button
-            $returnButton.prop('disabled', true);
+                $('#clabel').hide();
+                $('#cloader').show();
+                $returnButton.prop('disabled', true);
 
-            // Ensure rcode is properly handled as a JSON object
-            const rcode = <?php echo json_encode($id); ?>; // PHP variable encoded as JSON
-            const rreason = $reason.val(); // Fixed to .val()
-            const rtype = $returnType.val(); // Fixed to .val()
+                const rcode = <?php echo json_encode($id); ?>;
+                const rreason = $reason.val();
+                const rtype = $returnType.val();
+                const rcustomer = $customer.val().trim();
+                const rupload = $upload[0].files[0];
 
-            // Prepare the data to send in the POST request
-            const postData = {
-                rcode: rcode,
-                rreason: rreason,
-                rtype: rtype,
-                selectedItems: JSON.parse(localStorage.getItem('selectedItems')) || {}
-            };
+                // Check if all necessary fields are filled
+                if (rcustomer === '' || !rupload || !validateUploadFile($upload[0])) {
+                    $('#clabel').show();
+                    $('#cloader').hide();
+                    showAlert('Please fill in all required fields with valid inputs', 'warning');
+                    $returnButton.prop('disabled', false);
+                    return;
+                }
 
-            // Make sure to include price in the postData
-            for (let key in postData.selectedItems) {
-                postData.selectedItems[key].price = postData.selectedItems[key].price.toFixed(2); // Format price as needed
-            }
+                var formData = new FormData();
+                formData.append('rcode', rcode);
+                formData.append('rreason', rreason);
+                formData.append('rtype', rtype);
+                formData.append('rcustomer', rcustomer);
+                formData.append('rupload', rupload);
 
+                // Retrieve and format selectedItems
+                var selectedItems = localStorage.getItem('selectedItems');
+                if (selectedItems) {
+                    selectedItems = JSON.parse(selectedItems); // Parse the JSON string
+                } else {
+                    selectedItems = {}; // Default to an empty object if no items are selected
+                }
+                formData.append('selectedItems', JSON.stringify(selectedItems)); // Convert back to JSON string
 
-            // Make the POST request
-            setTimeout(function() {
-                $.ajax({
-                    url: '../functions/insert_online_return_fyke.php', // Replace with your server endpoint URL
-                    type: 'POST',
-                    data: postData,
-                    success: function(response) {
-                        console.log('Success:', response);
-                        $('#clabel').show();
-                        $('#cloader').hide();
-                        // Assuming $returnButton is a jQuery object representing your button
-                        showAlert('Return Success', 'success')
-                        setTimeout(function () {
-                            // Reload the current page
-                            window.location.reload();
-                            $returnButton.prop('disabled', false);
-
-                        }, 2000)
-                    },
-                    error: function(xhr, status, error) {
-                        console.log('Error:', error);
-                        $('#cloader').hide();
-                        $('#clabel').show();
-                        showAlert('Internal Server Error', 'danger')
-                        setTimeout(function () {
-                            $returnButton.prop('disabled', false);
-                            // Reload the current page
-                            window.location.reload();
-                        }, 2000)
-                    }
-                });
-            }, 3000); // Delay in milliseconds (3000 ms = 3 seconds)
-
-
-                // console.log(rcode);
-                // console.log(rreason);
-                // console.log(rtype);
-                // console.log('Selected Items:', postData.selectedItems);
-            });
-
+                setTimeout(function() {
+                    $.ajax({
+                        url: '../functions/insert_online_return_fyke.php',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            console.log('Success:', response);
+                            $('#clabel').show();
+                            $('#cloader').hide();
+                            console.log(rupload);
+                            showAlert('Return Success', 'success');
+                            setTimeout(function() {
+                                window.location.reload();
+                                $returnButton.prop('disabled', false);
+                            }, 2000);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error:', error);
+                            $('#cloader').hide();
+                            $('#clabel').show();
+                            showAlert('Internal Server Error', 'danger');
+                            setTimeout(function() {
+                                $returnButton.prop('disabled', false);
+                                window.location.reload();
+                            }, 2000);
+                        }
+                    });
+                }, 3000);
+        });
     });
 </script>
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

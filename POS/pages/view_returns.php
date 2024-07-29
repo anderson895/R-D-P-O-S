@@ -7,7 +7,7 @@ try {
     $id = $_GET['id'] ?? '';
     
     // Prepare your query using prepared statements to prevent SQL injection
-    $query = "SELECT rdate, rcode, rreason, rtype, selected_items FROM return_pos_table WHERE rcode = ?";
+    $query = "SELECT rdate, rcode, rreason, rtype, selected_items, rcustomer, rproof FROM return_pos_table WHERE rcode = ?";
     
     // Prepare statement
     $stmt = $conn->prepare($query);
@@ -58,16 +58,16 @@ $conn->close();
     <title>Transaction</title>
     <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/inventory.css">
-
-
     <link rel="stylesheet" href="../../administrator/admin_view/assets/plugins/scrollbar/scroll.min.css">
     <link rel="stylesheet" href="../../administrator/admin_view/assets/plugins/alertify/alertify.min.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
     .right{
         text-align: end;
+    }
+    .viewUploaded:hover{
+        opacity: 50%;
     }
     </style>
 </head>
@@ -77,8 +77,8 @@ $conn->close();
 
 <div class="container ">
     <div class="row ">
-        
-        <div class="col-12 col-md-7 mt-3">
+        <!-- <div class="col-12 col-md-2"></div> -->
+        <div class="col-12 col-md-8 mt-3">
             <div class="border rounded p-4 shadow">
             <h5 class="fw-bold">Return Details</h5>
             <div class="container border rounded py-2" >
@@ -92,6 +92,10 @@ $conn->close();
                     <td class="right"><?php echo $rdate?></td>
                 </tr>
                 <tr>
+                    <td>Customer Name</td>
+                    <td class="right"><?php echo $rcustomer?></td>
+                </tr>
+                <tr>
                     <td>Return Reason</td>
                     <td class="right"><?php echo $rreason?></td>
                 </tr>
@@ -101,7 +105,7 @@ $conn->close();
                 </tr>
                 <tr>
                     <td>Total Amount Return</td>
-                    <td class="right">₱<?php echo $totalAmount?></td>
+                    <td class="right">₱ <?php echo $totalAmount?></td>
                 </tr>
             </table>
             </div>
@@ -113,7 +117,6 @@ $conn->close();
                     <th>Product</th>
                     <th class="text-end">Price</th>
                     <th class="text-end">Qty</th>
-                    <th class="text-end"></th>
                 </tr>
             </thead>
             <tbody>
@@ -134,14 +137,19 @@ $conn->close();
             </div>
             
         </div>
-
-        
-        
+        <div class="col-12 col-md-4 mt-3">
+            <div class="border rounded p-4 shadow">
+            <h5 class="fw-bold">Uploaded Verification</h5>
+                <div id="viewUpload" class="border rounded viewUploaded" style="width: auto; height: 450px; cursor: pointer">
+                    <img id="uploadedImage" class="rounded" style="object-fit: cover; width: 100%; height: 100%" src="../uploads/<?php echo $rproof?>" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
-
+<script src="../assets/js/viewUpload.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

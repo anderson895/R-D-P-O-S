@@ -12,7 +12,7 @@ function fetStoreTable() {
             let currentSortDirection = 'asc';
 
             // Sort data by the latest date first
-            data.sort((a, b) => new Date(b.orders_date) - new Date(a.orders_date));
+            data.sort((a, b) => new Date(b.order_date) - new Date(a.order_date));
 
             // Event listener for search input
             $('#search').on('input', function() {
@@ -55,7 +55,6 @@ function fetStoreTable() {
                                         <td class="orders-payment">${item.sf}</td>
                                         <td class="orders-change">${item.total}</td>
                                     </tr>`;
-                        
                         tableBody.append(row);
                     });
                 }
@@ -69,8 +68,9 @@ function fetStoreTable() {
                 const pagination = $('#pagination');
                 const searchText = $('#search').val().toLowerCase();
                 const filteredData = data.filter(item =>
-                    item.orders_tcode.toLowerCase().includes(searchText) ||
-                    item.orders_discount_name.toLowerCase().includes(searchText)
+                    item.order_id.toLowerCase().includes(searchText) ||
+                    item.order_date.toLowerCase().includes(searchText) ||
+                    item.delivered_date.toLowerCase().includes(searchText)
                 );
 
                 const pageCount = Math.ceil(filteredData.length / rowsPerPage);
