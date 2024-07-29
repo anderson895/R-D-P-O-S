@@ -542,24 +542,10 @@ try {
             const rreason = $reason.val();
             const rtype = $returnType.val();
             const rcustomer = $customer.val().trim();
-            const rupload = $upload.val();
-
-            const postData = {
-                rcode: rcode,
-                rreason: rreason,
-                rtype: rtype,
-                rcustomer: rcustomer,
-                rupload: rupload,
-                selectedItems: JSON.parse(localStorage.getItem('selectedItems')) || {}
-            };
-
-            // Ensure the price is formatted as needed
-            for (let key in postData.selectedItems) {
-                postData.selectedItems[key].price = postData.selectedItems[key].price.toFixed(2);
-            }
+            const rupload = $upload[0].files[0];
 
             // Check if all necessary fields are filled
-            if (postData.rcustomer === '' || postData.rupload === '' || !validateUploadFile($upload[0])) {
+            if (rcustomer === '' || !rupload || !validateUploadFile($upload[0])) {
                 $('#clabel').show();
                 $('#cloader').hide();
                 showAlert('Please fill in all required fields with valid inputs', 'warning');
@@ -567,15 +553,26 @@ try {
                 return;
             }
 
+            var formData = new FormData();
+            formData.append('rcode', rcode);
+            formData.append('rreason', rreason);
+            formData.append('rtype', rtype);
+            formData.append('rcustomer', rcustomer);
+            formData.append('rupload', rupload);
+            formData.append('selectedItems', JSON.stringify(localStorage.getItem('selectedItems')) || {});
+
             setTimeout(function() {
                 $.ajax({
                     url: '../functions/insert_online_return_fyke.php',
                     type: 'POST',
-                    data: postData,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
                     success: function(response) {
                         console.log('Success:', response);
                         $('#clabel').show();
                         $('#cloader').hide();
+                        console.log(rupload);
                         showAlert('Return Success', 'success');
                         setTimeout(function() {
                             window.location.reload();

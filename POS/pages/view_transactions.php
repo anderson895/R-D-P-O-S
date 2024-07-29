@@ -527,6 +527,10 @@ if ($result->num_rows > 0) {
                         $('#cloader').hide();
                         console.log(rupload);
                         showAlert('Return Success', 'success');
+                        setTimeout(function() {
+                            window.location.reload();
+                            $returnButton.prop('disabled', false);
+                        }, 2000);
                     },
                     error: function(xhr, status, error) {
                         console.log('Error:', error);

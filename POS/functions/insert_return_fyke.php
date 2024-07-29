@@ -57,7 +57,6 @@ $insertSql = "INSERT INTO return_pos_table (rdate, rcode, rreason, rtype, select
 $updateSql = "UPDATE pos_orders 
               SET orders_status = '1' 
               WHERE orders_tcode = '$rcode'";
-              
 try {
     // Begin a transaction
     $conn->begin_transaction();
