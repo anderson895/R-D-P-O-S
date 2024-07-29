@@ -3,5 +3,9 @@
 }
 
 .dim_green{
-    color: rgb(202, 236, 194);
+    color: rgb(133, 226, 112);
+}
+
+.bg_red{
+    background-color: #760106;
 }
