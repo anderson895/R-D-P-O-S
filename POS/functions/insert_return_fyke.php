@@ -14,7 +14,41 @@ $rtype = isset($_POST['rtype']) ? $conn->real_escape_string($_POST['rtype']) : '
 $selectedItems = isset($_POST['selectedItems']) ? $conn->real_escape_string(json_encode($_POST['selectedItems'])) : '';
 $rtransaction = 0;
 $rcustomer = isset($_POST['rcustomer']) ? $conn->real_escape_string($_POST['rcustomer']) : '';
-$rupload = isset($_POST['rupload']) ? $conn->real_escape_string($_POST['rupload']) : ''; // Initialize $rupload
+
+// Handle file upload
+$rupload = '';
+if (isset($_FILES['rupload']) && $_FILES['rupload']['error'] === UPLOAD_ERR_OK) {
+    $uploadDir = '../uploads/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    $fileTmpPath = $_FILES['rupload']['tmp_name'];
+    $fileName = $_FILES['rupload']['name'];
+    $fileSize = $_FILES['rupload']['size'];
+    $fileType = $_FILES['rupload']['type'];
+    $fileNameCmps = explode(".", $fileName);
+    $fileExtension = strtolower(end($fileNameCmps));
+
+    $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+
+    $allowedfileExtensions = array('jpg', 'jpeg', 'png');
+    if (in_array($fileExtension, $allowedfileExtensions)) {
+        $dest_path = $uploadDir . $newFileName;
+        if(move_uploaded_file($fileTmpPath, $dest_path)) {
+            $rupload = $newFileName;
+        } else {
+            echo 'There was an error moving the uploaded file.';
+            exit;
+        }
+    } else {
+        echo 'Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions);
+        exit;
+    }
+} else {
+    echo 'No file uploaded or there was an upload error.';
+    exit;
+}
 
 // Prepare and execute the SQL statements
 $insertSql = "INSERT INTO return_pos_table (rdate, rcode, rreason, rtype, selected_items, rtransaction, rproof, rcustomer)
@@ -23,7 +57,7 @@ $insertSql = "INSERT INTO return_pos_table (rdate, rcode, rreason, rtype, select
 $updateSql = "UPDATE pos_orders 
               SET orders_status = '1' 
               WHERE orders_tcode = '$rcode'";
-
+              
 try {
     // Begin a transaction
     $conn->begin_transaction();
