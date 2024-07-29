@@ -87,9 +87,9 @@ if ($getAddress->num_rows > 0) {
     }
     ?>
     <table class="table">
-        <thead>
+            <thead>
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     <h5 style="font-weight: 700;" class="mt-3 mb-2 text-secondary">
                         <i class="bi bi-feather"></i> Items
                     </h5>
@@ -100,8 +100,12 @@ if ($getAddress->num_rows > 0) {
                 <th class="">Item</th>
                 <th class="">Quantity</th>
                 <th class="">Amount</th>
+                <?php if ($order['status'] == 'Delivered') { ?>
+                    <th class="">Actions</th>
+                <?php } ?>
             </tr>
         </thead>
+
         <tbody>
             <?php
             $count = 1;
@@ -115,6 +119,15 @@ if ($getAddress->num_rows > 0) {
                     </td>
                     <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
                     <td class="pt-3"><?= $orderItem['qty'] * $orderItem['prod_currprice'] ?></td>
+
+                    <?php if ($order['status'] == 'Delivered') { 
+                       echo '
+                       <td class="pt-3">
+                           <button class="btn btn-success rateToggler" data-bs-toggle="modal" data-bs-target="#rateTsModal"
+                           data-prod_id="'.$orderItem['prod_id'].'">Feedback</button>
+                       </td>';
+                   } ?>
+
                 </tr>
                 <?php
                 $count++;
@@ -239,6 +252,54 @@ if ($getAddress->num_rows > 0) {
         </tbody>
     </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="rateTsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-card-image"></i> <span id="tsReviewName"></span></h5>
+            </div>
+            <form id="tsFrmRate">
+                <div class="modal-body">
+                    <input hidden type="text" name="id" id="ts-frm-Id">
+                    <input hidden type="text" name="star" id="tsfrmStar" value="0">
+                    <center id="tsStarsContainer">
+                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="1"><i class="bi bi-star"></i></button>
+                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="2"><i class="bi bi-star"></i></button>
+                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="3"><i class="bi bi-star"></i></button>
+                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="4"><i class="bi bi-star"></i></button>
+                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="5"><i class="bi bi-star"></i></button>
+                    </center>
+                    <div class="input-container">
+                        <label>Feedback</label>
+                        <textarea id="tsFrmModalReview" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
 <?php
 include ('components/footer.php');
 ?>

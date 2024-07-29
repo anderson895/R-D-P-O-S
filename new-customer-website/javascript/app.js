@@ -830,4 +830,78 @@ $(document).on("click", ".btnViewProduct", function (e) {
       }
     });
   });
+
+
+
+
+
+
+
+
+
+
+
+  $(".rateToggler").click(function (e) { 
+    e.preventDefault();
+    var prod_id=$(this).attr("data-prod_id");
+    console.log(prod_id)
+
+
+    $('#ts-frm-Id').val(prod_id);
+    
+  });
+
+
+
+// rate and reviews
+$(".btnTsFrmStar").click(function () {
+  var clickedId = $(this).data("id");
+  $(".btnTsFrmStar").removeClass("active"); // Remove active class from all buttons
+  $(".btnTsFrmStar:lt(" + clickedId + ")").addClass("active"); // Add active class to buttons up to the clicked one
+  $("#tsfrmStar").val(clickedId);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+$("#tsFrmRate").submit(function (e) {
+  e.preventDefault();
+  var id = $("#ts-frm-Id").val();
+  var star = $("#tsfrmStar").val();
+  var review = $("#tsFrmModalReview").val();
+  
+
+  $.ajax({
+    type: "POST",
+    url: "backend/end-points/rate.php",
+    data: {
+      requestType: "Rate",
+      id: id,
+      star: star,
+      review: review,
+    },
+    success: function (response) {
+      closeModal();
+      console.log(response);
+      if (response == "200") {
+        showAlert("alert-success", "Thanks for rating!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      } else {
+        showAlert("alert-danger", "Failed to rate");
+      }
+    },
+  });
+});
+
+
 });

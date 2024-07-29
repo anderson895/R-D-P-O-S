@@ -488,4 +488,38 @@ class global_class extends db_connect
             }
         }
     }
+
+
+
+
+
+
+     // Rate
+     public function rate($post, $userId)
+     {
+
+        echo "<pre>";
+        print_r($_POST);
+        echo "</pre>";
+         // Use date with timezone
+         $dateToday = new DateTime("now", new DateTimeZone('Asia/Manila'));
+         $formattedDate = $dateToday->format('Y-m-d H:i:s');
+     
+         // Prepare and execute the insert query with parameterized statements
+         $userIdParam = $userId;
+         $smesIdParam = $post['id'];
+         $rateParam = $post['star'];
+         $reviewParam = $post['review'];
+     
+         $query = $this->conn->prepare("INSERT INTO `rate_reviews` (`r_user_id`, `r_prod_id`, `r_rate`, `r_feedback`) VALUES (?, ?, ?, ?)");
+         $query->bind_param('ssss', $userIdParam, $smesIdParam, $rateParam, $reviewParam);
+     
+         if ($query->execute()) {
+           
+             return 200;
+         }
+     
+         // Handle errors if needed
+         return 500;
+     }
 }
