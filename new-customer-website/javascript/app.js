@@ -884,6 +884,8 @@ $("#tsFrmRate").submit(function (e) {
   var id = $("#ts-frm-Id").val();
   var star = $("#tsfrmStar").val();
   var review = $("#tsFrmModalReview").val();
+
+  var tsReviewName=$(".tsReviewName").text();
   
 
   $.ajax({
@@ -894,6 +896,8 @@ $("#tsFrmRate").submit(function (e) {
       id: id,
       star: star,
       review: review,
+      tsReviewName: tsReviewName,
+
     },
     success: function (response) {
       closeModal();

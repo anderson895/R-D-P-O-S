@@ -216,4 +216,55 @@ class global_class extends db_connect
             return $result;
         }
     }
+
+
+
+
+    // rates
+
+
+
+    public function getRates()
+    {
+        $query = $this->conn->prepare("SELECT * FROM `rate_reviews` ORDER BY `r_rate_id` DESC");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
+    public function getUsertUsingId($id)
+    {
+        $query = $this->conn->prepare("SELECT * FROM `account` WHERE `acc_id` = '$id'");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
+
+    public function checkSmesId($id)
+    {
+      
+            $query = $this->conn->prepare("SELECT * FROM `product` WHERE `prod_id` = '$id'");
+      
+
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
+
+    public function deleteRevs($id)
+    {
+      
+        $query = $this->conn->prepare("DELETE FROM `rate_reviews` WHERE `r_rate_id` = '$id'");
+        if ($query->execute()) {
+            echo "success";
+        }else{
+            echo "errorsssss";
+        }
+    }
+
 }

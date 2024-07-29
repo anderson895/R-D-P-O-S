@@ -14,6 +14,9 @@ $currentURL = $_SERVER['REQUEST_URI'];
                     <a href="index.php"><img src="assets/img/dashboard.png" alt="img"><span class="text-white"> Dashboard</span> </a>
                 </li>
 
+                <li>
+                        <a href="managefeedback.php"><img src="assets/img/restore.png" alt="img"><span class="text-white">Rate & Feedback</span> </a>
+                </li>
 
 
                 <li>
@@ -111,9 +114,7 @@ $currentURL = $_SERVER['REQUEST_URI'];
                         </ul>
 
 
-                    <li>
-                        <a href="index.php"><img src="assets/img/restore.png" alt="img"><span class="text-white"> Restore</span> </a>
-                    </li>
+                 
 
 
                 <?php } ?>

@@ -1,5 +1,9 @@
 <?php 
 
+include('../new-orders-view/backend/class.php');
+$db = new global_class();
+
+
 if(isset($_SESSION["acc_id"])){
     $acc_id = $_SESSION["acc_id"];
     
