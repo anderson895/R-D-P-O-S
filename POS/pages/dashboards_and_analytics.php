@@ -111,7 +111,7 @@
                     
                 </div>
             </div>
-            <button style="border-radius: 10px;" class="btn mb-2 border w-100">
+            <button style="border-radius: 10px; background-color: #760106; color: white" class="btn mb-2 border w-100">
                 view all
             </button>
             
