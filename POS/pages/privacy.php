@@ -20,50 +20,57 @@ include ('../functions/session.php');
 
 <?php include ('../includes/navigation.php');?>
 
-<div class="container mt-3">
-    <div class="row pb-3" style="height: 540px;">
-        <!-- Profile Picture Section -->
-        <div class="col-12 col-md-4 mt-3">
-            <div class="card h-100">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <div class="w-100 d-flex justify-content-center mb-3">
-                        <img src="../../upload_img/<?=$db_emp_image?>" class="profile-img img-fluid" alt="Profile Picture">
+
+<form id="accountPrivacyForm">
+    <div class="container mt-3">
+        <div class="row pb-3" style="height: 540px;">
+            <!-- Profile Picture Section -->
+            <div class="col-12 col-md-4 mt-3">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="w-100 d-flex justify-content-center mb-3">
+                            <img src="../../upload_img/<?=$db_emp_image?>" class="profile-img img-fluid" alt="Profile Picture">
+                        </div>
+                     
                     </div>
-                    <input type="file" id="file-input">
                 </div>
             </div>
-        </div>
 
-        <!-- Account Information Section -->
-        <div class="col-12 col-md-8 mt-3">
-            <div class="card h-100">
-                <div class="card-body mt-4">
-                    <h2 class="fw-bold mb-4 text-center">Update Password</h2>
-                
-                    
-                    <div class="form-floating mb-2">
-                        <input class="form-control" type="text" value="" id="npsw" placeholder="New Password">
-                        <label for="fname">New Password</label>
+            <!-- Account Information Section -->
+            <div class="col-12 col-md-8 mt-3">
+                <div class="card h-100">
+                    <div class="card-body mt-4">
+                        <h2 class="fw-bold mb-4 text-center">Update Password</h2>
+
+                        <div class="form-floating mb-2" hidden>
+                            <input  class="form-control" type="text" value="<?=$db_acc_id?>" name="acc_id" id="acc_id">
+                            <label for="acc_id">ACC_ID</label>
+                        </div>
+                       
+
+                        <div class="form-floating mb-2">
+                            <input class="form-control" type="password" value="" name="npsw" id="npsw" placeholder="New Password">
+                            <label for="npsw">New Password</label>
+                        </div>
+
+                        <div class="form-floating mb-2">
+                            <input class="form-control" type="password" value="" name="cpsw" id="cpsw" placeholder="Confirm Password">
+                            <label for="cpsw">Confirm Password</label>
+                        </div>
+
+                        <div class="form-floating mb-2">
+                            <input class="form-control" type="password" value="" name="opsw" id="opsw" placeholder="Old Password">
+                            <label for="opsw">Old Password</label>
+                        </div>
+
+
+                        <button type="button" id="btnUpdatePass" class="btn btn-secondary mt-3">Update</button>
                     </div>
-
-                    <div class="form-floating mb-2">
-                        <input class="form-control" type="text" value="" id="cpsw" placeholder="Confirm Password">
-                        <label for="lname">Confirm Password</label>
-                    </div>
-
-                    <div class="form-floating mb-2">
-                        <input class="form-control" type="text" value="" id="opsw" placeholder="Old Password">
-                        <label for="uname">Old Password</label>
-                    </div>
-
-                   
-
-                    <button type="button" id="btnUpdatePass" class="btn btn-secondary mt-3">Update</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 
 
 
