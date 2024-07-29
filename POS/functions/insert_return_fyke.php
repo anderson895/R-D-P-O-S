@@ -13,10 +13,12 @@ $rreason = isset($_POST['rreason']) ? $conn->real_escape_string($_POST['rreason'
 $rtype = isset($_POST['rtype']) ? $conn->real_escape_string($_POST['rtype']) : '';
 $selectedItems = isset($_POST['selectedItems']) ? $conn->real_escape_string(json_encode($_POST['selectedItems'])) : '';
 $rtransaction = 0;
+$rcustomer = isset($_POST['rcustomer']) ? $conn->real_escape_string($_POST['rcustomer']) : '';
+$rupload = isset($_POST['rupload']) ? $conn->real_escape_string($_POST['rupload']) : ''; // Initialize $rupload
 
 // Prepare and execute the SQL statements
-$insertSql = "INSERT INTO return_pos_table (rdate, rcode, rreason, rtype, selected_items, rtransaction)
-              VALUES (NOW(), '$rcode', '$rreason', '$rtype', '$selectedItems', '$rtransaction')";
+$insertSql = "INSERT INTO return_pos_table (rdate, rcode, rreason, rtype, selected_items, rtransaction, rproof, rcustomer)
+              VALUES (NOW(), '$rcode', '$rreason', '$rtype', '$selectedItems', '$rtransaction', '$rupload', '$rcustomer')";
 
 $updateSql = "UPDATE pos_orders 
               SET orders_status = '1' 

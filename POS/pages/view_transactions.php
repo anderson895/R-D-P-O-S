@@ -529,11 +529,12 @@ if ($result->num_rows > 0) {
                         console.log('Success:', response);
                         $('#clabel').show();
                         $('#cloader').hide();
+                        console.log(rupload)
                         showAlert('Return Success', 'success');
-                        setTimeout(function() {
-                            window.location.reload();
-                            $returnButton.prop('disabled', false);
-                        }, 2000);
+                        // setTimeout(function() {
+                        //     window.location.reload();
+                        //     $returnButton.prop('disabled', false);
+                        // }, 2000);
                     },
                     error: function(xhr, status, error) {
                         console.log('Error:', error);
@@ -550,10 +551,6 @@ if ($result->num_rows > 0) {
         });
     });
 </script>
-
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
