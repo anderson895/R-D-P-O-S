@@ -226,7 +226,7 @@ class global_class extends db_connect
 
     public function getRates()
     {
-        $query = $this->conn->prepare("SELECT * FROM `rate_reviews`");
+        $query = $this->conn->prepare("SELECT * FROM `rate_reviews` ORDER BY `r_rate_id` DESC");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
@@ -254,4 +254,17 @@ class global_class extends db_connect
             return $result;
         }
     }
+
+
+    public function deleteRevs($id)
+    {
+      
+        $query = $this->conn->prepare("DELETE FROM `rate_reviews` WHERE `r_rate_id` = '$id'");
+        if ($query->execute()) {
+            echo "success";
+        }else{
+            echo "errorsssss";
+        }
+    }
+
 }

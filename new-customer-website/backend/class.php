@@ -497,10 +497,6 @@ class global_class extends db_connect
      // Rate
      public function rate($post, $userId)
      {
-
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
          // Use date with timezone
          $dateToday = new DateTime("now", new DateTimeZone('Asia/Manila'));
          $formattedDate = $dateToday->format('Y-m-d H:i:s');
@@ -509,19 +505,34 @@ class global_class extends db_connect
          $userIdParam = $userId;
          $smesIdParam = $post['id'];
          $rateParam = $post['star'];
-         $reviewParam = $post['review'];
+
+         $tsReviewName=$post['tsReviewName'];
+         $reviewParam = $post['review'] ?? ''; // Default to empty string if review is not set
      
-         $query = $this->conn->prepare("INSERT INTO `rate_reviews` (`r_user_id`, `r_prod_id`, `r_rate`, `r_feedback`) VALUES (?, ?, ?, ?)");
-         $query->bind_param('ssss', $userIdParam, $smesIdParam, $rateParam, $reviewParam);
+         $query = $this->conn->prepare("INSERT INTO `rate_reviews` (`r_user_id`, `r_prod_id`, `r_rate`, `r_feedback`, `r_date_added`) VALUES (?, ?, ?, ?, ?)");
+         $query->bind_param('sssss', $userIdParam, $smesIdParam, $rateParam, $reviewParam, $formattedDate);
      
          if ($query->execute()) {
-           
+             $activityDescription = "Gave " . $post['star'] . " Stars" . (!empty($post['review']) ? " and commented on $tsReviewName: " . $post['review'] : " on $smesIdParam");
+     
+             $query_activity_log = $this->conn->prepare("INSERT INTO `users_log` (`act_account_id`, `act_activity`, `act_date`, `act_table`, `act_collumn_id`, `act_seen`) VALUES (?, ?, ?, 'Feedback', ?, '0')");
+             if (!$query_activity_log) {
+                 die("Prepare failed: " . $this->conn->error);
+             }
+     
+             $query_activity_log->bind_param('ssss', $userIdParam, $activityDescription, $formattedDate, $smesIdParam);
+             if (!$query_activity_log->execute()) {
+                 die("Execute failed: " . $query_activity_log->error);
+             }
+     
              return 200;
          }
      
          // Handle errors if needed
          return 500;
      }
+     
+     
 
 
      public function getAllReviewsInAccom($id)

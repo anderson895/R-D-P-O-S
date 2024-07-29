@@ -74,6 +74,11 @@ while ($row = mysqli_fetch_assoc($view_query)) {
     }else if($act_table_changed=="product"){
         echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='product-details.php?target_id=$act_collumn_id';\" style='cursor: pointer;'>";
   
+
+    }else if($act_table_changed=="Feedback"){
+        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='managefeedback.php?target_id=$act_collumn_id';\" style='cursor: pointer;'>";
+  
+
     }else if($act_table_changed=="account"){
 
         $get_record = mysqli_query ($connections,"SELECT * FROM account where acc_id ='$act_collumn_id' ");

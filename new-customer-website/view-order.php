@@ -274,7 +274,7 @@ if ($getAddress->num_rows > 0) {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><span id="tsReviewName"></span></h5>
+                <h5 class="modal-title tsReviewName"><span id="tsReviewName"></span></h5>
             </div>
             <form id="tsFrmRate">
                 <div class="modal-body">

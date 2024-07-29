@@ -18,6 +18,7 @@
                             <th>Rate Type</th>
                             <th class="text-center">Rating</th>
                             <th>FeedBack</th>
+                            <th>Date</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -31,6 +32,10 @@
                     $user = $getUser->fetch_assoc();
                     $rater = $user['acc_username'];
                 }
+
+                            
+                $dateAdded = new DateTime($rate['r_date_added']);
+
 
                 $smesId = $rate['r_prod_id'];
                
@@ -65,6 +70,7 @@
                                 </div>
                             </td>
                             <td><?= $rate['r_feedback'] ?></td>
+                            <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
                             <td>
                                 <button type="button" 
                                 class="btn btn-danger toglerDeleteComRev" 
@@ -88,3 +94,67 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+<!-- MODAL -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+      
+      </div>
+      <div class="modal-body">
+       <h6 class="text-center">Are you sure to delete this FeedBack? </h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmDelete">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    // .toglerDeleteComRev
+
+    $(document).ready(function(){
+    // Click event
+    $('.toglerDeleteComRev').click(function(){
+        var id = $(this).attr('data-id');
+
+        console.log(id);
+
+        // Display a confirmation dialog
+       
+        $('#btnConfirmDelete').click(function(){
+            $.ajax({
+                url: "managefeedback/controller/post.php",
+                type: "POST",
+                data: {
+                    id: id,
+                    SubmitType: 'deleteReviews'
+                },
+                success: function(data) {
+                    console.log(data); // Log the data to console for demonstration
+
+                    if(data=="success"){
+                        location.reload()
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Handle error
+                    console.error("Error occurred:", error);
+                }
+            });
+        });
+        
+    });
+});
+
+
+</script>
