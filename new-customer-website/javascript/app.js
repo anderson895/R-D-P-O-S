@@ -151,8 +151,11 @@ $(document).ready(function () {
 $(document).on("click", ".btnViewProduct", function (e) {
   e.preventDefault();
 
+  
   const $this = $(this);
   const productID = $this.data("id");
+
+  $('#rate_prod_id').val(productID)
 
   // Construct product name
   const productName = [
@@ -844,10 +847,14 @@ $(document).on("click", ".btnViewProduct", function (e) {
   $(".rateToggler").click(function (e) { 
     e.preventDefault();
     var prod_id=$(this).attr("data-prod_id");
-    console.log(prod_id)
-
+    var prod_name=$(this).attr("data-prod_name");
 
     $('#ts-frm-Id').val(prod_id);
+    $('#tsReviewName').text(prod_name);
+
+    console.log(prod_name)
+
+    
     
   });
 
@@ -905,3 +912,5 @@ $("#tsFrmRate").submit(function (e) {
 
 
 });
+
+

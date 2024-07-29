@@ -37,6 +37,8 @@ if (isset($_SESSION['acc_id'])) {
             } else {
                 ?>
                 <center class="pt-5 pb-5 mt-5 mb-5">No Product Found.</center>
+
+                
 <?php
             }
         }

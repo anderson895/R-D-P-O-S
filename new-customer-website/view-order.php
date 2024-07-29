@@ -120,13 +120,16 @@ if ($getAddress->num_rows > 0) {
                     <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
                     <td class="pt-3"><?= $orderItem['qty'] * $orderItem['prod_currprice'] ?></td>
 
+
                     <?php if ($order['status'] == 'Delivered') { 
-                       echo '
-                       <td class="pt-3">
-                           <button class="btn btn-success rateToggler" data-bs-toggle="modal" data-bs-target="#rateTsModal"
-                           data-prod_id="'.$orderItem['prod_id'].'">Feedback</button>
-                       </td>';
-                   } ?>
+                        echo '
+                        <td class="pt-3">
+                            <button class="btn btn-success rateToggler" data-bs-toggle="modal" data-bs-target="#rateTsModal"
+                            data-prod_id="'.$orderItem['prod_id'].'"
+                            data-prod_name="'.$orderItem['prod_name'].'">Feedback</button>
+                        </td>';
+                    } ?>
+
 
                 </tr>
                 <?php
@@ -271,7 +274,7 @@ if ($getAddress->num_rows > 0) {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="bi bi-card-image"></i> <span id="tsReviewName"></span></h5>
+                <h5 class="modal-title"><span id="tsReviewName"></span></h5>
             </div>
             <form id="tsFrmRate">
                 <div class="modal-body">
