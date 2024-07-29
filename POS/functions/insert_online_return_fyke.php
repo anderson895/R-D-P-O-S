@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $rcode = isset($_POST['rcode']) ? $conn->real_escape_string($_POST['rcode']) : '';
 $rreason = isset($_POST['rreason']) ? $conn->real_escape_string($_POST['rreason']) : '';
 $rtype = isset($_POST['rtype']) ? $conn->real_escape_string($_POST['rtype']) : '';
-$selectedItems = isset($_POST['selectedItems']) ? $conn->real_escape_string(json_encode($_POST['selectedItems'])) : '';
+$selectedItems = isset($_POST['selectedItems']) ? $conn->real_escape_string($_POST['selectedItems']) : ''; // Fixed variable name
 $rtransaction = 1;
 $rcustomer = isset($_POST['rcustomer']) ? $conn->real_escape_string($_POST['rcustomer']) : '';
 
@@ -35,7 +35,7 @@ if (isset($_FILES['rupload']) && $_FILES['rupload']['error'] === UPLOAD_ERR_OK) 
     $allowedfileExtensions = array('jpg', 'jpeg', 'png');
     if (in_array($fileExtension, $allowedfileExtensions)) {
         $dest_path = $uploadDir . $newFileName;
-        if(move_uploaded_file($fileTmpPath, $dest_path)) {
+        if (move_uploaded_file($fileTmpPath, $dest_path)) {
             $rupload = $newFileName;
         } else {
             echo 'There was an error moving the uploaded file.';
@@ -57,7 +57,7 @@ $insertSql = "INSERT INTO return_pos_table (rdate, rcode, rreason, rtype, select
 $updateSql = "UPDATE new_tbl_orders 
               SET t_status = '1' 
               WHERE order_id = '$rcode'";
-              
+
 try {
     // Begin a transaction
     $conn->begin_transaction();
@@ -84,3 +84,4 @@ try {
 // Close the connection
 $conn->close();
 ?>
+

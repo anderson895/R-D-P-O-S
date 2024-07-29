@@ -487,64 +487,73 @@ if ($result->num_rows > 0) {
         updateButtonState();
 
         $returnButton.on('click', function() {
-            $('#clabel').hide();
-            $('#cloader').show();
-            $returnButton.prop('disabled', true);
+                $('#clabel').hide();
+                $('#cloader').show();
+                $returnButton.prop('disabled', true);
 
-            const rcode = <?php echo json_encode($id); ?>;
-            const rreason = $reason.val();
-            const rtype = $returnType.val();
-            const rcustomer = $customer.val().trim();
-            const rupload = $upload[0].files[0];
+                const rcode = <?php echo json_encode($id); ?>;
+                const rreason = $reason.val();
+                const rtype = $returnType.val();
+                const rcustomer = $customer.val().trim();
+                const rupload = $upload[0].files[0];
 
-            // Check if all necessary fields are filled
-            if (rcustomer === '' || !rupload || !validateUploadFile($upload[0])) {
-                $('#clabel').show();
-                $('#cloader').hide();
-                showAlert('Please fill in all required fields with valid inputs', 'warning');
-                $returnButton.prop('disabled', false);
-                return;
-            }
+                // Check if all necessary fields are filled
+                if (rcustomer === '' || !rupload || !validateUploadFile($upload[0])) {
+                    $('#clabel').show();
+                    $('#cloader').hide();
+                    showAlert('Please fill in all required fields with valid inputs', 'warning');
+                    $returnButton.prop('disabled', false);
+                    return;
+                }
 
-            var formData = new FormData();
-            formData.append('rcode', rcode);
-            formData.append('rreason', rreason);
-            formData.append('rtype', rtype);
-            formData.append('rcustomer', rcustomer);
-            formData.append('rupload', rupload);
-            formData.append('selectedItems', JSON.stringify(localStorage.getItem('selectedItems')) || {});
+                var formData = new FormData();
+                formData.append('rcode', rcode);
+                formData.append('rreason', rreason);
+                formData.append('rtype', rtype);
+                formData.append('rcustomer', rcustomer);
+                formData.append('rupload', rupload);
 
-            setTimeout(function() {
-                $.ajax({
-                    url: '../functions/insert_return_fyke.php',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        console.log('Success:', response);
-                        $('#clabel').show();
-                        $('#cloader').hide();
-                        console.log(rupload);
-                        showAlert('Return Success', 'success');
-                        setTimeout(function() {
-                            window.location.reload();
-                            $returnButton.prop('disabled', false);
-                        }, 2000);
-                    },
-                    error: function(xhr, status, error) {
-                        console.log('Error:', error);
-                        $('#cloader').hide();
-                        $('#clabel').show();
-                        showAlert('Internal Server Error', 'danger');
-                        setTimeout(function() {
-                            $returnButton.prop('disabled', false);
-                            window.location.reload();
-                        }, 2000);
-                    }
-                });
-            }, 3000);
+                // Retrieve and format selectedItems
+                var selectedItems = localStorage.getItem('selectedItems');
+                if (selectedItems) {
+                    selectedItems = JSON.parse(selectedItems); // Parse the JSON string
+                } else {
+                    selectedItems = {}; // Default to an empty object if no items are selected
+                }
+                formData.append('selectedItems', JSON.stringify(selectedItems)); // Convert back to JSON string
+
+                setTimeout(function() {
+                    $.ajax({
+                        url: '../functions/insert_return_fyke.php',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            console.log('Success:', response);
+                            $('#clabel').show();
+                            $('#cloader').hide();
+                            console.log(rupload);
+                            showAlert('Return Success', 'success');
+                            setTimeout(function() {
+                                window.location.reload();
+                                $returnButton.prop('disabled', false);
+                            }, 2000);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error:', error);
+                            $('#cloader').hide();
+                            $('#clabel').show();
+                            showAlert('Internal Server Error', 'danger');
+                            setTimeout(function() {
+                                $returnButton.prop('disabled', false);
+                                window.location.reload();
+                            }, 2000);
+                        }
+                    });
+                }, 3000);
         });
+
 
     });
 </script>
