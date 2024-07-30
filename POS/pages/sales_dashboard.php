@@ -31,7 +31,7 @@
                 <div id="onlineBar"></div>
             </div>
         </div>
-        <!-- <div id="salesWalkin">
+        <div id="salesWalkin">
             <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
                 <h6 class="fw-bold">Walk-in Sales Forecast</h6>
                 <div>
@@ -45,7 +45,7 @@
             <div id="statB" class="d-none">
                 <div id="onlineBar"></div>
             </div>
-        </div> -->
+        </div>
     </div>
 
 </div>
