@@ -1,11 +1,13 @@
+
 $(document).ready(function() {
     $('#btnOnline').click(function() {
-        $('#onlineDiv').toggleClass('accent-e');
-        console.log('selected')
+        $('#btnOnline').addClass('accent-e')
+        $('#btnWalkin').removeClass('accent-e')
     });
 
     $('#btnWalkin').click(function() {
-        $('#walkinDiv').toggleClass('accent-e');
-        console.log('selected')
+        $('#btnWalkin').addClass('accent-e')
+        $('#btnOnline').removeClass('accent-e')
+        $('#btnOnline').addClass('accent-f')
     });
 });
