@@ -8,6 +8,7 @@
         <div class="col-5">
             <i id="gmorning" style="font-size: 5rem;" class="bi color_red bi-cloud-sun" hidden></i>
             <i id="gafternoon" style="font-size: 5rem;" class="bi color_red bi-sun" hidden></i>
+            <i id="gdawn" style="font-size: 5rem;" class="bi color_red bi-sunset" hidden></i>
             <i id="gevening" style="font-size: 5rem;" class="bi color_red bi-cloud-moon" hidden></i>
         </div>
     </div>

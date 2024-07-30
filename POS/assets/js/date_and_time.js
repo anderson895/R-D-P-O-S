@@ -15,7 +15,8 @@ function updateDateTime() {
     
     // Determine greeting icon visibility
     document.getElementById('gmorning').hidden = !(hours >= 6 && hours < 12);
-    document.getElementById('gafternoon').hidden = !(hours >= 12 && hours < 18);
+    document.getElementById('gafternoon').hidden = !(hours >= 12 && hours < 16);
+    document.getElementById('gdawn').hidden = !(hours >= 16 && hours < 18);
     document.getElementById('gevening').hidden = !(hours >= 18 || hours < 6);
     
     // Format time

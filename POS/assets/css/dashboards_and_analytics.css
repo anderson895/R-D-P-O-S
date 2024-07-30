@@ -22,12 +22,27 @@
     border-radius: 15px;
 }
 
+.accent-e {
+    background-color: #dff6da;
+    color: #39bf39; /* Directly added the color */
+    border-radius: 15px;
+}
+
+.accent-f {
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
 .color_red {
     color: #760106;
 }
 
+.color_red_muted{
+    color: #ee7d83;
+}
+
 .btn-color-red{
-    border-radius: 10px; 
+    border-radius: 15px; 
     background-color: #760106; 
     color: white
 }
