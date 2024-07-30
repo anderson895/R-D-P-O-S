@@ -1,20 +1,50 @@
-.color_red{
+.accent-a {
+    background-color: #EDF8F3;
+    color: #760106; /* Directly added the color */
+    border-radius: 15px;
+}
+
+.accent-b {
+    background-color: #EAF8FF;
+    color: #760106; /* Directly added the color */
+    border-radius: 15px;
+}
+
+.accent-c {
+    background-color: #F2EFFE;
+    color: #760106; /* Directly added the color */
+    border-radius: 15px;
+}
+
+.accent-d {
+    background-color: #ffeaf3;
+    color: #760106; /* Directly added the color */
+    border-radius: 15px;
+}
+
+.color_red {
     color: #760106;
 }
 
-.status-active{
+.btn-color-red{
+    border-radius: 10px; 
+    background-color: #760106; 
+    color: white
+}
+
+.status-active {
     background-color: #E9FBE6;
     color: #7ABE74;
     border-radius: 15px;
 }
 
-.status-warning{
+.status-warning {
     background-color: #fbf1e6;
     color: #bea374;
     border-radius: 15px;
 }
 
-.status-disable{
+.status-disable {
     background-color: #fbe6e6;
     color: #be7474;
     border-radius: 15px;
