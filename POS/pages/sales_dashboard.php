@@ -16,16 +16,36 @@
     </div>
 
     <div>
-        <div class="d-flex flex-row pt-3 justify-content-between">
-            <h6 class="fw-bold">Sales Forecast</h6>
-            <div>
-                <button class="btn btn-sm">Line</button>
-                <button class="btn btn-sm">Bar</button>
-                <button class="btn btn-sm">Area</button>
+        <div id="salesOnline">
+            <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
+                <h6 class="fw-bold">Online Sales Forecast</h6>
+                <div>
+                    <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
+                    <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
+                </div>
+            </div>
+            <div id="statA">
+                <div id="onlineLine"></div>
+            </div>
+            <div id="statB" style="display: none">
+                <div id="onlineBar"></div>
             </div>
         </div>
-        <div id="onlineStats"></div>
-        <div id="walkinStats" class="d-none"></div>
+        <!-- <div id="salesWalkin">
+            <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
+                <h6 class="fw-bold">Walk-in Sales Forecast</h6>
+                <div>
+                    <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
+                    <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
+                </div>
+            </div>
+            <div id="statA">
+                <div id="onlineLine"></div>
+            </div>
+            <div id="statB" class="d-none">
+                <div id="onlineBar"></div>
+            </div>
+        </div> -->
     </div>
 
 </div>

@@ -63,3 +63,14 @@
     color: #be7474;
     border-radius: 15px;
 }
+
+.stat-btn{
+    border: none;
+    background-color: #E9FBE6;
+    border-radius: 20%;
+}
+
+.reset-btn{
+    border: none;
+    background-color: transparent;
+}

@@ -10,7 +10,7 @@ $(document).ready(function() {
             
             var options = {
                 chart: {
-                    type: 'area',
+                    type: 'bar',
                     height: 350
                 },
                 series: [{
@@ -22,7 +22,7 @@ $(document).ready(function() {
                 },
                 colors: ['#39bf39'],  // Color for the line
                 fill: {
-                    colors: ['#dff6da'],  // Color for the fill area
+                    colors: ['#39bf39'],  // Color for the fill area
                     type: 'solid'
                 },
                 stroke: {
@@ -33,7 +33,7 @@ $(document).ready(function() {
                 }
               }
               
-              var chart = new ApexCharts(document.querySelector("#onlineStats"), options);
+              var chart = new ApexCharts(document.querySelector("#onlineBar"), options);
               
               chart.render();
               
