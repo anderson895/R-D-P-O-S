@@ -5,7 +5,7 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(response) {
             // Debugging: Log the response to check its structure
-            console.log(response);
+            // console.log(response);
             
             // Ensure that the values are numbers
             var onlineSum = parseFloat(response.todayOnlineSum);
