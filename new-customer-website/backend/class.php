@@ -381,7 +381,10 @@ class global_class extends db_connect
 
     public function getUserOrders($userId, $status)
     {
-        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `cust_id` = '$userId' AND `status` = '$status'");
+        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders`
+        LEFT JOIN account ON account.acc_id = new_tbl_orders.rider_id
+        WHERE `cust_id` = '$userId' AND `status` = '$status' 
+        ORDER BY `new_tbl_orders`.`order_date` DESC");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
