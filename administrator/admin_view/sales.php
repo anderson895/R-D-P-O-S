@@ -1,5 +1,5 @@
 <?php
-include "../new-orders-view/backend/class.php";
+// include "../new-orders-view/backend/class.php";
 include "backend/back_navbar.php";
 include "php/session_dir.php";
 
