@@ -39,7 +39,7 @@ class global_class extends db_connect
     // Orders
     public function getOrders($status)
     {
-        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `status` = '$status'");
+        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `status` = '$status' ORDER BY `new_tbl_orders`.`order_date` DESC");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;

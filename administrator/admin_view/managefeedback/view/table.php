@@ -15,7 +15,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Rated By</th>
-                            <th>Rate Type</th>
+                            <th>Product</th>
                             <th class="text-center">Rating</th>
                             <th>FeedBack</th>
                             <th>Date</th>
