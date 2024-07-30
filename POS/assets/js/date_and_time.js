@@ -5,13 +5,16 @@ function updateDateTime() {
     const hours = now.getHours();
     let greeting;
     
-    if (hours >= 6 && hours < 12) {
+    if (hours >= 0 && hours < 6) {
         greeting = 'Good Morning';
+    } else if (hours >= 6 && hours < 12) {
+        greeting = 'Good Morning'; // You may want to change this to 'Good Late Morning' or something similar if desired
     } else if (hours >= 12 && hours < 18) {
         greeting = 'Good Afternoon';
     } else {
         greeting = 'Good Evening';
     }
+    
     
     // Determine greeting icon visibility
     document.getElementById('gmorning').hidden = !(hours >= 6 && hours < 12);
