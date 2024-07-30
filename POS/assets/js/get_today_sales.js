@@ -16,7 +16,7 @@ $(document).ready(function() {
                 if (!isNaN(value)) {
                     return '₱ ' + value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
                 } else {
-                    return 'N/A';
+                    return '₱ 0.00';
                 }
             }
 
