@@ -1,9 +1,19 @@
-
 function updateDateTime() {
     const now = new Date();
     
-    // Determine greeting icon
+    // Determine greeting
     const hours = now.getHours();
+    let greeting;
+    
+    if (hours >= 6 && hours < 12) {
+        greeting = 'Good Morning';
+    } else if (hours >= 12 && hours < 18) {
+        greeting = 'Good Afternoon';
+    } else {
+        greeting = 'Good Evening';
+    }
+    
+    // Determine greeting icon visibility
     document.getElementById('gmorning').hidden = !(hours >= 6 && hours < 12);
     document.getElementById('gafternoon').hidden = !(hours >= 12 && hours < 18);
     document.getElementById('gevening').hidden = !(hours >= 18 || hours < 6);
@@ -22,6 +32,7 @@ function updateDateTime() {
     // Update HTML elements
     document.getElementById('time').innerText = timeString;
     document.getElementById('date').innerText = dateString;
+    document.getElementById('greeting').innerText = greeting;
 }
 
 // Initial call to set the time and date immediately
