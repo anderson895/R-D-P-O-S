@@ -44,8 +44,7 @@ $(document).ready(function() {
     function fetchAndAnimateNumbers() {
         let { randomCustomer, randomCashier, randomDeliveryStaff, randomSupplier } = showRandomNumbers();
 
-        setTimeout(function() {
-            // Fetch real values via AJAX after 1 second
+
             $.ajax({
                 url: '../../POS/functions/get_stat_users.php',
                 method: 'GET',
@@ -60,7 +59,7 @@ $(document).ready(function() {
                     console.error('AJAX Error:', status, error);
                 }
             });
-        }, 1000); // Delay the AJAX request by 1 second
+        
     }
 
     // Fetch and animate numbers initially
