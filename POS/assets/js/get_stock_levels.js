@@ -26,8 +26,8 @@ $(document).ready(function() {
                     <div class="row mb-3">
                         <div class="col-9">
                             <div class="d-flex flex-row">
-                                <div class="me-2 rounded" style="width: 30%; height: 70px">
-                                    <img class="border rounded" style="width: 100%; height: 100%; object-fit: cover" src="../../upload_prodImg/${product.prod_image}" alt="prod">
+                                <div class="me-2" style="width: 30%; height: 70px; border-radius: 15px">
+                                    <img class="border " style="border-radius: 15px; width: 100%; height: 100%; object-fit: cover" src="../../upload_prodImg/${product.prod_image}" alt="prod">
                                 </div>
                                 <div style="width: 70%;">
                                     <p class="fw-bold">${product.prod_name}</p>
