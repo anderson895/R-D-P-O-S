@@ -7,4 +7,6 @@
 <script src="../../POS/assets/js/get_today_sales.js"></script>
 <script src="../../POS/assets/js/get_online_sales_line.js"></script>
 <script src="../../POS/assets/js/get_online_sales_bar.js"></script>
-<script src="../../POS/assets/js/sales_state _show_graph.js"></script>
+<script src="../../POS/assets/js/sales_state_show_graph.js"></script>
+<script src="../../POS/assets/js/get_pos_sales_line.js"></script>
+<script src="../../POS/assets/js/get_pos_sales_bar.js"></script>

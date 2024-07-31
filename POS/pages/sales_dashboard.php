@@ -16,36 +16,36 @@
     </div>
 
     <div>
-        <div id="salesOnline">
-            <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
-                <h6 class="fw-bold">Online Sales Forecast</h6>
-                <div>
-                    <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
-                    <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
-                </div>
-            </div>
-            <div id="statA">
-                <div id="onlineLine"></div>
-            </div>
-            <div id="statB" style="display: none">
-                <div id="onlineBar"></div>
+    <div id="salesOnline">
+        <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
+            <h6 class="fw-bold">Daily Sales Forecast - Walkin</h6>
+            <div>
+                <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
+                <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
             </div>
         </div>
-        <div id="salesWalkin" style="display: none;">
-            <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
-                <h6 class="fw-bold">Walk-in Sales Forecast</h6>
-                <div>
-                    <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
-                    <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
-                </div>
-            </div>
-            <div id="statA">
-                <div id="onlineLine"></div>
-            </div>
-            <div id="statB" class="d-none">
-                <div id="onlineBar"></div>
-            </div>
+        <div id="statA">
+            <div id="onlineLine"></div>
+        </div>
+        <div id="statB" style="display: none;">
+            <div id="onlineBar"></div>
         </div>
     </div>
+    <div id="salesWalkin" style="display: none;">
+        <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
+            <h6 class="fw-bold">Daily Sales Forecast - Walkin</h6>
+            <div>
+                <button class="stat-btn" id="showLinepos"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
+                <button class="reset-btn" id="showBarpos"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
+            </div>
+        </div>
+        <div id="statApos">
+            <div id="posLine"></div>
+        </div>
+        <div id="statBpos" style="display: none;">
+            <div id="posBar"></div>
+        </div>
+    </div>
+</div>
 
 </div>
