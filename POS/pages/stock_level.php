@@ -1,4 +1,4 @@
-<div class="border text-muted shadow p-3 pb-4" style="background-color: white; border-radius: 20px;">
+<div class="border color_red shadow p-3 pb-4" style="background-color: white; border-radius: 20px;">
     <h5 class="mb-2 fw-bolder mt-3">Stock Levels</h5>
     <div class="d-flex text-muted flex-row justify-content-between">
         <p>Product</p>

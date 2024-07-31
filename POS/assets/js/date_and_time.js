@@ -5,14 +5,20 @@ function updateDateTime() {
     const hours = now.getHours();
     let greeting;
     
+    const weatherAnimation = $('#weatherAnimation');
+
     if (hours >= 0 && hours < 6) {
-        greeting = 'Good Morning';
+        greeting = 'Good Early Morning';
+        weatherAnimation.removeClass().addClass('weather col-5');
     } else if (hours >= 6 && hours < 12) {
-        greeting = 'Good Morning'; // You may want to change this to 'Good Late Morning' or something similar if desired
+        greeting = 'Good Morning';
+        weatherAnimation.removeClass().addClass('weather col-5');
     } else if (hours >= 12 && hours < 18) {
         greeting = 'Good Afternoon';
+        weatherAnimation.removeClass().addClass('sun col-5');
     } else {
         greeting = 'Good Evening';
+        weatherAnimation.removeClass().addClass('weather col-5');
     }
     
     

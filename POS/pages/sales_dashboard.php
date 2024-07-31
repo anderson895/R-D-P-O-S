@@ -3,14 +3,36 @@
     <div class="row g-3">
         <div class="col-12 col-md-6">
             <div id="btnOnline" class="accent-e border p-3" style="cursor: pointer">
-                <h1 id="todayOnlineSales" class="fw-bold" style="font-size: 3rem">100.00</h1>
-                <p>Online</p>
+                <div class="row">
+                    <div class="col-8">
+                        <h1 id="todayOnlineSales" class="fw-bold" style="font-size: 3rem">100.00</h1>
+                        <p>Online</p>
+                    </div>
+                    <div class="col-4 d-flex align-items-center">
+                        <div class="icon-container">
+                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6">
             <div id="btnWalkin" class="accent-f border p-3" style="cursor: pointer">
-                <h1 id="todayPosSales" class="fw-bold" style="font-size: 3rem">100.00</h1>
-                <p>Walk-in</p>
+                <div class="row">
+                    <div class="col-8">
+                        <h1 id="todayPosSales" class="fw-bold" style="font-size: 3rem">100.00</h1>
+                        <p>Walk-in</p>
+                    </div>
+                    <div class="col-4 d-flex align-items-center">
+                        <div class="icon-container">
+                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -18,7 +40,7 @@
     <div>
     <div id="salesOnline">
         <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
-            <h6 class="fw-bold">Daily Sales Forecast - Walkin</h6>
+            <h6 class="fw-bold">Daily Sales Forecast - Online</h6>
             <div>
                 <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
                 <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
