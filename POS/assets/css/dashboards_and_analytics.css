@@ -112,13 +112,14 @@
     display: flex;
     overflow: hidden;
     white-space: nowrap;
-    width: 100vw;
+    padding: 0; 
+    margin: 0;
+    width: 15%;
     position: relative;
+    height: 30px;
 }
 
 .icon-container i {
-    font-size: 3rem;
-    /* margin-right: -10px; */
     display: inline-block;
     animation: move 10s linear infinite;
 }

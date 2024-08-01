@@ -11,7 +11,7 @@ $(document).ready(function() {
             var options = {
                 chart: {
                     type: 'area',
-                    height: 350
+                    height: 330
                 },
                 series: [{
                     name: 'Daily sales',

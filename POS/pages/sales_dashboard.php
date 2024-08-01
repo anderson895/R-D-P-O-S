@@ -4,15 +4,39 @@
         <div class="col-12 col-md-6">
             <div id="btnOnline" class="accent-e border p-3" style="cursor: pointer">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12">
                         <h1 id="todayOnlineSales" class="fw-bold" style="font-size: 3rem">100.00</h1>
-                        <p>Online</p>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <div class="icon-container">
-                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
-                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
-                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                        <div class="d-flex flex-row">
+                            <p>Online</p>
+                            <div class="icon-container ms-2">
+                            <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -21,15 +45,39 @@
         <div class="col-12 col-md-6">
             <div id="btnWalkin" class="accent-f border p-3" style="cursor: pointer">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12">
                         <h1 id="todayPosSales" class="fw-bold" style="font-size: 3rem">100.00</h1>
-                        <p>Walk-in</p>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <div class="icon-container">
-                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
-                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
-                            <i style="font-size: 3rem;" class="bi bi-activity"></i>
+                        <div class="d-flex flex-row">
+                            <p>Walkin</p>
+                            <div class="icon-container ms-2">
+                            <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                                <i style="font-size: 1rem;" class="bi bi-activity"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
