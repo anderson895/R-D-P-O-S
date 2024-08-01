@@ -15,7 +15,7 @@ function updateDateTime() {
         weatherAnimation.removeClass().addClass('weather col-5');
     } else if (hours >= 12 && hours < 18) {
         greeting = 'Good Afternoon';
-        weatherAnimation.removeClass().addClass('sun col-5');
+        weatherAnimation.removeClass().addClass('sun col-5 d-flex justify-content-center align-items center');
     } else {
         greeting = 'Good Evening';
         weatherAnimation.removeClass().addClass('weather col-5');
