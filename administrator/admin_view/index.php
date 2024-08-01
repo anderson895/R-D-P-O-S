@@ -12,7 +12,8 @@ include "php/session_dir.php";
 <meta name="author" content="Dreamguys - Bootstrap Admin Template">
 <meta name="robots" content="noindex, nofollow">
 <title>Admin </title>
-
+<link rel="stylesheet" href="../../POS/assets/css/dashboards_and_analytics.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="shortcut icon" type="image/x-icon" href="../../upload_system/<?= $db_system_logo ?>">
 
 <link rel="stylesheet" href="assets/plugins/scrollbar/scroll.min.css">
@@ -59,14 +60,10 @@ include "php/session_dir.php";
 
 <!---start-changit--->
 
-<?php  include "Section/topBarAnalytics.php"; ?>
-<?php include "Section/purchaseAndSales.php"; ?>
-<?php  include "Section/recentlyAdded.php";?>
-<?php  include "Section/expiredProduct.php";?>
-<hr>
+<div class="page-wrapper">
+<?php include "../../POS/pages/dashboards_and_analytics.php"; ?>
+</div>
 
-<?php  include "Section/criticalProduct.php";?>
-<?php  include "Section/modal/requestSupplyModal.php";?>
 
 <!---end-changit--->
 
@@ -103,8 +100,8 @@ include "php/session_dir.php";
 
 <script src="Section/modal/plusMinusCart.js"></script>
 
-
-
+//Fyke javascript section
+<?php include "../../POS/pages/admin_javascript_links.php"?>
 
 </body>
 </html>
