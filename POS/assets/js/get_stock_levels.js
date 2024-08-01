@@ -7,19 +7,24 @@ $(document).ready(function() {
             $('#product-container').empty(); // Clear the container
             
             $.each(response, function(index, product) {
-                var statusClass = 'status-disabled'; // Default status
-                var statusText = 'No Stock';
+                var statusClass = ''; // Default status
+                var statusText = '';
                 
-                //check of the critiocal level and totalamount
-                if (product.prod_critical >= product.total_amount) {
-                    statusClass = 'status-active';
-                    statusText = 'In Stocks';
-                } else if (product.total_amount === '0') {
-                    statusClass = 'status-disabled';
+                // Convert string values to integers for comparison
+                var prodCritical = parseInt(product.prod_critical, 10);
+                var totalAmount = parseInt(product.total_amount, 10);
+                
+                // Check the critical level and total amount
+                // Check the total amount first
+                if (totalAmount === 0) {
+                    statusClass = 'status-disable';
                     statusText = 'No Stock';
-                } else {
+                } else if (totalAmount <= prodCritical) {
                     statusClass = 'status-warning';
                     statusText = 'Critical';
+                } else {
+                    statusClass = 'status-active';
+                    statusText = 'In Stocks';
                 }
                 
                 var productHtml = `
@@ -27,7 +32,7 @@ $(document).ready(function() {
                         <div class="col-9">
                             <div class="d-flex flex-row">
                                 <div class="me-2" style="width: 30%; height: 70px; border-radius: 15px">
-                                    <img class="border " style="border-radius: 15px; width: 100%; height: 100%; object-fit: cover" src="../../upload_prodImg/${product.prod_image}" alt="prod">
+                                    <img class="border" style="border-radius: 15px;width: 100%; height: 100%; object-fit: cover" src="../../upload_prodImg/${product.prod_image}" alt="prod">
                                 </div>
                                 <div style="width: 70%;">
                                     <p class="fw-bold">${product.prod_name}</p>
@@ -35,7 +40,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="col-3">
-                            <p class="fw-bold text-end m-0">${product.total_amount} pcs</p>
+                            <p class="fw-bold text-end m-0">${totalAmount} pcs</p>
                             <div style="width: auto;" class="${statusClass} text-center">
                                 <p class="m-0">${statusText}</p>
                             </div>

@@ -59,7 +59,7 @@
 }
 
 .status-disable {
-    background-color: #fbe6e6;
+    background-color: #ffeaf3;
     color: #be7474;
     border-radius: 15px;
 }
@@ -75,7 +75,7 @@
     background-color: transparent;
 }
 
-/* animation */
+/* animation f9ki3*/
 .weather {
     animation: float 3s ease-in-out infinite;
     position: relative;
@@ -130,4 +130,31 @@
     100% {
         transform: translateX(-100%);
     }
+}
+
+/* overflow f9ki3 */
+
+#product-container {
+    height: 420px;
+    margin-bottom: 5px;
+    overflow: scroll;
+    overflow-x: hidden; 
+    position: relative; 
+    padding-right: 15px; 
+    box-sizing: content-box; 
+    scrollbar-color: rgb(247, 242, 242)white ; /* For Firefox */
+    scrollbar-width: thin; /* For Firefox */
+}
+
+#product-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+#product-container::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 100%;
+}
+
+#product-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(101, 5, 5);
 }

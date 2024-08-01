@@ -14,7 +14,7 @@ $sql = "SELECT prod_name, prod_critical, prod_image, SUM(s_amount) AS total_amou
         JOIN product ON product.prod_id = stocks.s_prod_id
         GROUP BY s_prod_id
         ORDER BY total_amount ASC
-        LIMIT 5";
+        ";
 
 // Execute query
 $result = $conn->query($sql);
