@@ -12,4 +12,7 @@
     <div id="top-walk" style="display: none">
         <!-- Dynamic content will be inserted here -->
     </div>
+    <a href="productlist.php" style="border-radius: 10px; background-color: #760106; color: white" class="btn mb-2 border w-100">
+        view products
+    </a>
 </div>

@@ -9,8 +9,8 @@
         <!-- Dynamic content will be inserted here -->
     </div>
     
-    <button style="border-radius: 10px; background-color: #760106; color: white" class="btn mb-2 border w-100">
-        view all
-    </button>
+    <a href="Inventory.php" style="border-radius: 10px; background-color: #760106; color: white" class="btn mb-2 border w-100">
+        view inventory
+    </a>
     
 </div>

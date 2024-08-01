@@ -4,10 +4,10 @@ $(document).ready(function() {
         $('#btnOnline').addClass('accent-e')
         $('#btnWalkin').removeClass('accent-e')
         $('#salesWalkin').hide()
-        $('#salesOnline').show()
+        $('#salesOnline').fadeIn()
         $('#top5Walk').hide()
-        $('#top5Ol').show()
-        $('#top-product').show()
+        $('#top5Ol').fadeIn()
+        $('#top-product').fadeIn()
         $('#top-walk').hide()
     });
 
@@ -15,11 +15,11 @@ $(document).ready(function() {
         $('#btnWalkin').addClass('accent-e')
         $('#btnOnline').removeClass('accent-e')
         $('#btnOnline').addClass('accent-f')
-        $('#salesWalkin').show()
+        $('#salesWalkin').fadeIn()
         $('#salesOnline').hide()
         $('#top5Ol').hide()
-        $('#top5Walk').show()
+        $('#top5Walk').fadeIn()
         $('#top-product').hide()
-        $('#top-walk').show()
+        $('#top-walk').fadeIn()
     });
 });
