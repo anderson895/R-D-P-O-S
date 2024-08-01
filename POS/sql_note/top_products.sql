@@ -10,7 +10,7 @@ LIMIT 5
 
 -- Top Product Walkin
 
-SELECT orders_prod_id, 
+SELECT prod_image, 
 prod_name, 
 SUM(orders_prodQty) as qty 
 FROM pos_orders 

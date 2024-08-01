@@ -10,4 +10,5 @@
 <script src="../../POS/assets/js/sales_state_show_graph.js"></script>
 <script src="../../POS/assets/js/get_pos_sales_line.js"></script>
 <script src="../../POS/assets/js/get_pos_sales_bar.js"></script>
-<script src="../../POS/assets/js/activity_line.js"></script>
+<script src="../../POS/assets/js/get_top_5_products_online.js"></script>
+<script src="../../POS/assets/js/get_top_5_products_walkin.js"></script>

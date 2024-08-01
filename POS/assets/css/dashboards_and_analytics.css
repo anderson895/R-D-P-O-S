@@ -121,7 +121,7 @@
 
 .icon-container i {
     display: inline-block;
-    animation: move 10s linear infinite;
+    animation: move 1s linear infinite;
 }
 
 @keyframes move {

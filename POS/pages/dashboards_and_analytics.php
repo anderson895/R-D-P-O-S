@@ -14,6 +14,6 @@
         <?php include "stock_level.php"?>
     </div>
     <div class="col-12 col-md-3 order-md-1">
-        <?php include "orders.php"?>
+        <?php include "top_5_product_online.php"?>
     </div>
 </div>

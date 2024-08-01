@@ -5,6 +5,10 @@ $(document).ready(function() {
         $('#btnWalkin').removeClass('accent-e')
         $('#salesWalkin').hide()
         $('#salesOnline').show()
+        $('#top5Walk').hide()
+        $('#top5Ol').show()
+        $('#top-product').show()
+        $('#top-walk').hide()
     });
 
     $('#btnWalkin').click(function() {
@@ -13,5 +17,9 @@ $(document).ready(function() {
         $('#btnOnline').addClass('accent-f')
         $('#salesWalkin').show()
         $('#salesOnline').hide()
+        $('#top5Ol').hide()
+        $('#top5Walk').show()
+        $('#top-product').hide()
+        $('#top-walk').show()
     });
 });
