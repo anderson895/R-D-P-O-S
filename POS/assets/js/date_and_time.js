@@ -13,9 +13,9 @@ function updateDateTime() {
     } else if (hours >= 6 && hours < 12) {
         greeting = 'Good Morning';
         weatherAnimation.removeClass().addClass('weather col-5');
-    } else if (hours >= 12 && hours < 18) {
+    } else if (hours >= 12 && hours < 16) {
         greeting = 'Good Afternoon';
-        weatherAnimation.removeClass().addClass('sun col-5 d-flex justify-content-center align-items center');
+        weatherAnimation.removeClass().addClass('sun col-5 d-flex justify-content-center align-items');
     } else {
         greeting = 'Good Evening';
         weatherAnimation.removeClass().addClass('weather col-5');
