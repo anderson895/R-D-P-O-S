@@ -1,10 +1,9 @@
 --daily sales pos
 
-SELECT orders_tcode, DATE(orders_date) AS order_date, SUM(orders_subtotal) AS daily_total
+SELECT DATE(orders_date) AS order_date, SUM(orders_subtotal) AS daily_total
 FROM pos_orders
 GROUP BY DATE(orders_date)
 ORDER BY order_date;
-
 
 --montly sales pos
 SELECT YEAR(orders_date) AS order_year, MONTH(orders_date) AS order_month, SUM(orders_subtotal) AS monthly_total
