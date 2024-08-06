@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
 
     // Set headers to force download with the desired filename
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename="daily_sales_online_' . $todaydate . '.xlsx"');
+    header('Content-Disposition: attachment;filename="yearly_sales_pos_' . $todaydate . '.xlsx"');
     header('Cache-Control: max-age=0');
     header('Cache-Control: max-age=1');
     header('Pragma: public');
