@@ -69,14 +69,10 @@ $currentURL = $_SERVER['REQUEST_URI'];
 
                         </ul>
 
-
-                    <li class="submenu ">
-                        <a href="javascript:void(0);"><img src="assets/img/report.png" alt="img"><span class="text-white"> Reports</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="#" <?php if (strpos($currentURL, '#') !== false) echo 'class="active"'; ?>>Daily Report</a></li>
-                            <li><a href="#" <?php if (strpos($currentURL, '#') !== false) echo 'class="active"'; ?>>Monthly Report</a></li>
-                            <li><a href="#" <?php if (strpos($currentURL, '#') !== false) echo 'class="active"'; ?>>Annual Report</a></li>
-                        </ul>
+                    
+                    <li>
+                        <a href="reports.php"><img src="assets/img/report.png" alt="img"><span class="text-white"> Reports</span> </a>
+                    </li>
 
 
 
