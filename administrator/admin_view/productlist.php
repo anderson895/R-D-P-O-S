@@ -72,14 +72,6 @@ include "php/session_dir.php";
                         <div class="table-top">
                             <div class="search-set">
 
-                                <!---
-<div class="search-path">
-<a class="btn btn-filter" id="filter_search">
-<img src="assets/img/icons/filter.svg" alt="img">
-<span><img src="assets/img/icons/closes.svg" alt="img"></span>
-</a>
-</div>--->
-
 
                                 <div class="search-input">
                                     <input class="form-control" type="text" id="searchInput" placeholder="Search...">
