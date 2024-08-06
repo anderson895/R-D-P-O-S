@@ -61,7 +61,7 @@ include "php/session_dir.php";
 <!---start-changit--->
 
 <div class="page-wrapper">
-<?php include "../../POS/pages/dashboards_and_analytics.php"; ?>
+<?php include "../../POS/pages/report_pos.php"; ?>
 </div>
 
 
@@ -101,7 +101,7 @@ include "php/session_dir.php";
 <script src="Section/modal/plusMinusCart.js"></script>
 
 <!-- Fyke javascript section -->
-<?php include "../../POS/pages/admin_javascript_links.php"?>
+<?php include "../../POS/pages/admin_reports_javascript_links.php"?>
 
 </body>
 </html>
