@@ -125,20 +125,19 @@
                             <th>Yearly Sales</th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody_yearly">
-                    </tbody>
+                    <tbody id="tableBody_yearly_online"></tbody>
                 </table>
             </div>
-            <!-- pagination -->
+            <!-- Pagination -->
             <div class="row pt-2 d-flex align-items-center">
                 <div class="col-12 col-md-4 mb-2 mb-md-0">
-                    <div class="pagination" id="pagination_yearly"></div>
+                    <div class="pagination" id="pagination_yearly_online"></div>
                 </div>
                 <div class="col-12 col-md-4 d-flex justify-content-center mb-2 mb-md-0">
-                    <div id="info_yearly" class="text-muted"></div>
+                    <div id="info_yearly_online" class="text-muted"></div>
                 </div>
                 <div class="col-12 col-md-4 d-flex justify-content-end">
-                    <select id="itemsPerPage_yearly" class="form-select form-select-sm w-auto" style="border: none; color: gray; background-color: transparent;">
+                    <select id="itemsPerPage_yearly_online" class="form-select form-select-sm w-auto" style="border: none; color: gray; background-color: transparent;">
                         <option disabled selected>Show Items</option>
                         <option value="15">15 items</option>
                         <option value="20">20 items</option>
@@ -148,5 +147,6 @@
             </div>
         </div>
     </div>
+
 
 </div>

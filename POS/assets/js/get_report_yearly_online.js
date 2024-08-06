@@ -1,4 +1,4 @@
-function fetStoreTable() {
+function fetchStoreTable() {
     $.ajax({
         url: '../../POS/functions/get_report_yearly_online.php',
         type: 'GET',
@@ -16,7 +16,7 @@ function fetStoreTable() {
                 setupPagination();
             });
 
-            $('#itemsPerPage_yearly').on('change', function() {
+            $('#itemsPerPage_yearly_online').on('change', function() {
                 rowsPerPage = parseInt(this.value, 10);
                 currentPage = 1;
                 renderTable();
@@ -24,7 +24,7 @@ function fetStoreTable() {
             });
 
             function renderTable() {
-                const tableBody = $('#tableBody_yearly');
+                const tableBody = $('#tableBody_yearly_online');
                 const searchText = $('#search_yearly').val().toLowerCase();
                 const filteredData = data.filter(item => {
                     const year = item.order_year.toLowerCase();
@@ -52,11 +52,11 @@ function fetStoreTable() {
                 }
 
                 const totalItems = filteredData.length;
-                $('#info_yearly').text(`Showing ${Math.min(rowsPerPage, totalItems)} of ${totalItems} items.`);
+                $('#info_yearly_online').text(`Showing ${Math.min(rowsPerPage, totalItems)} of ${totalItems} items.`);
             }
 
             function setupPagination() {
-                const pagination = $('#pagination_yearly');
+                const pagination = $('#pagination_yearly_online');
                 const searchText = $('#search_yearly').val().toLowerCase();
                 const filteredData = data.filter(item => {
                     const year = item.order_year.toLowerCase();
@@ -115,7 +115,7 @@ function fetStoreTable() {
             }
 
             function sortTable(columnIndex) {
-                const tableBody = $('#tableBody_yearly');
+                const tableBody = $('#tableBody_yearly_online');
                 const rows = Array.from(tableBody.find('tr'));
                 const sortDirection = currentSortColumn === columnIndex && currentSortDirection === 'asc' ? 'desc' : 'asc';
                 currentSortColumn = columnIndex;
@@ -131,7 +131,7 @@ function fetStoreTable() {
                 rows.forEach(row => tableBody.append(row));
             }
 
-            $('#tableHead_yearly th').on('click', function() {
+            $('#itemsPerPage_yearly_online th').on('click', function() {
                 const columnIndex = $(this).index();
                 sortTable(columnIndex);
             });
@@ -146,5 +146,5 @@ function fetStoreTable() {
 }
 
 $(document).ready(function() {
-    fetStoreTable();
+    fetchStoreTable();
 });
