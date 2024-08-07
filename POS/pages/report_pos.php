@@ -1,8 +1,8 @@
 <div class="p-4">
 <div class="page-header">
     <div class="page-title">
-        <h4>Reports</h4>
-        <h6>Walkin Reports</h6>
+        <h4>Walkin Reports</h4>
+        <h6>Views/Reports</h6>
     </div>
     <div class="row g-2">
         <div class="col-12 col-md-4">
