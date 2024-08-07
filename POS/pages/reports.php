@@ -164,9 +164,9 @@
             <div class="col-12 col-md-6">
                 <label for="select_report" class="form-label">Select Export Type</label>
                 <select name="" id="select_report" class="form-select">
-                    <option value="">Excel</option>
-                    <option value="">PDF</option>
-                    <option value="">Analytics</option>
+                    <option value="excel">Excel</option>
+                    <option value="pdf">PDF</option>
+                    <option value="analytics">Analytics</option>
                 </select>
             </div>
             <div class="col-12 col-md-6">
@@ -214,7 +214,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-sm btn-primary">Proceed</button>
+        <button type="button" class="btn btn-sm btn-primary" id="proceed_loader" disabled style="display: none">
+            <div class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </button>
+        <button type="button" class="btn btn-sm btn-primary" id="proceed_excel">Export Excel</button>
+        <button type="button" class="btn btn-sm btn-primary" id="proceed_pdf" style="display: none;">Export PDF</button>
+        <button type="button" class="btn btn-sm btn-primary" id="proceed_analytics" style="display: none;">Export Analytics</button>
       </div>
     </div>
   </div>
