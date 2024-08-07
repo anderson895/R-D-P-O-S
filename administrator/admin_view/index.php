@@ -100,7 +100,7 @@ include "php/session_dir.php";
 
 <script src="Section/modal/plusMinusCart.js"></script>
 
-//Fyke javascript section
+<!-- Fyke javascript section -->
 <?php include "../../POS/pages/admin_javascript_links.php"?>
 
 </body>
