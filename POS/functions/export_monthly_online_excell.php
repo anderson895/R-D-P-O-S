@@ -56,7 +56,7 @@ if ($stmt = $conn->prepare($sql_query)) {
 
         // Set header title for the Excel file
         $sheet->mergeCells('A1:B1');
-        $sheet->setCellValue('A1', 'Monthly Sales Report');
+        $sheet->setCellValue('A1', 'Monthly Sales Report - Online');
         $sheet->getStyle('A1')->getFont()->setBold(true)->setSize(14)->getColor()->setARGB('FFFFFF'); // White color font
         $sheet->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
