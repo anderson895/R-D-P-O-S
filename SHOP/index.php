@@ -80,6 +80,49 @@
             <button class="btn-control-right btn border">></button>
         </div>
     </div>
+    <div class="container">
+        <div>
+            <img class="border rounded-5" style="height: 100%; width: 100%;" src="assets/img/rdpos_banner.png" alt="">
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-between">
+            <h5>Top Products</h5>
+            <a href="">Show all</a>
+        </div>
+        <div class="row g-2">
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include('script.php')?>
 </body>
 </html>
