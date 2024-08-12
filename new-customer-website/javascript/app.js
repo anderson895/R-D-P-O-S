@@ -101,6 +101,9 @@ $(document).ready(function () {
       },
       success: function (response) {
         $("#cartItemsContainer").html(response);
+
+        
+
       },
     });
   };
