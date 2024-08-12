@@ -396,7 +396,8 @@ $(document).on("click", ".btnViewProduct", function (e) {
       }
     });
 
-    $("#totalSelectedItems").text(totalAmount);
+    $("#totalSelectedItems").text(totalAmount.toFixed(2));
+
   });
 
   // Check Out
@@ -456,7 +457,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
             "</td>"
           );
 
-          $(tr).append("<td> ₱ " + element.productAmount + "</td>");
+          $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
 
           subtotal += element.productAmount;
           vat += element.productVat;
@@ -464,8 +465,8 @@ $(document).on("click", ".btnViewProduct", function (e) {
         });
 
         // Computation
-        $("#checkOutSubtotal").text(subtotal);
-        $("#checkOutVat").text(vat);
+        $("#checkOutSubtotal").text(subtotal.toFixed(2));
+        $("#checkOutVat").text(vat.toFixed(2));
 
         if (sf == "Invalid") {
           $("#checkOutShipping")
@@ -473,13 +474,13 @@ $(document).on("click", ".btnViewProduct", function (e) {
             .addClass("text-danger");
           $("#btnPlaceOrder").prop("disabled", true);
         } else {
-          $("#checkOutShipping").text("₱ " + sf);
+          $("#checkOutShipping").text("₱ " + sf.toFixed(2));
           total += sf;
         }
 
         total += subtotal;
         total += vat;
-        $("#checkOutTotal").text(total);
+        $("#checkOutTotal").text(total.toFixed(2));
 
         $("#PlaceOrderModal").modal("show");
       } else {
@@ -491,6 +492,9 @@ $(document).on("click", ".btnViewProduct", function (e) {
   // Payment Type
   $("#checkOutPaymentTypesSelect").change(function (e) {
     e.preventDefault();
+
+    $("#btnPlaceOrder").prop("disabled", false);
+
     var selectedOption = $(this).find("option:selected");
     $("#paymentTypeImgInput").val(null);
     $("#imagePreview").attr("src", "#");

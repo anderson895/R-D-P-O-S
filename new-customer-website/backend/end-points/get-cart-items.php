@@ -63,7 +63,8 @@ if (isset($_SESSION['acc_id'])) {
                                         <button id="" class="btn addCartQty" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-plus"></i></button>
                                     </div>
                                     <hr>
-                                    <p>Amount: <span class="text-success">₱ <?= $itemAmount ?></span></p>
+                                    <p>Amount: <span class="text-success">₱ <?= number_format($itemAmount, 2) ?>
+                                    </span></p>
                                     <div class="delete-and-select-container d-flex align-items-center">
                                         <input type="checkbox" class="cartSelect form-check-input m-0" data-id="<?= $cartItem['prod_id'] ?>" data-image="<?= $cartItem['prod_image'] ?>" data-name="<?= $productName ?>" data-price="<?= $cartItem['prod_currprice'] ?>" data-unittype="<?= $cartItem['unit_type'] ?>" data-amount="<?= $itemAmount ?>" data-stock="<?= $currentStock ?>" data-inputqty="<?= $cartItem['qty'] ?>" data-itemvat="<?= $vatPerItem ?>" style="width: 30px; height: 30px;">
                                         <button class="btnDeleteCartItem btn btn-danger d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>" style="height: 30px; margin-left: 10px;"><i class="bi bi-trash3-fill"></i> Delete</button>
