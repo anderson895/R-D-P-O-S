@@ -6,6 +6,9 @@ if (isset($_SESSION['acc_id'])) {
     if (isset($_GET['requestType'])) {
         if ($_GET['requestType'] == 'getAllCartItems') {
             $getCartItems = $db->getCartItems($_SESSION['acc_id']);
+
+           
+            
             $total = 0;
             if ($getCartItems->num_rows > 0) {
                 while ($cartItem = $getCartItems->fetch_assoc()) {
@@ -40,41 +43,82 @@ if (isset($_SESSION['acc_id'])) {
                         $shippingFee = 'Invalid';
                     }
 ?>
-                    <div class="container mt-3 mb-3">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="../upload_prodImg/<?= $cartItem['prod_image'] ?>" class="cart-product-image img-fluid">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="item-details m-3 mt-0 mb-0">
-                                    <h4><?= $productName ?></h4>
-                                    <div class="input-container-label-top">
-                                        <label>Description</label>  
-                                        <textarea class="mt-0 form-control" style="height: 150px"><?= $cartItem['prod_description'] ?></textarea>
-                                    </div>
-                                    <p class="text-success mb-0">₱ <?= $cartItem['prod_currprice'] ?></p>
-                                    <p class="mt-0 <?= ($currentStock > 0) ? '' : 'text-danger' ?>">
-                                        <?= ($currentStock > 0) ? $currentStock . $cartItem['unit_type'] . ' Available' : 'Out of Stock' ?>
-                                    </p>
-                                    <hr>
-                                    <div class="change-qty d-flex">
-                                        <button id="" class="btn minusCartQty" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-dash"></i></button>
-                                        <input type="number" inputmode="numeric" class="form-control inputChangeCartItemQty" data-id="<?= $cartItem['cart_id'] ?>" value="<?= $cartItem['qty'] ?>">
-                                        <button id="" class="btn addCartQty" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-plus"></i></button>
-                                    </div>
-                                    <hr>
-                                    <p>Amount: <span class="text-success">₱ <?= number_format($itemAmount, 2) ?>
-                                    </span></p>
-                                    <div class="delete-and-select-container d-flex align-items-center">
-                                        <input type="checkbox" class="cartSelect form-check-input m-0" data-id="<?= $cartItem['prod_id'] ?>" data-image="<?= $cartItem['prod_image'] ?>" data-name="<?= $productName ?>" data-price="<?= $cartItem['prod_currprice'] ?>" data-unittype="<?= $cartItem['unit_type'] ?>" data-amount="<?= $itemAmount ?>" data-stock="<?= $currentStock ?>" data-inputqty="<?= $cartItem['qty'] ?>" data-itemvat="<?= $vatPerItem ?>" style="width: 30px; height: 30px;">
-                                        <button class="btnDeleteCartItem btn btn-danger d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>" style="height: 30px; margin-left: 10px;"><i class="bi bi-trash3-fill"></i> Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- Lightbox2 CSS -->
+<link href="
+https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
+" rel="stylesheet">
 
-                    <hr>
+<!-- Lightbox2 JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+
+
+ <div class="container mt-3 mb-3">
+    <div class="row">
+        <!-- Image Banner -->
+        <div class="col-md-3 mb-3">
+            <img id="main-image" src="../upload_prodImg/<?= $cartItem['prod_image'] ?>" class="img-fluid rounded-3" alt="Product Image">
+            
+            <!-- Image Gallery -->
+          <div class="mt-3 overflow-auto">
+        <div class="d-flex">
+
+        <?php 
+$getCartItemsPhotos = $db->getCartItemsPhotos($_SESSION['acc_id'],$cartItem['prod_id']);
+
+if ($getCartItemsPhotos->num_rows > 0){ 
+    while ($CartItemsPhotos = $getCartItemsPhotos->fetch_assoc()) { ?>
+    <div class="p-2">
+        <a href="../product_photos/<?= htmlspecialchars($CartItemsPhotos['PROD_PHOTOS']) ?>" data-lightbox="cart-images" data-title="<?=$CartItemsPhotos['prod_name']?>">
+            <img src="../product_photos/<?= htmlspecialchars($CartItemsPhotos['PROD_PHOTOS']) ?>" 
+                 class="img-fluid img-thumbnail thumbnail fixed-size-img" 
+                 alt="Product Image">
+        </a>
+    </div>
+    <?php } 
+} ?>
+
+
+        
+        </div>
+    </div>
+
+     </div>
+
+        
+        
+
+        <!-- Item Details -->
+        <div class="col-md-9">
+            <div class="item-details border p-3 rounded-3 shadow-sm">
+                <h4 class="fw-bold"><?= $productName ?></h4>
+                <div class="mb-3">
+                    <label for="product-description" class="form-label">Description</label>
+                    <textarea id="product-description" class="form-control" style="height: 150px" readonly><?= $cartItem['prod_description'] ?></textarea>
+                </div>
+                <p class="text-success mb-1 h5">₱ <?= $cartItem['prod_currprice'] ?></p>
+                <p class="mt-0 <?= ($currentStock > 0) ? '' : 'text-danger' ?> mb-2">
+                    <?= ($currentStock > 0) ? $currentStock . ' ' . $cartItem['unit_type'] . ' Available' : 'Out of Stock' ?>
+                </p>
+                <hr>
+                <div class="d-flex align-items-center mb-3">
+                    <button class="btn btn-outline-secondary btn-sm me-2 minusCartQty" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-dash"></i></button>
+                    <input type="number" class="form-control text-center mx-2 inputChangeCartItemQty" data-id="<?= $cartItem['cart_id'] ?>" value="<?= $cartItem['qty'] ?>" style="max-width: 70px;">
+                    <button class="btn btn-outline-secondary btn-sm ms-2 addCartQty" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-plus"></i></button>
+                </div>
+                <hr>
+                <p class="mb-2">Amount: <span class="text-success fw-bold">₱ <?= number_format($itemAmount, 2) ?></span></p>
+                <div class="d-flex align-items-center">
+                    <input type="checkbox" class="form-check-input me-2 cartSelect" data-id="<?= $cartItem['prod_id'] ?>" data-image="<?= $cartItem['prod_image'] ?>" data-name="<?= $productName ?>" data-price="<?= $cartItem['prod_currprice'] ?>" data-unittype="<?= $cartItem['unit_type'] ?>" data-amount="<?= $itemAmount ?>" data-stock="<?= $currentStock ?>" data-inputqty="<?= $cartItem['qty'] ?>" data-itemvat="<?= $vatPerItem ?>" style="width: 30px; height: 30px;">
+                    <button class="btn btn-danger btn-sm d-flex align-items-center ms-2 btnDeleteCartItem" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-trash3-fill"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
                 <?php
                 }
             } else {
@@ -95,3 +139,6 @@ if (isset($_SESSION['acc_id'])) {
         }
     }
 }
+
+
+

@@ -128,6 +128,20 @@ class global_class extends db_connect
         }
     }
 
+    public function getCartItemsPhotos($userId,$prod_id)
+    {
+        $query = $this->conn->prepare("SELECT np.id, np.PHOTOS_PROD_ID, np.PROD_PHOTOS, p.* 
+        FROM `productphotos` AS np
+        JOIN `product` AS p ON np.PHOTOS_PROD_ID = p.prod_id
+        LEFT JOIN `new_cart` AS nc ON nc.prod_id = p.prod_id
+        LEFT JOIN `account` AS acc ON acc.acc_id = nc.user_id
+        WHERE nc.user_id = '$userId' && np.PHOTOS_PROD_ID='$prod_id'");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
     public function getCartQty($cartId)
     {
         $query = $this->conn->prepare("SELECT * FROM `new_cart` WHERE `cart_id` = '$cartId'");
