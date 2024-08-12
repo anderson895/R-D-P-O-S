@@ -1,4 +1,4 @@
-<div class="offcanvas offcanvas-start" tabindex="-1" id="cart" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cart" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h2 class="offcanvas-title fw-bolder" id="offcanvasExampleLabel">Cart</h2>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -42,8 +42,8 @@
     </div>
 
   </div>
-  <div class="border-top p-2" style="position: absolute; bottom: 0; z-index: 100; height: 200px; width: 100%; background-color: white">
-        <div class="row mt-3">
+  <div class="border-top p-4" style="position: absolute; bottom: 0; z-index: 100; height: 200px; width: 100%; background-color: white">
+        <div class="row ">
             <div class="col-6">
                 <h4 class="m-0 p-0">Total</h4>
             </div>

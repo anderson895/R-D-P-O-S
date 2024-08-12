@@ -30,4 +30,8 @@
     border: none;
 }
 
-
+.btn_nav:focus,
+    .btn_nav:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }

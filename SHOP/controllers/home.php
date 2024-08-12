@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP</title>
+    <?php include('links.php')?>
+    <style>
+        .container-swiper-fyke-wrapper {
+            position: relative; /* Ensure the positioning of navigation buttons is relative to this container */
+        }
+
+        .container-swiper-fyke {
+            display: flex;
+            overflow-x: hidden;
+            white-space: nowrap;
+            padding: 10px 40px; /* Add padding to accommodate for the buttons */
+            align-items: center; /* Align children (buttons) vertically center */
+        }
+
+        .container-swiper-fyke .btn-swiper {
+            display: inline-block;
+            margin-right: 10px;
+            flex: 0 0 auto;
+        }
+
+        .btn-control-left, .btn-control-right {
+            position: absolute;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            z-index: 10;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50%; /* Center the buttons vertically */
+            transform: translateY(-50%); /* Adjust for perfect vertical alignment */
+        }
+
+        .btn-control-left {
+            left: 0; /* Position to the left with some spacing from the container edge */
+        }
+
+        .btn-control-right {
+            right: 0; /* Position to the right with some spacing from the container edge */
+        }
+
+    </style>
+</head>
+<body>
+    <?php include('navigation.php')?>
+    <?php include('categories.php')?>
+    </div>
+    <div class="container">
+        <div>
+            <img class="border rounded-3" style="height: 100%; width: 100%;" src="assets/img/rdpos_banner.png" alt="">
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-between">
+            <h5>Top Products</h5>
+            <a href="">Show all</a>
+        </div>
+        <div class="row g-2">
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-2">
+                <div class="border">
+                    <h6>Product</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php include('script.php')?>
+</body>
+</html>

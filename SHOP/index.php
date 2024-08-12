@@ -1,128 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOP</title>
-    <?php include('links.php')?>
-    <style>
-        .container-swiper-fyke-wrapper {
-            position: relative; /* Ensure the positioning of navigation buttons is relative to this container */
-        }
+<?php 
+// Define routes
+$routes = [
+    'login' => 'login',
+    'home' => 'home',
+    'about' => 'about',
+    'contact' => 'contact'
+];
 
-        .container-swiper-fyke {
-            display: flex;
-            overflow-x: hidden;
-            white-space: nowrap;
-            padding: 10px 40px; /* Add padding to accommodate for the buttons */
-            align-items: center; /* Align children (buttons) vertically center */
-        }
+// Get the requested URI
+$requestUri = trim($_SERVER['REQUEST_URI'], '/');
+$parsedUrl = parse_url($requestUri, PHP_URL_PATH);
+$pathSegments = explode('/', trim($parsedUrl, '/'));
+$requestUri = end($pathSegments);
 
-        .container-swiper-fyke .btn-swiper {
-            display: inline-block;
-            margin-right: 10px;
-            flex: 0 0 auto;
-        }
+// echo''. $requestUri .'';
+// Remove query string from the URI
+if ($pos = strpos($requestUri, '?')) {
+    $requestUri = substr($requestUri, 0, $pos);
+}
 
-        .btn-control-left, .btn-control-right {
-            position: absolute;
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            z-index: 10;
-            border-radius: 100%;
-            width: 30px;
-            height: 30px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 50%; /* Center the buttons vertically */
-            transform: translateY(-50%); /* Adjust for perfect vertical alignment */
-        }
+// Check if the route exists
+if (array_key_exists($requestUri, $routes)) {
+    $controller = $routes[$requestUri];
+} else {
+    $controller = '404';
+}
 
-        .btn-control-left {
-            left: 0; /* Position to the left with some spacing from the container edge */
-        }
+// Include the corresponding controller
+switch ($controller) {
+    case 'login':
+        include ('controllers/login.php');
+        break;
+    case 'home':
+        include 'controllers/home.php';
+        break;
+    case 'about':
+        include 'controllers/about.php';
+        break;
+    case 'contact':
+        include 'controllers/contact.php';
+        break;
+    default:
+        include 'controllers/404.php';
+        break;
+}
 
-        .btn-control-right {
-            right: 0; /* Position to the right with some spacing from the container edge */
-        }
-
-    </style>
-</head>
-<body>
-    <?php include('navigation.php')?>
-    <div class="container">
-        <div class="container-swiper-fyke-wrapper">
-            <button class="btn-control-left btn border"><</button>
-            <div class="container-swiper-fyke">
-                <button class="btn btn-swiper rounded-5 border">Accessories</button>
-                <button class="btn btn-swiper rounded-5 border">Food</button>
-                <button class="btn btn-swiper rounded-5 border">Clothes</button>
-                <button class="btn btn-swiper rounded-5 border">Toys</button>
-                <button class="btn btn-swiper rounded-5 border">Beds & Furniture</button>
-                <button class="btn btn-swiper rounded-5 border">Grooming</button>
-                <button class="btn btn-swiper rounded-5 border">Health & Wellness</button>
-                <button class="btn btn-swiper rounded-5 border">Training</button>
-                <button class="btn btn-swiper rounded-5 border">Travel & Carriers</button>
-                <button class="btn btn-swiper rounded-5 border">Leashes & Collars</button>
-                <button class="btn btn-swiper rounded-5 border">Aquarium Supplies</button>
-                <button class="btn btn-swiper rounded-5 border">Small Animal Supplies</button>
-                <button class="btn btn-swiper rounded-5 border">Bird Supplies</button>
-                <button class="btn btn-swiper rounded-5 border">Reptile Supplies</button>
-                <button class="btn btn-swiper rounded-5 border">Pet Doors</button>
-                <button class="btn btn-swiper rounded-5 border">Feeding & Watering</button>
-                <button class="btn btn-swiper rounded-5 border">Cleaning & Odor Control</button>
-                <button class="btn btn-swiper rounded-5 border">Pet Supplements</button>
-                <button class="btn btn-swiper rounded-5 border">Outdoor Gear</button>
-                <button class="btn btn-swiper rounded-5 border">Gifts & Novelties</button>
-            </div>
-            <button class="btn-control-right btn border">></button>
-        </div>
-    </div>
-    <div class="container">
-        <div>
-            <img class="border rounded-5" style="height: 100%; width: 100%;" src="assets/img/rdpos_banner.png" alt="">
-        </div>
-    </div>
-    <div class="container mt-3">
-        <div class="d-flex justify-content-between">
-            <h5>Top Products</h5>
-            <a href="">Show all</a>
-        </div>
-        <div class="row g-2">
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
-                </div>
-            </div>
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php include('script.php')?>
-</body>
-</html>
+?>

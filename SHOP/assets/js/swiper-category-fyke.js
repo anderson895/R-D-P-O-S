@@ -5,18 +5,40 @@ $(document).ready(function() {
     var startX;
     var scrollStartX;
 
+    // Function to update button visibility
+    function updateButtonVisibility() {
+        var scrollLeft = container.scrollLeft();
+        var scrollWidth = container[0].scrollWidth;
+        var clientWidth = container[0].clientWidth;
+
+        if (scrollLeft <= 0) {
+            $('.btn-control-left').hide();
+        } else {
+            $('.btn-control-left').show();
+        }
+
+        if (scrollLeft + clientWidth >= scrollWidth) {
+            $('.btn-control-right').hide();
+        } else {
+            $('.btn-control-right').show();
+        }
+    }
+
+    // Initial check
+    updateButtonVisibility();
+
     // Scroll left
     $('.btn-control-left').on('click', function() {
         container.animate({
             scrollLeft: container.scrollLeft() - scrollAmount
-        }, 300); // 300ms animation duration
+        }, 300, updateButtonVisibility); // 300ms animation duration
     });
 
     // Scroll right
     $('.btn-control-right').on('click', function() {
         container.animate({
             scrollLeft: container.scrollLeft() + scrollAmount
-        }, 300); // 300ms animation duration
+        }, 300, updateButtonVisibility); // 300ms animation duration
     });
 
     // Touch start
@@ -39,11 +61,14 @@ $(document).ready(function() {
         if (distance > 50) {
             container.animate({
                 scrollLeft: container.scrollLeft() + scrollAmount
-            }, 300); // 300ms animation duration
+            }, 300, updateButtonVisibility); // 300ms animation duration
         } else if (distance < -50) {
             container.animate({
                 scrollLeft: container.scrollLeft() - scrollAmount
-            }, 300); // 300ms animation duration
+            }, 300, updateButtonVisibility); // 300ms animation duration
         }
     });
+
+    // Update button visibility on scroll
+    container.on('scroll', updateButtonVisibility);
 });
