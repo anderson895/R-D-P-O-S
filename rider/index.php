@@ -22,10 +22,10 @@ if (isset($_GET['page'])) {
         <div class="overflow-auto">
             <ul class="nav nav-tabs flex-nowrap">
                 <li class="nav-item">
-                    <a class="nav-link <?= ($page == 'Ready For Delivery') ? 'active' : '' ?>" href="index.php?page=Ready For Delivery"><i class="bi bi-box-fill"></i> Ready To Pick Up</a>
+                    <a class="nav-link <?= ($page == 'Ready For Delivery') ? 'active' : '' ?>" href="index.php?page=Ready For Delivery"><i class="bi bi-box-fill"></i> For Pick up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= ($page == 'Shipped') ? 'active' : '' ?>" href="index.php?page=Shipped"><i class="bi bi-truck"></i> Shipped</a>
+                    <a class="nav-link <?= ($page == 'Shipped') ? 'active' : '' ?>" href="index.php?page=Shipped"><i class="bi bi-truck"></i> In-transit</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?= ($page == 'Delivered') ? 'active' : '' ?>" href="index.php?page=Delivered"><i class="bi bi-check-square"></i> Delivered</a>
