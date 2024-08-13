@@ -29,19 +29,19 @@ if (array_key_exists($requestUri, $routes)) {
 // Include the corresponding controller
 switch ($controller) {
     case 'login':
-        include ('controllers/login.php');
+        include ('login.php');
         break;
     case 'home':
-        include 'controllers/home.php';
+        include 'home.php';
         break;
     case 'about':
-        include 'controllers/about.php';
+        include 'about.php';
         break;
     case 'contact':
-        include 'controllers/contact.php';
+        include 'contact.php';
         break;
     default:
-        include 'controllers/404.php';
+        include '404.php';
         break;
 }
 
