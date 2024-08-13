@@ -21,7 +21,7 @@
         <div class="row" style="height: 100vh; padding-top: 100px">
                 <div class="col-12 col-md-4">
                         <div class="border p-5 rounded-4 shadow">
-                            <h1 class="fw-bold">Login</h1>
+                            <h1 class="fw-bold">Register</h1>
                             <div class="form-floating mb-3">
                                 <input id="username" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
                                 <label for="floatingInput">Username</label>
