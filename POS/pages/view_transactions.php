@@ -68,8 +68,6 @@ if ($result->num_rows > 0) {
     echo "No results found.";
 }
 
-
-
     // Execute the SQL query
     $sql = "
     SELECT
@@ -244,9 +242,9 @@ if ($result->num_rows > 0) {
                     $stmt->close();
 
                     if ($button_status == 0) {
-                        echo '<button class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>';
+                        echo '<button class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return and Replace</button>';
                     } elseif ($button_status == 1) {
-                        echo '<button disabled class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>';
+                        echo '<button disabled class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return and Replace</button>';
                     } else {
                         echo '<button>Error</button>';
                     }
@@ -277,7 +275,7 @@ if ($result->num_rows > 0) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Select Product to Return</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Select Product to Replace</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -305,7 +303,7 @@ if ($result->num_rows > 0) {
         <div class="row g-2">
             <div class="col-12 col-md-6">
                 <label for="reason">Reason</label>
-                <select class="form-select mb-3" aria-label="Default select example" id="reason">
+                <select class="form-select " aria-label="Default select example" id="reason">
                     <option  value="" selected>Select reason</option>
                     <option value="Expired">Expired</option>
                     <option value="Defective">Defective</option>
@@ -313,22 +311,19 @@ if ($result->num_rows > 0) {
                 </select>
 
 
-                <label for="returnType">Return type</label>
-                <select class="form-select mb-3" aria-label="Default select example" id="returnType">
-                    <option  value="" selected>Select Type Request</option>
-                    <option value="Replace">Replace</option>
+                
+                <select class="d-none form-select " aria-label="Default select example" id="returnType">
+                    <option selected value="Replace">Replace</option>
                     <!-- You can add more options here if needed -->
                 </select>
             </div>
             <div class="col-12 col-md-6">
                 <label for="customer">Customer Name</label>
-                <input type="text" id="rcustomer" class="form-control mb-3" placeholder="Enter Customer Name">
-
-
-                <label for="returnType">Upload Verification</label>
-                <div class="mb-3">
-                    <input class="form-control" type="file" id="rupload">
-                </div>
+                <input type="text" id="rcustomer" class="form-control" placeholder="Enter Customer Name">
+            </div>
+            <label for="returnType">Upload Verification</label>
+            <div class="mb-3">
+                <input class="form-control" type="file" id="rupload">
             </div>
         </div>
 
