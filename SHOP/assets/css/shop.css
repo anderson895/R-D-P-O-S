@@ -1,3 +1,4 @@
+
 .image-container {
     position: relative;
     display: inline-block;
@@ -31,7 +32,9 @@
 }
 
 .btn_nav:focus,
-    .btn_nav:active {
-        outline: none !important;
-        box-shadow: none !important;
-    }
+.btn_nav:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+

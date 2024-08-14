@@ -2,6 +2,7 @@
 // Define routes
 $routes = [
     'login' => 'login',
+    'logout' => 'logout',
     'register' => 'register',
     'home' => 'home',
     'about' => 'about',
@@ -32,6 +33,9 @@ if (array_key_exists($requestUri, $routes)) {
 switch ($controller) {
     case 'login':
         include ('login.php');
+        break;
+    case 'logout':
+        include ('server/logout.php');
         break;
     case 'register':
         include ('register.php');

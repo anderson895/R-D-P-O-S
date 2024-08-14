@@ -34,6 +34,11 @@
                             <a href="" style="text-decoration: none; color: black">Forget Password ?</a>
                             </div>
                             <button id="login" class="mt-3 btn btn-danger btn-lg w-100">Submit</button>
+                            <button disabled style="display: none;" id="login-loading" class="btn btn-lg mt-3 btn-danger w-100">
+                                <div class="spinner-grow spinner-grow-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </button>
                             <p class="mt-3">Don’t have an account? <a class="fw-bolder" style="text-decoration: none;" href="">Register</a></p>
                         </div>
                 </div>

@@ -1,3 +1,4 @@
+<?php include('session.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,54 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOP</title>
     <?php include('links.php')?>
-    <style>
-        .container-swiper-fyke-wrapper {
-            position: relative; /* Ensure the positioning of navigation buttons is relative to this container */
-        }
-
-        .container-swiper-fyke {
-            display: flex;
-            overflow-x: hidden;
-            white-space: nowrap;
-            padding: 10px 40px; /* Add padding to accommodate for the buttons */
-            align-items: center; /* Align children (buttons) vertically center */
-        }
-
-        .container-swiper-fyke .btn-swiper {
-            display: inline-block;
-            margin-right: 10px;
-            flex: 0 0 auto;
-        }
-
-        .btn-control-left, .btn-control-right {
-            position: absolute;
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            z-index: 10;
-            border-radius: 100%;
-            width: 30px;
-            height: 30px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 50%; /* Center the buttons vertically */
-            transform: translateY(-50%); /* Adjust for perfect vertical alignment */
-        }
-
-        .btn-control-left {
-            left: 0; /* Position to the left with some spacing from the container edge */
-        }
-
-        .btn-control-right {
-            right: 0; /* Position to the right with some spacing from the container edge */
-        }
-
-    </style>
 </head>
-<body>
+<body style="background-color: #f5f5f5;">
     <?php include('navigation.php')?>
-    <?php include('categories.php')?>
     </div>
     <div class="container">
         <div>
@@ -65,34 +21,70 @@
             <a href="">Show all</a>
         </div>
         <div class="row g-2">
-            <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
+        <div class="col-6 col-md-2">
+                <div class="border rounded-3" style="background-color: white">
+                    <div style="width: 100%; height: 200px;">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="../upload_prodImg/65d6f3eaeb499.png" alt="">
+                    </div>
+                    <div class="p-2">
+                        <h6 style="font-size: 12px;" class="p-0 m-0">Product</h6>
+                        <p style="font-size: 12px;" class="p-0 m-0">Stock</p>
+                    </div>
                 </div>
             </div>
             <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
+                <div class="border rounded-3" style="background-color: white">
+                    <div style="width: 100%; height: 200px;">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="../upload_prodImg/65d6f3eaeb499.png" alt="">
+                    </div>
+                    <div class="p-2">
+                        <h6 style="font-size: 12px;" class="p-0 m-0">Product</h6>
+                        <p style="font-size: 12px;" class="p-0 m-0">Stock</p>
+                    </div>
                 </div>
             </div>
             <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
+                <div class="border rounded-3" style="background-color: white">
+                    <div style="width: 100%; height: 200px;">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="../upload_prodImg/65d6f3eaeb499.png" alt="">
+                    </div>
+                    <div class="p-2">
+                        <h6 style="font-size: 12px;" class="p-0 m-0">Product</h6>
+                        <p style="font-size: 12px;" class="p-0 m-0">Stock</p>
+                    </div>
                 </div>
             </div>
             <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
+                <div class="border rounded-3" style="background-color: white">
+                    <div style="width: 100%; height: 200px;">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="../upload_prodImg/65d6f3eaeb499.png" alt="">
+                    </div>
+                    <div class="p-2">
+                        <h6 style="font-size: 12px;" class="p-0 m-0">Product</h6>
+                        <p style="font-size: 12px;" class="p-0 m-0">Stock</p>
+                    </div>
                 </div>
             </div>
             <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
+                <div class="border rounded-3" style="background-color: white">
+                    <div style="width: 100%; height: 200px;">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="../upload_prodImg/65d6f3eaeb499.png" alt="">
+                    </div>
+                    <div class="p-2">
+                        <h6 style="font-size: 12px;" class="p-0 m-0">Product</h6>
+                        <p style="font-size: 12px;" class="p-0 m-0">Stock</p>
+                    </div>
                 </div>
             </div>
             <div class="col-6 col-md-2">
-                <div class="border">
-                    <h6>Product</h6>
+                <div class="border rounded-3" style="background-color: white">
+                    <div style="width: 100%; height: 200px;">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="../upload_prodImg/65d6f3eaeb499.png" alt="">
+                    </div>
+                    <div class="p-2">
+                        <h6 style="font-size: 12px;" class="p-0 m-0">Product</h6>
+                        <p style="font-size: 12px;" class="p-0 m-0">Stock</p>
+                    </div>
                 </div>
             </div>
         </div>

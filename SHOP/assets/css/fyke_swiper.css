@@ -1,33 +1,41 @@
+.container-swiper-fyke-wrapper {
+    position: relative; /* Ensure the positioning of navigation buttons is relative to this container */
+}
+
 .container-swiper-fyke {
-    display: flex; /* Arrange children (buttons) in a horizontal line */
-    overflow-x: hidden; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent buttons from wrapping to the next line */
-    padding: 10px; /* Optional: add some padding for better spacing */
-    position: relative; /* Ensure positioning of navigation buttons is relative to this container */
+    display: flex;
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 10px 40px; /* Add padding to accommodate for the buttons */
+    align-items: center; /* Align children (buttons) vertically center */
 }
 
 .container-swiper-fyke .btn-swiper {
-    display: inline-block; /* Ensure buttons are displayed inline */
-    margin-right: 10px; /* Space between buttons */
-    flex: 0 0 auto; /* Prevent buttons from shrinking and growing */
+    display: inline-block;
+    margin-right: 10px;
+    flex: 0 0 auto;
 }
 
 .btn-control-left, .btn-control-right {
-    position: fixed;
-    background: #f0f0f0; /* Light background for visibility, adjust as needed */
-    border: 1px solid #ccc; /* Border for better visibility */
-    padding: 10px; /* Adjust padding for the button size */
-    z-index: 10; /* Ensure buttons are above other content */
+    position: absolute;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    z-index: 10;
     border-radius: 100%;
     width: 30px;
     height: 30px;
-    padding: 0px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%; /* Center the buttons vertically */
+    transform: translateY(-50%); /* Adjust for perfect vertical alignment */
 }
 
 .btn-control-left {
-    left: 15%; /* Position to the left with some spacing from the container edge */
+    left: 0; /* Position to the left with some spacing from the container edge */
 }
 
 .btn-control-right {
-    right: 15%; /* Position to the right with some spacing from the container edge */
+    right: 0; /* Position to the right with some spacing from the container edge */
 }

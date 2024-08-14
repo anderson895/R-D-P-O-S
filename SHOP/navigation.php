@@ -1,5 +1,5 @@
-<div class="p-3">
-    <div class="container align-items-center d-flex flex-row justify-content-between">
+<div style="background-color: white;" class="p-3 mb-3">
+    <div  class="container align-items-center d-flex flex-row justify-content-between">
         <div>
             <h5 class="fw-bolder">RDPOS</h5>
         </div>
@@ -14,7 +14,7 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item" href="#">Profile</a></li>
                     <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="../SHOP/logout">Logout</a></li>
                 </ul>
             </div>
             <div>
