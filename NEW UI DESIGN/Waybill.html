@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+        .document-container {
+            width: 18cm;
+            height: 14cm;
+            border: 2px solid maroon;
+            padding: 15px;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: maroon;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .header img {
+            max-height: 50px;
+        }
+        .content {
+            font-size: 14px;
+        }
+        .table {
+            font-size: 12px;
+        }
+        .print-button {
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: maroon;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .print-button:hover {
+            background-color: #b22222;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <div class="header">
+            <img src="logos.png" alt="" class="img-fluid">
+        </div>
+        <div class="content">
+            <div class="row mt-2">
+                <div class="col-md-12 text-center">
+                    <p><strong>Date:</strong> August 13, 2024</p>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <h6>Rider Information</h6>
+                    <p><strong>Name:</strong> Zyrine A. Alcarez</p>
+                    <p><strong>Address:</strong> Saffron hills, Balubaran St. Duhat, Bocaue, Bulacan</p>
+                    <p><strong>Contact:</strong> 09614229001</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>Receiver Information</h6>
+                    <p><strong>Name:</strong> Zyrine A. Alcarez</p>
+                    <p><strong>Address:</strong> Saffron hills, Balubaran St. Duhat, Bocaue, Bulacan</p>
+                    <p><strong>Contact:</strong> 09614229001</p>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <h6>Shipment Details</h6>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Weight (kg)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Cat Litter</td>
+                                <td>1</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <h6>Payment Information</h6>
+                    <p><strong>Payment Method:</strong> Cash on Delivery (COD)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">Ready to Print</button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
