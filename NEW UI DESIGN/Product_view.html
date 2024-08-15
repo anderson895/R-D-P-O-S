@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .header {
+            background-color: maroon;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .product-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumb-img.active {
+            border-color: maroon;
+        }
+
+        .price {
+            color: maroon;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .btn-maroon {
+            background-color: maroon;
+            color: white;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .btn-maroon:hover {
+            background-color: darkred;
+        }
+
+        .btn-buy-now {
+            background-color: #ff0000;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .btn-buy-now:hover {
+            background-color: darkred;
+        }
+
+        .price-tag {
+            background-color: maroon;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="logos.png" alt="RDPOS" class="img-fluid" style="max-width: 100px;">
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 text-center">
+                <img id="mainImage" src="no-image.png" alt="Product Image" class="product-image mb-4">
+
+                <div class="d-flex justify-content-center">
+                    <img src="no-image1.png" class="thumb-img me-2 active" onclick="changeImage('no-image1.png')" alt="Product Thumbnail 1">
+                    <img src="no-image2.png" class="thumb-img me-2" onclick="changeImage('no-image2.png')" alt="Product Thumbnail 2">
+                    <img src="no-image3.png" class="thumb-img" onclick="changeImage('no-image3.png')" alt="Product Thumbnail 3">
+                </div>
+
+                <div class="price-tag mt-3">
+                    <p class="mb-0">₱10,000</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h1 class="h4">Product Name</h1>
+                <p class="price">₱10,000</p>
+                <p class="stock">Available Stock: 25</p>
+
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-maroon">Add to Cart</button>
+                    <button class="btn btn-buy-now">Buy Now</button>
+                </div>
+
+                <div class="mt-4">
+                    <h5>Product Description</h5>
+                    <p>
+                        basta dito yung Description ng product ikaw na mag isip :D hehe
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+
+            let thumbnails = document.querySelectorAll('.thumb-img');
+            thumbnails.forEach(function(thumbnail) {
+                thumbnail.classList.remove('active');
+            });
+
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
