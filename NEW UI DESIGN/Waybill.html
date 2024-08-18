@@ -18,8 +18,8 @@
         .document-container {
             width: 18cm;
             height: 14cm;
-            border: 2px solid maroon;
-            padding: 15px;
+            border: 3px solid maroon;
+            padding: 10px;
             background-color: white;
             box-sizing: border-box;
         }
@@ -49,6 +49,14 @@
         .print-button:hover {
             background-color: #b22222;
         }
+        .barcode-container {
+            text-align: center;
+        }
+        .barcode-container img {
+            width: 300px;
+            height: 50px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
@@ -57,8 +65,8 @@
             <img src="logos.png" alt="" class="img-fluid">
         </div>
         <div class="content">
-            <div class="row mt-2">
-                <div class="col-md-12 text-center">
+            <div class="row mt-2 text-center">
+                <div class="col-md-12">
                     <p><strong>Date:</strong> August 13, 2024</p>
                 </div>
             </div>
@@ -66,7 +74,6 @@
                 <div class="col-md-6">
                     <h6>Rider Information</h6>
                     <p><strong>Name:</strong> Zyrine A. Alcarez</p>
-                    <p><strong>Address:</strong> Saffron hills, Balubaran St. Duhat, Bocaue, Bulacan</p>
                     <p><strong>Contact:</strong> 09614229001</p>
                 </div>
                 <div class="col-md-6">
@@ -100,16 +107,16 @@
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <h6>Payment Information</h6>
                     <p><strong>Payment Method:</strong> Cash on Delivery (COD)</p>
+                </div>
+                <div class="col-md-6 barcode-container">
+                    <img src="barcode_sample.png" alt="Sample Barcode">
                 </div>
             </div>
         </div>
     </div>
-
-    <button class="print-button" onclick="window.print()">Ready to Print</button>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
