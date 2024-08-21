@@ -154,12 +154,17 @@ $(document).ready(function () {
 $(document).on("click", ".btnViewProduct", function (e) {
   e.preventDefault();
 
+ 
+  
+
   
   const $this = $(this);
   const productID = $this.data("id");
 
   $('#rate_prod_id').val(productID)
 
+
+  
   // Construct product name
   const productName = [
     $this.data("name"),
@@ -186,32 +191,60 @@ $(document).on("click", ".btnViewProduct", function (e) {
   $("#viewProductPrice").text(`PHP ${$this.data("price")}`);
   $("#btnViewProdAddToCart").data("prodid", productID);
 
-  // Fetch product photos
+
+
+
+
+  //start Fetch product photos
   $.ajax({
     url: 'backend/end-points/fetchProductPhotos.php',
     type: 'POST',
     dataType: 'json',
     data: { productID: productID },
     success: function (photos) {
-      // Clear the photo container
+ 
       $('#productPhotos-modal-sm-img-container').empty();
 
-      // Add each photo to the container
       photos.forEach(photo => {
         $('#productPhotos-modal-sm-img-container').append(`
           <img src="../product_photos/${photo}" class="product-photo-sm" />
         `);
       });
 
-      // Set the first photo as the main product image
+
       if (photos.length > 0) {
         $("#viewProductPicture").attr("src", `../product_photos/${photos[0]}`);
       }
+
+
+        // Serialize photos array into a comma-separated string
+    const photosString = encodeURIComponent(photos.join(','));
+
+    // Get the stock value
+    let stock = $this.data('stock');
+    stock = isNaN(parseInt(stock, 10)) ? 0 : parseInt(stock, 10);
+
+    // Prepare data for the URL
+    const queryParams = $.param({
+      id: $this.data('id'),
+      productName: productName,
+      stock: stock,
+      image: $this.data('image'),
+      description: $this.data('description'),
+      price: $this.data('price'),
+      photos: photosString
+    });
+
+    // Redirect to the product view page with the data in the URL
+    window.location.href = 'Product_view.php?' + queryParams;
+
+      
     },
     error: function (xhr, status, error) {
       console.error('AJAX Error:', status, error);
     }
   });
+  //end Fetch product photos
 
   $("#viewProductModal").modal("show");
 
