@@ -99,6 +99,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <div class="scrollable-div">
                 <div id="reviews-container" style="display:none; "></div>
                 <script>
+                    
 $(document).ready(function() {
     // Fetch product ID from the hidden input or any other element
     var rate_prod_id = $("#product_id").val();

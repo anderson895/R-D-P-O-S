@@ -884,21 +884,21 @@ $(document).on("click", ".btnViewProduct", function (e) {
 
 
 
-
-
   $(".rateToggler").click(function (e) { 
     e.preventDefault();
-    var prod_id=$(this).attr("data-prod_id");
-    var prod_name=$(this).attr("data-prod_name");
+
+    $('#rateTsModal').show();
+    $('.modal-backdrop').hide();  // Hide the backdrop
+
+    var prod_id = $(this).attr("data-prod_id");
+    var prod_name = $(this).attr("data-prod_name");
 
     $('#ts-frm-Id').val(prod_id);
     $('#tsReviewName').text(prod_name);
 
-    console.log(prod_name)
+    console.log(prod_name);
+});
 
-    
-    
-  });
 
 
 
@@ -926,9 +926,10 @@ $("#tsFrmRate").submit(function (e) {
   var id = $("#ts-frm-Id").val();
   var star = $("#tsfrmStar").val();
   var review = $("#tsFrmModalReview").val();
-
-  var tsReviewName=$(".tsReviewName").text();
+  var tsReviewName = $(".tsReviewName").text();
   
+  // Show loading message
+  alertify.message('Processing...', 0); // 0 means indefinite
 
   $.ajax({
     type: "POST",
@@ -939,22 +940,26 @@ $("#tsFrmRate").submit(function (e) {
       star: star,
       review: review,
       tsReviewName: tsReviewName,
-
     },
     success: function (response) {
-      closeModal();
+      alertify.dismissAll(); // Dismiss the loading message
       console.log(response);
       if (response == "200") {
-        showAlert("alert-success", "Thanks for rating!");
+        alertify.success('Thanks for rating!');
         setTimeout(() => {
           window.location.reload();
         }, 1000);
       } else {
-        showAlert("alert-danger", "Failed to rate");
+        alertify.error('Failed to rate');
       }
     },
+    error: function () {
+      alertify.dismissAll(); // Dismiss the loading message on error
+      alertify.error('An error occurred. Please try again.');
+    }
   });
 });
+
 
 
 });
