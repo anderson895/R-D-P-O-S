@@ -564,4 +564,33 @@ class global_class extends db_connect
              return $result;
          }
      }
+
+
+
+     public function getAverageRating($prod_id)
+     {
+         $sql = "SELECT AVG(r_rate) as avg_rating, COUNT(r_rate) as total_ratings FROM rate_reviews WHERE r_prod_id = ?";
+         $stmt = $this->conn->prepare($sql);
+         $stmt->bind_param("s", $prod_id);
+         $stmt->execute();
+         $result = $stmt->get_result();
+ 
+         $response = [];
+         if ($result->num_rows > 0) {
+             $row = $result->fetch_assoc();
+             $response['avg_rating'] = round($row['avg_rating'], 1);
+             $response['total_ratings'] = $row['total_ratings'];
+         } else {
+             $response['avg_rating'] = 0;
+             $response['total_ratings'] = 0;
+         }
+ 
+         $stmt->close();
+         return $response;
+     }
+
+
+
+     
+
 }

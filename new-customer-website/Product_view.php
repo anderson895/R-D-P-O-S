@@ -72,15 +72,16 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <div class="mt-3">
                     <h5>Ratings</h5>
                     <div class="ratings">
-                        <span class="text-warning">★</span>
-                        <span class="text-warning">★</span>
-                        <span class="text-warning">★</span>
-                        <span class="text-warning">★</span>
-                        <span class="text-muted">☆</span>
-                        <span>(4.0)</span>
-                        <span class="text-primary">5 Ratings</span>
+                        <span id="star1" class="text-muted">☆</span>
+                        <span id="star2" class="text-muted">☆</span>
+                        <span id="star3" class="text-muted">☆</span>
+                        <span id="star4" class="text-muted">☆</span>
+                        <span id="star5" class="text-muted">☆</span>
+                        <span id="avg-rating">(0.0)</span>
+                        <span id="total-ratings" class="text-primary">0 Ratings</span>
                     </div>
-                </div>  
+                </div>
+
 
                 <div class="mt-4">
                     <h5>Product Description</h5>
@@ -97,86 +98,108 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
                 <div id="reviews-container" style="display:none; "></div>
-            <script>
-        $(document).ready(function() {
+                <script>
+$(document).ready(function() {
+    // Fetch product ID from the hidden input or any other element
+    var rate_prod_id = $("#product_id").val();
 
-                    var rate_prod_id = $("#product_id").val();
+    console.log(rate_prod_id);
 
-                    console.log(rate_prod_id);
+    // Fetch and display reviews
+    $.ajax({
+        url: 'backend/end-points/fetch_reviews.php',
+        method: 'POST',
+        data: { rate_prod_id: rate_prod_id },
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+            displayReview(data);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching reviews:', status, error);
+        }
+    });
 
-                    $.ajax({
-                        url: 'backend/end-points/fetch_reviews.php',
-                        method: 'POST',
-                        data: { rate_prod_id: rate_prod_id },
-                        success: function (data) {
-                            console.log(data);
-                            // displayReviews(data);
-                            displayReview(data);
-                        },
-                        error: function (xhr, status, error) {
-                            console.error('Error fetching reviews:', status, error);
-                        }
-                    });
-                });
+    // Fetch and display average rating
+    $.ajax({
+        url: 'backend/end-points/get_average_rating.php',
+        type: 'GET',
+        data: { prod_id: rate_prod_id },
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            if (response.error) {
+                console.error(response.error);
+                return;
+            }
 
-                function displayReview(reviews) {
+            var avgRating = response.avg_rating;
+            var totalRatings = response.total_ratings;
 
-                    var reviewsContainer = $('#reviews-container');
-                var scrollableDiv = $('.scrollable-div');
+            // Update the average rating text
+            $('#avg-rating').text('(' + avgRating + ')');
+            $('#total-ratings').text(totalRatings + ' Ratings');
 
-                // Check if reviews array is empty
-                if (reviews.length === 0) {
-                    reviewsContainer.empty(); // Clear any existing content
-                    reviewsContainer.append('<p>No reviews available.</p>'); // Display no review message
-                    reviewsContainer.show(); // Show the container with the message
-                    scrollableDiv.css('border', 'none'); // Remove border from .scrollable-div
-                    return;
+            // Update the star ratings
+            for (var i = 1; i <= 5; i++) {
+                var star = $('#star' + i);
+                if (i <= Math.floor(avgRating)) {
+                    star.removeClass('text-muted').addClass('text-warning').text('★');
+                } else {
+                    star.removeClass('text-warning').addClass('text-muted').text('☆');
                 }
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching average rating:', status, error);
+        }
+    });
+});
 
-                // Clear existing content
-                reviewsContainer.empty();
+// Function to display reviews
+function displayReview(reviews) {
+    var reviewsContainer = $('#reviews-container');
+    var scrollableDiv = $('.scrollable-div');
 
-                // Append new reviews
-                $.each(reviews, function (index, review) {
-                    reviewsContainer.append(`
-                       
+    if (!reviews || reviews.length === 0) {
+        reviewsContainer.empty(); 
+        reviewsContainer.append('<p>No reviews available.</p>'); 
+        reviewsContainer.show();
+        scrollableDiv.css('border', 'none'); 
+        return;
+    }
 
+    // Clear existing content
+    reviewsContainer.empty();
 
-                        <h6>${review.acc_username}</h6>
-                        <div class="ratings">
-                         <p> ${generateStarButtonsNiZy(review.r_rate)}</p>
-                        </div>
-                        <p class="mt-2">${review.r_feedback}</p>
-                        <hr>
-                        
+    // Append new reviews
+    $.each(reviews, function(index, review) {
+        reviewsContainer.append(`
+            <h6>${review.acc_username}</h6>
+            <div class="ratings">
+                <p>${generateStarButtons(review.r_rate)}</p>
+            </div>
+            <p class="mt-2">${review.r_feedback}</p>
+            <hr>
+        `);
+    });
 
+    // Show container and set border
+    reviewsContainer.show();
+    scrollableDiv.css('border', '1px solid #ccc'); // Set border for .scrollable-div
+}
 
-                    `);
-                });
+// Function to generate star ratings
+function generateStarButtons(starCount) {
+    let buttons = '';
+    for (let i = 1; i <= 5; i++) {
+        const activeClass = i <= starCount ? 'text-warning' : 'text-muted';
+        buttons += `<span class="${activeClass}">★</span>`;
+    }
+    return buttons;
+}
+</script>
 
-                    // Show container and set border
-                    reviewsContainer.show();
-                    scrollableDiv.css('border', '1px solid #ccc'); // Set border for .scrollable-div
-                }
-
-
-
-
-                function generateStarButtonsNiZy(starCount){
-
-                    let buttons = '';
-                    for (let i = 1; i <= 5; i++) {
-                        const activeClass = i <= starCount ? 'text-warning' : 'text-muted';
-                       // buttons += `<button style="width:20px;" type="button" class="btn ${activeClass} " data-id="${i}"><i class="bi bi-star"></i></button>
-                        buttons += `<span class="${activeClass} ">★</span>
-                       
-                        
-                        `;
-                    }
-                    return buttons;
-                }
-
-            </script>
                 <!-- Add more reviews as needed -->
                 </div>
             </div>
