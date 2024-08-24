@@ -153,6 +153,12 @@ if ($product_row) {
 
 
 
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+
+
 
 
     <script>
@@ -180,8 +186,13 @@ $(document).ready(function() {
         setInterval(updateCountdown, 1000);
     
 
+        
+
     $("#resendLink").click(function(e) {
         e.preventDefault(); // Prevent the default form submission
+
+
+        console.log('clicked')
 
         var formData = {
             db_acc_id: $("input[name='accid']").val(),
@@ -210,7 +221,7 @@ $(document).ready(function() {
                             url: "../mailer.php",
                             data: formData,
                             beforeSend: function() {
-                                $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only">Loading...</span></div>').show();
+                                $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
                             },
                             success: function(response) {   
                                 // Display success message
@@ -344,11 +355,6 @@ if (countdown > 0) {
 
 
   
-
-
-
-
-
 
 
 
