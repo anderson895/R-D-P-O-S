@@ -54,6 +54,13 @@ if ($getAddress->num_rows > 0) {
 }
 
 ?>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+
 <div class="d-flex justify-content-between">
     <a href="orders.php?page=<?= $order['status'] ?>" class="btn" style="font-size: 20px;"><i
             class="bi bi-arrow-return-left"></i> Back</a>
@@ -86,6 +93,8 @@ if ($getAddress->num_rows > 0) {
         <?php
     }
     ?>
+
+<div class="table-responsive">
     <table class="table">
             <thead>
             <tr>
@@ -254,6 +263,8 @@ if ($getAddress->num_rows > 0) {
             ?>
         </tbody>
     </table>
+</div>
+
 </div>
 
 
