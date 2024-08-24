@@ -87,6 +87,8 @@ $(document).ready(function () {
         category: category,
       },
       success: function (response) {
+
+        
         $("#allProductsContainer").html(response);
       },
     });
