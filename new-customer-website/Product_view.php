@@ -93,7 +93,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
     </div>
 
      <!-- Start reviews -->
-     <div class="container mt-1 mb-4">
+     <div class="container mt-3">
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
                 <div id="reviews-container" style="display:none; "></div>
@@ -110,7 +110,8 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                         data: { rate_prod_id: rate_prod_id },
                         success: function (data) {
                             console.log(data);
-                            displayReviews(data);
+                            // displayReviews(data);
+                            displayReview(data);
                         },
                         error: function (xhr, status, error) {
                             console.error('Error fetching reviews:', status, error);
@@ -118,8 +119,9 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                     });
                 });
 
-                function displayReviews(reviews) {
-                var reviewsContainer = $('#reviews-container');
+                function displayReview(reviews) {
+
+                    var reviewsContainer = $('#reviews-container');
                 var scrollableDiv = $('.scrollable-div');
 
                 // Check if reviews array is empty
@@ -137,13 +139,17 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 // Append new reviews
                 $.each(reviews, function (index, review) {
                     reviewsContainer.append(`
-                        <div class="review mt-3">
-                            <h4>${review.acc_username}</h4>
-                            <p>Rate: ${generateStarButtons(review.r_rate)}</p>
-                            <p>Comment: ${review.r_feedback}</p>
-                        </div>
+                       
 
+
+                        <h6>${review.acc_username}</h6>
+                        <div class="ratings">
+                         <p> ${generateStarButtonsNiZy(review.r_rate)}</p>
+                        </div>
+                        <p class="mt-2">${review.r_feedback}</p>
+                        <hr>
                         
+
 
                     `);
                 });
@@ -151,24 +157,25 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                     // Show container and set border
                     reviewsContainer.show();
                     scrollableDiv.css('border', '1px solid #ccc'); // Set border for .scrollable-div
-            }
+                }
 
 
 
 
-                function generateStarButtons(starCount) {
+                function generateStarButtonsNiZy(starCount){
+
                     let buttons = '';
                     for (let i = 1; i <= 5; i++) {
                         const activeClass = i <= starCount ? 'text-warning' : 'text-muted';
                        // buttons += `<button style="width:20px;" type="button" class="btn ${activeClass} " data-id="${i}"><i class="bi bi-star"></i></button>
-                        buttons += `<span class="btn ${activeClass} ">★</span>
+                        buttons += `<span class="${activeClass} ">★</span>
                        
                         
                         `;
                     }
                     return buttons;
-                
-            };
+                }
+
             </script>
                 <!-- Add more reviews as needed -->
                 </div>
