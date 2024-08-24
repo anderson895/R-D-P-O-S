@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: maroon;
+        }
+        .navbar .nav-link {
+            color: #f8f9fa;
+        }
+        .navbar .nav-link.active {
+            color: #ffd700;
+        }
+        .card-header, .btn-primary, .input-group .btn, footer {
+            background-color: #800000;
+            color: #ffffff;
+        }
+        .btn-primary:hover, .input-group .btn:hover {
+            color: #ffd700;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border-color: maroon;
+        }
+        .card-img-top, .carousel-inner {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        footer a {
+            color: #ffd700;
+        }
+        footer a:hover {
+            color: #f8f9fa;
+        }
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container w-75 d-flex justify-content-center">
+            <div class="row w-100">
+                <div class="col-md-6 d-flex align-items-center">
+                    <a class="navbar-brand d-none d-md-block" href="#">
+                        <img src="logos.png" alt="RDPOS Logo">
+                    </a>
+                    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto"></ul>
+                        <small><a href="#" class="text-light ms-3 text-decoration-none">Login</a></small>
+                        <small><a href="#" class="text-light ms-2 text-decoration-none">Sign Up</a></small>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="input-group mt-2">
+                        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#categoriesModal" type="button">
+                            <i class="bi bi-funnel"></i>
+                        </button>
+                        <div class="modal fade" id="categoriesModal" tabindex="-1" aria-labelledby="categoriesModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="categoriesModalLabel">Categories</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <a href="#">All</a>
+                                                <span class="badge bg-primary rounded-pill">28</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <a href="#">Accessories</a>
+                                                <span class="badge bg-primary rounded-pill">8</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <a href="#">Foods</a>
+                                                <span class="badge bg-primary rounded-pill">15</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <a href="#">Medicines</a>
+                                                <span class="badge bg-primary rounded-pill">5</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-2 w-75">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="carouselExampleCaptions" class="carousel slide mt-4">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="chicken.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pig.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="duck.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <div class="row mt-4">
+                    
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img src="no-image.png" class="card-img-top" alt="Bayong Big">
+                            <div class="position-absolute top-0 start-0 m-2">
+                                <span class="badge bg-success">120 Sold</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Bayong Big</h5>
+                                
+                                <div class="ratings">
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-warning">★</span>
+                                    <span class="text-muted">☆</span>
+                                    <span>(4.0)</span>
+                                </div>
+                        
+                                <p class="card-text">₱ 80.00</p>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var carouselElement = document.getElementById('carouselExampleCaptions');
+            var carousel = new bootstrap.Carousel(carouselElement, {
+                interval: 5000,
+                ride: 'carousel'
+            });
+        });
+    </script>    
+
+    <footer class="text-center p-4">
+        <p>© 2024 RDPOS. All Rights Reserved.</p>
+        <a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</body>
+</html>
