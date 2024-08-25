@@ -555,7 +555,12 @@ $(document).on("click", ".btnViewProduct", function (e) {
   });
 
   $("#pofTermsAgree").change(function (e) {
-    if ($("#pofTermsAgree").is(':checked')) {
+
+    var shipping_status = $("#checkOutShipping").text()
+
+    console.log(shipping_status);
+
+    if ($("#pofTermsAgree").is(':checked')&& shipping_status !=="Address out of coverage!") {
       $("#btnPlaceOrder").prop("disabled", false);
     } else {
       $("#btnPlaceOrder").prop("disabled", true);
