@@ -76,6 +76,74 @@
 
         </div>
     </div>
+
+    <div id="viewDailySales" style="display: none; background-color: white;">
+        <div class="mt-3 p-4 border rounded p-2">
+            <div class="d-flex flex-row justify-content-between">
+                <h5 class="fw-bolder">Daily Sales Report</h5>
+                <div>
+                    <button id="backViewDaily" class="btn-sm fw-bolder btn border rounded">Back</button>
+                    <button id="printBtn" class="btn-sm fw-bolder btn border rounded">Print</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p class="p-0 m-0">Store: R De Leon Poultry Supplies</p>
+                    <p class="p-0 m-0">Address: Paso Pulang Buhangin, Bagbaguin</p>
+                    <p class="p-0 m-0">Contact: 09120912091</p>
+                    <p class="p-0 m-0">Email: rdpos@gmail.com</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p id="salesNo" class="p-0 m-0">Sales No.: SL0001</p>
+                    <p id="salesDate" class="p-0 m-0">Date: 12-01-07</p>
+                    <p id="salesSummary" class="p-0 m-0">Sales Summary: 100.00</p>
+                </div>
+            </div>
+            <div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead id="tableHeadDailySales">
+                            <tr style="font-size: 14px;">
+                                <th>Code</th>
+                                <th>Date</th>
+                                <th>Subtotal</th>
+                                <th>Discount</th>
+                                <th>Tax</th>
+                                <th>Sales</th>
+                                <th>Payment</th>
+                                <th>Change</th>
+                            </tr>
+                        </thead>
+                        <tbody id="DailySalesPOS">
+                            <!-- Rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- pagination -->
+            <div class="row pt-2 d-flex align-items-center">
+                <div class="col-12 col-md-4 mb-2 mb-md-0">
+                    <div class="pagination" id="paginationDailySales">
+                        <button id="prevPage" class="btn btn-sm">Previous</button>
+                        <button class="btn" id="pageNumbers"></button>
+                        <button id="nextPage" class="btn btn-sm">Next</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-center mb-2 mb-md-0">
+                    <div id="infoDailySales" class="text-muted"></div>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-end">
+                    <select style="border: none; color: gray; background-color: transparent" id="itemsPerPageDailySales" class="form-select form-select-sm w-auto">
+                        <option disabled selected>Show Items</option>
+                        <option value="15">15 items</option>
+                        <option value="20">20 items</option>
+                        <option value="100">100 items</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Monthly -->
     <div id="store_monthly" style="background-color: white; display: none">
         <div class="mt-3 border rounded p-2">
@@ -149,10 +217,7 @@
     </div>
 </div>
 
-
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal mt-5 fade" id="createReport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
