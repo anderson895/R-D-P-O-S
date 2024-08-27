@@ -175,29 +175,28 @@ function displayReview(reviews) {
 
     // Append new reviews
     $.each(reviews, function(index, review) {
-        reviewsContainer.append(`
-    <div class="review-entry d-flex align-items-start mb-3">
-        <div class="me-3">
-            ${review.emp_image ? 
-                `<img src="../upload_img/${review.emp_image}" alt="${review.acc_username}'s image" class="mt-2 rounded-circle" style="width: 50px; height: 50px;">` : 
-                `<i class="bi bi-person-fill" style="font-size: 50px;"></i>`
-            }
-        </div>
-        <div>
-            <h6>${review.acc_username}</h6>
-            <div class="ratings">
-                <p>${generateStarButtonsss(review.r_rate)}</p>
+    const formattedDate = new Date(review.r_date_added).toLocaleDateString(); // Adjust the date format as needed
+    reviewsContainer.append(`
+        <div class="review-entry d-flex align-items-start mb-3">
+            <div class="me-3">
+                ${review.emp_image ? 
+                    `<img src="../upload_img/${review.emp_image}" alt="${review.acc_username}'s image" class="mt-2 rounded-circle" style="width: 50px; height: 50px;">` : 
+                    `<i class="bi bi-person-fill" style="font-size: 50px;"></i>`
+                }
             </div>
-            <p class="mt-2">${review.r_feedback}</p>
-         
+            <div>
+                <h6>${review.acc_username}</h6>
+                <div class="ratings">
+                    <p>${generateStarButtonsss(review.r_rate)}</p>
+                </div>
+                <p class="mt-2">${review.r_feedback}</p>
+                <p class="text-muted mt-1">Commented on: ${formattedDate}</p> <!-- Displaying the comment date -->
+            </div>
         </div>
-        
-    </div>
-       <hr>
-`);
+        <hr>
+    `);
+});
 
-
-    });
 
     // Show container and set border
     reviewsContainer.show();
