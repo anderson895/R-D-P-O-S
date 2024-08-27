@@ -57,15 +57,15 @@ while ($row = mysqli_fetch_assoc($view_query)) {
         <div class="row">
             <div class="col-md-12">
                 <div id="carouselExampleCaptions" class="carousel slide mt-4">
-                    <div class="carousel-inner">
+                    <div class="carousel-inner" style="height: auto;">
                         <div class="carousel-item active">
-                            <img src="chicken.png" class="d-block w-100" alt="...">
+                            <img src="assets/images/carousel1.png" class="d-block w-100" alt="RDPOS LOGO">
                         </div>
                         <div class="carousel-item">
-                            <img src="pig.png" class="d-block w-100" alt="...">
+                            <img src="assets/images/carousel2.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="duck.png" class="d-block w-100" alt="...">
+                            <img src="assets/images/carousel3.png" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

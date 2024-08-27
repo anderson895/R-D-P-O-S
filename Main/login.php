@@ -58,7 +58,6 @@ $current_date = date('Y-m-d');
                                 <form method="POST">
                                     <div class="login-userheading">
                                         <h3>Sign In</h3>
-                                        <h4>Please login to your account</h4>
                                     </div>
                                     <div class="form-login">
                                         <label>Email</label>
