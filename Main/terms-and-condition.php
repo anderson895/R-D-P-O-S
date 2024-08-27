@@ -28,7 +28,7 @@ include("controller/maintinance.php");
   
   </head>
   <body class="body">
-  <?php include "view/navigation.php"; ?>
+  <?php include "include/header.php"; ?>
 
     <div class="container border">
         <div class="container d-block p-5 ">

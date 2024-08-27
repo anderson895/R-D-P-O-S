@@ -1,25 +1,14 @@
 <?php
 // fetchProductPhotos.php
 
-// Database connection (adjust as needed)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "u533477241_rdpos";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "../../../connection.php";
 
 // Get the product ID from the AJAX request
 $productID = intval($_POST['productID']);
 
 // Fetch product photos from the database
 $sql = "SELECT PROD_PHOTOS FROM productphotos WHERE PHOTOS_PROD_ID = ?";
-$stmt = $conn->prepare($sql);
+$stmt = $connections->prepare($sql);
 $stmt->bind_param("i", $productID);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -32,7 +21,7 @@ while ($row = $result->fetch_assoc()) {
 
 // Close connection
 $stmt->close();
-$conn->close();
+$connections->close();
 
 // Return the photos as JSON
 echo json_encode($photos);

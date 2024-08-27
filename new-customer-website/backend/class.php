@@ -9,6 +9,18 @@ class global_class extends db_connect
         $this->connect();
     }
 
+    public function updateEmpImage($emp_image, $userId)
+    {
+        $query = $this->conn->prepare("UPDATE `account` SET `emp_image` = ? WHERE `acc_id` = ?");
+        $query->bind_param('si', $emp_image, $userId);
+        if ($query->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function checkUser($userId)
     {
         $query = $this->conn->prepare("SELECT * FROM `account` WHERE `acc_id` = '$userId'");
@@ -555,7 +567,7 @@ class global_class extends db_connect
      public function getAllReviewsInAccom($id)
      {
         
-         $query = $this->conn->prepare("SELECT srr.r_rate,srr.r_feedback,t.acc_username 
+         $query = $this->conn->prepare("SELECT srr.r_rate,srr.r_feedback,t.acc_username,t.emp_image
          FROM rate_reviews as srr
          LEFT JOIN account as t
          ON t.acc_id = srr.r_user_id where srr.r_prod_id='$id'");

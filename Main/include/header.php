@@ -11,16 +11,13 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/header.css">
+
+
     <title><?=$db_system_name?></title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
-
-  <style>
- .navbar {
-            background-color: maroon;
-        }
-</style>
 
     
 <nav class="navbar navbar-expand-lg custom-navbar-bg">

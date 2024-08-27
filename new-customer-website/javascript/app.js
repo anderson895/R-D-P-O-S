@@ -720,6 +720,66 @@ $(document).on("click", ".btnViewProduct", function (e) {
     $("#editAddressModal").modal("show");
   });
 
+
+  $("#btnProfileImgModal").click(function (e) {
+    e.preventDefault();
+    $("#editProfileImgModal").modal("show");
+});
+
+
+$('#profileImgFRM').on('submit', function(e) {
+  e.preventDefault(); // Prevent the default form submission
+
+  // Create a FormData object
+  var formData = new FormData();
+
+  // Get the file input element and append the selected file to the FormData object
+  var fileInput = $('#profileAttachementImg')[0].files[0];
+  if (fileInput) {
+      formData.append('profileAttachementImg', fileInput);
+  }
+
+  // Show loading indicator
+  $('#loader').show();
+
+  // Set a delay before sending the AJAX request
+  var delay = 500; // 500ms delay, adjust as needed
+  setTimeout(function() {
+      // Send the AJAX request
+      $.ajax({
+          url: "backend/end-points/update_img.php",
+          type: 'POST',
+          data: formData,
+          contentType: false, // Prevent jQuery from overriding the Content-Type header
+          processData: false, // Prevent jQuery from converting the FormData object to a query string
+          success: function(response) {
+              // Handle success response
+              console.log(response);
+
+              // Show success message
+              alertify.success('Image uploaded successfully.');
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+              // Handle error response
+              console.error(textStatus, errorThrown);
+
+              // Show error message
+              alertify.error('Failed to upload image. Please try again.');
+          },
+          complete: function() {
+              // Always hide the loading indicator
+              $('#loader').hide();
+
+              // Reload the page after the upload is complete
+              location.reload();
+          }
+      });
+  }, delay); // Delay the AJAX request
+});
+
+
+
+
   // Pick address
 
   const getAddressId = (id, addressType, callback) => {

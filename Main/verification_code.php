@@ -120,7 +120,7 @@ if ($product_row) {
 
           <div>
                 <input id="otpExpiration" type="hidden" value="<?= $product_row['otp_expiration'] ?>">
-                <p id="countDownText"></p>
+                <p hidden id="countDownText"></p>
           </div>
 
           <button  id="btnSendOtp" <?php if($db_acc_status == 2) { echo "disabled"; } ?> type="submit" name="btnSendOtp" class="btn btn-primary mb-3 mt-3">

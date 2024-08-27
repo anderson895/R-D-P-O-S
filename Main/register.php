@@ -10,13 +10,8 @@ $current_date = date('Y-m-d');
 
 ?>
 
-
-
-    <style>
-    a {
-        text-decoration: none;
-    }
-</style>
+<link rel="stylesheet" href="view/Signup/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="view/Signup/assets/css/style.css">
 
     <body>
  

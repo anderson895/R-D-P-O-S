@@ -94,10 +94,10 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
     </div>
 
      <!-- Start reviews -->
-     <div class="container mt-3">
+     <div class="container mt-3" >
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
-                <div id="reviews-container" style="display:none; "></div>
+                <div id="reviews-container" style="display:none;"></div>
                 <script>
                     
 $(document).ready(function() {
@@ -176,13 +176,27 @@ function displayReview(reviews) {
     // Append new reviews
     $.each(reviews, function(index, review) {
         reviewsContainer.append(`
+    <div class="review-entry d-flex align-items-start mb-3">
+        <div class="me-3">
+            ${review.emp_image ? 
+                `<img src="../upload_img/${review.emp_image}" alt="${review.acc_username}'s image" class="mt-2 rounded-circle" style="width: 50px; height: 50px;">` : 
+                `<i class="bi bi-person-fill" style="font-size: 50px;"></i>`
+            }
+        </div>
+        <div>
             <h6>${review.acc_username}</h6>
             <div class="ratings">
-                <p>${generateStarButtons(review.r_rate)}</p>
+                <p>${generateStarButtonsss(review.r_rate)}</p>
             </div>
             <p class="mt-2">${review.r_feedback}</p>
-            <hr>
-        `);
+         
+        </div>
+        
+    </div>
+       <hr>
+`);
+
+
     });
 
     // Show container and set border
@@ -191,7 +205,7 @@ function displayReview(reviews) {
 }
 
 // Function to generate star ratings
-function generateStarButtons(starCount) {
+function generateStarButtonsss(starCount) {
     let buttons = '';
     for (let i = 1; i <= 5; i++) {
         const activeClass = i <= starCount ? 'text-warning' : 'text-muted';
