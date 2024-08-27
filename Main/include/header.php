@@ -16,11 +16,11 @@
   </head>
 
 
-  <!-- <style>
-  .custom-navbar-bg {
-    background-color: #600000 !important; /* !important ensures this style takes precedence */
-  }
-</style> -->
+  <style>
+ .navbar {
+            background-color: maroon;
+        }
+</style>
 
     
 <nav class="navbar navbar-expand-lg custom-navbar-bg">

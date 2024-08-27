@@ -82,7 +82,6 @@ while ($row = mysqli_fetch_assoc($view_query)) {
                 
                 <div class="row mt-4">
                     
-
                 <?php
 $current_date = date("Y-m-d");
 $view_category_query = mysqli_query($connections, "SELECT *,
@@ -206,6 +205,8 @@ while ($product_row = mysqli_fetch_assoc($view_category_query)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
        $(document).ready(function() {
+
+
     // Show the first 5 products initially
     $('.initial-product').show(); 
 
@@ -234,6 +235,26 @@ while ($product_row = mysqli_fetch_assoc($view_category_query)) {
         $('.additional-product').show(); // Show the remaining products
         $(this).hide(); // Hide the 'View More Products' button
     });
+
+
+
+    $('#search_product').on('keyup', function() {
+        var searchText = $(this).val().toLowerCase();
+        
+        // Loop through all product cards and hide those that don't match the search query
+        $('.product-card').each(function() {
+            var productName = $(this).find('.card-title').text().toLowerCase();
+            
+            // Check if the product name contains the search text
+            if (productName.indexOf(searchText) !== -1) {
+                $(this).show(); // Show matching product
+            } else {
+                $(this).hide(); // Hide non-matching product
+            }
+        });
+    });
+
+
 });
 
     </script>
