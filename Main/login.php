@@ -18,29 +18,23 @@ $current_date = date('Y-m-d');
 
 <!-- index-431:41-->
 
+<link rel="stylesheet" href="view/Signup/view/assets/css/bootstrap.min.css">
 
-<style>
-    a {
-        text-decoration: none;
-    }
-</style>
+<link rel="stylesheet" href="view/Signup/view/assets/plugins/fontawesome/css/fontawesome.min.css">
+
+<link rel="stylesheet" href="view/Signup/view/assets/css/style.css">
+
 
 <body>
 
     <div class="body-wrapper">
         <?php 
-            // include "view/navigation.php";
             include "include/header.php";
         
         ?>
-        <!----<link rel="stylesheet" href="assets/css/login.css">--->
-        <!-- main div -->
+      
 
-        <link rel="stylesheet" href="view/Signup/view/assets/css/bootstrap.min.css">
-
-        <link rel="stylesheet" href="view/Signup/view/assets/plugins/fontawesome/css/fontawesome.min.css">
-
-        <link rel="stylesheet" href="view/Signup/view/assets/css/style.css">
+       
 
         <div class="main-wrapper" style="background-color:#F7F7F7; ">
 

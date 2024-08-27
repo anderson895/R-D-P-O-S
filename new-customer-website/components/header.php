@@ -53,7 +53,7 @@ if (isset($_SESSION['acc_id'])) {
         </div>
         <div class="">
             <button id="btnProfileDropdown" class="btn-profile">
-                <?= ($user['emp_image'] != '') ? '<img src="assets/profile-pictures/' . $user['emp_image'] . '">' :  '<i class="bi bi-person-fill"></i>' ?>
+                <?= ($user['emp_image'] != '') ? '<img src="../upload_img/' . $user['emp_image'] . '" class="img-fluid rounded-circle" style="max-width: 40px;">' :  '<i class="bi bi-person-fill"></i>' ?>
             </button>
             <div class="dropdown-menu" id="dropDownItems">
               <a href="profile.php" class="dropdown-item" href="#"><i class="bi bi-person-check"></i> Edit Profile</a>
@@ -61,6 +61,9 @@ if (isset($_SESSION['acc_id'])) {
             </div>
         </div>
     </nav>
+
+
+    
     <aside class="side-nav">
         <ul class="list-group">
             <li><a href="index.php" class="nav-all-products"><i class="bi bi-shop"></i> All Products</a></li>

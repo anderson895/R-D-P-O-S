@@ -33,6 +33,30 @@
       padding: 10px; /* Add padding for better appearance */
     }
   
+
+    #loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Make sure it's above other content */
+}
+
+.spinner {
+    border: 4px solid rgba(0,0,0,0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+
 </style>
 
 
@@ -374,9 +398,52 @@
 
 
 
+<!-- View Edit Profile Img Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="editProfileImgModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Profile Images</h5>
+                <button type="button" id="closeEditProfileImgModal" class="btn-close btnCloseModal"
+                    data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="profileImgFRM">
+                    <label for="profileAttachementImg">Attach Images</label>
+
+                    <input type="file" class="form-control" id="profileAttachementImg" name="profileAttachementImg" accept=".png, .jpg, .jpeg, .webp">
+
+                   
+
+                    <button type="reset" class="mt-3 btnCloseModal btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="mt-3 btn btn-primary">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+
+                    <div id="loader" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Profile Img Modal -->
+
+
+
+
 
 
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 <script src="javascript/app.js"></script>
 </body>
 

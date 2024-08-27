@@ -17,11 +17,17 @@ if ($getAddress->num_rows > 0) {
     $fullAddress = $address['user_complete_address'];
 }
 ?>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
 <h2><i class="bi bi-person-check"></i> Profile</h2>
 <div class="container card mt-5 p-5">
     <div class="p-1st-row-container d-flex justify-content-center align-items-center flex-wrap">
         <div class="pp-container d-flex justify-content-center align-items-center">
-            <?= ($user['emp_image'] != '') ? '<img src="assets/profile-pictures/' . $user['emp_image'] . '">' : '<i class="bi bi-person-fill"></i>' ?>
+            <?= ($user['emp_image'] != '') ? '<img src="../upload_img/' . $user['emp_image'] . '">' : '<i class="bi bi-person-fill"></i>' ?>
         </div>
         <div class="p-users-name-container input-container-label-top">
             <label>Name</label>
@@ -53,12 +59,15 @@ if ($getAddress->num_rows > 0) {
             <textarea readonly class="form-control p-general-font-size"><?= $fullAddress ?></textarea>
         </div>
     </div>
+
+
     <div class="pBtnsContainer d-flex flex-wrap">
         <button class="btn btn-dark m-1" id="btnEditProfile" data-fname="<?= $user['acc_fname'] ?>"
             data-lname="<?= $user['acc_lname'] ?>" data-bday="<?= $user['acc_birthday'] ?>"
             data-uname="<?= $user['acc_username'] ?>" data-email="<?= $user['acc_email'] ?>"
             data-contact="<?= $user['acc_contact'] ?>">Edit Profile</button>
         <button class="btn btn-primary m-1" id="btnEditAddress">Edit Address</button>
+        <button class="btn btn-secondary m-1" id="btnProfileImgModal">Edit Image</button>
         <button class="btn btn-success m-1">Change Password</button>
     </div>
 </div>
