@@ -39,7 +39,7 @@ include "php/session_dir.php";
 
 <div class="main-wrapper">
 
-<div class="header">
+<div class="header header-fyke">
         <input hidden  type="text" value="<?=$acc_id?>" id="acc_id">
         <input hidden type="text" value="<?=$fullname?>" id="fullname">
         <input hidden type="text" value="<?=$acc_type?>" id="acc_type">

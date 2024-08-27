@@ -4,24 +4,21 @@ function fetStoreTable() {
         type: 'GET',
         dataType: 'json',
         success: function(response) {
-            // Ensure response is an array
             let data = Array.isArray(response) ? response : [];
             let currentPage = 1;
-            let rowsPerPage = 15; // Default value for rows per page
+            let rowsPerPage = 15;
             let currentSortColumn = null;
             let currentSortDirection = 'asc';
 
             // Sort data by the latest date first
             data.sort((a, b) => new Date(b.orders_date) - new Date(a.orders_date));
 
-            // Event listener for search input
             $('#searchpos').on('input', function() {
-                currentPage = 1;  // Reset to the first page on search
+                currentPage = 1;
                 renderTable();
                 setupPagination();
             });
 
-            // Event listener for items per page dropdown
             $('#itemsPerPagepos').on('change', function() {
                 rowsPerPage = parseInt(this.value, 10);
                 currentPage = 1;
@@ -54,14 +51,11 @@ function fetStoreTable() {
                                         <td class="orders-discount">${item.daily_total}</td>
                                     </tr>`;
 
-                        
                         tableBody.append(row);
                         counter++;
                     });
-
                 }
 
-                // Update info section with total items and items per page
                 const totalItems = filteredData.length;
                 $('#infopos').text(`Showing ${Math.min(rowsPerPage, totalItems)} of ${totalItems} items.`);
             }
@@ -77,7 +71,6 @@ function fetStoreTable() {
                 const pageCount = Math.ceil(filteredData.length / rowsPerPage);
                 pagination.empty();
 
-                // Previous Button
                 const prevButton = $('<button>Previous</button>')
                     .addClass('pagination-button btn')
                     .prop('disabled', currentPage === 1)
@@ -90,7 +83,6 @@ function fetStoreTable() {
                     });
                 pagination.append(prevButton);
 
-                // Page Buttons
                 let startPage = Math.max(1, currentPage - 2);
                 let endPage = Math.min(pageCount, startPage + 4);
 
@@ -111,7 +103,6 @@ function fetStoreTable() {
                     pagination.append(button);
                 }
 
-                // Next Button
                 const nextButton = $('<button>Next</button>')
                     .addClass('pagination-button btn')
                     .prop('disabled', currentPage === pageCount)
@@ -140,20 +131,33 @@ function fetStoreTable() {
 
                 tableBody.empty();
                 rows.forEach(row => tableBody.append(row));
+
+                updateSortingIcons(columnIndex, sortDirection);
             }
 
-            // Add event listeners to table headers for sorting
+            function updateSortingIcons(columnIndex, sortDirection) {
+                $('#tableHeadpos th').each(function(index) {
+                    const header = $(this);
+                    header.removeClass('asc desc');
+                    header.find('.sort-icon').remove();
+
+                    if (index === columnIndex) {
+                        header.addClass(sortDirection);
+                        const icon = $('<i>').addClass(`sort-icon fas fa-sort-${sortDirection === 'asc' ? 'up' : 'down'}`);
+                        header.append(icon);
+                    }
+                });
+            }
+
             $('#tableHeadpos th').on('click', function() {
                 const columnIndex = $(this).index();
                 sortTable(columnIndex);
             });
 
-            // Initialize table and pagination
             renderTable();
             setupPagination();
         },
         error: function(xhr, status, error) {
-            // Handle error
             $('#result').html('<p>Error: ' + error + '</p>');
         }
     });
@@ -161,6 +165,7 @@ function fetStoreTable() {
 
 // Initialize the table on page load
 fetStoreTable();
+
 
 $(document).ready(function() {
     const $tableBody = $('#DailySalesPOS');
@@ -184,12 +189,16 @@ $(document).ready(function() {
             },
             dataType: 'json',
             success: function(response) {
-                $('#storeTable').hide();
+                $('#storeTable, #header_reports').hide();
                 $('#viewDailySales').show();
 
                 $('#salesNo').text("Sales No.: " + response.salesInfo.sales_id);
                 $('#salesDate').text("Date.: " + response.salesInfo.received_order_date);
                 $('#salesSummary').text("Sales Summary.: " + response.salesInfo.dailySales);
+
+                $('#salesNoDaily').text("Sales No.: " + response.salesInfo.sales_id);
+                $('#salesDateDaily').text("Date.: " + response.salesInfo.received_order_date);
+                $('#salesSummaryDaily').text("₱" + response.salesInfo.dailySales);
 
                 salesData = response.data;
                 renderTable();
@@ -218,9 +227,14 @@ $(document).ready(function() {
                 .append('<td>' + item.sales + '</td>')
                 .append('<td>' + item.payment + '</td>')
                 .append('<td>' + item.change + '</td>');
-
+        
+            // Append to the first table body
             $tableBody.append(row);
+        
+            // Clone the row to append to the second table body
+            $("#printDailyTable").append(row.clone());
         }
+        
 
         updatePagination();
         updateItemCount();
@@ -291,10 +305,16 @@ $(document).ready(function() {
     });
 });
 
-
-
 $('#backViewDaily').on('click', function(){
-    $('#storeTable').show()
+    $('#storeTable, #header_reports').show()
     $('#viewDailySales').hide()
 });
+
+
+$('#printBtn').on('click', function(){
+    // Trigger the print dialog
+    window.print();
+    
+});
+
 

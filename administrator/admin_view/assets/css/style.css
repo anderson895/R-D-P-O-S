@@ -7351,3 +7351,59 @@ span.select2-container.select2-container--default.select2-container--open {
   top: 50%;
   right: 10px;
 }
+
+
+
+/* fyke css */
+
+.th-sales-no {
+  width: 20%; 
+}
+
+.th-date {
+  width: 40%; 
+}
+
+.th-daily-sales {
+  width: 40%; 
+}
+
+.sort-icon {
+  margin-left: 5px;
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+th.asc .sort-icon {
+  color: #007bff; 
+}
+
+th.desc .sort-icon {
+  color: #dc3545; 
+}
+
+/* print */
+#printDaily {
+  display: none;
+}
+
+@media print {
+  /* Hide the viewDailySales element when printing */
+  #viewDailySales {
+    display: none;
+  }
+
+  /* Ensure the printDaily element is displayed */
+  #printDaily {
+    padding-top: -60px;
+    margin-top: -60px;
+    display: block;
+  }
+
+  /* Hide elements with the header-fyke class when printing */
+  .header-fyke {
+    display: none;
+  }
+
+  /* Optionally, you can include other styles specific to print layout */
+}

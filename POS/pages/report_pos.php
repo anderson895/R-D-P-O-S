@@ -1,5 +1,5 @@
 <div class="p-4">
-<div class="page-header">
+<div class="page-header" id="header_reports">
     <div class="page-title">
         <h4>Walkin Reports</h4>
         <h6>Views/Reports</h6>
@@ -44,11 +44,12 @@
                     <table class="table table-hover">
                         <thead style="cursor: pointer;" id="tableHeadpos">
                             <tr style="font-size: 14px;">
-                                <th>Sales No.</th>
-                                <th>Date</th>
-                                <th>Daily Sales</th>
+                                <th class="th-sales-no">Sales No.</th>
+                                <th class="th-date">Date</th>
+                                <th class="th-daily-sales">Daily Sales</th>
                             </tr>
                         </thead>
+
                         <tbody id="tableBodypos">
                             
                         </tbody>
@@ -141,6 +142,47 @@
                     </select>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="printDaily">
+        <div style="display: flex; flex-direction: row; border-radius: 10px" class="border p-4" >
+            <div style="width: 50%">
+                <h5 class="fw-bolder">Daily Sales Report</h5>
+                <p class="p-0 m-0">Store: R De Leon Poultry Supplies</p>
+                <p class="p-0 m-0">Address: Paso Pulang Buhangin, Bagbaguin</p>
+                <p class="p-0 m-0">Contact: 09120912091</p>
+                <p class="p-0 m-0">Email: rdpos@gmail.com</p>
+            </div>
+            <div style="width: 50%">
+                <div class="p-3 border" style="border-radius: 10px">
+                    <div class="d-flex flex-row justify-content-between">
+                        <p id="salesNoDaily" class="p-0 m-0">Sales No.: SL0001</p>
+                        <p id="salesDateDaily" class="p-0 m-0">Date: 12-01-07</p>
+                    </div>
+                    <p class="p-0 m-0">Sales Summary:</p>
+                    <h1 id="salesSummaryDaily" class="fw-bolder p-0 m-0">₱ 100.00</h1>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3 table-responsive">
+            <table class="table">
+                <thead id="tableHeadDailySales">
+                    <tr style="font-size: 14px;">
+                        <th>Code</th>
+                        <th>Date</th>
+                        <th>Subtotal</th>
+                        <th>Discount</th>
+                        <th>Tax</th>
+                        <th>Sales</th>
+                        <th>Payment</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody id="printDailyTable">
+                    <!-- Rows will be inserted here -->
+                </tbody>
+            </table>
         </div>
     </div>
 
