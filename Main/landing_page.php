@@ -41,9 +41,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
                             </div>
                         </div>                        
                         <input class="form-control" id="search_product" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="button">
-                            <i class="bi bi-search"></i>
-                        </button>
+                        
                     </div>
                 </div>
 
