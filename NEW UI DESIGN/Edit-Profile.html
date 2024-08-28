@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>documents</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .modal-header {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+        }
+
+        .modal-header h5 {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .form-control:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .rounded-circle.img-thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .btn-outline-secondary {
+            border-radius: 20px;
+        }
+
+        .modal-footer button {
+            border-radius: 20px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        .tooltip-inner {
+            background-color: #007bff;
+        }
+
+        .tooltip-arrow {
+            border-top-color: #007bff !important;
+        }
+
+        .modal-footer {
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                Edit Profile
+            </button>
+        </div>
+
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header text-white">
+                        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center mb-4">
+                            <img src="no-image.png" class="rounded-circle img-thumbnail" alt="Profile Picture">
+                            <button class="btn btn-outline-secondary mt-2">Change Image</button>
+                        </div>
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label for="firstname" class="col-form-label">Firstname</label>
+                                    <input type="text" class="form-control" id="firstname" placeholder="Enter your firstname" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter your first name here">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="lastname" class="col-form-label">Lastname</label>
+                                    <input type="text" class="form-control" id="lastname" placeholder="Enter your lastname" data-bs-toggle="tooltip" data-bs-placement="top" title="Enter your last name here">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-6">
+                                    <label for="birthdate" class="col-sm-4 col-form-label">Birthdate</label>
+                                    <input type="date" class="form-control" id="birthdate" placeholder="Enter your birthdate" data-bs-toggle="tooltip" data-bs-placement="top" title="Select your birthdate">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-sm-4 col-form-label">Age</label>
+                                    <input type="text" class="form-control" id="age" placeholder="Age" readonly>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="username" class="col-sm-4 col-form-label">Username</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="email" class="col-sm-4 col-form-label">Email</label>
+                                <div class="col-sm-8">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="contact" class="col-sm-4 col-form-label">Contact #</label>
+                                <div class="col-sm-8">
+                                    <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number">
+                                </div>
+                            </div>
+                            <div class="input-container-label-top mt-3">
+                                <label for="regionDropDown">Region</label>
+                                <select class="form-control" id="regionDropDown" required></select>
+                            </div>
+                            <div class="input-container-label-top mt-3">
+                                <label for="provinceDropDown">Province</label>
+                                <select class="form-control" id="provinceDropDown" required></select>
+                            </div>
+                            <div class="input-container-label-top mt-3">
+                                <label for="cityDropDown">Municipality</label>
+                                <select class="form-control" id="cityDropDown" required></select>
+                            </div>
+                            <div class="input-container-label-top mt-3">
+                                <label for="barangayDropDown">Barangay</label>
+                                <select class="form-control" id="barangayDropDown" required></select>
+                            </div>
+                            <div class="input-container-label-top mt-3">
+                                <label for="streetName">Street</label>
+                                <input type="text" class="form-control" id="streetName" required placeholder="Enter your street">
+                            </div>
+                            <div class="row mt-4 mb-3">
+                                <label for="current-password" class="col-sm-4 col-form-label">Current Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="current-password" placeholder="Enter current password">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="new-password" class="col-sm-4 col-form-label">New Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="new-password" placeholder="Enter new password">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="confirm-password" class="col-sm-4 col-form-label">Confirm Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm new password">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('birthdate').addEventListener('change', function() {
+            var birthdate = new Date(this.value);
+            var today = new Date();
+            var age = today.getFullYear() - birthdate.getFullYear();
+            var monthDiff = today.getMonth() - birthdate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+            document.getElementById('age').value = age;
+        });
+        document.querySelectorAll('.form-control').forEach(function(element) {
+            element.addEventListener('mouseover', function() {
+                this.setAttribute('data-placeholder', this.getAttribute('placeholder'));
+                this.setAttribute('placeholder', '');
+            });
+            element.addEventListener('mouseout', function() {
+                this.setAttribute('placeholder', this.getAttribute('data-placeholder'));
+            });
+        });
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

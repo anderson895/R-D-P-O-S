@@ -56,7 +56,7 @@ if (isset($_SESSION['acc_id'])) {
                 <?= ($user['emp_image'] != '') ? '<img src="../upload_img/' . $user['emp_image'] . '" class="img-fluid rounded-circle" style="max-width: 40px;">' :  '<i class="bi bi-person-fill"></i>' ?>
             </button>
             <div class="dropdown-menu" id="dropDownItems">
-              <a href="profile.php" class="dropdown-item" href="#"><i class="bi bi-person-check"></i> Edit Profile</a>
+              <a href="profile.php" class="dropdown-item" href="#"><i class="bi bi-person-check"></i> Profile</a>
               <a href="backend/logout.php"class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
         </div>
