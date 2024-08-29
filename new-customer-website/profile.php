@@ -241,7 +241,8 @@ if ($getAddress->num_rows > 0) {
         </div>
     </div>
     <div class="btn-group-custom">
-        <button class="btn btn-dark m-1" id="btnEditProfile" 
+        
+        <!-- <button class="btn btn-dark m-1" id="btnEditProfile" 
             data-fname="<?= $user['acc_fname'] ?>" 
             data-lname="<?= $user['acc_lname'] ?>" 
             data-bday="<?= $user['acc_birthday'] ?>" 
@@ -251,9 +252,53 @@ if ($getAddress->num_rows > 0) {
         </button>
         <button class="btn btn-primary m-1" id="btnEditAddress">Edit Address</button>
         <button class="btn btn-secondary m-1" id="btnProfileImgModal">Edit Image</button>
-        <button class="btn btn-success m-1">Change Password</button>
+        <button class="btn btn-success m-1">Change Password</button> -->
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUpdateChoices">
+            Update Information
+        </button>
+
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalUpdateChoices" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="d-grid gap-2">
+          <button class="btn btn-dark" id="btnEditProfile" 
+            data-fname="<?= $user['acc_fname'] ?>" 
+            data-lname="<?= $user['acc_lname'] ?>" 
+            data-bday="<?= $user['acc_birthday'] ?>" 
+            data-uname="<?= $user['acc_username'] ?>" 
+            data-email="<?= $user['acc_email'] ?>" 
+            data-contact="<?= $user['acc_contact'] ?>">
+            Edit Profile
+          </button>
+          <button class="btn btn-primary" id="btnEditAddress">Edit Address</button>
+          <button class="btn btn-secondary" id="btnProfileImgModal">Edit Image</button>
+          <button class="btn btn-success">Change Password</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <?php
 include ('components/footer.php');
 ?>

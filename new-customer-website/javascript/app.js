@@ -664,6 +664,8 @@ $(document).on("click", ".btnViewProduct", function (e) {
   $("#btnEditProfile").click(function (e) {
     e.preventDefault();
 
+   
+
     $('#editFName').val($(this).data("fname"));
     $('#editLName').val($(this).data("lname"));
     $('#editBday').val($(this).data("bday"));
@@ -672,6 +674,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
     $('#editContact').val($(this).data("contact"));
 
     $("#editProfileModal").modal('show');
+    $("#modalUpdateChoices").modal("hide");
   })
 
   $("#frmEditProfile").submit(function (e) {
@@ -718,12 +721,15 @@ $(document).on("click", ".btnViewProduct", function (e) {
   $("#btnEditAddress").click(function (e) {
     e.preventDefault();
     $("#editAddressModal").modal("show");
+    $("#modalUpdateChoices").modal("hide");
   });
 
 
   $("#btnProfileImgModal").click(function (e) {
     e.preventDefault();
+
     $("#editProfileImgModal").modal("show");
+    $("#modalUpdateChoices").modal("hide");
 });
 
 
