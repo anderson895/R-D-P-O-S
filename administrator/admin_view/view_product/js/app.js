@@ -58,10 +58,17 @@ $(".toglerRestore").on("click", function() {
     });
 });
 
+
 $("#frmUploadImage").submit(function (e) {
     e.preventDefault();
     var formData = new FormData($(this)[0]);
+
+    // Disable Save button and show spinner
+    $('.btnSave').hide(); 
+    $('.spinner-grow').closest('button').show();
+ 
     
+
     $.ajax({
         type: "POST",
         url: "view_product/endpoint/pos_img.php",
@@ -71,21 +78,33 @@ $("#frmUploadImage").submit(function (e) {
         dataType: "text",
         success: function (response) {
             console.log(response);
+
             if (response.trim() === "200") {
-                alert("Image Uploaded!");
+                alertify.success("Image uploaded successfully!");
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000);
             } else {
-                alert("Uploading Failed!");
+                alertify.error("Uploading failed!");
+                // Re-enable Save button and hide spinner on failure
+                $('.btnSave').show(); 
+                $('.spinner-grow').closest('button').hide();
             }
         },
         error: function (xhr, status, error) {
             console.error(`Status: ${status}, Error: ${error}`);
-            alert("An error occurred during the upload.");
+            alertify.error("An error occurred during the upload.");
+            // Re-enable Save button and hide spinner on error
+            $('.btnSave').show(); 
+            $('.spinner-grow').closest('button').hide();
         }
     });
 });
+
+// Initially hide the spinner button
+$('.spinner-grow').closest('button').hide();
+
+
 
 
 
@@ -94,31 +113,35 @@ $(document).ready(function() {
         var img_id = $(this).data('img_id');
         var filename = $(this).data('filename');
 
-        // Show confirmation dialog
-        var userConfirmed = confirm("Are you sure you want to delete photos of this product?");
-        if (userConfirmed) {
-            // User confirmed, proceed with AJAX request
-            $.ajax({
-                url: 'view_product/endpoint/del_img.php', // Replace with your actual endpoint URL
-                type: 'POST',
-                data: {
-                    img_id: img_id,
-                    filename: filename
-                },
-                success: function(response) {
-                    // Handle the response from the server
-                    console.log(response);
-                    // alert('Product deleted successfully');
-                    alert("Image Uploaded!");
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
-                },
-                error: function(xhr, status, error) {
-                    // Handle any errors
-                    console.error('AJAX Error: ' + status + error);
-                }
-            });
-        }
+        // Show Alertify confirmation dialog
+        alertify.confirm("Delete Confirmation", "Are you sure you want to delete photos of this product?",
+            function() {
+                // User confirmed, proceed with AJAX request
+                $.ajax({
+                    url: 'view_product/endpoint/del_img.php', // Replace with your actual endpoint URL
+                    type: 'POST',
+                    data: {
+                        img_id: img_id,
+                        filename: filename
+                    },
+                    success: function(response) {
+                        // Handle the response from the server
+                        console.log(response);
+                        alertify.success("Deleted successfully!");
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any errors
+                        console.error('AJAX Error: ' + status + error);
+                    }
+                });
+            },
+            function() {
+                // User canceled, no action needed
+                alertify.error("Delete canceled");
+            }
+        ).set('labels', {ok:'Yes', cancel:'No'}); // Customize button labels
     });
 });

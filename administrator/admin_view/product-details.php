@@ -28,6 +28,9 @@ include "php/session_dir.php";
 
 <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
 
+
+<link rel="stylesheet" href="assets/plugins/alertify/alertify.min.css">
+
 <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
 
@@ -55,7 +58,7 @@ include "php/session_dir.php";
     <?php include "topbar/mobilUserMenu.php"; ?>
 </div>
     <?php include "Section/sidebar.php"; ?>
-
+ 
 
     <?php
     
@@ -183,6 +186,8 @@ if ($result) {
 <h4>Critical Level</h4>
 <h6><?= $db_prod_critical?></h6>
 </li>
+
+
 
 
 <li>
@@ -351,10 +356,15 @@ if ($result) {
         <input type="hidden" name="PHOTOS_PROD_ID" id="PHOTOS_PROD_ID" value="<?=$db_prod_id?>">
         <input type="file" name="img_photos" id="img_photos" class="form-control">
       </div>
-      <div class="modal-footer">
-      <button type="submit" class="btn btn-primary btn-sm">Save</button>
-         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+      <div class="modal-footer" >
+             <button type="submit" class="btn btn-primary btn-sm btnSave">Save</button> 
+            <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Uploading...
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
       </div>
+
       </form>
     </div>
   </div>
@@ -378,8 +388,8 @@ if ($result) {
 <script src="assets/plugins/owlcarousel/owl.carousel.min.js"></script>
 
 <script src="assets/plugins/select2/js/select2.min.js"></script>
-
-<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="assets/plugins/alertify/alertify.min.js"></script>
+<!-- <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script> -->
 <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 <script src="assets/js/script.js"></script>
 
