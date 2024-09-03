@@ -279,7 +279,7 @@ if ($getAddress->num_rows > 0) {
             data-uname="<?= $user['acc_username'] ?>" 
             data-email="<?= $user['acc_email'] ?>" 
             data-contact="<?= $user['acc_contact'] ?>">
-            Edit Profile
+            Edit Information
           </button>
           <button class="btn btn-primary" id="btnEditAddress">Edit Address</button>
           <button class="btn btn-secondary" id="btnProfileImgModal">Edit Image</button>
