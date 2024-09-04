@@ -66,6 +66,9 @@
     </div>
 </div>
 
+<script src="../admin_view/assets/plugins/alertify/alertify.min.js"></script>
+<script src="../admin_view/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="javascript/app.js"></script>
 </body>

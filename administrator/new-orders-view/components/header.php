@@ -30,8 +30,12 @@ if (isset($_SESSION['acc_id'])) {
     <link rel="shortcut icon" href="../../assets/logos.png" type="image/x-icon">
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="../admin_view/assets/plugins/alertify/alertify.min.css">
 
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 </head>

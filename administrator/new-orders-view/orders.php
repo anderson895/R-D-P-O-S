@@ -2,7 +2,7 @@
 include('components/header.php');
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    if ($page != 'Pending' && $page != 'Accepted' && $page != 'Ready For Delivery' && $page != 'Shipped' && $page != 'Delivered' && $page != 'Cancelled' && $page != 'Rejected') {
+    if ($page != 'Pending' && $page != 'Accepted' && $page != 'Ready For Delivery' && $page != 'Shipped' && $page != 'Delivered' && $page != 'Cancelled' && $page != 'Rejected' && $page != 'Collected') {
         header("Location: orders.php?page=Pending");
         exit;
     }
@@ -32,12 +32,53 @@ if (isset($_GET['page'])) {
                 <li class="nav-item">
                     <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Cancelled') ? 'active' : '' ?>" href="orders.php?page=Cancelled"><i class="bi bi-x-circle"></i> Cancelled</a>
                 </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected"><i class="bi bi-exclamation-circle"></i> Rejected</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Collected') ? 'active' : '' ?>" href="orders.php?page=Collected"><i class="bi bi-person-square"></i> COD Collected</a>
                 </li>
              </ul>
     </div>
 </div>
+<?php 
+if($page == 'Collected'){?>
+<div class="orders-container container mt-4">
+    <div class="card">
+        <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
+            <h3 class="mb-0">Daily Cash on Delivery Collected</h3>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Rider ID</th>
+                            <th>Rider Name</th>
+                            <th>Collected</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="CodCollectedContainer">
+                    </tbody>
+                </table>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php }else{?>
 
 <div class="orders-container">
     <div class="table-responsive">
@@ -50,7 +91,7 @@ if (isset($_GET['page'])) {
                         <th>Total</th>
                         <th>Order Date</th>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
-                        <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
+                        <?= ($page == 'Delivered' || $page == 'Shipped' || $page == 'Collected') ? '<th>Rider</th>' : '' ?>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
                     </tr>
                 </thead>
@@ -60,5 +101,10 @@ if (isset($_GET['page'])) {
         </table>
     </div>
 </div>
+
+<?php
+}
+?>
+
 <?php
 include('components/footer.php');

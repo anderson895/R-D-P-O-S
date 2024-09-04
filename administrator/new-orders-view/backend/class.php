@@ -37,6 +37,31 @@ class global_class extends db_connect
     }
 
     // Orders
+
+    public function getCodCollected()
+{
+    $query = $this->conn->prepare("SELECT CONCAT(acc.acc_fname, ' ', acc.acc_lname) AS rider_name,acc_code as acc_code,order_id, rider_id,c_status,
+       SUM(orders.total) AS total_sales
+FROM new_tbl_orders AS orders
+LEFT JOIN Account AS acc ON orders.rider_id = acc.acc_id
+WHERE orders.status = 'Delivered'
+  AND orders.payment_id = 'COD'
+  AND DATE(orders.delivered_date) = CURDATE()
+GROUP BY rider_name
+ORDER BY total_sales DESC;
+
+    ");
+    
+    if ($query->execute()) {
+        $result = $query->get_result();
+        return $result;
+    } else {
+        // Handle query execution failure
+        return null;
+    }
+}
+
+
     public function getOrders($status)
     {
         $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `status` = '$status' ORDER BY `new_tbl_orders`.`order_date` DESC");
@@ -62,6 +87,15 @@ class global_class extends db_connect
             return 200;
         }
     }
+
+    public function MarkAs_Collected($riderId)
+    {
+        $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `c_status`='Collected' WHERE `rider_id` = '$riderId'");
+        if ($query->execute()) {
+            return 200;
+        }
+    }
+
 
     public function changeOrderStatus($orderId)
     {

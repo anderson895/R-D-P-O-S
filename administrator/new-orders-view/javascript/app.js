@@ -9,6 +9,32 @@ $(document).ready(function () {
       : decodeURIComponent(results[1].replace(/\+/g, " "));
   };
 
+  const getCollectedCod = () => {
+    var page = getUrlParameter("page");
+
+    $.ajax({
+        type: "GET",
+        url: "backend/endpoints/get-cod-collected.php",
+        data: {
+            page: page,
+        },
+        beforeSend: function() {
+            // Show the spinner before sending the request
+            $(".spinner-border").show();
+        },
+        success: function(response) {
+            $("#CodCollectedContainer").html(response);
+        },
+        complete: function() {
+            // Hide the spinner after the request is complete
+            $(".spinner-border").hide();
+        },
+    });
+};
+
+
+
+
   const getOrders = () => {
     var page = getUrlParameter("page");
 
@@ -77,6 +103,7 @@ $(document).ready(function () {
     }, 1000);
   };
   setInterval(() => {
+    getCollectedCod();
     getOrders();
     getOrderStatus();
     getChangeOrderStatusButtons();
@@ -94,6 +121,47 @@ $(document).ready(function () {
      $("#changeOrderStatusModalOrderId").val($(this).data("id"));
     }
   });
+
+
+  
+$(document).on("click", "#BtnCollect", function (e) {
+  e.preventDefault();
+
+  var riderId = $(this).attr('data-rider-id');
+
+  console.log(riderId);
+
+
+  Swal.fire({
+    title: "Mark as Collected this?",
+    text: "You won't be able to revert this!",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirm!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      
+      $.ajax({
+        type: "POST",
+        url: "backend/endpoints/post-set-collected.php",
+        data: {riderId:riderId, requestType:"MarkAs_Collected"},
+        dataType: "text",
+        success: function (response) {
+
+          console.log(response);
+          
+        }
+      });
+      
+      Swal.fire("Saved!", "", "success");
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
+  });
+});
+
+
 
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
@@ -195,7 +263,7 @@ $(document).ready(function () {
       },
     });
   });
-
+  getCollectedCod();
   getOrders();
   getOrderStatus();
   getChangeOrderStatusButtons();
