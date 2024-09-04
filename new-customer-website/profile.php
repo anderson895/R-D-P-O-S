@@ -206,7 +206,7 @@ if ($getAddress->num_rows > 0) {
     <!-- Updated By: Zyrine Alcarez 08/28/24 -->
 <div class="profile-card">
     <div class="profile-info text-center">
-    <img alt="Profile Image" class="profile-img" src="<?= ($user['emp_image'] != '') ? '../upload_img/' . $user['emp_image'] : 'path_to_default_icon/default_image.png' ?>">
+    <img alt="Profile Image" class="profile-img" src="<?= ($user['emp_image'] != '') ? '../upload_img/' . $user['emp_image'] : 'assets/img/no-img-available.png' ?>">
         <h2><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></h2>
         <h6>Age: <span><?= $age ?></span></h6>
     </div>
@@ -257,47 +257,35 @@ if ($getAddress->num_rows > 0) {
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUpdateChoices">
             Update Information
         </button>
-
     </div>
 </div>
 
-
-<!-- Modal -->
 <div class="modal fade" id="modalUpdateChoices" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="profileModalLabel">Edit Profile</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <div class="d-grid gap-2">
-          <button class="btn btn-dark" id="btnEditProfile" 
-            data-fname="<?= $user['acc_fname'] ?>" 
-            data-lname="<?= $user['acc_lname'] ?>" 
-            data-bday="<?= $user['acc_birthday'] ?>" 
-            data-uname="<?= $user['acc_username'] ?>" 
-            data-email="<?= $user['acc_email'] ?>" 
-            data-contact="<?= $user['acc_contact'] ?>">
-            Edit Information
-          </button>
-          <button class="btn btn-primary" id="btnEditAddress">Edit Address</button>
-          <button class="btn btn-secondary" id="btnProfileImgModal">Edit Image</button>
-          <button class="btn btn-success">Change Password</button>
+        <div class="modal-header">
+            <h5 class="modal-title" id="profileModalLabel">Edit Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-      
+        <div class="modal-body text-center">
+            <div class="d-grid gap-2">
+                <button class="btn btn-dark" id="btnEditProfile" 
+                    data-fname="<?= $user['acc_fname'] ?>" 
+                    data-lname="<?= $user['acc_lname'] ?>" 
+                    data-bday="<?= $user['acc_birthday'] ?>" 
+                    data-uname="<?= $user['acc_username'] ?>" 
+                    data-email="<?= $user['acc_email'] ?>" 
+                    data-contact="<?= $user['acc_contact'] ?>">
+                    Edit Information
+                </button>
+                <button class="btn btn-primary" id="btnEditAddress">Edit Address</button>
+                <button class="btn btn-secondary" id="btnProfileImgModal">Edit Image</button>
+                <button class="btn btn-success">Change Password</button>
+            </div>
+        </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
 
 <?php
 include ('components/footer.php');
