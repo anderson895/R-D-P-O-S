@@ -19,20 +19,30 @@ if (isset($_GET['page'])) {
 
 
 <div class="container mt-4">
-        <div class="overflow-auto">
-            <ul class="nav nav-tabs flex-nowrap">
-                <li class="nav-item">
-                    <a class="nav-link <?= ($page == 'Ready For Delivery') ? 'active' : '' ?>" href="index.php?page=Ready For Delivery"><i class="bi bi-box-fill"></i> For Pick up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= ($page == 'Shipped') ? 'active' : '' ?>" href="index.php?page=Shipped"><i class="bi bi-truck"></i> In-transit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= ($page == 'Delivered') ? 'active' : '' ?>" href="index.php?page=Delivered"><i class="bi bi-check-square"></i> Delivered</a>
-                </li>
-            </ul>
-        </div>
+    <div class="overflow-auto">
+        <ul class="nav nav-tabs flex-nowrap">
+            <li class="nav-item">
+                <a class="nav-link <?= ($page == 'Ready For Delivery') ? 'active' : '' ?>" href="index.php?page=Ready For Delivery">
+                    <i class="bi bi-box-fill"></i> For Pick up
+                    <span class="badge bg-danger ms-2" id="readyForDeliveryCount">0</span> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= ($page == 'Shipped') ? 'active' : '' ?>" href="index.php?page=Shipped">
+                    <i class="bi bi-truck"></i> In-transit
+                    <span class="badge bg-danger ms-2" id="shippedCount">0</span> 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= ($page == 'Delivered') ? 'active' : '' ?>" href="index.php?page=Delivered">
+                    <i class="bi bi-check-square"></i> Delivered
+                    
+                </a>
+            </li>
+        </ul>
     </div>
+</div>
+
 
 
 <div class="orders-container">
