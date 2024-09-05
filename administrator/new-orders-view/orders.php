@@ -12,39 +12,52 @@ if (isset($_GET['page'])) {
 }
 ?>
 <div class="container mt-4">
-        <div class="overflow-auto">
-            <ul class="nav nav-tabs flex-nowrap">
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Pending') ? 'active' : '' ?>" href="orders.php?page=Pending"><i class="bi bi-hourglass-split"></i> Pending</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Accepted') ? 'active' : '' ?>" href="orders.php?page=Accepted"><i class="bi bi-check2-all"></i> Accepted</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Ready For Delivery') ? 'active' : '' ?>" href="orders.php?page=Ready For Delivery"><i class="bi bi-box-fill"></i> Ready For Delivery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped"><i class="bi bi-truck"></i> Ongoing Delivery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Delivered') ? 'active' : '' ?>" href="orders.php?page=Delivered"><i class="bi bi-check-square"></i> Delivered</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Cancelled') ? 'active' : '' ?>" href="orders.php?page=Cancelled"><i class="bi bi-x-circle"></i> Cancelled</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected"><i class="bi bi-exclamation-circle"></i> Rejected</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Collected') ? 'active' : '' ?>" href="orders.php?page=Collected"><i class="bi bi-person-square"></i> COD Collected</a>
-                </li>
-             </ul>
+    <div class="overflow-auto">
+        <ul class="nav nav-tabs flex-nowrap">
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Pending') ? 'active' : '' ?>" href="orders.php?page=Pending">
+                    <i class="bi bi-hourglass-split"></i> Pending <span id="pendingCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Accepted') ? 'active' : '' ?>" href="orders.php?page=Accepted">
+                    <i class="bi bi-check2-all"></i> Accepted <span id="acceptedCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Ready For Delivery') ? 'active' : '' ?>" href="orders.php?page=Ready For Delivery">
+                    <i class="bi bi-box-fill"></i> Ready For Delivery <span id="readyForDeliveryCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped">
+                    <i class="bi bi-truck"></i> Ongoing Delivery <span id="shippedCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Delivered') ? 'active' : '' ?>" href="orders.php?page=Delivered">
+                    <i class="bi bi-check-square"></i> Delivered <span id="deliveredCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Cancelled') ? 'active' : '' ?>" href="orders.php?page=Cancelled">
+                    <i class="bi bi-x-circle"></i> Cancelled <span id="cancelledCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected">
+                    <i class="bi bi-exclamation-circle"></i> Rejected <span id="rejectedCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Collected') ? 'active' : '' ?>" href="orders.php?page=Collected">
+                    <i class="bi bi-person-square"></i> COD Collected <span id="collectedCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
+
 <?php 
 if($page == 'Collected'){?>
 <div class="orders-container container mt-4">
