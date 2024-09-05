@@ -45,9 +45,8 @@ class global_class extends db_connect
 FROM new_tbl_orders AS orders
 LEFT JOIN Account AS acc ON orders.rider_id = acc.acc_id
 WHERE orders.status = 'Delivered'
-  AND orders.payment_id = 'COD'
-  AND DATE(orders.delivered_date) = CURDATE()
-GROUP BY rider_name
+  AND orders.payment_id = 'COD' AND c_status='Not_Collected'
+GROUP BY rider_id
 ORDER BY total_sales DESC;
 
     ");
@@ -60,6 +59,57 @@ ORDER BY total_sales DESC;
         return null;
     }
 }
+
+
+public function getCodCollectedCount()
+{
+    $query = $this->conn->prepare("
+        SELECT COUNT(*) AS record_count
+        FROM (
+            SELECT 1
+            FROM new_tbl_orders AS orders
+            LEFT JOIN Account AS acc ON orders.rider_id = acc.acc_id
+            WHERE orders.status = 'Delivered'
+              AND orders.payment_id = 'COD'
+              AND c_status='Not_Collected'
+            GROUP BY rider_id
+        ) AS subquery;
+    ");
+    
+    if ($query->execute()) {
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        echo json_encode($row['record_count']);
+    } else {
+        // Handle query execution failure
+        return null;
+    }
+}
+
+
+
+public function getOrderStatusCounts()
+{
+    $query = $this->conn->prepare("
+       SELECT  
+            COUNT(CASE WHEN `status` = 'Pending' THEN 1 END) AS Pending,
+            COUNT(CASE WHEN `status` = 'Accepted' THEN 1 END) AS Accepted,
+            COUNT(CASE WHEN `status` = 'Ready For Delivery' THEN 1 END) AS ReadyForDelivery,
+            COUNT(CASE WHEN `status` = 'Shipped' THEN 1 END) AS Shipped,
+            COUNT(CASE WHEN `status` = 'Delivered' THEN 1 END) AS Delivered
+        FROM `new_tbl_orders` ;
+
+    ");
+
+    if ($query->execute()) {
+        $result = $query->get_result()->fetch_assoc();
+        // Return the result as JSON
+        echo json_encode($result);
+        return;
+    }
+}
+
+
 
 
     public function getOrders($status)
