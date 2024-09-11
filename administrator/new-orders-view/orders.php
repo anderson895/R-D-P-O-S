@@ -59,7 +59,7 @@ if (isset($_GET['page'])) {
 </div>
 
 <?php 
-if($page == 'Collected'){?>
+if($page == 'Collected'){ ?>
 <div class="orders-container container mt-4">
     <div class="card">
         <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
