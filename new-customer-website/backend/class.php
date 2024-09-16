@@ -53,6 +53,20 @@ class global_class extends db_connect
         }
     }
 
+
+    public function getAllMessages($acc_id)
+    {
+            $query = $this->conn->prepare("SELECT * 
+                                           FROM `messages` as m
+                                           LEFT JOIN account as acc
+                                           ON acc.acc_id = m.mess_sender
+                                           WHERE m.mess_sender = '$acc_id' OR m.mess_reciever = '$acc_id'");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
     public function getCategories()
     {
         $query = $this->conn->prepare("SELECT * FROM `category` WHERE `category_status` = '1'");
@@ -130,6 +144,23 @@ class global_class extends db_connect
             return 400;
         }
     }
+
+
+    // sentMessage
+    public function sentMessage($sender_id, $sender_Messages)
+    {
+        $dateToday = date('Y-m-d H:i:s'); 
+    
+        $query = $this->conn->prepare("INSERT INTO `messages`(`mess_sender`, `mess_content`, `mess_date`,`mess_reciever`) VALUES ('$sender_id','$sender_Messages','$dateToday','Admin')");
+        $response = 'Message sent!';
+    
+        if ($query->execute()) {
+            return $response;
+        } else {
+            return 400;
+        }
+    }
+    
 
     public function getCartItems($userId)
     {

@@ -94,6 +94,31 @@ $(document).ready(function () {
     });
   };
 
+
+  const displayMessage = () => {
+    $.ajax({
+      type: "GET",
+      url: "backend/end-points/get-all-messages.php",
+      data: {
+        requestType: "getAllMessages",
+      },
+      success: function (response) {
+
+        console.log(response);
+
+        $("#allMessagesContainer").html(response);
+      },
+    });
+  };
+
+
+  displayMessage();
+
+  setInterval(() => {
+    displayMessage();
+  }, 1000)
+
+
   const displayCartItems = () => {
     $.ajax({
       type: "GET",
@@ -109,6 +134,7 @@ $(document).ready(function () {
       },
     });
   };
+
 
   const closeModal = () => {
     $(".modal").modal("hide");
@@ -259,6 +285,38 @@ $(document).on("click", ".btnViewProduct", function (e) {
 });
 
 
+// Sent Messages
+$("#btnSentMessage").click(function (e) {
+  var mess_sender_id = $("#mess_sender_id").val();
+  var sender_Messages = $("#sender_Messages").val();
+  
+  console.log(mess_sender_id);
+
+  if(sender_Messages){
+    $.ajax({
+      type: "POST",
+      url: "backend/end-points/SentMessage.php",
+      data: {
+        requestType: "SentMessage",
+        mess_sender_id: mess_sender_id,
+        sender_Messages: sender_Messages
+      },
+      success: function (response) {
+        
+        if (response == "400") {
+          showAlert(".alert-danger", "Sent message unsuccessful!");
+        } else {
+          showAlert(".alert-success", response);
+          // Clear the sender_Messages input field
+          $('#sender_Messages').val('');
+        }
+      },
+    });
+  }else{
+    alertify.error('Message is Empty');
+  }
+ 
+});
 
 
 

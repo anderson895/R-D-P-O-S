@@ -14,6 +14,9 @@ $(document).ready(function() {
             data: { account_id: accountId },
             dataType: 'json',
             success: function(data) {
+
+                console.log(data);
+                
                 var chatBody = $('#messageList');
                 chatBody.empty();
         
@@ -44,7 +47,7 @@ $(document).ready(function() {
                             }
         
                             var messageHtml = '<li class="media ';
-                            messageHtml += (message.mess_sender_id == session_id) ? 'sent d-flex">' : 'received d-flex">';
+                            messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
                              
                     messageHtml += '<div class="avatar flex-shrink-0">';
                     messageHtml += '<img src="' + imagePath + '" alt="User Image" class="avatar-img rounded-circle">';
@@ -119,16 +122,7 @@ $(document).ready(function() {
                     chatBody.append(messageHtml);
                 });
 
-             /*   chatBody.on('click', '.chat-attach-download', function(e) {
-                    e.preventDefault();
-                    var downloadLink = $(this).attr('href');
-                    var hiddenAnchor = document.createElement('a');
-                    hiddenAnchor.href = downloadLink;
-                    hiddenAnchor.download = '';
-                    document.body.appendChild(hiddenAnchor);
-                    hiddenAnchor.click();
-                    document.body.removeChild(hiddenAnchor);
-                });*/
+            
 
 
             } else {

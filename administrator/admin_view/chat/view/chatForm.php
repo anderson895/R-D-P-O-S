@@ -166,8 +166,6 @@ if ($acc_type == "customer") {
     </div>
     <div class="media-body flex-grow-1">
 
-
-
     <div class="msg-box">
     <div>
     <p>I'm just looking around.</p>

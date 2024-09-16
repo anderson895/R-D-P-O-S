@@ -42,7 +42,7 @@ include "php/session_dir.php";
 </head>
 
 <?php 
-include("backend/back_navbar.php");
+// include("backend/back_navbar.php");
 
 //include "php/count_message.php";
 ?>
@@ -71,7 +71,6 @@ include("backend/back_navbar.php");
     <!---start changable content---->
  
     <?php  include "chat/view/chatForm.php"; ?>
-    <?php  include "chat/view/videocallModal.php"; ?>
     <!---end changable content---->
 </div>
 </div>

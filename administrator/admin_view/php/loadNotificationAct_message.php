@@ -1,12 +1,10 @@
 <?php
 
 date_default_timezone_set('Asia/Manila');
-//$currentDateTime = date('Y-m-d H:i:s'); // Use 'H' instead of 'g' for 24-hour format
 
 include("../.../../../../connection.php");
 
 session_start();
-date_default_timezone_set('Asia/Manila');
 $currentDateTime = date('Y-m-d H:i:s');
 
 $session_acc_id = $_SESSION["acc_id"];
@@ -17,16 +15,16 @@ $query = "SELECT m.*, a.*,
     TIMESTAMPDIFF(HOUR, m.mess_date, '$currentDateTime') AS hours_ago,
     TIMESTAMPDIFF(MINUTE, m.mess_date, '$currentDateTime') AS minutes_ago
 FROM messages m
-LEFT JOIN account a ON a.acc_id = m.mess_reciever_id
+LEFT JOIN account a ON a.acc_id = m.mess_reciever
 WHERE 
-    (m.mess_reciever_id = '$session_acc_id' OR m.mess_sender_id = '$session_acc_id' OR m.mess_reciever_id IS NULL) 
-    AND (m.mess_sender_id, m.mess_date) IN (
-        SELECT m2.mess_sender_id, MAX(m2.mess_date) AS max_date
+    (m.mess_reciever = '$session_acc_id' OR m.mess_sender = '$session_acc_id' OR m.mess_reciever ='Admin') 
+    AND (m.mess_sender, m.mess_date) IN (
+        SELECT m2.mess_sender, MAX(m2.mess_date) AS max_date
         FROM messages m2
-        WHERE (m2.mess_reciever_id = '$session_acc_id' OR m2.mess_sender_id != '$session_acc_id' OR m2.mess_reciever_id IS NULL)
-        GROUP BY m2.mess_sender_id
+        WHERE (m2.mess_reciever = '$session_acc_id' OR m2.mess_sender != '$session_acc_id' OR m2.mess_reciever ='Admin')
+        GROUP BY m2.mess_sender
     )
-GROUP BY m.mess_sender_id
+GROUP BY m.mess_sender
 ORDER BY m.mess_date DESC";
 
 
@@ -39,11 +37,9 @@ if (!$view_query) {
 
 while ($row = mysqli_fetch_assoc($view_query)) {
     $mess_id = $row["mess_id"];
-    $mess_sender_id = $row["mess_sender_id"];
+    $mess_sender = $row["mess_sender"];
     $mess_content = $row["mess_content"];
-    $mess_type = $row["mess_type"];
-    $mess_status = $row["mess_status"];
-    $mess_reciever_id = $row["mess_reciever_id"];
+    $mess_reciever = $row["mess_reciever"];
     $mess_date = $row["mess_date"];
 
     $mess_seen = $row["mess_seen"];
@@ -78,12 +74,12 @@ while ($row = mysqli_fetch_assoc($view_query)) {
 
 
 
- //   if($mess_sender_id==$session_acc_id){
-        $get_senderDetails = mysqli_query ($connections,"SELECT * FROM account where acc_id='$mess_sender_id' ");//session_acc_id
+ //   if($mess_sender==$session_acc_id){
+        $get_senderDetails = mysqli_query ($connections,"SELECT * FROM account where acc_id='$mess_sender' ");//session_acc_id
 //
   //  }else{
 
-      //  $get_senderDetails = mysqli_query ($connections,"SELECT * FROM account where acc_id='$mess_sender_id' ");//mess_sender_id
+      //  $get_senderDetails = mysqli_query ($connections,"SELECT * FROM account where acc_id='$mess_sender' ");//mess_sender
  //   }
    
 	$row_sender = mysqli_fetch_assoc($get_senderDetails);
@@ -98,7 +94,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
     echo "<li class='notification-message'>";
     echo "<a>";
     echo "<div class='media d-flex'>";
-    echo "<span class='avatar flex-shrink-0' onclick=\"window.location.href='chat.php?account_id=$mess_sender_id';\">";
+    echo "<span class='avatar flex-shrink-0' onclick=\"window.location.href='chat.php?account_id=$mess_sender';\">";
 
     if ($sender_emp_image) {
         echo "<img alt='' src='../../upload_img/$sender_emp_image'>";
@@ -109,11 +105,11 @@ while ($row = mysqli_fetch_assoc($view_query)) {
 
     // Check user type and set appropriate link
     if ($acc_type == "customer") {
-        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='chat.php?account_id=$mess_sender_id';\" style='cursor: pointer;'>";
+        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='chat.php?account_id=$mess_sender';\" style='cursor: pointer;'>";
     } else if ($acc_type == "admin" || $acc_type == "delivery") {
-        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='chat.php?account_id=$mess_sender_id';\" style='cursor: pointer;'>";
+        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='chat.php?account_id=$mess_sender';\" style='cursor: pointer;'>";
     } else {
-        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='chat.php?account_id=$mess_sender_id';\" style='cursor: pointer;'>";
+        echo "<div class='media-body flex-grow-1' onclick=\"window.location.href='chat.php?account_id=$mess_sender';\" style='cursor: pointer;'>";
     }
 
     $get_fullname = ucfirst($sender_acc_fname . " " . $sender_acc_lname);
@@ -134,7 +130,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
     if($mess_seen == 2){
 
         $messages_log = "<span class='noti-details'><br>";
-        if ($mess_sender_id == $session_acc_id) {
+        if ($mess_sender == $session_acc_id) {
             $messages_log .= '(You) ';
         } else {
             $messages_log .= '';
@@ -143,7 +139,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
         $messages_log .= "</span>"; // ordinary
         
     }else{
-        if($mess_sender_id == $session_acc_id){
+        if($mess_sender == $session_acc_id){
             $messages_log = "<span class='noti-details'><br>";
         }else{
             $messages_log = "<span class='noti-title' style='font-weight: bold;'><br>";
@@ -151,7 +147,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
       
 
 
-        if ($mess_sender_id == $session_acc_id) {
+        if ($mess_sender == $session_acc_id) {
             $messages_log .= '(You) ';
         } else {
             $messages_log .= '';

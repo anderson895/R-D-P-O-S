@@ -1,13 +1,11 @@
 $(document).ready(function () {
     var messageInput = $('#messageInput');
-    var fileInput = $('#fileInput');
+
     var sendButton = $('#sendButton');
-    var fileDisplay = $('#fileDisplay');
-    var fileNameSpan = $('#fileName');
-    var removeFileButton = $('#removeFile');
+   
 
     function updateSendButton() {
-        if (messageInput.val() || fileInput[0].files.length > 0) {
+        if (messageInput.val()) {
             sendButton.removeAttr('disabled');
         } else {
             sendButton.attr('disabled', 'disabled');
@@ -18,22 +16,7 @@ $(document).ready(function () {
         updateSendButton();
     });
 
-    fileInput.on('change', function() {
-        updateSendButton();
-        var selectedFile = fileInput[0].files[0];
-        if (selectedFile) {
-            fileNameSpan.text('Selected File: ' + selectedFile.name);
-            fileDisplay.show();
-        }
-    });
-
-    removeFileButton.on('click', function() {
-        fileInput.val('');
-        fileNameSpan.text('');
-        fileDisplay.hide();
-        updateSendButton();
-    });
-
+  
 
 
 
@@ -41,18 +24,16 @@ $(document).ready(function () {
     var message = messageInput.val();
     const urlParams = new URLSearchParams(window.location.search);
     var account_id = urlParams.get('account_id');
-    var file = fileInput[0].files[0];
+  
 
     var formData = new FormData();
     formData.append('account_id', account_id);
 
-    if (message || file) { // Check if either message or file is present
+    if (message) {
         if (message) {
             formData.append('message', message);
         }
-        if (file) {
-            formData.append('file', file);
-        }
+       
 
         $("#sendButton").css("display", "none");
 
@@ -68,9 +49,7 @@ $(document).ready(function () {
                 console.log(response);
                 // Handle success, if needed
                 $('#messageInput').val("");
-                fileInput.val('');
-                fileNameSpan.text('');
-                fileDisplay.hide();
+             
             },
 
             beforeSend: function() {
@@ -89,8 +68,7 @@ $(document).ready(function () {
             
         });
     } else {
-        console.log('Neither message nor file to send.');
-        // Handle case where both message and file are empty
+        console.log(' message not to send.');
     }
 });
 
