@@ -70,7 +70,7 @@ if (isset($_SESSION['acc_id'])) {
             <li><a href="cart.php" class="nav-cart"><i class="bi bi-cart-check"></i> Cart <span class="badge bg-danger mx-2" id="cart-count"></span></a></li>
             <li><a href="orders.php?page=Pending" class="nav-my-orders"><i class="bi bi-newspaper"></i> My Orders</a></li>
             <li><a href="message.php" class="nav-message"><i class="bi bi-chat"></i> Message</a></li>
-            <li><a href="index.php" class="nav-notification"><i class="bi bi-bell"></i> Notification</a></li>
+            <!-- <li><a href="index.php" class="nav-notification"><i class="bi bi-bell"></i> Notification</a></li> -->
         </ul>
     </aside>
     <main class="">
