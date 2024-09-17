@@ -1,13 +1,13 @@
 <?php
-define("db_host", "localhost");
-define("db_user", "root");
-define("db_pass", "");
-define("db_name", "u533477241_rdpos");
-
 // define("db_host", "localhost");
-// define("db_user", "u533477241_rdpos");
-// define("db_pass", "Rdpos2024");
+// define("db_user", "root");
+// define("db_pass", "");
 // define("db_name", "u533477241_rdpos");
+
+define("db_host", "localhost");
+define("db_user", "u547077750_rdpos");
+define("db_pass", "Rdpos2024");
+define("db_name", "u547077750_rdpos");
 
 class db_connect
 {
