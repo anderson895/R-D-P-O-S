@@ -17,7 +17,7 @@
 <form method="POST">
         <div class="login-userheading">
             <h3>Create an Account</h3>
-            <h4>Continue where you left off</h4>
+            <!-- <h4>Continue where you left off</h4> -->
         </div>
 
         <div class="row">

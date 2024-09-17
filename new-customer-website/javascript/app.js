@@ -274,7 +274,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
   });
   //end Fetch product photos
 
-  $("#viewProductModal").modal("show");
+  // $("#viewProductModal").modal("show");
 
   // Handle the click event for the small product photos
   $(document).on("click", "#productPhotos-modal-sm-img-container .product-photo-sm", function () {
