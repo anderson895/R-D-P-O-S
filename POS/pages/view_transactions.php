@@ -252,8 +252,8 @@ if ($result->num_rows > 0) {
                     echo "Error preparing statement: " . $conn->error;
                 }
             ?>
-            <button class="btn mt-3 w-100 text-primary border-primary ">Print As Document</button>
-            <button class="btn mt-3 w-100 text-primary border-primary">Print As Reciept</button>
+            <!-- <button class="btn mt-3 w-100 text-primary border-primary ">Print As Document</button> -->
+            <button class="btn mt-3 w-100 text-primary border-primary" onclick="window.location.href='print_reciept?id=<?=$id?>';">Print As Reciept</button>
             
 
 

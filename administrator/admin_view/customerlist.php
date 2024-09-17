@@ -49,7 +49,7 @@ include "php/session_dir.php";
             <?php include "topBar/profile.php"; ?>
     </ul>
 
-    <?php include "topbar/mobilUserMenu.php"; ?>
+    <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
     <?php  include "Section/sidebar.php"; ?>
     <?php  include "customerlist/view/customerlist_form.php"; ?>
