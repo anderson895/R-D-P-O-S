@@ -111,7 +111,9 @@ $(document).ready(function() {
                     } else {
                        // console.log(message);
 
-                        messageHtml += '<p><i>('+message.acc_type +')</i></p>';
+                       messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+
+
                         messageHtml += '<p >'+ message.mess_content + '</p>';
                     }
 
