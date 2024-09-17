@@ -45,8 +45,8 @@
                     <tr style="font-size: 14px;">
                         <th>Transaction Code</th>
                         <th>Purchase Date</th>
-                        <th>Discount</th>
                         <th>Tax</th>
+                        <th>Discount</th>
                         <th>Total</th>
                         <th>Payment</th>
                         <th>Change</th>
