@@ -79,5 +79,10 @@ include "php/session_dir.php";
 <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 
 <script src="assets/js/script.js"></script>
+
+
+
+
+
 </body>
 </html>

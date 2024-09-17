@@ -8,10 +8,13 @@ if ($conn->connect_error) {
 }
 
 // Prepare the SQL statements
-$sql_cashier = "SELECT COUNT(acc_type) AS count FROM `account` WHERE acc_type = 'cashier'";
+$sql_cashier = "SELECT COUNT(acc_type) AS count FROM `account` WHERE acc_type = 'cashier' AND acc_display_status ='0'";
 $sql_supplier = "SELECT COUNT(spl_id) AS count FROM `supplier` WHERE spl_status = 0";
-$sql_customer = "SELECT COUNT(acc_type) AS count FROM `account` WHERE acc_type = 'customer'";
-$sql_delivery = "SELECT COUNT(acc_type) AS count FROM `account` WHERE acc_type = 'deliveryStaff'";
+$sql_customer = "SELECT COUNT(acc_type) AS count FROM `account`
+LEFT JOIN user_address
+ON account.acc_code = user_address.user_acc_code
+ WHERE acc_type = 'customer' AND acc_display_status ='0' AND user_address.user_add_Default_status='1'";
+$sql_delivery = "SELECT COUNT(acc_type) AS count FROM `account` WHERE acc_type = 'deliveryStaff' AND acc_display_status ='0'";
 
 // Execute the queries and fetch the results
 $result_cashier = $conn->query($sql_cashier);

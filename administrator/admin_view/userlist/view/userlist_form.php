@@ -1,3 +1,5 @@
+
+
 <div class="page-wrapper">
   <div class="content">
     <div class="page-header">
@@ -9,6 +11,9 @@
         <a href="adduser.php" class="btn btn-added"><img src="assets/img/icons/plus.svg" alt="img" class="me-2">Add User</a>
       </div>
     </div>
+
+
+
     <div class="card">
       <div class="card-body">
         <div class="table-top">
@@ -34,7 +39,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table  datanew">
+          <table class="table datanew">
             <thead>
               <tr>
                 <th>Profile</th>
@@ -120,3 +125,5 @@
       </div>
     </div>
     <script src="userlist/controller/ajaxUserlist.js"></script>
+
+   

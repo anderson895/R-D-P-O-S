@@ -103,5 +103,9 @@ include "php/session_dir.php";
 <!-- Fyke javascript section -->
 <?php include "../../POS/pages/admin_javascript_links.php"?>
 
+
+
+
+
 </body>
 </html>
