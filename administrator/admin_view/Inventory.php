@@ -98,6 +98,9 @@ include "php/session_dir.php";
 </ul>
 </div>
 </div>
+
+
+
 <?php include "Inventory/view/filter.php"; ?>
 <?php include "Inventory/view/table.php"; ?>
 
