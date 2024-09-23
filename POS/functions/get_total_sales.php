@@ -2,6 +2,9 @@
 include('../config/config.php');
 include('session.php');
 
+// Set the timezone to Asia/Manila
+date_default_timezone_set('Asia/Manila');
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
