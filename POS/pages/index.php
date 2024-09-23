@@ -31,7 +31,7 @@ if (isset($_SESSION['acc_id'])) {
             <form action="../functions/login.php" method="POST" class="form form-control pb-5 px-5 mt-5 shadow" id="loginForm">
                 <div class="mt-5">
                     <img src="../assets/images/logo.png" alt="">
-                    <h1 class="fw-bolder">RDPOSS</h1>
+                    <h1 class="fw-bolder">RDPOS</h1>
                 </div>
                 <input required name="email" type="text" class="form-control mb-2" placeholder="Email or Username">
                 <input required name="pass" type="password" class="form-control mb-2" placeholder="Password">
