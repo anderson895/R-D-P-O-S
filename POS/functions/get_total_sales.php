@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $response = array();
 
 // Query 1
-$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` WHERE t_status = 0 AND DATE(order_date) = CURDATE()";
+$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` WHERE t_status = 0 AND DATE(order_date) = CURDATE() AND status = 'Delivered' ";
 $result1 = $conn->query($query1);
 
 if ($result1->num_rows > 0) {

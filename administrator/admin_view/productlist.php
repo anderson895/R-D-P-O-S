@@ -50,7 +50,7 @@ include "php/session_dir.php";
                 <?php include "topBar/profile.php"; ?>
             </ul>
 
-            <?php include "topbar/mobilUserMenu.php"; ?>
+            <?php include "topBar/mobilUserMenu.php"; ?>
         </div>
         <?php include "Section/sidebar.php"; ?>
 
@@ -94,6 +94,7 @@ include "php/session_dir.php";
                         </div>
                         <?php include "productlist/view/filter.php"; ?>
                         <?php include "productlist/view/table.php"; ?>
+
 
                     </div>
                 </div>

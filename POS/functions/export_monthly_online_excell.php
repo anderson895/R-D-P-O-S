@@ -22,7 +22,7 @@ $endDate = date('Y-m-t', strtotime($endMonth . '-01'));
 $sql_query = "
 SELECT DATE_FORMAT(order_date, '%Y-%m') AS order_month, SUM(total) AS monthly_total
 FROM new_tbl_orders
-WHERE order_date BETWEEN ? AND ?
+WHERE order_date BETWEEN ? AND ? AND status='delivered
 GROUP BY DATE_FORMAT(order_date, '%Y-%m')
 ORDER BY order_month;
 ";

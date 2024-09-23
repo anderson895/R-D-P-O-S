@@ -159,8 +159,10 @@ $(document).ready(function() {
     const submitButton = $('#submitButton');
 
     // Function to validate first name and last name
-    function validateName(name) {
-        return /^[a-zA-Z ]{2,}$/.test(name);
+       function validateName(name) {
+        // This regex allows letters (both uppercase and lowercase) and ñ/Ñ, and requires at least 2 characters
+        var nameRegex = /^[a-zA-ZñÑ]{2,}$/;
+        return nameRegex.test(name);
     }
 
     // Function to validate username and password length
@@ -219,8 +221,8 @@ $(document).ready(function() {
         }
 
         if (!validateLength(passwordInput.val())) {
-            $('#passwordError').text('Password must have at least 5 characters.');
-            alertify.error("Password must have at least 5 characters");
+            $('#passwordError').text('Password must have at least 12 characters.');
+            alertify.error("Password must have at least 12 characters");
             setStyleInvalid(passwordInput);
             hasError = true;
         }

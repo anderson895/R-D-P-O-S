@@ -26,10 +26,61 @@ class global_class extends db_connect
             return $result;
         }
     }
+    
+    
+    //Start Jcode
+      public function get_orderDetails($id)
+    {
+        // Prepare the SQL query
+        // receiver_address
+        $query = $this->conn->prepare("SELECT 
+    newOrder.*, 
+    rider.acc_fname AS rider_fname, 
+    rider.acc_lname AS rider_lname, 
+    rider.acc_contact AS rider_contact, 
+    customer.acc_fname AS customer_fname, 
+    customer.acc_lname AS customer_lname, 
+    customer.acc_contact AS receiver_contact, 
+    customer.acc_code AS customer_acc_code, 
+    uaddress.user_complete_address AS receiver_address
+    
+FROM 
+    new_tbl_orders AS newOrder
+LEFT JOIN 
+    account AS rider ON rider.acc_id = newOrder.rider_id
+LEFT JOIN 
+    account AS customer ON customer.acc_id = newOrder.cust_id
+LEFT JOIN 
+    user_address AS uaddress ON customer.acc_code = uaddress.user_acc_code
+WHERE 
+    newOrder.order_id = '$id';
+");
+    
+        // Execute the query
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result; // Return as an associative array
+        }
+    
+        return null; // Return null if execution fails
+    }
+
+
+    // End Jcode
 
     public function getUserType($userType)
     {
         $query = $this->conn->prepare("SELECT * FROM `account` WHERE `acc_type` = '$userType' AND `acc_status` = '0'");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+    
+    
+    public function getSystemMaintinance()
+    {
+        $query = $this->conn->prepare("SELECT * FROM `maintinance`");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
@@ -43,7 +94,7 @@ class global_class extends db_connect
     $query = $this->conn->prepare("SELECT CONCAT(acc.acc_fname, ' ', acc.acc_lname) AS rider_name,acc_code as acc_code,order_id, rider_id,c_status,
        SUM(orders.total) AS total_sales
 FROM new_tbl_orders AS orders
-LEFT JOIN Account AS acc ON orders.rider_id = acc.acc_id
+LEFT JOIN account AS acc ON orders.rider_id = acc.acc_id
 WHERE orders.status = 'Delivered'
   AND orders.payment_id = 'COD' AND c_status='Not_Collected'
 GROUP BY rider_id
@@ -68,7 +119,7 @@ public function getCodCollectedCount()
         FROM (
             SELECT 1
             FROM new_tbl_orders AS orders
-            LEFT JOIN Account AS acc ON orders.rider_id = acc.acc_id
+            LEFT JOIN account AS acc ON orders.rider_id = acc.acc_id
             WHERE orders.status = 'Delivered'
               AND orders.payment_id = 'COD'
               AND c_status='Not_Collected'
@@ -96,6 +147,8 @@ public function getOrderStatusCounts()
             COUNT(CASE WHEN `status` = 'Accepted' THEN 1 END) AS Accepted,
             COUNT(CASE WHEN `status` = 'Ready For Delivery' THEN 1 END) AS ReadyForDelivery,
             COUNT(CASE WHEN `status` = 'Shipped' THEN 1 END) AS Shipped,
+            COUNT(CASE WHEN `status` = 'Rejected' THEN 1 END) AS Rejected,
+            COUNT(CASE WHEN `status` = 'Cancelled' THEN 1 END) AS Cancelled,
             COUNT(CASE WHEN `status` = 'Delivered' THEN 1 END) AS Delivered
         FROM `new_tbl_orders` ;
 
