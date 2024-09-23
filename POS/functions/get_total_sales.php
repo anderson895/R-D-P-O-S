@@ -2,8 +2,8 @@
 include('../config/config.php');
 include('session.php');
 
-// Set the timezone to Asia/Manila
-date_default_timezone_set('Asia/Manila');
+// Set the timezone to Asia/Manila in MySQL
+$conn->query("SET time_zone = '+08:00'");
 
 // Check connection
 if ($conn->connect_error) {
@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 $response = array();
 
 // Query 1
-$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` WHERE t_status = 0 AND DATE(order_date) = CURDATE() AND status = 'Delivered' ";
+$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` WHERE t_status = 0 AND DATE(order_date) = CURDATE() AND status = 'Delivered'";
 $result1 = $conn->query($query1);
 
 if ($result1->num_rows > 0) {
