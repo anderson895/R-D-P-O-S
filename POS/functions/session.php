@@ -13,7 +13,7 @@ $db_system_address = $row ["system_address"];
 
 
 if (isset($_SESSION["acc_id"])) {
-    include("../../connection.php");
+    include('../config/config.php');
     $acc_id = $_SESSION["acc_id"];
     $fullname = "";
     
