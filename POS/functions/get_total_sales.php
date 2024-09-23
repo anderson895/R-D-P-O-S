@@ -7,14 +7,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Set MySQL timezone to Asia/Manila
-$conn->query("SET time_zone = '+08:00'"); // Manila time is UTC+8
-
 // Initialize response array
 $response = array();
 
 // Query 1
-$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` WHERE t_status = 0 AND DATE(order_date) = CURDATE() AND status = 'Delivered'";
+$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` WHERE t_status = 0 AND DATE(order_date) = CURDATE() AND status = 'Delivered' ";
 $result1 = $conn->query($query1);
 
 if ($result1->num_rows > 0) {
@@ -41,5 +38,4 @@ $conn->close();
 // Set header to return JSON
 header('Content-Type: application/json');
 echo json_encode($response);
-
 ?>
