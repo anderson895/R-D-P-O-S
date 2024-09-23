@@ -95,7 +95,7 @@ class global_class extends db_connect
 
     public function checkProductQty($productId)
     {
-        $query = $this->conn->prepare("SELECT SUM(s_amount) AS total_stock FROM `stocks` WHERE `s_prod_id` = '$productId'");
+        $query = $this->conn->prepare("SELECT SUM(s_amount) AS total_stock FROM `stocks` WHERE `s_prod_id` = '$productId' AND s_status='1'");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
