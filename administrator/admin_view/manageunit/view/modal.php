@@ -13,7 +13,7 @@
 <p class="text-muted">Please follow these instructions:</p>
   <ol class="text-muted">
     <li>Unit Name should have a minimum of 1 characters.</li>
-    <li>Description should have a minimum of 5 characters.</li>
+
   </ol>
   <div id="validation-messages" class="text-danger"></div> <!-- Display validation messages here -->
   
@@ -84,7 +84,6 @@
 <p class="text-muted">Please follow these instructions:</p>
   <ol class="text-muted">
     <li>Unit Name should have a minimum of 1 characters.</li>
-    <li>Description should have a minimum of 5 characters.</li>
   </ol>
   <div id="validation-messages_for_updateModal" class="text-danger"></div> <!-- Display validation messages here -->
   

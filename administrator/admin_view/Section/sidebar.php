@@ -95,16 +95,16 @@ $currentURL = $_SERVER['REQUEST_URI'];
                             
                             
                             
-                            <li><a href="#" <?php if (strpos($currentURL, '#') !== false) echo 'class="active"'; ?>>Restore</a></li>
+                            <!--<li><a href="#" <?php if (strpos($currentURL, '#') !== false) echo 'class="active"'; ?>>Restore</a></li>-->
+                             <li><a href="managediscountPos.php" <?php if (strpos($currentURL, 'managediscountPos.php') !== false) echo 'class="active"'; ?>>Discount</a> </li>
                             
                             
-                            
-                            <li class="submenu">
-                                <a href="javascript:void(0);"><span>Special Offers</span></a>
-                                <ul>
-                                <li><a href="managediscountPos.php" <?php if (strpos($currentURL, 'managediscountPos.php') !== false) echo 'class="active"'; ?>>Discount (Store)</a></li>   
-                                <li><a href="managediscountOrder.php" <?php if (strpos($currentURL, 'managediscountOrder.php') !== false) echo 'class="active"'; ?>>Discount (Online)</a>
-                            </li>   
+                            <!--<li class="submenu">-->
+                            <!--    <a href="javascript:void(0);"><span>Special Offers</span></a>-->
+                            <!--    <ul>-->
+                            <!--    <li><a href="managediscountPos.php" <?php if (strpos($currentURL, 'managediscountPos.php') !== false) echo 'class="active"'; ?>>Discount (Store)</a></li>   -->
+                            <!--    <li><a href="managediscountOrder.php" <?php if (strpos($currentURL, 'managediscountOrder.php') !== false) echo 'class="active"'; ?>>Discount (Online)</a>-->
+                            <!--</li>   -->
                               
                             </ul>
                         </ul>

@@ -1,6 +1,33 @@
 
 <head>
+    <style>
+        .map-container {
+        position: relative;
+        padding-top: 75%;
+        }
 
+        .google-map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-frame {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        }
+
+        h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #2c3e50;
+        }
+    </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -17,7 +44,7 @@
 <form method="POST">
         <div class="login-userheading">
             <h3>Create an Account</h3>
-            <!-- <h4>Continue where you left off</h4> -->
+            <!--<h4>Continue where you left off</h4>-->
         </div>
 
         <div class="row">
@@ -43,13 +70,16 @@
             </div>
         </div>
 
-        <div class="form-login">
+       <div class="form-login">
             <label for="birthdate">Birthday</label>
             <div class="form-addons">
-                <input name='bday' value="" required type="date" id="birthdate">
+                <input name='bday' value="2013-01-01" required type="date" id="birthdate">
                 <div style="color:red;" id="birthdateError"></div>
             </div>
         </div>
+
+        
+        
 
         <div class="form-login">
             <label>Username</label>
@@ -116,7 +146,17 @@
 </div>
 </div>
 <div class="login-img">
-<img src="../upload_system/<?php echo $db_system_banner  ?>" alt="img">
+<div class="container">
+        <div class="map-frame">
+            <div class="map-container">
+                <iframe 
+                class="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3855.080174251401!2d120.958328!3d14.8170211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad2815babb8d%3A0x866d22682ef13094!2sR.+De+Leon+Poultry+Supply!5e0!3m2!1sen!2sph!4v1695382058287!5m2!1sen!2sph" 
+                allowfullscreen="" 
+                loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </div>

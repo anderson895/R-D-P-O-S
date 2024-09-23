@@ -53,7 +53,7 @@ include "php/session_dir.php";
 
     <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
-    <?php  include "Section/sidebar_generalSettings.php"; ?>
+    <?php  include "Section/sidebar.php"; ?>
     <?php include "ewallet/view/add_payment_form.php";?>
 
 </div>

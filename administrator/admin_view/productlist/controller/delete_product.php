@@ -9,12 +9,19 @@ if ($connections->connect_error) {
     die("Connection failed: " . $connections->connect_error);
 }
 
+
+session_start();
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Kunin ang product_id at prod_status mula sa AJAX request
     $prod_id = $_POST['prod_id'];
     $prod_code = $_POST['prod_code'];
     $prod_status = $_POST['prod_status'];
-    $acc_id=$_POST["acc_id"];
+    
+    $acc_id = $_SESSION['acc_id'];
+
+
 
     // Gumawa ng SQL query para sa pag-update ng prod_status
     $sql = "UPDATE product SET prod_status = ? WHERE prod_id = ?";

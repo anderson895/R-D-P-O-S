@@ -12,3 +12,5 @@ $db_system_content = $row ["system_content"];
 
 
 ?>	 
+
+ <link rel="shortcut icon" type="image/x-icon" href="../upload_system/<?= $db_system_logo ?>">

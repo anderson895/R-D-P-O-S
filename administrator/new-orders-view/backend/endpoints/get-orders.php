@@ -25,7 +25,7 @@ if (isset($_GET['page'])) {
                 <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                 <?= ($page == 'Delivered') ? '<td>' . $order['delivered_date'] . '</td>' : '' ?>
                 <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($riderName) . '</td>' : '' ?>
-                <?= ($page == 'Rejected') ? '<td>' . $order['reject_reason'] . '</td>' : '' ?>
+    
             </tr>
         <?php
         }

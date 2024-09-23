@@ -41,7 +41,8 @@ $(document).ready(function () {
           html += "</td>";
           html += "<td>" + row.prod_currprice + "</td>";
           html += "<td>" + row.s_supplierPrice + "</td>";
-          html += "<td>" + (row.prod_currprice - row.s_supplierPrice) + "</td>";
+        html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
+
           html +=
             "<td>" +
             (row.s_expiration !== "0000-00-00"
