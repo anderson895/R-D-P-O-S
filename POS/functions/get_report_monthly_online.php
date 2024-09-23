@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 
 // SQL query
 $sql = "SELECT YEAR(order_date) AS order_year, MONTH(order_date) AS order_month, SUM(total) AS monthly_total
-        FROM new_tbl_orders
+        FROM new_tbl_orders where status='delivered'
         GROUP BY YEAR(order_date), MONTH(order_date)
         ORDER BY order_year, order_month;
         ";

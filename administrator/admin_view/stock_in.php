@@ -48,7 +48,7 @@ include "php/session_dir.php";
             <?php include "topBar/profile.php"; ?>
     </ul>
 
-    <?php include "topbar/mobilUserMenu.php"; ?>
+    <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
     <?php  include "Section/sidebar.php"; ?>
 
@@ -94,8 +94,6 @@ include "php/session_dir.php";
 </div> -->
  <?php // include "stock_in/view/filter.php"; ?>
 <?php // include "stock_in/view/table.php"; ?> 
-
-
 <?php include "stock_in/view/table_not_realtime.php";?>
 <?php include "stock_in/view/modal.php";?>
 </div>

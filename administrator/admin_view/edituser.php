@@ -51,7 +51,7 @@ include "php/session_dir.php";
             <?php include "topBar/header.php"; ?>
 
     <ul class="nav user-menu">
-            <?php include "topbar/navMenu.php"; ?>
+            <?php include "topBar/navMenu.php"; ?>
             <?php include "topBar/notification.php"; ?>
             <?php include "topBar/profile.php"; ?>
     </ul>

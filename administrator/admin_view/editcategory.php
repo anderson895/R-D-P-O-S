@@ -55,7 +55,7 @@ include "php/session_dir.php";
             <?php include "topBar/profile.php"; ?>
     </ul>
 
-    <?php include "topbar/mobilUserMenu.php"; ?>
+    <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
     <?php  include "Section/sidebar.php"; ?>
     <?php include "editcategory/view/edit_category_form.php";?>

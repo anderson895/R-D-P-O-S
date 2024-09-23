@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include "backend/back_navbar.php";
 include "php/session_dir.php";
 ?>

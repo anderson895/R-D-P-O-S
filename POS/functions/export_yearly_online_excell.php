@@ -18,7 +18,7 @@ if (!$startYear || !$endYear) {
 $sql_query = "
 SELECT YEAR(order_date) AS order_year, SUM(total) AS yearly_total
 FROM new_tbl_orders
-WHERE YEAR(order_date) BETWEEN ? AND ?
+WHERE YEAR(order_date) BETWEEN ? AND ? AND status='delivered
 GROUP BY YEAR(order_date)
 ORDER BY order_year;
 ";

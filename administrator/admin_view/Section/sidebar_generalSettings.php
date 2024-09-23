@@ -61,7 +61,7 @@ $currentURL = $_SERVER['REQUEST_URI'];
 <a href="javascript:void(0);"><i data-feather="chevrons-down" style="color:rgb(99, 115, 129);"></i><span>Special Offers</span> <span class="menu-arrow"></span></a>
 <ul>
 <li><a href="managediscountPos.php" <?php if (strpos($currentURL, 'managediscountPos.php') !== false) echo 'class="active"'; ?>>Discount (Store)</a></li>   
-<li><a href="managediscountOrder.php" <?php if (strpos($currentURL, 'managediscountOrder.php') !== false) echo 'class="active"'; ?>>Discount (Online)</a></li>   
+<!--<li><a href="managediscountOrder.php" <?php if (strpos($currentURL, 'managediscountOrder.php') !== false) echo 'class="active"'; ?>>Discount (Online)</a></li>   -->
 <!---<li><a href="saleslist.php">Promo voucher (Online)</a></li>--->
 <!---<li><a href="saleslist.php">Interuption discount (Interupt order)</a></li>--->
 </ul>

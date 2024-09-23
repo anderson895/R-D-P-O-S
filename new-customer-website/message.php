@@ -37,7 +37,7 @@ include('components/header.php');
             <textarea class="form-control" id="sender_Messages" name="sender_Messages" rows="4"></textarea>
             <label class="form-label" for="sender_Messages">Message</label>
             
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center mt-2">
               <button type="button" id="btnSentMessage" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded me-2">
                 Send
               </button>

@@ -24,6 +24,35 @@
         <button id="prevBtn" class="btn btn-primary">Previous</button>
         <button id="nextBtn" class="btn btn-primary">Next</button>
     </div>
+    
+    <div class="text-secondary"><?php 
+    $sql_active_inactive = "SELECT COUNT(*) as total_active_inactive FROM product WHERE prod_status = '0' OR prod_status = '1'";
+$result_active_inactive = mysqli_query($connections, $sql_active_inactive);
+
+if ($result_active_inactive) {
+    $row_active_inactive = mysqli_fetch_assoc($result_active_inactive);
+    $total_active_inactive = $row_active_inactive['total_active_inactive'];
+    echo "Total Products: " . $total_active_inactive . "<br>";
+} else {
+    echo "Error: " . mysqli_error($connections);
+}
+    ?></div>
+    
+    
+    <div class="text-secondary">
+    <?php
+    $sql_active = "SELECT COUNT(*) as total_active FROM product WHERE prod_status = '0'";
+    $result_active = mysqli_query($connections, $sql_active);
+    
+    if ($result_active) {
+        $row_active = mysqli_fetch_assoc($result_active);
+        $total_active = $row_active['total_active'];
+        echo "Total Active Products: " . $total_active . "<br>";
+    } else {
+        echo "Error: " . mysqli_error($connections);
+    }
+    ?>    
+    </div>
 </div>
 
 <script>

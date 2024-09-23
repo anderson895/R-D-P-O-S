@@ -55,7 +55,7 @@ include "php/session_dir.php";
             <?php include "topBar/profile.php"; ?>
     </ul>
 
-    <?php include "topbar/mobilUserMenu.php"; ?>
+    <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
     <?php include "Section/sidebar.php"; ?>
  
@@ -118,10 +118,18 @@ WHERE prod_code = '$prod_code' ");
         $formatteddateAdded = date("F j, Y h:i a", $dateTime_dateAdded);
 
         $dateTime_dateEdit = strtotime($dateEdit);
+        
+        
         // I-set ang time zone sa Manila
         date_default_timezone_set('Asia/Manila');
+        
         // Display ng buwan, taon, araw, at oras sa 12-hour format
-        $formatteddateEdit= date("F j, Y h:i a", $dateTime_dateEdit);
+      if ($dateEdit === null) {
+            $formatteddateEdit = "Product unchanged";
+        } else {
+            $formatteddateEdit = date("F j, Y h:i a", $dateTime_dateEdit);
+        }
+
 
         
 
@@ -389,7 +397,7 @@ if ($result) {
 
 <script src="assets/plugins/select2/js/select2.min.js"></script>
 <script src="assets/plugins/alertify/alertify.min.js"></script>
-<!-- <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script> -->
+ <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script> 
 <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 <script src="assets/js/script.js"></script>
 

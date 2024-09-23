@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 
 // SQL query
 $sql = "SELECT DATE(order_date) AS order_date, SUM(total) AS daily_total
-        FROM new_tbl_orders
+        FROM new_tbl_orders where status='delivered'
         GROUP BY DATE(order_date)
         ORDER BY order_date";
 

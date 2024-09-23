@@ -71,23 +71,21 @@ if($getAddress->num_rows > 0) {
 
             </div>
         </div>
-        <?php
-        if ($order['status'] == 'Rejected') {
-        ?>
-            <div class="input-container-label-top m-2">
-                <label>Reject Reason</label>
-                <textarea class="form-control" readonly><?= $order['reject_reason'] ?></textarea>
-            </div>
-        <?php
-        }
-        ?>
+      
         <table class="table">
             <thead>
                 <tr>
                     <td colspan="4">
-                        <h5 style="font-weight: 700;" class="mt-3 mb-2 text-secondary">
-                            <i class="bi bi-feather"></i> Items
-                        </h5>
+                       
+                         <button class="btn btn-secondary" onclick="window.open('waybill.php?orderId=<?=$orderId?>', '_blank')">
+                            <i class="bi bi-printer ms-2"></i> Print bill
+                        </button>
+                         
+                         
+                       <h5 style="font-weight: 700;" class="mt-3 mb-2 text-secondary">
+                            <i class="bi bi-feather"></i> Items  </h5>
+                        
+
                     </td>
                 </tr>
                 <tr>
