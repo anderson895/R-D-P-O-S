@@ -39,22 +39,20 @@ if ($result1 = $conn->query($query1)) {
     $response['todayOnlineSum'] = 0;
 }
 
-// Set the timezone to Asia/Manila
-date_default_timezone_set('Asia/Manila');
-
-// Set the date to today in Asia/Manila timezone
-$todayDate = date('Y-m-d', strtotime('today'));
-
 // Query 2: Fetch sum of total for POS orders today
 $query2 = "SELECT SUM(orders_final) AS total_sum
            FROM pos_orders 
            WHERE orders_status = 0 
-           AND DATE(orders_date) = '$todayDate'";
+           AND DATE(CONVERT_TZ(orders_date, @@session.time_zone, '+08:00')) = CURDATE() 
+           ";
 
 if ($result2 = $conn->query($query2)) {
     if ($row = $result2->fetch_assoc()) {
+
+       
         $response['todayPosSum'] = $row['total_sum'] !== null ? $row['total_sum'] : 0;
     } else {
+     
         $response['todayPosSum'] = 0; // No rows found
     }
     $result2->free(); // Free result set
@@ -62,7 +60,6 @@ if ($result2 = $conn->query($query2)) {
     error_log("Error in query2: " . $conn->error); // Log the error for debugging
     $response['todayPosSum'] = 0;
 }
-
 
 // Close the connection
 $conn->close();
