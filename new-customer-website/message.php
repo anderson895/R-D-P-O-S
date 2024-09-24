@@ -19,12 +19,12 @@ include('components/header.php');
 
      
 
-      <div class="col-md-6 col-lg-7 col-xl-12" >
+      <div class="col-md-6 col-lg-7 col-xl-12 shadow" >
 
         <ul class="list-unstyled text-white" >
        
        
-        <div class="container shadow" id="allMessagesContainer" style="height: 650px; overflow-y: auto;">
+        <div class="container " id="allMessagesContainer" style="height: 650px; overflow-y: auto;">
    
         </div>
 
