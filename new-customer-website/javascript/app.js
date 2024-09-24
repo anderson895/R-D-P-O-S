@@ -653,6 +653,8 @@ $(document).on("click", ".btnViewProduct", function (e) {
           items: JSON.stringify(items),
         },
         success: function (response) {
+        
+
           closeModal("PlaceOrderModal");
           displayCartItems();
           if (response == "200") {

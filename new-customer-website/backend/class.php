@@ -334,7 +334,8 @@ class global_class extends db_connect
             $deleteItemsInCart->execute();
         }
 
-        $total = $subtotal + $vat + $sf;
+        // $total = $subtotal + $vat + $sf; original computation
+         $total = $subtotal+ $sf;
 
 
         $insertItemQuery = "INSERT INTO `new_tbl_order_items` (`order_id`, `product_id`, `qty`) VALUES " . implode(", ", $insertValues);
