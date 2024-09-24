@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 
 // SQL query with DATE() function to remove time
 $sql = "SELECT DATE(order_date) as order_date, SUM(total) as total_sales 
-        FROM `new_tbl_orders` Where new_tbl_orders`.`status='Delivered'
+        FROM `new_tbl_orders` Where new_tbl_orders.status='Delivered'
         GROUP BY DATE(order_date) 
         ORDER BY DATE(order_date) ASC 
         LIMIT 10";
