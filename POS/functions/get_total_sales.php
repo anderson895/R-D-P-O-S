@@ -4,7 +4,7 @@ include('../config/config.php');
 include('session.php');
 
 // Set the timezone
-date_default_timezone_set('Your/Timezone'); // e.g., 'Asia/Manila'
+date_default_timezone_set('Asia/Manila'); // e.g., 'Asia/Manila'
 
 // Initialize response array
 $response = array();
