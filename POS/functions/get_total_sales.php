@@ -24,7 +24,7 @@ $response = array();
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(order_date)) = CURDATE() 
+           AND DATE(order_date) = CURDATE() 
            AND status = 'Delivered'";
 
 if ($result1 = $conn->query($query1)) {
