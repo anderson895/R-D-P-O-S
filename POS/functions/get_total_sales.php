@@ -1,29 +1,26 @@
 <?php
-
-date_default_timezone_set('Asia/Manila');
-
 // Include database configuration and session
 include('../config/config.php');
 include('session.php');
 
+// Set the timezone
+date_default_timezone_set('Your/Timezone'); // e.g., 'Asia/Manila'
+
 // Initialize response array
 $response = array();
 
+// Log the current PHP timezone and date
+error_log("Current PHP Timezone: " . date_default_timezone_get());
+error_log("Current Date: " . date('Y-m-d')); // Log the current date
 
 // Query 1: Fetch sum of total for online orders delivered today
-// $query1 = "SELECT SUM(total) AS total_sum 
-//            FROM `new_tbl_orders` 
-//            WHERE t_status = 0 
-//            AND DATE(delivered_date) = CURDATE() 
-//            AND status = 'Delivered'";
-
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(delivered_date) = '2024-09-25' 
+           AND DATE(delivered_date) = CURDATE() 
            AND status = 'Delivered'";
 
-
+error_log("Query1: " . $query1); // Log the query for debugging
 
 if ($result1 = $conn->query($query1)) {
     if ($row = $result1->fetch_assoc()) {
@@ -43,6 +40,7 @@ $query2 = "SELECT SUM(orders_final) AS total_sum
            WHERE orders_status = 0 
            AND DATE(orders_date) = CURDATE()";
 
+error_log("Query2: " . $query2); // Log the query for debugging
 
 if ($result2 = $conn->query($query2)) {
     if ($row = $result2->fetch_assoc()) {
