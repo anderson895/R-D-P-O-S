@@ -3,7 +3,7 @@
 include('../config/config.php');
 include('session.php');
 
-// Set the timezone to Manila for PHP date functions
+// Set the timezone to Manila for PHP's date functions
 date_default_timezone_set('Asia/Manila');
 
 // Check the database connection
@@ -24,16 +24,19 @@ $response = array();
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(order_date) = CURDATE() 
+           AND DATE(CONVERT_TZ(order_date, @@session.time_zone, '+08:00')) = CURDATE() 
            AND status = 'Delivered'";
 
-$result1 = $conn->query($query1);
-if ($result1) {
-    $row = $result1->fetch_assoc();
-    $response['todayOnlineSum'] = $row['total_sum'] ?? 0; // Use null coalescing to handle null results
+if ($result1 = $conn->query($query1)) {
+    if ($row = $result1->fetch_assoc()) {
+        $response['todayOnlineSum'] = $row['total_sum'] !== null ? $row['total_sum'] : 0;
+    } else {
+        $response['todayOnlineSum'] = 0; // No rows found
+    }
+    $result1->free(); // Free result set
 } else {
-    $response['todayOnlineSum'] = 0;
     error_log("Error in query1: " . $conn->error); // Log the error for debugging
+    $response['todayOnlineSum'] = 0;
 }
 
 // Query 2: Fetch sum of total for POS orders today
@@ -42,13 +45,16 @@ $query2 = "SELECT SUM(orders_final) AS total_sum
            WHERE orders_status = 0 
            AND DATE(CONVERT_TZ(orders_date, @@session.time_zone, '+08:00')) = CURDATE()";
 
-$result2 = $conn->query($query2);
-if ($result2) {
-    $row = $result2->fetch_assoc();
-    $response['todayPosSum'] = $row['total_sum']; // Use null coalescing to handle null results
+if ($result2 = $conn->query($query2)) {
+    if ($row = $result2->fetch_assoc()) {
+        $response['todayPosSum'] = $row['total_sum'] !== null ? $row['total_sum'] : 0;
+    } else {
+        $response['todayPosSum'] = 0; // No rows found
+    }
+    $result2->free(); // Free result set
 } else {
-    $response['todayPosSum'] = 0;
     error_log("Error in query2: " . $conn->error); // Log the error for debugging
+    $response['todayPosSum'] = 0;
 }
 
 // Close the connection
