@@ -1,10 +1,14 @@
 <?php
+
+date_default_timezone_set('Asia/Manila');
+
 // Include database configuration and session
 include('../config/config.php');
 include('session.php');
 
 // Initialize response array
 $response = array();
+
 
 // Log the current date being used for CURDATE()
 $current_date = date('Y-m-d');
