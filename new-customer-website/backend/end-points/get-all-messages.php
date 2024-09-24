@@ -30,7 +30,7 @@ if (isset($_SESSION['acc_id'])) {
             <!-- <p class="text-light small mb-0"><i class="far fa-clock"></i> 13 mins ago</p> -->
         </div>
         <div class="card-body">
-            <p class="mb-0">
+            <p class="mb-0 text-white">
                 <?=$messages['mess_content']?>
             </p>
         </div>
