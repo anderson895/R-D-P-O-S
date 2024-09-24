@@ -277,7 +277,8 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <span>VAT (Included):</span>
-                            <span>₱ <span hidden id="checkOutVat"></span></span>
+                            <span >-</span>
+                            <span hidden>₱ <span id="checkOutVat"></span></span>
                         </div>
                         <div class="d-flex justify-content-between">
                             <span>Shipping:</span>
