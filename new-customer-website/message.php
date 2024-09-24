@@ -34,7 +34,7 @@ include('components/header.php');
          
 
           
-        <li class="mb-3 mt-3">
+        <li class="mb-3 mt-3 shadow">
   <div data-mdb-input-init class="form-outline form-white">
     <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
     
