@@ -402,8 +402,8 @@ class global_class extends db_connect
             $deleteItemsInCart->execute();
         }
 
-        $total = $subtotal + $vat + $sf;
-
+        // $total = $subtotal + $vat + $sf; Old computation
+        $total = $subtotal+ $sf; 
         if (!empty($_FILES['proofOfPayment']['size'])) {
             $file_name = $file['name'];
             $file_tmp = $file['tmp_name'];
