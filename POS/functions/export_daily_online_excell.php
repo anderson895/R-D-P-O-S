@@ -18,7 +18,7 @@ if (!$start_date || !$end_date) {
 $sql_query = "
 SELECT DATE(order_date) AS order_date, SUM(total) AS daily_total
 FROM new_tbl_orders
-WHERE DATE(order_date) BETWEEN ? AND ?
+WHERE DATE(order_date) BETWEEN ? AND ? AND new_tbl_orders.status='Delivered'
 GROUP BY DATE(order_date)
 ORDER BY order_date
 ";
