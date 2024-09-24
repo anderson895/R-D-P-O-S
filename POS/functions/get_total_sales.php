@@ -4,20 +4,22 @@ include('../config/config.php');
 include('session.php');
 
 // Set the timezone
-date_default_timezone_set('Asia/Manila'); // e.g., 'Asia/Manila'
+date_default_timezone_set('Asia/Manila'); // Set to Asia/Manila timezone
 
 // Initialize response array
 $response = array();
 
-// Log the current PHP timezone and date
-error_log("Current PHP Timezone: " . date_default_timezone_get());
-error_log("Current Date: " . date('Y-m-d')); // Log the current date
+// Get today's date in 'Y-m-d' format
+$todayDate = date('Y-m-d');
+
+// Log the current date
+error_log("Current Date: " . $todayDate); // Log the current date
 
 // Query 1: Fetch sum of total for online orders delivered today
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(delivered_date) = CURDATE() 
+           AND DATE(delivered_date) = '$todayDate' 
            AND status = 'Delivered'";
 
 error_log("Query1: " . $query1); // Log the query for debugging
@@ -38,7 +40,7 @@ if ($result1 = $conn->query($query1)) {
 $query2 = "SELECT SUM(orders_final) AS total_sum
            FROM pos_orders 
            WHERE orders_status = 0 
-           AND DATE(orders_date) = CURDATE()";
+           AND DATE(orders_date) = '$todayDate'";
 
 error_log("Query2: " . $query2); // Log the query for debugging
 
