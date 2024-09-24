@@ -585,7 +585,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
         }
 
         total += subtotal;
-        total += vat;
+        // total += vat;
         $("#checkOutTotal").text(total.toFixed(2));
 
         $("#PlaceOrderModal").modal("show");
