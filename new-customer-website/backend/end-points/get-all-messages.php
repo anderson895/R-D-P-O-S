@@ -23,8 +23,8 @@ if (isset($_SESSION['acc_id'])) {
                     if($messages['mess_sender']==$acc_id){
 ?>
   <!-- Customer message -->
-<li class="d-flex justify-content-between mb-4 bg-primary">
-    <div class="card mask-custom w-100">
+<li class="d-flex justify-content-between mb-4 ">
+    <div class="card mask-custom w-100 bg-primary">
         <div class="card-header d-flex justify-content-between p-3" style="border-bottom: 1px solid rgba(255,255,255,.3);">
             <p class="fw-bold mb-0"><?=ucfirst($messages['acc_fname'])?> <?=$messages['acc_lname']?> (Customer)</p>
             <!-- <p class="text-light small mb-0"><i class="far fa-clock"></i> 13 mins ago</p> -->
