@@ -3,19 +3,6 @@
 include('../config/config.php');
 include('session.php');
 
-// Set the timezone to Manila for PHP's date functions
-date_default_timezone_set('Asia/Manila');
-
-// Check the database connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Set the session time zone for MySQL
-$setTimeZoneQuery = "SET time_zone = '+08:00'";
-if (!$conn->query($setTimeZoneQuery)) {
-    die("Error setting time zone: " . $conn->error);
-}
 
 // Initialize response array
 $response = array();
