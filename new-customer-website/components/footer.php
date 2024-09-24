@@ -276,8 +276,8 @@
                             <span>₱ <span id="checkOutSubtotal"></span></span>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <span>VAT:</span>
-                            <span>₱ <span id="checkOutVat"></span></span>
+                            <span>VAT (Included):</span>
+                            <span>₱ <span hidden id="checkOutVat"></span></span>
                         </div>
                         <div class="d-flex justify-content-between">
                             <span>Shipping:</span>
