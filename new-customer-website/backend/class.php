@@ -299,7 +299,7 @@ class global_class extends db_connect
         $getMaintenance = $this->getMaintenance();
         if ($getMaintenance->num_rows > 0) {
             $maintenance = $getMaintenance->fetch_assoc();
-            $taxRate = $maintenance['system_tax'];
+            $taxRate = $maintenance['system_tax']*100;
         }
 
         $userId = $_SESSION['acc_id'];
@@ -367,7 +367,7 @@ class global_class extends db_connect
         $getMaintenance = $this->getMaintenance();
         if ($getMaintenance->num_rows > 0) {
             $maintenance = $getMaintenance->fetch_assoc();
-            $taxRate = $maintenance['system_tax'];
+            $taxRate = $maintenance['system_tax']*100;
         }
 
         $userId = $_SESSION['acc_id'];
