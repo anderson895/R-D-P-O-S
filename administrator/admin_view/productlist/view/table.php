@@ -113,7 +113,8 @@ if ($result_active_inactive) {
                             </td>
                             <td>${item.prod_code}</td>
                             <td>${item.category_name}</td>
-                            <td>${item.prod_currprice.toFixed(2)}</td>
+                           <td>${Number(item.prod_currprice).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+
                             <td>${item.prod_ml}</td>
                             <td>${item.prod_g}</td>
                             <td>${item.prod_mg}</td>
