@@ -26,7 +26,7 @@ include('components/header.php');
         <ul class="list-unstyled text-white" >
        
        
-        <div class="container mt-4" id="allMessagesContainer" style="height: 650px; overflow-y: auto;">
+        <div class="container mt-4 " id="allMessagesContainer" style="height: 650px; overflow-y: auto;">
    
         </div>
 
@@ -34,7 +34,7 @@ include('components/header.php');
          
 
           
-        <li class="mb-3 mt-3 shadow">
+        <li class="mb-3 mt-3 ">
   <div data-mdb-input-init class="form-outline form-white">
     <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
     
