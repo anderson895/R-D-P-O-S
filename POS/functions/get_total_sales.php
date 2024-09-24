@@ -42,11 +42,14 @@ if ($result1 = $conn->query($query1)) {
 // Set the timezone to Asia/Manila
 date_default_timezone_set('Asia/Manila');
 
+// Set the date to today in Asia/Manila timezone
+$todayDate = date('Y-m-d', strtotime('today'));
+
 // Query 2: Fetch sum of total for POS orders today
 $query2 = "SELECT SUM(orders_final) AS total_sum
            FROM pos_orders 
            WHERE orders_status = 0 
-           AND DATE(orders_date) = CURDATE()";
+           AND DATE(orders_date) = '$todayDate'";
 
 if ($result2 = $conn->query($query2)) {
     if ($row = $result2->fetch_assoc()) {
