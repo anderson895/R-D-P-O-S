@@ -36,19 +36,18 @@ if ($result1) {
     error_log("Error in query1: " . $conn->error); // Log the error for debugging
 }
 
-// Query 2: Fetch sum of total for POS orders today
-$query2 = "SELECT SUM(orders_final) AS total_sum 
-           FROM pos_orders 
+
+// Query 2: POS orders for today
+$query2 = "SELECT SUM(orders_final) AS total_sum FROM pos_orders 
            WHERE orders_status = 0 
            AND DATE(CONVERT_TZ(orders_date, @@session.time_zone, '+08:00')) = CURDATE()";
-
 $result2 = $conn->query($query2);
-if ($result2) {
+
+if ($result2->num_rows > 0) {
     $row = $result2->fetch_assoc();
-    $response['todayPosSum'] = $row['total_sum'] ?? 0; // Use null coalescing to handle null results
+    $response['todayPosSum'] = $row['total_sum'];
 } else {
     $response['todayPosSum'] = 0;
-    error_log("Error in query2: " . $conn->error); // Log the error for debugging
 }
 
 // Close the connection
