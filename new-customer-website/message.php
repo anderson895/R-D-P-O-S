@@ -12,7 +12,7 @@ include('components/header.php');
 <div class="container" >
 
 <section class="gradient-custom" >
-  <div class="container py-5">
+  <div class="container py-2">
 
     <div class="row">
 
