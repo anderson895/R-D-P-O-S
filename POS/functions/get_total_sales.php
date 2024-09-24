@@ -4,6 +4,12 @@ include('../config/config.php');
 include('session.php');
 
 
+// Set the session time zone for MySQL
+$setTimeZoneQuery = "SET time_zone = '+08:00'";
+if (!$conn->query($setTimeZoneQuery)) {
+    die("Error setting time zone: " . $conn->error);
+}
+
 // Initialize response array
 $response = array();
 
@@ -11,7 +17,7 @@ $response = array();
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(order_date) = CURDATE() 
+           AND DATE(order_date, @@session.time_zone, '+08:00')) = CURDATE() 
            AND status = 'Delivered'";
 
 if ($result1 = $conn->query($query1)) {
