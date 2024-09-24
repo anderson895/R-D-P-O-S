@@ -29,7 +29,7 @@ if (isset($_SESSION['acc_id'])) {
             <p class="fw-bold mb-0"><?=ucfirst($messages['acc_fname'])?> <?=$messages['acc_lname']?> (Customer)</p>
             <!-- <p class="text-light small mb-0"><i class="far fa-clock"></i> 13 mins ago</p> -->
         </div>
-        <div class="card-body">
+        <div class="card-body bg-primary">
             <p class="mb-0">
                 <?=$messages['mess_content']?>
             </p>
