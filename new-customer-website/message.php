@@ -14,7 +14,7 @@ include('components/header.php');
 <section class="gradient-custom" >
   <div class="container py-5">
 
-    <div class="row">
+
 
      
 
@@ -54,7 +54,7 @@ include('components/header.php');
          
         </ul>
 
-      </div>
+    
 
     </div>
 
