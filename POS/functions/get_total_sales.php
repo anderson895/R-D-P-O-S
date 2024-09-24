@@ -17,7 +17,7 @@ $response = array();
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(order_date, @@session.time_zone, '+08:00')) = CURDATE() 
+           AND DATE(CONVERT_TZ(order_date, @@session.time_zone, '+08:00')) = CURDATE() 
            AND status = 'Delivered'";
 
 if ($result1 = $conn->query($query1)) {
