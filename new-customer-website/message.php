@@ -6,7 +6,6 @@ include('components/header.php');
 
 
 
-<h2><i class="bi bi-chat-right-text"></i> Message</h2>
 
 
 
@@ -21,6 +20,9 @@ include('components/header.php');
 
       <div class="col-md-6 col-lg-7 col-xl-12 shadow" >
 
+      <h2><i class="bi bi-chat-right-text"></i> Message</h2>
+
+      
         <ul class="list-unstyled text-white" >
        
        
@@ -32,23 +34,22 @@ include('components/header.php');
          
 
           
-        <li class="mb-3">
-    <div data-mdb-input-init class="form-outline form-white">
-        <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
-        <textarea class="form-control" id="sender_Messages" name="sender_Messages" rows="4"></textarea>
-        <label class="form-label" for="sender_Messages">Message</label>
-        
-        <div class="d-flex justify-content-between align-items-center mt-2">
-            <button type="button" id="btnSentMessage" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded">
+        <li class="mb-3 mt-3">
+          <div data-mdb-input-init class="form-outline form-white">
+            <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
+            <textarea class="form-control" id="sender_Messages" name="sender_Messages" rows="4"></textarea>
+            <label class="form-label" for="sender_Messages">Message</label>
+            
+            <div class="d-flex align-items-center mt-2">
+              <button type="button" id="btnSentMessage" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded me-2">
                 Send
-            </button>
-            <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+              </button>
+              <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
                 <span class="visually-hidden">Loading...</span>
+              </div>
             </div>
-        </div>
-    </div>
-</li>
-
+          </div>
+        </li>
 
          
         </ul>
