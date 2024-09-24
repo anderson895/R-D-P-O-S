@@ -64,8 +64,8 @@
                     '<td>' + row.s_invoice + '</td>' +
                     '<td>' + row.spl_name + '</td>' +
                     '<td>' + formatted_date + '</td>' +
-                    '<td>' + Number(row.totalMarkup).toFixed(2) + '</td>' +
-                '<td>' + Number(row.totalCost).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</td>'+
+                   '<td>' + Number(row.totalMarkup).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</td>'+
+                    '<td>' + Number(row.totalCost).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</td>'+
                     '<td class="text-center">' +
                     '<form method="POST" action="add_stock.php">' +
                     '<input type="hidden" name="invoice_no" value="' + row.s_invoice + '">' +
