@@ -14,7 +14,8 @@ if ($conn->connect_error) {
 $response = array();
 
 // Query 1: Online orders delivered today
-$query1 = "SELECT SUM(total) AS total_sum FROM `new_tbl_orders` 
+$query1 = "SELECT SUM(total) AS total_sum 
+           FROM `new_tbl_orders` 
            WHERE t_status = 0 
            AND DATE(CONVERT_TZ(order_date, @@session.time_zone, '+08:00')) = CURDATE() 
            AND status = 'Delivered'";
