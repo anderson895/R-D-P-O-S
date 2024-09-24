@@ -11,8 +11,10 @@ $response = array();
 $query1 = "SELECT SUM(total) AS total_sum 
            FROM `new_tbl_orders` 
            WHERE t_status = 0 
-           AND DATE(order_date) = CURDATE() 
+           AND DATE(delivered_date) = CURDATE() 
            AND status = 'Delivered'";
+
+error_log("Query1: " . $query1); // Log the query for debugging
 
 if ($result1 = $conn->query($query1)) {
     if ($row = $result1->fetch_assoc()) {
@@ -25,6 +27,7 @@ if ($result1 = $conn->query($query1)) {
     error_log("Error in query1: " . $conn->error); // Log the error for debugging
     $response['todayOnlineSum'] = 0;
 }
+
 
 // Query 2: Fetch sum of total for POS orders today
 $query2 = "SELECT SUM(orders_final) AS total_sum
