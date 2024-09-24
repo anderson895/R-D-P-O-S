@@ -40,7 +40,7 @@ if ($result1 = $conn->query($query1)) {
 $query2 = "SELECT SUM(orders_final) AS total_sum
            FROM pos_orders 
            WHERE orders_status = 0 
-           AND DATE(orders_date) = '$todayDate'";
+           AND DATE(orders_date) = CURDATE()";
 
 error_log("Query2: " . $query2); // Log the query for debugging
 
