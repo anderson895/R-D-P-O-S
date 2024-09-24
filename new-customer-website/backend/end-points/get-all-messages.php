@@ -23,7 +23,7 @@ if (isset($_SESSION['acc_id'])) {
                     if($messages['mess_sender']==$acc_id){
 ?>
   <!-- Customer message -->
-<li class="d-flex justify-content-between mb-4">
+<li class="d-flex justify-content-between mb-4 bg-primary">
     <div class="card mask-custom w-100">
         <div class="card-header d-flex justify-content-between p-3" style="border-bottom: 1px solid rgba(255,255,255,.3);">
             <p class="fw-bold mb-0"><?=ucfirst($messages['acc_fname'])?> <?=$messages['acc_lname']?> (Customer)</p>
