@@ -47,8 +47,11 @@ $query2 = "SELECT SUM(orders_final) AS total_sum
 
 if ($result2 = $conn->query($query2)) {
     if ($row = $result2->fetch_assoc()) {
+
+        echo "true";
         $response['todayPosSum'] = $row['total_sum'] !== null ? $row['total_sum'] : 0;
     } else {
+        echo "false";
         $response['todayPosSum'] = 0; // No rows found
     }
     $result2->free(); // Free result set
