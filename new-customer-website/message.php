@@ -20,9 +20,9 @@ include('components/header.php');
 
       <div class="col-md-6 col-lg-7 col-xl-12 shadow" >
 
-      <h2><i class="bi bi-chat-right-text"></i> Message</h2>
+      <h2 class="mt-3"><i class="bi bi-chat-right-text"></i> Message</h2>
 
-      
+
         <ul class="list-unstyled text-white" >
        
        
