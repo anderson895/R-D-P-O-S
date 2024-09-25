@@ -48,9 +48,7 @@ $(document).ready(function() {
 
 
                             if(message.mess_sender==null){
-                                messageHtml += 'hidden">';
-
-                                return;
+                                $('.card mb-0').hide();
                             }
         
                             var messageHtml = '<li class="media';
