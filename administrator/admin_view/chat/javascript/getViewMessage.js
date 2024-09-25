@@ -15,7 +15,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
 
-                // console.log(data);
+                console.log(data);
                 
                 var chatBody = $('#messageList');
                 chatBody.empty();
@@ -32,6 +32,8 @@ $(document).ready(function() {
                             imagePathReciever = '../../upload_img/' + firstMessage.Reciever_image;
                         }
                         $("#reciever_image").attr("src", imagePathReciever);
+
+                        
         
                         data.forEach(function(message) {
                             var formattedTime = formatTimeTo12HourFormat(message.mess_date);
