@@ -291,7 +291,7 @@ try {
                     echo "Error preparing statement: " . $conn->error;
                 }
             ?>
-            <button class="btn mt-3 w-100 text-primary border-primary ">Print As Document</button>
+            <!-- <button class="btn mt-3 w-100 text-primary border-primary ">Print As Document</button> -->
             <button class="btn mt-3 w-100 text-primary border-primary">Print As Reciept</button>
             
 
