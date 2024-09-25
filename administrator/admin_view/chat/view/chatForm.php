@@ -98,27 +98,6 @@ $session_id=$_SESSION["acc_id"];
     </a>
     <div class="img_cont">
         
-    <?php 
-if ($acc_type == "customer") {
-    echo '
-        <img
-            onclick="window.location.href=\'profile_customer.php?target_id=' . $acc_id . '\'"
-            id="reciever_image"
-            class="rounded-circle user_img"
-            ' . ($emp_image ? 'src="../../upload_img/' . $emp_image . '" alt=""' : 'src="../../upload_system/empty.png" alt=""') . '
-        >
-    ';
-} else {
-    echo '
-        <img
-            onclick="window.location.href=\'profile.php?account_id=' . $acc_id . '\'"
-            id="reciever_image"
-            class="rounded-circle user_img"
-            ' . ($emp_image ? 'src="../../upload_img/' . $emp_image . '" alt=""' : 'src="../../upload_system/empty.png" alt=""') . '
-        >
-    ';
-}
-?>
 
     
 
