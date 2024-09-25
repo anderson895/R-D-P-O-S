@@ -31,6 +31,8 @@ function searchMessages(searchText) {
         data: { searchText: searchText },
         success: function(response) {
             displayMessages(response);
+
+            console.log(response);
         },
         error: function() {
             alert('May nangyaring error sa paghahanap ng mensahe.');
