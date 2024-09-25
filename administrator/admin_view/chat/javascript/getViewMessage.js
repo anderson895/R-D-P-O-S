@@ -101,7 +101,7 @@ $(document).ready(function() {
 });
     }
 
-
+    retrieveViewMessages(account_id);
 
     $('#chatMessages .contacts_body').on('click', '.changeChatView', function() {
         var clickedAccountID = $(this).data("account_id"); // Get the clicked account_id
@@ -113,6 +113,4 @@ $(document).ready(function() {
         //window.location.href = 'profile_customer.php?target_id=' + clickedAccountID;
 
     });
-
-    retrieveViewMessages(account_id);
 });

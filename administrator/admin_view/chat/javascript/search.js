@@ -1,8 +1,4 @@
 $(document).ready(function() {
-
-
-    
-
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
@@ -11,7 +7,6 @@ $(document).ready(function() {
             retrieveAllMessages();
         } else {
             searchMessages(searchText);
-            
         }
     });
 });
@@ -66,7 +61,7 @@ function displayMessages(response) {
         messagesHTML += '</div>';
         messagesHTML += '<div class="media-body flex-grow-1">';
         messagesHTML += '<div>';
-        messagesHTML += '<div class="user-name">' + message.acc_fname + '</div>';
+        messagesHTML += '<div class="user-name">' + message.acc_username + '</div>';
         messagesHTML += '<div class="user-last-chat">' + message.mess_content + '</div>';
         messagesHTML += '</div>';
         messagesHTML += '<div>';
