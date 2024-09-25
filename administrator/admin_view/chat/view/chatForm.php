@@ -123,7 +123,7 @@ if ($acc_type == "customer") {
     
 
     </div>
-    <div hidden class="user_info">
+    <div class="user_info">
     <span><strong id="receiver_name"><?=$fullname?></strong></span>
               
     <p class="mb-0">Messages</p>
