@@ -1,7 +1,8 @@
 <div class="header-left active" style="background-color: rgb(113,0,0);">
-    <a href="<?php if($acc_type === 'administrator'){ echo 'index.php ';}else{ echo '#';} ?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <!-- <img src="../../upload_system/<?= $db_system_logo ?>" class="img-fluid" alt="Logo" style="max-width:50px; height: auto;"> -->
-        <span class="fs-3 fw-bold text-light ms-3"><?= $db_system_name ?></span>
+    <a href="<?php if($acc_type === 'administrator'){ echo 'index.php ';}else{ echo '#';} ?>" 
+       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none flex-column flex-md-row text-center text-md-start justify-content-center justify-content-md-start">
+        <img src="../../upload_system/<?= $db_system_logo ?>" class="img-fluid" alt="Logo" style="max-width:50px; height: auto;">
+        <span class="fs-3 fw-bold text-light ms-md-3 mt-2 mt-md-0"><?= $db_system_name ?></span>
     </a>
     
     <a hidden id="toggle_btn" href="javascript:void(0);"></a>
