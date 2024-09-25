@@ -1,11 +1,7 @@
 $(document).ready(function() {
     var account_id = $("#account_id").val(); 
-    var session_id= $("#session_id").val();
-  
+    var session_id = $("#session_id").val();
     var pollInterval = 1000; 
-
-
-    
 
     function retrieveViewMessages(accountId) {
         $.ajax({
@@ -14,9 +10,6 @@ $(document).ready(function() {
             data: { account_id: accountId },
             dataType: 'json',
             success: function(data) {
-
-                // console.log(data);
-                
                 var chatBody = $('#messageList');
                 chatBody.empty();
         
@@ -38,98 +31,76 @@ $(document).ready(function() {
 
                             if (message.Reciever_id === null) {
                                 $('#chatbox').hide();
-                            }else{
+                            } else {
                                 $('#chatbox').show();
                             }
-                            
         
                             var imagePathReciever = '../../upload_system/empty.png';
                             if (message.Reciever_image !== '') {
-                                imagePathReciever = '../upload_img/' + message.Reciever_image;
+                                imagePathReciever = '../../upload_img/' + message.Reciever_image; // Fixed path
                             }
         
                             var imagePath = '../../upload_system/empty.png';
                             if (message.emp_image !== '') {
-                                imagePath = '../../upload_img/' + message.emp_image;
+                                imagePath = '../../upload_img/' + message.emp_image; // Fixed path
                             }
         
-                            var messageHtml = '<li class="media ';
-                            messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
-                             
-                    messageHtml += '<div class="avatar flex-shrink-0">';
-                    messageHtml += '<img src="' + imagePath + '" alt="User Image" class="avatar-img rounded-circle">';
-                    messageHtml += '</div>';
-                    messageHtml += '<div class="media-body flex-grow-1">';
-                    messageHtml += '<div class="msg-box"><div>';
+                            var messageHtml = '<li class="media ' + (message.mess_sender == session_id ? 'sent' : 'received') + ' d-flex">';
+                            messageHtml += '<div class="avatar flex-shrink-0">';
+                            messageHtml += '<img src="' + imagePath + '" alt="User Image" class="avatar-img rounded-circle">';
+                            messageHtml += '</div>';
+                            messageHtml += '<div class="media-body flex-grow-1">';
+                            messageHtml += '<div class="msg-box"><div>';
+                            messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+                            messageHtml += '<p>' + message.mess_content + '</p>';
+                            messageHtml += '<ul class="chat-msg-info"><li>';
+                            messageHtml += '<div class="chat-time"><span>' + formattedTime + '</span></div>';
+                            messageHtml += '</li></ul></div></div></div></li>';
 
-                   
+                            chatBody.append(messageHtml);
+                        });
 
-                       messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
-
-
-                        messageHtml += '<p >'+ message.mess_content + '</p>';
-                    
-
-                    messageHtml += '<ul class="chat-msg-info"><li>';
-                    messageHtml += '<div class="chat-time"><span>' + formattedTime + '</span></div>';
-                    messageHtml += '</li></ul></div></div></div></li>';
-
-                    chatBody.append(messageHtml);
-                });
-
-            
-
-
-            } else {
-                console.error('Reciever_fullname property is missing in the data:', data);
+                    } else {
+                        console.error('Reciever_fullname property is missing in the data:', data);
+                    }
+                } else {
+                    console.error('Empty or invalid data received:', data);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("XHR Status: " + xhr.status);
+                console.error("Status: " + status);
+                console.error("Error: " + error);
+            },
+            complete: function() {
+                // After each Ajax request is complete, set up the next polling request
+                setTimeout(function() {
+                    retrieveViewMessages(account_id);
+                }, pollInterval);
             }
-        } else {
-            console.error('Empty or invalid data received:', data);
-        }
-    },
-    error: function(xhr, status, error) {
-        console.error("XHR Status: " + xhr.status);
-        console.error("Status: " + status);
-        console.error("Error: " + error);
-    },
-    complete: function() {
-        // After each Ajax request is complete, set up the next polling request
-        setTimeout(function() {
-            retrieveViewMessages(account_id);
-        }, pollInterval);
-    }
-});
+        });
     }
 
     retrieveViewMessages(account_id);
 
     $('#chatMessages .contacts_body').on('click', '.changeChatView', function() {
         var clickedAccountID = $(this).data("account_id"); // Get the clicked account_id
-         account_id = clickedAccountID; // Update the account_id based on the clicked element
+        account_id = clickedAccountID; // Update the account_id based on the clicked element
 
         retrieveViewMessages(account_id);
-
-        
-        //window.location.href = 'profile_customer.php?target_id=' + clickedAccountID;
-
     });
-
-
 
     retrieveAllMessages();
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
-        
-
-        if (searchText =='') {
+        if (searchText === '') {
             // If the search input is empty, retrieve all messages using the original query
             console.log('input is working');
-            retrieveViewMessages();
+            retrieveViewMessages(account_id); // Pass the account_id
         } else {
             searchMessages(searchText);
-            
         }
     });
 });
@@ -154,7 +125,6 @@ function searchMessages(searchText) {
         data: { searchText: searchText },
         success: function(response) {
             displayMessages(response);
-
             console.log(response);
         },
         error: function() {
