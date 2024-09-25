@@ -2,9 +2,10 @@ $(document).ready(function() {
     var account_id = $("#account_id").val();
     var pollInterval = 1000; // Declare pollInterval here
     var pollingActive = true; // Flag to track if polling is active
+    var pollingTimeout; // Variable to store the timeout reference
 
     // Fetch messages initially
-    retrieveViewMessages(pollInterval);
+    retrieveViewMessages();
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
@@ -13,13 +14,13 @@ $(document).ready(function() {
             // If the search input is empty, retrieve all messages and resume polling
             if (!pollingActive) {
                 pollingActive = true; // Set flag to active
-                retrieveViewMessages(pollInterval); // Resume polling
+                retrieveViewMessages(); // Resume polling
             }
         } else {
             // If there is search input, stop polling
             pollingActive = false; // Set flag to inactive
-            // Optionally, you could also clear the messages or show search results
-            searchMessages(searchText);
+            clearTimeout(pollingTimeout); // Clear any existing polling timeout
+            searchMessages(searchText); // Perform search
         }
     });
 });
@@ -104,7 +105,7 @@ function displayMessages(response) {
     });
 }
 
-function retrieveViewMessages(pollInterval) {
+function retrieveViewMessages() {
     $.ajax({
         url: 'chat/controller/getMessages.php',
         type: 'GET',
@@ -117,9 +118,7 @@ function retrieveViewMessages(pollInterval) {
         complete: function() {
             // Polling mechanism to retrieve messages at regular intervals, if polling is active
             if (pollingActive) {
-                setTimeout(function() {
-                    retrieveViewMessages(pollInterval); // Call again if polling is active
-                }, pollInterval);
+                pollingTimeout = setTimeout(retrieveViewMessages, pollInterval); // Call again if polling is active
             }
         }
     });
