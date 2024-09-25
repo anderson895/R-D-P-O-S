@@ -38,6 +38,8 @@ $(document).ready(function() {
 
                             if (message.Reciever_id === null) {
                                 $('#chatbox').hide();
+                            }else{
+                                $('#chatbox').show();
                             }
                             
         
