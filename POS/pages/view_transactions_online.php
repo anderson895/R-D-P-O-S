@@ -281,9 +281,9 @@ try {
                     $stmt->close();
 
                     if ($button_status == 0) {
-                        echo '<button class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>';
+                        echo '<button class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return and Replace</button>';
                     } elseif ($button_status == 1) {
-                        echo '<button disabled class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return</button>';
+                        echo '<button disabled class="btn mt-3 w-100 btn-primary " data-bs-toggle="modal" data-bs-target="#return">Return and Replace</button>';
                     } else {
                         echo '<button>Error</button>';
                     }
@@ -292,7 +292,7 @@ try {
                 }
             ?>
             <!-- <button class="btn mt-3 w-100 text-primary border-primary ">Print As Document</button> -->
-            <button class="btn mt-3 w-100 text-primary border-primary">Return and Replace</button>
+            <button class="btn mt-3 w-100 text-primary border-primary">Print As Reciept</button>
             
 
 
