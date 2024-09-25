@@ -34,18 +34,18 @@ $(document).ready(function() {
                        // Set the image source
                         $("#reciever_image").attr("src", imagePathReciever);
 
-                        // // Check account type and add the correct onclick event
-                        // if (acc_type === "customer") {
-                        //     // Set the onclick attribute for customer
-                        //     $("#reciever_image").on("click", function() {
-                        //         window.location.href = 'profile_customer.php?target_id=' + account_id;
-                        //     });
-                        // } else {
-                        //     // Set the onclick attribute for other account types
-                        //     $("#reciever_image").on("click", function() {
-                        //         window.location.href = 'profile.php?account_id=' + account_id;
-                        //     });
-                        // }
+                        // Check account type and add the correct onclick event
+                        if (firstMessage.acc_type === "customer") {
+                            // Set the onclick attribute for customer
+                            $("#reciever_image").on("click", function() {
+                                window.location.href = 'profile_customer.php?target_id=' + account_id;
+                            });
+                        } else {
+                            // Set the onclick attribute for other account types
+                            $("#reciever_image").on("click", function() {
+                                window.location.href = 'profile.php?account_id=' + account_id;
+                            });
+                        }
 
         
                         data.forEach(function(message) {
