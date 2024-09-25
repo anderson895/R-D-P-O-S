@@ -90,7 +90,7 @@ $fullname=$acc_fname." ".$acc_lname;
     
     <input hidden  type="text" value="<?= $session_id; ?>" id="session_id">
 
-    <div hidden class="card mb-0">
+    <div class="card mb-0" id="chatbox">
     <div class="card-header msg_head">
     <div class="d-flex bd-highlight">
     <a id="back_user_list" href="javascript:void(0)" class="back-user-list">

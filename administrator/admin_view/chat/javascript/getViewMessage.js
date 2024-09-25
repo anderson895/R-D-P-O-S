@@ -37,7 +37,7 @@ $(document).ready(function() {
                             var formattedTime = formatTimeTo12HourFormat(message.mess_date);
 
                             if(message.mess_sender==''){
-                                $('#viewChat').hide();
+                                $('#chatbox').hide();
                             }
         
                             var imagePathReciever = '../../upload_system/empty.png';
