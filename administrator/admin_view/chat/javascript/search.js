@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+
+    
+
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
