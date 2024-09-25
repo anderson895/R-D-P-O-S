@@ -12,7 +12,7 @@ $(document).ready(function() {
             url: 'chat/controller/getViewMessage.php',
             type: 'GET',
             data: { account_id: accountId },
-            dataType: 'json',
+            // dataType: 'json',
             success: function(data) {
 
                 console.log(data);
