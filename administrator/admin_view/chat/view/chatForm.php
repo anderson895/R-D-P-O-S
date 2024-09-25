@@ -79,7 +79,7 @@ $fullname=$acc_fname." ".$acc_lname;
 
 
 
-<?php if($_GET['account_id']='view_all'){?>
+
 
 <div style="display:none;" class="col-lg-7 col-xl-8 chat-cont-right" id="viewChat" >
 
@@ -90,7 +90,7 @@ $fullname=$acc_fname." ".$acc_lname;
     
     <input hidden  type="text" value="<?= $session_id; ?>" id="session_id">
 
-    <div class="card mb-0">
+    <div <?php if($_GET['account_id']=='view_all'){ echo "hidden";} ?> class="card mb-0">
     <div class="card-header msg_head">
     <div class="d-flex bd-highlight">
     <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -119,10 +119,10 @@ if ($acc_type == "customer") {
     ';
 }
 ?>
-</div>
 
+    
 
-
+    </div>
     <div class="user_info">
     <span><strong id="receiver_name"><?=$fullname?></strong></span>
               
@@ -269,10 +269,6 @@ if ($acc_type == "customer") {
 
     </ul>
     </div>
-
-    <?php 
-}
-    ?>
 
 
 <?php include "chat/view/chatFooter.php"; ?>
