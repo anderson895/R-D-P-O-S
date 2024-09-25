@@ -1,7 +1,7 @@
 <?php 
 $session_id=$_SESSION["acc_id"];
 
-
+$acc_fname=$acc_lname=$acc_type=$emp_image="";
 
 $account_id=$_GET["account_id"];
 
