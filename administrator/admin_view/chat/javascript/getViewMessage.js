@@ -45,8 +45,15 @@ $(document).ready(function() {
                             if (message.emp_image !== '') {
                                 imagePath = '../../upload_img/' + message.emp_image;
                             }
+
+
+                            if(message.mess_sender==null){
+                                messageHtml += 'hidden">';
+
+                                return;
+                            }
         
-                            var messageHtml = '<li class="media ';
+                            var messageHtml = '<li class="media';
                             messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
                              
                     messageHtml += '<div class="avatar flex-shrink-0">';
