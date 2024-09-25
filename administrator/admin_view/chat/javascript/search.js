@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
-        
+        console.log('Default type');
 
         if (searchText =='') {
             // If the search input is empty, retrieve all messages using the original query
