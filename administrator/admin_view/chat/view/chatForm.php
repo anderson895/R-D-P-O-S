@@ -99,10 +99,12 @@ $(document).ready(function() {
         var value = $(this).val().toLowerCase(); // Get the current input value
         console.log("Search value: ", value); // Debug: Log the current search value
         $('.chat-user').each(function() {
-            var username = $(this).data('username').toLowerCase(); // Get the username from data attribute
+            var username = $(this).data('username').toLowerCase().trim(); // Get the username and trim spaces
             console.log("Checking username: ", username); // Debug: Log the current username being checked
             // Check if the username contains the search value
-            $(this).toggle(username.indexOf(value) > -1);
+            var match = username.indexOf(value) > -1;
+            console.log("Match found: ", match); // Debug: Log whether a match is found
+            $(this).toggle(match);
         });
     });
 });
