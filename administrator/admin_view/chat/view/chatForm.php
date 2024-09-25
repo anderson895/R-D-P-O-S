@@ -88,7 +88,7 @@ $fullname=$acc_fname." ".$acc_lname;
 
     <input hidden type="text" value="<?= $account_id; ?>" id="account_id">
     
-    <input hidden type="text" value="<?= $session_id; ?>" id="session_id">
+    <input hidden  type="text" value="<?= $session_id; ?>" id="session_id">
 
     <div class="card mb-0">
     <div class="card-header msg_head">
