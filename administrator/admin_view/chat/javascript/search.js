@@ -5,7 +5,7 @@ $(document).ready(function() {
     var pollingTimeout; // Variable to store the timeout reference
 
     // Initial fetch of messages
-    retrieveViewMessages();
+    retrieveViewMessages(account_id)
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
@@ -14,7 +14,7 @@ $(document).ready(function() {
             // If the search input is empty, resume polling
             if (!pollingActive) {
                 pollingActive = true; // Set flag to active
-                retrieveViewMessages(); // Resume polling
+                retrieveViewMessages(account_id) // Resume polling
             }
         } else {
             // If there is search input, stop polling and perform a search
