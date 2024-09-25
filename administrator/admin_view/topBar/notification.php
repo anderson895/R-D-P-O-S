@@ -22,7 +22,7 @@
 </ul>
 </div>
 <div class="topnav-dropdown-footer">
-<a href="chat.php?account_id=<?=$_SESSION["acc_id"]?>">View all Messages</a>
+<a href="chat.php?account_id=view_all">View all Messages</a>
 </div>
 </div>
 </li>
