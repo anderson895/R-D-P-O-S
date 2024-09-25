@@ -57,6 +57,12 @@ $(document).ready(function() {
 
                    
 
+                       messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+
+
+                        messageHtml += '<p >'+ message.mess_content + '</p>';
+                    
+
                     messageHtml += '<ul class="chat-msg-info"><li>';
                     messageHtml += '<div class="chat-time"><span>' + formattedTime + '</span></div>';
                     messageHtml += '</li></ul></div></div></div></li>';
