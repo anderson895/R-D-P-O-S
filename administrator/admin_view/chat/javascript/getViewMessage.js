@@ -109,8 +109,5 @@ $(document).ready(function() {
 
         retrieveViewMessages(account_id);
 
-        
-        //window.location.href = 'profile_customer.php?target_id=' + clickedAccountID;
-
     });
 });

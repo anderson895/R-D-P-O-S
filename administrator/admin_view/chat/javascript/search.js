@@ -4,7 +4,7 @@ $(document).ready(function() {
 
         if (searchText === '') {
             // If the search input is empty, retrieve all messages using the original query
-            retrieveAllMessages();
+            retrieveViewMessages();
         } else {
             searchMessages(searchText);
         }
