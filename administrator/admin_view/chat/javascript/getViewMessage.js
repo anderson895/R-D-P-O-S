@@ -35,6 +35,10 @@ $(document).ready(function() {
         
                         data.forEach(function(message) {
                             var formattedTime = formatTimeTo12HourFormat(message.mess_date);
+
+                            if(message.mess_sender==''){
+                                $('#viewChat').hide();
+                            }
         
                             var imagePathReciever = '../../upload_system/empty.png';
                             if (message.Reciever_image !== '') {
