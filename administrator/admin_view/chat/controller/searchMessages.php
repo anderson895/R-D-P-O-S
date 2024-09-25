@@ -1,17 +1,24 @@
 <?php
 include("../../../../connection.php");
 
-$searchText = $_POST['searchText'];
 date_default_timezone_set('Asia/Manila');
 session_start();
 
-// Ensure the session variable is set
+// Check if session variable is set
 if (!isset($_SESSION["acc_id"])) {
     echo json_encode(array("error" => "Session expired"));
     exit();
 }
 
 $session_acc_id = $_SESSION["acc_id"];
+
+// Check if searchText is set and sanitize input
+if (!isset($_POST['searchText'])) {
+    echo json_encode(array("error" => "Search text missing"));
+    exit();
+}
+
+$searchText = $_POST['searchText'];
 
 // Prepare the SQL query to prevent SQL injection
 $query = "SELECT m.*, a.emp_image, a.acc_username, 
@@ -21,27 +28,37 @@ $query = "SELECT m.*, a.emp_image, a.acc_username,
     WHERE a.acc_username LIKE ?
     AND m.mess_reciever = ?";
 
-// Prepare and bind
-$stmt = $connections->prepare($query);
-$likeSearchText = '%' . $searchText . '%';
-$stmt->bind_param("si", $likeSearchText, $session_acc_id);
+// Check connection and prepare the statement
+if ($stmt = $connections->prepare($query)) {
+    
+    // Bind parameters (searchText as string, session_acc_id as integer)
+    $likeSearchText = '%' . $searchText . '%';
+    $stmt->bind_param("si", $likeSearchText, $session_acc_id);
 
-// Execute the query
-$stmt->execute();
-$result = $stmt->get_result();
+    // Execute the query
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $messages = array();
 
-$messages = array();
+        // Fetch results
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $messages[] = $row;
+            }
+        }
 
-// Fetch the results
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $messages[] = $row;
+        // Return results as JSON
+        echo json_encode($messages);
+    } else {
+        // Query execution failed
+        echo json_encode(array("error" => "Query execution failed", "details" => $stmt->error));
     }
+
+    // Close the statement
+    $stmt->close();
+
+} else {
+    // Statement preparation failed
+    echo json_encode(array("error" => "Failed to prepare statement", "details" => $connections->error));
 }
-
-// Return the messages as JSON
-echo json_encode($messages);
-
-// Close the statement
-$stmt->close();
 ?>
