@@ -1,11 +1,9 @@
-<div class="header-left active" style="background-color: rgb(113,0,0);">
+<div class="header-left active" style="background-color: rgb(113, 0, 0); padding: 10px;">
     <a href="<?php if($acc_type === 'administrator'){ echo 'index.php ';}else{ echo '#';} ?>" 
-       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none flex-column flex-md-row justify-content-center text-center">
+       class="d-flex align-items-center justify-content-center flex-column flex-md-row text-center">
         <img src="../../upload_system/<?= $db_system_logo ?>" class="img-fluid" alt="Logo" style="max-width:50px; height: auto;">
-        <span class="fs-3 fw-bold text-light ms-md-3 mt-2 mt-md-0"><?= $db_system_name ?></span>
+        <span class="fs-3 fw-bold text-light mt-2 mt-md-0 ms-md-3">RDPOS</span>
     </a>
-    
-    <a hidden id="toggle_btn" href="javascript:void(0);"></a>
 </div>
 
 <a id="mobile_btn" class="mobile_btn d-md-none" href="#sidebar">
