@@ -1,19 +1,8 @@
 <?php 
 $session_id=$_SESSION["acc_id"];
 
-$acc_fname=$acc_lname=$acc_type=$emp_image="";
 
 $account_id=$_GET["account_id"];
-
-$get_record = mysqli_query ($connections,"SELECT * FROM account where acc_id ='$account_id' ");
-$row = mysqli_fetch_assoc($get_record);
-$acc_id = $row ["acc_id"];
-$acc_fname = $row ["acc_fname"];
-$acc_lname = $row ["acc_lname"];
-$acc_type = $row ["acc_type"];
-$emp_image = $row ["emp_image"];
-$fullname=$acc_fname." ".$acc_lname;
-
 
 
 
@@ -104,8 +93,7 @@ if ($acc_type == "customer") {
         <img
             onclick="window.location.href=\'profile_customer.php?target_id=' . $acc_id . '\'"
             id="reciever_image"
-            class="rounded-circle user_img"
-            ' . ($emp_image ? 'src="../../upload_img/' . $emp_image . '" alt=""' : 'src="../../upload_system/empty.png" alt=""') . '
+            class="rounded-circle user_img" src="../../upload_system/empty.png" alt=""' . '
         >
     ';
 } else {
@@ -114,7 +102,7 @@ if ($acc_type == "customer") {
             onclick="window.location.href=\'profile.php?account_id=' . $acc_id . '\'"
             id="reciever_image"
             class="rounded-circle user_img"
-            ' . ($emp_image ? 'src="../../upload_img/' . $emp_image . '" alt=""' : 'src="../../upload_system/empty.png" alt=""') . '
+            src="../../upload_system/empty.png" alt=""' . '
         >
     ';
 }
