@@ -96,7 +96,7 @@ if ($row = mysqli_fetch_assoc($view_query)) {
             <?php include "topBar/profile.php"; ?>
     </ul>
 
-    <?php include "topbar/mobilUserMenu.php"; ?>
+    <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
     <?php  include "Section/sidebar.php"; ?>
 

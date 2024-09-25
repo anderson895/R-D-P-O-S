@@ -85,7 +85,7 @@ $get_record_account = mysqli_query ($connections,"SELECT * FROM account where ac
             <?php include "topBar/profile.php"; ?>
     </ul>
 
-    <?php include "topbar/mobilUserMenu.php"; ?>
+    <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
     <?php  include "Section/sidebar.php"; ?>
 
