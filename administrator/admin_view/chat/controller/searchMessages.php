@@ -8,8 +8,7 @@ $session_acc_id = $_SESSION["acc_id"];
 
 $query = "SELECT * FROM messages AS m
     INNER JOIN account AS a ON m.mess_sender = a.acc_id
-    WHERE ( a.acc_username LIKE '%$searchText%')
-    AND m.mess_reciever = '$session_acc_id'
+   
     ";
 
 $result = $connections->query($query);
