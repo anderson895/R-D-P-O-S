@@ -16,7 +16,6 @@ $query = "SELECT m.*, a.emp_image, a.acc_fname, a.acc_lname,
     ) AS latest_msg
     ON m.mess_sender = latest_msg.mess_sender AND m.mess_date = latest_msg.latest_date
     LEFT JOIN account AS a ON m.mess_sender = a.acc_id
-    WHERE m.mess_sender != '$session_acc_id' AND mess_reciever ='Admin'
     GROUP BY mess_sender
     
     
