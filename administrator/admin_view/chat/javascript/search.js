@@ -5,7 +5,7 @@ $(document).ready(function() {
     var pollingTimeout; // Variable to store the timeout reference
 
     // Initial fetch of messages
-    retrieveViewMessages();
+    retrieveAllMessages();
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
