@@ -1,23 +1,23 @@
 $(document).ready(function() {
     var account_id = $("#account_id").val();
-    var pollInterval = 1000; // Declare pollInterval here
+    var pollInterval = 1000; // Polling interval set to 1 second
     var pollingActive = true; // Flag to track if polling is active
     var pollingTimeout; // Variable to store the timeout reference
 
-    // Fetch messages initially
+    // Initial fetch of messages
     retrieveViewMessages();
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
         if (searchText === '') {
-            // If the search input is empty, retrieve all messages and resume polling
+            // If the search input is empty, resume polling
             if (!pollingActive) {
                 pollingActive = true; // Set flag to active
                 retrieveViewMessages(); // Resume polling
             }
         } else {
-            // If there is search input, stop polling
+            // If there is search input, stop polling and perform a search
             pollingActive = false; // Set flag to inactive
             clearTimeout(pollingTimeout); // Clear any existing polling timeout
             searchMessages(searchText); // Perform search
