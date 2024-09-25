@@ -95,9 +95,8 @@ $(document).ready(function() {
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
-        if (searchText === '') {
-            // If the search input is empty, retrieve all messages using the original query
-            console.log('input is working');
+        if (searchText == '') {
+            console.log('input is empty');
             retrieveViewMessages(account_id); // Pass the account_id
         } else {
             searchMessages(searchText);
