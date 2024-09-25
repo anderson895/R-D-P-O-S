@@ -20,14 +20,6 @@ $current_date = date('Y-m-d');
 
 
 
-    <body>
-   
-        <div class="body-wrapper" >
-        <?php 
-            // include "view/navigation.php";
-            include "include/header.php";
-        
-        ?>
 
 
 
@@ -48,7 +40,15 @@ $current_date = date('Y-m-d');
 
 <link rel="stylesheet" href="view/Signup/assets/css/style.css">
 
-<body class="account-page">
+
+<body>
+   
+   <div class="body-wrapper" >
+   <?php 
+       // include "view/navigation.php";
+       include "include/header.php";
+   
+   ?>
 
 <div class="main-wrapper">
 <div class="account-content">
@@ -87,6 +87,13 @@ associated with your account.</h4>
 </div>
 
 
+
+
+
+
+
+</body>
+</html>
 
 
 <script src="../administrator/admin_view/assets/js/jquery-3.6.0.min.js"></script>
@@ -191,8 +198,3 @@ $(document).ready(function() {
     });
 });
 </script>
-
-
-
-</body>
-</html>
