@@ -97,9 +97,12 @@ $account_id = $_GET["account_id"];
 $(document).ready(function() {
     $('#searchData').on('keyup', function() {
         var value = $(this).val().toLowerCase(); // Get the current input value
-        $('.chat-user').filter(function() {
-            // Toggle visibility based on whether the username contains the input value
-            $(this).toggle($(this).data('username').toLowerCase().indexOf(value) > -1);
+        console.log("Search value: ", value); // Debug: Log the current search value
+        $('.chat-user').each(function() {
+            var username = $(this).data('username').toLowerCase(); // Get the username from data attribute
+            console.log("Checking username: ", username); // Debug: Log the current username being checked
+            // Check if the username contains the search value
+            $(this).toggle(username.indexOf(value) > -1);
         });
     });
 });
