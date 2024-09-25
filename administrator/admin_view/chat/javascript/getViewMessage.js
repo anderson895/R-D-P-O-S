@@ -35,7 +35,7 @@ $(document).ready(function() {
                         $("#reciever_image").attr("src", imagePathReciever);
 
                         // Check account type and add the correct onclick event
-                        if (firstMessage.acc_type === "customer") {
+                        if (firstMessage.acc_type === "Customer") {
                             // Set the onclick attribute for customer
                             $("#reciever_image").on("click", function() {
                                 window.location.href = 'profile_customer.php?target_id=' + account_id;
