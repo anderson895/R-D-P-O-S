@@ -2,10 +2,15 @@ $(document).ready(function() {
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
+   
+
+
         if (searchText === '') {
             // If the search input is empty, retrieve all messages using the original query
+            retrieveViewMessages();
             retrieveAllMessages();
         } else {
+            
             searchMessages(searchText);
         }
     });
