@@ -12,7 +12,7 @@ $(document).ready(function() {
             url: 'chat/controller/getViewMessage.php',
             type: 'GET',
             data: { account_id: accountId },
-            // dataType: 'json',
+            dataType: 'json',
             success: function(data) {
 
                 console.log(data);
@@ -151,13 +151,12 @@ $(document).ready(function() {
     retrieveViewMessages(account_id);
 
     $('#chatMessages .contacts_body').on('click', '.changeChatView', function() {
-        var clickedAccountID = $(this).data("account_id"); // Get the clicked account_id
-         account_id = clickedAccountID; // Update the account_id based on the clicked element
+        var clickedAccountID = $(this).data("account_id"); 
+         account_id = clickedAccountID; 
 
         retrieveViewMessages(account_id);
 
         
-        //window.location.href = 'profile_customer.php?target_id=' + clickedAccountID;
 
     });
 });
