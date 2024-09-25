@@ -95,6 +95,6 @@ $(document).ready(function() {
     }
     
   
-        retrieveViewMessages();
+        // retrieveViewMessages();
 });
     
