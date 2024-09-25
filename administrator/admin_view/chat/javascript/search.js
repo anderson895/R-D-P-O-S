@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var account_id = $("#account_id").val();
     var pollInterval = 1000; // Declare pollInterval here
+    var pollingActive = true; // Flag to track if polling is active
 
     // Fetch messages initially
     retrieveViewMessages(pollInterval);
@@ -9,9 +10,15 @@ $(document).ready(function() {
         var searchText = $(this).val().trim();
 
         if (searchText === '') {
-            // If the search input is empty, retrieve all messages using the original query
-            retrieveViewMessages(pollInterval); // Use the same function to keep logic consistent
+            // If the search input is empty, retrieve all messages and resume polling
+            if (!pollingActive) {
+                pollingActive = true; // Set flag to active
+                retrieveViewMessages(pollInterval); // Resume polling
+            }
         } else {
+            // If there is search input, stop polling
+            pollingActive = false; // Set flag to inactive
+            // Optionally, you could also clear the messages or show search results
             searchMessages(searchText);
         }
     });
@@ -97,7 +104,7 @@ function displayMessages(response) {
     });
 }
 
-function retrieveViewMessages(pollInterval) { // Accept pollInterval as a parameter
+function retrieveViewMessages(pollInterval) {
     $.ajax({
         url: 'chat/controller/getMessages.php',
         type: 'GET',
@@ -108,10 +115,12 @@ function retrieveViewMessages(pollInterval) { // Accept pollInterval as a parame
             alert('An error occurred while fetching messages.');
         },
         complete: function() {
-            // Polling mechanism to retrieve messages at regular intervals
-            setTimeout(function() {
-                retrieveViewMessages(pollInterval); // Call again with pollInterval
-            }, pollInterval);
+            // Polling mechanism to retrieve messages at regular intervals, if polling is active
+            if (pollingActive) {
+                setTimeout(function() {
+                    retrieveViewMessages(pollInterval); // Call again if polling is active
+                }, pollInterval);
+            }
         }
     });
 }
