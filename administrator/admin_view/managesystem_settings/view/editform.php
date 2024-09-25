@@ -159,7 +159,7 @@ echo '<img id="systemImagePreview_banner" src="#" alt="img">';
 </div>
 
 
-<div class="col-lg-3 col-sm-6 col-12">
+<div class="col-lg-3 col-sm-6 col-6">
   <div class="form-group">
     <label>Vat tax</label>
     <div style="position: relative;">
