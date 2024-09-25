@@ -5,6 +5,19 @@ $(document).ready(function() {
         if (searchText === '') {
             // If the search input is empty, retrieve all messages using the original query
             retrieveAllMessages();
+
+
+            $('#chatMessages .contacts_body').on('click', '.changeChatView', function() {
+                var clickedAccountID = $(this).data("account_id"); // Get the clicked account_id
+                 account_id = clickedAccountID; // Update the account_id based on the clicked element
+        
+                retrieveViewMessages(account_id);
+        
+                
+                //window.location.href = 'profile_customer.php?target_id=' + clickedAccountID;
+        
+            });
+
         } else {
             searchMessages(searchText);
             
