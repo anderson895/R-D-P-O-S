@@ -5,7 +5,7 @@ $(document).ready(function() {
     var pollingTimeout; // Variable to store the timeout reference
 
     // Initial fetch of messages
-    retrieveViewMessages(account_id)
+    retrieveViewMessages(account_id);
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
@@ -14,7 +14,7 @@ $(document).ready(function() {
             // If the search input is empty, resume polling
             if (!pollingActive) {
                 pollingActive = true; // Set flag to active
-                retrieveViewMessages(account_id) // Resume polling
+                retrieveViewMessages(account_id); // Resume polling
             }
         } else {
             // If there is search input, stop polling and perform a search
@@ -23,8 +23,6 @@ $(document).ready(function() {
             searchMessages(searchText); // Perform search
         }
     });
-
-   
 
     function searchMessages(searchText) {
         $.ajax({
@@ -97,7 +95,7 @@ $(document).ready(function() {
         $.ajax({
             url: 'chat/controller/getViewMessage.php',
             type: 'GET',
-            data: { account_id: accountId },
+            data: { account_id: account_id }, // Corrected variable name
             dataType: 'json',
             success: function(response) {
                 displayMessages(response);
@@ -108,7 +106,9 @@ $(document).ready(function() {
             complete: function() {
                 // Polling mechanism to retrieve messages at regular intervals, if polling is active
                 if (pollingActive) {
-                    pollingTimeout = setTimeout(retrieveViewMessages, pollInterval); // Call again if polling is active
+                    pollingTimeout = setTimeout(function() {
+                        retrieveViewMessages(account_id); // Pass the account_id to the function
+                    }, pollInterval); // Call again if polling is active
                 }
             }
         });
