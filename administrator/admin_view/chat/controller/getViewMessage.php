@@ -7,6 +7,7 @@ session_start();
 $session_acc_id = $_SESSION["acc_id"];
 $account_id = $_GET['account_id'];
 
+if($account_id!='view_all'){
 
 // Query messages
 $query = "SELECT m.*, a.emp_image, a.acc_fname, a.acc_lname, a.acc_type
@@ -40,6 +41,8 @@ if ($connections->query($sql) === TRUE) {
     // echo "Notification updated successfully."; // Commented this line to ensure no other text or HTML is included in the response.
 } else {
     // echo "Error updating notification: " . $connections->error; // Commented this line to ensure no other text or HTML is included in the response.
+}
+
 }
 
 header('Content-Type: application/json');
