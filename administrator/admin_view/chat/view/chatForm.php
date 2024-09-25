@@ -14,7 +14,7 @@ $account_id = $_GET["account_id"];
                                 <div class="input-group-prepend">
                                     <span class="search_btn"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input type="text" id="searchInput" placeholder="Search" class="form-control search-chat rounded-pill">
+                                <input type="text" id="searchData" placeholder="Search" class="form-control search-chat rounded-pill">
                             </div>
                         </div>
 
@@ -95,7 +95,7 @@ $account_id = $_GET["account_id"];
 
 <script>
 $(document).ready(function() {
-    $('#searchInput').on('keyup', function() {
+    $('#searchData').on('keyup', function() {
         var value = $(this).val().toLowerCase();
         $('.chat-user').filter(function() {
             $(this).toggle($(this).data('username').toLowerCase().indexOf(value) > -1);
