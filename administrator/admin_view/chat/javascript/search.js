@@ -7,6 +7,7 @@ $(document).ready(function() {
             retrieveAllMessages();
         } else {
             searchMessages(searchText);
+            
         }
     });
 });
