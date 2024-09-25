@@ -23,7 +23,7 @@ $(document).ready(function() {
                     var messages = JSON.parse(response);
     
                     // Log the received messages for debugging
-                    // console.log(messages);
+                    console.log(messages);
     
                     // Initialize an empty HTML string to append message data
                     var messagesHTML = '';
@@ -55,7 +55,7 @@ $(document).ready(function() {
                         messagesHTML += '<div class="media-body flex-grow-1">';
                         messagesHTML += '<div>';
                         messagesHTML += '<div class="user-name">' + message.acc_fname + ' ' + message.acc_lname + '</div>';
-                        messagesHTML += '<div class="user-last-chat" >' + message.mess_content + '</div>';
+                        messagesHTML += '<div class="user-last-chat" style="margin-right:100px!important">' + message.mess_content + '</div>';
                         messagesHTML += '</div>';
                         messagesHTML += '<div>';
                         messagesHTML += '<div class="last-chat-time">' + messageDate.toLocaleString() + '</div>'; // Date as string
