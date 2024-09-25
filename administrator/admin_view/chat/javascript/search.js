@@ -5,7 +5,7 @@ $(document).ready(function() {
     var pollingTimeout; // Variable to store the timeout reference
 
     // Initial fetch of messages
-    retrieveAllMessages();
+    retrieveViewMessages();
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
@@ -24,18 +24,7 @@ $(document).ready(function() {
         }
     });
 
-    function retrieveAllMessages() {
-        $.ajax({
-            url: 'chat/controller/getMessages.php',
-            type: 'GET',
-            success: function(response) {
-                displayMessages(response);
-            },
-            error: function() {
-                alert('May nangyaring error sa pagkuha ng mga mensahe.');
-            }
-        });
-    }
+   
 
     function searchMessages(searchText) {
         $.ajax({
