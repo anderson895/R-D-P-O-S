@@ -160,11 +160,15 @@ echo '<img id="systemImagePreview_banner" src="#" alt="img">';
 
 
 <div class="col-lg-3 col-sm-6 col-12">
-<div class="form-group">
-<label>Vat tax</label>
-<input type="text" placeholder="Vat tax" id="tax" value="<?=$db_system_tax?>">
+  <div class="form-group">
+    <label>Vat tax</label>
+    <div style="position: relative;">
+      <input type="text" placeholder="Vat tax" id="tax" value="<?=$db_system_tax?>" style="padding-right: 20px;">
+      <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">%</span>
+    </div>
+  </div>
 </div>
-</div>
+
 
 
 <div class="col-lg-12">
