@@ -2,6 +2,8 @@ $(document).ready(function() {
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
+        retrieveAllMessages();
+
         if (searchText === '') {
             // If the search input is empty, retrieve all messages using the original query
             retrieveViewMessages();
@@ -12,18 +14,18 @@ $(document).ready(function() {
     });
 });
 
-// function retrieveAllMessages() {
-//     $.ajax({
-//         url: 'chat/controller/getMessages.php',
-//         type: 'GET',
-//         success: function(response) {
-//             displayMessages(response);
-//         },
-//         error: function() {
-//             alert('May nangyaring error sa pagkuha ng mga mensahe.');
-//         }
-//     });
-// }
+function retrieveAllMessages() {
+    $.ajax({
+        url: 'chat/controller/getMessages.php',
+        type: 'GET',
+        success: function(response) {
+            displayMessages(response);
+        },
+        error: function() {
+            alert('May nangyaring error sa pagkuha ng mga mensahe.');
+        }
+    });
+}
 
 function searchMessages(searchText) {
     $.ajax({
