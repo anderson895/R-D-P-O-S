@@ -91,7 +91,7 @@ $account_id=$_GET["account_id"];
 if ($acc_type == "customer") {
     echo '
         <img
-            onclick="window.location.href=\'profile_customer.php?target_id=' . $acc_id . '\'"
+            
             id="reciever_image"
             class="rounded-circle user_img" src="../../upload_system/empty.png" alt=""' . '
         >
