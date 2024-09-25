@@ -104,10 +104,12 @@ $(document).ready(function() {
         });
     }
 
-    function retrieveViewMessages() {
+    function retrieveViewMessages(account_id) {
         $.ajax({
-            url: 'chat/controller/getMessages.php',
+            url: 'chat/controller/getViewMessage.php',
             type: 'GET',
+            data: { account_id: accountId },
+            dataType: 'json',
             success: function(response) {
                 displayMessages(response);
             },
