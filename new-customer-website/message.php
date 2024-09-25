@@ -26,7 +26,7 @@ include('components/header.php');
         <ul class="list-unstyled text-white" >
        
        
-        <div class="container mt-4 " id="allMessagesContainer" style="height: 400px; overflow-y: auto;">
+        <div class="container mt-4 " id="allMessagesContainer" style="height: 500px; overflow-y: auto;">
    
         </div>
 
