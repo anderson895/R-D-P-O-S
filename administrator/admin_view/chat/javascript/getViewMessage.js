@@ -4,12 +4,15 @@ $(document).ready(function() {
     var pollInterval = 1000; 
 
     function retrieveViewMessages(accountId) {
+        console.log("Retrieving messages for account ID:", accountId);
+        
         $.ajax({
             url: 'chat/controller/getViewMessage.php',
             type: 'GET',
             data: { account_id: accountId },
             dataType: 'json',
             success: function(data) {
+                console.log("Data received:", data);
                 var chatBody = $('#messageList');
                 chatBody.empty();
         
@@ -28,21 +31,16 @@ $(document).ready(function() {
         
                         data.forEach(function(message) {
                             var formattedTime = formatTimeTo12HourFormat(message.mess_date);
-
-                            if (message.Reciever_id === null) {
-                                $('#chatbox').hide();
-                            } else {
-                                $('#chatbox').show();
-                            }
+                            $('#chatbox').toggle(message.Reciever_id !== null);
         
                             var imagePathReciever = '../../upload_system/empty.png';
                             if (message.Reciever_image !== '') {
-                                imagePathReciever = '../../upload_img/' + message.Reciever_image; // Fixed path
+                                imagePathReciever = '../../upload_img/' + message.Reciever_image;
                             }
         
                             var imagePath = '../../upload_system/empty.png';
                             if (message.emp_image !== '') {
-                                imagePath = '../../upload_img/' + message.emp_image; // Fixed path
+                                imagePath = '../../upload_img/' + message.emp_image;
                             }
         
                             var messageHtml = '<li class="media ' + (message.mess_sender == session_id ? 'sent' : 'received') + ' d-flex">';
@@ -59,7 +57,6 @@ $(document).ready(function() {
 
                             chatBody.append(messageHtml);
                         });
-
                     } else {
                         console.error('Reciever_fullname property is missing in the data:', data);
                     }
@@ -73,7 +70,6 @@ $(document).ready(function() {
                 console.error("Error: " + error);
             },
             complete: function() {
-                // After each Ajax request is complete, set up the next polling request
                 setTimeout(function() {
                     retrieveViewMessages(account_id);
                 }, pollInterval);
@@ -81,12 +77,13 @@ $(document).ready(function() {
         });
     }
 
+    console.log("Initial Account ID:", account_id);
     retrieveViewMessages(account_id);
 
     $('#chatMessages .contacts_body').on('click', '.changeChatView', function() {
         var clickedAccountID = $(this).data("account_id"); // Get the clicked account_id
         account_id = clickedAccountID; // Update the account_id based on the clicked element
-
+        console.log("Changed Account ID:", account_id);
         retrieveViewMessages(account_id);
     });
 
@@ -94,9 +91,10 @@ $(document).ready(function() {
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
+        console.log("Search input:", searchText);
 
-        if (searchText == '') {
-            console.log('input is empty');
+        if (searchText === '') {
+            console.log('Input is empty');
             retrieveViewMessages(account_id); // Pass the account_id
         } else {
             searchMessages(searchText);
