@@ -10,7 +10,7 @@ if (!isset($_SESSION["acc_id"])) {
     exit();
 }
 
-$session_acc_id = $_SESSION["acc_id"];
+// $session_acc_id = $_SESSION["acc_id"];
 
 // Check if searchText is set and sanitize input
 if (!isset($_POST['searchText'])) {
@@ -25,8 +25,7 @@ $query = "SELECT m.*, a.emp_image, a.acc_username,
     (SELECT COUNT(*) FROM messages AS c WHERE c.mess_sender = m.mess_sender AND c.mess_seen = 1) AS seen_count
     FROM messages AS m
     INNER JOIN account AS a ON m.mess_sender = a.acc_id
-    WHERE a.acc_username LIKE ?
-    AND m.mess_reciever = ?";
+    WHERE a.acc_username LIKE ?";
 
 // Check connection and prepare the statement
 if ($stmt = $connections->prepare($query)) {
