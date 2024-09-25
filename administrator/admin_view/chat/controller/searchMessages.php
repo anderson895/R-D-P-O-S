@@ -6,9 +6,7 @@ date_default_timezone_set('Asia/Manila');
 session_start();
 $session_acc_id = $_SESSION["acc_id"];
 
-$query = "SELECT m.*, a.emp_image, a.acc_username, 
-    (SELECT COUNT(*) FROM messages AS c WHERE c.mess_sender = m.mess_sender AND c.mess_seen = 1) AS seen_count
-    FROM messages AS m
+$query = "SELECT * FROM messages AS m
     INNER JOIN account AS a ON m.mess_sender = a.acc_id
     WHERE ( a.acc_username LIKE '%$searchText%')
     AND m.mess_reciever = '$session_acc_id'
