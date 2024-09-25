@@ -99,7 +99,7 @@ if ($acc_type == "customer") {
 } else {
     echo '
         <img
-            onclick="window.location.href=\'profile.php?account_id=' . $acc_id . '\'"
+        
             id="reciever_image"
             class="rounded-circle user_img"
             src="../../upload_system/empty.png" alt=""' . '
