@@ -1,6 +1,6 @@
 <div class="header-left active" style="background-color: rgb(113,0,0);">
-    <a href="<?php if($acc_type === "administrator"){ echo "index.php ";}else{ echo "#";} ?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <img src="../../upload_system/<?= $db_system_logo ?>" class="img-fluid" alt="Logo">
+    <a href="<?php if($acc_type === 'administrator'){ echo 'index.php ';}else{ echo '#';} ?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="../../upload_system/<?= $db_system_logo ?>" class="img-fluid" alt="Logo" style="max-width: 150px; height: auto;">
         <span class="fs-3 fw-bold text-light ms-3"><?= $db_system_name ?></span>
     </a>
     
