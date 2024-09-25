@@ -16,8 +16,7 @@ $account_id=$_GET["account_id"];
 <div class="page-wrapper">
 
 
-<div class="content" id="" >
-    <!-- id=chatMessages -->
+<div class="content" id="chatMessages" >
  <div class="col-lg-12">
 <div class="row chat-window">
 
