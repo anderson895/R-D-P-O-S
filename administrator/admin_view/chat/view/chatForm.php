@@ -79,7 +79,7 @@ $fullname=$acc_fname." ".$acc_lname;
 
 
 
-
+<?php if($_GET['account_id']='view_all'){?>
 
 <div style="display:none;" class="col-lg-7 col-xl-8 chat-cont-right" id="viewChat" >
 
@@ -119,10 +119,10 @@ if ($acc_type == "customer") {
     ';
 }
 ?>
+</div>
 
-    
 
-    </div>
+
     <div class="user_info">
     <span><strong id="receiver_name"><?=$fullname?></strong></span>
               
@@ -269,6 +269,10 @@ if ($acc_type == "customer") {
 
     </ul>
     </div>
+
+    <?php 
+}
+    ?>
 
 
 <?php include "chat/view/chatFooter.php"; ?>
