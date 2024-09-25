@@ -18,11 +18,11 @@ $searchText = $_POST['searchText'];
 $likeSearchText = '%' . $searchText . '%';
 
 // Directly embedding the variable in the query can be risky if not sanitized.
-$query = "SELECT m.*, a.emp_image, a.acc_username, 
+$query = "SELECT m.*, a.emp_image, a.acc_fname, 
     (SELECT COUNT(*) FROM messages AS c WHERE c.mess_sender = m.mess_sender AND c.mess_seen = 1) AS seen_count
     FROM messages AS m
     INNER JOIN account AS a ON m.mess_sender = a.acc_id
-    WHERE a.acc_username LIKE '$likeSearchText'";
+    WHERE a.acc_fname LIKE '$likeSearchText'";
 
 $result = $connections->query($query);
 
