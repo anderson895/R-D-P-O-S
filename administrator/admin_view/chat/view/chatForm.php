@@ -98,6 +98,8 @@ $(document).ready(function() {
     $('#searchData').on('keyup', function() {
         var value = $(this).val().toLowerCase();
         $('.chat-user').filter(function() {
+
+            console.log('test');
             $(this).toggle($(this).data('username').toLowerCase().indexOf(value) > -1);
         });
     });
