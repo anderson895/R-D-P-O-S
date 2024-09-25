@@ -36,7 +36,7 @@ $(document).ready(function() {
                         data.forEach(function(message) {
                             var formattedTime = formatTimeTo12HourFormat(message.mess_date);
 
-                            if(message.mess_sender==''){
+                            if(message.mess_sender=='null'){
                                 $('#chatbox').hide();
                             }
         
