@@ -116,13 +116,6 @@ $(document).ready(function() {
 
 
 
-    
-});
-
-
-
-$(document).ready(function() {
-
     retrieveAllMessages();
 
     $('#searchInput').on('input', function() {
