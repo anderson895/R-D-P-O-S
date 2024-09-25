@@ -47,9 +47,9 @@ $(document).ready(function() {
                             }
 
 
-                            if(message.mess_sender==null){
-                                $('.card mb-0').hide();
-                            }
+                            // if(message.mess_sender==null){
+                            //     $('.card mb-0').hide();
+                            // }
         
                             var messageHtml = '<li class="media';
                             messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
