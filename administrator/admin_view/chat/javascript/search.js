@@ -1,16 +1,16 @@
 $(document).ready(function() {
     var account_id = $("#account_id").val();
-    var pollInterval = 1000;
+    var pollInterval = 1000; // Declare pollInterval here
 
     // Fetch messages initially
-    retrieveViewMessages();
+    retrieveViewMessages(pollInterval);
 
     $('#searchInput').on('input', function() {
         var searchText = $(this).val().trim();
 
         if (searchText === '') {
             // If the search input is empty, retrieve all messages using the original query
-            retrieveViewMessages(); // Use the same function to keep logic consistent
+            retrieveViewMessages(pollInterval); // Use the same function to keep logic consistent
         } else {
             searchMessages(searchText);
         }
@@ -97,7 +97,7 @@ function displayMessages(response) {
     });
 }
 
-function retrieveViewMessages() {
+function retrieveViewMessages(pollInterval) { // Accept pollInterval as a parameter
     $.ajax({
         url: 'chat/controller/getMessages.php',
         type: 'GET',
@@ -109,7 +109,9 @@ function retrieveViewMessages() {
         },
         complete: function() {
             // Polling mechanism to retrieve messages at regular intervals
-            setTimeout(retrieveViewMessages, pollInterval); // Ensure `pollInterval` is defined
+            setTimeout(function() {
+                retrieveViewMessages(pollInterval); // Call again with pollInterval
+            }, pollInterval);
         }
     });
 }
