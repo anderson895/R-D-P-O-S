@@ -39,7 +39,7 @@ include('components/header.php');
     <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
     <div class="d-flex flex-column flex-md-row align-items-start">
-      <textarea class="form-control me-2 mb-2 mb-md-0" id="sender_Messages" name="sender_Messages" rows="3" style="flex: 1;"></textarea>
+      <textarea class="form-control me-2 mb-2 mb-md-0" id="sender_Messages" name="sender_Messages" rows="2" style="flex: 1;"></textarea>
       <button type="button" id="btnSentMessage" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded">
         Send
       </button>
