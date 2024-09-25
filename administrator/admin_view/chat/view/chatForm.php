@@ -96,10 +96,9 @@ $account_id = $_GET["account_id"];
 <script>
 $(document).ready(function() {
     $('#searchData').on('keyup', function() {
-        var value = $(this).val().toLowerCase();
+        var value = $(this).val().toLowerCase(); // Get the current input value
         $('.chat-user').filter(function() {
-
-            console.log('test');
+            // Toggle visibility based on whether the username contains the input value
             $(this).toggle($(this).data('username').toLowerCase().indexOf(value) > -1);
         });
     });
