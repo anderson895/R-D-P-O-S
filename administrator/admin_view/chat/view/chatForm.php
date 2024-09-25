@@ -97,14 +97,9 @@ $account_id = $_GET["account_id"];
 $(document).ready(function() {
     $('#searchData').on('keyup', function() {
         var value = $(this).val().toLowerCase(); // Get the current input value
-        console.log("Search value: ", value); // Debug: Log the current search value
-        $('.chat-user').each(function() {
-            var username = $(this).data('username').toLowerCase().trim(); // Get the username and trim spaces
-            console.log("Checking username: ", username); // Debug: Log the current username being checked
-            // Check if the username contains the search value
-            var match = username.indexOf(value) > -1;
-            console.log("Match found: ", match); // Debug: Log whether a match is found
-            $(this).toggle(match);
+        $('.chat-user').filter(function() {
+            // Toggle visibility based on whether the username contains the input value
+            $(this).toggle($(this).data('username').toLowerCase().indexOf(value) > -1);
         });
     });
 });
