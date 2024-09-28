@@ -179,7 +179,7 @@ $(document).ready(function() {
         const birthdateDate = new Date(birthdate);
         const currentDate = new Date();
         const age = currentDate.getFullYear() - birthdateDate.getFullYear();
-        return age >= 11;
+        return age >= 18;
     }
 
     // Function to validate email address
@@ -254,7 +254,7 @@ $(document).ready(function() {
             $('#birthdateError').text('');
             resetStyles(birthdateInput);
         } else {
-            $('#birthdateError').text('Age must be at least 11 years old.');
+            $('#birthdateError').text('Age must be at least 18 years old.');
             setStyleInvalid(birthdateInput);
         }
     });
@@ -323,7 +323,7 @@ $(document).ready(function() {
         }
 
         if (!validateAge(birthdateInput.val())) {
-            $('#birthdateError').text('Age must be at least 11 years old.');
+            $('#birthdateError').text('Age must be at least 18 years old.');
             setStyleInvalid(birthdateInput);
             hasError = true;
         }
