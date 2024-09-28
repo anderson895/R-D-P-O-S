@@ -266,9 +266,24 @@ $(document).on("click", "#BtnCollect", function (e) {
     var $submitButton = $(this).find('button[type="submit"]'); // Adjust the selector to match your button
     $submitButton.prop('disabled', true);
     
-    // Show loading spinner
+    // Create a container for the spinner and center it
+    var $spinnerContainer = $('<div class="spinner-container d-flex justify-content-center align-items-center"></div>');
     var $spinner = $('<div class="spinner-border" role="status"><span class="sr-only"></span></div>');
-    $(this).append($spinner); // Append the spinner to the form or an appropriate container
+    $spinnerContainer.append($spinner);
+    
+    // Append the spinner container to the form
+    $(this).append($spinnerContainer);
+
+    // Optionally, style the container to cover the entire form or a specific section
+    $spinnerContainer.css({
+        position: 'absolute', // Make sure the container is positioned over the form
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'rgba(255, 255, 255, 0.8)', // Optional: semi-transparent background to overlay on the form
+        zIndex: 1000 // Make sure it's above other elements
+    });
 
     var formData = new FormData($(this)[0]);
 
@@ -297,10 +312,11 @@ $(document).on("click", "#BtnCollect", function (e) {
         complete: function () {
             // Re-enable the submit button and hide the spinner
             $submitButton.prop('disabled', false);
-            $spinner.remove(); // Remove the spinner after the process
+            $spinnerContainer.remove(); // Remove the spinner container after the process
         }
     });
 });
+
 
 
   $(document).on("click", ".btnRejectOrder", function (e) {
