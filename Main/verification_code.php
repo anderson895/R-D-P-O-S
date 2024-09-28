@@ -240,7 +240,7 @@ if (isset($_POST['btnSendOtp'])) {
 
         session_start();
 
-        $db_acc_id=$_POST["accid"];
+        $db_acc_id=$_GET["accid"];
 
         $_SESSION['acc_id']=$db_acc_id;
 
