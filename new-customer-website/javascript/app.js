@@ -648,7 +648,7 @@ $("#btnPlaceOrder").click(function (e) {
 
   // Disable the button and show the spinner
   $(this).prop("disabled", true); // Disable the button
-  $("#spinner").show(); // Show the spinner (make sure to have a spinner element in your HTML)
+  $(".spinner").show(); // Show the spinner (make sure to have a spinner element in your HTML)
 
   var paymentType = $("#checkOutPaymentTypesSelect").val();
   if (paymentType == "cod") {
@@ -672,7 +672,7 @@ $("#btnPlaceOrder").click(function (e) {
       complete: function () {
         // Re-enable the button and hide the spinner
         $("#btnPlaceOrder").prop("disabled", false); // Re-enable the button
-        $("#spinner").hide(); // Hide the spinner
+        $(".spinner").hide(); // Hide the spinner
       }
     });
   } else {
