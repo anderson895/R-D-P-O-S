@@ -277,7 +277,7 @@
                     </div>
                 </div>
     
-                <div class="d-flex flex-column align-items-end p-1">
+                <div class="d-flex flex-column align-items-end ">
             <div class="container">
                 <!-- Delivery Address Section -->
                 <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
