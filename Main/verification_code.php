@@ -239,7 +239,7 @@ if (isset($_POST['btnSendOtp'])) {
     if ($inputCode === $db_acc_otp) {
 
        
-
+        session_start();
         $_SESSION['acc_id']=$accid;
 
         // Update user status if OTP is correct
