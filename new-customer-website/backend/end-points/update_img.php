@@ -39,14 +39,6 @@ if (isset($_FILES['profileAttachementImg']) && $_FILES['profileAttachementImg'][
     // Check if an existing image exists for the employee
     $existingImage = $db->getEmpImage($userId); // Assuming this method retrieves the current image name
 
-    if ($existingImage) {
-        // If there is an existing image, prepare to replace it
-        $existingImagePath = $uploadFileDir . $existingImage;
-        if (file_exists($existingImagePath)) {
-            unlink($existingImagePath); // Delete the existing image file
-        }
-    }
-
     // Generate a new unique filename
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
     $uniqueFileName = uniqid('profile_', true) . '.' . $fileExtension;
@@ -56,7 +48,16 @@ if (isset($_FILES['profileAttachementImg']) && $_FILES['profileAttachementImg'][
 
     // Move the file to the destination directory
     if (move_uploaded_file($fileTmpPath, $dest_path)) {
-        // Update the database with the new image name
+        // If there is an existing image, prepare to replace it
+        if ($existingImage) {
+            // Delete the existing image file if it exists
+            $existingImagePath = $uploadFileDir . $existingImage;
+            if (file_exists($existingImagePath)) {
+                unlink($existingImagePath); // Delete the existing image file
+            }
+        }
+
+        // Insert or update the database with the new image name
         $result = $db->updateEmpImage($uniqueFileName, $userId);
 
         // Check if the database update was successful
