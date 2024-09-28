@@ -103,7 +103,7 @@
         <div class="form-login">
 
         <div class="form-check text-center">
-                            <input type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
+                            <input class="form-control" type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
                             <label for="agreeTermsCheckbox">I agree to the Terms and Conditions</label>
          </div>
 
