@@ -2,6 +2,9 @@
 include("../connection.php");
 
 
+date_default_timezone_set('Asia/Manila');
+
+// Get the current date and time
 $currentDateTime = date('Y-m-d H:i:s');
 // Ensure accid is provided in the request
 if (!isset($_GET['accid'])) {
