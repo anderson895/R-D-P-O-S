@@ -321,8 +321,9 @@
                     <h6>Delivery Address</h6>
                         <div class="d-flex justify-content-between">
                             <p>Region III (Central Luzon) Bulacan Marilao Prenza I tibagan</p>
+                            <button class="btn btn-sm btn-secondary">Update Address</button>
                         </div>
-                        <button class="btn btn-sm btn-secondary">Update Address</button>
+                        
                 </div>
 
                     <div class="checkout-computation-container" style="width: 100%;">
