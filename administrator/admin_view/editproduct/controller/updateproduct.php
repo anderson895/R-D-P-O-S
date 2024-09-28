@@ -43,6 +43,12 @@ if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
     $uniqueFileName = uniqid('prod_', true) . '.' . $fileExtension; // Unique filename
     $targetFile = $imagePath . '/' . $uniqueFileName; // Full path to the target file
 
+    // Debug: Check if the directory exists
+    if (!is_dir($imagePath)) {
+        echo "Upload directory does not exist: $imagePath\n";
+        exit;
+    }
+
     // Check if the existing image is not empty and the file exists
     if (!empty($existingImage) && file_exists($imagePath . '/' . $existingImage)) {
         // If it exists, delete the existing file
@@ -58,9 +64,14 @@ if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
         $pImg = $uniqueFileName; // Update with the unique file name
         echo "File uploaded successfully: $pImg\n"; // Debug message
     } else {
-        echo "Error moving uploaded file: $fileName\n"; // Debug message
+        echo "Error moving uploaded file: " . $_FILES['pImg']['tmp_name'] . " to $targetFile\n"; // Debug message
+        echo "Error Code: " . $_FILES['pImg']['error'] . "\n"; // Show error code for debugging
     }
+} else {
+    // Handle the error from file upload
+    echo "File upload error: " . $_FILES['pImg']['error'] . "\n"; // Debug message
 }
+
 
 // Continue with the database updates as before...
 $get_record = mysqli_query($connections, "SELECT * FROM product LEFT JOIN category ON category.category_id = product.prod_category_id LEFT JOIN voucher ON voucher.voucher_id = product.prod_voucher_id WHERE prod_code = '$prod_code'");
