@@ -125,6 +125,12 @@
                             </div>
                         </div>
 
+                          <!-- Checkbox for Terms and Conditions -->
+                        <div class="form-check text-center">
+                            <input type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
+                            <label for="agreeTermsCheckbox">I agree to the Terms and Conditions</label>
+                        </div>
+
                         <div class="form-login">
                             <button type="button" class="btn btn-login" id="termsButton">Create Account</button>
                             <div class="text-center" id="loadingSpinner"></div>
