@@ -20,7 +20,7 @@ $current_date = date('Y-m-d');
             <!-- Begin Header Area -->
             <?php 
             // include "view/navigation.php";
-            include "include/header.php";
+            // include "include/header.php";
         
         ?>
 
