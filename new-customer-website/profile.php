@@ -221,7 +221,7 @@ if ($getAddress->num_rows > 0) {
                     data-contact="<?= $user['acc_contact'] ?>">
                     Edit Information
                 </button>
-                <button class="btn btn-primary" id="btnEditAddress">Edit Address</button>
+                <button class="btn btn-primary btnEditAddress">Edit Address</button>
                 <button class="btn btn-secondary" id="btnProfileImgModal">Edit Image</button>
                 <button class="btn btn-success">Change Password</button>
             </div>

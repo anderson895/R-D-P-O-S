@@ -283,40 +283,7 @@
 
 
                 
-            <form class="container p-2" id="frmEditAddress" >
-                <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
-                <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
-                <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
-                <input type="hidden" id="userPhone" value="<?= $customerPhone ?>">
-
-                <div class="input-container-label-top mt-3">
-                    <label>Region</label>
-                    <select class="form-control" id="regionDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Province</label>
-                    <select class="form-control" id="provinceDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Municipality</label>
-                    <select class="form-control" id="cityDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Barangay</label>
-                    <select class="form-control" id="barangayDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Street</label>
-                    <input type="text" class="form-control" id="streetName" required>
-                </div>
-                <div class="mt-3">
-                    <button type="submit" class="btn btn-secondary">Save</button>
-                </div>
-            </form>
+        
                 
             
             <div class="container mt-4">
@@ -324,7 +291,7 @@
                 <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
                     <h6 class="mb-3">Delivery Address</h6>
                     <p class="mb-3" ><?= $fullAddress ?></p>
-                    <button class="btn btn-sm btn-secondary">Update Address</button>
+                    <button class="btn btn-sm btn-secondary btnEditAddress">Update Address</button>
                 </div>
 
                 <!-- Checkout Computation Section -->
