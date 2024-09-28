@@ -279,6 +279,9 @@
 
                 <div class="d-flex flex-column align-items-end p-1">
 
+
+
+
                 
             <form class="container p-2" id="frmEditAddress" hidden>
                 <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
@@ -314,7 +317,11 @@
                     <button type="submit" class="btn btn-secondary">Save</button>
                 </div>
             </form>
-                
+                <div class="checkout-computation-container" style="width: 100%;">
+                        <div class="d-flex justify-content-between">
+                            <p>Region III (Central Luzon) Bulacan Marilao Prenza I tibagan</p>
+                        </div>
+                </div>
 
                     <div class="checkout-computation-container" style="width: 100%;">
                         <div class="d-flex justify-content-between">
