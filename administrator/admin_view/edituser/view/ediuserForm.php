@@ -37,7 +37,7 @@ if($get_record_num > 0 ){
 <form method="POST">
 <input hidden  type="text" id="session_code" value="<?= $db_acc_code?>">
 <input hidden  type="text" id="acc_code" value="<?= $acc_code?>">
-<input hidden  type="text" id="acc_id" value="<?= $db_acc_id?>">
+<input  type="text" id="acc_id" value="<?= $db_acc_id?>">
 <div class="card">
 <div class="card-body">
 <div class="row">
