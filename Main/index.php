@@ -7,7 +7,7 @@ include("controller/maintinance.php");
 
 include "include/session_dir.php";
 
-// include "include/header.php";
+include "include/header.php";
 ?>
 
 
