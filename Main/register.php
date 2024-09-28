@@ -174,26 +174,29 @@ $(document).ready(function() {
         return /^[0-9]{11}$/.test(contact) && contact.startsWith('09');
     }
 
-    // Function to check if a date is valid
-    function isValidDate(dateString) {
-        const date = new Date(dateString);
-        return date instanceof Date && !isNaN(date);
-    }
-
-    // Function to validate age (not less than 18 years)
+    // Function to validate the birthdate (valid date and at least 18 years old)
     function validateAge(birthdate) {
-        if (!isValidDate(birthdate)) return false;
-        
         const birthdateDate = new Date(birthdate);
         const currentDate = new Date();
+
+        // Check if the birthdate is a valid date
+        const [year, month, day] = birthdate.split('-');
+        const validDate = birthdateDate.getFullYear() == year && birthdateDate.getMonth() + 1 == month && birthdateDate.getDate() == day;
+
+        if (!validDate || isNaN(birthdateDate.getTime())) {
+            return false;
+        }
+
         const age = currentDate.getFullYear() - birthdateDate.getFullYear();
         const monthDiff = currentDate.getMonth() - birthdateDate.getMonth();
         const dayDiff = currentDate.getDate() - birthdateDate.getDate();
-        
-        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-            return age - 1 >= 18;
+
+        // Check if the person is 18 years or older
+        if (age > 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)))) {
+            return true;
         }
-        return age >= 18;
+
+        return false;
     }
 
     // Function to validate email address
@@ -268,7 +271,7 @@ $(document).ready(function() {
             $('#birthdateError').text('');
             resetStyles(birthdateInput);
         } else {
-            $('#birthdateError').text('Please enter a valid date. Age must be at least 18 years old.');
+            $('#birthdateError').text('Invalid date or Age must be at least 18 years old.');
             setStyleInvalid(birthdateInput);
         }
     });
@@ -337,7 +340,7 @@ $(document).ready(function() {
         }
 
         if (!validateAge(birthdateInput.val())) {
-            $('#birthdateError').text('Please enter a valid date. Age must be at least 18 years old.');
+            $('#birthdateError').text('Invalid date or Age must be at least 18 years old.');
             setStyleInvalid(birthdateInput);
             hasError = true;
         }
