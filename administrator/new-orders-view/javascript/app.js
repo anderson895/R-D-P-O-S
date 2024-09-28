@@ -259,33 +259,46 @@ $(document).on("click", "#BtnCollect", function (e) {
     });
   });
   
+
+  
   $("#frmChangeOrderStatusToDelivered").submit(function (e) {
     e.preventDefault();
     console.log('asd');
+    
     var formData = new FormData($(this)[0]);
     
+    // Show the spinner
+    $('.spinner').show();
+
     $.ajax({
-      type: "POST",
-      url: "backend/endpoints/post.php",
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function (response) {
-        closeModal();
-        if (response == "200") {
-          showAlert(".alert-success", "Order Status Changed!");
-          getOrderStatus();
-        //   getBtnDeliverOrder();
-        } else if (response == "Please select rider!") {
-          showAlert(".alert-danger", response);
-        } else {
-          showAlert(".alert-danger", "Something went wrong!");
-        //   window.location.reload();
-        console.log(response);
+        type: "POST",
+        url: "backend/endpoints/post.php",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            // Hide the spinner after the request is complete
+            $('.spinner').hide();
+            closeModal();
+            if (response == "200") {
+                showAlert(".alert-success", "Order Status Changed!");
+                getOrderStatus();
+                // getBtnDeliverOrder();
+            } else if (response == "Please select rider!") {
+                showAlert(".alert-danger", response);
+            } else {
+                showAlert(".alert-danger", "Something went wrong!");
+                console.log(response);
+            }
+        },
+        error: function () {
+            // Hide the spinner on error as well
+            $('.spinner').hide();
+            showAlert(".alert-danger", "An error occurred during the request.");
         }
-      },
     });
-  });
+});
+
 
   $(document).on("click", ".btnRejectOrder", function (e) {
     e.preventDefault();

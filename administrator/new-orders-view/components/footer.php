@@ -36,6 +36,14 @@
                         <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" important required>
                     </div>
                 </div>
+
+                
+                <div class="d-flex justify-content-center align-items-center" >
+                    <div class="spinner-border spinner" role="status" style="display:none;">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Yes</button>
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">No</button>
