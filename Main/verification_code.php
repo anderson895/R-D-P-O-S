@@ -42,6 +42,10 @@ if ($product_row) {
     <title>Verify OTP</title>
     <link rel="stylesheet" href="assets/css/verification.css">
     <link rel="stylesheet" href="view/confirmOTP/css/style.css">
+    <!-- Include Alertify.js CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/1.13.1/alertify.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/1.13.1/alertify.min.js"></script>
+
     <style>
         .error {
             color: red;
@@ -164,7 +168,7 @@ if ($product_row) {
                                 url: "../mailer.php",
                                 data: formData,
                                 success: function() {
-                                    alertify.success("OTP resent successfully.");
+                                    alert("OTP resent successfully.");
                                 },
                                 error: function(xhr, status, error) {
                                     console.error("AJAX Error in mailer.php: " + error);
