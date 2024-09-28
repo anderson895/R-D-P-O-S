@@ -1,6 +1,6 @@
 <?php 
 include("controller/maintinance.php");
-include "include/session_dir.php";
+
 
 // Redirect if no GET parameters
 if (empty($_GET)) {
@@ -239,7 +239,8 @@ if (isset($_POST['btnSendOtp'])) {
     if ($inputCode === $db_acc_otp) {
 
        
-        session_start();
+       session_start();
+       
         $_SESSION['acc_id']=$accid;
 
         // Update user status if OTP is correct
