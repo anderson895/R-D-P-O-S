@@ -37,9 +37,9 @@
                     </div>
                 </div>
 
-                
+
                 <div class="d-flex justify-content-center align-items-center" >
-                    <div class="spinner-border spinner" role="status" style="display:none;">
+                    <div class="spinner-border spinner" role="status" style="display:block;">
                         <span class="sr-only"></span>
                     </div>
                 </div>
