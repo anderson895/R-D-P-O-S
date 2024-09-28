@@ -267,7 +267,7 @@ $(document).on("click", "#BtnCollect", function (e) {
     $submitButton.prop('disabled', true);
     
     // Show loading spinner
-    var $spinner = $('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+    var $spinner = $('<div class="spinner-border" role="status"><span class="sr-only"></span></div>');
     $(this).append($spinner); // Append the spinner to the form or an appropriate container
 
     var formData = new FormData($(this)[0]);
