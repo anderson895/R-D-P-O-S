@@ -795,6 +795,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
     e.preventDefault();
     $(".editAddressModal").modal("show");
     $("#modalUpdateChoices").modal("hide");
+    closeModal("PlaceOrderModal");
   });
 
 
