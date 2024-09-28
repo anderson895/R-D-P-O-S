@@ -103,8 +103,8 @@
         <div class="form-login">
 
         <div class="form-check text-center">
-                            <input class="form-control" type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
-                            <label for="agreeTermsCheckbox">I agree to the Terms and Conditions</label>
+                            <input type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
+                            <label for="agreeTermsCheckbox"><a style="text-decoration:underline;">I agree to the Terms and Conditions</a></label>
          </div>
 
             <button class="btn btn-login" type="submit" id="submitButton">Create Account</button>
