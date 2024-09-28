@@ -70,7 +70,7 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link text-light active" href="login.php">
-              <i class="bi bi-box-arrow-in-right"></i> Loginsssssssssss
+              <i class="bi bi-box-arrow-in-right"></i> <?=$db_system_logo?>
             </a>
           </li>
           <li class="nav-item">
