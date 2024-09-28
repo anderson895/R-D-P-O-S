@@ -317,35 +317,43 @@
                     <button type="submit" class="btn btn-secondary">Save</button>
                 </div>
             </form>
-                <div class="checkout-computation-container" style="width: 100%;">
+                
+            
+            <div class="container mt-4">
+                <!-- Delivery Address Section -->
+                <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
                     <h6 class="mb-3">Delivery Address</h6>
                     <p class="mb-3">Region III (Central Luzon) Bulacan Marilao Prenza I Tibagan</p>
                     <button class="btn btn-sm btn-secondary">Update Address</button>
                 </div>
 
-
-
-                    <div class="checkout-computation-container" style="width: 100%;">
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal:</span>
-                            <span>₱ <span id="checkOutSubtotal"></span></span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>VAT (Included):</span>
-                            <span >-</span>
-                            <span hidden>₱ <span id="checkOutVat"></span></span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Shipping:</span>
-                            <span><span id="checkOutShipping"></span></span>
-                        </div>
-                        <div class="d-flex justify-content-between checkout-total">
-                            <span>Total:</span>
-                            <span>₱ <span id="checkOutTotal"></span></span>
-                        </div>
+                <!-- Checkout Computation Section -->
+                <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
+                    <div class="d-flex justify-content-between">
+                        <span>Subtotal:</span>
+                        <span>₱ <span id="checkOutSubtotal"></span></span>
                     </div>
-                    <button class="btn text-light mt-2" style="height: 40px; background-color: crimson;"
-                        id="btnPlaceOrder" data-prodid=""><i class="bi bi-bag-check-fill"></i> Place Order</button>
+                    <div class="d-flex justify-content-between">
+                        <span>VAT (Included):</span>
+                        <span>-</span>
+                        <span hidden>₱ <span id="checkOutVat"></span></span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Shipping:</span>
+                        <span><span id="checkOutShipping"></span></span>
+                    </div>
+                    <div class="d-flex justify-content-between fw-bold mt-2">
+                        <span>Total:</span>
+                        <span>₱ <span id="checkOutTotal"></span></span>
+                    </div>
+                </div>
+
+                <!-- Place Order Button -->
+                <button class="btn btn-danger text-light w-100 mt-2" style="height: 40px;" id="btnPlaceOrder" data-prodid="">
+                    <i class="bi bi-bag-check-fill"></i> Place Order
+                </button>
+            </div>
+
                 </div>
             </div>
         </div>
