@@ -11,7 +11,7 @@ $current_date = date('Y-m-d');
 ?>
 
 <link rel="stylesheet" href="view/Signup/assets/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="view/Signup/assets/css/style.css"> -->
+<link rel="stylesheet" href="view/Signup/assets/css/style.css">
 
     <body>
  
