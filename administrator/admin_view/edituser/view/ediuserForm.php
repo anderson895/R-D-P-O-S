@@ -37,7 +37,7 @@ if($get_record_num > 0 ){
 <form method="POST">
 <input hidden  type="text" id="session_code" value="<?= $db_acc_code?>">
 <input hidden  type="text" id="acc_code" value="<?= $acc_code?>">
-<input hidden  type="text" id="account_id" value="<?= $db_acc_id?>">
+<input hidden  type="text" id="acc_id" value="<?= $db_acc_id?>">
 <div class="card">
 <div class="card-body">
 <div class="row">
@@ -219,6 +219,7 @@ if($get_record_num > 0 ){
                                             $('#submitButton').click(function () {
                                         // Kunin ang lahat ng data mula sa mga field
                                         var acc_code = $('#acc_code').val();
+                                        var acc_id = $('#acc_id').val();
                                         var fname = $('#fname').val();
                                         var lname = $('#lname').val();
                                         var username = $('#username').val();
@@ -231,6 +232,7 @@ if($get_record_num > 0 ){
 
                                         // Gumawa ng FormData object para sa pag-post ng mga file
                                         var formData = new FormData();
+                                        formData.append('acc_id', acc_id);
                                         formData.append('acc_code', acc_code);
                                         formData.append('fname', fname);
                                         formData.append('lname', lname);

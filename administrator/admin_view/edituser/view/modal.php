@@ -69,7 +69,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response === "match") {
                     // Password match for admin
-                    // Ngayon, maaari mong ipasa ang lahat ng data sa editUserProcess.php
+                  
                     $.ajax({
                         type: "POST",
                         url: "edituser/controller/editUserProcess.php",
@@ -77,7 +77,7 @@ $(document).ready(function () {
                         processData: false,
                         contentType: false,
                         success: function (editResponse) {
-                            // Dito mo ma-handle ang response mula sa editUserProcess.php
+                   
                             console.log(editResponse);
 
                            alertify.success("Changes successfully saved")
