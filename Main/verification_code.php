@@ -185,7 +185,7 @@ if ($product_row) {
                             }
                         });
                     } else {
-                        $("#errorCount").text(response.remaining+' Minutes');
+                        $("#errorCount").text('Just Wait for'+response.remaining+' Minutes');
                     }
                 },
                 error: function() {
