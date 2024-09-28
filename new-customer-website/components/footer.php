@@ -308,7 +308,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-center spinner">
+                <div class="d-flex justify-content-center spinner" style="display:none;">
                     <div class="spinner-border" role="status">
                         <span class="sr-only"></span>
                     </div>
