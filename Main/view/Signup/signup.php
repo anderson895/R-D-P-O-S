@@ -121,9 +121,6 @@
             <div class="pass-group">
                 <input class="pass-input" name='cpass' required type="password" placeholder="Confirm Password" id="confirmPassword" value="">
             </div>
-            <div class="error-message" style="color:red;" id="passwordError"></div>
-
-            
         </div>
 
         <div class="form-login">
@@ -131,7 +128,7 @@
             <div class="text-center" id="loadingSpinner"></div>
         </div>
 
-      
+        <div class="error-message" style="color:red;" id="passwordError"></div>
         <div class="error-message" id="errorText"></div>
     </form>
 

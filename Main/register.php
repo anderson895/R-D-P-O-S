@@ -159,8 +159,7 @@ $(document).ready(function() {
     const submitButton = $('#submitButton');
 
     // Function to validate first name and last name
-       function validateName(name) {
-        // This regex allows letters (both uppercase and lowercase) and ñ/Ñ, and requires at least 2 characters
+    function validateName(name) {
         var nameRegex = /^[a-zA-ZñÑ]{2,}$/;
         return nameRegex.test(name);
     }
@@ -189,64 +188,148 @@ $(document).ready(function() {
         return emailRegex.test(email);
     }
 
+    // Function to set invalid styling
+    function setStyleInvalid(element) {
+        element.css('border', '2px solid red');
+    }
+
+    // Function to reset styles
+    function resetStyles(element) {
+        element.css('border', '1px solid #ccc');
+    }
+
+    // Real-time validation on input events
+    fnameInput.on('input', function () {
+        if (validateName($(this).val())) {
+            $('#fnameError').text('');
+            resetStyles(fnameInput);
+        } else {
+            $('#fnameError').text('First name must have at least 2 alphabetical characters.');
+            setStyleInvalid(fnameInput);
+        }
+    });
+
+    lnameInput.on('input', function () {
+        if (validateName($(this).val())) {
+            $('#lnameError').text('');
+            resetStyles(lnameInput);
+        } else {
+            $('#lnameError').text('Last name must have at least 2 alphabetical characters.');
+            setStyleInvalid(lnameInput);
+        }
+    });
+
+    usernameInput.on('input', function () {
+        if (validateLength($(this).val())) {
+            $('#usernameLengthError').text('');
+            resetStyles(usernameInput);
+        } else {
+            $('#usernameLengthError').text('Username must have at least 5 characters.');
+            setStyleInvalid(usernameInput);
+        }
+    });
+
+    passwordInput.on('input', function () {
+        if ($(this).val().length >= 12) {
+            $('#passwordError').text('');
+            resetStyles(passwordInput);
+        } else {
+            $('#passwordError').text('Password must have at least 12 characters.');
+            setStyleInvalid(passwordInput);
+        }
+    });
+
+    contactInput.on('input', function () {
+        if (validateContact($(this).val())) {
+            $('#contactError').text('');
+            resetStyles(contactInput);
+        } else {
+            $('#contactError').text('Contact must be 11 digits and start with "09".');
+            setStyleInvalid(contactInput);
+        }
+    });
+
+    birthdateInput.on('input', function () {
+        if (validateAge($(this).val())) {
+            $('#birthdateError').text('');
+            resetStyles(birthdateInput);
+        } else {
+            $('#birthdateError').text('Age must be at least 11 years old.');
+            setStyleInvalid(birthdateInput);
+        }
+    });
+
+    emailInput.on('input', function () {
+        if (validateEmail($(this).val())) {
+            $('#emailError').text('');
+            resetStyles(emailInput);
+        } else {
+            $('#emailError').text('Invalid Gmail address.');
+            setStyleInvalid(emailInput);
+        }
+    });
+
+    confirmPasswordInput.on('input', function () {
+        if (passwordInput.val() === $(this).val()) {
+            $('#passwordMatchError').text('');
+            resetStyles(confirmPasswordInput);
+            resetStyles(passwordInput);
+        } else {
+            $('#passwordMatchError').text('Passwords do not match.');
+            setStyleInvalid(confirmPasswordInput);
+            setStyleInvalid(passwordInput);
+        }
+    });
+
     // Function to handle form submission
     function handleSubmit(event) {
         event.preventDefault(); // Prevent the default form submission
 
         // Reset any previous error messages and styling
         $('.error').text('');
-        resetStyles();
+        resetStyles($('input'));
 
         let hasError = false;
 
+        // Validate inputs before submission
         if (!validateName(fnameInput.val())) {
             $('#fnameError').text('First name must have at least 2 alphabetical characters.');
-            alertify.error("First name must have at least 2 alphabetical characters");
             setStyleInvalid(fnameInput);
             hasError = true;
         }
 
         if (!validateName(lnameInput.val())) {
             $('#lnameError').text('Last name must have at least 2 alphabetical characters.');
-            alertify.error("Last name must have at least 2 alphabetical characters");
             setStyleInvalid(lnameInput);
             hasError = true;
         }
 
         if (!validateLength(usernameInput.val())) {
             $('#usernameLengthError').text('Username must have at least 5 characters.');
-            alertify.error("Username must have at least 5 characters");
             setStyleInvalid(usernameInput);
             hasError = true;
         }
 
-        if (!validateLength(passwordInput.val())) {
+        if (passwordInput.val().length < 12) {
             $('#passwordError').text('Password must have at least 12 characters.');
-            alertify.error("Password must have at least 12 characters");
             setStyleInvalid(passwordInput);
             hasError = true;
         }
 
         if (!validateContact(contactInput.val())) {
             $('#contactError').text('Contact must be 11 digits and start with "09".');
-            alertify.error("Contact must be 11 digits and start with 09.");
             setStyleInvalid(contactInput);
             hasError = true;
         }
 
         if (!validateAge(birthdateInput.val())) {
             $('#birthdateError').text('Age must be at least 11 years old.');
-            alertify.error("Age must be at least 11 years old");
             setStyleInvalid(birthdateInput);
             hasError = true;
         }
 
-        const password1 = passwordInput.val();
-        const password2 = confirmPasswordInput.val();
-
-        if (password1 !== password2) {
+        if (passwordInput.val() !== confirmPasswordInput.val()) {
             $('#passwordMatchError').text('Passwords do not match.');
-            alertify.error("Passwords do not match");
             setStyleInvalid(passwordInput);
             setStyleInvalid(confirmPasswordInput);
             hasError = true;
@@ -254,13 +337,13 @@ $(document).ready(function() {
 
         if (!validateEmail(emailInput.val())) {
             $('#emailError').text('Invalid Gmail address.');
-            alertify.error("Invalid Gmail address");
             setStyleInvalid(emailInput);
             hasError = true;
         }
 
         // If there are errors, prevent form submission
         if (hasError) {
+            alertify.error("Please correct the errors in the form.");
             return;
         }
 
@@ -286,8 +369,6 @@ $(document).ready(function() {
                 var last_id = response.last_id;
 
                 if (result === "success") {
-                    console.log(last_id);
-
                     $.ajax({
                         type: "POST",
                         url: "../mailer.php",
@@ -297,7 +378,6 @@ $(document).ready(function() {
                             $("#submitButton").hide();
                         },
                         success: function(response) {
-                            console.log(response);
                             alertify.success("Otp successfully sent to " + emailInput.val());
                             setTimeout(function() {
                                 window.location.href = "verification_code.php?accid=" + last_id;
@@ -305,75 +385,24 @@ $(document).ready(function() {
                         },
                         error: function(xhr, status, error) {
                             $("#loadingSpinner").hide();
-                            $("#submitButton").css("display", "block");
-                            console.error("AJAX Error in mailer.php: " + error);
+                            $("#submitButton").show();
+                            alertify.error("Error in sending OTP: " + error);
                         },
                         complete: function() {
                             $("#loadingSpinner").hide();
-                            
                         }
                     });
-
                 } else {
                     alertify.error(result);
                 }
             },
             error: function(xhr, status, error) {
-                console.error("An error occurred while submitting the data.");
-                console.error("Status: " + status);
-                console.error("Error: " + error);
-                console.error("Response: " + xhr.responseText);
+                console.error("Submission error: " + error);
             }
         });
     }
 
-    // Function to set invalid styling
-    function setStyleInvalid(element) {
-        element.css('border', '2px solid red');
-    }
-
-    // Function to reset styles
-    function resetStyles() {
-        $('input').css('border', '1px solid #ccc');
-    }
-
-    // Add event listeners for input fields using jQuery
-    fnameInput.on('input', function () {
-        $('#fnameError').text('');
-        fnameInput.css('border', '1px solid #ccc');
-    });
-
-    lnameInput.on('input', function () {
-        $('#lnameError').text('');
-        lnameInput.css('border', '1px solid #ccc');
-    });
-
-    usernameInput.on('input', function () {
-        $('#usernameLengthError').text('');
-        usernameInput.css('border', '1px solid #ccc');
-    });
-
-    passwordInput.on('input', function () {
-        $('#passwordError').text('');
-        passwordInput.css('border', '1px solid #ccc');
-    });
-
-    contactInput.on('input', function () {
-        $('#contactError').text('');
-        contactInput.css('border', '1px solid #ccc');
-    });
-
-    birthdateInput.on('input', function () {
-        $('#birthdateError').text('');
-        birthdateInput.css('border', '1px solid #ccc');
-    });
-
-    emailInput.on('input', function () {
-        $('#emailError').text('');
-        emailInput.css('border', '1px solid #ccc');
-    });
-
-    // Add event listener for form submission using jQuery
+    // Add event listener for form submission
     submitButton.on('click', handleSubmit);
 });
 </script>
