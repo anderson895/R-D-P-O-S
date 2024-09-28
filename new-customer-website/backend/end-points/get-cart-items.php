@@ -91,15 +91,17 @@ if ($getCartItemsPhotos->num_rows > 0){
         <!-- Item Details -->
         <div class="col-md-9">
             <div class="item-details border p-3 rounded-3 shadow-sm">
-            <div class="d-flex align-items-center mb-3">
-                <input type="checkbox" class="form-check-input me-2 cartSelect" data-id="<?= $cartItem['prod_id'] ?>" data-image="<?= $cartItem['prod_image'] ?>" data-name="<?= $productName ?>" data-price="<?= $cartItem['prod_currprice'] ?>" data-unittype="<?= $cartItem['unit_type'] ?>" data-amount="<?= $itemAmount ?>" data-stock="<?= $currentStock ?>" data-inputqty="<?= $cartItem['qty'] ?>" data-itemvat="<?= $vatPerItem ?>" style="width: 30px; height: 30px;">
-                
-                <h4 class="fw-bold me-2"><?= $productName ?></h4>
-                
-                <button class="btn btn-danger btn-sm d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>">
-                    <i class="bi bi-trash3-fill"></i>
-                </button>
-            </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" class="form-check-input me-2 cartSelect" data-id="<?= $cartItem['prod_id'] ?>" data-image="<?= $cartItem['prod_image'] ?>" data-name="<?= $productName ?>" data-price="<?= $cartItem['prod_currprice'] ?>" data-unittype="<?= $cartItem['unit_type'] ?>" data-amount="<?= $itemAmount ?>" data-stock="<?= $currentStock ?>" data-inputqty="<?= $cartItem['qty'] ?>" data-itemvat="<?= $vatPerItem ?>" style="width: 30px; height: 30px;">
+                        
+                        <h4 class="fw-bold me-2"><?= $productName ?></h4>
+                    </div>
+                    
+                    <button class="btn btn-danger btn-sm d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
+                </div>
 
                 <div class="mb-3">
                     <label for="product-description" class="form-label">Description</label>
