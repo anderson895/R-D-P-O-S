@@ -78,25 +78,3 @@ if (isset($_POST['btnSendOtp'])) {
     }
 }
 ?>
- <link rel="stylesheet" href="../administrator/admin_view/assets/plugins/alertify/alertify.min.css">
-
- <script src="../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
-<script>
-// JavaScript countdown function
-function startCountdown(seconds) {
-    let countdownElement = document.getElementById('countdown');
-    let remainingTime = seconds;
-
-    let interval = setInterval(() => {
-        if (remainingTime <= 0) {
-            clearInterval(interval);
-            countdownElement.innerHTML = "0"; // Reset countdown display
-            document.getElementById('btnSendOtp').style.display = 'block'; // Show button again
-            document.getElementById('resendLink').style.display = 'block'; // Show resend link
-        } else {
-            countdownElement.innerHTML = remainingTime;
-            remainingTime--;
-        }
-    }, 1000);
-}
-</script>
