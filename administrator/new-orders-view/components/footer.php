@@ -33,13 +33,7 @@
                     <h6>Are you sure that you want to change the Order Status?</h6>
                     <div class="input-container-label-top mt-3">
                         <label>Upload a proof of delivery</label>
-                        <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" required>
-                    </div>
-                    <!-- Spinner -->
-                    <div class="d-flex justify-content-center mt-3">
-                        <div id="spinner" class="spinner-border" role="status" style="display: none;">
-                            <span class="sr-only"></span>
-                        </div>
+                        <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" important required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -50,7 +44,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="modal" tabindex="-1" role="dialog" id="rejectOrderModal">
     <div class="modal-dialog" role="document">
