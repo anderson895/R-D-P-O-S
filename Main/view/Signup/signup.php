@@ -18,7 +18,7 @@
 }
 
 #agreeButtonModal:hover {
-    
+    background:white; /* Hover background */
     color: white; /* Color ng text kapag na-hover */
 }
 
