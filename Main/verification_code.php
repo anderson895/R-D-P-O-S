@@ -42,10 +42,9 @@ if ($product_row) {
     <title>Verify OTP</title>
     <link rel="stylesheet" href="assets/css/verification.css">
     <link rel="stylesheet" href="view/confirmOTP/css/style.css">
-    <!-- Include Alertify.js CSS and JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/1.13.1/alertify.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/1.13.1/alertify.min.js"></script>
-
+    
     <style>
         .error {
             color: red;
@@ -85,7 +84,7 @@ if ($product_row) {
 
                             <div>
                                 <input id="otpExpiration" type="hidden" value="<?= htmlspecialchars($product_row['otp_expiration'], ENT_QUOTES, 'UTF-8'); ?>">
-                                <p hidden id="countDownText"></p>
+                                <p id="countDownText"></p>
                             </div>
 
                             <button id="btnSendOtp" <?= $db_acc_status == 2 ? "disabled" : ""; ?> type="submit" name="btnSendOtp" class="btn btn-primary mb-3 mt-3">
@@ -134,6 +133,7 @@ if ($product_row) {
     $(document).ready(function() {
         var otpExpirationString = $("#otpExpiration").val();
         var otpExpirationDate = new Date(otpExpirationString);
+        var countdownDuration = 0; // Variable to store countdown seconds
 
         function updateCountdown() {
             var now = new Date();
@@ -141,7 +141,8 @@ if ($product_row) {
 
             if (timeDifference > 0) {
                 var seconds = Math.floor(timeDifference / 1000);
-                $("#countDownText").text(seconds + " seconds");
+                countdownDuration = seconds; // Store seconds for the countdown
+                $("#countDownText").text(seconds + " seconds remaining");
             } else {
                 $("#countDownText").text("OTP has expired");
                 $("#btnSendOtp").prop("disabled", false);
@@ -196,21 +197,19 @@ if ($product_row) {
         function startCountdown(seconds) {
             let countdown = seconds;
 
-            $("#countdown").text(countdown);
+            $("#countDownText").text(countdown + " seconds");
             const interval = setInterval(function() {
                 countdown--;
-                $("#countdown").text(countdown);
+                $("#countDownText").text(countdown + " seconds");
                 
                 if (countdown <= 0) {
                     clearInterval(interval);
                     button.disabled = false;
                     $("#resendLink").show(); // Show the resend link again
-                    $("#countDownText").text(""); // Clear countdown text
                 }
             }, 1000);
         }
     });
-</script>
-
+    </script>
 </body>
 </html>
