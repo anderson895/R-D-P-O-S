@@ -1,0 +1,9 @@
+.loading-screen {
+    position: fixed; /* Use fixed positioning to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Semi-transparent background */
+    z-index: 9999; /* High z-index to cover other content */
+}

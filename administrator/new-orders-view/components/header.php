@@ -34,6 +34,7 @@ if (isset($_SESSION['acc_id'])) {
     
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/loading.css">
 
     <link rel="stylesheet" href="../admin_view/assets/plugins/alertify/alertify.min.css">
 

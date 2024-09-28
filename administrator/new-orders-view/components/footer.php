@@ -38,14 +38,15 @@
                 </div>
 
 
+                <div id="loadingScreen" class="loading-screen d-flex justify-content-center align-items-center" style="display: none;">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+
                
 
                 <div class="modal-footer">
-                <div class="d-flex justify-content-center align-items-center" >
-                    <div class="spinner-border spinner" role="status" style="display:block;">
-                        <span class="sr-only"></span>
-                    </div>
-                </div>
                     <button type="submit" class="btn btn-primary">Yes</button>
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">No</button>
                 </div>
