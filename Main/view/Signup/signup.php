@@ -98,7 +98,7 @@
                         <div class="form-login">
                             <div class="form-check text-center" style="display: flex; align-items: center; justify-content: center;">
                                 <input type="checkbox" id="agreeTermsCheckbox" style="width: 16px; height: 16px; margin-right: 5px;" required>
-                                <label for="agreeTermsCheckbox" style="margin: 0;">
+                                <label for="agreeTermsCheckbox" style="margin: 10px;">
                                     <a href="#" id="termsLink" style="text-decoration: underline;">I agree to the Terms and Conditions</a>
                                 </label>
                             </div>
