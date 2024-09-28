@@ -1,6 +1,8 @@
 <?php
 include("../connection.php");
 
+
+$currentDateTime = date('Y-m-d H:i:s');
 // Ensure accid is provided in the request
 if (!isset($_GET['accid'])) {
     exit("Account ID is missing.");
@@ -41,7 +43,7 @@ if (isset($_POST['btnSendOtp'])) {
             echo '<script> document.location.href = "terms-and-condition.php?accid=' . $accid . '"; </script>';
             
             date_default_timezone_set('Asia/Manila');
-            $currentDateTime = date('Y-m-d H:i:s');
+           
 
             $logQuery = "INSERT INTO users_log(act_account_id, act_activity, act_date, act_table, act_collumn_id) 
             VALUES('$db_acc_id', 'Successfully verified their account', '$currentDateTime', 'account', '$db_acc_id')";
@@ -78,3 +80,25 @@ if (isset($_POST['btnSendOtp'])) {
     }
 }
 ?>
+ <link rel="stylesheet" href="../administrator/admin_view/assets/plugins/alertify/alertify.min.css">
+
+ <script src="../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
+<script>
+// JavaScript countdown function
+function startCountdown(seconds) {
+    let countdownElement = document.getElementById('countdown');
+    let remainingTime = seconds;
+
+    let interval = setInterval(() => {
+        if (remainingTime <= 0) {
+            clearInterval(interval);
+            countdownElement.innerHTML = "0"; // Reset countdown display
+            document.getElementById('btnSendOtp').style.display = 'block'; // Show button again
+            document.getElementById('resendLink').style.display = 'block'; // Show resend link
+        } else {
+            countdownElement.innerHTML = remainingTime;
+            remainingTime--;
+        }
+    }, 1000);
+}
+</script>
