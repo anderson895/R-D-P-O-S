@@ -32,23 +32,34 @@ if (isset($_FILES['profileAttachementImg']) && $_FILES['profileAttachementImg'][
         echo json_encode(['error' => 'File is too large.']);
         exit;
     }
-    
+
     // Define the upload directory
     $uploadFileDir = '../../../upload_img/';
-    
-    // Generate a unique filename
+
+    // Check if an existing image exists for the employee
+    $existingImage = $db->getEmpImage($userId); // Assuming this method retrieves the current image name
+
+    if ($existingImage) {
+        // If there is an existing image, prepare to replace it
+        $existingImagePath = $uploadFileDir . $existingImage;
+        if (file_exists($existingImagePath)) {
+            unlink($existingImagePath); // Delete the existing image file
+        }
+    }
+
+    // Generate a new unique filename
     $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-    do {
-        $uniqueFileName = uniqid('profile_', true) . '.' . $fileExtension;
-        $dest_path = $uploadFileDir . $uniqueFileName; // New destination path
-    } while (file_exists($dest_path)); // Ensure the name is unique
+    $uniqueFileName = uniqid('profile_', true) . '.' . $fileExtension;
+
+    // Define the destination path for the new image
+    $dest_path = $uploadFileDir . $uniqueFileName;
 
     // Move the file to the destination directory
     if (move_uploaded_file($fileTmpPath, $dest_path)) {
-        // Assuming the insertImages method needs the file path, not just the file name
+        // Update the database with the new image name
         $result = $db->updateEmpImage($uniqueFileName, $userId);
 
-        // Check if $result is a valid result set
+        // Check if the database update was successful
         if ($result) {
             echo json_encode(['success' => 'Image update successful']);
         } else {
