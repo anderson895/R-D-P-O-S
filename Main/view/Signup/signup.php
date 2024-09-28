@@ -170,6 +170,17 @@
 </div>
 
 <script>
+ $("#agreeButton").click(function() {
+        if ($("#agreeTermsCheckbox").is(":checked")) {
+            $("#agreeTerms").prop("checked", true);
+            $("#submitButton").prop("disabled", false); // Enable the submit button
+            $("#termsModal").css("display", "none");
+            alert("You have agreed to the Terms and Conditions.");
+        } else {
+            alert("Please agree to the Terms and Conditions to proceed.");
+        }
+    });
+
 $(document).ready(function() {
     // Show the modal when the button is clicked
     $("#termsButton").click(function() {
