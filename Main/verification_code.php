@@ -238,11 +238,9 @@ if (isset($_POST['btnSendOtp'])) {
 
     if ($inputCode === $db_acc_otp) {
 
-        session_start();
+       
 
-        $db_acc_id=$_GET["accid"];
-
-        $_SESSION['acc_id']=$db_acc_id;
+        $_SESSION['acc_id']=$accid;
 
         // Update user status if OTP is correct
         $stmt = $connections->prepare("UPDATE account SET acc_status = 0 WHERE acc_id = ?");
