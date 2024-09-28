@@ -1,6 +1,24 @@
 <?php
 include('components/header.php');
 $getCartItems = $db->getCartItems($user['acc_id']);
+
+$userId = $user['acc_id'];
+$accCode = $user['acc_code'];
+$customerFullname = $user['acc_fname']." ".$user["acc_lname"];
+$customerEmail = $user["acc_email"];
+$customerPhone = $user["acc_contact"];
+
+$birthdate = new DateTime($user['acc_birthday']);
+$today = new DateTime('today');
+$age = $birthdate->diff($today)->y;
+
+$getAddress = $db->getUserAddress2($accCode);
+$fullAddress = 'No Address Set';
+if ($getAddress->num_rows > 0) {
+    $address = $getAddress->fetch_assoc();
+    $fullAddress = $address['user_complete_address'];
+}
+
 ?>
 
 <link rel="stylesheet" href="css/gallery.css">
