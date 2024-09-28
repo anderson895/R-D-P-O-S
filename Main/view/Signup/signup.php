@@ -98,7 +98,15 @@
             </div>
         </div>
 
+        
+
         <div class="form-login">
+
+        <div class="form-check text-center">
+                            <input type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
+                            <label for="agreeTermsCheckbox">I agree to the Terms and Conditions</label>
+         </div>
+
             <button class="btn btn-login" type="submit" id="submitButton">Create Account</button>
             <div class="text-center" id="loadingSpinner"></div>
         </div>
@@ -137,8 +145,33 @@
 <script src="view/Signup/assets/js/script.js"></script>
 
 
+<!-- Modal for Terms and Conditions -->
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Terms and Conditions</h2>
+        <p>By creating an account, you agree to our Terms and Conditions...</p>
+        <p><strong>Please agree to proceed:</strong></p>
+        <input type="checkbox" id="agreeTermsCheckboxModal"> I agree to the Terms and Conditions
+        <br><br>
+        <button id="agreeButton">Agree</button>
+    </div>
+</div>
+<script>
+$(document).ready(function() {
+    // Show the modal when the "Create Account" button is clicked
+    $("#submitButton").click(function() {
+        $("#termsModal").css("display", "block");
+    });
 
+    // Enable the "Create Account" button based on checkbox status
+    $("#agreeTermsCheckbox").change(function() {
+        $("#submitButton").prop("disabled", !this.checked);
+    });
 
+   
+});
+</script>
 
 
 
