@@ -220,8 +220,6 @@
 
 
 
-
-
 <!-- Check Out Modal -->
 <div class="modal PlaceOrderModal" tabindex="-1" role="dialog" id="PlaceOrderModal">
     <div class="modal-dialog" role="document">
@@ -242,18 +240,13 @@
                         </tr>
                     </thead>
                     <tbody id="placeOrderItemsContainer">
-
                     </tbody>
                 </table>
-
-
-
 
                 <div class="select-payment-type-container payment_type_container">
                     <div class="input-container-label-top">
                         <label for="checkOutPaymentTypesSelect">Payment Type</label>
                         <select class="form-control" id="checkOutPaymentTypesSelect">
-
                         </select>
                     </div>
                     <div class="payment-image-container d-flex flex-column align-items-center mt-3">
@@ -276,54 +269,55 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="d-flex flex-column align-items-end p-1">
+                    <div class="container">
+                        <!-- Delivery Address Section -->
+                        <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
+                            <h6 class="mb-3">Delivery Address</h6>
+                            <p class="mb-3"><?= $fullAddress ?></p>
+                            <button class="btn btn-sm btn-secondary btnEditAddress">Update Address</button>
+                        </div>
 
-            <div class="container">
-                <!-- Delivery Address Section -->
-                <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
-                    <h6 class="mb-3">Delivery Address</h6>
-                    <p class="mb-3" ><?= $fullAddress ?></p>
-                    <button class="btn btn-sm btn-secondary btnEditAddress">Update Address</button>
-                </div>
+                        <!-- Checkout Computation Section -->
+                        <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
+                            <div class="d-flex justify-content-between">
+                                <span>Subtotal:</span>
+                                <span>₱ <span id="checkOutSubtotal"></span></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>VAT (Included):</span>
+                                <span>-</span>
+                                <span hidden>₱ <span id="checkOutVat"></span></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Shipping:</span>
+                                <span><span id="checkOutShipping"></span></span>
+                            </div>
+                            <div class="d-flex justify-content-between fw-bold mt-2">
+                                <span>Total:</span>
+                                <span>₱ <span id="checkOutTotal"></span></span>
+                            </div>
+                        </div>
 
-                <!-- Checkout Computation Section -->
-                <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
-                    <div class="d-flex justify-content-between">
-                        <span>Subtotal:</span>
-                        <span>₱ <span id="checkOutSubtotal"></span></span>
+                        <!-- Place Order Button -->
+                        <div class="position-relative">
+                            <button class="btn btn-danger text-light w-100 mt-2" style="height: 40px;" id="btnPlaceOrder" data-prodid="">
+                                <i class="bi bi-bag-check-fill"></i> Place Order
+                            </button>
+                            <div id="spinner" class="spinner-border position-absolute" role="status" style="display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <span>VAT (Included):</span>
-                        <span>-</span>
-                        <span hidden>₱ <span id="checkOutVat"></span></span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Shipping:</span>
-                        <span><span id="checkOutShipping"></span></span>
-                    </div>
-                    <div class="d-flex justify-content-between fw-bold mt-2">
-                        <span>Total:</span>
-                        <span>₱ <span id="checkOutTotal"></span></span>
-                    </div>
-                </div>
-
-                <!-- Place Order Button -->
-                <button class="btn btn-danger text-light w-100 mt-2" style="height: 40px;" id="btnPlaceOrder" data-prodid="">
-                    <i class="bi bi-bag-check-fill"></i> Place Order
-                </button>
-                <div id="spinner" class="spinner-border" role="status" style="display: block;">
-                    <span class="sr-only"></span>
-                </div>
-
-            </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- End of Check Out Modal -->
+
 
 <!-- Edit Profile Modal -->
 <div class="modal" tabindex="-1" role="dialog" id="editProfileModal">
