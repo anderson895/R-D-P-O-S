@@ -253,7 +253,7 @@ function startCountdown() {
             resendLink.setAttribute('href', 'back_forgot.php?accid=<?= $accid ?>');
 
             // Change the text of the errorCount element
-            errorCount.innerHTML = 'Enter correct otp.';
+            errorCount.innerHTML = 'Enter correct OTP.';
 
         }
     }, 1000);
@@ -273,7 +273,7 @@ if (countdown > 0) {
     startCountdown();
 } else {
     var errorCount = document.getElementById('errorCount');
-    errorCount.innerHTML = 'Enter correct otp.';
+    errorCount.innerHTML = 'Enter correct OTP.';
     var sendOtpButton = document.getElementById('btnSendOtp');
     sendOtpButton.classList.remove('disabled');
     sendOtpButton.classList.add('enabled');
