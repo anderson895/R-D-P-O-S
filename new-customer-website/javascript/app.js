@@ -647,11 +647,13 @@ $("#btnPlaceOrder").click(function (e) {
   e.preventDefault();
 
   // Disable the button and show the spinner
-  $(this).prop("disabled", true); // Disable the button
-  $(".spinner").show(); // Show the spinner (make sure to have a spinner element in your HTML)
-
+ 
   var paymentType = $("#checkOutPaymentTypesSelect").val();
   if (paymentType == "cod") {
+
+    $(this).prop("disabled", true); 
+    $(".spinner").show(); 
+  
     $.ajax({
       type: "POST",
       url: "backend/end-points/place-order.php",
@@ -681,6 +683,10 @@ $("#btnPlaceOrder").click(function (e) {
       $("#btnPlaceOrder").prop("disabled", false); // Re-enable the button if no file is uploaded
       $("#spinner").hide(); // Hide the spinner
     } else {
+
+      $(this).prop("disabled", true); 
+      $(".spinner").show(); 
+    
       var formData = new FormData();
 
       var paymentTypeImgInput = $("#paymentTypeImgInput")[0].files[0];
