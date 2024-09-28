@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="lname" name="lname">
+                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="">
                                     <label for="lname">Last Name</label>
                                     <div style="color:red;" id="lnameError"></div>
                                 </div>
@@ -53,37 +53,37 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="birthdate" name="bday" required>
+                            <input type="date" class="form-control" id="birthdate" name="bday" placeholder="">
                             <label for="birthdate">Birthday</label>
                             <div style="color:red;" id="birthdateError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="">
                             <label for="username">Username</label>
                             <div style="color:red;" id="usernameLengthError"></div>
                             <div style="color:red;" id="usernameError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="">
                             <label for="email">Email</label>
                             <div style="color:red;" id="emailError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="contact" name="contact" required>
+                            <input type="number" class="form-control" id="contact" name="contact" placeholder="">
                             <label for="contact">Contact Number</label>
                             <div style="color:red;" id="contactError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="password" name="pass" required>
+                            <input type="password" class="form-control" id="password" name="pass" placeholder="">
                             <label for="password">Password</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="confirmPassword" name="cpass" required>
+                            <input type="password" class="form-control" id="confirmPassword" name="cpass" placeholder="">
                             <label for="confirmPassword">Confirm Password</label>
                             <div class="error-message" style="color:red;" id="passwordError"></div>
                             <div class="error-message" style="color:red;" id="passwordMatchError"></div>
@@ -91,7 +91,7 @@
 
                         <div class="form-login">
                             <div class="form-check" style="display: flex; align-items: center;">
-                                <input type="checkbox" id="agreeTermsCheckbox" style="width: 16px; height: 16px; margin-right: 5px;" required>
+                                <input type="checkbox" id="agreeTermsCheckbox" style="width: 16px; height: 16px; margin-right: 5px;" placeholder="">
                                 <label for="agreeTermsCheckbox" style="margin: 0;">
                                     <a href="#" id="termsLink" style="text-decoration: underline;">I agree to the Terms and Conditions</a>
                                 </label>
