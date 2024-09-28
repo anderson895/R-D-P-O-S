@@ -223,7 +223,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary btn-sm" id="agreeButtonModal" >Agree</button>
+                <button type="button" class="btn btn-primary btn-sm btn-login" id="agreeButtonModal" >Agree</button>
             </div>
         </div>
     </div>
