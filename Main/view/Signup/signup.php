@@ -147,11 +147,11 @@
 </div>
 </div>
 </div>
-<div class="login-img">
-<div class="container">
-       <img src="../upload_system/<?=$db_system_banner?>" alt="">
+    <div class="login-img">
+        <div class="container">
+            <img src="../upload_system/<?=$db_system_banner?>" alt="">
+        </div>
     </div>
-</div>
 </div>
 </div>
 </div>
