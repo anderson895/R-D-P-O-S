@@ -207,7 +207,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary btn-sm" id="agreeButtonModal">Agree</button>
+                <button type="button" class="btn btn-primary btn-sm" id="agreeButtonModal" style="background: linear-gradient(to left, #A52A2A, #800000);">Agree</button>
             </div>
         </div>
     </div>
