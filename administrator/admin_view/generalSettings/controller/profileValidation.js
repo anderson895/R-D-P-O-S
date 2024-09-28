@@ -120,7 +120,7 @@ console.log(selectionAccountType )
             }
         }
     });
-//toglerSaveDPandInfo
+
     $(".toglerSaveProfile").on("click", function() {
         // Get the file input element
         var fileInput = $("#backgroundimage")[0];
