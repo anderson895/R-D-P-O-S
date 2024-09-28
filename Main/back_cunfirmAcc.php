@@ -79,6 +79,8 @@ if (isset($_POST['btnSendOtp'])) {
 }
 ?>
  <link rel="stylesheet" href="../administrator/admin_view/assets/plugins/alertify/alertify.min.css">
+
+ <script src="../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
 <script>
 // JavaScript countdown function
 function startCountdown(seconds) {
