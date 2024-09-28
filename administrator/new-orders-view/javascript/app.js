@@ -261,10 +261,10 @@ $(document).on("click", "#BtnCollect", function (e) {
   
   $("#frmChangeOrderStatusToDelivered").submit(function (e) {
     e.preventDefault();
-    console.log('asd');
-    
+    console.log('Form submitted');
+
     var formData = new FormData($(this)[0]);
-    
+
     // Show the spinner
     $('#spinner').show();
 
@@ -281,7 +281,6 @@ $(document).on("click", "#BtnCollect", function (e) {
             if (response == "200") {
                 showAlert(".alert-success", "Order Status Changed!");
                 getOrderStatus();
-                // getBtnDeliverOrder();
             } else if (response == "Please select rider!") {
                 showAlert(".alert-danger", response);
             } else {
@@ -296,6 +295,7 @@ $(document).on("click", "#BtnCollect", function (e) {
         }
     });
 });
+
 
 
   $(document).on("click", ".btnRejectOrder", function (e) {

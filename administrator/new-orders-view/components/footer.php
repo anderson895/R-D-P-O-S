@@ -33,17 +33,15 @@
                     <h6>Are you sure that you want to change the Order Status?</h6>
                     <div class="input-container-label-top mt-3">
                         <label>Upload a proof of delivery</label>
-                        <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" important required>
+                        <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" required>
+                    </div>
+                    <!-- Spinner -->
+                    <div class="d-flex justify-content-center mt-3">
+                        <div id="spinner" class="spinner-border" role="status" style="display: none;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
                     </div>
                 </div>
-
-
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only"></span>
-                    </div>
-                </div>
-
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Yes</button>
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">No</button>
@@ -52,6 +50,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="modal" tabindex="-1" role="dialog" id="rejectOrderModal">
     <div class="modal-dialog" role="document">
