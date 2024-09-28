@@ -101,7 +101,7 @@
         </div>
 
         <div class="form-login">
-            <label>Contact</label>
+            <label>Contact Number</label>
             <div class="form-addons">
                 <input required type="number" placeholder="Contact" name='contact' id="contact" value="">
                 <div style="color:red;" id="contactError"></div>
