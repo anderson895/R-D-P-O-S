@@ -261,10 +261,12 @@ $(document).on("click", "#BtnCollect", function (e) {
   
   $("#frmChangeOrderStatusToDelivered").submit(function (e) {
     e.preventDefault();
+    console.log('asd');
+    
     var formData = new FormData($(this)[0]);
     
-    // Show the loading screen
-    $('#loadingScreen').show();
+    // Show the spinner
+    $('#spinner').show();
 
     $.ajax({
         type: "POST",
@@ -273,12 +275,13 @@ $(document).on("click", "#BtnCollect", function (e) {
         contentType: false,
         processData: false,
         success: function (response) {
-            // Hide the loading screen
-            $('#loadingScreen').hide();
+            // Hide the spinner after the request is complete
+            $('#spinner').hide();
             closeModal();
             if (response == "200") {
                 showAlert(".alert-success", "Order Status Changed!");
                 getOrderStatus();
+                // getBtnDeliverOrder();
             } else if (response == "Please select rider!") {
                 showAlert(".alert-danger", response);
             } else {
@@ -287,8 +290,8 @@ $(document).on("click", "#BtnCollect", function (e) {
             }
         },
         error: function () {
-            // Hide the loading screen on error as well
-            $('#loadingScreen').hide();
+            // Hide the spinner on error as well
+            $('#spinner').hide();
             showAlert(".alert-danger", "An error occurred during the request.");
         }
     });
