@@ -2,10 +2,13 @@
 include("back_login.php");
 
 
+
+
 include("controller/maintinance.php");
 
 
 include "include/session_dir.php";
+print_r($_SESSION);
 
 $current_date = date('Y-m-d');
 
