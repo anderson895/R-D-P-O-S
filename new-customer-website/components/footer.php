@@ -223,7 +223,7 @@
 
 
 <!-- Check Out Modal -->
-<div class="modal" tabindex="-1" role="dialog" id="PlaceOrderModal">
+<div class="modal PlaceOrderModal" tabindex="-1" role="dialog" id="PlaceOrderModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
