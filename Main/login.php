@@ -54,7 +54,7 @@ $current_date = date('Y-m-d');
                                         <h3>Sign In</h3>
                                     </div>
                                     <div class="form-login">
-                                        <label>Email</label>
+                                        <label>Email/Username</label>
                                         <div class="form-addons">
                                             <input type="text" placeholder="Enter your email or username" name="email_or_username">
 
