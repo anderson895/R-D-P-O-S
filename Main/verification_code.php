@@ -243,9 +243,11 @@ if (isset($_POST['btnSendOtp'])) {
         $stmt->execute();
 
         echo '<script>
-                alertify.success("OTP verified successfully!");
-                window.location.href = "../new-customer-website/index.php";
-              </script>';
+        alertify.alert("OTP Verified", "OTP verified successfully!", function() {
+            window.location.href = "../new-customer-website/index.php";
+        });
+      </script>';
+
     } else {
        
             echo '<script>
