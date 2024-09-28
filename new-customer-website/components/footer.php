@@ -279,10 +279,10 @@
 
                 <div class="d-flex flex-column align-items-end p-1">
                 <form class="container p-2" id="frmEditAddress">
-                <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
-                <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
-                <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
-                <input type="hidden" id="userPhone" value="<?= $customerPhone ?>">
+                <input type="text" id="editAddressAccCode" value="<?= $accCode ?>">
+                <input type="text" id="userFullName" value="<?= $customerFullname ?>">
+                <input type="text" id="userEmail" value="<?= $customerEmail ?>">
+                <input type="text" id="userPhone" value="<?= $customerPhone ?>">
 
                 <div class="input-container-label-top mt-3">
                     <label>Region</label>
