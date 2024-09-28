@@ -14,7 +14,7 @@ $password = $_POST["password"];
 $accountType = $_POST["accountType"];
 $acc_id = $_POST["acc_id"];
 
-print_r($_POST);
+// print_r($_POST);
 
 $get_record = mysqli_query($connections, "SELECT * FROM account WHERE acc_code = '$acc_code'");
 $row = mysqli_fetch_assoc($get_record);
