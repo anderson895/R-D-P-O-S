@@ -35,31 +35,30 @@ $acc_id = preg_replace('/[^0-9]/', '', $_POST["acc_id"]);
 
 if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
     $imagePath = '../../../../upload_prodImg';
-    $fileExtension = pathinfo($_FILES['pImg']['name'], PATHINFO_EXTENSION);
-    $uniqueFilename = uniqid() . '.' . $fileExtension; // Generate a unique filename
-
-    $targetFile = $imagePath . '/' . $uniqueFilename;
+    $fileName = basename($_FILES['pImg']['name']); // Use only the file name without the path
+    $targetFile = $imagePath . '/' . $fileName; // Full path to the target file
 
     // Check if a file with the same name exists
     if (file_exists($targetFile)) {
         // If it exists, delete the existing file
         if (unlink($targetFile)) {
-            echo "Old file deleted successfully.\n"; // Debug message
+            echo "Old file deleted successfully: $fileName\n"; // Debug message
         } else {
-            echo "Error deleting old file.\n"; // Debug message
+            echo "Error deleting old file: $fileName\n"; // Debug message
         }
     } else {
-        echo "No existing file found.\n"; // Debug message
+        echo "No existing file found: $fileName\n"; // Debug message
     }
 
     // Move the uploaded file to the target directory
     if (move_uploaded_file($_FILES['pImg']['tmp_name'], $targetFile)) {
-        $pImg = $uniqueFilename; // Update the $pImg variable with the new file name
+        $pImg = $fileName; // Update with the original file name
         echo "File uploaded successfully: $pImg\n"; // Debug message
     } else {
-        echo "Error moving uploaded file.\n"; // Debug message
+        echo "Error moving uploaded file: $fileName\n"; // Debug message
     }
 }
+
 
 
 
