@@ -277,8 +277,10 @@
                     </div>
                 </div>
 
-                <div style="display:none;" class="d-flex flex-column align-items-end p-1">
-                <form class="container p-2" id="frmEditAddress">
+                <div class="d-flex flex-column align-items-end p-1">
+
+                
+            <form class="container p-2" id="frmEditAddress" hidden>
                 <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
                 <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
                 <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
