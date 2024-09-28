@@ -261,31 +261,47 @@ $(document).on("click", "#BtnCollect", function (e) {
   
   $("#frmChangeOrderStatusToDelivered").submit(function (e) {
     e.preventDefault();
-    console.log('asd');
-    var formData = new FormData($(this)[0]);
+
+    // Disable the submit button
+    var $submitButton = $(this).find('button[type="submit"]'); // Adjust the selector to match your button
+    $submitButton.prop('disabled', true);
     
+    // Show loading spinner
+    var $spinner = $('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+    $(this).append($spinner); // Append the spinner to the form or an appropriate container
+
+    var formData = new FormData($(this)[0]);
+
     $.ajax({
-      type: "POST",
-      url: "backend/endpoints/post.php",
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function (response) {
-        closeModal();
-        if (response == "200") {
-          showAlert(".alert-success", "Order Status Changed!");
-          getOrderStatus();
-        //   getBtnDeliverOrder();
-        } else if (response == "Please select rider!") {
-          showAlert(".alert-danger", response);
-        } else {
-          showAlert(".alert-danger", "Something went wrong!");
-        //   window.location.reload();
-        console.log(response);
+        type: "POST",
+        url: "backend/endpoints/post.php",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            closeModal();
+            if (response == "200") {
+                showAlert(".alert-success", "Order Status Changed!");
+                getOrderStatus();
+            } else if (response == "Please select rider!") {
+                showAlert(".alert-danger", response);
+            } else {
+                showAlert(".alert-danger", "Something went wrong!");
+                console.log(response);
+            }
+        },
+        error: function () {
+            // Handle error case
+            showAlert(".alert-danger", "An error occurred. Please try again.");
+        },
+        complete: function () {
+            // Re-enable the submit button and hide the spinner
+            $submitButton.prop('disabled', false);
+            $spinner.remove(); // Remove the spinner after the process
         }
-      },
     });
-  });
+});
+
 
   $(document).on("click", ".btnRejectOrder", function (e) {
     e.preventDefault();
