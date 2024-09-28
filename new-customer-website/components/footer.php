@@ -308,11 +308,10 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-center spinner" style="display:none;">
-                    <div class="spinner-border" role="status">
+                  <div class="spinner-border spinner" role="status">
                         <span class="sr-only"></span>
                     </div>
-                </div>
+              
                 <!-- Place Order Button -->
                 <button class="btn btn-danger text-light w-100 mt-2" style="height: 40px;" id="btnPlaceOrder" data-prodid="">
                     <i class="bi bi-bag-check-fill"></i> Place Order
