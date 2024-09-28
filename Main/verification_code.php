@@ -238,7 +238,7 @@ if (isset($_POST['btnSendOtp'])) {
 
     if ($inputCode === $db_acc_otp) {
         // Update user status if OTP is correct
-        $stmt = $connections->prepare("UPDATE account SET acc_status = 2 WHERE acc_id = ?");
+        $stmt = $connections->prepare("UPDATE account SET acc_status = 0 WHERE acc_id = ?");
         $stmt->bind_param("s", $accid);
         $stmt->execute();
 
