@@ -308,9 +308,12 @@
                     </div>
                 </div>
 
-                  <div class="text-center spinner-border spinner" role="status">
-                        <span class="sr-only"></span>
+                <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                    <div class="spinner-border spinner" role="status">
+                        <span class="sr-only">Loading...</span>
                     </div>
+                </div>
+
               
                 <!-- Place Order Button -->
                 <button class="btn btn-danger text-light w-100 mt-2" style="height: 40px;" id="btnPlaceOrder" data-prodid="">
