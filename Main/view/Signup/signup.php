@@ -96,8 +96,8 @@
                         </div>
 
                         <div class="form-login">
-                                                    <div class="form-check d-flex align-items-center">
-                                <input type="checkbox" class="form-check-input me-2" id="agreeTermsCheckbox" required>
+                               <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="agreeTermsCheckbox" required>
                                 <label class="form-check-label" for="agreeTermsCheckbox">
                                     <a href="#" id="termsLink" style="text-decoration: underline;">I agree to the Terms and Conditions</a>
                                 </label>
