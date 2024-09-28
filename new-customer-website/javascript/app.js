@@ -793,7 +793,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
 
   $("#btnEditAddress").click(function (e) {
     e.preventDefault();
-    $("#editAddressModal").modal("show");
+    $(".editAddressModal").modal("show");
     $("#modalUpdateChoices").modal("hide");
   });
 

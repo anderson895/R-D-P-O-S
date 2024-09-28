@@ -246,6 +246,9 @@
                     </tbody>
                 </table>
 
+
+
+
                 <div class="select-payment-type-container payment_type_container">
                     <div class="input-container-label-top">
                         <label for="checkOutPaymentTypesSelect">Payment Type</label>
@@ -354,11 +357,11 @@
 
 
 <!-- View Edit Address Modal -->
-<div class="modal" tabindex="-1" role="dialog" id="editAddressModal">
+<div class="modal editAddressModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Address</h5>
+                <h5 class="modal-title">Update Address</h5>
                 <button type="button" id="closeEditAddressModal" class="btn-close btnCloseModal"
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
