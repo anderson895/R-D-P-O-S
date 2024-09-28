@@ -278,10 +278,42 @@
                 </div>
 
                 <div class="d-flex flex-column align-items-end p-1">
+                <form class="container p-2" id="frmEditAddress">
+                <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
+                <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
+                <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
+                <input type="hidden" id="userPhone" value="<?= $customerPhone ?>">
 
-                    <div class="container">
-                        <button class='btn btn-secondary'>Update Address</button>
-                    </div>
+                <div class="input-container-label-top mt-3">
+                    <label>Region</label>
+                    <select class="form-control" id="regionDropDown" required>
+                    </select>
+                </div>
+                <div class="input-container-label-top mt-3">
+                    <label>Province</label>
+                    <select class="form-control" id="provinceDropDown" required>
+                    </select>
+                </div>
+                <div class="input-container-label-top mt-3">
+                    <label>Municipality</label>
+                    <select class="form-control" id="cityDropDown" required>
+                    </select>
+                </div>
+                <div class="input-container-label-top mt-3">
+                    <label>Barangay</label>
+                    <select class="form-control" id="barangayDropDown" required>
+                    </select>
+                </div>
+                <div class="input-container-label-top mt-3">
+                    <label>Street</label>
+                    <input type="text" class="form-control" id="streetName" required>
+                </div>
+                <div class="mt-3">
+                    <button type="reset" class="btnCloseModal btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+                
 
                     <div class="checkout-computation-container" style="width: 100%;">
                         <div class="d-flex justify-content-between">
