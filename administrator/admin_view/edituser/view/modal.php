@@ -19,7 +19,9 @@
       </div>
 </div>
 
-<script>$(document).ready(function () {
+<script>
+
+$(document).ready(function () {
     // Kapag na-click ang Confirm button
     $("#confirmAdmin").click(function () {
         var session_code = $("#session_code").val();
@@ -48,7 +50,7 @@
         formData.append("session_code", session_code);
         formData.append("adminsPassword", adminsPassword);
         formData.append("acc_code", acc_code);
-        formData.append("acc_id", acc_id);
+        formData.append("account_id", acc_id);
         formData.append("fname", fname);
         formData.append("lname", lname);
         formData.append("username", username);
