@@ -160,9 +160,10 @@ $(document).ready(function() {
 
     // Function to validate first name and last name
     function validateName(name) {
-        var nameRegex = /^[a-zA-ZñÑ]{2,}$/;
-        return nameRegex.test(name);
-    }
+    var nameRegex = /^[a-zA-ZñÑ\s]{2,}$/;
+    return nameRegex.test(name);
+}
+
 
     // Function to validate username and password length
     function validateLength(value) {
