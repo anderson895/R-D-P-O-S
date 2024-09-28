@@ -11,15 +11,17 @@
 
 <style>
 
-
-#agreeButtonModal {
-    background: linear-gradient(to left, #A52A2A, #800000); /* Default background */
-    border: none; /* Alisin ang border kung kinakailangan */
-}
-
-#agreeButtonModal:hover {
-    background: linear-gradient(to left, #800000, #A52A2A); /* Hover background */
-    color: white; /* Color ng text kapag na-hover */
+#agreeButtonModal{
+    width: 100%;
+    font-weight: 700;
+    background: linear-gradient(to left, #A52A2A, #800000);
+    border-color: #ff9f43;
+    padding: 12px;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin-top: 15px;
+    color: #fff;
 }
 
 </style>
