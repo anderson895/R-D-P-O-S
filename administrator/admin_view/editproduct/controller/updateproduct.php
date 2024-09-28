@@ -33,21 +33,24 @@ $prod_code = preg_replace('/[^0-9.,a-zA-Z]/', '', $_POST["prod_code"]);
 $acc_id = preg_replace('/[^0-9]/', '', $_POST["acc_id"]);
 
 
+// Query the database for the product image
+$get_record = mysqli_query($connections, "SELECT prod_image FROM product WHERE prod_code = '$prod_code'");
+$row = mysqli_fetch_assoc($get_record);
+$existingImage = $row['prod_image']; // Get the existing image filename
+
 if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
-    $imagePath = '../../../../upload_prodImg';
+    $imagePath = '../../../../upload_prodImg'; // Directory where images are stored
     $fileName = basename($_FILES['pImg']['name']); // Use only the file name without the path
     $targetFile = $imagePath . '/' . $fileName; // Full path to the target file
 
-    // Check if a file with the same name exists
-    if (file_exists($targetFile)) {
+    // Check if the existing image is not empty and the file exists
+    if (!empty($existingImage) && file_exists($imagePath . '/' . $existingImage)) {
         // If it exists, delete the existing file
-        if (unlink($targetFile)) {
-            echo "Old file deleted successfully: $fileName\n"; // Debug message
+        if (unlink($imagePath . '/' . $existingImage)) {
+            echo "Old file deleted successfully: $existingImage\n"; // Debug message
         } else {
-            echo "Error deleting old file: $fileName\n"; // Debug message
+            echo "Error deleting old file: $existingImage\n"; // Debug message
         }
-    } else {
-        echo "No existing file found: $fileName\n"; // Debug message
     }
 
     // Move the uploaded file to the target directory
