@@ -34,6 +34,7 @@ $get_record = mysqli_query($connections, "SELECT prod_image FROM product WHERE p
 $row = mysqli_fetch_assoc($get_record);
 $existingImage = $row['prod_image']; // Get the existing image filename
 
+// File upload and replace logic
 if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
     $imagePath = '../../../../upload_prodImg'; // Directory where images are stored
     $fileName = basename($_FILES['pImg']['name']); // Original file name
@@ -43,19 +44,26 @@ if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
     $uniqueFileName = uniqid('prod_', true) . '.' . $fileExtension; // Unique filename
     $targetFile = $imagePath . '/' . $uniqueFileName; // Full path to the target file
 
-    // Debug: Check if the directory exists
-    if (!is_dir($imagePath)) {
-        echo "Upload directory does not exist: $imagePath\n";
+    // Debug: Check if the directory exists and is writable
+    if (!is_dir($imagePath) || !is_writable($imagePath)) {
+        echo "Upload directory does not exist or is not writable: $imagePath\n";
         exit;
     }
 
-    // Check if the existing image is not empty and the file exists
-    if (!empty($existingImage) && file_exists($imagePath . '/' . $existingImage)) {
-        // If it exists, delete the existing file
-        if (unlink($imagePath . '/' . $existingImage)) {
-            echo "Old file deleted successfully: $existingImage\n"; // Debug message
+    // Check if there is an existing image
+    if (!empty($existingImage)) {
+        // Full path to the existing image
+        $existingImagePath = $imagePath . '/' . $existingImage;
+
+        // If the existing image file exists, delete it
+        if (file_exists($existingImagePath)) {
+            if (unlink($existingImagePath)) {
+                echo "Old file deleted successfully: $existingImage\n"; // Debug message
+            } else {
+                echo "Error deleting old file: $existingImage\n"; // Debug message
+            }
         } else {
-            echo "Error deleting old file: $existingImage\n"; // Debug message
+            echo "No existing file found to delete: $existingImage\n"; // Debug message
         }
     }
 
@@ -71,6 +79,7 @@ if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
     // Handle the error from file upload
     echo "File upload error: " . $_FILES['pImg']['error'] . "\n"; // Debug message
 }
+
 
 
 // Continue with the database updates as before...
