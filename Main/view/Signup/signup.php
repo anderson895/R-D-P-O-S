@@ -73,7 +73,7 @@
        <div class="form-login">
             <label for="birthdate">Birthday</label>
             <div class="form-addons">
-                <input name='bday' value="2007-01-01" required type="date" id="birthdate">
+                <input name='bday' value="2006-01-01" required type="date" id="birthdate">
                 <div style="color:red;" id="birthdateError"></div>
             </div>
         </div>
