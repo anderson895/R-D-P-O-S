@@ -174,11 +174,25 @@ $(document).ready(function() {
         return /^[0-9]{11}$/.test(contact) && contact.startsWith('09');
     }
 
-    // Function to validate age (not less than 11 years)
+    // Function to check if a date is valid
+    function isValidDate(dateString) {
+        const date = new Date(dateString);
+        return date instanceof Date && !isNaN(date);
+    }
+
+    // Function to validate age (not less than 18 years)
     function validateAge(birthdate) {
+        if (!isValidDate(birthdate)) return false;
+        
         const birthdateDate = new Date(birthdate);
         const currentDate = new Date();
         const age = currentDate.getFullYear() - birthdateDate.getFullYear();
+        const monthDiff = currentDate.getMonth() - birthdateDate.getMonth();
+        const dayDiff = currentDate.getDate() - birthdateDate.getDate();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+            return age - 1 >= 18;
+        }
         return age >= 18;
     }
 
@@ -254,7 +268,7 @@ $(document).ready(function() {
             $('#birthdateError').text('');
             resetStyles(birthdateInput);
         } else {
-            $('#birthdateError').text('Age must be at least 18 years old.');
+            $('#birthdateError').text('Please enter a valid date. Age must be at least 18 years old.');
             setStyleInvalid(birthdateInput);
         }
     });
@@ -323,7 +337,7 @@ $(document).ready(function() {
         }
 
         if (!validateAge(birthdateInput.val())) {
-            $('#birthdateError').text('Age must be at least 18 years old.');
+            $('#birthdateError').text('Please enter a valid date. Age must be at least 18 years old.');
             setStyleInvalid(birthdateInput);
             hasError = true;
         }
