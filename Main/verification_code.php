@@ -212,8 +212,9 @@ if ($product_row) {
         });
     </script>
 
+
+
 <?php
-include("../connection.php");
 
 date_default_timezone_set('Asia/Manila');
 
@@ -225,13 +226,6 @@ if (!isset($_GET['accid'])) {
 }
 
 $accid = $_GET['accid'];
-$EnterOtp = '';
-$EnterOtpErr = '';
-$incorrectAttempts = 0; 
-$countdown = 0;
-
-$limit1 = 4; // 4 attempts - 30 seconds lock
-$limit2 = 2; // 2 attempts - 120 seconds lock
 
 if (isset($_POST['btnSendOtp'])) {
     $inputCode = $_POST['code1'] . $_POST['code2'] . $_POST['code3'] . $_POST['code4'];
@@ -240,7 +234,7 @@ if (isset($_POST['btnSendOtp'])) {
 
        
        session_start();
-       
+
         $_SESSION['acc_id']=$accid;
 
         // Update user status if OTP is correct
