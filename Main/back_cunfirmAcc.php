@@ -3,7 +3,6 @@ include("../connection.php");
 
 // Ensure accid is provided in the request
 if (!isset($_GET['accid'])) {
-    // Handle the error as necessary
     exit("Account ID is missing.");
 }
 
@@ -42,55 +41,50 @@ if (isset($_POST['btnSendOtp'])) {
         if ($EnterOtp == $db_acc_otp) {
             // Correct OTP, reset incorrect attempts and redirect
             mysqli_query($connections, "UPDATE account SET Otp='0', incorrect_attempts='0' WHERE acc_id='$db_acc_id'");
-            echo '<script> document.location.href = "terms-and-condition.php?accid=' . $accid . '"; </script>';
-            
+            echo '<script>document.location.href = "terms-and-condition.php?accid=' . $accid . '";</script>';
+
             // Log the activity
             date_default_timezone_set('Asia/Manila');
             $currentDateTime = date('Y-m-d H:i:s');
-
             $logQuery = "INSERT INTO users_log(act_account_id, act_activity, act_date, act_table, act_collumn_id) 
-            VALUES('$db_acc_id', 'Successfully verified their account', '$currentDateTime', 'account', '$db_acc_id')";
+                         VALUES('$db_acc_id', 'Successfully verified their account', '$currentDateTime', 'account', '$db_acc_id')";
             mysqli_query($connections, $logQuery);
-
         } else {
             // Incorrect OTP
             $incorrectAttempts++;
             // Update the incorrect attempts count in the database
             mysqli_query($connections, "UPDATE account SET incorrect_attempts='$incorrectAttempts' WHERE acc_id='$db_acc_id'");
 
+            // Determine countdown based on attempts
             if ($incorrectAttempts >= $limit1 && $incorrectAttempts < $limit2) {
-                echo "<script>document.getElementById('btnSendOtp').style.display = 'none'; document.getElementById('resendLink').style.display = 'none';</script>";
                 $countdown = 30; // Countdown for the next attempt
-                $EnterOtpErr = 'Incorrect OTP. Please wait for <span id="countdown">' . $countdown . '</span> seconds before trying again.';
             } elseif ($incorrectAttempts >= $limit2 && $incorrectAttempts < $limit3) {
-                echo "<script>document.getElementById('btnSendOtp').style.display = 'none'; document.getElementById('resendLink').style.display = 'none';</script>";
                 $countdown = 60; // Countdown for the next attempt
-                $EnterOtpErr = 'Incorrect OTP. Please wait for <span id="countdown">' . gmdate("H:i:s", $countdown) . '</span> before trying again.';
             } elseif ($incorrectAttempts >= $limit3) {
-                echo "<script>document.getElementById('btnSendOtp').style.display = 'none'; document.getElementById('resendLink').style.display = 'none';</script>";
                 $countdown = 7200; // 2 hours countdown
-                $EnterOtpErr = 'Incorrect OTP. Please wait for <span id="countdown">' . gmdate("H:i:s", $countdown) . '</span> before trying again.';
                 mysqli_query($connections, "UPDATE account SET acc_status='2' WHERE acc_id='$db_acc_id'");
-
-                // Log the activity for too many incorrect attempts
                 $logQuery = "INSERT INTO users_log(act_account_id, act_activity, act_date, act_table, act_collumn_id) 
-                VALUES('$db_acc_id', 'Too many incorrect OTP attempts causing temporary block', '$currentDateTime', 'account', '$db_acc_id')";
+                             VALUES('$db_acc_id', 'Too many incorrect OTP attempts causing temporary block', '$currentDateTime', 'account', '$db_acc_id')";
                 mysqli_query($connections, $logQuery);
             } else {
-                // Display the incorrect OTP message
                 $countdown = 0; // No countdown
-                $EnterOtpErr = 'Incorrect OTP';
             }
 
-            echo "<script>startCountdown($countdown);</script>";
-            echo "<script>document.getElementById('btnSendOtp').style.display = 'none'; document.getElementById('resendLink').style.display = 'none';</script>";
+            // Set the error message and update the UI
+            if ($countdown > 0) {
+                $EnterOtpErr = 'Incorrect OTP. Please wait for <span id="countdown">' . $countdown . '</span> seconds before trying again.';
+                echo "<script>document.getElementById('btnSendOtp').style.display = 'none'; document.getElementById('resendLink').style.display = 'none';</script>";
+                echo "<script>startCountdown($countdown);</script>";
+            } else {
+                $EnterOtpErr = 'Incorrect OTP.';
+            }
+
             // Use Alertify.js to display the error message
             echo "<script>alertify.error('$EnterOtpErr');</script>";
         }
     } else {
         // Handle expired OTP
         $EnterOtpErr = "OTP has expired. Please request a new one.";
-        // Use Alertify.js to display the expired OTP message
         echo "<script>alertify.error('$EnterOtpErr');</script>";
     }
 }

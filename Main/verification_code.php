@@ -108,90 +108,109 @@ if ($product_row) {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const inputs = document.querySelectorAll(".otp-field > input");
-        const button = document.querySelector("#btnSendOtp");
+    const inputs = document.querySelectorAll(".otp-field > input");
+    const button = document.querySelector("#btnSendOtp");
 
-        window.addEventListener("load", () => inputs[0].focus());
-        button.disabled = true;
+    window.addEventListener("load", () => inputs[0].focus());
+    button.disabled = true;
 
-        inputs.forEach((input, index) => {
-            input.addEventListener("keyup", (e) => {
-                if (input.value.length > 1) {
-                    input.value = input.value.slice(0, 1);
-                }
-
-                if (e.key === "Backspace" && index > 0) {
-                    inputs[index - 1].focus();
-                } else if (input.value.length === 1 && index < inputs.length - 1) {
-                    inputs[index + 1].removeAttribute("disabled");
-                    inputs[index + 1].focus();
-                }
-
-                button.disabled = [...inputs].some(input => !input.value);
-            });
-        });
-
-        $(document).ready(function() {
-            var otpExpirationString = $("#otpExpiration").val();
-            var otpExpirationDate = new Date(otpExpirationString);
-
-            function updateCountdown() {
-                var now = new Date();
-                var timeDifference = otpExpirationDate - now;
-
-                if (timeDifference > 0) {
-                    var seconds = Math.floor(timeDifference / 1000);
-                    $("#countDownText").text(seconds + " seconds");
-                } else {
-                    $("#countDownText").text("OTP has expired");
-                    $("#btnSendOtp").prop("disabled", false);
-                }
+    inputs.forEach((input, index) => {
+        input.addEventListener("keyup", (e) => {
+            if (input.value.length > 1) {
+                input.value = input.value.slice(0, 1);
             }
 
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+            if (e.key === "Backspace" && index > 0) {
+                inputs[index - 1].focus();
+            } else if (input.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].removeAttribute("disabled");
+                inputs[index + 1].focus();
+            }
 
-            $("#resendLink").click(function(e) {
-                e.preventDefault();
-                var formData = { db_acc_id: $("input[name='accid']").val() };
+            button.disabled = [...inputs].some(input => !input.value);
+        });
+    });
 
-                $.ajax({
-                    type: "POST",
-                    url: "back_resendOtp.php",
-                    data: formData,
-                    success: function(response) {
-                        if (response.result === "success") {
-                            $("#resendLink").css("display", "none");
-                            $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
-                            $.ajax({
-                                type: "POST",
-                                url: "../mailer.php",
-                                data: formData,
-                                success: function() {
-                                    alert("OTP resent successfully.");
-                                },
-                                error: function(xhr, status, error) {
-                                    console.error("AJAX Error in mailer.php: " + error);
-                                },
-                                complete: function() {
-                                    $("#loadingSpinner").hide();
-                                    $("#resendLink").css("display", "block");
-                                    $("#resendDiv").css("display", "block");
-                                    setTimeout(function() {
-                                        window.location.reload();
-                                    }, 1000);
-                                }
-                            });
-                        } else {
-                            $("#errorCount").text(response.remaining);
-                        }
-                    },
-                    error: function() {
-                        console.error("An error occurred while submitting the data.");
+    $(document).ready(function() {
+        var otpExpirationString = $("#otpExpiration").val();
+        var otpExpirationDate = new Date(otpExpirationString);
+
+        function updateCountdown() {
+            var now = new Date();
+            var timeDifference = otpExpirationDate - now;
+
+            if (timeDifference > 0) {
+                var seconds = Math.floor(timeDifference / 1000);
+                $("#countDownText").text(seconds + " seconds");
+            } else {
+                $("#countDownText").text("OTP has expired");
+                $("#btnSendOtp").prop("disabled", false);
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        $("#resendLink").click(function(e) {
+            e.preventDefault();
+            var formData = { db_acc_id: $("input[name='accid']").val() };
+
+            $.ajax({
+                type: "POST",
+                url: "back_resendOtp.php",
+                data: formData,
+                success: function(response) {
+                    if (response.result === "success") {
+                        $("#resendLink").css("display", "none");
+                        $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
+                        $.ajax({
+                            type: "POST",
+                            url: "../mailer.php",
+                            data: formData,
+                            success: function() {
+                                alertify.success("OTP resent successfully.");
+                            },
+                            error: function(xhr, status, error) {
+                                console.error("AJAX Error in mailer.php: " + error);
+                            },
+                            complete: function() {
+                                $("#loadingSpinner").hide();
+                                $("#resendLink").css("display", "block");
+                                $("#resendDiv").css("display", "block");
+                                setTimeout(function() {
+                                    window.location.reload();
+                                }, 1000);
+                            }
+                        });
+                    } else {
+                        $("#errorCount").text(response.remaining);
                     }
-                });
+                },
+                error: function() {
+                    console.error("An error occurred while submitting the data.");
+                }
             });
         });
-    </script>
+
+        // Countdown logic for incorrect OTP attempts
+        function startCountdown(seconds) {
+            let countdown = seconds;
+
+            $("#countdown").text(countdown);
+            const interval = setInterval(function() {
+                countdown--;
+                $("#countdown").text(countdown);
+                
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    button.disabled = false;
+                    $("#resendLink").show(); // Show the resend link again
+                    $("#countDownText").text(""); // Clear countdown text
+                }
+            }, 1000);
+        }
+    });
+</script>
+
 </body>
 </html>
