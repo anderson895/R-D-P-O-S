@@ -318,7 +318,7 @@
                 </div>
             </form>
                 <div class="checkout-computation-container" style="width: 100%;">
-                    <h3>Delivery Address</h3>
+                    <h6>Delivery Address</h6>
                         <div class="d-flex justify-content-between">
                             <p>Region III (Central Luzon) Bulacan Marilao Prenza I tibagan</p>
                         </div>
