@@ -23,12 +23,12 @@ if (isset($_SESSION['acc_id'])) {
                             <div class="card mask-custom w-100" style="background-color:#0084ff;">
                                 <div class="card-header d-flex justify-content-between p-3" style="border-bottom: 1px solid rgba(255,255,255,.3);">
                                     <p class="fw-bold mb-0 text-white"><?= ucfirst($messages['acc_fname']) ?> <?= $messages['acc_lname'] ?> (Customer)</p>
-                                    <p class="text-light small mb-0"><i class="far fa-clock"></i> <?= $message_date ?></p>
                                 </div>
                                 <div class="card-body">
                                     <p class="mb-0 text-white">
                                         <?= $messages['mess_content'] ?>
                                     </p>
+                                    <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
                                 </div>
                             </div>
                             <?php if (!empty($messages['emp_image'])): ?>
@@ -51,12 +51,12 @@ if (isset($_SESSION['acc_id'])) {
                                 <div class="card-header d-flex justify-content-between p-3"
                                      style="border-bottom: 1px solid rgba(255,255,255,.3);">
                                     <p class="fw-bold mb-0"><?= ucfirst($messages['acc_fname']) ?> <?= $messages['acc_lname'] ?> (Administrator)</p>
-                                    <p class="text-light small mb-0"><i class="far fa-clock"></i> <?= $message_date ?></p>
                                 </div>
                                 <div class="card-body">
                                     <p class="mb-0">
                                         <?= $messages['mess_content'] ?>
                                     </p>
+                                    <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
                                 </div>
                             </div>
                         </li>
