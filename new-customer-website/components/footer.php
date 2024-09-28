@@ -308,7 +308,7 @@
                     </div>
                 </div>
 
-                  <div class="spinner-border spinner" role="status">
+                  <div class="text-center spinner-border spinner" role="status">
                         <span class="sr-only"></span>
                     </div>
               
