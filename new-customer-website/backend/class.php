@@ -20,6 +20,28 @@ class global_class extends db_connect
         }
     }
 
+    public function getEmpImage($userId)
+    {
+        // Prepare the SQL statement to select the employee's image
+        $query = $this->conn->prepare("SELECT `emp_image` FROM `account` WHERE `acc_id` = ? LIMIT 1");
+        $query->bind_param('i', $userId);
+
+        // Execute the statement
+        $query->execute();
+
+        // Store the result
+        $result = $query->get_result();
+
+        // Fetch the result
+        if ($result->num_rows > 0) {
+            // Fetch the employee image name
+            $row = $result->fetch_assoc();
+            return $row['emp_image']; // Return the image name
+        } else {
+            return null; // No image found
+        }
+    }
+
 
     public function checkUser($userId)
     {
