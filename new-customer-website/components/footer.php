@@ -323,7 +323,7 @@
                 <!-- Delivery Address Section -->
                 <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
                     <h6 class="mb-3">Delivery Address</h6>
-                    <p class="mb-3">Region III (Central Luzon) Bulacan Marilao Prenza I Tibagan</p>
+                    <p class="mb-3" ><?= $fullAddress ?></p>
                     <button class="btn btn-sm btn-secondary">Update Address</button>
                 </div>
 
