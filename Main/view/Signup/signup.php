@@ -136,7 +136,7 @@
                     <span>&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+            <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
                 <h5 class="text-center">Terms and Conditions</h5>
                 <p class="text-justify" style="font-size: 12px;">Welcome to R De Leon Poultry Supplies! We appreciate your business and would like to ensure a smooth and transparent transaction. Please read the following terms and conditions carefully before using our Point of Sale (POS) system and online ordering services.</p>
                 <p style="font-size: 12px;">
