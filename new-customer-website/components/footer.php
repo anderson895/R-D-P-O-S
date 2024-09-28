@@ -277,10 +277,10 @@
                     </div>
                 </div>
     
-            <div class="d-flex flex-column align-items-end p-1">
+                <div class="d-flex flex-column align-items-end p-1">
             <div class="container">
                 <!-- Delivery Address Section -->
-                <div class="checkout-computation-container p-3 border rounded shadow-sm">
+                <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
                     <h6 class="mb-3">Delivery Address</h6>
                     <p class="mb-3" ><?= $fullAddress ?></p>
                     <button class="btn btn-sm btn-secondary btnEditAddress">Update Address</button>
