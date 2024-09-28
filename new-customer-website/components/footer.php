@@ -277,7 +277,7 @@
                     </div>
                 </div>
 
-                <div hidden class="d-flex flex-column align-items-end p-1">
+                <div style="display:none;" class="d-flex flex-column align-items-end p-1">
                 <form class="container p-2" id="frmEditAddress">
                 <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
                 <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
