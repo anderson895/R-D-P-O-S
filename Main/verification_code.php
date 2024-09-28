@@ -244,7 +244,7 @@ if (isset($_POST['btnSendOtp'])) {
 
         echo '<script>
                 alertify.success("OTP verified successfully!");
-                window.location.href = "home.php";
+                window.location.href = "../new-customer-website/index.php";
               </script>';
     } else {
        
