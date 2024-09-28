@@ -62,8 +62,7 @@ $current_date = date('Y-m-d');
 </div>
 <div class="login-userheading">
 <h3>Forgot password?</h3>
-<h4>Please enter the email address <br>
-associated with your account.</h4>
+<h4>Please enter the email address associated with your account.</h4>
 </div>
 <div class="form-login">
 <label>Email</label>
