@@ -62,9 +62,9 @@
     <!-- Offcanvas content -->
     <div class="offcanvas offcanvas-end custom-navbar-bg" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
           <img src="../upload_system/<?=$db_system_logo?>" alt="" class="img-fluid" style="max-width: 50px;">
-        </h5> -->
+        </h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body custom-navbar-bg">
