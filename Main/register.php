@@ -143,7 +143,7 @@ include "view/Signup/signup.php";
 
 
 <!-- <script src="assets/javascript/registerLen_validation.js"></script> -->
-<script src="assets/javascript/password_creation.js"></script>
+<!-- <script src="assets/javascript/password_creation.js"></script> -->
 <script src="assets/javascript/email_validation.js"></script>
 
 <script>

@@ -129,7 +129,7 @@
         </div>
 
         <div class="error-message" style="color:red;" id="passwordError"></div>
-        <div class="error-message" id="errorText"></div>
+       
     </form>
 
 <div class="signinform text-center">
