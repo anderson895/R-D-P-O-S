@@ -38,7 +38,7 @@
                 </div>
 
 
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center" style="position:fixed;">
                     <div class="spinner-border" role="status">
                         <span class="sr-only"></span>
                     </div>
