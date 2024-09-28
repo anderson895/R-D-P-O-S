@@ -176,28 +176,32 @@ $(document).ready(function() {
 
     // Function to validate the birthdate (valid date and at least 18 years old)
     function validateAge(birthdate) {
-        const birthdateDate = new Date(birthdate);
-        const currentDate = new Date();
+    const birthdateDate = new Date(birthdate);
+    const currentDate = new Date();
 
-        // Check if the birthdate is a valid date
-        const [year, month, day] = birthdate.split('-');
-        const validDate = birthdateDate.getFullYear() == year && birthdateDate.getMonth() + 1 == month && birthdateDate.getDate() == day;
+    // Check if the birthdate is a valid date
+    const [year, month, day] = birthdate.split('-');
+    const validDate = birthdateDate.getFullYear() == year && birthdateDate.getMonth() + 1 == month && birthdateDate.getDate() == day;
 
-        if (!validDate || isNaN(birthdateDate.getTime())) {
-            return false;
-        }
+    // Check if the year is reasonable (e.g., greater than 1900)
+    const yearIsValid = birthdateDate.getFullYear() > 1900 && birthdateDate.getFullYear() <= currentDate.getFullYear();
 
-        const age = currentDate.getFullYear() - birthdateDate.getFullYear();
-        const monthDiff = currentDate.getMonth() - birthdateDate.getMonth();
-        const dayDiff = currentDate.getDate() - birthdateDate.getDate();
-
-        // Check if the person is 18 years or older
-        if (age > 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)))) {
-            return true;
-        }
-
+    if (!validDate || isNaN(birthdateDate.getTime()) || !yearIsValid) {
         return false;
     }
+
+    const age = currentDate.getFullYear() - birthdateDate.getFullYear();
+    const monthDiff = currentDate.getMonth() - birthdateDate.getMonth();
+    const dayDiff = currentDate.getDate() - birthdateDate.getDate();
+
+    // Check if the person is 18 years or older
+    if (age > 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)))) {
+        return true;
+    }
+
+    return false;
+}
+
 
     // Function to validate email address
     function validateEmail(email) {
