@@ -306,7 +306,7 @@
                                 <i class="bi bi-bag-check-fill"></i> Place Order
                             </button>
                             <div id="spinner" class="spinner-border position-absolute" role="status" style="display: none; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                                <span class="sr-only">Loading...</span>
+                                <span class="sr-only"></span>
                             </div>
                         </div>
 
