@@ -53,7 +53,7 @@
     
 <nav class="navbar navbar-expand-lg custom-navbar-bg">
   <div class="container-fluid">
-   <img src="../upload_system/<?=$db_system_logo?>" alt="" class="img-fluid" style="max-width: 50px;">
+   <img src="../upload_system/<?=$db_system_logo?>" alt="" class="img-fluid" style="max-width: 30px;">
     <a class="navbar-brand text-light" href="index.php"><?=$db_system_name?></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
