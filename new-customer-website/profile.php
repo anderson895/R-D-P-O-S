@@ -196,6 +196,7 @@ if ($getAddress->num_rows > 0) {
     <div class="btn-group-custom">
         
 
+
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUpdateChoices">
             Update Information
         </button>

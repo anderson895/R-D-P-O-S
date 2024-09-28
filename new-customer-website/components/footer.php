@@ -283,7 +283,7 @@
 
 
                 
-            <form class="container p-2" id="frmEditAddress" hidden>
+            <form class="container p-2" id="frmEditAddress" >
                 <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
                 <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
                 <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
