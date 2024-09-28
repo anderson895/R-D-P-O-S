@@ -247,27 +247,11 @@ if (isset($_POST['btnSendOtp'])) {
                 window.location.href = "home.php";
               </script>';
     } else {
-        $incorrectAttempts++;
-
-        if ($incorrectAttempts > $limit1) {
-            // Start a 30-second countdown
-            startCountdown(30);
+       
             echo '<script>
-                    alertify.error("Too many incorrect attempts! Please wait 30 seconds before trying again.");
-                    $("#btnSendOtp").prop("disabled", true);
+                    alertify.error("Incorrect OTP!");
                   </script>';
-        } elseif ($incorrectAttempts > $limit2) {
-            // Start a 120-second countdown
-            startCountdown(120);
-            echo '<script>
-                    alertify.error("Too many incorrect attempts! Please wait 120 seconds before trying again.");
-                    $("#btnSendOtp").prop("disabled", true);
-                  </script>';
-        } else {
-            echo '<script>
-                    alertify.error("Incorrect OTP! Attempts: ' . $incorrectAttempts . '");
-                  </script>';
-        }
+        
     }
 }
 ?>
