@@ -278,6 +278,11 @@
                 </div>
 
                 <div class="d-flex flex-column align-items-end p-1">
+
+                    <div class="container">
+                        <button class='btn btn-secondary'>Update Address</button>
+                    </div>
+
                     <div class="checkout-computation-container" style="width: 100%;">
                         <div class="d-flex justify-content-between">
                             <span>Subtotal:</span>

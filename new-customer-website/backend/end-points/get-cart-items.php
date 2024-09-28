@@ -130,19 +130,7 @@ if ($getCartItemsPhotos->num_rows > 0){
                 </center>
             <?php
             }
-
-            if($shippingFee=='Invalid'){?>
-
-                <div class="container">
-                    <button class='btn btn-secondary'>Update Address</button>
-
-                </div>
-
-            <?php }
             ?>
-
-            
-
             <div class="cart-computation-container p-3">
                 <p>Total: <span class="text-success">₱ <span id="totalSelectedItems">0</span></span></p>
                 <button class="btn text-light" id="btnCheckOut" style="background-color: crimson;" data-sf="<?= $shippingFee ?>"><i class="bi bi-bag-check-fill"></i> Check Out</button>
