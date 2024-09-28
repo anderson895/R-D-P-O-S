@@ -96,10 +96,13 @@
                         </div>
 
                         <div class="form-login">
-                           
-                                <input type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
-                                <label for="agreeTermsCheckbox"><a href="#" id="termsLink" style="text-decoration:underline;">I agree to the Terms and Conditions</a></label>
-                         
+                            <div class="form-check text-center" style="display: flex; align-items: center; justify-content: center;">
+                                <input type="checkbox" id="agreeTermsCheckbox" style="margin: 0 10px;" required>
+                                <label for="agreeTermsCheckbox" style="margin: 0;">
+                                    <a href="#" id="termsLink" style="text-decoration: underline;">I agree to the Terms and Conditions</a>
+                                </label>
+                            </div>
+
 
                             <button class="btn btn-login" type="submit" id="submitButton" disabled>Create Account</button>
                             <div class="text-center" id="loadingSpinner"></div>
