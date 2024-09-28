@@ -38,7 +38,7 @@
                     <!-- Spinner -->
                     <div class="d-flex justify-content-center mt-3">
                         <div id="spinner" class="spinner-border" role="status" style="display: none;">
-                            <span class="sr-only">Loading...</span>
+                            <span class="sr-only"></span>
                         </div>
                     </div>
                 </div>
