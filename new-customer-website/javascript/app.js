@@ -650,10 +650,10 @@ $("#btnPlaceOrder").click(function (e) {
  
   var paymentType = $("#checkOutPaymentTypesSelect").val();
   if (paymentType == "cod") {
-
     $(this).prop("disabled", true); 
     $(".spinner").show(); 
-  
+
+    
     $.ajax({
       type: "POST",
       url: "backend/end-points/place-order.php",
@@ -683,10 +683,6 @@ $("#btnPlaceOrder").click(function (e) {
       $("#btnPlaceOrder").prop("disabled", false); // Re-enable the button if no file is uploaded
       $("#spinner").hide(); // Hide the spinner
     } else {
-
-      $(this).prop("disabled", true); 
-      $(".spinner").show(); 
-    
       var formData = new FormData();
 
       var paymentTypeImgInput = $("#paymentTypeImgInput")[0].files[0];
@@ -694,6 +690,10 @@ $("#btnPlaceOrder").click(function (e) {
       formData.append("paymentType", paymentType);
       formData.append("items", JSON.stringify(items));
       formData.append("proofOfPayment", paymentTypeImgInput);
+
+      $(this).prop("disabled", true); 
+      $(".spinner").show(); 
+    
 
       $.ajax({
         type: "POST",
