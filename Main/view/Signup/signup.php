@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="fname" name="fname">
+                                    <input type="text" class="form-control" id="fname" name="fname" placeholder="first name">
                                     <label for="fname">First Name</label>
                                     <div style="color:red;" id="fnameError"></div>
                                 </div>
