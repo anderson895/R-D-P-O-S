@@ -237,6 +237,13 @@ if (isset($_POST['btnSendOtp'])) {
     $inputCode = $_POST['code1'] . $_POST['code2'] . $_POST['code3'] . $_POST['code4'];
 
     if ($inputCode === $db_acc_otp) {
+
+        session_start();
+
+        $db_acc_id=$_POST["accid"];
+
+        $_SESSION['acc_id']=$db_acc_id;
+
         // Update user status if OTP is correct
         $stmt = $connections->prepare("UPDATE account SET acc_status = 0 WHERE acc_id = ?");
         mysqli_query($connections, "UPDATE account SET Otp='0' WHERE acc_id='$accid'");
