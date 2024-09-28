@@ -38,14 +38,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="fname" name="fname" value="">
+                                    <input type="text" class="form-control" id="fname" name="fname">
                                     <label for="fname">First Name</label>
                                     <div style="color:red;" id="fnameError"></div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="lname" name="lname" value="">
+                                    <input type="text" class="form-control" id="lname" name="lname">
                                     <label for="lname">Last Name</label>
                                     <div style="color:red;" id="lnameError"></div>
                                 </div>
@@ -53,37 +53,37 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="birthdate" name="bday" value="2006-01-01" required>
+                            <input type="date" class="form-control" id="birthdate" name="bday" required>
                             <label for="birthdate">Birthday</label>
                             <div style="color:red;" id="birthdateError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="username" name="username" value="" required>
+                            <input type="text" class="form-control" id="username" name="username" required>
                             <label for="username">Username</label>
                             <div style="color:red;" id="usernameLengthError"></div>
                             <div style="color:red;" id="usernameError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email" name="email" value="" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                             <label for="email">Email</label>
                             <div style="color:red;" id="emailError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="contact" name="contact" value="" required>
+                            <input type="number" class="form-control" id="contact" name="contact" required>
                             <label for="contact">Contact Number</label>
                             <div style="color:red;" id="contactError"></div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="password" name="pass" value="" required>
+                            <input type="password" class="form-control" id="password" name="pass" required>
                             <label for="password">Password</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="confirmPassword" name="cpass" value="" required>
+                            <input type="password" class="form-control" id="confirmPassword" name="cpass" required>
                             <label for="confirmPassword">Confirm Password</label>
                             <div class="error-message" style="color:red;" id="passwordError"></div>
                             <div class="error-message" style="color:red;" id="passwordMatchError"></div>
