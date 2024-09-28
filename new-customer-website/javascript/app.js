@@ -643,21 +643,59 @@ $(document).on("click", ".btnViewProduct", function (e) {
   });
 
   // Place Order
-  $("#btnPlaceOrder").click(function (e) {
-    e.preventDefault();
-    var paymentType = $("#checkOutPaymentTypesSelect").val();
-    if (paymentType == "cod") {
+$("#btnPlaceOrder").click(function (e) {
+  e.preventDefault();
+
+  // Disable the button and show the spinner
+  $(this).prop("disabled", true); // Disable the button
+  $("#spinner").show(); // Show the spinner (make sure to have a spinner element in your HTML)
+
+  var paymentType = $("#checkOutPaymentTypesSelect").val();
+  if (paymentType == "cod") {
+    $.ajax({
+      type: "POST",
+      url: "backend/end-points/place-order.php",
+      data: {
+        requestType: "PlaceOrder",
+        paymentType: paymentType,
+        items: JSON.stringify(items),
+      },
+      success: function (response) {
+        closeModal("PlaceOrderModal");
+        displayCartItems();
+        if (response == "200") {
+          showAlert(".alert-success", "Order Placed!");
+        } else {
+          showAlert(".alert-danger", "Something Went Wrong!");
+        }
+      },
+      complete: function () {
+        // Re-enable the button and hide the spinner
+        $("#btnPlaceOrder").prop("disabled", false); // Re-enable the button
+        $("#spinner").hide(); // Hide the spinner
+      }
+    });
+  } else {
+    if ($("#paymentTypeImgInput")[0].files.length === 0) {
+      showAlert(".alert-danger", "Please Upload Proof of Payment!");
+      $("#btnPlaceOrder").prop("disabled", false); // Re-enable the button if no file is uploaded
+      $("#spinner").hide(); // Hide the spinner
+    } else {
+      var formData = new FormData();
+
+      var paymentTypeImgInput = $("#paymentTypeImgInput")[0].files[0];
+      formData.append("requestType", "PlaceOrder");
+      formData.append("paymentType", paymentType);
+      formData.append("items", JSON.stringify(items));
+      formData.append("proofOfPayment", paymentTypeImgInput);
+
       $.ajax({
         type: "POST",
         url: "backend/end-points/place-order.php",
-        data: {
-          requestType: "PlaceOrder",
-          paymentType: paymentType,
-          items: JSON.stringify(items),
-        },
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function (response) {
-        
-
           closeModal("PlaceOrderModal");
           displayCartItems();
           if (response == "200") {
@@ -666,42 +704,20 @@ $(document).on("click", ".btnViewProduct", function (e) {
             showAlert(".alert-danger", "Something Went Wrong!");
           }
         },
+        error: function (xhr, status, error) {
+          console.error(xhr.responseText);
+        },
+        complete: function () {
+          // Re-enable the button and hide the spinner
+          $("#btnPlaceOrder").prop("disabled", false); // Re-enable the button
+          $("#spinner").hide(); // Hide the spinner
+        }
       });
-    } else {
-      if ($("#paymentTypeImgInput")[0].files.length === 0) {
-        showAlert(".alert-danger", "Please Upload Proof of Payment!");
-      } else {
-        var formData = new FormData();
-
-        var paymentTypeImgInput = $("#paymentTypeImgInput")[0].files[0];
-        formData.append("requestType", "PlaceOrder");
-        formData.append("paymentType", paymentType);
-        formData.append("items", JSON.stringify(items));
-        formData.append("proofOfPayment", paymentTypeImgInput);
-
-        $.ajax({
-          type: "POST",
-          url: "backend/end-points/place-order.php",
-          data: formData,
-          processData: false,
-          contentType: false,
-          success: function (response) {
-            closeModal("PlaceOrderModal");
-            displayCartItems();
-            if (response == "200") {
-              showAlert(".alert-success", "Order Placed!");
-            } else {
-              showAlert(".alert-danger", "Something Went Wrong!");
-            }
-          },
-          error: function (xhr, status, error) {
-            console.error(xhr.responseText);
-          },
-        });
-      }
     }
-  });
-  // End of Place Order
+  }
+});
+// End of Place Order
+
 
   // Orders.php
   $("#orderSelectPage").change(function (e) {

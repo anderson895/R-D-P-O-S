@@ -278,6 +278,7 @@
                 </div>
     
                 <div class="d-flex flex-column align-items-end p-1">
+
             <div class="container">
                 <!-- Delivery Address Section -->
                 <div class="checkout-computation-container mb-4 p-3 border rounded shadow-sm">
@@ -311,6 +312,10 @@
                 <button class="btn btn-danger text-light w-100 mt-2" style="height: 40px;" id="btnPlaceOrder" data-prodid="">
                     <i class="bi bi-bag-check-fill"></i> Place Order
                 </button>
+                <div id="spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="sr-only">Loading...</span>
+                </div>
+
             </div>
 
                 </div>
