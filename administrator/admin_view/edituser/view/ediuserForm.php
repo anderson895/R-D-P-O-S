@@ -253,7 +253,7 @@ if($get_record_num > 0 ){
                                             processData: false,
                                             success: function (response) {
                                                 // I-handle ang response dito kung kinakailangan
-                                                // window.location.href = 'userlist.php';
+                                                window.location.href = 'userlist.php';
                                                 console.log(response)
 
                                             }
