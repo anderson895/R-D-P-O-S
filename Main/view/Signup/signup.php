@@ -8,6 +8,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="view/Signup/assets/js/bootstrap.bundle.min.js"></script>
 </head>
+
+<style>
+
+
+#agreeButtonModal {
+    background: linear-gradient(to left, #A52A2A, #800000); /* Default background */
+    border: none; /* Alisin ang border kung kinakailangan */
+}
+
+#agreeButtonModal:hover {
+    background: linear-gradient(to left, #800000, #A52A2A); /* Hover background */
+    color: white; /* Color ng text kapag na-hover */
+}
+
+</style>
+
 <body class="account-page">
 
 <div class="main-wrapper">
@@ -207,7 +223,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary btn-sm" id="agreeButtonModal" style="background: linear-gradient(to left, #A52A2A, #800000);">Agree</button>
+                <button type="button" class="btn btn-primary btn-sm" id="agreeButtonModal" >Agree</button>
             </div>
         </div>
     </div>
