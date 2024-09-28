@@ -161,6 +161,7 @@ if ($product_row) {
                 url: "back_resendOtp.php",
                 data: formData,
                 success: function(response) {
+                    console.log(response)
                     if (response.result === "success") {
                         $("#resendLink").css("display", "none");
                         $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
