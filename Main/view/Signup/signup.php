@@ -159,6 +159,8 @@
 </div>
 <script>
 $(document).ready(function() {
+
+    $("#submitButton").prop("disabled", !this.checked);
     // Show the modal when the "Create Account" button is clicked
     $("#submitButton").click(function() {
         $("#termsModal").css("display", "block");
