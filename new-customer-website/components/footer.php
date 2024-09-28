@@ -309,8 +309,7 @@
                     <input type="text" class="form-control" id="streetName" required>
                 </div>
                 <div class="mt-3">
-                    <button type="reset" class="btnCloseModal btn btn-secondary">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-secondary">Save</button>
                 </div>
             </form>
                 
