@@ -33,23 +33,20 @@ if (isset($_FILES['profileAttachementImg']) && $_FILES['profileAttachementImg'][
         exit;
     }
     
-    // Define the upload directory and destination path
+    // Define the upload directory
     $uploadFileDir = '../../../upload_img/';
-    $existingFilePath = $uploadFileDir . $fileName; // Check if the file already exists
-
-    // Check if the file already exists
-    if (file_exists($existingFilePath)) {
-        // If it exists, delete the old file
-        if (!unlink($existingFilePath)) {
-            echo json_encode(['error' => 'Failed to delete existing file.']);
-            exit;
-        }
-    }
+    
+    // Generate a unique filename
+    $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+    do {
+        $uniqueFileName = uniqid('profile_', true) . '.' . $fileExtension;
+        $dest_path = $uploadFileDir . $uniqueFileName; // New destination path
+    } while (file_exists($dest_path)); // Ensure the name is unique
 
     // Move the file to the destination directory
-    if (move_uploaded_file($fileTmpPath, $existingFilePath)) {
-        // Update image in the database with the original file name
-        $result = $db->updateEmpImage($fileName, $userId);
+    if (move_uploaded_file($fileTmpPath, $dest_path)) {
+        // Assuming the insertImages method needs the file path, not just the file name
+        $result = $db->updateEmpImage($uniqueFileName, $userId);
 
         // Check if $result is a valid result set
         if ($result) {
