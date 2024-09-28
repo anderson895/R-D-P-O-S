@@ -42,8 +42,8 @@ if ($product_row) {
     <title>Verify OTP</title>
     <link rel="stylesheet" href="assets/css/verification.css">
     <link rel="stylesheet" href="view/confirmOTP/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/1.13.1/alertify.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/1.13.1/alertify.min.js"></script>
+    
+    
     
     <style>
         .error {
