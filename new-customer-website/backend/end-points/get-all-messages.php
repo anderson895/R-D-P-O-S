@@ -28,7 +28,7 @@ if (isset($_SESSION['acc_id'])) {
                                     <p class="mb-0 text-white">
                                         <?= $messages['mess_content'] ?>
                                     </p>
-                                    <p class="text-secondary small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
+                                    <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
 
                                 </div>
                             </div>
