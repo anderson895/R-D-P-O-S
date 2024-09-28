@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Create Account</title>
     <style>
         /* Styles for the modal */
         .modal {
@@ -41,11 +41,6 @@
             text-decoration: none;
             cursor: pointer;
         }
-
-        /* Additional styling for the checkbox */
-        .form-check {
-            margin: 15px 0;
-        }
     </style>
 </head>
 <body class="account-page">
@@ -60,9 +55,7 @@
                             <h3>Create an Account</h3>
                         </div>
 
-                        <!-- User Input Fields -->
                         <div class="row">
-                            <!-- First Name -->
                             <div class="col-md-6">
                                 <div class="form-login">
                                     <label>First Name</label>
@@ -72,7 +65,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Last Name -->
                             <div class="col-md-6">
                                 <div class="form-login">
                                     <label>Last Name</label>
@@ -133,22 +125,20 @@
                             </div>
                         </div>
 
-                        <div class="signinform text-center">
-                            <h4>Already a user? <a href="login.php" class="hover-a">Sign In</a></h4>
-                        </div>
-
-                        <!-- Checkbox for Terms and Conditions -->
-                        <div class="form-check text-center">
-                            <input type="checkbox" id="agreeTermsCheckbox" style="margin: 10px;" required>
-                            <label for="agreeTermsCheckbox">I agree to the Terms and Conditions</label>
-                        </div>
-
-                        <!-- Button for account creation -->
                         <div class="form-login">
-                            <button type="button" class="btn btn-login" id="termsButton" disabled>Create Account</button>
+                            <button type="button" class="btn btn-login" id="termsButton">Create Account</button>
                             <div class="text-center" id="loadingSpinner"></div>
                         </div>
+
+                        <input type="checkbox" id="agreeTerms" style="display:none;">
                     </form>
+
+                    <div class="signinform text-center">
+                        <h4>Already a user? <a href="login.php" class="hover-a">Sign In</a></h4>
+                    </div>
+
+                    <div class="form-sociallink">
+                    </div>
                 </div>
             </div>
             <div class="login-img">
@@ -167,7 +157,7 @@
         <h2>Terms and Conditions</h2>
         <p>By creating an account, you agree to our Terms and Conditions...</p>
         <p><strong>Please agree to proceed:</strong></p>
-        <input type="checkbox" id="agreeTermsCheckboxModal"> I agree to the Terms and Conditions
+        <input type="checkbox" id="agreeTermsCheckbox"> I agree to the Terms and Conditions
         <br><br>
         <button id="agreeButton">Agree</button>
     </div>
@@ -175,32 +165,30 @@
 
 <script>
 $(document).ready(function() {
-    // Show the modal when the "Create Account" button is clicked
+    // Show the modal when the button is clicked
     $("#termsButton").click(function() {
         $("#termsModal").css("display", "block");
     });
 
-    // Close the modal when the user clicks on <span> (x)
+    // When the user clicks on <span> (x), close the modal
     $(".close").click(function() {
         $("#termsModal").css("display", "none");
     });
 
-    // Enable the "Create Account" button based on checkbox status
-    $("#agreeTermsCheckbox").change(function() {
-        $("#termsButton").prop("disabled", !this.checked);
-    });
-
-    // When the user clicks the "Agree" button in the modal
+    // When the user clicks the "Agree" button
     $("#agreeButton").click(function() {
-        if ($("#agreeTermsCheckboxModal").is(":checked")) {
-            $("#agreeTermsCheckbox").prop("checked", true);
-            $("#termsButton").prop("disabled", false); // Enable the button
+        if ($("#agreeTermsCheckbox").is(":checked")) {
+            $("#agreeTerms").prop("checked", true);
+            $("#submitButton").prop("disabled", false); // Enable the submit button
             $("#termsModal").css("display", "none");
-            alert("You have agreed to the Terms and Conditions");
+            alert("You have agreed to the Terms and Conditions.");
         } else {
-            alert("You must agree to the Terms and Conditions.");
+            alert("Please agree to the Terms and Conditions to proceed.");
         }
     });
+
+    // Initially disable the submit button
+    $("#submitButton").prop("disabled", true);
 });
 </script>
 
