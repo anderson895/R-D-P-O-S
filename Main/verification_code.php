@@ -239,6 +239,7 @@ if (isset($_POST['btnSendOtp'])) {
     if ($inputCode === $db_acc_otp) {
         // Update user status if OTP is correct
         $stmt = $connections->prepare("UPDATE account SET acc_status = 0 WHERE acc_id = ?");
+        mysqli_query($connections, "UPDATE account SET Otp='0' WHERE acc_id='$accid'");
         $stmt->bind_param("s", $accid);
         $stmt->execute();
 
