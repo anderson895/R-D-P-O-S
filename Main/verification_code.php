@@ -185,7 +185,7 @@ if ($product_row) {
                             }
                         });
                     } else {
-                        $("#errorCount").text(response.remaining);
+                        $("#errorCount").text(response.remaining+' Minutes');
                     }
                 },
                 error: function() {
