@@ -217,6 +217,11 @@
 <!-- End of Delete Cart Item Modal -->
 
 
+
+
+
+
+
 <!-- Check Out Modal -->
 <div class="modal" tabindex="-1" role="dialog" id="PlaceOrderModal">
     <div class="modal-dialog" role="document">
@@ -241,7 +246,7 @@
                     </tbody>
                 </table>
 
-                <div class="select-payment-type-container">
+                <div class="select-payment-type-container payment_type_container">
                     <div class="input-container-label-top">
                         <label for="checkOutPaymentTypesSelect">Payment Type</label>
                         <select class="form-control" id="checkOutPaymentTypesSelect">

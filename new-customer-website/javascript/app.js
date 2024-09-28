@@ -579,6 +579,9 @@ $(document).on("click", ".btnViewProduct", function (e) {
             .text("Address out of coverage!")
             .addClass("text-danger");
           $("#btnPlaceOrder").prop("disabled", true);
+
+
+          $('.payment_type_container').hide();
         } else {
           $("#checkOutShipping").text("₱ " + sf.toFixed(2));
           total += sf;
