@@ -223,16 +223,15 @@
 
 
 <!-- Check Out Modal -->
-<div class="modal" tabindex="-1" role="dialog" id="PlaceOrderModal">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" tabindex="-1" role="dialog" id="PlaceOrderModal">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="PlaceOrderModalTitle"><i class="bi bi-bag-check-fill"></i> Check Out</h5>
-                <button type="button" id="closeViewProductModal" class="btn-close btnCloseModal"
-                    data-mdb-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="container p-2">
-                <table class="table">
+            <div class="modal-body container p-3">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th></th>
@@ -242,115 +241,107 @@
                         </tr>
                     </thead>
                     <tbody id="placeOrderItemsContainer">
-
+                        <!-- Order items will be populated here -->
                     </tbody>
                 </table>
 
-
-
-
-                <div class="select-payment-type-container payment_type_container">
-                    <div class="input-container-label-top">
+                <div class="select-payment-type-container mt-3">
+                    <div class="mb-3">
                         <label for="checkOutPaymentTypesSelect">Payment Type</label>
                         <select class="form-control" id="checkOutPaymentTypesSelect">
-
+                            <!-- Payment types will be populated here -->
                         </select>
                     </div>
-                    <div class="payment-image-container d-flex flex-column align-items-center mt-3">
+
+                    <div class="payment-image-container text-center mt-3">
                         <h5 id="paymentNumberContainer" class="m-3" style="color: crimson;"></h5>
-                        <img src="" id="paymentImgContainer">
+                        <img src="" id="paymentImgContainer" alt="Payment Image" class="img-fluid mb-3">
                         <div class="upload-payment-container">
                             <h6 class="text-success">Please Upload Proof of Payment.</h6>
-                            <div class="container card p-2">
-                                <span id="popTerms" class="text-danger" style="font-size: 12px">Please ensure that the
-                                    proof of payment you submit is accurate and valid. Incorrect or falsified proof of
-                                    payment may result in delays or rejection of your transaction.</span>
-                                <div class="container d-flex">
-                                    <input type="checkbox" class="form-check" id="pofTermsAgree">
-                                    <label for="pofAgree" class="m-2 mt-0 mb-0">I Agree</label>
+                            <div class="card p-2">
+                                <span id="popTerms" class="text-danger" style="font-size: 12px">Please ensure that the proof of payment you submit is accurate and valid. Incorrect or falsified proof of payment may result in delays or rejection of your transaction.</span>
+                                <div class="form-check d-flex align-items-center mt-2">
+                                    <input type="checkbox" class="form-check-input" id="pofTermsAgree">
+                                    <label for="pofTermsAgree" class="form-check-label ms-2">I Agree</label>
                                 </div>
                             </div>
-                            <input type="file" name="pof" id="paymentTypeImgInput" accept="image/*"
-                                class="form-control mt-2">
-                            <img id="imagePreview" src="#" alt="Image Preview">
+                            <input type="file" name="pof" id="paymentTypeImgInput" accept="image/*" class="form-control mt-2">
+                            <img id="imagePreview" src="#" alt="Image Preview" class="mt-2" style="max-width: 100%; height: auto;">
                         </div>
                     </div>
                 </div>
 
-                <div class="d-flex flex-column align-items-end p-1">
+                <form class="container p-2 mt-3" id="frmEditAddress" hidden>
+                    <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
+                    <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
+                    <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
+                    <input type="hidden" id="userPhone" value="<?= $customerPhone ?>">
 
-
-
-
-                
-            <form class="container p-2" id="frmEditAddress" hidden>
-                <input type="hidden" id="editAddressAccCode" value="<?= $accCode ?>">
-                <input type="hidden" id="userFullName" value="<?= $customerFullname ?>">
-                <input type="hidden" id="userEmail" value="<?= $customerEmail ?>">
-                <input type="hidden" id="userPhone" value="<?= $customerPhone ?>">
-
-                <div class="input-container-label-top mt-3">
-                    <label>Region</label>
-                    <select class="form-control" id="regionDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Province</label>
-                    <select class="form-control" id="provinceDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Municipality</label>
-                    <select class="form-control" id="cityDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Barangay</label>
-                    <select class="form-control" id="barangayDropDown" required>
-                    </select>
-                </div>
-                <div class="input-container-label-top mt-3">
-                    <label>Street</label>
-                    <input type="text" class="form-control" id="streetName" required>
-                </div>
-                <div class="mt-3">
+                    <div class="mb-3">
+                        <label>Region</label>
+                        <select class="form-control" id="regionDropDown" required>
+                            <!-- Regions will be populated here -->
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Province</label>
+                        <select class="form-control" id="provinceDropDown" required>
+                            <!-- Provinces will be populated here -->
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Municipality</label>
+                        <select class="form-control" id="cityDropDown" required>
+                            <!-- Municipalities will be populated here -->
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Barangay</label>
+                        <select class="form-control" id="barangayDropDown" required>
+                            <!-- Barangays will be populated here -->
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Street</label>
+                        <input type="text" class="form-control" id="streetName" required>
+                    </div>
                     <button type="submit" class="btn btn-secondary">Save</button>
-                </div>
-            </form>
-                <div class="checkout-computation-container" style="width: 100%;">
+                </form>
+
+                <div class="checkout-computation-container mt-3">
                     <h6 class="mb-3">Delivery Address</h6>
                     <p class="mb-3">Region III (Central Luzon) Bulacan Marilao Prenza I Tibagan</p>
                     <button class="btn btn-sm btn-secondary">Update Address</button>
                 </div>
 
-
-
-                    <div class="checkout-computation-container" style="width: 100%;">
-                        <div class="d-flex justify-content-between">
-                            <span>Subtotal:</span>
-                            <span>₱ <span id="checkOutSubtotal"></span></span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>VAT (Included):</span>
-                            <span >-</span>
-                            <span hidden>₱ <span id="checkOutVat"></span></span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span>Shipping:</span>
-                            <span><span id="checkOutShipping"></span></span>
-                        </div>
-                        <div class="d-flex justify-content-between checkout-total">
-                            <span>Total:</span>
-                            <span>₱ <span id="checkOutTotal"></span></span>
-                        </div>
+                <div class="checkout-computation-container mt-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Subtotal:</span>
+                        <span>₱ <span id="checkOutSubtotal"></span></span>
                     </div>
-                    <button class="btn text-light mt-2" style="height: 40px; background-color: crimson;"
-                        id="btnPlaceOrder" data-prodid=""><i class="bi bi-bag-check-fill"></i> Place Order</button>
+                    <div class="d-flex justify-content-between">
+                        <span>VAT (Included):</span>
+                        <span>-</span>
+                        <span hidden>₱ <span id="checkOutVat"></span></span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Shipping:</span>
+                        <span><span id="checkOutShipping"></span></span>
+                    </div>
+                    <div class="d-flex justify-content-between checkout-total fw-bold">
+                        <span>Total:</span>
+                        <span>₱ <span id="checkOutTotal"></span></span>
+                    </div>
                 </div>
+
+                <button class="btn text-light mt-3" style="background-color: crimson;" id="btnPlaceOrder" data-prodid="">
+                    <i class="bi bi-bag-check-fill"></i> Place Order
+                </button>
             </div>
         </div>
     </div>
 </div>
+
 <!-- End of Check Out Modal -->
 
 <!-- Edit Profile Modal -->
