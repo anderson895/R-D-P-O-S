@@ -42,7 +42,7 @@ if ($product_row) {
     <title>Verify OTP</title>
     <link rel="stylesheet" href="assets/css/verification.css">
     <link rel="stylesheet" href="view/confirmOTP/css/style.css">
-    
+    <link rel="stylesheet" href="../administrator/admin_view/assets/plugins/alertify/alertify.min.css">
     
     
     <style>
@@ -107,6 +107,7 @@ if ($product_row) {
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../administrator/admin_view/assets/plugins/alertify/alertify.min.js"></script>
     <script>
     const inputs = document.querySelectorAll(".otp-field > input");
     const button = document.querySelector("#btnSendOtp");
