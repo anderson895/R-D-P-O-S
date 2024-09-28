@@ -195,7 +195,7 @@ $(document).ready(function() {
     const dayDiff = currentDate.getDate() - birthdateDate.getDate();
 
     // Check if the person is 18 years or older
-    if (age > 17 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)))) {
+    if (age => 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)))) {
         return true;
     }
 
