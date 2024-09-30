@@ -225,9 +225,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
 
             <div class="d-flex justify-content-center" id="loadingSpinner" style="display:none;">
-              <div class="spinner-border" role="status">
-                <span class="visually-hidden"></span>
-              </div>
+              
             </div>
 
 
