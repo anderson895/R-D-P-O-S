@@ -10,7 +10,7 @@ if (empty($_GET)) {
 }
 
 $digit1=$digit2=$digit3=$digit4="";
-if(!empty($_GET['digit0']&&$_GET['digit1']&&$_GET['digit2']&&$_GET['digit3'])){
+if(!empty($_GET['digit0'])&&!empty($_GET['digit1'])&&!empty($_GET['digit2'])&&!empty($_GET['digit3'])){
     $digit1=$_GET['digit0'];
     $digit2=$_GET['digit1'];
     $digit3=$_GET['digit2'];
