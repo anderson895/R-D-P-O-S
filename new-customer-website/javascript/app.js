@@ -858,8 +858,21 @@ $(document).ready(function() {
           success: function(response) {
               console.log(response); // Log the response for debugging
 
-              // Hide the modal if the request is successful
-              $('#editPassModal').modal('hide');
+              if(response === 'NotMatch'){
+                  alertify.error('Passwords do not match.'); 
+                  $('#currpass').removeClass('is-invalid');      
+                  $('#newpass, #confpass').addClass('is-invalid');
+              } else if(response === 'currentPassErr'){
+                  alertify.error('Current password is incorrect.');   
+                  $('#currpass').addClass('is-invalid');
+                  $('#newpass, #confpass').removeClass('is-invalid');
+              } else if(response === 'updatePassSuccess'){
+                  alertify.success('Password updated successfully.');   
+                  $('#currpass, #newpass, #confpass').removeClass('is-invalid');
+                  $('#currpass').val('');
+                  $('#newpass').val('');
+                  $('#confpass').val('');
+              }
           },
           error: function(xhr, status, error) {
               console.log(xhr.responseText); // Log error response for debugging
@@ -873,6 +886,7 @@ $(document).ready(function() {
       $('#editPassModal').modal('hide');
   });
 });
+
 
 
 

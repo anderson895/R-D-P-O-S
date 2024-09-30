@@ -15,7 +15,7 @@ class global_class extends db_connect
 
 
         if ($newpass !== $confpass) {
-            return "New password and confirmation password do not match.";
+            return "NotMatch.";
         }
 
         // Query to get the current hashed password from the database
@@ -37,13 +37,13 @@ class global_class extends db_connect
                 $update_stmt->bind_param('si', $newpass, $acc_id);
 
                 if ($update_stmt->execute()) {
-                    return "Password updated successfully.";
+                    return "updatePassSuccess.";
                 } else {
                     return "Error updating password: " . $this->conn->error;
                 }
             } else {
                 // Current password does not match
-                return "Current password is incorrect.";
+                return "currentPassErr.";
             }
         } else {
             // User not found in the database
