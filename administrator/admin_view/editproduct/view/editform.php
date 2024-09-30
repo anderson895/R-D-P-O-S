@@ -247,6 +247,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
       // Show loading spinner
       $("#loadingSpinner").css("display", "block"); // Use flex for centering
+      $("#btnSubmit").prop("disabled", true); // Correct way to disable the button
 
       // All validations passed, send an AJAX request
       var acc_id = $("#acc_id").val();
@@ -299,11 +300,13 @@ $currentDateTime = date('Y-m-d g:i:s A');
         complete: function() {
           // Hide loading spinner after the request completes
           $("#loadingSpinner").css("display", "none");
+          $("#btnSubmit").prop("disabled", false); // Re-enable the button
         }
       });
     });
   });
 </script>
+
 
 
 
