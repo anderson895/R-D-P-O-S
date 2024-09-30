@@ -1,5 +1,9 @@
 <?php
 
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
 if (!empty($_POST["supplier_code"]) && !empty($_POST["invoice_no"])) {
     $supplier_code = $_POST["supplier_code"];
     $invoice_no = $_POST["invoice_no"];
