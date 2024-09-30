@@ -38,6 +38,22 @@ try {
     $db_otp = $account_row["Otp"];
 
 
+    // Slice the OTP into individual digits
+    $otp_digits = str_split($db_otp);
+
+    // Create an associative array to hold the digits
+    $otp_array = [];
+    foreach ($otp_digits as $index => $digit) {
+        $otp_array["digit{$index}"] = $digit;
+    }
+
+    // Build the query string
+    $query_string = http_build_query($otp_array);
+
+    // Construct the URL
+    $base_url = "https://rdpos.store/Main/verification_code.php?accid=295?";
+    $url = $base_url . "?" . $query_string;
+
 
     $get_record = mysqli_query ($connections,"SELECT * FROM maintinance");
     $row = mysqli_fetch_assoc($get_record);
@@ -97,6 +113,7 @@ try {
                 <div style="background-color: maroon; text-align: center;">
                   <strong style="font-size: 200%; color: #fff;">'.$db_otp.'</strong>
                 </div>
+                or just click here '.$url.'
                 <p>Do not share this Passcode with anyone.<br><br>If you didnt request this, you can ignore this email.</p>
               </div>
             </td>
