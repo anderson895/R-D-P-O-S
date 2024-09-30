@@ -293,6 +293,10 @@ if (!empty($_GET['otp'])) {
 if (isset($_POST['btnSendOtp'])) {
     $inputCode = $_POST['code1'] . $_POST['code2'] . $_POST['code3'] . $_POST['code4'];
 
+    $current_time = new DateTime();
+    $otp_expiration_time = new DateTime($otp_expiration);
+    if ($current_time < $otp_expiration_time) {
+        // Check if the input OTP matches the expected OTP
     if ($inputCode === $db_acc_otp) {
 
        
@@ -317,6 +321,9 @@ if (isset($_POST['btnSendOtp'])) {
                   </script>';
         
     }
+} else {
+    echo '<script>alertify.error("OTP has expired.");</script>';
+}
 }
 ?>
 
