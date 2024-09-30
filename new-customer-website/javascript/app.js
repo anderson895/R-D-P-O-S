@@ -840,15 +840,46 @@ $("#btnEditPassword").click(function (e) {
   $("#editPassModal").modal("show");
   $("#modalUpdateChoices").modal("hide");
 });
-
 $(document).ready(function() {
   $('#userPasswordFRM').on('submit', function(e) {
       e.preventDefault(); // Prevent the default form submission behavior
 
-      var formData = $(this).serialize(); // Serialize the form data
+      // Get form values
+      var currpass = $('#currpass').val().trim();
+      var newpass = $('#newpass').val().trim();
+      var confpass = $('#confpass').val().trim();
 
-      // Append the requestType to formData
-      formData += '&requestType=updatePass';
+      // Validate form fields
+      if (!currpass) {
+          $('#currpass').addClass('is-invalid');
+          return;
+      } else {
+          $('#currpass').removeClass('is-invalid');
+      }
+
+      if (!newpass) {
+          $('#newpass').addClass('is-invalid');
+          return;
+      } else {
+          $('#newpass').removeClass('is-invalid');
+      }
+
+      if (!confpass) {
+          $('#confpass').addClass('is-invalid');
+          return;
+      } else {
+          $('#confpass').removeClass('is-invalid');
+      }
+
+      // Check if new password matches confirmation password
+      if (newpass !== confpass) {
+          alertify.error('Passwords do not match.');
+          $('#newpass, #confpass').addClass('is-invalid');
+          return;
+      }
+
+      // Serialize the form data
+      var formData = $(this).serialize() + '&requestType=updatePass'; // Append requestType
 
       // AJAX request
       $.ajax({
@@ -858,24 +889,31 @@ $(document).ready(function() {
           success: function(response) {
               console.log(response); // Log the response for debugging
 
-             if(response == 'currentPassErr'){
-                alertify.error('Current password is incorrect.');   
-                $('#currpass').addClass('is-invalid');
-                $('#newpass, #confpass').removeClass('is-invalid');
-             }else if(response == 'NotMatch'){
-                  alertify.error('Passwords do not match.'); 
-                  $('#currpass').removeClass('is-invalid');      
-                  $('#newpass, #confpass').addClass('is-invalid');
-              }  else if(response == 'updatePassSuccess'){
-                  alertify.success('Password updated successfully.');   
-                  $('#currpass, #newpass, #confpass').removeClass('is-invalid');
-                  $('#currpass').val('');
-                  $('#newpass').val('');
-                  $('#confpass').val('');
+              switch (response) {
+                  case 'currentPassErr':
+                      alertify.error('Current password is incorrect.');
+                      $('#currpass').addClass('is-invalid');
+                      $('#newpass, #confpass').removeClass('is-invalid');
+                      break;
+
+                  case 'NotMatch':
+                      alertify.error('Passwords do not match.');
+                      $('#currpass').removeClass('is-invalid');
+                      $('#newpass, #confpass').addClass('is-invalid');
+                      break;
+
+                  case 'updatePassSuccess':
+                      alertify.success('Password updated successfully.');
+                      $('#currpass, #newpass, #confpass').removeClass('is-invalid').val('');
+                      break;
+
+                  default:
+                      alertify.error('Unexpected response.');
+                      break;
               }
           },
           error: function(xhr, status, error) {
-              console.log(xhr.responseText); // Log error response for debugging
+              console.error(xhr.responseText); // Log error response for debugging
               alert('Something went wrong. Please try again.');
           }
       });
@@ -886,6 +924,7 @@ $(document).ready(function() {
       $('#editPassModal').modal('hide');
   });
 });
+
 
 
 
