@@ -2,7 +2,7 @@
 include('../class.php');
 $db = new global_class();
 session_start();
-$userId = $_SESSION['acc_id'];
+$acc_id = $_SESSION['acc_id'];
 
 $currpass = $_POST['currpass'];
 $newpass = $_POST['newpass'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_confpass = hash('sha256', $confpass);
 
             // Now pass the hashed passwords to the updatePass method
-            echo $db->updatePass($hashed_currpass, $hashed_newpass, $hashed_confpass);
+            echo $db->updatePass($hashed_currpass, $hashed_newpass, $hashed_confpass,$acc_id);
 
         } else {
             echo 'Else';

@@ -9,9 +9,8 @@ class global_class extends db_connect
         $this->connect();
     }
 
-    public function updatePass($currpass, $newpass, $confpass) {
-        session_start();
-        $acc_id = $_SESSION['acc_id'];
+    public function updatePass($currpass, $newpass, $confpass,$acc_id) {
+        $acc_id = $_POST['acc_id'];
 
         // Check if new password and confirm password match
         if ($newpass !== $confpass) {
