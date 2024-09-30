@@ -474,7 +474,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Profile Images</h5>
+                <h5 class="modal-title">Update Password</h5>
                 <button type="button" id="closeEditProfileImgModal" class="btn-close btnCloseModal"
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
