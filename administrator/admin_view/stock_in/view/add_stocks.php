@@ -1,9 +1,15 @@
 <?php
 
+if($_POST["supplier_code"] && $_POST["invoice_no"]){
+
+    $supplier_code = $_POST["supplier_code"];
+    $invoice_no = $_POST["invoice_no"];
+
+}else{
+    header('location: stock_in.php');
+}
 
 
-$supplier_code = $_POST["supplier_code"];
-$invoice_no = $_POST["invoice_no"];
 
 
 date_default_timezone_set('Asia/Manila');
