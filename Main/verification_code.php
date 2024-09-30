@@ -33,6 +33,7 @@ if ($product_row) {
 
     $db_acc_otp = $product_row["Otp"];
     $db_acc_status = $product_row["acc_status"];
+    $otp_expiration = $product_row["otp_expiration"];
 }
 ?>
 
@@ -237,46 +238,54 @@ $accid = $_GET['accid'];
 // Set the timezone to Asia/Manila
 date_default_timezone_set('Asia/Manila');
 
+// Check if the OTP is provided
 if (!empty($_GET['otp'])) {
-   
-    // Combine the OTP digits into a single code
     $inputCode = $_GET['otp'];
 
-    // Check if the input OTP matches the expected OTP
-    if ($inputCode == $db_acc_otp) {
-       
-        // Store the account ID in the session
-        $_SESSION['acc_id'] = $accid;
+    // Assume $otp_expiration is a datetime string from your database
+    // Compare it to the current time in Asia/Manila
+    $current_time = new DateTime();
+    $otp_expiration_time = new DateTime($otp_expiration); // Make sure $otp_expiration is defined
 
-        // Update user status if OTP is correct
-        // Use current time in Asia/Manila timezone for the expiration check
-        $stmt = $connections->prepare("UPDATE account SET acc_status = 0, Otp = '0' WHERE acc_id = ? AND otp_expiration > NOW()");
+    // Check if OTP is not expired
+    if ($current_time < $otp_expiration_time) {
+        // Check if the input OTP matches the expected OTP
+        if ($inputCode == $db_acc_otp) {
+            
+            // Store the account ID in the session
+            $_SESSION['acc_id'] = $accid;
 
-        // Bind parameters and execute
-        $stmt->bind_param("s", $accid);
-        $stmt->execute();
+            // Update user status if OTP is correct
+            // Use current time in Asia/Manila timezone for the expiration check
+            // $stmt = $connections->prepare("UPDATE account SET acc_status = 0, Otp = '0' WHERE acc_id = ?");
 
-        // Check if the update was successful
-        if ($stmt->affected_rows > 0) {
-            echo '<script>
-                alertify.alert("OTP Verified", "OTP verified successfully!", function() {
-                    window.location.href = "../new-customer-website/index.php";
-                });
-            </script>';
+            // // Bind parameters and execute
+            // $stmt->bind_param("s", $accid);
+            // $stmt->execute();
+
+            // // Check if the update was successful
+            // if ($stmt->affected_rows > 0) {
+            //     echo '<script>
+            //         alertify.alert("OTP Verified", "OTP verified successfully!", function() {
+            //             window.location.href = "../new-customer-website/index.php";
+            //         });
+            //     </script>';
+            // } else {
+            //     echo '<script>alert("Failed to update account status.");</script>';
+            // }
+
+            // Close the statement
+            $stmt->close();
         } else {
-            echo '<script>alert("Failed to update account status.");</script>';
+            echo '<script>alert("Invalid OTP.");</script>';
         }
-        
-        // Close the statement
-        $stmt->close();
     } else {
-        echo '<script>alert("Invalid OTP.");</script>';
+        echo '<script>alert("OTP has expired.");</script>';
     }
-}else{
-    echo "incorrect OTP clicked";
-   
-
+} else {
+    echo "Incorrect OTP clicked.";
 }
+
 
 
 
