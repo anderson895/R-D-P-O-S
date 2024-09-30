@@ -50,7 +50,7 @@ if (isset($_SESSION['acc_id'])) {
 </head>
 
 <body>
-<div class="container">
+<div class="container shadow">
     <div class="row justify-content-center">
         <div class="col-12 col-md-4">
             <div class="login-container shadow">
