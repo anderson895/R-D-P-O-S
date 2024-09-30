@@ -9,6 +9,7 @@ body{
 }
 
 .login-container {
+  background-color: #d8d8d8;
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 40px;
