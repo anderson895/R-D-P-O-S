@@ -44,7 +44,7 @@ class global_class extends db_connect
             }
         } else {
             // User not found in the database
-            return "User not found.";
+            return "Account not found.";
         }
 
         // Close the statement and connection
