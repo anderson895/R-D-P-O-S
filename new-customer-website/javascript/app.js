@@ -841,6 +841,38 @@ $("#btnEditPassword").click(function (e) {
   $("#modalUpdateChoices").modal("hide");
 });
 
+$(document).ready(function() {
+  $('#userPasswordFRM').on('submit', function(e) {
+      e.preventDefault(); 
+
+
+      var formData = $(this).serialize();
+
+      // AJAX request
+      $.ajax({
+          url: 'backend/end-points/updatepass.php', 
+          type: 'POST',
+          data: formData,
+          success: function(response) {
+
+            console.log(response)
+              $('#editPassModal').modal('hide');
+          },
+          error: function(xhr, status, error) {
+              // Hide the loader
+              $('#loader').hide();
+              alert('Something went wrong. Please try again.');
+          }
+      });
+  });
+
+  // Close modal on button click
+  $('.btnCloseModal').on('click', function() {
+      $('#editPassModal').modal('hide');
+  });
+});
+
+
 
 $('#profileImgFRM').on('submit', function(e) {
   e.preventDefault(); // Prevent the default form submission
