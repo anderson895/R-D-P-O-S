@@ -11,9 +11,9 @@ include("back_cunfirmForgot.php");
 
     <body>
    
-<div class="body-wrapper" >
+        <div class="body-wrapper" >
             <!-- Begin Header Area -->
-<?php include "include/header.php"; ?>
+            <?php include "include/header.php"; ?>
 
 
 
@@ -40,24 +40,39 @@ include("back_cunfirmForgot.php");
 <div class="login-userheading">
 <h3>Create new password</h3>
 
-    </div>
-                                <form method="POST">
-            <div class="form-floating mb-3">
-                <input type="password" id="newpsw" name="newpsw" class="form-control" placeholder="Enter your new password">
-                    label for="newpsw">New password</label>
-                        <span class="error text-danger d-block"><?=$newpswErr?></span>
-            </div>
-                <div class="form-floating mb-3">
-                    <input type="password" id="cunfirm_newpsw" name="cunfirm_newpsw" class="form-control" placeholder="Confirm new password">
-                    <label for="cunfirm_newpsw">Confirm new password</label>
-                     <span class="error text-danger d-block"><?=$cunfirm_newpswErr?></span>
-                </div>
-                                    <div class="text-center" id="loadingSpinner"></div>
-                                    <div class="form-login">
-                                        <button type="submit" class="btn btn-login" name="btnNewPassword">Submit</button>
-            </div>
-                                </form>
-    </div>
+</div>
+<form method="POST">
+
+<div class="form-login">
+<label>New password</label>
+<div class="form-addons">
+<input type="password" id="newpsw" name="newpsw" placeholder="Enter your new password">
+<span class="error text-danger d-block"><?=$newpswErr?></span>
+</div>
+</div>
+
+
+
+
+<div class="form-login">
+<label>Confirm new password</label>
+<div class="form-addons">
+<input type="password" id="cunfirm_newpsw" name="cunfirm_newpsw" placeholder="Confirm new password">
+<span class="error text-danger d-block"><?=$cunfirm_newpswErr?></span>
+
+</div>
+</div>
+
+
+
+<div class="text-center" id="loadingSpinner"></div>
+<div class="form-login">
+<button type="submit" class="btn btn-login"name="btnNewPassword">Submit</button>
+</div>
+</div>
+
+</form>
+</div>
 </div>
 <div class="login-img">
 <img src="../upload_system/<?php echo $db_system_banner  ?>" alt="img">
