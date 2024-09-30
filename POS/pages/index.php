@@ -32,6 +32,7 @@ if (isset($_SESSION['acc_id'])) {
         <div class="col-12 col-md-4 mt-5">
             <form action="../functions/login.php" method="POST" class="form form-control pb-5 px-5 mt-5 shadow" id="loginForm">
                 <div class="mt-5">
+                    <img src="../../upload_system/<?=$db_system_logo?>" alt="">
                     <h1 class="fw-bolder"><?=$db_system_name?></h1>
                 </div>
                 
