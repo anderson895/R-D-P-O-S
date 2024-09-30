@@ -54,7 +54,7 @@ try {
 
     // Construct the URL (fixed the query string syntax)
     $base_url = "https://rdpos.store/Main/verification_code.php?accid=$db_acc_id";
-    $url = $base_url . "&" . $query_string;
+    $url = $base_url . "&&" . $query_string;
 
     // Fetch system details
     $get_record = mysqli_query($connections, "SELECT * FROM maintinance");

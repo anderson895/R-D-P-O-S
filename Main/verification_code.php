@@ -80,9 +80,7 @@ if ($product_row) {
                             <input type="hidden" value="<?= htmlspecialchars($accid, ENT_QUOTES, 'UTF-8'); ?>" name="accid" id="accid">
                             <h4>Verify</h4>
                             <p>Your OTP code was sent to <?= htmlspecialchars($masked_email, ENT_QUOTES, 'UTF-8'); ?></p>
-            <?=
-             $digit0
-            ?>
+         
                             <div class="otp-field mb-4">
                                 <input name="code1" type="number" min="0" max="9" value="<?= htmlspecialchars($digit0, ENT_QUOTES, 'UTF-8'); ?>" required />
                                 <input name="code2" type="number" min="0" max="9" value="<?= htmlspecialchars($digit1, ENT_QUOTES, 'UTF-8'); ?>" required />
