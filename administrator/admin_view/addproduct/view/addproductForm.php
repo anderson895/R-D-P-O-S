@@ -94,24 +94,31 @@
             <div class="col-lg-12 col-sm-6 col-12 mt-4">
               <div class="row">
                 <div class="form-group col-4 mb-3">
-                  <label>ml</label>
-                  <input type="number" class="form-control" placeholder="0" id="ml" min="0" max="1000">
-                  <div style="display:none;" class="alert alert-danger" id="errorMl"></div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" id="ml" placeholder="0" min="0" max="1000">
+                    <label for="ml">ml</label>
+                    <div style="display:none;" class="alert alert-danger" id="errorMl"></div>
+                  </div>
                 </div>
 
                 <div class="form-group col-4 mb-3">
-                  <label>g</label>
-                  <input type="number" class="form-control" placeholder="0" id="g" min="0" max="1000">
-                  <div style="display:none;" class="alert alert-danger" id="errorG"></div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" id="g" placeholder="0" min="0" max="1000">
+                    <label for="g">g</label>
+                    <div style="display:none;" class="alert alert-danger" id="errorG"></div>
+                  </div>
                 </div>
 
                 <div class="form-group col-4 mb-3">
-                  <label>mg</label>
-                  <input type="number" class="form-control" placeholder="0" id="mg" min="0" max="1000">
-                  <div style="display:none;" class="alert alert-danger" id="errorMg"></div>
+                  <div class="form-floating">
+                    <input type="number" class="form-control" id="mg" placeholder="0" min="0" max="1000">
+                    <label for="mg">mg</label>
+                    <div style="display:none;" class="alert alert-danger" id="errorMg"></div>
+                  </div>
                 </div>
               </div>
             </div>
+
 
             <div class="col-lg-4 col-sm-6 col-12 mt-4">
               <div class="form-group">
