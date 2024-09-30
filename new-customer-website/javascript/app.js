@@ -852,7 +852,7 @@ $(document).ready(function() {
       $.ajax({
           url: 'backend/end-points/updatepass.php', 
           type: 'POST',
-          data: formData,
+          data: formData,requestType:'updatePass',
           success: function(response) {
 
             console.log(response)

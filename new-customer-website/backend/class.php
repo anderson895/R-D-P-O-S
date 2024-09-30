@@ -9,6 +9,53 @@ class global_class extends db_connect
         $this->connect();
     }
 
+    public function updatePass($currpass, $newpass, $confpass) {
+        session_start();
+        $acc_id = $_SESSION['acc_id'];
+
+        // Check if new password and confirm password match
+        if ($newpass !== $confpass) {
+            return "New password and confirmation password do not match.";
+        }
+
+        // Query to get the current hashed password from the database
+        $sql = "SELECT password FROM account WHERE acc_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param('i', $acc_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $stored_pass = $row['acc_password'];
+
+            // Verify if the current password matches the one in the database
+            if ($currpass === $stored_pass) {
+                // Current password is correct, so update to the new password
+                $update_sql = "UPDATE account SET acc_password = ? WHERE acc_id = ?";
+                $update_stmt = $this->conn->prepare($update_sql);
+                $update_stmt->bind_param('si', $newpass, $acc_id);
+
+                if ($update_stmt->execute()) {
+                    return "Password updated successfully.";
+                } else {
+                    return "Error updating password: " . $this->conn->error;
+                }
+            } else {
+                // Current password does not match
+                return "Current password is incorrect.";
+            }
+        } else {
+            // User not found in the database
+            return "User not found.";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $this->conn->close();
+    }
+
+
     public function updateEmpImage($emp_image, $userId)
     {
         $query = $this->conn->prepare("UPDATE `account` SET `emp_image` = ? WHERE `acc_id` = ?");
