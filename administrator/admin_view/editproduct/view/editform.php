@@ -245,7 +245,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
     event.preventDefault(); // Prevent the default form submission
 
     // Show loading spinner
-    document.getElementById("loadingSpinner").style.display = "flex"; // Use flex for centering
+    document.getElementById("loadingSpinner").style.display = "block"; // Use flex for centering
 
     // All validations passed, send an AJAX request
     var acc_id = $("#acc_id").val();
