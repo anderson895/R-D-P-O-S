@@ -281,7 +281,7 @@ if ($result) {
         <div class="slider-product">
         <center><img src="../../upload_prodImg/<?= $db_prod_image?>" alt="img"></center>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPhoto" required accept="image/*">+ Add photos</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPhoto" required >+ Add photos</button>
                     <div class="mt-5">
                         <?php
                         $query = $connections->prepare("SELECT * FROM `productphotos` WHERE `PHOTOS_PROD_ID` = ?");
@@ -362,7 +362,7 @@ if ($result) {
       <form id="frmUploadImage">
       <div class="modal-body">
         <input type="hidden" name="PHOTOS_PROD_ID" id="PHOTOS_PROD_ID" value="<?=$db_prod_id?>">
-        <input type="file" name="img_photos" id="img_photos" class="form-control">
+        <input type="file" name="img_photos" id="img_photos" class="form-control" accept="image/*">
       </div>
       <div class="modal-footer" >
              <button type="submit" class="btn btn-primary btn-sm btnSave">Save</button> 
