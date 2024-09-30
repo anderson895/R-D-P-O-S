@@ -7,27 +7,26 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// Get the db_acc_id from the POST request
+// Get the db_acc_id from the query string
 if (!isset($_POST['db_acc_id'])) {
-    echo "db_acc_id parameter is missing";
+    echo json_encode(["error" => "db_acc_id parameter is missing"]);
     exit;
 }
-
 $db_acc_id = $_POST["db_acc_id"];
 
 // Create a new PHPMailer instance
 $mail = new PHPMailer(true);
 
 try {
-    // Use prepared statements to fetch account details
+    // Prepare statement to fetch account details
     $stmt = $connections->prepare("SELECT * FROM account WHERE acc_id = ?");
     $stmt->bind_param("s", $db_acc_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
     // Check if any account is found
-    if ($result->num_rows === 0) {
-        echo "Account not found";
+    if ($result->num_rows == 0) {
+        echo json_encode(["error" => "Account not found"]);
         exit;
     }
 
@@ -36,28 +35,13 @@ try {
     $db_acc_email = $account_row["acc_email"];
     $db_acc_fname = $account_row["acc_fname"];
     $db_acc_lname = $account_row["acc_lname"];
-
+    
     $fullname = ucfirst($db_acc_fname) . " " . $db_acc_lname;
+    
     $db_otp = $account_row["Otp"];
 
-    // Slice the OTP into individual digits
-    $otp_digits = str_split($db_otp);
-
-    // Create an associative array to hold the digits
-    $otp_array = [];
-    foreach ($otp_digits as $index => $digit) {
-        $otp_array["digit{$index}"] = $digit;
-    }
-
-    // Build the query string
-    $query_string = http_build_query($otp_array);
-
-    // Construct the URL (fixed the query string syntax)
-    $base_url = "https://rdpos.store/Main/verification_code.php?accid=$db_acc_id";
-    $url = $base_url . "&&" . $query_string;
-
-    // Fetch system details
-    $get_record = mysqli_query($connections, "SELECT * FROM maintinance");
+    // Fetch system maintenance records
+    $get_record = mysqli_query($connections, "SELECT * FROM maintinance LIMIT 1");
     $row = mysqli_fetch_assoc($get_record);
     $db_system_name = $row["system_name"];
     $db_system_logo = $row["system_logo"];
@@ -70,13 +54,13 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'ardeleonpoultrysupplies@gmail.com';
-    $mail->Password = 'tnsavbpnkjjwomzo'; // Consider using environment variables for security
+    $mail->Password = 'tnsavbpnkjjwomzo'; // Consider using an environment variable instead
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
     // Sender and recipient details
     $mail->setFrom('ardeleonpoultrysupplies@gmail.com', 'Ardeleon Poultry Supply');
-    $mail->addAddress($db_acc_email, 'User');
+    $mail->addAddress($db_acc_email, $fullname);
     $mail->addReplyTo('info@example.com', 'Information');
 
     // Email content
@@ -105,11 +89,11 @@ try {
                     <p>Please use the verification code below to confirm your account:</p>
                     <p>This OTP will expire in 5 minutes.</p><br><br>
                     <div style="background-color: maroon; text-align: center;">
-                      <strong style="font-size: 200%; color: #fff;">' . $db_otp . '</strong>
+                      <strong style="font-size: 200%; color: #fff;">'.$db_otp.'</strong>
                     </div>
-                    <br><br>
-                    or just click here <a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($url) . '</a>
-                    <p>Do not share this Passcode with anyone.<br><br>If you didn’t request this, you can ignore this email.</p>
+                    <br>
+                    Or just click here <a href="https://rdpos.store/Main/verification_code.php?accid='.$db_acc_id.'&otp='.$db_otp.'">Verify your account</a>
+                    <p>Do not share this Passcode with anyone.<br><br>If you didn\'t request this, you can ignore this email.</p>
                   </div>
                 </td>
               </tr>
@@ -118,14 +102,14 @@ try {
         </tr>
       </table>
     </body>
-    </html>
-    ';
+    </html>';
+
     $mail->AltBody = '';
 
     // Send the email
     $mail->send();
-
+    echo json_encode(["success" => "OTP Sent Successfully!"]);
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo json_encode(["error" => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
 }
 ?>

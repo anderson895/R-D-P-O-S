@@ -273,7 +273,7 @@ if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']
         echo '<script>alert("Invalid OTP.");</script>';
     }
 }else{
-    echo $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'].'<br>';
+    echo $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'];
     echo $db_acc_otp;
    
 
