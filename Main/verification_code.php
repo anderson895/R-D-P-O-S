@@ -9,6 +9,14 @@ if (empty($_GET)) {
     exit;
 }
 
+$digit1=$digit2=$digit3=$digit4="";
+if(!empty($_GET['digit0']&&$_GET['digit1']&&$_GET['digit2']&&$_GET['digit3'])){
+    $digit1=$_GET['digit0'];
+    $digit2=$_GET['digit1'];
+    $digit3=$_GET['digit2'];
+    $digit4=$_GET['digit3'];
+}
+
 // Get account ID from the URL safely
 $accid = htmlspecialchars($_GET['accid'], ENT_QUOTES, 'UTF-8');
 
@@ -75,10 +83,10 @@ if ($product_row) {
                             <p>Your OTP code was sent to <?= htmlspecialchars($masked_email, ENT_QUOTES, 'UTF-8'); ?></p>
 
                             <div class="otp-field mb-4">
-                                <input name="code1" type="number" min="0" max="9" required />
-                                <input name="code2" type="number" min="0" max="9" required disabled />
-                                <input name="code3" type="number" min="0" max="9" required disabled />
-                                <input name="code4" type="number" min="0" max="9" required disabled />
+                                <input name="code1" type="number" min="0" max="9" value="<?=$digit1?>" required />
+                                <input name="code2" type="number" min="0" max="9" value="<?=$digit2?>" required disabled />
+                                <input name="code3" type="number" min="0" max="9" value="<?=$digit3?>" required disabled />
+                                <input name="code4" type="number" min="0" max="9" value="<?=$digit4?>" required disabled />
                             </div>
 
                             <div>
