@@ -14,10 +14,6 @@ if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']
     $digit1 = $_GET['digit1'];
     $digit2 = $_GET['digit2'];
     $digit3 = $_GET['digit3'];
-
-    $submit_button="";
-}else{
-    $submit_button="disabled";
 }
 
 // Get account ID from the URL safely
@@ -42,7 +38,7 @@ if ($product_row) {
     $masked_email = $hidden_username . '@' . $domain;
 
     $db_acc_otp = $product_row["Otp"];
-  
+    $db_acc_status = $product_row["acc_status"];
 }
 ?>
 
@@ -83,9 +79,7 @@ if ($product_row) {
                         <form method="POST">
                             <input type="hidden" value="<?= htmlspecialchars($accid, ENT_QUOTES, 'UTF-8'); ?>" name="accid" id="accid">
                             <h4>Verify</h4>
-                            <p> <?=
-             $digit0
-            ?>Your OTP code was sent to <?= htmlspecialchars($masked_email, ENT_QUOTES, 'UTF-8'); ?></p>
+                            <p>Your OTP code was sent to <?= htmlspecialchars($masked_email, ENT_QUOTES, 'UTF-8'); ?></p>
            
                             <div class="otp-field mb-4">
                                 <input name="code1" type="number" min="0" max="9" value="<?= htmlspecialchars($digit0, ENT_QUOTES, 'UTF-8'); ?>" required />
@@ -99,7 +93,7 @@ if ($product_row) {
                                 <p id="countDownText"></p>
                             </div>
 
-                            <button id="btnSendOtp" <?= $submit_button ?> type="submit" name="btnSendOtp" class="btn btn-primary mb-3 mt-3">
+                            <button id="btnSendOtp" <?= $db_acc_status == 2 ? "disabled" : ""; ?> type="submit" name="btnSendOtp" class="btn btn-primary mb-3 mt-3">
                                 Confirm
                             </button>
                         </form>
