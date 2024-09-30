@@ -156,39 +156,47 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">New Stock</h1>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST" action="add_stock.php" id="stock_form" onsubmit="return checkInvoiceNumber();">
-   
-          <label for="invoice_no">Invoice No.</label>
-          <input type="text" name="invoice_no" id="invoice_no" class="form-control mb-3" required placeholder="Invoice No.">
           
-          <label for="supplier_code">Select Supplier</label>
-          <select name="supplier_code" id="supplier_code" class="form-select" aria-label="Default select example" required>
-            <option selected disabled>Select Supplier</option>
-            <?php
-            $view_query = mysqli_query($connections, "SELECT * FROM supplier WHERE spl_status='0'");
-            while ($row = mysqli_fetch_assoc($view_query)) {
-              $db_spl_code = $row["spl_code"];
-              $db_spl_name = $row["spl_name"];
-              echo '<option value="' . $db_spl_code . '">' . $db_spl_name . '</option>';
-            }
-            ?>
-          </select>
+          <div class="form-floating mb-3">
+            <input type="text" name="invoice_no" id="invoice_no" class="form-control" required placeholder="Invoice No.">
+            <label for="invoice_no">Invoice No.</label>
+          </div>
           
-          <label for="stockin_date" class="mt-3">Stockin Date</label>
-          <input type="date" name="stockin_date" id="stockin_date" class="form-control" value="<?php echo date("Y-m-d")?>">
+          <div class="form-floating mb-3">
+            <select name="supplier_code" id="supplier_code" class="form-select" aria-label="Default select example" required>
+              <option selected disabled>Select Supplier</option>
+              <?php
+              $view_query = mysqli_query($connections, "SELECT * FROM supplier WHERE spl_status='0'");
+              while ($row = mysqli_fetch_assoc($view_query)) {
+                $db_spl_code = $row["spl_code"];
+                $db_spl_name = $row["spl_name"];
+                echo '<option value="' . $db_spl_code . '">' . $db_spl_name . '</option>';
+              }
+              ?>
+            </select>
+            <label for="supplier_code">Select Supplier</label>
+          </div>
+          
+          <div class="form-floating">
+            <input type="date" name="stockin_date" id="stockin_date" class="form-control" value="<?php echo date('Y-m-d')?>" required>
+            <label for="stockin_date">Stockin Date</label>
+          </div>
+
       </div>
       <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" id="stock_submit_btn">Set</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          </div>
+        <button type="submit" class="btn btn-primary" id="stock_submit_btn">Set</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
 
 
 
