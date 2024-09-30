@@ -10,9 +10,6 @@ class global_class extends db_connect
     }
 
     public function updatePass($currpass, $newpass, $confpass,$acc_id) {
-        // Check if new password and confirm password match
-        print_r($_POST);
-
 
         if ($newpass !== $confpass) {
             return "NotMatch";
