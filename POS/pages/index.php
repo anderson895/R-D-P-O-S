@@ -70,7 +70,7 @@ if (isset($_SESSION['acc_id'])) {
                         <label for="password">Password</label>
                     </div>
 
-                    <button type="submit" name="submit" class="btn btn-primary w-100" id="loginButton" onclick="login()">LOGIN</button>
+                    <button type="submit" name="submit" class="btn login w-100" id="loginButton" onclick="login()">LOGIN</button>
 
                     <div id="loading" class="d-none rounded loading mt-3">
                         <div class="spinner-border text-danger" role="status">
