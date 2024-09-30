@@ -8,7 +8,7 @@ $currpass = $_POST['currpass'];
 $newpass = $_POST['newpass'];
 $confpass = $_POST['confpass'];
 
-print_r($_POST);
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['requestType'])) {
