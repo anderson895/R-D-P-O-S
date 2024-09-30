@@ -224,9 +224,11 @@ $currentDateTime = date('Y-m-d g:i:s A');
             </div>
 
 
-            <div class="spinner-border" role="status" style="display:none;">
+            <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
               <span class="sr-only">Loading...</span>
             </div>
+          </div>
 
 
             <div class="col-lg-12">
