@@ -8,7 +8,7 @@ $currpass = $_POST['currpass'];
 $newpass = $_POST['newpass'];
 $confpass = $_POST['confpass'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     if (isset($_POST['requestType'])) {
         if ($_POST['requestType'] == 'updatePass') {
 
@@ -26,5 +26,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo 'Access Denied! No Request Type.';
     }
-}
+
 ?>
