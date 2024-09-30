@@ -241,67 +241,70 @@ $currentDateTime = date('Y-m-d g:i:s A');
 </form>
 
 <script>
-  document.getElementById("btnSubmit").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent the default form submission
+  $(document).ready(function() {
+    $("#btnSubmit").on("click", function(event) {
+      event.preventDefault(); // Prevent the default form submission
 
-    // Show loading spinner
-    document.getElementById("loadingSpinner").style.display = "block"; // Use flex for centering
+      // Show loading spinner
+      $("#loadingSpinner").css("display", "block"); // Use flex for centering
 
-    // All validations passed, send an AJAX request
-    var acc_id = $("#acc_id").val();
-    var prod_code = $("#prod_code").val();
-    var pname = $("#pname").val();
-    var pcat = $("#pcat").val();
-    var pcritical = $("#pcritical").val();
-    var pDescript = $("#pDescript").val();
-    var pCprice = $("#pCprice").val();
+      // All validations passed, send an AJAX request
+      var acc_id = $("#acc_id").val();
+      var prod_code = $("#prod_code").val();
+      var pname = $("#pname").val();
+      var pcat = $("#pcat").val();
+      var pcritical = $("#pcritical").val();
+      var pDescript = $("#pDescript").val();
+      var pCprice = $("#pCprice").val();
 
-    var discountableTogler = $("#discountableTogler").prop("checked") ? 1 : 0;
-    var SellOnlineTogler = $("#SellOnlineTogler").prop("checked") ? 1 : 0;
+      var discountableTogler = $("#discountableTogler").prop("checked") ? 1 : 0;
+      var SellOnlineTogler = $("#SellOnlineTogler").prop("checked") ? 1 : 0;
 
-    var mg = $("#mg").val();
-    var ml = $("#ml").val();
-    var g = $("#g").val();
-    var unitType = $('#unitType').val();
+      var mg = $("#mg").val();
+      var ml = $("#ml").val();
+      var g = $("#g").val();
+      var unitType = $('#unitType').val();
 
-    var formData = new FormData();
+      var formData = new FormData();
 
-    formData.append("acc_id", acc_id);
-    formData.append("prod_code", prod_code);
-    formData.append("pname", pname);
-    formData.append("pcat", pcat);
-    formData.append("pcritical", pcritical);
-    formData.append("pDescript", pDescript);
-    formData.append("pCprice", pCprice);
-    formData.append("discountableTogler", discountableTogler);
-    formData.append("SellOnlineTogler", SellOnlineTogler);
-    formData.append("mg", mg);
-    formData.append("ml", ml);
-    formData.append("g", g);
-    formData.append("unitType", unitType);
-    formData.append("pImg", $("#pImg")[0].files[0]); // Append the image file
+      formData.append("acc_id", acc_id);
+      formData.append("prod_code", prod_code);
+      formData.append("pname", pname);
+      formData.append("pcat", pcat);
+      formData.append("pcritical", pcritical);
+      formData.append("pDescript", pDescript);
+      formData.append("pCprice", pCprice);
+      formData.append("discountableTogler", discountableTogler);
+      formData.append("SellOnlineTogler", SellOnlineTogler);
+      formData.append("mg", mg);
+      formData.append("ml", ml);
+      formData.append("g", g);
+      formData.append("unitType", unitType);
+      formData.append("pImg", $("#pImg")[0].files[0]); // Append the image file
 
-    // Send the AJAX request only if the form is valid
-    $.ajax({
-      url: "editproduct/controller/updateproduct.php", // Replace with the actual PHP script URL
-      method: "POST",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function(response) {
-        console.log(response);
-        alertify.success("Product successfully saved.");
-      },
-      error: function(xhr, status, error) {
-        console.log("Error:", error);
-      },
-      complete: function() {
-        // Hide loading spinner after the request completes
-        document.getElementById("loadingSpinner").style.display = "none";
-      }
+      // Send the AJAX request only if the form is valid
+      $.ajax({
+        url: "editproduct/controller/updateproduct.php", // Replace with the actual PHP script URL
+        method: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+          console.log(response);
+          alertify.success("Product successfully saved.");
+        },
+        error: function(xhr, status, error) {
+          console.log("Error:", error);
+        },
+        complete: function() {
+          // Hide loading spinner after the request completes
+          $("#loadingSpinner").css("display", "none");
+        }
+      });
     });
   });
 </script>
+
 
 
 
