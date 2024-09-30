@@ -243,7 +243,7 @@ if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']
     $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'];
 
     // Check if the input OTP matches the expected OTP
-    if ($inputCode === $db_acc_otp) {
+    if ($inputCode == $db_acc_otp) {
        
         // Store the account ID in the session
         $_SESSION['acc_id'] = $accid;
