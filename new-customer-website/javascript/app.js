@@ -843,24 +843,26 @@ $("#btnEditPassword").click(function (e) {
 
 $(document).ready(function() {
   $('#userPasswordFRM').on('submit', function(e) {
-      e.preventDefault(); 
+      e.preventDefault(); // Prevent the default form submission behavior
 
+      var formData = $(this).serialize(); // Serialize the form data
 
-      var formData = $(this).serialize();
+      // Append the requestType to formData
+      formData += '&requestType=updatePass';
 
       // AJAX request
       $.ajax({
-          url: 'backend/end-points/updatepass.php', 
-          type: 'POST',
-          data: formData,requestType:'updatePass',
+          url: 'backend/end-points/updatepass.php', // Backend URL
+          type: 'POST', // Request method
+          data: formData, // Serialized form data with requestType
           success: function(response) {
+              console.log(response); // Log the response for debugging
 
-            console.log(response)
+              // Hide the modal if the request is successful
               $('#editPassModal').modal('hide');
           },
           error: function(xhr, status, error) {
-              // Hide the loader
-              $('#loader').hide();
+              console.log(xhr.responseText); // Log error response for debugging
               alert('Something went wrong. Please try again.');
           }
       });
@@ -871,6 +873,7 @@ $(document).ready(function() {
       $('#editPassModal').modal('hide');
   });
 });
+
 
 
 
