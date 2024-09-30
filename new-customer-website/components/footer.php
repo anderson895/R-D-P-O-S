@@ -489,7 +489,7 @@
 
                     <!-- Floating label for New Password -->
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control is-invalid" name="newpass" id="newpass" placeholder="Enter New Password">
+                        <input type="password" class="form-control" name="newpass" id="newpass" placeholder="Enter New Password">
                         <label for="newpass">New Password</label>
                     </div>
 
