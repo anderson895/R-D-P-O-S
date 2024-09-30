@@ -481,15 +481,23 @@
 
             <div class="modal-body">
                 <form id="userPasswordFRM">
-                    <label for="profileAttachementImg">Current Password</label>
-                    <input type="text" name="currpass" id="currpass" placeholder="Enter Current Password">
+                    <!-- Floating label for Current Password -->
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="currpass" id="currpass" placeholder="Enter Current Password">
+                        <label for="currpass">Current Password</label>
+                    </div>
 
-                    <label for="profileAttachementImg">New Password</label>
-                    <input type="text" name="newpass" id="currpass" placeholder="Enter New Password">
+                    <!-- Floating label for New Password -->
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="newpass" id="newpass" placeholder="Enter New Password">
+                        <label for="newpass">New Password</label>
+                    </div>
 
-                    <label for="profileAttachementImg">Confirm New Password</label>
-                    <input type="text" name="confpass" id="currpass" placeholder="Confirm New Password">
-                   
+                    <!-- Floating label for Confirm New Password -->
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="confpass" id="confpass" placeholder="Confirm New Password">
+                        <label for="confpass">Confirm New Password</label>
+                    </div>
 
                     <button type="reset" class="mt-3 btnCloseModal btn btn-secondary">
                         <i class="fas fa-times"></i> Cancel
@@ -501,8 +509,6 @@
                     <div id="loader" style="display: none;">
                         <div class="spinner"></div>
                     </div>
-
-
                 </form>
             </div>
         </div>
