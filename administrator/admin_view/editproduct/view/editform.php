@@ -224,10 +224,8 @@ $currentDateTime = date('Y-m-d g:i:s A');
             </div>
 
 
-            <div class="d-flex justify-content-center" id="loadingSpinner" style="display:none;">
-              <div class="spinner-border" role="status">
-                <span class="visually-hidden"></span>
-              </div>
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
             </div>
 
 
@@ -242,11 +240,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
 <script>
   $(document).ready(function() {
-    
-  });
-
-
-  $("#btnSubmit").on("click", function(event) {
+    $("#btnSubmit").on("click", function(event) {
       event.preventDefault(); // Prevent the default form submission
 
       // Show loading spinner
@@ -308,6 +302,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
         }
       });
     });
+  });
 </script>
 
 
