@@ -104,7 +104,7 @@ $(document).ready(function () {
       },
       success: function (response) {
 
-        console.log(response);
+        // console.log(response);
 
         $("#allMessagesContainer").html(response);
       },
