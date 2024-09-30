@@ -44,7 +44,6 @@ include("back_cunfirmForgot.php");
 <form method="POST">
 
 <div class="form-login">
-<label>New password</label>
 <div class="form-addons">
                                 <div class="form-floating mb-3">
                                     <input type="password" id="newpsw" name="newpsw" class="form-control" placeholder="Enter your new password">
@@ -59,7 +58,6 @@ include("back_cunfirmForgot.php");
 
 
 <div class="form-login">
-<label>Confirm new password</label>
 <div class="form-addons">
                                 <div class="form-floating mb-3">
                                     <input type="password" id="cunfirm_newpsw" name="cunfirm_newpsw" class="form-control" placeholder="Confirm new password">
