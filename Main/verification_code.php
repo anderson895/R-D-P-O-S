@@ -271,19 +271,19 @@ if (!empty($_GET['otp'])) {
                     });
                 </script>';
             } else {
-                echo '<script>alert("Failed to update account status.");</script>';
+                echo '<script>alertify.error("Failed to update account status.");</script>';
             }
 
             // Close the statement
             $stmt->close();
         } else {
-            echo '<script>alert("Invalid OTP.");</script>';
+            echo '<script>alertify.error("Invalid OTP.");</script>';
         }
     } else {
-        echo '<script>alert("OTP has expired.");</script>';
+        echo '<script>alertify.error("OTP has expired.");</script>';
     }
 } else {
-    echo "Incorrect OTP clicked.";
+    // echo "Incorrect OTP clicked.";
 }
 
 
