@@ -67,7 +67,7 @@ $current_date = date('Y-m-d');
                         <div class="form-login">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="email" placeholder="Enter your email address" required>
-                                <label for="email">Email</label>
+                                <label for="email">Email address</label>
                             </div>
                         </div>
 
