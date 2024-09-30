@@ -8,13 +8,7 @@ if (empty($_GET)) {
     exit;
 }
 
-$digit0 = $digit1 = $digit2 = $digit3 = "";
-if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']) && !empty($_GET['digit3'])) {
-    $digit0 = $_GET['digit0'];
-    $digit1 = $_GET['digit1'];
-    $digit2 = $_GET['digit2'];
-    $digit3 = $_GET['digit3'];
-}
+
 
 // Get account ID from the URL safely
 $accid = htmlspecialchars($_GET['accid'], ENT_QUOTES, 'UTF-8');
@@ -238,6 +232,50 @@ if (!isset($_GET['accid'])) {
 }
 
 $accid = $_GET['accid'];
+
+
+// Set the timezone to Asia/Manila
+date_default_timezone_set('Asia/Manila');
+
+if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']) && !empty($_GET['digit3'])) {
+   
+    // Combine the OTP digits into a single code
+    $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'];
+
+    // Check if the input OTP matches the expected OTP
+    if ($inputCode === $db_acc_otp) {
+       
+        // Store the account ID in the session
+        $_SESSION['acc_id'] = $accid;
+
+        // Update user status if OTP is correct
+        // Use current time in Asia/Manila timezone for the expiration check
+        $stmt = $connections->prepare("UPDATE account SET acc_status = 0, Otp = '0' WHERE acc_id = ? AND otp_expiration > NOW()");
+
+        // Bind parameters and execute
+        $stmt->bind_param("s", $accid);
+        $stmt->execute();
+
+        // Check if the update was successful
+        if ($stmt->affected_rows > 0) {
+            echo '<script>
+                alertify.alert("OTP Verified", "OTP verified successfully!", function() {
+                    window.location.href = "../new-customer-website/index.php";
+                });
+            </script>';
+        } else {
+            echo '<script>alert("Failed to update account status.");</script>';
+        }
+        
+        // Close the statement
+        $stmt->close();
+    } else {
+        echo '<script>alert("Invalid OTP.");</script>';
+    }
+}
+
+
+
 
 if (isset($_POST['btnSendOtp'])) {
     $inputCode = $_POST['code1'] . $_POST['code2'] . $_POST['code3'] . $_POST['code4'];
