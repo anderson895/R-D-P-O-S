@@ -240,14 +240,12 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
 <script>
   $(document).ready(function() {
-    $("#loadingSpinner").css("display", "block");
-
     $("#btnSubmit").on("click", function(event) {
       event.preventDefault(); // Prevent the default form submission
 
       // Show loading spinner
-      $("#loadingSpinner").css("display", "block"); // Use flex for centering
-      $("#btnSubmit").prop("disabled", true); // Correct way to disable the button
+      $(".spinner-border").css("display", "block"); // Use flex for centering
+      $(".btn-submit").prop("disabled", true); // Correct way to disable the button
 
       // All validations passed, send an AJAX request
       var acc_id = $("#acc_id").val();
@@ -299,8 +297,8 @@ $currentDateTime = date('Y-m-d g:i:s A');
         },
         complete: function() {
           // Hide loading spinner after the request completes
-          $("#loadingSpinner").css("display", "none");
-          $("#btnSubmit").prop("disabled", false); // Re-enable the button
+          $("spinner-border").css("display", "none");
+          $(".btn-submit").prop("disabled", false); // Re-enable the button
         }
       });
     });
