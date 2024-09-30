@@ -8,8 +8,8 @@ if (!empty($_POST["supplier_code"]) && !empty($_POST["invoice_no"])) {
     $supplier_code = $_POST["supplier_code"];
     $invoice_no = $_POST["invoice_no"];
 } else {
-    header('Location: stock_in.php');
-    exit(); // It's good practice to exit after a redirect
+    echo "<script>location.href='index.php';</script>";
+    exit(); // Good practice to stop script execution after redirect
 }
 
 
