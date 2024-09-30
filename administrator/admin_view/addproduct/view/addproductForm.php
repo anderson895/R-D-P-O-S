@@ -21,6 +21,16 @@
               </div>
             </div>
 
+
+            <div class="col-lg-4 col-sm-6 col-12">
+              <div class="form-floating mb-3 text-center">
+                <input type="text" class="form-control" placeholder="Critical Level" name="pcritical" id="pcritical">
+                <label for="pcritical">Critical level</label>
+                <div class="alert alert-danger" id="criticalError"></div>
+              </div>
+            </div>
+
+
             <div class="col-lg-4 col-sm-6 col-12">
               <div class="form-group text-center">
                 <label for="pcat">Category</label>
@@ -40,14 +50,7 @@
               </div>
             </div>
 
-            <div class="col-lg-4 col-sm-6 col-12">
-              <div class="form-floating mb-3 text-center">
-                <input type="text" class="form-control" placeholder="Critical Level" name="pcritical" id="pcritical">
-                <label for="pcritical">Critical level</label>
-                <div class="alert alert-danger" id="criticalError"></div>
-              </div>
-            </div>
-
+           
             <div class="col-lg-12">
               <div class="form-floating mb-3">
                 <textarea class="form-control" name='pDescript' id="pDescript" placeholder="Description"></textarea>
