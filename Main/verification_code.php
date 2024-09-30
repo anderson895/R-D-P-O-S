@@ -2,19 +2,18 @@
 session_start(); // Start the session
 include("controller/maintinance.php");
 
-
 // Redirect if no GET parameters
 if (empty($_GET)) {
     header("Location: register.php");
     exit;
 }
 
-$digit1=$digit2=$digit3=$digit4="";
-if(!empty($_GET['digit0'])&&!empty($_GET['digit1'])&&!empty($_GET['digit2'])&&!empty($_GET['digit3'])){
-    $digit1=$_GET['digit0'];
-    $digit2=$_GET['digit1'];
-    $digit3=$_GET['digit2'];
-    $digit4=$_GET['digit3'];
+$digit0 = $digit1 = $digit2 = $digit3 = "";
+if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']) && !empty($_GET['digit3'])) {
+    $digit0 = $_GET['digit0'];
+    $digit1 = $_GET['digit1'];
+    $digit2 = $_GET['digit2'];
+    $digit3 = $_GET['digit3'];
 }
 
 // Get account ID from the URL safely
@@ -83,10 +82,10 @@ if ($product_row) {
                             <p>Your OTP code was sent to <?= htmlspecialchars($masked_email, ENT_QUOTES, 'UTF-8'); ?></p>
 
                             <div class="otp-field mb-4">
-                                <input name="code1" type="number" min="0" max="9" value="<?=$digit1?>" required />
-                                <input name="code2" type="number" min="0" max="9" value="<?=$digit2?>" required disabled />
-                                <input name="code3" type="number" min="0" max="9" value="<?=$digit3?>" required disabled />
-                                <input name="code4" type="number" min="0" max="9" value="<?=$digit4?>" required disabled />
+                                <input name="code1" type="number" min="0" max="9" value="<?= htmlspecialchars($digit0, ENT_QUOTES, 'UTF-8'); ?>" required />
+                                <input name="code2" type="number" min="0" max="9" value="<?= htmlspecialchars($digit1, ENT_QUOTES, 'UTF-8'); ?>" required />
+                                <input name="code3" type="number" min="0" max="9" value="<?= htmlspecialchars($digit2, ENT_QUOTES, 'UTF-8'); ?>" required />
+                                <input name="code4" type="number" min="0" max="9" value="<?= htmlspecialchars($digit3, ENT_QUOTES, 'UTF-8'); ?>" required />
                             </div>
 
                             <div>
@@ -110,6 +109,10 @@ if ($product_row) {
             </div>
         </div>
     </main>
+</div>
+</body>
+</html>
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
