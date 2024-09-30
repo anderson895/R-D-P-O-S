@@ -242,7 +242,11 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
 <script>
   $(document).ready(function() {
-    $("#btnSubmit").on("click", function(event) {
+    
+  });
+
+
+  $("#btnSubmit").on("click", function(event) {
       event.preventDefault(); // Prevent the default form submission
 
       // Show loading spinner
@@ -304,7 +308,6 @@ $currentDateTime = date('Y-m-d g:i:s A');
         }
       });
     });
-  });
 </script>
 
 
