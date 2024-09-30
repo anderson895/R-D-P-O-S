@@ -4,13 +4,19 @@ echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 
+ob_start(); // Start output buffering
+
 if (!empty($_POST["supplier_code"]) && !empty($_POST["invoice_no"])) {
     $supplier_code = $_POST["supplier_code"];
     $invoice_no = $_POST["invoice_no"];
 } else {
-    header('Location: ../stock_in.php');
-    exit(); // It's good practice to exit after a redirect
+    header('Location: stock_in.php');
+    exit(); // Stop script execution after redirect
 }
+
+// Your remaining PHP code here
+
+ob_end_flush(); // Send the output to the browser
 
 
 
