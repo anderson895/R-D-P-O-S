@@ -4,7 +4,7 @@ include("../../../../connection.php");
 date_default_timezone_set('Asia/Manila');
 $currentDateTime = date('Y-m-d H:i:s');
 
-$pname  = $pcat = $pcritical = $pDescript = $pVouch  = $pCprice = $pImg = "";
+$pname  = $pcat = $pcritical = $pDescript = $pCprice = $pImg = "";
 $prod_code = $acc_id = "";
 
 // Sanitize and assign POST values
@@ -19,7 +19,7 @@ $SellOnlineTogler = $_POST["SellOnlineTogler"];
 $pcat = intval(preg_replace('/[^0-9]/', '', $_POST["pcat"]));
 $pcritical = intval(preg_replace('/[^0-9]/', '', $_POST["pcritical"]));
 $pDescript = mysqli_real_escape_string($connections, preg_replace('/[^0-9.,a-zA-Z\s]/', '', $_POST["pDescript"]));
-$pVouch = preg_replace('/[^0-9.,]/', '', $_POST["pVouch"]);
+
 $prod_code = preg_replace('/[^0-9.,a-zA-Z]/', '', $_POST["prod_code"]);
 $acc_id = preg_replace('/[^0-9]/', '', $_POST["acc_id"]);
 
@@ -52,7 +52,6 @@ if ($prod_code > 0) {
                   prod_category_id = '$pcat',
                   prod_critical = '$pcritical',
                   prod_description = '$pDescript',
-                  prod_voucher_id = '$pVouch',
                   prod_edit = '$currentDateTime',
                   prod_sell_onlline = '$SellOnlineTogler',
                   unit_type = '$unitType'";
