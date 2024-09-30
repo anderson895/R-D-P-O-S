@@ -77,19 +77,21 @@
             </div>
 
             <div class="col-lg-12">
-              <div class="form-group mb-3">
-                <label style="text-align: left;"> Product Image</label>
-                <div class="image-upload">
-                  <input type="file" name="pImg" id="pImg">
-                  <div class="image-uploads">
-                    <img src="assets/img/icons/upload.svg" alt="img">
-                    <h4 style="text-align: left;">Drag and drop a file to upload</h4>
-                    <div style="display:none; text-align: left;" class="alert alert-danger" id="pImgError"></div>
-                  </div>
+            <div class="form-group mb-3">
+              <label style="text-align: left;">Product Image</label>
+              <div class="image-upload form-floating">
+                <input type="file" name="pImg" id="pImg" class="form-control" placeholder=" " aria-label="Product Image">
+                <label for="pImg" class="form-label">Choose file</label>
+                <div class="image-uploads">
+                  <img src="assets/img/icons/upload.svg" alt="img">
+                  <h4 style="text-align: left;">Drag and drop a file to upload</h4>
+                  <div style="display:none; text-align: left;" class="alert alert-danger" id="pImgError"></div>
                 </div>
               </div>
-              <img id="productImagePreview" src="#" alt="Product Image Preview" style="display: none; max-width: 200px; max-height: 200px;">
             </div>
+            <img id="productImagePreview" src="#" alt="Product Image Preview" style="display: none; max-width: 200px; max-height: 200px;">
+          </div>
+
 
             <div class="col-lg-12 col-sm-6 col-12 mt-4">
               <div class="row">
