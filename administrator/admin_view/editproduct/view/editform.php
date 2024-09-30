@@ -211,16 +211,6 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
 
 
-            <!-- <div class="col-lg-12 col-sm-6 col-12 mb-4">
-<label>Vatable</label>
-<div class="status-toggle d-flex justify-content-between align-items-center">
-<input type="checkbox" id="vatableTogler" class="check" <?php if ($db_prod_vatable == "1") {
-                                                          echo "checked";
-                                                        } ?>>
-<label for="vatableTogler" class="checktoggle">checkbox</label>
-</div>
-</div> -->
-
 
 
             <div class="col-lg-12 col-sm-6 col-12 mb-4">
@@ -234,6 +224,11 @@ $currentDateTime = date('Y-m-d g:i:s A');
             </div>
 
 
+            <div class="d-flex justify-content-center" id="loadingSpinner" style="display:none;">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden"></span>
+              </div>
+            </div>
 
 
             <div class="col-lg-12">
@@ -245,34 +240,28 @@ $currentDateTime = date('Y-m-d g:i:s A');
       </div>
 </form>
 
-
-
 <script>
   document.getElementById("btnSubmit").addEventListener("click", function(event) {
     event.preventDefault(); // Prevent the default form submission
 
+    // Show loading spinner
+    document.getElementById("loadingSpinner").style.display = "flex"; // Use flex for centering
 
     // All validations passed, send an AJAX request
     var acc_id = $("#acc_id").val();
     var prod_code = $("#prod_code").val();
     var pname = $("#pname").val();
-    var unit = $("#unit").val();
     var pcat = $("#pcat").val();
     var pcritical = $("#pcritical").val();
     var pDescript = $("#pDescript").val();
-    var pVouch = $("#pVouch").val();
-
     var pCprice = $("#pCprice").val();
 
-    // var vatableTogler = $("#vatableTogler").prop("checked") ? 1 : 0;
     var discountableTogler = $("#discountableTogler").prop("checked") ? 1 : 0;
     var SellOnlineTogler = $("#SellOnlineTogler").prop("checked") ? 1 : 0;
-
 
     var mg = $("#mg").val();
     var ml = $("#ml").val();
     var g = $("#g").val();
-
     var unitType = $('#unitType').val();
 
     var formData = new FormData();
@@ -280,24 +269,17 @@ $currentDateTime = date('Y-m-d g:i:s A');
     formData.append("acc_id", acc_id);
     formData.append("prod_code", prod_code);
     formData.append("pname", pname);
-
     formData.append("pcat", pcat);
     formData.append("pcritical", pcritical);
     formData.append("pDescript", pDescript);
-    formData.append("pVouch", pVouch);
     formData.append("pCprice", pCprice);
-
-    // formData.append("vatableTogler", vatableTogler);
     formData.append("discountableTogler", discountableTogler);
     formData.append("SellOnlineTogler", SellOnlineTogler);
-
     formData.append("mg", mg);
     formData.append("ml", ml);
     formData.append("g", g);
-
     formData.append("unitType", unitType);
-
-    formData.append("pImg", $("#pImg")[0].files[0]); // Append the image file //btnSubmit
+    formData.append("pImg", $("#pImg")[0].files[0]); // Append the image file
 
     // Send the AJAX request only if the form is valid
     $.ajax({
@@ -307,25 +289,20 @@ $currentDateTime = date('Y-m-d g:i:s A');
       processData: false,
       contentType: false,
       success: function(response) {
-        // Handle the success response here
-        //   alertify.success("Form successfully submitted.");
         console.log(response);
-        console.log("success")
-        alertify.success("product successfully saved.");
-        //   window.location.href = "productlist.php";
-        // location.reload();
+        alertify.success("Product successfully saved.");
       },
       error: function(xhr, status, error) {
-        // Handle the error here
-        //  alertify.error("An error occurred: " + error);
-        //  console.log(response);
-        console.log("error")
-
+        console.log("Error:", error);
+      },
+      complete: function() {
+        // Hide loading spinner after the request completes
+        document.getElementById("loadingSpinner").style.display = "none";
       }
     });
-
   });
 </script>
+
 
 
 <script src='editproduct/controller/validation.js'></script>
