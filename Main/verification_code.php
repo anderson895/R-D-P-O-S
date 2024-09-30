@@ -14,6 +14,10 @@ if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']
     $digit1 = $_GET['digit1'];
     $digit2 = $_GET['digit2'];
     $digit3 = $_GET['digit3'];
+
+    $submit_button="";
+}else{
+    $submit_button="disabled";
 }
 
 // Get account ID from the URL safely
@@ -38,7 +42,7 @@ if ($product_row) {
     $masked_email = $hidden_username . '@' . $domain;
 
     $db_acc_otp = $product_row["Otp"];
-    $db_acc_status = $product_row["acc_status"];
+  
 }
 ?>
 
@@ -95,7 +99,7 @@ if ($product_row) {
                                 <p id="countDownText"></p>
                             </div>
 
-                            <button id="btnSendOtp" <?= $db_acc_status == 2 ? "disabled" : ""; ?> type="submit" name="btnSendOtp" class="btn btn-primary mb-3 mt-3">
+                            <button id="btnSendOtp" <?= $submit_button ?> type="submit" name="btnSendOtp" class="btn btn-primary mb-3 mt-3">
                                 Confirm
                             </button>
                         </form>
