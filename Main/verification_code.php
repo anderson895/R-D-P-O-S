@@ -237,7 +237,7 @@ $accid = $_GET['accid'];
 // Set the timezone to Asia/Manila
 date_default_timezone_set('Asia/Manila');
 
-if (!empty($_GET['digit0']) && !empty($_GET['digit1']) && !empty($_GET['digit2']) && !empty($_GET['digit3'])) {
+if (!empty($_GET['digit0'])) {
    
     // Combine the OTP digits into a single code
     $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'];
