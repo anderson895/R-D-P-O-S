@@ -54,8 +54,7 @@ $acc_id = preg_replace('/[^0-9]/', '', $_POST["acc_id"]);
 
 $expirationStatus = $_POST["expirationStatus"];
 
-// $vatableTogler = preg_replace('/[^0-9.,]/', '', $_POST["vatableTogler"]);
-// $discountableTogler = preg_replace('/[^0-9]/', '', $_POST["discountableTogler"]);
+
 $SellOnlineTogler = preg_replace('/[^0-9.,]/', '', $_POST["SellOnlineTogler"]);
 
 $mg =  $_POST["mg"];
@@ -89,13 +88,12 @@ if ($_FILES['pImg']['error'] === UPLOAD_ERR_OK) {
 
             if ($last_id) {
                 $code = str_pad(rand(1, 99999), 2, '0', STR_PAD_LEFT);
-                //$last_id = $last_id % 100;
                 $prod_code = sprintf("PROD%d", $code, $last_id);
 
 
                 $uniqueCode = $prod_code;
-                $barcodeText = $uniqueCode; // Change this to your desired barcode data
-                $folderPath = '../../../../upload_barcode'; // Change this to the desired folder path
+                $barcodeText = $uniqueCode; 
+                $folderPath = '../../../../upload_barcode'; 
                 $fileName = $barcodeText . ".png";
 
                 $filePath = generateBarcodeWithText($barcodeText, $folderPath, $fileName);
