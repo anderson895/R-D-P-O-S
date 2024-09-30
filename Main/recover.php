@@ -46,7 +46,11 @@ include("back_cunfirmForgot.php");
 <div class="form-login">
 <label>New password</label>
 <div class="form-addons">
-<input type="password" id="newpsw" name="newpsw" placeholder="Enter your new password">
+                                <div class="form-floating mb-3">
+                                    <input type="password" id="newpsw" name="newpsw" class="form-control" placeholder="Enter your new password">
+                                    <label for="newpsw">New password</label>
+                                    <span class="error text-danger d-block"><?=$newpswErr?></span>
+                                </div>
 <span class="error text-danger d-block"><?=$newpswErr?></span>
 </div>
 </div>
@@ -57,7 +61,11 @@ include("back_cunfirmForgot.php");
 <div class="form-login">
 <label>Confirm new password</label>
 <div class="form-addons">
-<input type="password" id="cunfirm_newpsw" name="cunfirm_newpsw" placeholder="Confirm new password">
+                                <div class="form-floating mb-3">
+                                    <input type="password" id="cunfirm_newpsw" name="cunfirm_newpsw" class="form-control" placeholder="Confirm new password">
+                                    <label for="cunfirm_newpsw">Confirm new password</label>
+                                    <span class="error text-danger d-block"><?=$cunfirm_newpswErr?></span>
+                                </div>
 <span class="error text-danger d-block"><?=$cunfirm_newpswErr?></span>
 
 </div>
