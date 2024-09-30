@@ -237,10 +237,10 @@ $accid = $_GET['accid'];
 // Set the timezone to Asia/Manila
 date_default_timezone_set('Asia/Manila');
 
-if (!empty($_GET['digit0'])) {
+if (!empty($_GET['otp'])) {
    
     // Combine the OTP digits into a single code
-    $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'];
+    $inputCode = $_GET['otp'];
 
     // Check if the input OTP matches the expected OTP
     if ($inputCode == $db_acc_otp) {
@@ -273,8 +273,7 @@ if (!empty($_GET['digit0'])) {
         echo '<script>alert("Invalid OTP.");</script>';
     }
 }else{
-    echo $inputCode = $_GET['digit0'] . $_GET['digit1'] . $_GET['digit2'] . $_GET['digit3'];
-    echo $db_acc_otp;
+    echo "incorrect OTP clicked";
    
 
 }
