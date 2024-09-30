@@ -240,6 +240,8 @@ $currentDateTime = date('Y-m-d g:i:s A');
 
 <script>
   $(document).ready(function() {
+    $("#loadingSpinner").css("display", "block");
+
     $("#btnSubmit").on("click", function(event) {
       event.preventDefault(); // Prevent the default form submission
 
