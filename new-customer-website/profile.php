@@ -223,7 +223,7 @@ if ($getAddress->num_rows > 0) {
                 </button>
                 <button class="btn btn-primary btnEditAddress">Edit Address</button>
                 <button class="btn btn-secondary" id="btnProfileImgModal">Edit Image</button>
-                <button class="btn btn-success">Change Password</button>
+                <button class="btn btn-success" id="btnEditPassword" >Change Password</button>
             </div>
         </div>
     </div>

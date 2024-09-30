@@ -469,6 +469,48 @@
 <!-- End of Profile Img Modal -->
 
 
+<!-- View Edit user Password Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="editPassModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Profile Images</h5>
+                <button type="button" id="closeEditProfileImgModal" class="btn-close btnCloseModal"
+                    data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="userPasswordFRM">
+                    <label for="profileAttachementImg">Current Password</label>
+                    <input type="text" name="currpass" id="currpass" placeholder="Enter Current Password">
+
+                    <label for="profileAttachementImg">New Password</label>
+                    <input type="text" name="newpass" id="currpass" placeholder="Enter New Password">
+
+                    <label for="profileAttachementImg">Confirm New Password</label>
+                    <input type="text" name="confpass" id="currpass" placeholder="Confirm New Password">
+                   
+
+                    <button type="reset" class="mt-3 btnCloseModal btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="mt-3 btn btn-primary">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+
+                    <div id="loader" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of user Password Modal -->
+
+
 
 
 

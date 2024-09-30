@@ -833,6 +833,15 @@ $("#btnPlaceOrder").click(function (e) {
 });
 
 
+
+$("#btnEditPassword").click(function (e) {
+  e.preventDefault();
+
+  $("#editPassModal").modal("show");
+  $("#modalUpdateChoices").modal("hide");
+});
+
+
 $('#profileImgFRM').on('submit', function(e) {
   e.preventDefault(); // Prevent the default form submission
 
