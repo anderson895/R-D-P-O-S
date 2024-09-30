@@ -49,41 +49,43 @@ $current_date = date('Y-m-d');
        include "include/header.php";
    
    ?>
-
 <div class="main-wrapper">
-<div class="account-content">
-<div class="login-wrapper">
-<div class="login-content">
+    <div class="account-content">
+        <div class="login-wrapper">
+            <div class="login-content">
+                <div class="container" style="background-color:white; border-radius:15px;">
+                    <div class="login-userset">
+                        <div class="login-logo">
+                            <!-- Logo can be added here if needed -->
+                        </div>
+                        <div class="login-userheading">
+                            <h3>Forgot Password?</h3>
+                            <h4>Please enter the email address associated with your account.</h4>
+                        </div>
 
-<div class="container" style="background-color:white; border-radius:15px;"> 
-<div class="login-userset ">
-<div class="login-logo">
+                        <!-- Email Field with Floating Label -->
+                        <div class="form-login">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="email" placeholder="Enter your email address" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
 
+                        <div class="text-center" id="loadingSpinner"></div>
+                        
+                        <div class="form-login">
+                            <a class="btn btn-login" id="btnForgotPass">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="login-img">
+                <img src="../upload_system/<?php echo $db_system_banner; ?>" alt="img">
+            </div>
+        </div>
+    </div>
 </div>
-<div class="login-userheading">
-<h3>Forgot password?</h3>
-<h4>Please enter the email address associated with your account.</h4>
-</div>
-<div class="form-login">
-<label>Email</label>
-<div class="form-addons">
-<input type="text" id="email" placeholder="Enter your email address">
-<img src="../administrator/admin_view/assets/img/icons/mail.svg" alt="img">
-</div>
-</div>
-<div class="text-center" id="loadingSpinner"></div>
-<div class="form-login">
-<a class="btn btn-login" id="btnForgotPass">Submit</a>
-</div>
-</div>
-</div>
-</div>
-<div class="login-img">
-<img src="../upload_system/<?php echo $db_system_banner  ?>" alt="img">
-</div>
-</div>
-</div>
-</div>
+
 
 
 
