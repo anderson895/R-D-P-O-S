@@ -28,13 +28,12 @@ if (isset($_SESSION['acc_id'])) {
             background-repeat: no-repeat;
             position: relative;
         }
-       
     </style>
 </head>
 
 <body>
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container vh-100">
+    <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-md-4">
             <div class="login-container shadow">
                 <form action="../functions/login.php" method="POST" class="form" id="loginForm">
