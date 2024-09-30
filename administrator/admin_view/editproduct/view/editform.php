@@ -297,7 +297,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
         },
         complete: function() {
           // Hide loading spinner after the request completes
-          $("spinner-border").css("display", "none");
+          $(".spinner-border").css("display", "none");
           $(".btn-submit").prop("disabled", false); // Re-enable the button
         }
       });
