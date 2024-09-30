@@ -257,22 +257,22 @@ if (!empty($_GET['otp'])) {
 
             // Update user status if OTP is correct
             // Use current time in Asia/Manila timezone for the expiration check
-            // $stmt = $connections->prepare("UPDATE account SET acc_status = 0, Otp = '0' WHERE acc_id = ?");
+            $stmt = $connections->prepare("UPDATE account SET acc_status = 0, Otp = '0' WHERE acc_id = ?");
 
-            // // Bind parameters and execute
-            // $stmt->bind_param("s", $accid);
-            // $stmt->execute();
+            // Bind parameters and execute
+            $stmt->bind_param("s", $accid);
+            $stmt->execute();
 
-            // // Check if the update was successful
-            // if ($stmt->affected_rows > 0) {
-            //     echo '<script>
-            //         alertify.alert("OTP Verified", "OTP verified successfully!", function() {
-            //             window.location.href = "../new-customer-website/index.php";
-            //         });
-            //     </script>';
-            // } else {
-            //     echo '<script>alert("Failed to update account status.");</script>';
-            // }
+            // Check if the update was successful
+            if ($stmt->affected_rows > 0) {
+                echo '<script>
+                    alertify.alert("OTP Verified", "OTP verified successfully!", function() {
+                        window.location.href = "../new-customer-website/index.php";
+                    });
+                </script>';
+            } else {
+                echo '<script>alert("Failed to update account status.");</script>';
+            }
 
             // Close the statement
             $stmt->close();
