@@ -1,12 +1,11 @@
 <?php
 
-if($_POST){
-
+if (!empty($_POST["supplier_code"]) && !empty($_POST["invoice_no"])) {
     $supplier_code = $_POST["supplier_code"];
     $invoice_no = $_POST["invoice_no"];
-
-}else{
-    header('location: stock_in.php');
+} else {
+    header('Location: stock_in.php');
+    exit(); // It's good practice to exit after a redirect
 }
 
 
