@@ -39,67 +39,59 @@ $current_date = date('Y-m-d');
 
        
 
-        <div class="main-wrapper" style="background-color:#F7F7F7; ">
+      <div class="main-wrapper" style="background-color:#F7F7F7; ">
+    <div class="account-content">
+        <div class="login-wrapper">
+            <div class="login-content">
+                <div class="container" style="background-color:white; border-radius:15px;">
+                    <div class="login-userset">
+                        <form method="POST">
+                            <div class="login-userheading">
+                                <h3>Sign In</h3>
+                            </div>
 
-            <div class="account-content">
-
-                <div class="login-wrapper">
-
-                    <div class="login-content">
-
-                        <div class="container" style="background-color:white; border-radius:15px;">
-
-                            <div class="login-userset">
-
-
-                                <form method="POST">
-                                    <div class="login-userheading">
-                                        <h3>Sign In</h3>
-                                    </div>
-                                    <div class="form-login">
-                                        <label>Username</label>
-                                        <div class="form-addons">
-                                            <input type="text" placeholder="Enter username" name="email_or_username">
-
-                                        </div>
-                                    </div>
-                                    <div class="form-login">
-                                        <label>Password</label>
-                                        <div class="pass-group">
-                                            <input type="password" class="pass-input" placeholder="Enter your password" name="password">
-
-                                        </div>
-                                    </div>
-                                    <div class="form-login">
-                                        <div class="alreadyuser">
-                                            <h4><a href="forgetpassword.php" class="hover-a">Forgot Password?</a></h4>
-                                        </div>
-                                    </div>
-                                    <div class="form-login">
-                                        <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
-                                    </div>
-                                </form>
-
-
-
-                                <div class="signinform text-center">
-                                    <h4>Don’t have an account? <a href="register.php" class="hover-a">Sign Up</a></h4>
+                            <!-- Username Field -->
+                            <div class="form-login">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
+                                    <label for="username">Username</label>
                                 </div>
                             </div>
 
+                            <!-- Password Field -->
+                            <div class="form-login">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
 
-                        </div>
-                    </div>
-                    <div class="login-img">
-                        <div class="container">
-                           
-                                    <img src="../upload_system/<?=$db_system_banner?>" alt="">
-                              
+                            <div class="form-login">
+                                <div class="alreadyuser">
+                                    <h4><a href="forgetpassword.php" class="hover-a">Forgot Password?</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="form-login">
+                                <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
+                            </div>
+                        </form>
+
+                        <div class="signinform text-center">
+                            <h4>Don’t have an account? <a href="register.php" class="hover-a">Sign Up</a></h4>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="login-img">
+                <div class="container">
+                    <img src="../upload_system/<?=$db_system_banner?>" alt="">
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+
 
 
 
