@@ -13,13 +13,13 @@ class global_class extends db_connect
         // Check if new password and confirm password match
         print_r($_POST);
 
-        
+
         if ($newpass !== $confpass) {
             return "New password and confirmation password do not match.";
         }
 
         // Query to get the current hashed password from the database
-        $sql = "SELECT password FROM account WHERE acc_id = ?";
+        $sql = "SELECT acc_password FROM account WHERE acc_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param('i', $acc_id);
         $stmt->execute();
