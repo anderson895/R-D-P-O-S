@@ -107,6 +107,7 @@ try {
                     <div style="background-color: maroon; text-align: center;">
                       <strong style="font-size: 200%; color: #fff;">' . $db_otp . '</strong>
                     </div>
+                    <br><br>
                     or just click here <a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($url) . '</a>
                     <p>Do not share this Passcode with anyone.<br><br>If you didn’t request this, you can ignore this email.</p>
                   </div>
