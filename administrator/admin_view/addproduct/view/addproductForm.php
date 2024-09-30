@@ -33,25 +33,22 @@
 
             <div class="col-lg-4 col-sm-6 col-12">
               <div class="form-group text-center">
-                <div class="form-floating">
-                  <select class="form-control" name="pcat" id="pcat" aria-label="Floating label select example">
-                    <option value="" disabled selected>Choose Category</option>
-                    <?php
-                    $view_query = mysqli_query($connections, "SELECT * from category where category_status='1' ");
+                <label for="pcat">Category</label>
+                <select class="form-control" name="pcat" id="pcat">
+                  <option>Choose Category</option>
+                  <?php
+                  $view_query = mysqli_query($connections, "SELECT * from category where category_status='1' ");
 
-                    while ($row = mysqli_fetch_assoc($view_query)) {
-                      $category_id = $row["category_id"];
-                      $category_name = $row["category_name"];
-                    ?>
-                      <option value='<?= $category_id ?>'><?= $category_name ?></option>
-                    <?php } ?>
-                  </select>
-                  <label for="pcat" class="form-label">Category</label>
-                </div>
+                  while ($row = mysqli_fetch_assoc($view_query)) {
+                    $category_id = $row["category_id"];
+                    $category_name = $row["category_name"];
+                  ?>
+                    <option value='<?= $category_id ?>'><?= $category_name ?></option>
+                  <?php } ?>
+                </select>
                 <div style="display:none;" class="alert alert-danger" id="categoryError"></div>
               </div>
             </div>
-
 
            
             <div class="col-lg-12">
