@@ -1,6 +1,6 @@
 <?php
 
-if($_POST["supplier_code"] && $_POST["invoice_no"]){
+if($_POST){
 
     $supplier_code = $_POST["supplier_code"];
     $invoice_no = $_POST["invoice_no"];
