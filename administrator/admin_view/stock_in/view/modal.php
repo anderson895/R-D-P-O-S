@@ -8,8 +8,10 @@
       </div>
       <div class="modal-body">
         <!-- Product selection dropdown and search -->
-        <label for="searchProduct">Search product details</label>
-        <input type="text" class="form-control mt-2" id="searchProduct" placeholder="Search...">
+        <div class="form-floating">
+          <input type="text" class="form-control mt-2" id="searchProduct" placeholder="Search...">
+          <label for="searchProduct">Search product details</label>
+        </div>
         <input hidden type="text" class="form-control mt-2" id="searchProductCode">
         <input hidden type="text" class="form-control mt-2" id="prod_expirationStatus">
         <!-- Suggestions container -->
@@ -24,7 +26,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 text-start">
-              <h6 id="productname" class="mt-4 "></h6>
+              <h6 id="productname" class="mt-4"></h6>
             </div>
             <div class="col-md-6 text-end">
               <img id="productImage" class="img-fluid mt-4" style="display:none; max-height: 150px; max-width: 150px;" alt="Product Image">
@@ -34,17 +36,23 @@
         <!-- Quantity and Supplier Price input fields -->
         <div class="d-flex flex-row">
           <div class="form-group me-3 mt-4">
-            <label for="qtyInput">Quantity <strong style="display:none;" id='unitLabel'>Unit</strong></label>
-            <input type="number" class="form-control txtInputQty" min="1" placeholder="0" id="qtyInput">
+            <div class="form-floating">
+              <input type="number" class="form-control txtInputQty" min="1" placeholder="0" id="qtyInput">
+              <label for="qtyInput">Quantity <strong style="display:none;" id='unitLabel'>Unit</strong></label>
+            </div>
           </div>
           <div class="form-group mt-4">
-            <label for="supplierPriceInput">Supplier Price</label>
-            <input type="number" class="form-control" placeholder="0.00" id="supplierPriceInput">
+            <div class="form-floating">
+              <input type="number" class="form-control" placeholder="0.00" id="supplierPriceInput">
+              <label for="supplierPriceInput">Supplier Price</label>
+            </div>
           </div>
         </div>
         <div class="form-group me-3 mt-2" id="expiDateDiv">
-          <label for="expiDate">Expiration Date</label>
-          <input type="date" class="form-control" id="expiDate">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="expiDate">
+            <label for="expiDate">Expiration Date</label>
+          </div>
         </div>
       </div>
       <!-- Modal footer with Save and Cancel buttons -->
@@ -55,6 +63,7 @@
     </div>
   </div>
 </div>
+
 
 
 
