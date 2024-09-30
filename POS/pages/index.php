@@ -37,8 +37,8 @@ if (isset($_SESSION['acc_id'])) {
                 
                 <!-- Email or Username Field with Floating Label -->
                 <div class="form-floating mb-3">
-                    <input required name="email" type="text" class="form-control" id="email" placeholder="Email or Username">
-                    <label for="email">Email or Username</label>
+                    <input required name="email" type="text" class="form-control" id="email" placeholder="Username">
+                    <label for="email">Username</label>
                 </div>
 
                 <!-- Password Field with Floating Label -->
