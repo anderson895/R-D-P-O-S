@@ -9,31 +9,33 @@ class global_class extends db_connect
         $this->connect();
     }
 
-    public function updatePass($currpass, $newpass, $confpass, $acc_id) {
+    public function updatePass($currpass, $newpass, $confpass,$acc_id) {
         // Check if new password and confirm password match
+        print_r($_POST);
+
+
         if ($newpass !== $confpass) {
             return "NotMatch.";
         }
-    
+
         // Query to get the current hashed password from the database
         $sql = "SELECT acc_password FROM account WHERE acc_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param('i', $acc_id);
         $stmt->execute();
         $result = $stmt->get_result();
-    
+
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $stored_pass = $row['acc_password'];
-    
+
             // Verify if the current password matches the one in the database
-            if (password_verify($currpass, $stored_pass)) {
+            if ($currpass === $stored_pass) {
                 // Current password is correct, so update to the new password
-                $hashed_new_pass = password_hash($newpass, PASSWORD_DEFAULT); // Hash the new password
                 $update_sql = "UPDATE account SET acc_password = ? WHERE acc_id = ?";
                 $update_stmt = $this->conn->prepare($update_sql);
-                $update_stmt->bind_param('si', $hashed_new_pass, $acc_id);
-    
+                $update_stmt->bind_param('si', $newpass, $acc_id);
+
                 if ($update_stmt->execute()) {
                     return "updatePassSuccess.";
                 } else {
@@ -47,11 +49,11 @@ class global_class extends db_connect
             // User not found in the database
             return "Account not found.";
         }
-    
-        // Close the statement
+
+        // Close the statement and connection
         $stmt->close();
+        $this->conn->close();
     }
-    
 
 
     public function updateEmpImage($emp_image, $userId)
