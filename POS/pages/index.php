@@ -32,25 +32,37 @@ if (isset($_SESSION['acc_id'])) {
         <div class="col-12 col-md-4 mt-5">
             <form action="../functions/login.php" method="POST" class="form form-control pb-5 px-5 mt-5 shadow" id="loginForm">
                 <div class="mt-5">
-                  
                     <h1 class="fw-bolder"><?=$db_system_name?></h1>
                 </div>
-                <input required name="email" type="text" class="form-control mb-2" placeholder="Email or Username">
-                <input required name="pass" type="password" class="form-control mb-2" placeholder="Password">
+                
+                <!-- Email or Username Field with Floating Label -->
+                <div class="form-floating mb-3">
+                    <input required name="email" type="text" class="form-control" id="email" placeholder="Email or Username">
+                    <label for="email">Email or Username</label>
+                </div>
+
+                <!-- Password Field with Floating Label -->
+                <div class="form-floating mb-3">
+                    <input required name="pass" type="password" class="form-control" id="password" placeholder="Password">
+                    <label for="password">Password</label>
+                </div>
+
                 <button type="submit" name="submit" class="login btn w-100" id="loginButton" onclick="login()">LOGIN</button>
+                
                 <div id="loading" class="d-none rounded loading">
                     <div class="spinner-border text-danger" role="status">
                         <span class="visually-hidden">Loading ...</span>
                     </div>
                 </div>
-                <div class="validation ">
+                
+                <div class="validation">
                     <?php if(isset($_GET["failed"]) && $_GET["failed"] === "true"){ ?>   
                     <div class="message-container error rounded mt-2 w-100">
                         Login failed!
                     </div>
                     <?php }?>
                 </div>
-                <div class="validation ">
+                <div class="validation">
                     <?php if(isset($_GET["field"]) && $_GET["field"] === "true"){ ?>   
                     <div class="message-container error rounded mt-2 w-100">
                         Please input your credential
@@ -62,6 +74,7 @@ if (isset($_SESSION['acc_id'])) {
         <div class="col-12 col-md-4"></div>
     </div>
 </div>
+
 
 <script src="../assets/js/login-loading.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
