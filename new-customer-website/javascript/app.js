@@ -153,7 +153,7 @@ $(document).ready(function () {
 
 
   displayMessage();
-
+  getOrdersCount();
   setInterval(() => {
     displayMessage();
   }, 1000)
