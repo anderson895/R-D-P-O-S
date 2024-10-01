@@ -31,7 +31,7 @@ $(document).ready(function () {
 
   const getOrdersCount = () => {
     $.ajax({
-      url: 'backend/endpoints/get_count_status.php', // PHP file where the data is coming from
+      url: 'backend/end-points/get_count_status.php', // PHP file where the data is coming from
       type: 'GET',
       dataType: 'json',
       success: function(response) {
@@ -154,6 +154,7 @@ $(document).ready(function () {
 
   displayMessage();
   getOrdersCount();
+
   setInterval(() => {
     displayMessage();
   }, 1000)
