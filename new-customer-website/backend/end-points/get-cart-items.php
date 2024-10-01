@@ -98,9 +98,7 @@ if ($getCartItemsPhotos->num_rows > 0){
                         <h4 class="fw-bold me-2"><?= $productName ?></h4>
                     </div>
                     
-                    <button class="btn btn-danger btn-sm d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>">
-                        <i class="bi bi-trash3-fill"></i>
-                    </button>
+                  
                 </div>
 
                 <div class="mb-3">
@@ -119,7 +117,9 @@ if ($getCartItemsPhotos->num_rows > 0){
                 </div>
                 <hr>
                 <p class="mb-2">Amount: <span class="text-success fw-bold">₱ <?= number_format($itemAmount, 2) ?></span></p>
-                
+                <button class="btn btn-danger btn-sm d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
             </div>
         </div>
     </div>
