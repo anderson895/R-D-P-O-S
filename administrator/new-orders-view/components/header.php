@@ -52,15 +52,16 @@ if (isset($_SESSION['acc_id'])) {
 <body>
     <div class="alert alert-success"></div>
     <div class="alert alert-danger"></div>
-    <nav class="d-flex justify-content-between align-items-center p-3 pt-0 pb-0 top-nav" style="background-color:rgb(131, 0, 0);">
-    <a href="../admin_view/index.php">
-        <img src="../../upload_system/<?=$system['system_logo']?>">
-        
-    </a>
-   
-    <span class="fs-3 fw-bold text-light"> <?=$system['system_name']?></span>
-    <!-- <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?> -->
-        
+
+
+<nav class="d-flex justify-content-between align-items-center p-3 pt-0 pb-0 top-nav" style="background-color:rgb(131, 0, 0);">
+    <div class="d-flex align-items-center">
+        <a href="../admin_view/index.php" class="me-3">
+            <img src="../../upload_system/<?=$system['system_logo']?>" alt="System Logo" style="height: 50px;"> <!-- Adjust height as needed -->
+        </a>
+        <span class="fs-3 fw-bold text-light"><?=$system['system_name']?></span>
+    </div>
+    
     <div>
         <!-- Profile Button with Dropdown -->
         <div class="dropdown">
@@ -75,6 +76,7 @@ if (isset($_SESSION['acc_id'])) {
         </div>
     </div>
 </nav>
+
 
 
 
