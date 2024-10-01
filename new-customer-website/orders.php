@@ -18,7 +18,9 @@ if (isset($_GET['page'])) {
 <div class="container mt-5">
     <ul class="nav nav-tabs remove-when-767px-sc-width">
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Pending') ? 'active' : '' ?>" href="orders.php?page=Pending"><i class="bi bi-hourglass-split"></i> Pending</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Pending') ? 'active' : '' ?>" href="orders.php?page=Pending">
+                <i class="bi bi-hourglass-split"></i> Pending <span id="pendingCount" class="badge bg-danger">0</span>
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Accepted') ? 'active' : '' ?>" href="orders.php?page=Accepted"><i class="bi bi-check2-all"></i> Accepted</a>
