@@ -13,7 +13,6 @@ if (isset($_GET['page'])) {
 
 
 
-print_r($_SESSION);
 ?>
 <div class="d-flex justify-content-between">
     <h2><i class="bi bi-newspaper"></i> My Orders <span style="font-size: 15px; color:crimson"><?= $page ?></span></h2>

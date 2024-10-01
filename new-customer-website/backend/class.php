@@ -10,11 +10,9 @@ class global_class extends db_connect
     }
 
 
-    public function getOrderStatusCounts()
+    public function getOrderStatusCounts($acc_id)
 {
 
-    session_start();
-    $acc_id=$_SESSION['acc_id'];
 
     $query = $this->conn->prepare("
        SELECT  
