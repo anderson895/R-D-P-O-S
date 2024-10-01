@@ -90,14 +90,14 @@ $(document).ready(function () {
         },
         beforeSend: function() {
             // Show the spinner before sending the request
-            $(".spinner-border").show();
+            // $(".spinner-border").show();
         },
         success: function(response) {
             $("#CodCollectedContainer").html(response);
         },
         complete: function() {
             // Hide the spinner after the request is complete
-            $(".spinner-border").hide();
+            // $(".spinner-border").hide();
         },
     });
 };
