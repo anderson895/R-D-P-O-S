@@ -50,6 +50,8 @@
                     
 
                         $rateName = $smes['prod_name'];
+                        
+                        $prod_code = $smes['prod_code'];
                     
                 }
             ?>
@@ -60,7 +62,7 @@
                         <tr>
                             <td><?= $count ?></td>
                             <td><a href="profile_customer.php?target_id=<?=$rater_id?>"><?= $rater_username ?></a></td>
-                            <td><a href="product-details.php?target_id=<?=$smesId?>"><?= $rateName ?></a></td>
+                            <td><a href="product-details.php?target_id=<?=$prod_code?>"><?= $rateName ?></a></td>
                             <td>
                                 <input class="rateValue" hidden type="text" value="<?= $rate['r_rate'] ?>" >
                                 <div class="d-flex justify-content-center" style="width:100%;">
