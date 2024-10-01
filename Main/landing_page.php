@@ -2,7 +2,7 @@
 include('../new-customer-website/backend/class.php');
 $db = new global_class();
 ?>
-
+<link rel="stylesheet" href="css/landing_page.css">
 
 <nav class="navbar navbar-expand-lg">
         <div class="container w-75 d-flex justify-content-center">
