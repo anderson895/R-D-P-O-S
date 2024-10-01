@@ -37,7 +37,7 @@ if (isset($_GET['page'])) {
         </li>
         <li class="nav-item">
             <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped">
-                <i class="bi bi-truck"></i> Ongoing Delivery <span id="ongoingCount" class="badge bg-danger">0</span>
+                <i class="bi bi-truck"></i> Ongoing Delivery <span id="shippedCount" class="badge bg-danger">0</span>
             </a>
         </li>
         <li class="nav-item">
