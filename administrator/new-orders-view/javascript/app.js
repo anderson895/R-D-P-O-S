@@ -237,16 +237,16 @@ $(document).on("click", "#BtnCollect", function (e) {
 
 $(document).click(function (e) {
 if (!$(e.target).closest(".btnProfileDropdown").length) {
-$('.dropDownItems').hide();
+$('#dropDownItems').hide();
 isProfileDDOpen = false;
 }
 });
 
-$("#btnProfileDropdown").click(function (e) {
+$(".btnProfileDropdown").click(function (e) {
 if (isProfileDDOpen) {
-$('.dropDownItems').hide();
+$('#dropDownItems').hide();
 } else {
-$('.dropDownItems').show();
+$('#dropDownItems').show();
 }
 
 isProfileDDOpen = !isProfileDDOpen;
