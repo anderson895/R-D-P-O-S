@@ -98,7 +98,7 @@ if ($getCartItemsPhotos->num_rows > 0){
                         <h4 class="fw-bold me-2"><?= $productName ?></h4>
                     </div>
                     
-                    <button class="btn btn-danger btn-sm d-flex align-items-center" data-id="<?= $cartItem['cart_id'] ?>">
+                    <button class="btn btn-danger btn-sm d-flex align-items-center btnDeleteCartItem" data-id="<?= $cartItem['cart_id'] ?>">
                         <i class="bi bi-trash3-fill"></i>
                     </button>
                 </div>
