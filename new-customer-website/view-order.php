@@ -292,7 +292,7 @@ if ($getAddress->num_rows > 0) {
                     <!-- Loading Spinner -->
                     <div id="loadingSpinner" class="text-center" style="display: none;">
                         <div class="spinner-border text-primary" role="status">
-                            <span class="sr-only">Loading...</span>
+                            <span class="sr-only"></span>
                         </div>
                     </div>
                     <!-- Form Content -->
