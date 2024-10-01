@@ -3,9 +3,16 @@ session_start();
 include('backend/class.php');
 $db = new global_class();
 if (isset($_SESSION['acc_id'])) {
+    $maintinance - $db->getSystemMaintinance();
+    $system = $maintinance->fetch_assoc();
+
+
     $checkUser = $db->checkUser($_SESSION['acc_id']);
     if ($checkUser->num_rows > 0) {
         $user = $checkUser->fetch_assoc();
+
+
+
         if ($user['acc_type'] != 'administrator') {
             header('Location: backend/logout.php');
             exit;
@@ -58,8 +65,8 @@ if (isset($_SESSION['acc_id'])) {
                 <?= ($user['emp_image'] != '') ? '<img src="../../upload_img/' . $user['emp_image'] . '" class="rounded-circle" style="width: 40px; height: 40px;">' : '<i class="bi bi-person-fill"></i>' ?>
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnProfile">
-                <li><a class="dropdown-item" onclick="window.location.href='../admin_view/generalsettings.php?account_id=<?=$_SESSION['acc_id']?>';"><i class="me-2" data-feather="settings"></i>Settings</a></li>
-                <li><a class="dropdown-item" onclick="window.location.href='../admin_view/privacysettings.php?account_id=<?=$_SESSION['acc_id']?>';"><i class="me-2" data-feather="lock"></i>Privacy</a></li>
+                <li><a class="dropdown-item" onclick="window.location.href='../admin_view/generalsettings.php?account_id=<?=$_SESSION['acc_id']?>';">Settings</a></li>
+                <li><a class="dropdown-item" onclick="window.location.href='../admin_view/privacysettings.php?account_id=<?=$_SESSION['acc_id']?>';">Privacy</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
         </div>
@@ -68,4 +75,3 @@ if (isset($_SESSION['acc_id'])) {
 
 
 
-<script src="../admin_view/assets/js/feather.min.js"></script>
