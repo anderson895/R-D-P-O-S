@@ -51,7 +51,7 @@ $system = $maintinance->fetch_assoc();
                 <i class="bi bi-list"></i>
             </button>
             <a class="logo-a" href="index.php">
-                    <img src=".../upload_system/<?=$system['system_logo']?>" alt="System Logo" style="height: 50px;"> <!-- Adjust height as needed -->
+                    <img src="../../upload_system/<?=$system['system_logo']?>" alt="System Logo" style="height: 50px;"> <!-- Adjust height as needed -->
                     <span class="fs-3 fw-bold text-light"><?=$system['system_name']?></span>
             </a>
         </div>
