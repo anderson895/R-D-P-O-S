@@ -33,16 +33,24 @@ if (isset($_GET['page'])) {
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped"><i class="bi bi-truck"></i> Ongoing Delivery</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped">
+                <i class="bi bi-truck"></i> Ongoing Delivery <span id="ongoingCount" class="badge bg-danger">0</span>
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Delivered') ? 'active' : '' ?>" href="orders.php?page=Delivered"><i class="bi bi-check-square"></i> Delivered</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Delivered') ? 'active' : '' ?>" href="orders.php?page=Delivered">
+                <i class="bi bi-check-square"></i> Delivered <span id="deliveredCount" class="badge bg-danger">0</span>
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Cancelled') ? 'active' : '' ?>" href="orders.php?page=Cancelled"><i class="bi bi-x-circle"></i> Cancelled</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Cancelled') ? 'active' : '' ?>" href="orders.php?page=Cancelled">
+                <i class="bi bi-x-circle"></i> Cancelled <span id="CancelledCount" class="badge bg-danger">0</span>
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected"><i class="bi bi-exclamation-circle"></i> Rejected</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected">
+                <i class="bi bi-exclamation-circle"></i> Rejected <span id="RejectedCount" class="badge bg-danger">0</span>
+            </a>
         </li>
     </ul>
 
