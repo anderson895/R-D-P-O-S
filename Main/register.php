@@ -147,6 +147,27 @@ include "view/Signup/signup.php";
 <script src="assets/javascript/email_validation.js"></script>
 
 <script>
+
+$(document).ready(function() {
+    // Show the modal when the Terms link is clicked
+    $('#termsLink').click(function(e) {
+        e.preventDefault();
+        $('#termsModal').modal('show');
+    });
+
+    // Enable the "Create Account" button based on checkbox status
+    $("#agreeTermsCheckbox").change(function() {
+        $("#submitButton").prop("disabled", !this.checked);
+    });
+
+    // Handle agree button in the modal
+    $('#agreeButtonModal').click(function() {
+        $("#agreeTermsCheckbox").prop("checked", true);
+        $("#submitButton").prop("disabled", false);
+        $('#termsModal').modal('hide');
+    });
+});
+
 $(document).ready(function() {
     const fnameInput = $('input[name="fname"]');
     const lnameInput = $('input[name="lname"]');

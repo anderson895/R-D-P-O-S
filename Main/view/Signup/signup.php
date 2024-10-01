@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
-    <link rel="stylesheet" href="view/Signup/assets/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="view/Signup/assets/js/bootstrap.bundle.min.js"></script>
-</head>
 
 <style>
 
@@ -206,27 +196,4 @@
 </div>
 
 
-<script>
-$(document).ready(function() {
-    // Show the modal when the Terms link is clicked
-    $('#termsLink').click(function(e) {
-        e.preventDefault();
-        $('#termsModal').modal('show');
-    });
-
-    // Enable the "Create Account" button based on checkbox status
-    $("#agreeTermsCheckbox").change(function() {
-        $("#submitButton").prop("disabled", !this.checked);
-    });
-
-    // Handle agree button in the modal
-    $('#agreeButtonModal').click(function() {
-        $("#agreeTermsCheckbox").prop("checked", true);
-        $("#submitButton").prop("disabled", false);
-        $('#termsModal').modal('hide');
-    });
-});
-</script>
-
 </body>
-</html>
