@@ -56,9 +56,9 @@ if (isset($_SESSION['acc_id'])) {
 
 <nav class="d-flex justify-content-between align-items-center p-3 pt-0 pb-0 top-nav" style="background-color:rgb(131, 0, 0);">
     <div class="d-flex align-items-center">
-        <a href="../admin_view/index.php" class="me-3">
+        <a href="../admin_view/index.php" class="me-3 text-decoration-none">
             <img src="../../upload_system/<?=$system['system_logo']?>" alt="System Logo" style="height: 50px;"> <!-- Adjust height as needed -->
-            <span class="fs-3 fw-bold text-light text-decoration-none"><?=$system['system_name']?></span>
+            <span class="fs-3 fw-bold text-light"><?=$system['system_name']?></span>
         </a>
         
     </div>
