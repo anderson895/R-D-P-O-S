@@ -3,7 +3,7 @@ session_start();
 include('backend/class.php');
 $db = new global_class();
 if (isset($_SESSION['acc_id'])) {
-    $maintinance - $db->getSystemMaintinance();
+    $maintinance = $db->getSystemMaintinance();
     $system = $maintinance->fetch_assoc();
 
 
