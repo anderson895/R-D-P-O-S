@@ -235,21 +235,27 @@ $(document).on("click", "#BtnCollect", function (e) {
 
 
 
-$(document).click(function (e) {
-if (!$(e.target).closest(".btnProfileDropdown").length) {
-$('#dropDownItems').hide();
-isProfileDDOpen = false;
-}
+
+let isProfileDDOpen = false; // Initialize the dropdown state
+
+$(document).on("click", function (e) {
+    // Check if the click was outside the dropdown and the button
+    if (!$(e.target).closest(".btnProfileDropdown, #dropDownItems").length) {
+        $('#dropDownItems').hide();
+        isProfileDDOpen = false; // Update the state
+    }
 });
 
 $(".btnProfileDropdown").click(function (e) {
-if (isProfileDDOpen) {
-$('#dropDownItems').hide();
-} else {
-$('#dropDownItems').show();
-}
+    e.stopPropagation(); // Prevent click event from bubbling up to the document
 
-isProfileDDOpen = !isProfileDDOpen;
+    if (isProfileDDOpen) {
+        $('#dropDownItems').hide();
+    } else {
+        $('#dropDownItems').show();
+    }
+
+    isProfileDDOpen = !isProfileDDOpen; // Toggle the state
 });
 
 
