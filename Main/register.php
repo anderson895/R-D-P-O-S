@@ -13,6 +13,10 @@ $current_date = date('Y-m-d');
 <link rel="stylesheet" href="view/Signup/assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="view/Signup/assets/css/style.css">
 
+<link rel="stylesheet" href="view/Signup/assets/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="view/Signup/assets/js/bootstrap.bundle.min.js"></script>
+
     <body>
  
         <!-- Begin Body Wrapper -->
