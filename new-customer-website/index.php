@@ -1,5 +1,10 @@
 <?php
 include('components/header.php');
+
+
+session_start();
+
+print_r($_SESSION);
 ?>
 <h2><i class="bi bi-shop"></i> All Products</h2>
 <div class="">
