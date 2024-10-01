@@ -55,9 +55,10 @@ if (isset($_SESSION['acc_id'])) {
     <nav class="d-flex justify-content-between align-items-center p-3 pt-0 pb-0 top-nav" style="background-color:rgb(131, 0, 0);">
     <a href="../admin_view/index.php">
         <img src="../../upload_system/<?=$system['system_logo']?>">
-        <?=$system['system_name']?>
+        
     </a>
-
+   
+    <span class="fs-3 fw-bold text-light"> <?=$system['system_name']?></span>
     <!-- <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?> -->
         
     <div>
