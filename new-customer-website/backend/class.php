@@ -185,7 +185,7 @@ class global_class extends db_connect
                                        FROM `product` AS p 
                                        LEFT JOIN pos_orders AS po ON p.prod_id = po.orders_prod_id 
                                        WHERE p.prod_sell_onlline = 1
-                                       AND p.prod_status = 1
+                                       AND p.prod_status = 0
                                        GROUP BY p.prod_id, p.prod_name
                                        HAVING total_quantity_sold > 0
                                        ORDER BY total_quantity_sold DESC 
