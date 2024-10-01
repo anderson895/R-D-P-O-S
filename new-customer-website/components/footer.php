@@ -270,9 +270,9 @@
                                     <label for="pofAgree" class="m-2 mt-0 mb-0">I Agree</label>
                                 </div>
                             </div>
-                            <h6 class="text-success">Please Upload Proof of Payment.</h6>
+                            <h6 class="text-success mt-2">Please Upload Proof of Payment.</h6>
                             <input type="file" name="pof" id="paymentTypeImgInput" accept="image/*"
-                                class="form-control mt-2">
+                                class="form-control ">
                             <img id="imagePreview" src="#" alt="Image Preview">
                         </div>
                     </div>
