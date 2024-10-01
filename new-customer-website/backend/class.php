@@ -23,7 +23,7 @@ class global_class extends db_connect
             COUNT(CASE WHEN `status` = 'Rejected' THEN 1 END) AS Rejected,
             COUNT(CASE WHEN `status` = 'Cancelled' THEN 1 END) AS Cancelled,
             COUNT(CASE WHEN `status` = 'Delivered' THEN 1 END) AS Delivered
-        FROM `new_tbl_orders` where acc_id=$acc_id ;
+        FROM `new_tbl_orders` where cust_id=$acc_id ;
 
     ");
 
