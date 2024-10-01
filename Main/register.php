@@ -45,11 +45,11 @@ $current_date = date('Y-m-d');
           
 
 
-<!-- 
+
 <?php
 include "view/Signup/signup.php";
 ?>
- -->
+
 
 
 
