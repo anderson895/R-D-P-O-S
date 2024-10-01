@@ -12,6 +12,10 @@ class global_class extends db_connect
 
     public function getOrderStatusCounts()
 {
+
+    session_start();
+    $acc_id=$_SESSION['acc_id'];
+
     $query = $this->conn->prepare("
        SELECT  
             COUNT(CASE WHEN `status` = 'Pending' THEN 1 END) AS Pending,
@@ -21,7 +25,7 @@ class global_class extends db_connect
             COUNT(CASE WHEN `status` = 'Rejected' THEN 1 END) AS Rejected,
             COUNT(CASE WHEN `status` = 'Cancelled' THEN 1 END) AS Cancelled,
             COUNT(CASE WHEN `status` = 'Delivered' THEN 1 END) AS Delivered
-        FROM `new_tbl_orders` ;
+        FROM `new_tbl_orders` where acc_id=$acc_id ;
 
     ");
 
