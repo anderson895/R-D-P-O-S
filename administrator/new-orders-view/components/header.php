@@ -56,7 +56,7 @@ if (isset($_SESSION['acc_id'])) {
     <a href="../admin_view/index.php">
         <img src="../../upload_system/<?=$system['system_logo']?>">
     </a>
-    <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?>
+    <!-- <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?> -->
         
     <div>
         <!-- Profile Button with Dropdown -->
