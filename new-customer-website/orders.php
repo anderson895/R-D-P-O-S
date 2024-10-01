@@ -23,10 +23,14 @@ if (isset($_GET['page'])) {
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Accepted') ? 'active' : '' ?>" href="orders.php?page=Accepted"><i class="bi bi-check2-all"></i> Accepted</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Accepted') ? 'active' : '' ?>" href="orders.php?page=Accepted">
+                <i class="bi bi-check2-all"></i> Accepted <span id="acceptedCount" class="badge bg-danger">0</span>
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Ready For Delivery') ? 'active' : '' ?>" href="orders.php?page=Ready For Delivery"><i class="bi bi-box-fill"></i> Ready For Delivery</a>
+            <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Ready For Delivery') ? 'active' : '' ?>" href="orders.php?page=Ready For Delivery">
+                <i class="bi bi-box-fill"></i> Ready For Delivery <span id="readyDeliveryCount" class="badge bg-danger">0</span>
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped"><i class="bi bi-truck"></i> Ongoing Delivery</a>
