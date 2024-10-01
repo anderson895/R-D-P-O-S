@@ -54,5 +54,6 @@ if (isset($_SESSION['acc_id'])) {
             <button id="btnProfile" class="btn-profile">
                 <?= ($user['emp_image'] != '') ? '<img src="../../upload_img/' . $user['emp_image'] . '">' :  '<i class="bi bi-person-fill"></i>' ?>
             </button>
+            <a href="backend/logout.php" class="btn btn-primary">Logout</a>
         </div>
     </nav>
