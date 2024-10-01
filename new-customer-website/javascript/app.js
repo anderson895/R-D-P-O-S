@@ -33,7 +33,7 @@ $(document).ready(function () {
     $.ajax({
       url: 'backend/end-points/get_count_status.php', // PHP file where the data is coming from
       type: 'GET',
-      dataType: 'json',
+      // dataType: 'json',
       success: function(response) {
           // The response will be in JSON format
         console.log(response); // You can inspect the response in your browser console
