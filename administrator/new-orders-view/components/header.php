@@ -46,17 +46,26 @@ if (isset($_SESSION['acc_id'])) {
     <div class="alert alert-success"></div>
     <div class="alert alert-danger"></div>
     <nav class="d-flex justify-content-between align-items-center p-3 pt-0 pb-0 top-nav" style="background-color:rgb(131, 0, 0);">
-        <a href="orders.php">
-            <img src="../../upload_system/logo.png">
-        </a>
-        <div>
-            <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?>
-            <button id="btnProfile" class="btn-profile">
-                <?= ($user['emp_image'] != '') ? '<img src="../../upload_img/' . $user['emp_image'] . '">' :  '<i class="bi bi-person-fill"></i>' ?>
+    <a href="orders.php">
+        <img src="../../upload_system/logo.png">
+    </a>
+    <div>
+        <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?>
+        
+        <!-- Profile Button with Dropdown -->
+        <div class="dropdown">
+            <button id="btnProfile" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <?= ($user['emp_image'] != '') ? '<img src="../../upload_img/' . $user['emp_image'] . '" class="rounded-circle" style="width: 40px; height: 40px;">' :  '<i class="bi bi-person-fill"></i>' ?>
             </button>
-            
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnProfile">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
 
 
