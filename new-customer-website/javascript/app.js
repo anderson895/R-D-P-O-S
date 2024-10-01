@@ -1247,14 +1247,14 @@ $("#tsFrmRate").submit(function (e) {
     },
     success: function (response) {
       // Hide the loading spinner and show the form content
-      // $('#loadingSpinner').hide();
-      // $('#formContent').show();
+      $('#loadingSpinner').hide();
+      $('#formContent').show();
 
       if (response == "200") {
         alertify.success('Thanks for rating!');
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 1000);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       } else {
         alertify.error('Failed to rate');
       }
