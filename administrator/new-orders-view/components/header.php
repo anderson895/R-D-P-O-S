@@ -59,8 +59,8 @@ if (isset($_SESSION['acc_id'])) {
                 <?= ($user['emp_image'] != '') ? '<img src="../../upload_img/' . $user['emp_image'] . '" class="rounded-circle" style="width: 40px; height: 40px;">' :  '<i class="bi bi-person-fill"></i>' ?>
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnProfile">
-                <li><a class="dropdown-item" onclick="window.location.href='../generalsettings.php?account_id=<?=$_SESSION['acc_id']?>';"><i class="me-2" data-feather="settings"></i>Settings</a></li>
-                <li><a class="dropdown-item" onclick="window.location.href='../privacysettings.php?account_id=<?=$_SESSION['acc_id']?>';"><i class="me-2" data-feather="lock"></i>Privacy</a></li>
+                <li><a class="dropdown-item" onclick="window.location.href='../admin_view/generalsettings.php?account_id=<?=$_SESSION['acc_id']?>';"><i class="me-2" data-feather="settings"></i>Settings</a></li>
+                <li><a class="dropdown-item" onclick="window.location.href='../admin_view/privacysettings.php?account_id=<?=$_SESSION['acc_id']?>';"><i class="me-2" data-feather="lock"></i>Privacy</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
         </div>
