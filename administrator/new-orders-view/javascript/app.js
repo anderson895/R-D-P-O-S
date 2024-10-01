@@ -235,6 +235,25 @@ $(document).on("click", "#BtnCollect", function (e) {
 
 
 
+$(document).click(function (e) {
+if (!$(e.target).closest(".btnProfileDropdown").length) {
+$('.dropDownItems').hide();
+isProfileDDOpen = false;
+}
+});
+
+$("#btnProfileDropdown").click(function (e) {
+if (isProfileDDOpen) {
+$('.dropDownItems').hide();
+} else {
+$('.dropDownItems').show();
+}
+
+isProfileDDOpen = !isProfileDDOpen;
+});
+
+
+
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
     var formData = $(this).serialize();
