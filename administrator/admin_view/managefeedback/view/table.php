@@ -30,7 +30,8 @@
                 $rater = 'Anonymous';
                 if ($getUser->num_rows > 0) {
                     $user = $getUser->fetch_assoc();
-                    $rater = $user['acc_username'];
+                    $rater_username = $user['acc_username'];
+                    $rater_id = $user['acc_id'];
                 }
 
                             
@@ -46,7 +47,8 @@
 
                 if ($getSmes->num_rows > 0) {
                     $smes = $getSmes->fetch_assoc();
-                  
+                    
+
                         $rateName = $smes['prod_name'];
                     
                 }
@@ -57,8 +59,8 @@
                     <tbody class="table-body">
                         <tr>
                             <td><?= $count ?></td>
-                            <td><?= $rater ?></td>
-                            <td><?= $rateName ?></td>
+                            <td><a href="profile_customer.php?target_id=<?=$rater_id?>"><?= $rater_username ?></a></td>
+                            <td><a href="product-details.php?target_id=<?=$smesId?>"><?= $rateName ?></a></td>
                             <td>
                                 <input class="rateValue" hidden type="text" value="<?= $rate['r_rate'] ?>" >
                                 <div class="d-flex justify-content-center" style="width:100%;">
