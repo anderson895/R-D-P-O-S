@@ -10,6 +10,15 @@ class global_class extends db_connect
     }
 
 
+    public function getSystemMaintinance()
+    {
+        $query = $this->conn->prepare("SELECT * FROM `maintinance`");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
     public function getOrderStatusCounts($acc_id)
 {
 

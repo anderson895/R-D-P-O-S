@@ -14,6 +14,9 @@ if (isset($_SESSION['acc_id'])) {
     header('Location: ../Main/login.php');
     exit;
 }
+
+$maintinance = $db->getSystemMaintinance();
+$system = $maintinance->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +51,8 @@ if (isset($_SESSION['acc_id'])) {
                 <i class="bi bi-list"></i>
             </button>
             <a class="logo-a" href="index.php">
-                <img src="../assets/logos.png">
+                    <img src=".../upload_system/<?=$system['system_logo']?>" alt="System Logo" style="height: 50px;"> <!-- Adjust height as needed -->
+                    <span class="fs-3 fw-bold text-light"><?=$system['system_name']?></span>
             </a>
         </div>
         <div class="">
