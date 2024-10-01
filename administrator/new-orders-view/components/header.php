@@ -53,7 +53,7 @@ if (isset($_SESSION['acc_id'])) {
     <div class="alert alert-success"></div>
     <div class="alert alert-danger"></div>
     <nav class="d-flex justify-content-between align-items-center p-3 pt-0 pb-0 top-nav" style="background-color:rgb(131, 0, 0);">
-    <a href="orders.php">
+    <a href="../admin_view/index.php">
         <img src="../../upload_system/<?=$system['system_logo']?>">
     </a>
     <?= ($user['acc_type'] == 'administrator') ? '<a href="../admin_view/index.php" class="text-light" style="text-decoration: none; margin-right: 20px">Dashboard</a>' : '' ?>
