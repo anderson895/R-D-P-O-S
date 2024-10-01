@@ -260,7 +260,7 @@
                         <h5 id="paymentNumberContainer" class="m-3" style="color: crimson;"></h5>
                         <img src="" id="paymentImgContainer">
                         <div class="upload-payment-container">
-                            <h6 class="text-success">Please Upload Proof of Payment.</h6>
+
                             <div class="container card p-2">
                                 <span id="popTerms" class="text-danger" style="font-size: 12px">Please ensure that the
                                     proof of payment you submit is accurate and valid. Incorrect or falsified proof of
@@ -270,6 +270,7 @@
                                     <label for="pofAgree" class="m-2 mt-0 mb-0">I Agree</label>
                                 </div>
                             </div>
+                            <h6 class="text-success">Please Upload Proof of Payment.</h6>
                             <input type="file" name="pof" id="paymentTypeImgInput" accept="image/*"
                                 class="form-control mt-2">
                             <img id="imagePreview" src="#" alt="Image Preview">
