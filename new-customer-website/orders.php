@@ -32,7 +32,7 @@ if (isset($_GET['page'])) {
         </li>
         <li class="nav-item">
             <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Ready For Delivery') ? 'active' : '' ?>" href="orders.php?page=Ready For Delivery">
-                <i class="bi bi-box-fill"></i> Ready For Delivery <span id="readyDeliveryCount" class="badge bg-danger">0</span>
+                <i class="bi bi-box-fill"></i> Ready For Delivery <span id="readyForDeliveryCount" class="badge bg-danger">0</span>
             </a>
         </li>
         <li class="nav-item">
