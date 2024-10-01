@@ -68,3 +68,4 @@ if (isset($_SESSION['acc_id'])) {
 
 
 
+<script src="../admin_view/assets/js/feather.min.js"></script>
