@@ -1230,9 +1230,10 @@ $("#tsFrmRate").submit(function (e) {
   var star = $("#tsfrmStar").val();
   var review = $("#tsFrmModalReview").val();
   var tsReviewName = $(".tsReviewName").text();
-  
-  // Show loading message
-  alertify.message('Processing...', 0); // 0 means indefinite
+
+  // Show the loading spinner and hide the form content
+  $('#loadingSpinner').show();
+  $('#formContent').hide();
 
   $.ajax({
     type: "POST",
@@ -1245,8 +1246,10 @@ $("#tsFrmRate").submit(function (e) {
       tsReviewName: tsReviewName,
     },
     success: function (response) {
-      alertify.dismissAll(); // Dismiss the loading message
-      console.log(response);
+      // Hide the loading spinner and show the form content
+      $('#loadingSpinner').hide();
+      $('#formContent').show();
+
       if (response == "200") {
         alertify.success('Thanks for rating!');
         setTimeout(() => {
@@ -1257,11 +1260,14 @@ $("#tsFrmRate").submit(function (e) {
       }
     },
     error: function () {
-      alertify.dismissAll(); // Dismiss the loading message on error
+      // Hide the loading spinner and show the form content on error
+      $('#loadingSpinner').hide();
+      $('#formContent').show();
       alertify.error('An error occurred. Please try again.');
     }
   });
 });
+
 
 
 

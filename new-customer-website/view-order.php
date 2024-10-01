@@ -289,18 +289,27 @@ if ($getAddress->num_rows > 0) {
             </div>
             <form id="tsFrmRate">
                 <div class="modal-body">
-                    <input hidden type="text" name="id" id="ts-frm-Id">
-                    <input hidden type="text" name="star" id="tsfrmStar" value="0">
-                    <center id="tsStarsContainer">
-                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="1"><i class="bi bi-star"></i></button>
-                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="2"><i class="bi bi-star"></i></button>
-                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="3"><i class="bi bi-star"></i></button>
-                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="4"><i class="bi bi-star"></i></button>
-                        <button type="button" class="btn text-warning btnTsFrmStar" data-id="5"><i class="bi bi-star"></i></button>
-                    </center>
-                    <div class="input-container">
-                        <label>Feedback</label>
-                        <textarea id="tsFrmModalReview" class="form-control"></textarea>
+                    <!-- Loading Spinner -->
+                    <div id="loadingSpinner" class="text-center" style="display: none;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <!-- Form Content -->
+                    <div id="formContent">
+                        <input hidden type="text" name="id" id="ts-frm-Id">
+                        <input hidden type="text" name="star" id="tsfrmStar" value="0">
+                        <center id="tsStarsContainer">
+                            <button type="button" class="btn text-warning btnTsFrmStar" data-id="1"><i class="bi bi-star"></i></button>
+                            <button type="button" class="btn text-warning btnTsFrmStar" data-id="2"><i class="bi bi-star"></i></button>
+                            <button type="button" class="btn text-warning btnTsFrmStar" data-id="3"><i class="bi bi-star"></i></button>
+                            <button type="button" class="btn text-warning btnTsFrmStar" data-id="4"><i class="bi bi-star"></i></button>
+                            <button type="button" class="btn text-warning btnTsFrmStar" data-id="5"><i class="bi bi-star"></i></button>
+                        </center>
+                        <div class="input-container">
+                            <label>Feedback</label>
+                            <textarea id="tsFrmModalReview" class="form-control"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -311,6 +320,7 @@ if ($getAddress->num_rows > 0) {
         </div>
     </div>
 </div>
+
 
 
 
