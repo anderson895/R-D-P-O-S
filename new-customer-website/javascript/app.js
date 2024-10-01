@@ -1247,8 +1247,8 @@ $("#tsFrmRate").submit(function (e) {
     },
     success: function (response) {
       // Hide the loading spinner and show the form content
-      $('#loadingSpinner').hide();
-      $('#formContent').show();
+      // $('#loadingSpinner').hide();
+      // $('#formContent').show();
 
       if (response == "200") {
         alertify.success('Thanks for rating!');
