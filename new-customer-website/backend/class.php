@@ -9,6 +9,32 @@ class global_class extends db_connect
         $this->connect();
     }
 
+
+    public function getOrderStatusCounts()
+{
+    $query = $this->conn->prepare("
+       SELECT  
+            COUNT(CASE WHEN `status` = 'Pending' THEN 1 END) AS Pending,
+            COUNT(CASE WHEN `status` = 'Accepted' THEN 1 END) AS Accepted,
+            COUNT(CASE WHEN `status` = 'Ready For Delivery' THEN 1 END) AS ReadyForDelivery,
+            COUNT(CASE WHEN `status` = 'Shipped' THEN 1 END) AS Shipped,
+            COUNT(CASE WHEN `status` = 'Rejected' THEN 1 END) AS Rejected,
+            COUNT(CASE WHEN `status` = 'Cancelled' THEN 1 END) AS Cancelled,
+            COUNT(CASE WHEN `status` = 'Delivered' THEN 1 END) AS Delivered
+        FROM `new_tbl_orders` ;
+
+    ");
+
+    if ($query->execute()) {
+        $result = $query->get_result()->fetch_assoc();
+        // Return the result as JSON
+        echo json_encode($result);
+        return;
+    }
+}
+
+
+
     public function updatePass($currpass, $newpass, $confpass,$acc_id) {
 
         if ($newpass !== $confpass) {
