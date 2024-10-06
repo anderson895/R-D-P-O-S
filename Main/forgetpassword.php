@@ -30,7 +30,7 @@ $current_date = date('Y-m-d');
 <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
 <meta name="author" content="Dreamguys - Bootstrap Admin Template">
 <meta name="robots" content="noindex, nofollow">
-<title><?php echo htmlspecialchars($db_system_name); ?> || forgotpassword</title>
+<title><?php echo htmlspecialchars($db_system_name); ?></title>
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
 
