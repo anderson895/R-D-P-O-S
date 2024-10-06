@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">
-                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
                         <span class="btn-text">Yes</span>
                     </button>
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">No</button>
