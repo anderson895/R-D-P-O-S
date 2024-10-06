@@ -108,8 +108,15 @@ $(document).ready(function () {
     $("#changeOrderStatusModal").modal("show");
   });
 
+
+  
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
+    
+    // Show the spinner and disable the submit button
+    var submitButton = $(this).find('button[type="submit"]');
+    submitButton.find('.spinner-border').removeClass('d-none');
+    submitButton.attr('disabled', true);
     
     var formData = new FormData($(this)[0]);
     
@@ -120,6 +127,10 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
+        // Hide the spinner and enable the submit button
+        submitButton.find('.spinner-border').addClass('d-none');
+        submitButton.attr('disabled', false);
+        
         closeModal();
         if (response == "200") {
           showAlert(".alert-success", "Order Status Changed!");
@@ -132,8 +143,15 @@ $(document).ready(function () {
           window.location.reload();
         }
       },
+      error: function () {
+        // Handle error
+        submitButton.find('.spinner-border').addClass('d-none');
+        submitButton.attr('disabled', false);
+        showAlert(".alert-danger", "An error occurred!");
+      }
     });
-  });
+});
+
 
   setInterval(() => {
     getOrdersCount();
