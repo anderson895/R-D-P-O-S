@@ -36,11 +36,13 @@ WHERE
     AND (
         product.prod_name LIKE '%" . $searchTerm . "%' 
         OR product.prod_code LIKE '%" . $searchTerm . "%'
-        OR product.barcode LIKE '%" . $searchTerm . "%'  -- Added barcode search
+        OR product.barcode LIKE '%" . $searchTerm . "%'
     )
 ORDER BY 
-    product.prod_added DESC;
+    total_stock_amount DESC,  -- Sort by total stock amount in descending order
+    product.prod_added DESC;  -- For ties, sort by the product added date
 ";
+
 
     $result = $conn->query($sql);
 
@@ -60,7 +62,7 @@ ORDER BY
             }
 
             echo '<div class="d-flex " >
-                        <p style="font-size: 20px; border-right: 3px solid gray; background-color: #E9ECEF"  class="m-0 ps-2 rounded fw-bold pe-2 me-1">₱ ' . $row['prod_currprice'] . 'sssss</p>
+                        <p style="font-size: 20px; border-right: 3px solid gray; background-color: #E9ECEF"  class="m-0 ps-2 rounded fw-bold pe-2 me-1">₱ ' . $row['prod_currprice'] . '</p>
                         ';
 
             if ($row['total_stock_amount'] == '0') {
