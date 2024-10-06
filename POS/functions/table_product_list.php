@@ -60,7 +60,7 @@ ORDER BY
             }
 
             echo '<div class="d-flex " >
-                        <p style="font-size: 20px; border-right: 3px solid gray; background-color: #E9ECEF"  class="m-0 ps-2 rounded fw-bold pe-2 me-1">₱ ' . $row['prod_currprice'] . '</p>
+                        <p style="font-size: 20px; border-right: 3px solid gray; background-color: #E9ECEF"  class="m-0 ps-2 rounded fw-bold pe-2 me-1">₱ ' . $row['prod_currprice'] . 'sssss</p>
                         ';
 
             if ($row['total_stock_amount'] == '0') {
