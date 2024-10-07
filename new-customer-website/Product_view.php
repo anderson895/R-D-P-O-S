@@ -9,7 +9,7 @@ echo "<input hidden type='text' name='product_id' id='product_id' value='$id'>";
 $productName=$_GET['productName'];
 
 $stock = $_GET['stock'];
-$stock_status = ($stock <= 0) ? 
+$stock_status = ($stock =="Out of Stock") ? 
     "<p class='stock text-danger'>Out of Stock</p>" : 
     "<p class='stock text-success'>Available Stock: " . $stock . "</p>";
 
