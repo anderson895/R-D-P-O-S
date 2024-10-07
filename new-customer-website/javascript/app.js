@@ -239,8 +239,15 @@ $(document).on("click", ".btnViewProduct", function (e) {
   // Construct available stock message
   const availableStock = $this.data("stock");
   const displayStock = availableStock > 0
-    ? `${availableStock}${$this.data("unittype")} available`
-    : "Out of Stock";
+  ? `${availableStock} ${unitType} available`
+  : "Out of Stock";
+
+// Update the stock display in the HTML
+if (availableStock > 0) {
+  $this.text(displayStock);
+} else {
+  $this.text("Out of Stock").css("color", "red"); // Optional: Change the text color for out of stock
+}
 
   // Update stock class
   $("#viewProductStocks").toggleClass("text-danger", displayStock === "Out of Stock")
