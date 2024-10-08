@@ -150,7 +150,7 @@ function displaySearchResults(results) {
             
 
             if (!supplier_code || !invoice_no || !stockin_date || !quantity || !supplierPrice || !searchProductCode || !expirationDate) {
-                alertify.error(invoice_no);
+                alertify.error(stockin_date);
                 return;
             }
 
