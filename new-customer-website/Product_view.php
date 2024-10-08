@@ -11,7 +11,7 @@ $productName=$_GET['productName'];
 $stock = $_GET['stock'];
 $stock_status = ($stock =="Out of Stock") ? 
     "<p class='stock text-danger'>Out of Stock</p>" : 
-    "<p class='stock text-success'>Available Stock: " . $stock . "</p>";
+    "<p class='stock text-success'>Available Stock : " . $stock . "</p>";
 
 
 
