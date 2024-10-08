@@ -12,8 +12,8 @@
           <input type="text" class="form-control mt-2" id="searchProduct" placeholder="Search...">
           <label for="searchProduct">Search product details</label>
         </div>
-        <input  type="text" class="form-control mt-2" id="searchProductCode">
-        <input  type="text" class="form-control mt-2" id="prod_expirationStatus">
+        <input hidden type="text" class="form-control mt-2" id="searchProductCode">
+        <input hidden type="text" class="form-control mt-2" id="prod_expirationStatus">
         <!-- Suggestions container -->
         <div class="container-fluid">
           <div class="row">
