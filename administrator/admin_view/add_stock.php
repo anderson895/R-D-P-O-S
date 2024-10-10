@@ -34,9 +34,9 @@ include "php/session_dir.php";
 </head>
 
 <body>
-    <!-- <div id="global-loader">
+    <div id="global-loader">
 <div class="whirly-loader"> </div>
-</div> -->
+</div>
 
     <div class="main-wrapper">
 
