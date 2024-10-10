@@ -195,7 +195,7 @@ function displaySearchResults(results) {
                 // Handle the response from the server after saving the data
                 console.log(response.status);
 
-                $('#stockin_date').val("")
+            
                 $('#qtyInput').val("");
                 $('#supplierPriceInput').val("");
                 $('#expiDate').val("");
