@@ -31,7 +31,7 @@ LEFT JOIN (
 ) AS stock_total
 ON 
     product.prod_id = stock_total.s_prod_id
-WHERE 
+WHERE (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE()) AND
     product.prod_status = 0
     AND (
         product.prod_name LIKE '%" . $searchTerm . "%' 
