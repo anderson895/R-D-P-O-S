@@ -421,10 +421,7 @@ $(document).ready(function() {
                             $("#submitButton").hide();
                         },
                         success: function(response) {
-                            alertify.success("Otp successfully sent to " + emailInput.val());
-                            setTimeout(function() {
-                                window.location.href = "verification_code.php?accid=" + last_id;
-                            }, 1000);
+                           
                         },
                         error: function(xhr, status, error) {
                             $("#loadingSpinner").hide();
@@ -433,6 +430,11 @@ $(document).ready(function() {
                         },
                         complete: function() {
                             $("#loadingSpinner").hide();
+
+                            alertify.success("Otp successfully sent to " + emailInput.val());
+                            setTimeout(function() {
+                                window.location.href = "verification_code.php?accid=" + last_id;
+                            }, 1000);
                         }
                     });
                 } else {

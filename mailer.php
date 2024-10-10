@@ -1,5 +1,4 @@
 <?php
-print_r($_POST);
 require 'connection.php';
 require 'vendor/autoload.php';
 
@@ -61,7 +60,7 @@ try {
     // Sender and recipient details
     $mail->setFrom('ardeleonpoultrysupplies@gmail.com', 'Ardeleon Poultry Supply');
     $mail->addAddress($db_acc_email, $fullname);
-    $mail->addReplyTo('info@example.com', 'Information');
+    $mail->addReplyTo('ardeleonpoultrysupplies@gmail.com', 'Information');
 
     // Email content
     $mail->isHTML(true);
