@@ -18,7 +18,7 @@ $current_date = date("Y-m-d");
 // ";
 
 $query = "
-    SELECT p.*, 
+    SELECT *,p.*, 
         SUM(IF(s.s_expiration = '0000-00-00' OR s.s_expiration > '$current_date', s.s_amount, 0)) AS prod_stocks
     FROM product AS p
     LEFT JOIN stocks AS s ON p.prod_id = s.s_prod_id
