@@ -237,10 +237,10 @@ public function getOrderStatusCounts()
                         $productId = $item['product_id'];
                         $qty = $item['qty'];
 
-                        // $inventorySql = $this->conn->prepare("SELECT * FROM `stocks` WHERE `s_prod_id` = '$productId' AND `s_amount` > 0 ORDER BY `s_expiration` ASC, `s_amount` DESC");
-                        $inventorySql = $this->conn->prepare("SELECT * FROM `stocks` WHERE `s_prod_id` = '$productId' AND `s_amount` > 0
-                         AND (DATE(stocks.s_expiration) >= CURDATE() OR stocks.s_expiration = '0000-00-00') AND `s_status` = '1' 
-                         ORDER BY `s_expiration` ASC, `s_amount` DESC");
+                        $inventorySql = $this->conn->prepare("SELECT * FROM `stocks` WHERE `s_prod_id` = '$productId' AND `s_amount` > 0 ORDER BY `s_expiration` ASC, `s_amount` DESC");
+                        // $inventorySql = $this->conn->prepare("SELECT * FROM `stocks` WHERE `s_prod_id` = '$productId' AND `s_amount` > 0
+                        //  AND (DATE(stocks.s_expiration) >= CURDATE() OR stocks.s_expiration = '0000-00-00') AND `s_status` = '1' 
+                        //  ORDER BY `s_expiration` ASC, `s_amount` DESC");
 
 
 
