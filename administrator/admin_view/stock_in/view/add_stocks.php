@@ -26,9 +26,9 @@ while ($row = mysqli_fetch_assoc($view_query)) {
     $db_spl_address = $row["spl_address"];
 }
 ?>
-<input  type="text" value="<?= $supplier_code ?>" id="supplier_code">
-<input  type="text" value="<?= $invoice_no ?>" id="invoice_no">
-<input  type="text" value="<?= $stockin_date ?>" id="stockin_date">
+<input hidden type="text" value="<?= $supplier_code ?>" id="supplier_code">
+<input hidden type="text" value="<?= $invoice_no ?>" id="invoice_no">
+<input hidden type="text" value="<?= $stockin_date ?>" id="stockin_date">
 
 
 
