@@ -90,7 +90,7 @@ $currentURL = $_SERVER['REQUEST_URI'];
                             <li><a href="deliveryPlace.php" <?php if (strpos($currentURL, 'deliveryPlace.php') !== false) echo 'class="active"'; ?>>Shipping Fee</a></li>
                           
                             <li><a href="categorylist.php" <?php if (strpos($currentURL, 'categorylist.php') !== false) echo 'class="active"'; ?>>Category</a></li>
-                          -  <li><a href="manageunit.php" <?php if (strpos($currentURL, 'manageunit.php') !== false) echo 'class="active"'; ?>>Unit</a></li> -
+                           <li><a href="manageunit.php" <?php if (strpos($currentURL, 'manageunit.php') !== false) echo 'class="active"'; ?>>Unit</a></li> 
                             <li><a href="managesystem_settings.php" <?php if (strpos($currentURL, 'managesystem_settings.php') !== false) echo 'class="active"'; ?>>System</a></li>
                             
                             
