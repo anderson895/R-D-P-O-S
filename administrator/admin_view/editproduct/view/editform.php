@@ -139,7 +139,7 @@ $currentDateTime = date('Y-m-d g:i:s A');
                   <option value="kg" <?= ($db_unit_type == 'kg') ? 'selected' : '' ?>>Kg</option>
                   <option value="pcs" <?= ($db_unit_type == 'pcs') ? 'selected' : '' ?>>Pcs</option> -->
                   <?php
-                    $view_query = mysqli_query($connections, "SELECT * from unit where unit_status='2' ");
+                    $view_query = mysqli_query($connections, "SELECT * from unit where unit_status='1' ");
 
                     while ($row = mysqli_fetch_assoc($view_query)) {
                       $unit_id = $row["unit_id"];

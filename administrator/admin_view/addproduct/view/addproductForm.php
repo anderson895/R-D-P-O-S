@@ -101,7 +101,7 @@
                   <!-- <option value="kg">Kg</option>
                   <option value="pcs">Pcs</option> -->
                   <?php
-                    $view_query = mysqli_query($connections, "SELECT * from unit where unit_status='2' ");
+                    $view_query = mysqli_query($connections, "SELECT * from unit where unit_status='1' ");
 
                     while ($row = mysqli_fetch_assoc($view_query)) {
                       $unit_id = $row["unit_id"];
