@@ -255,7 +255,7 @@ $(document).on("click", "#BtnCollect", function (e) {
           showAlert(".alert-danger", response);
         } else {
           // showAlert(".alert-danger", "Something went wrong!");
-          function showAlert(selector, message) {
+          function showErrorAlert(selector, message) {
             Swal.fire({
               icon: 'error', // Maaari itong 'success', 'warning', 'info', o 'question' depende sa iyong pangangailangan
               title: 'Error',
@@ -269,7 +269,7 @@ $(document).on("click", "#BtnCollect", function (e) {
           }
           
           // Tawagin ang showAlert function na may mensahe
-          showAlert(".alert-danger", response);
+          showErrorAlert(".alert-danger", response);
           
           
         }
