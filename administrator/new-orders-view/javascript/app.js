@@ -269,7 +269,7 @@ $(document).on("click", "#BtnCollect", function (e) {
           }
           
           // Tawagin ang showAlert function na may mensahe
-          showAlert(".alert-danger", "May nangyaring error!");
+          showAlert(".alert-danger", response);
           
           
         }
