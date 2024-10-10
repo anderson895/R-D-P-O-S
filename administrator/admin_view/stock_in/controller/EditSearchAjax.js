@@ -146,7 +146,7 @@ function displaySearchResults(results) {
 
         var db_s_id = $('#db_s_id').val();
         var invoice_no = $('#invoice_no').val();
-       
+        var stockin_date = $('#stockin_date').val();
         var quantity = $('#updateqtyInput').val();
         var supplierPrice = $('#updatesupplierPriceInput').val();
         var expirationDate = $('#updateexpiDate').val();
