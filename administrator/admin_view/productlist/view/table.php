@@ -65,7 +65,7 @@ if ($result_active_inactive) {
             $.ajax({
                 url: 'productlist/controller/fetch_data.php',
                 type: 'GET',
-                dataType: 'json',
+                // dataType: 'json',
                 success: function (data) {
                     // Clear existing table rows
                     $('tbody').empty();
