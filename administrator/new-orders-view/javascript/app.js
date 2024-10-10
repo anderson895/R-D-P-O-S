@@ -253,8 +253,23 @@ $(document).on("click", "#BtnCollect", function (e) {
         } else if (response == "Please select rider!") {
           showAlert(".alert-danger", response);
         } else {
-          showAlert(".alert-danger", "Something went wrong!");
-          window.location.reload();
+          // showAlert(".alert-danger", "Something went wrong!");
+          // window.location.reload();
+          function showErrorAlert(selector, message) {
+            Swal.fire({
+              icon: 'error', // Maaari itong 'success', 'warning', 'info', o 'question' depende sa iyong pangangailangan
+              title: 'Error',
+              text: message,
+              confirmButtonText: 'OK'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload(); // Magre-reload ng page kapag na-click ang 'OK'
+              }
+            });
+          }
+          
+          // Tawagin ang showAlert function na may mensahe
+          showErrorAlert(".alert-danger", response);
         }
       },
     });
