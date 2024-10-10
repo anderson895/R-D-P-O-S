@@ -62,7 +62,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
             <div class="col-md-6">
                 <h1 class="h4"><?=$productName?></h1>
-                <p class="price">₱<?=$price?></p>
+                <p class="price">PHP <?=$price?></p>
                 <?=$stock_status?>
 
                 <div class="d-flex align-items-center">
