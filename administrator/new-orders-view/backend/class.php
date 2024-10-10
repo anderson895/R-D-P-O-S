@@ -278,11 +278,15 @@ public function getOrderStatusCounts()
                 // }
 
                 // Deduct from the inventory
-$getItems = $this->conn->prepare("SELECT * FROM `new_tbl_order_items` WHERE `order_id` = '$orderId'");
+$getItems = $this->conn->prepare("SELECT * FROM `new_tbl_order_items`
+LEFT JOIN product
+ON product.prod_id  = new_tbl_order_items.product_id
+WHERE `order_id` = '$orderId'");
 if ($getItems->execute()) {
     $items = $getItems->get_result();
     while ($item = $items->fetch_assoc()) {
         $productId = $item['product_id'];
+        $prod_code = $item['prod_code'];
         $qty = $item['qty'];
 
         // First, calculate total available stock for this product
@@ -300,7 +304,7 @@ if ($getItems->execute()) {
 
             // Check if there's enough stock for the requested quantity
             if ($totalAvailableStock < $qty) {
-                return 'Not enough stock for product ID: ' . $productId;
+                return 'Not enough stock for product code: ' . $prod_code;
             }
 
             // Proceed with stock deduction if enough stock is available
