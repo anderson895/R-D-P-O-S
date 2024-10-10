@@ -134,8 +134,20 @@ $currentDateTime = date('Y-m-d g:i:s A');
                 <label>Unit Type</label>
                 <select class="form-control" name="unitType" id="unitType">
                   <option>Choose Unit type</option>
+
+<!-- 
                   <option value="kg" <?= ($db_unit_type == 'kg') ? 'selected' : '' ?>>Kg</option>
-                  <option value="pcs" <?= ($db_unit_type == 'pcs') ? 'selected' : '' ?>>Pcs</option>
+                  <option value="pcs" <?= ($db_unit_type == 'pcs') ? 'selected' : '' ?>>Pcs</option> -->
+                  <?php
+                    $view_query = mysqli_query($connections, "SELECT * from unit where unit_status='2' ");
+
+                    while ($row = mysqli_fetch_assoc($view_query)) {
+                      $unit_id = $row["unit_id"];
+                      $unit_name = $row["unit_name"];
+                    ?>
+                      <option <?= ($db_unit_type == $unit_name) ? 'selected' : '' ?> value='<?= $unit_name ?>'><?= $unit_name ?></option>
+                    <?php } ?>
+
                 </select>
                 <div style="display:none;" class="alert alert-danger" id="unitTypeError"></div>
               </div>
