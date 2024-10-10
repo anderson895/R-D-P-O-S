@@ -38,6 +38,7 @@ WHERE
         OR product.prod_code LIKE '%" . $searchTerm . "%'
         OR product.barcode LIKE '%" . $searchTerm . "%'
     )
+    AND (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE())
 ORDER BY 
     total_stock_amount DESC,  -- Sort by total stock amount in descending order
     product.prod_added DESC;  -- For ties, sort by the product added date
