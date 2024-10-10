@@ -254,7 +254,8 @@ $(document).on("click", "#BtnCollect", function (e) {
         } else if (response == "Please select rider!") {
           showAlert(".alert-danger", response);
         } else {
-          showAlert(".alert-danger", "Something went wrong!");
+          // showAlert(".alert-danger", "Something went wrong!");
+          showAlert(".alert-danger", response);
           window.location.reload();
         }
       },
