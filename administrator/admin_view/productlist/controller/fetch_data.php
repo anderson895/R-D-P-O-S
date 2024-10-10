@@ -7,16 +7,18 @@ include("../.../../../../../connection.php");
 $current_date = date("Y-m-d");
 
 $query = "
-    SELECT *,
-        SUM(IF(s_expiration = '0000-00-00' OR s_expiration > '$current_date', s.s_amount, 0)) AS prod_stocks
+    SELECT p.*, 
+        SUM(IF(s.s_expiration = '0000-00-00' OR s.s_expiration > '$current_date', s.s_amount, 0)) AS prod_stocks
     FROM product AS p
     LEFT JOIN stocks AS s ON p.prod_id = s.s_prod_id
     LEFT JOIN category AS c ON p.prod_category_id = c.category_id
-    WHERE prod_status = '0' OR prod_status = '1'
-    AND `s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE()) AND `s_status` = '1'
+    WHERE (p.prod_status = '0' OR p.prod_status = '1')
+    AND (s.s_expiration = '0000-00-00' OR s.s_expiration > CURDATE())
+    AND s.s_status = '1'
     GROUP BY p.prod_id
-    ORDER BY `prod_added` DESC
+    ORDER BY p.prod_added DESC
 ";
+
 
 $result = mysqli_query($connections, $query);
 
