@@ -5,43 +5,84 @@ include('../functions/session.php');
 if (isset($_POST['searchTerm'])) {
     $searchTerm = $_POST['searchTerm'];
 
-    $sql = "SELECT 
-    product.prod_id, 
-    product.prod_code, 
-    product.prod_added, 
-    product.prod_name, 
-    product.barcode,
-    product.prod_currprice, 
-    product.prod_image, 
-    product.prod_description, 
-    product.prod_category_id, 
-    product.prod_unit_id,
-    product.unit_type,
-    COALESCE(stock_total.total_stock_amount, 0) AS total_stock_amount
-FROM 
-    product
-LEFT JOIN (
+//     $sql = "SELECT 
+//     product.prod_id, 
+//     product.prod_code, 
+//     product.prod_added, 
+//     product.prod_name, 
+//     product.barcode,
+//     product.prod_currprice, 
+//     product.prod_image, 
+//     product.prod_description, 
+//     product.prod_category_id, 
+//     product.prod_unit_id,
+//     product.unit_type,
+//     COALESCE(stock_total.total_stock_amount, 0) AS total_stock_amount
+// FROM 
+//     product
+// LEFT JOIN (
+//     SELECT 
+//         s_prod_id, 
+//         SUM(s_amount) AS total_stock_amount
+//     FROM 
+//         stocks
+//     GROUP BY 
+//         s_prod_id
+// ) AS stock_total
+// ON 
+//     product.prod_id = stock_total.s_prod_id
+// WHERE 
+//     product.prod_status = 0
+//     AND (
+//         product.prod_name LIKE '%" . $searchTerm . "%' 
+//         OR product.prod_code LIKE '%" . $searchTerm . "%'
+//         OR product.barcode LIKE '%" . $searchTerm . "%'
+//     )
+// ORDER BY 
+//     total_stock_amount DESC,  -- Sort by total stock amount in descending order
+//     product.prod_added DESC;  -- For ties, sort by the product added date
+// ";
+
+$sql = "
     SELECT 
-        s_prod_id, 
-        SUM(s_amount) AS total_stock_amount
+        product.prod_id, 
+        product.prod_code, 
+        product.prod_added, 
+        product.prod_name, 
+        product.barcode,
+        product.prod_currprice, 
+        product.prod_image, 
+        product.prod_description, 
+        product.prod_category_id, 
+        product.prod_unit_id,
+        product.unit_type,
+        COALESCE(stock_total.total_stock_amount, 0) AS total_stock_amount
     FROM 
-        stocks
-    GROUP BY 
-        s_prod_id
-) AS stock_total
-ON 
-    product.prod_id = stock_total.s_prod_id
-WHERE (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE()) AND
-    product.prod_status = 0
-    AND (
-        product.prod_name LIKE '%" . $searchTerm . "%' 
-        OR product.prod_code LIKE '%" . $searchTerm . "%'
-        OR product.barcode LIKE '%" . $searchTerm . "%'
-    )
-ORDER BY 
-    total_stock_amount DESC,  -- Sort by total stock amount in descending order
-    product.prod_added DESC;  -- For ties, sort by the product added date
+        product
+    LEFT JOIN (
+        SELECT 
+            s_prod_id, 
+            SUM(s_amount) AS total_stock_amount
+        FROM 
+            stocks
+        WHERE (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE())  -- Filter expiration in the subquery
+        GROUP BY 
+            s_prod_id
+    ) AS stock_total
+    ON 
+        product.prod_id = stock_total.s_prod_id
+    WHERE 
+        product.prod_status = 0  -- Product status filter
+        AND (
+            product.prod_name LIKE '%" . $searchTerm . "%' 
+            OR product.prod_code LIKE '%" . $searchTerm . "%'
+            OR product.barcode LIKE '%" . $searchTerm . "%'
+        )
+    ORDER BY 
+        total_stock_amount DESC,  -- Sort by total stock amount in descending order
+        product.prod_added DESC;  -- For ties, sort by product added date
 ";
+
 
 
     $result = $conn->query($sql);
