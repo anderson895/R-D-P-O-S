@@ -56,7 +56,7 @@ $sql = "
         product.prod_category_id, 
         product.prod_unit_id,
         product.unit_type,
-        COALESCE(stock_total.total_stock_amount, 0) AS total_stock_amount
+       stock_total.total_stock_amount AS total_stock_amount
     FROM 
         product
     LEFT JOIN (
