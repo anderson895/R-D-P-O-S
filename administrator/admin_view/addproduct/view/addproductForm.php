@@ -98,8 +98,17 @@
                 <label>Unit Type</label>
                 <select class="form-control" name="unitType" id="unitType">
                   <option>Choose Unit type</option>
-                  <option value="kg">Kg</option>
-                  <option value="pcs">Pcs</option>
+                  <!-- <option value="kg">Kg</option>
+                  <option value="pcs">Pcs</option> -->
+                  <?php
+                    $view_query = mysqli_query($connections, "SELECT * from unit where unit_status='2' ");
+
+                    while ($row = mysqli_fetch_assoc($view_query)) {
+                      $unit_id = $row["unit_id"];
+                      $unit_name = $row["unit_name"];
+                    ?>
+                      <option value='<?= $unit_name ?>'><?= $unit_name ?></option>
+                    <?php } ?>
                 </select>
                 <div style="display:none;" class="alert alert-danger" id="unitTypeError"></div>
               </div>
