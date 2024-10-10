@@ -51,7 +51,7 @@ if (isset($_POST['prod_id'], $_POST['amount'], $_POST['acc_id'])) {
                           WHERE a.prod_status = '0'
                                 AND a.prod_id = '$prod_id'
                                 AND s_amount > 0 
-                                AND (DATE(b.s_expiration) >= CURDATE() OR b.s_expiration = '0000-00-00')
+                                AND (DATE(b.s_expiration) >= CURDATE() OR b.s_expiration = '0000-00-00') AND `s_status` = '1' 
                           ORDER BY b.s_expiration ASC;
                         ");
 
