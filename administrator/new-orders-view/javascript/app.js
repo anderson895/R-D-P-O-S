@@ -243,6 +243,8 @@ $(document).on("click", "#BtnCollect", function (e) {
       url: "backend/endpoints/post.php",
       data: formData,
       success: function (response) {
+
+        console.log(response);
         closeModal();
         if (response == "200") {
           showAlert(".alert-success", "Order Status Changed!");
