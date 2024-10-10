@@ -65,7 +65,7 @@ $sql = "
             SUM(s_amount) AS total_stock_amount
         FROM 
             stocks
-        WHERE (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE())  -- Filter expiration in the subquery
+        WHERE (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE()) AND `s_status` = '1'  -- Filter expiration in the subquery
         GROUP BY 
             s_prod_id
     ) AS stock_total
