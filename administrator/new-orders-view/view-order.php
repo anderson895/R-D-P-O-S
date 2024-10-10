@@ -54,6 +54,12 @@ if($getAddress->num_rows > 0) {
     $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
 }
 ?>
+<!-- SweetAlert2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <div class="container pt-4">
     <div class="container d-flex justify-content-between">
         <a href="orders.php?page=<?= $order['status'] ?>" class="btn" style="font-size: 20px;"><i class="bi bi-arrow-return-left"></i> Back</a>

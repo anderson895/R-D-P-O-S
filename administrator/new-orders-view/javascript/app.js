@@ -255,8 +255,23 @@ $(document).on("click", "#BtnCollect", function (e) {
           showAlert(".alert-danger", response);
         } else {
           // showAlert(".alert-danger", "Something went wrong!");
-          showAlert(".alert-danger", response);
-          window.location.reload();
+          function showAlert(selector, message) {
+            Swal.fire({
+              icon: 'error', // Maaari itong 'success', 'warning', 'info', o 'question' depende sa iyong pangangailangan
+              title: 'Error',
+              text: message,
+              confirmButtonText: 'OK'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload(); // Magre-reload ng page kapag na-click ang 'OK'
+              }
+            });
+          }
+          
+          // Tawagin ang showAlert function na may mensahe
+          showAlert(".alert-danger", "May nangyaring error!");
+          
+          
         }
       },
     });
