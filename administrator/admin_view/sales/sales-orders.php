@@ -58,10 +58,10 @@
                                     <td><?= $sales['order_id'] ?></td>
                                     <td><?= $sales['cust_fname'] . ' ' . $sales['cust_lname'] ?></td>
                                     <td><?= ($sales['payment_id'] == 'COD') ? 'COD' : $sales['payment'] ?></td>
-                                    <td><?= $sales['subtotal'] ?></td>
-                                    <td><?= $sales['vat'] ?></td>
-                                    <td><?= $sales['sf'] ?></td>
-                                    <td><?= $sales['total'] ?></td>
+                                    <td>₱<?= number_format($sales['subtotal'],2) ?></td>
+                                    <td>₱<?= number_format($sales['vat'],2) ?></td>
+                                    <td>₱<?= number_format($sales['sf'],2) ?></td>
+                                    <td>₱<?= number_format($sales['total'],2) ?></td>
                                     <td><?= (new DateTime($sales['order_date']))->format('F j, Y h:i A') ?></td>
                                     <td><?= (new DateTime($sales['delivered_date']))->format('F j, Y h:i A') ?></td>
                                     <td><?= $sales['db_fname'] . ' ' . $sales['db_lname'] ?></td>
