@@ -525,21 +525,54 @@ $(document).on("click", ".btnViewProduct", function (e) {
     }
   });
 
-  $(document).on("change", ".cartSelect", function (e) {
-    e.preventDefault();
-    var totalAmount = 0;
+  // $(document).on("change", ".cartSelect", function (e) {
+  //   e.preventDefault();
+  //   var totalAmount = 0;
 
-    $(".cartSelect:checked").each(function () {
-      var amount = $(this).data("amount");
+  //   $(".cartSelect:checked").each(function () {
+  //     var amount = $(this).data("amount");
 
-      if (!isNaN(amount)) {
-        totalAmount += amount;
-      }
+  //     if (!isNaN(amount)) {
+  //       totalAmount += amount;
+  //     }
+  //   });
+
+  //   $("#totalSelectedItems").text(totalAmount.toFixed(2));
+
+  // });
+
+    // Handle "Check All" checkbox change
+    $(document).on("change", "#checkAll", function () {
+        // Set the checked state of all individual checkboxes to match "Check All"
+        $('.cartSelect').prop('checked', $(this).prop('checked'));
+        calculateTotal();
     });
 
-    $("#totalSelectedItems").text(totalAmount.toFixed(2));
+    // Handle individual cart item checkbox changes
+    $(document).on("change", ".cartSelect", function () {
+        // Check if all individual checkboxes are checked
+        let allChecked = $('.cartSelect:checked').length === $('.cartSelect').length;
+        // Update the "Check All" checkbox based on the individual checkbox status
+        $('#checkAll').prop('checked', allChecked);
+        calculateTotal();
+    });
 
-  });
+    // Function to calculate the total amount of selected items
+    function calculateTotal() {
+        let totalAmount = 0;
+
+        // Iterate through each checked checkbox and sum their data-amount
+        $(".cartSelect:checked").each(function () {
+            let amount = parseFloat($(this).data("amount"));
+            if (!isNaN(amount)) {
+                totalAmount += amount;
+            }
+        });
+
+        // Update the total amount display
+        $("#totalSelectedItems").text(totalAmount.toFixed(2));
+    }
+
 
   // Check Out
   var items = [];
@@ -1271,28 +1304,6 @@ $("#tsFrmRate").submit(function (e) {
 
 
 
-$(document).on("change", "#checkAll", function () {
-  // Set the checked state of all individual checkboxes to match "Check All"
-  $('.cartSelect').prop('checked', $(this).prop('checked'));
 });
-
-// Handle individual cart item checkbox changes
-$(document).on("change", ".cartSelect", function () {
-  // Check if all individual checkboxes are checked
-  let allChecked = $('.cartSelect:checked').length === $('.cartSelect').length;
-  // Update the "Check All" checkbox based on the individual checkbox status
-  $('#checkAll').prop('checked', allChecked);
-});
-
-
-});
-
-
-
-
-
-
-
-
 
 
