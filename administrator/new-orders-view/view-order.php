@@ -81,7 +81,7 @@ if($getAddress->num_rows > 0) {
         <table class="table">
             <thead>
                 <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                        
                          <button class="btn btn-secondary" onclick="window.open('waybill.php?orderId=<?=$orderId?>', '_blank')">
                             <i class="bi bi-printer ms-2"></i> Print bill
