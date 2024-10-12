@@ -192,10 +192,11 @@ if($getAddress->num_rows > 0) {
                                         Proof of Delivery
                                     </i>
                                 </h5>
+                           
+                                <div class="pof-container container">
+                                    <img src="backend/proof-of-del/<?= $order['proof_of_del'] ?>" style="max-width: 300px;">
+                                </div>
                             </center>
-                            <div class="pof-container container">
-                                <img src="backend/proof-of-del/<?= $order['proof_of_del'] ?>" style="max-width: 300px;">
-                            </div>
                         </td>
                     </tr>
                 <?php
@@ -225,10 +226,11 @@ if($getAddress->num_rows > 0) {
                                         Proof of Payment
                                     </i>
                                 </h5>
+                           
+                                <div class="pof-container container">
+                                    <img src="../new-customer-website/backend/proof-of-payment/<?= $order['pof'] ?>" style="max-width: 300px;">
+                                </div>
                             </center>
-                            <div class="pof-container container">
-                                <img src="../new-customer-website/backend/proof-of-payment/<?= $order['pof'] ?>" style="max-width: 300px;">
-                            </div>
                         </td>
                     </tr>
                 <?php
