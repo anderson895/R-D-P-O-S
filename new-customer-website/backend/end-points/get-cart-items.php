@@ -59,8 +59,8 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
 <!-- start check all -->
     <div class="container mt-3 mb-3">
         <div class="form-check mb-3">
-            <input type="checkbox" class="form-check-input" id="checkAll" style="width: 30px; height: 30px;">
-            <label class="form-check-label" for="checkAll">Check All</label>
+            <input type="checkbox" class="form-check-input" id="checkAll" style="width: 20px; height: 20px;">
+            <label class="form-check-label" for="checkAll"> Check All</label>
         </div>
     </div>
 <!-- end check all -->
