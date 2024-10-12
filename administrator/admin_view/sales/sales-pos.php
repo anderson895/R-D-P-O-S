@@ -54,12 +54,12 @@
                             ?>
                                 <tr>
                                     <td><?= $sales['orders_tcode'] ?></td>
-                                    <td><?= $sales['subtotal'] ?></td>
-                                    <td><?= $sales['orders_tax'] ?></td>
-                                    <td><?= $sales['orders_discount'] ?></td>
-                                    <td><?= $sales['orders_final'] ?></td>
-                                    <td><?= $sales['orders_payment'] ?></td>
-                                    <td><?= $sales['orders_change'] ?></td>
+                                    <td>₱<?= number_format( $sales['subtotal'],2) ?></td>
+                                    <td>₱<?= number_format( $sales['orders_tax'],2) ?></td>
+                                    <td>₱<?= number_format( $sales['orders_discount'],2) ?></td>
+                                    <td>₱<?= number_format(  $sales['orders_final'],2) ?></td>
+                                    <td>₱<?= number_format( $sales['orders_payment'],2) ?></td>
+                                    <td>₱<?= number_format($sales['orders_change'],2) ?></td>
                                     <td><?= (new DateTime($sales['orders_date']))->format('F j, Y h:i A') ?></td>
                                 </tr>
                             <?php
