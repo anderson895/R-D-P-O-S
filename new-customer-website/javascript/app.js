@@ -1271,26 +1271,16 @@ $("#tsFrmRate").submit(function (e) {
 
 
 
-$('#checkAll').on('change', function() {
+$('#checkAll').change(function() {
+  // Set the checked state of all individual checkboxes to match the "Check All" checkbox
   $('.cartSelect').prop('checked', $(this).prop('checked'));
-  updateTotalAmount();
 });
 
-// Update total amount when individual checkboxes are toggled
-$('.cartSelect').on('change', function() {
-  updateTotalAmount();
-  // If all checkboxes are checked, set the "Check All" checkbox to checked, otherwise unchecked
+// Update "Check All" state when any individual checkbox is changed
+$('.cartSelect').change(function() {
+  // If all individual checkboxes are checked, check "Check All", otherwise uncheck it
   $('#checkAll').prop('checked', $('.cartSelect:checked').length === $('.cartSelect').length);
 });
-
-// Function to calculate and update the total amount of selected items
-function updateTotalAmount() {
-  let total = 0;
-  $('.cartSelect:checked').each(function() {
-      total += parseFloat($(this).data('amount'));
-  });
-  $('#totalSelectedItems').text(total.toFixed(2));
-}
 
 
 });
