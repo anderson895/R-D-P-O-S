@@ -205,8 +205,7 @@ if ($getAddress->num_rows > 0) {
                                 style="font-weight: 600;"><?= (new DateTime($order['order_date']))->format('F j, Y, g:i a') ?></span>
                         </td>
                     </tr>
-                </tbody>
-            </table>
+                
             <?php
             if ($order['status'] == 'Delivered') {
                 ?>
@@ -233,6 +232,9 @@ if ($getAddress->num_rows > 0) {
                 <td></td>
                 <td class="justify-content-between"><span style="font-weight: 600;"><?= $riderContactNo ?></span></td>
             </tr>
+
+                </body>
+            </table>
             <tr>
                 <td colspan="4">
                     <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
