@@ -1274,12 +1274,14 @@ $("#tsFrmRate").submit(function (e) {
 $('#checkAll').change(function() {
   // Set the checked state of all individual checkboxes to match the "Check All" checkbox
   $('.cartSelect').prop('checked', $(this).prop('checked'));
+  console.log('checkall');
 });
 
 // Update "Check All" state when any individual checkbox is changed
 $('.cartSelect').change(function() {
   // If all individual checkboxes are checked, check "Check All", otherwise uncheck it
   $('#checkAll').prop('checked', $('.cartSelect:checked').length === $('.cartSelect').length);
+  console.log('Not checkall');
 });
 
 
