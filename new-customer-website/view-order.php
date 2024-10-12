@@ -205,7 +205,7 @@ if ($getAddress->num_rows > 0) {
                                 style="font-weight: 600;"><?= (new DateTime($order['order_date']))->format('F j, Y, g:i a') ?></span>
                         </td>
                     </tr>
-                </body>
+                </tbody>
             </table>
             <?php
             if ($order['status'] == 'Delivered') {
