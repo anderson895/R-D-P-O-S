@@ -109,7 +109,7 @@ if($getAddress->num_rows > 0) {
                 ?>
                     <tr style="font-size: 0.9rem;">
                         <td class="pt-3"><?= $count ?></td>
-                        <td><?=$orderItem['prod_code'] ?></td>
+                        <td class="pt-3"><?=$orderItem['prod_code'] ?></td>
                         <td class="">
                             <img src="../../upload_prodImg/<?=$orderItem['prod_image']?>" style="height: 40px; width: 40px;">
                             <?= $orderItem['prod_name'] ?>
