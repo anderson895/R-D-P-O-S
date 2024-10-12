@@ -196,16 +196,17 @@ if($getAddress->num_rows > 0) {
                         ?>
                         <tr>
                             <td colspan="4" class="text-center">
-                               
+                                <center class="mt-5">
                                     <h5 class="text-success">
                                         <i>
                                             Proof of Delivery
                                         </i>
                                     </h5>
-                               
+                              
                                 <div class="pof-container container">
                                     <img src="../../rider/backend/proof-of-del/<?= $order['proof_of_del'] ?>" style="max-width: 300px;">
                                 </div>
+                                </center>
                             </td>
                         </tr>
                         <?php
@@ -229,16 +230,17 @@ if($getAddress->num_rows > 0) {
                     ?>
                         <tr>
                             <td colspan="4" class="text-center">
-                               
+                                <center class="mt-5">
                                     <h5 class="text-success">
                                         <i>
                                             Proof of Payment
                                         </i>
                                     </h5>
-                                
+                               
                                 <div class="pof-container container">
                                     <img src="../../new-customer-website/backend/proof-of-payment/<?= $order['pof'] ?>" style="max-width: 300px;" >
                                 </div>
+                                </center>
                             </td>
                         </tr>
                     <?php
