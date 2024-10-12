@@ -101,7 +101,7 @@ if($getAddress->num_rows > 0) {
                             <?= $orderItem['prod_name'] ?>
                         </td>
                         <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
-                        <td class="pt-3"><?= $orderItem['qty'] * $orderItem['prod_currprice'] ?></td>
+                        <td class="pt-3">₱<?= number_format( $orderItem['qty'] * $orderItem['prod_currprice'],2)?></td>
                     </tr>
                 <?php
                     $count++;
