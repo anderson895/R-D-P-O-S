@@ -186,8 +186,7 @@ if($getAddress->num_rows > 0) {
                                 <td class="col-6 col-md-4"><span style="font-weight: 600;">Delivery Rider:</span></td>
                                 <td class="col-6 col-md-8"><span style="font-weight: 600;" id="selectRiderContainer"></span></td>
                             </tr>
-                        </tbody>
-                    </table>
+                        
 
 
 
@@ -244,6 +243,8 @@ if($getAddress->num_rows > 0) {
                     <?php
                     }
                     ?>
+                    </tbody>
+                    </table>
                 </tbody>
             </table>
         </div>
