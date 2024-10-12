@@ -116,7 +116,7 @@ if($getAddress->num_rows > 0) {
                                 <?= $orderItem['prod_name'] ?>
                             </td>
                             <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
-                            <td class="pt-3"><?= number_format($Amount=$orderItem['qty'] * $orderItem['prod_currprice'],2) ?></td>
+                            <td class="pt-3">₱<?= number_format($Amount=$orderItem['qty'] * $orderItem['prod_currprice'],2) ?></td>
                         </tr>
                     <?php
                         $count++;
@@ -133,25 +133,25 @@ if($getAddress->num_rows > 0) {
                         <td class="justify-content-between"><span class="" style="font-weight: 600;">Subtotal:</span></td>
                         <td></td>
                         <td></td>
-                        <td class="justify-content-between"><span class="" style="font-weight: 600;"><?= $order['subtotal'] ?></span></td>
+                        <td class="justify-content-between"><span class="" style="font-weight: 600;">₱<?= number_format( $order['subtotal'],2) ?></span></td>
                     </tr>
                     <tr>
                         <td class="justify-content-between"><span class="" style="font-weight: 600;">Vat:</span></td>
                         <td></td>
                         <td></td>
-                        <td class="justify-content-between"><span class="" style="font-weight: 600;"><?= $order['vat'] ?></span></td>
+                        <td class="justify-content-between"><span class="" style="font-weight: 600;">₱<?= number_format( $order['vat'],2) ?></span></td>
                     </tr>
                     <tr>
                         <td class="justify-content-between"><span class="" style="font-weight: 600;">Shipping Fee:</span></td>
                         <td></td>
                         <td></td>
-                        <td class="justify-content-between"><span class="" style="font-weight: 600;"><?= $order['sf'] ?></span></td>
+                        <td class="justify-content-between"><span class="" style="font-weight: 600;">₱<?= number_format($order['sf'],2) ?></span></td>
                     </tr>
                     <tr>
                         <td class="justify-content-between"><span class="text-success" style="font-weight: 700;">Total:</span></td>
                         <td></td>
                         <td></td>
-                        <td class="justify-content-between"><span class="text-success" style="font-weight: 700;"><?= $order['total'] ?></span></td>
+                        <td class="justify-content-between"><span class="text-success" style="font-weight: 700;">₱<?= number_format( $order['total'] ,2)?></span></td>
                     </tr>
                     <tr>
                         <td colspan="4">
