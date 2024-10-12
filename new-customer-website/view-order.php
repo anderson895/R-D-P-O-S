@@ -163,7 +163,7 @@ if ($getAddress->num_rows > 0) {
                 <td class="justify-content-between"><span class="" style="font-weight: 600;">Vat:</span></td>
                 <td></td>
                 <td></td>
-                <td class="justify-content-between"><span class="" style="font-weight: 600;"><?= $order['vat'] ?></span>
+                <td class="justify-content-between"><span class="" style="font-weight: 600;">₱<?= number_format($order['vat'],2) ?></span>
                 </td>
             </tr>
             <tr>
