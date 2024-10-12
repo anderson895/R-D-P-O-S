@@ -36,7 +36,8 @@ if (isset($_GET['page'])) {
             <li class="nav-item">
                 <a class="nav-link <?= ($page == 'Delivered') ? 'active' : '' ?>" href="index.php?page=Delivered">
                     <i class="bi bi-check-square"></i> Delivered
-                    
+                    <span class="badge bg-danger ms-2" id="deliveredCount">0</span> 
+                    <!--  -->
                 </a>
             </li>
         </ul>
