@@ -33,8 +33,13 @@ $currentURL = $_SERVER['REQUEST_URI'];
 
 
                 <li>
-                    <a href="../new-orders-view/orders.php"><img src="assets/img/truck.png" alt="img"><span class="text-white"> Order</span> </a>
+                    <a href="../new-orders-view/orders.php">
+                        <img src="assets/img/truck.png" alt="img">
+                        <span class="text-white">Order</span>
+                        <span class="badge bg-primary">5</span> <!-- Example count value -->
+                    </a>
                 </li>
+
 
 
 
