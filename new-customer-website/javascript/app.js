@@ -1271,17 +1271,17 @@ $("#tsFrmRate").submit(function (e) {
 
 
 
-$('#checkAll').change(function() {
-  // Set the checked state of all individual checkboxes to match the "Check All" checkbox
+$(document).on("change", "#checkAll", function () {
+  // Set the checked state of all individual checkboxes to match "Check All"
   $('.cartSelect').prop('checked', $(this).prop('checked'));
-  console.log('checkall');
 });
 
-// Update "Check All" state when any individual checkbox is changed
-$('.cartSelect').change(function() {
-  // If all individual checkboxes are checked, check "Check All", otherwise uncheck it
-  $('#checkAll').prop('checked', $('.cartSelect:checked').length === $('.cartSelect').length);
-  console.log('Not checkall');
+// Handle individual cart item checkbox changes
+$(document).on("change", ".cartSelect", function () {
+  // Check if all individual checkboxes are checked
+  let allChecked = $('.cartSelect:checked').length === $('.cartSelect').length;
+  // Update the "Check All" checkbox based on the individual checkbox status
+  $('#checkAll').prop('checked', allChecked);
 });
 
 
