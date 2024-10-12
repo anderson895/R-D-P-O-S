@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 const getOrdersCount = () => {
     $.ajax({
-      url: '../new-orders-view/backend/endpoints/get_count_status.php', // PHP file where the data is coming from
+      url: '../../new-orders-view/backend/endpoints/get_count_status.php', // PHP file where the data is coming from
       type: 'GET',
       dataType: 'json',
       success: function(response) {
