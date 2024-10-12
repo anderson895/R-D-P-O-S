@@ -9,7 +9,7 @@ class global_class extends db_connect
         $this->connect();
     }
 
-    public function getOrderStatusCounts()
+    public function getOrderStatusCounts($acc_id)
 {
     $query = $this->conn->prepare("
        SELECT  
@@ -18,7 +18,7 @@ class global_class extends db_connect
             COUNT(CASE WHEN `status` = 'Ready For Delivery' THEN 1 END) AS ReadyForDelivery,
             COUNT(CASE WHEN `status` = 'Shipped' THEN 1 END) AS Shipped,
             COUNT(CASE WHEN `status` = 'Delivered' THEN 1 END) AS Delivered
-        FROM `new_tbl_orders` ;
+        FROM `new_tbl_orders` where rider_id=$acc_id;
 
     ");
 

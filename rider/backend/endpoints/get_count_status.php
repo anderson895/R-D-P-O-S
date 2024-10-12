@@ -5,7 +5,7 @@ $db = new global_class();
 
 session_start();
 
-print_r($_SESSION);
+$acc_id=$_SESSION['acc_id'];
 
-    $orders = $db->getOrderStatusCounts();
+    $orders = $db->getOrderStatusCounts($acc_id);
    
