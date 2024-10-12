@@ -131,4 +131,4 @@ $currentURL = $_SERVER['REQUEST_URI'];
 </div>
 
 
-<script src="../new-orders-view/javascript/app.js"></script>
+<script src="Section/js/order_notification.js"></script>
