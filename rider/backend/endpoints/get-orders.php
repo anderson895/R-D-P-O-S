@@ -17,7 +17,9 @@ if (isset($_SESSION['acc_id'])) {
 ?>
                     <tr class="orders-tr">
                         <td>
-                            <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
+                            <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;">
+                                <!-- <i class="bi bi-eye"></i>  -->
+                                <?= $order['order_id'] ?></a>
                         </td>
                         <td><?= $order['subtotal'] ?></td>
                         <td><?= $order['vat'] ?></td>
