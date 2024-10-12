@@ -111,8 +111,7 @@ if($getAddress->num_rows > 0) {
                             <td class="pt-3"><?= $count ?></td>
                             <td class="pt-3"><?=$orderItem['prod_code'] ?></td>
                             <td class="">
-                            <img src="../../upload_prodImg/<?=$orderItem['prod_image']?>" class="img-fluid" style="height: 40px; width: 40px;">
-
+                                <img src="../../upload_prodImg/<?=$orderItem['prod_image']?>" style="height: 40px; width: 40px;">
                                 <?= $orderItem['prod_name'] ?>
                             </td>
                             <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
