@@ -11,24 +11,24 @@ const getOrdersCount = () => {
 
           // Example of how you can handle the response:
           let pendingCount = response.Pending;
-          let acceptedCount = response.Accepted;
-          let readyForDeliveryCount = response.ReadyForDelivery;
-          let shippedCount = response.Shipped;
-          let deliveredCount = response.Delivered;
-          let collectedCount = response.collectedCount;
-          let rejected = response.Rejected;
+        //   let acceptedCount = response.Accepted;
+        //   let readyForDeliveryCount = response.ReadyForDelivery;
+        //   let shippedCount = response.Shipped;
+        //   let deliveredCount = response.Delivered;
+        //   let collectedCount = response.collectedCount;
+        //   let rejected = response.Rejected;
           
-          let cancelled = response.Cancelled;
+        //   let cancelled = response.Cancelled;
           // You can display these counts in your HTML or process them further
           $('#pendingCount').text(pendingCount);
-          $('#acceptedCount').text(acceptedCount);
-          $('#readyForDeliveryCount').text(readyForDeliveryCount);
-          $('#shippedCount').text(shippedCount);
-          $('#deliveredCount').text(deliveredCount);
-          $('#collectedCount').text(collectedCount);
-          $('#rejectedCount').text(rejected);
+        //   $('#acceptedCount').text(acceptedCount);
+        //   $('#readyForDeliveryCount').text(readyForDeliveryCount);
+        //   $('#shippedCount').text(shippedCount);
+        //   $('#deliveredCount').text(deliveredCount);
+        //   $('#collectedCount').text(collectedCount);
+        //   $('#rejectedCount').text(rejected);
           
-            $('#cancelledCount').text(cancelled);
+        //     $('#cancelledCount').text(cancelled);
           
 
           

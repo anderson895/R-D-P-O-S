@@ -36,7 +36,7 @@ $currentURL = $_SERVER['REQUEST_URI'];
                     <a href="../new-orders-view/orders.php">
                         <img src="assets/img/truck.png" alt="img">
                         <span class="text-white">Order</span>
-                        <span class="badge bg-danger text-white">0</span>
+                        <span class="badge bg-danger text-white" id="pendingCount">0</span>
                     </a>
                 </li>
 
