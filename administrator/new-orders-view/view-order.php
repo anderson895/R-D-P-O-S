@@ -160,46 +160,37 @@ if($getAddress->num_rows > 0) {
                             </h5>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="justify-content-between"><span style="font-weight: 600;">Order Date:</span></td>
-                        <td></td>
-                        <td></td>
-                        <td class="justify-content-between"><span style="font-weight: 600;"><?= (new DateTime($order['order_date']))->format('F j, Y, g:i a') ?></span></td>
-                    </tr>
-                    <tr>
-                        <td class="justify-content-between"><span style="font-weight: 600;">Address:</span></td>
-                        <td></td>
-                        <td></td>
-                        <td class="justify-content-between"><span style="font-weight: 600;"><?= $delAddress ?></span></td>
-                    </tr>
-                    <tr>
-                        <td class="justify-content-between"><span style="font-weight: 600;">Order By:</span></td>
-                        <td></td>
-                        <td></td>
-                        <td class="justify-content-between"><span style="font-weight: 600;"><?= $orderBy ?></span></td>
-                    </tr>
-                    <?php
-                    if ($order['status'] == 'Delivered') {
-                    ?>
-                        <tr>
-                            <td class="justify-content-between"><span style="font-weight: 600;">Delivered Date:</span></td>
-                            <td></td>
-                            <td></td>
-                            <td class="justify-content-between"><span style="font-weight: 600;"><?= (new DateTime($order['delivered_date']))->format('F j, Y, g:i a') ?></span></td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-                    <tr>
-                        <td class="justify-content-between"><span style="font-weight: 600;">Delivery Rider:</span></td>
-                        <td></td>
-                        <td></td>
-                        <td class="justify-content-between">
-                            <span style="font-weight: 600;" id="selectRiderContainer">
+                    
+                    
+                    <table class="table">
+        <tbody>
+            <tr>
+                <td class="col-6 col-md-4"><span style="font-weight: 600;">Order Date:</span></td>
+                <td class="col-6 col-md-8"><span style="font-weight: 600;"><?= (new DateTime($order['order_date']))->format('F j, Y, g:i a') ?></span></td>
+            </tr>
+            <tr>
+                <td class="col-6 col-md-4"><span style="font-weight: 600;">Address:</span></td>
+                <td class="col-6 col-md-8"><span style="font-weight: 600;"><?= $delAddress ?></span></td>
+            </tr>
+            <tr>
+                <td class="col-6 col-md-4"><span style="font-weight: 600;">Order By:</span></td>
+                <td class="col-6 col-md-8"><span style="font-weight: 600;"><?= $orderBy ?></span></td>
+            </tr>
+            <?php if ($order['status'] == 'Delivered') { ?>
+                <tr>
+                    <td class="col-6 col-md-4"><span style="font-weight: 600;">Delivered Date:</span></td>
+                    <td class="col-6 col-md-8"><span style="font-weight: 600;"><?= (new DateTime($order['delivered_date']))->format('F j, Y, g:i a') ?></span></td>
+                </tr>
+            <?php } ?>
+            <tr>
+                <td class="col-6 col-md-4"><span style="font-weight: 600;">Delivery Rider:</span></td>
+                <td class="col-6 col-md-8"><span style="font-weight: 600;" id="selectRiderContainer"></span></td>
+            </tr>
+        </tbody>
+    </table>
 
-                            </span>
-                        </td>
-                    </tr>
+
+
                     <?php
                     if ($order['status'] == 'Delivered') {
                         ?>
