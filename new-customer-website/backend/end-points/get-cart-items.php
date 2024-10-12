@@ -55,6 +55,15 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
 
  <div class="container mt-3 mb-3">
     <div class="row">
+        
+<!-- start check all -->
+    <div class="container mt-3 mb-3">
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="checkAll" style="width: 30px; height: 30px;">
+            <label class="form-check-label" for="checkAll">Check All</label>
+        </div>
+    </div>
+<!-- end check all -->
         <!-- Image Banner -->
         <div class="col-md-3 mb-3">
             <img id="main-image" src="../upload_prodImg/<?= $cartItem['prod_image'] ?>" class="img-fluid rounded-3" alt="Product Image">
