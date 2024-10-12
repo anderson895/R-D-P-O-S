@@ -21,10 +21,10 @@ if (isset($_SESSION['acc_id'])) {
                                 <!-- <i class="bi bi-eye"></i>  -->
                                 <?= $order['order_id'] ?></a>
                         </td>
-                        <td><?= $order['subtotal'] ?></td>
-                        <td><?= $order['vat'] ?></td>
-                        <td><?= $order['sf'] ?></td>
-                        <td><?= $order['total'] ?></td>
+                        <td>₱<?= number_format( $order['subtotal'],2) ?></td>
+                        <td>₱<?= number_format( $order['vat'],2) ?></td>
+                        <td>₱<?= number_format($order['sf'],2) ?></td>
+                        <td>₱<?= number_format( $order['total'],2) ?></td>
                         <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                         <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                     </tr>
