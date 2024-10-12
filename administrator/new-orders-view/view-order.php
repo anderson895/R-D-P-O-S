@@ -168,8 +168,8 @@ if($getAddress->num_rows > 0) {
                     </tr>
                     <tr>
                         <td class="justify-content-between"><span style="font-weight: 600;">Address:</span></td>
-                        <!-- <td></td>
-                        <td></td> -->
+                        <td></td>
+                        <td></td>
                         <td class="justify-content-between"><span style="font-weight: 600;"><?= $delAddress ?></span></td>
                     </tr>
                     <tr>
