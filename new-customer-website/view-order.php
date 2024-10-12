@@ -188,20 +188,25 @@ if ($getAddress->num_rows > 0) {
                     </h5>
                 </td>
             </tr>
-            <tr>
-                <td class="justify-content-between"><span style="font-weight: 600;">Address:</span></td>
-                <td></td>
-                <td></td>
-                <td class="justify-content-between"><span style="font-weight: 600;"><?= $userAddress ?></span></td>
-            </tr>
-            <tr>
-                <td class="justify-content-between"><span style="font-weight: 600;">Order Date:</span></td>
-                <td></td>
-                <td></td>
-                <td class="justify-content-between"><span
-                        style="font-weight: 600;"><?= (new DateTime($order['order_date']))->format('F j, Y, g:i a') ?></span>
-                </td>
-            </tr>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="justify-content-between"><span style="font-weight: 600;">Address:</span></td>
+                        <td></td>
+                        <td></td>
+                        <td class="justify-content-between"><span style="font-weight: 600;"><?= $userAddress ?></span></td>
+                    </tr>
+                    <tr>
+                        <td class="justify-content-between"><span style="font-weight: 600;">Order Date:</span></td>
+                        <td></td>
+                        <td></td>
+                        <td class="justify-content-between"><span
+                                style="font-weight: 600;"><?= (new DateTime($order['order_date']))->format('F j, Y, g:i a') ?></span>
+                        </td>
+                    </tr>
+                </body>
+            </table>
             <?php
             if ($order['status'] == 'Delivered') {
                 ?>
