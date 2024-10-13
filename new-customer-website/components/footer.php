@@ -217,14 +217,20 @@
 <!-- End of Delete Cart Item Modal -->
 
 
-
 <style>
-    #tableContainerCart {
-  max-height: 300px; /* O depende sa height na kailangan mo */
-  overflow-y: auto;
+    table {
+    width: 100%; /* O anumang width na kinakailangan */
+}
+
+#placeOrderItemsContainer {
+    max-height: 300px; /* O anuman na angkop na height */
+    overflow-y: auto;  /* Mag-enable ng vertical scroll kung kailangan */
+    display: block; /* Gawin itong block para sa overflow */
+    height: 300px; /* Isang height para makontrol ang overflow */
 }
 
 </style>
+
 
 
 
@@ -238,7 +244,7 @@
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="container p-2">
-                <table class="table" id="tableContainerCart">
+                <table class="table">
                     <thead>
                         <tr>
                             <th></th>
