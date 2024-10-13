@@ -281,9 +281,9 @@ function generateStarButtonsss(starCount) {
           const scaledWidth = rect.width * scale;
           const scaledHeight = rect.height * scale;
 
-          // Adjust position to keep the image centered within modal
-          const translateX = scaledWidth > modalRect.width ? (modalRect.width - scaledWidth) / 2 : 0;
-          const translateY = scaledHeight > modalRect.height ? (modalRect.height - scaledHeight) / 2 : 0;
+          // Calculate the translation needed to keep the image centered on the cursor
+          const translateX = (modalRect.width / 2) - (x * scale);
+          const translateY = (modalRect.height / 2) - (y * scale);
 
           // Apply the translation if needed
           modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
@@ -320,6 +320,7 @@ function generateStarButtonsss(starCount) {
       });
   });
 </script>
+
 
 
 
