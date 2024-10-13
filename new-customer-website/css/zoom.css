@@ -1,43 +1,33 @@
-* {
-    box-sizing: border-box;
+.modal-body {
+    position: relative; /* Set position to relative for absolute positioning of children */
+    overflow: hidden; /* Prevent overflow */
 }
 
-
-.img-zoom-lens {
-    position: absolute;
-    border: 1px solid #d4d4d4;
-    /* Set the size of the lens */
-    width: 60px;  /* Increased size for better usability */
-    height: 60px; /* Increased size for better usability */
-    opacity: 0.5; /* Slightly transparent lens */
-    background-color: rgba(255, 255, 255, 0.5); /* Light background for visibility */
-    cursor: crosshair; /* Change cursor to indicate zoom */
-}
 .img-zoom-result {
     border: 1px solid #d4d4d4;
-    /* Set the size of the result div */
-    width: 300px; /* Adjust according to modal size */
-    height: 300px; /* Adjust according to modal size */
-    position: absolute; /* Necessary for proper placement */
-    top: 0; /* Adjust top position */
-    left: 100%; /* Initially position it outside the image, can be adjusted */
-    background-repeat: no-repeat; /* No repeat for the zoomed image */
-    z-index: 1; /* Ensure it appears above other content */
+    width: 300px; 
+    height: 300px; 
+    position: absolute; 
+    top: 0; 
+    left: 100%; /* Adjusted positioning for modal */
+    background-repeat: no-repeat; 
+    z-index: 1; 
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for modal */
 @media (max-width: 768px) {
     .img-zoom-result {
-        width: 200px; /* Adjust size for mobile */
-        height: 200px; /* Adjust size for mobile */
-        left: 100%; /* Adjust position for mobile */
+        width: 200px; 
+        height: 200px; 
+        left: 100%; 
     }
 }
 
 @media (max-width: 480px) {
     .img-zoom-result {
-        width: 150px; /* Further adjust size for smaller screens */
-        height: 150px; /* Further adjust size for smaller screens */
-        left: 90%; /* Adjust position for very small screens */
+        width: 150px; 
+        height: 150px; 
+        left: 90%; 
     }
 }
