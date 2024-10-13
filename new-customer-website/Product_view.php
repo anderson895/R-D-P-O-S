@@ -35,24 +35,24 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
 <!-- Modal Structure -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Increased size -->
         <div class="modal-content">
-        <div class="modal-header">
+            <div class="modal-header">
                 <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                
+            <div class="modal-body text-center"> <!-- Center text in modal body -->
                 <div class="img-zoom-container">
-                    <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240" />
-                   
+                    <img id="myimage" src="../upload_prodImg/<?=$image?>" class="img-fluid rounded" alt="Image Preview" /> <!-- Responsive image -->
                 </div>
-                <div id="myresult" class="container "></div>
-                <!-- Optionally, you can include instructions or other content here -->
+                <div id="myresult" class="container mt-3"> <!-- Added margin -->
+                    <!-- Add any result content here if needed -->
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 
