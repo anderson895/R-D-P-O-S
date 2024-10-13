@@ -34,19 +34,17 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
               <!-- Modal Structure -->
-                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                <!-- Image in Modal -->
-                                <div class="img-container">
-                                    <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Image in Modal -->
+                <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -235,67 +233,52 @@ function generateStarButtonsss(starCount) {
 
   <!-- End reviews -->
 
-
   <style>
-    .img-container {
-    overflow: hidden; /* Hide overflow to prevent image from going outside the container */
-    position: relative; /* To position the zoomed image */
-    cursor: zoom-in; /* Change cursor to indicate zoom functionality */
-}
+    #modalImage {
+        transition: transform 0.25s ease; /* Smooth zoom */
+        cursor: zoom-in; /* Change cursor to indicate zooming */
+        max-width: 100%; /* Ensure image is responsive */
+        max-height: 80vh; /* Limit height to 80% of viewport */
+    }
+    .zoomed {
+        transform: scale(2); /* Zoom in */
+        cursor: zoom-out; /* Change cursor for zoom out */
+    }
+</style>
 
-.img-container img {
-    transition: transform 0.3s ease; /* Smooth transition */
-}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modalImage = document.getElementById('modalImage');
+        let isZoomed = false;
 
-.img-container:hover img {
-    transform: scale(1.5); /* Scale the image when hovered */
-}
+        // Zoom in/out on image click
+        modalImage.addEventListener('click', function () {
+            if (isZoomed) {
+                modalImage.classList.remove('zoomed');
+                isZoomed = false;
+            } else {
+                modalImage.classList.add('zoomed');
+                isZoomed = true;
+            }
+        });
 
-  </style>
+        // Optional: Zoom with mouse wheel
+        modalImage.addEventListener('wheel', function (event) {
+            event.preventDefault();
+            if (event.deltaY < 0) {
+                // Scroll up -> Zoom in
+                modalImage.classList.add('zoomed');
+                isZoomed = true;
+            } else {
+                // Scroll down -> Zoom out
+                modalImage.classList.remove('zoomed');
+                isZoomed = false;
+            }
+        });
+    });
+</script>
 
   <script>
-
-const imgContainer = document.querySelector('.img-container');
-const modalImage = document.getElementById('modalImage');
-
-let isZoomed = false;
-
-imgContainer.addEventListener('mousemove', (e) => {
-    if (isZoomed) {
-        const rect = imgContainer.getBoundingClientRect();
-        const x = e.clientX - rect.left; // Get x position within the container
-        const y = e.clientY - rect.top; // Get y position within the container
-        const width = imgContainer.offsetWidth;
-        const height = imgContainer.offsetHeight;
-
-        // Calculate the transform based on the mouse position
-        const xPercent = (x / width) * 100;
-        const yPercent = (y / height) * 100;
-
-        modalImage.style.transform = `scale(2) translate(-${xPercent}%, -${yPercent}%)`; // Zoom effect
-    }
-});
-
-// Zoom in on mouse down
-imgContainer.addEventListener('mousedown', (e) => {
-    if (e.button === 0) { // Left mouse button
-        isZoomed = true;
-    }
-});
-
-// Reset zoom on mouse up
-imgContainer.addEventListener('mouseup', () => {
-    isZoomed = false;
-    modalImage.style.transform = 'scale(1)'; // Reset scale
-});
-
-// Reset zoom when mouse leaves the container
-imgContainer.addEventListener('mouseleave', () => {
-    isZoomed = false;
-    modalImage.style.transform = 'scale(1)'; // Reset scale
-});
-
-
     function changeImage(src) {
         // Update the main image source
         document.getElementById('mainImage').src = src;
