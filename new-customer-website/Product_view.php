@@ -32,18 +32,17 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
         <div class="row mt-4">
             <div class="text-center">
-                 <!-- Main Image with Zoom Functionality -->
-                <div class="img-magnifier-container">
-                    <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-                </div>
-                <!-- Modal Structure -->
+                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
+              <!-- Modal Structure -->
                 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-body">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                <!-- Image in Modal -->
-                                <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+                                <!-- Image in Modal with Zoom Functionality -->
+                                <div class="img-magnifier-container">
+                                    <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -251,11 +250,16 @@ function generateStarButtonsss(starCount) {
 
         // Add 'active' class to the clicked thumbnail
         event.target.classList.add('active');
-
-        // Update the magnifier function with the new image
-        magnify('mainImage', 3); // Adjust the magnification level as needed
     }
 
+    // Update modal image each time the modal is shown, to match the current main image
+    document.getElementById('imageModal').addEventListener('show.bs.modal', function() {
+        document.getElementById('modalImage').src = document.getElementById('mainImage').src;
+    });
+</script>
+
+
+<script>
     function magnify(imgID, zoom) {
         var img, glass;
         img = document.getElementById(imgID);
@@ -313,11 +317,6 @@ function generateStarButtonsss(starCount) {
             return {x: x, y: y};
         }
     }
-
-    // Initialize the magnifier function when the page loads
-    window.onload = function() {
-        magnify('mainImage', 3); // Adjust the zoom level as needed
-    };
 </script>
 
 <style>
