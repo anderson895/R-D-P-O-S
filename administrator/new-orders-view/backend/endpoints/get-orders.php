@@ -23,7 +23,7 @@ if (isset($_GET['page'])) {
                 <td>₱<?= number_format( $order['sf'],2) ?></td>
                 <td>₱<?= number_format( $order['total'],2) ?></td>
                 <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
-                <?= ($page == 'Delivered') ? '<td>' . $order['delivered_date'] . '</td>' : '' ?>
+                <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                 <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($riderName) . '</td>' : '' ?>
     
             </tr>
