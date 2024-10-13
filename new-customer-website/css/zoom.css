@@ -1,22 +1,35 @@
-.img-zoom-container {
-    position: relative; /* Ensure this is relative for absolute positioning of result */
-    display: inline-block; /* Keep the container fitting the image */
+* {
+    box-sizing: border-box;
 }
 
+.img-zoom-container {
+    position: relative;
+    display: inline-block; /* Optional: makes sure the container fits the image */
+}
+
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /* Set the size of the lens */
+    width: 60px;  /* Increased size for better usability */
+    height: 60px; /* Increased size for better usability */
+    opacity: 0.5; /* Slightly transparent lens */
+    background-color: rgba(255, 255, 255, 0.5); /* Light background for visibility */
+    cursor: crosshair; /* Change cursor to indicate zoom */
+}
 .img-zoom-result {
     border: 1px solid #d4d4d4;
     /* Set the size of the result div */
-    width: 300px; /* You can adjust this based on how you want it displayed */
-    height: 300px; /* Adjust based on your needs */
-    position: absolute; /* Position it over the image */
-    top: 0; /* Align with the top of the image */
-    left: 100%; /* Position it to the right of the image */
+    width: 300px; /* Adjust according to modal size */
+    height: 300px; /* Adjust according to modal size */
+    position: absolute; /* Necessary for proper placement */
+    top: 0; /* Adjust top position */
+    left: 100%; /* Initially position it outside the image, can be adjusted */
     background-repeat: no-repeat; /* No repeat for the zoomed image */
-    z-index: 1; /* Ensure it appears above the image */
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: slight background for better visibility */
+    z-index: 1; /* Ensure it appears above other content */
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .img-zoom-result {
         width: 200px; /* Adjust size for mobile */
