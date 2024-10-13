@@ -32,7 +32,20 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
         <div class="row mt-4">
             <div class="text-center">
-                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" >
+                <!-- Trigger Image -->
+<img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
+
+<!-- Modal Structure -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
 
                 <div class="d-flex justify-content-center">
 
