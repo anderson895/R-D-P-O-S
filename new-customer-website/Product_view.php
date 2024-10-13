@@ -25,6 +25,44 @@ $photos=$_GET['photos'];
 $hidden_photos = ($photos == null) ? "hidden" : "";
 
 ?>
+
+
+<style>
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* Adjust size */
+    max-width: 700px;
+  }
+
+  .modal-content:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+  }
+
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+
  <link rel="stylesheet" href="css/view_product.css">
 
     <div class="container">
@@ -32,7 +70,12 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
         <div class="row mt-4">
             <div class="text-center">
-                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" >
+                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" onclick="openModal()">
+
+                <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImg">
+                </div>
 
                 <div class="d-flex justify-content-center">
 
@@ -49,15 +92,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 }
                 ?>
                 </div>
-
-
-
-                    
-                    <!-- <img src="../NEW UI DESIGN/no-image2.png" class="thumb-img me-2" onclick="changeImage('../NEW UI DESIGN/no-image2.png')" alt="Product Thumbnail 2">
-                    <img src="../NEW UI DESIGN/no-image3.png" class="thumb-img" onclick="changeImage('../NEW UI DESIGN/no-image3.png')" alt="Product Thumbnail 3"> -->
                 </div>
-
-             
             </div>
 
             <div class="col-md-6">
@@ -93,12 +128,29 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
         </div>
     </div>
 
+
+
      <!-- Start reviews -->
      <div class="container mt-3" >
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
                 <div id="reviews-container" style="display:none;"></div>
                 <script>
+  function openModal() {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const mainImage = document.getElementById('mainImage');
+
+    modal.style.display = "block";
+    modalImg.src = mainImage.src;
+  }
+
+  function closeModal() {
+    document.getElementById('imageModal').style.display = "none";
+  }
+</script>
+    
+    <script>
                     
 $(document).ready(function() {
     // Fetch product ID from the hidden input or any other element
