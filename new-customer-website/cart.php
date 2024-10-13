@@ -38,7 +38,7 @@ if ($getAddress->num_rows > 0) {
         </div>
     </div>
 <!-- end check all -->
-<div class="container card cart-items-container mt-5" id="cartItemsContainer">
+<div class="container card cart-items-container " id="cartItemsContainer">
 
 </div>
 <?php
