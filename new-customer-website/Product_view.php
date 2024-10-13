@@ -233,39 +233,64 @@ function generateStarButtonsss(starCount) {
 
   <!-- End reviews -->
   <style>
-    #modalImage {
-        transition: transform 0.25s ease; /* Smooth zoom */
-        cursor: crosshair; /* Change cursor to indicate zooming */
-        max-width: 100%; /* Ensure image is responsive */
-        max-height: 80vh; /* Limit height to 80% of viewport */
-    }
-    .zoomed {
-        transform: scale(2); /* Zoom in */
-        cursor: zoom-out; /* Change cursor for zoom out */
-    }
+  #modalImage {
+      transition: transform 0.25s ease; /* Smooth transition for zoom */
+      cursor: zoom-in; /* Change cursor to indicate zooming */
+      max-width: 100%; /* Ensure image is responsive */
+      max-height: 80vh; /* Limit height to 80% of viewport */
+      transform-origin: top left; /* Set the origin point for zoom */
+  }
+  .zoomed {
+      cursor: zoom-out; /* Change cursor for zoom out */
+  }
 </style>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const modalImage = document.getElementById('modalImage');
-        let isZoomed = false;
+  document.addEventListener('DOMContentLoaded', function () {
+      const modalImage = document.getElementById('modalImage');
+      let isZoomed = false;
+      let scale = 1;
+      const scaleFactor = 1.5; // Adjust this for zoom level
 
-        // Zoom in/out on image click at the mouse position
-        modalImage.addEventListener('click', function (event) {
-            const rect = modalImage.getBoundingClientRect();
-            const x = event.clientX - rect.left; // x position within the image
-            const y = event.clientY - rect.top;  // y position within the image
-            
-            if (isZoomed) {
-                modalImage.style.transform = `scale(1)`;
-                modalImage.style.transformOrigin = 'center'; // Reset zoom origin
-                isZoomed = false;
-            } else {
-                modalImage.style.transform = `scale(2)`;
-                modalImage.style.transformOrigin = `${(x / modalImage.offsetWidth) * 100}% ${(y / modalImage.offsetHeight) * 100}%`; // Set zoom origin to clicked point
-                isZoomed = true;
-            }
-        });
-    });
+      // Function to zoom the image at the cursor position
+      function zoom(event) {
+          const rect = modalImage.getBoundingClientRect();
+          const x = event.clientX - rect.left; // X coordinate within the image
+          const y = event.clientY - rect.top; // Y coordinate within the image
+
+          modalImage.style.transformOrigin = `${x}px ${y}px`; // Set the zoom origin
+          modalImage.style.transform = `scale(${scale})`; // Apply the scale transformation
+      }
+
+      // Zoom in/out on image click
+      modalImage.addEventListener('click', function () {
+          if (isZoomed) {
+              scale = 1; // Reset scale
+              modalImage.classList.remove('zoomed');
+          } else {
+              scale *= scaleFactor; // Increase scale
+              modalImage.classList.add('zoomed');
+          }
+          zoom(event); // Apply the zoom effect
+          isZoomed = !isZoomed; // Toggle zoom state
+      });
+
+      // Handle mouse move to update zoom position
+      modalImage.addEventListener('mousemove', function (event) {
+          if (isZoomed) {
+              zoom(event); // Update zoom position based on mouse movement
+          }
+      });
+
+      // Optional: Reset zoom when mouse leaves the image
+      modalImage.addEventListener('mouseleave', function () {
+          if (isZoomed) {
+              scale = 1; // Reset scale
+              modalImage.classList.remove('zoomed');
+              modalImage.style.transform = `scale(1)`; // Reset transform
+              isZoomed = false; // Reset zoom state
+          }
+      });
+  });
 </script>
 
    <script>
