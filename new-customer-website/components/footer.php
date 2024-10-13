@@ -220,14 +220,7 @@
 
 
 <style>
- #placeOrderItemsContainer {
-    max-height: 300px; /* Change this to a fixed height if needed */
-    overflow-y: auto;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    border: 1px solid red; /* For debugging - visualize the container size */
-}
-
-
+    
 </style>
 
 
