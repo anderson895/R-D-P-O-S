@@ -31,60 +31,29 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
       
 
         <div class="row mt-4">
-            <div class="text-center">
+        <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-<!-- Modal Structure -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <img id="myimage" src="../upload_prodImg/<?=$image?>" class="img-fluid mb-3" />
-                    </div>
-                    <div class="col-12 col-md-6" id="myresult">
-                        <!-- Content for myresult goes here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
 
                 <div class="d-flex justify-content-center">
+                    <div class="scroll-container">
+                        <?php 
+                        // Display the main image as a thumbnail first
+                        $escapedMainImage = htmlspecialchars($image, ENT_QUOTES, 'UTF-8');
+                        $mainImgSrc = '../upload_prodImg/' . $escapedMainImage;
+                        echo '<img src="' . $mainImgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $mainImgSrc . '\')" alt="Product Main Image">';
 
-                <div class="scroll-container">
-                <?php 
-                $photosArray = explode('%2C', $photos);
-                foreach ($photosArray as $photo) {
-                    $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
-                    $imgSrc = '../product_photos/' . $escapedPhoto;
-                    echo '<img '.$hidden_photos.' src="' . $imgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail 1">';
-                    
-
-                    
-                }
-                ?>
+                        // Then display the other images
+                        $photosArray = explode('%2C', $photos);
+                        foreach ($photosArray as $photo) {
+                            $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
+                            $imgSrc = '../product_photos/' . $escapedPhoto;
+                            echo '<img src="' . $imgSrc . '" class="thumb-img me-2" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail">';
+                        }
+                        ?>
+                    </div>
                 </div>
+        </div>
 
-
-
-                    
-                  
-                </div>
-
-             
-            </div>
 
             <div class="col-md-6">
                 <h1 class="h4"><?=$productName?></h1>
@@ -126,10 +95,12 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <div id="reviews-container" style="display:none;"></div>
 
 
+            
                 
-<script>
-         
-         
+
+
+
+<script>   
          
 $(document).ready(function() {
     // Fetch product ID from the hidden input or any other element
@@ -251,6 +222,28 @@ function generateStarButtonsss(starCount) {
 
   <!-- End reviews -->
 
+
+ <!-- Modal Structure -->
+ <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <img id="myimage" src="../upload_prodImg/<?=$image?>" class="img-fluid mb-3" />
+                    </div>
+                    <div class="col-12 col-md-6" id="myresult">
+                        <!-- Content for myresult goes here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
   <script>
 function imageZoom(imgID, resultID) {
