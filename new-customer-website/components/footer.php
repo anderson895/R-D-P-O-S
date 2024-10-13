@@ -219,9 +219,7 @@
 
 
 
-<style>
-    
-</style>
+
 
 
 <!-- Check Out Modal -->
@@ -233,7 +231,7 @@
                 <button type="button" id="closeViewProductModal" class="btn-close btnCloseModal"
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="container p-2" >
+            <div class="container p-2">
                 <table class="table">
                     <thead>
                         <tr>
@@ -243,9 +241,9 @@
                             <th>Amount</th>
                         </tr>
                     </thead>
-                    <tbody id="placeOrderItemsContainer" style="overflow: scroll; height: 200px;">
-</tbody>
+                    <tbody id="placeOrderItemsContainer">
 
+                    </tbody>
                 </table>
 
 
