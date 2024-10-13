@@ -316,24 +316,16 @@ document.getElementById('myimage').addEventListener('load', function() {
 
 // Change image function
 function changeImage(src, event) {
-    // Check if event is defined
-    if (event) {
-        document.getElementById('mainImage').src = src;
-        document.getElementById('myimage').src = src;
+    document.getElementById('mainImage').src = src;
+    document.getElementById('myimage').src = src;
 
-        // Remove 'active' class from all thumbnails
-        let thumbnails = document.querySelectorAll('.thumb-img');
-        thumbnails.forEach(function(thumbnail) {
-            thumbnail.classList.remove('active');
-        });
+    let thumbnails = document.querySelectorAll('.thumb-img');
+    thumbnails.forEach(function(thumbnail) {
+        thumbnail.classList.remove('active');
+    });
 
-        // Add 'active' class to the clicked thumbnail
-        event.target.classList.add('active');
-    } else {
-        console.error("Event is undefined");
-    }
+    event.target.classList.add('active');
 }
-
 
 // Update modal image each time the modal is shown
 document.getElementById('imageModal').addEventListener('show.bs.modal', function() {
