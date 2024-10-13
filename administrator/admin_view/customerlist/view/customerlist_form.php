@@ -139,13 +139,12 @@ while($row = mysqli_fetch_assoc($view_query)){ //<-- ginagamit tuwing kukuha ng 
 <a href="javascript:void(0);" class="product-img">
 <img class="avatar-img rounded-circle" src="<?php if($emp_image){ echo "../../upload_img/$emp_image";}else{ echo "../../upload_system/empty.png";} ?>" alt="product">
 </a>
-<a ><?=$full_name?></a>
+<a ><?=$user_complete_address?></a>
 </td>
 <td><?=$acc_code?></td>
 
 <td><?= $acc_contact?></td>
 <td><?=$masked_email?></td>
-<!-- <td><?=$user_complete_address = substr($user_complete_address, 0, 50);?></td> -->
 <td><a class='viewAddress' data-user_complete_address='<?= $user_complete_address ?>'><?= strlen($user_complete_address) > 100 ? substr($user_complete_address, 0, 100) . '...' : $user_complete_address; ?></a></td>
 
 
