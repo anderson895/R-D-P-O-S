@@ -623,7 +623,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
           );
           $(tr).append("<td>" + element.productName + "</td>");
           $(tr).append(
-            "<td>sss" +
+            "<td>" +
             element.qty +
             element.productUnitType +
             " x " +
