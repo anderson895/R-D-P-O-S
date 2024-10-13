@@ -289,17 +289,29 @@ function generateStarButtonsss(starCount) {
           modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
       }
 
-      // Zoom in/out on image click
+      // Zoom in on image click (toggle zoom state)
       modalImage.addEventListener('click', function (event) {
-          if (isZoomed) {
-              scale = minScale; // Reset scale to minimum
-              modalImage.classList.remove('zoomed');
-          } else {
+          if (!isZoomed) {
               scale = Math.min(scale * scaleFactor, maxScale); // Increase scale without exceeding max
               modalImage.classList.add('zoomed');
+              isZoomed = true; // Set zoom state to true
           }
           zoom(event); // Apply the zoom effect
-          isZoomed = !isZoomed; // Toggle zoom state
+      });
+
+      // Handle mouse down to initiate zoom
+      modalImage.addEventListener('mousedown', function (event) {
+          if (!isZoomed) {
+              scale = Math.min(scale * scaleFactor, maxScale); // Increase scale if not zoomed
+              modalImage.classList.add('zoomed');
+              isZoomed = true; // Set zoom state to true
+          }
+          zoom(event); // Apply the zoom effect
+      });
+
+      // Handle mouse up to keep zoom active
+      modalImage.addEventListener('mouseup', function () {
+          // Do not reset zoom state on mouseup
       });
 
       // Handle mouse move to update zoom position
@@ -311,15 +323,11 @@ function generateStarButtonsss(starCount) {
 
       // Optional: Reset zoom when mouse leaves the image
       modalImage.addEventListener('mouseleave', function () {
-          if (isZoomed) {
-              scale = minScale; // Reset scale to minimum
-              modalImage.classList.remove('zoomed');
-              modalImage.style.transform = `scale(1)`; // Reset transform
-              isZoomed = false; // Reset zoom state
-          }
+          // Do not reset zoom state when leaving
       });
   });
 </script>
+
 
 
 
