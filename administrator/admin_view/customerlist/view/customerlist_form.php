@@ -139,7 +139,7 @@ while($row = mysqli_fetch_assoc($view_query)){ //<-- ginagamit tuwing kukuha ng 
 <a href="javascript:void(0);" class="product-img">
 <img class="avatar-img rounded-circle" src="<?php if($emp_image){ echo "../../upload_img/$emp_image";}else{ echo "../../upload_system/empty.png";} ?>" alt="product">
 </a>
-<a ><?=$user_complete_address?></a>
+<a ><?=$full_name?></a>
 </td>
 <td><?=$acc_code?></td>
 
