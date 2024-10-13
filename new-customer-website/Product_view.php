@@ -37,22 +37,29 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <div class="d-flex justify-content-center">
                     <div class="scroll-container">
                         <?php 
-                        // Display the main image as a thumbnail first
-                        $escapedMainImage = htmlspecialchars($image, ENT_QUOTES, 'UTF-8');
-                        $mainImgSrc = '../upload_prodImg/' . $escapedMainImage;
-                        echo '<img src="' . $mainImgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $mainImgSrc . '\')" alt="Product Main Image">';
+                        // Check if $photos is not empty before displaying thumbnails
+                        if (!empty($photos)) {
+                            // Display the main image as a thumbnail first
+                            $escapedMainImage = htmlspecialchars($image, ENT_QUOTES, 'UTF-8');
+                            $mainImgSrc = '../upload_prodImg/' . $escapedMainImage;
+                            echo '<img src="' . $mainImgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $mainImgSrc . '\')" alt="Product Main Image">';
 
-                        // Then display the other images
-                        $photosArray = explode('%2C', $photos);
-                        foreach ($photosArray as $photo) {
-                            $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
-                            $imgSrc = '../product_photos/' . $escapedPhoto;
-                            echo '<img src="' . $imgSrc . '" class="thumb-img me-2" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail">';
+                            // Then display the other images
+                            $photosArray = explode('%2C', $photos);
+                            foreach ($photosArray as $photo) {
+                                $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
+                                $imgSrc = '../product_photos/' . $escapedPhoto;
+                                echo '<img src="' . $imgSrc . '" class="thumb-img me-2" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail">';
+                            }
+                        } else {
+                            // Optionally, you could display a message or an image if no thumbnails are available
+                            echo '<p>No thumbnails available.</p>'; // Remove this line if you don't want to display anything
                         }
                         ?>
                     </div>
                 </div>
-        </div>
+            </div>
+
 
 
             <div class="col-md-6">
