@@ -184,7 +184,15 @@ function displayReview(reviews) {
 
     // Append new reviews
     $.each(reviews, function(index, review) {
-    const formattedDate = new Date(review.r_date_added).toLocaleDateString(); 
+        const formattedDate = new Date(review.r_date_added).toLocaleString('en-US', { 
+    timeZone: 'Asia/Manila', 
+    year: 'numeric', 
+    month: '2-digit', 
+    day: '2-digit', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit' 
+});
     reviewsContainer.append(`
         <div class="review-entry d-flex align-items-start mb-3">
             <div class="me-3">
