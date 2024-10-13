@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-.img-zoom-container {
-    position: relative;
-    display: inline-block; /* Optional: makes sure the container fits the image */
-}
 
 .img-zoom-lens {
     position: absolute;
