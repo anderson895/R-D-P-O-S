@@ -54,6 +54,8 @@
                         $prod_code = $smes['prod_code'];
                     
                 }
+
+                $r_feedback=$rate['r_feedback'];
             ?>
 
 
@@ -73,7 +75,11 @@
                                     <button type="button" style="border:0;" class="btn text-warning btnTsFrmStar <?php if($rate['r_rate']>=5){ echo 'active';} ?>" data-id="5"><i class="bi <?php if($rate['r_rate']>=5){ echo 'bi-star-fill';} else { echo 'bi-star'; } ?>"></i></button>
                                 </div>
                             </td>
-                            <td><?= substr($rate['r_feedback'], 0, 75) . (strlen($rate['r_feedback']) > 75 ? '...' : '') ?></td>
+                            <td>
+                              
+                                <a class='viewDescription' data-r_feedback='<?= $r_feedback ?>'><?= strlen($r_feedback) > 100 ? substr($r_feedback, 0, 100) . '...' : $r_feedback; ?>
+                            </td>
+                            
 
                             <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
                             <td>
