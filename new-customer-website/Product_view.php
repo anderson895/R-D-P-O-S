@@ -182,6 +182,7 @@ function displayReview(reviews) {
     // Clear existing content
     reviewsContainer.empty();
 
+    console.log(review);
     // Append new reviews
     $.each(reviews, function(index, review) {
     const formattedDate = new Date(review.r_date_added).toLocaleDateString(); // Adjust the date format as needed
