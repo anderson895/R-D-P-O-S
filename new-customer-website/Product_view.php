@@ -33,20 +33,18 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
         <div class="row mt-4">
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-       <!-- Modal Structure -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <!-- Image in Modal -->
-                <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</div>
-
-
+                <!-- Modal Structure -->
+                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <!-- Image in Modal -->
+                                    <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                 <div class="d-flex justify-content-center">
@@ -233,67 +231,8 @@ function generateStarButtonsss(starCount) {
             </div>
 
   <!-- End reviews -->
-  <style>
-  #modalImage {
-      position: relative; /* Positioning for zooming */
-      transition: transform 0.25s ease; /* Smooth zoom transition */
-      max-width: 100%; /* Ensure image is responsive */
-      max-height: 80vh; /* Limit height to 80% of viewport */
-      cursor: zoom-in; /* Cursor indicating zoom capability */
-  }
-  .zoomed {
-      cursor: zoom-out; /* Cursor when zoomed in */
-  }
-</style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const modalImage = document.getElementById('modalImage');
-      let isZoomed = false;
-
-      modalImage.addEventListener('mousemove', function (event) {
-          if (isZoomed) {
-              const rect = modalImage.getBoundingClientRect();
-              const x = event.clientX - rect.left; // Mouse X position relative to the image
-              const y = event.clientY - rect.top; // Mouse Y position relative to the image
-
-              // Calculate the transform origin based on mouse position
-              modalImage.style.transformOrigin = `${(x / modalImage.offsetWidth) * 100}% ${(y / modalImage.offsetHeight) * 100}%`;
-          }
-      });
-
-      // Zoom in/out on image click
-      modalImage.addEventListener('click', function () {
-          if (isZoomed) {
-              modalImage.classList.remove('zoomed');
-              modalImage.style.transform = 'scale(1)'; // Reset zoom
-              isZoomed = false;
-          } else {
-              modalImage.classList.add('zoomed');
-              modalImage.style.transform = 'scale(2)'; // Zoom in
-              isZoomed = true;
-          }
-      });
-
-      // Optional: Zoom with mouse wheel
-      modalImage.addEventListener('wheel', function (event) {
-          event.preventDefault();
-          if (event.deltaY < 0) {
-              // Scroll up -> Zoom in
-              modalImage.classList.add('zoomed');
-              modalImage.style.transform = 'scale(2)'; // Zoom in
-              isZoomed = true;
-          } else {
-              // Scroll down -> Zoom out
-              modalImage.classList.remove('zoomed');
-              modalImage.style.transform = 'scale(1)'; // Reset zoom
-              isZoomed = false;
-          }
-      });
-  });
-</script>
-
-  <script>
+   <script>
     function changeImage(src) {
         // Update the main image source
         document.getElementById('mainImage').src = src;
