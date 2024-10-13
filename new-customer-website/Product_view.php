@@ -47,6 +47,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 </div>
 
 
+
                 <div class="d-flex justify-content-center">
 
                 <div class="scroll-container">
