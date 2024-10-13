@@ -220,11 +220,11 @@
 
 
 <style>
- #placeOrderItemsContainer {
-  max-height: 300px; /* O depende sa height na kailangan mo */
+    #placeOrderItemsContainer {
+  display: block;
+  max-height: 300px; /* Halimbawa height */
   overflow-y: auto;
 }
-
 
 </style>
 
