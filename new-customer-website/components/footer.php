@@ -221,11 +221,12 @@
 
 <style>
  #placeOrderItemsContainer {
-    max-height: 300px; /* or use a fixed height like height: 300px; */
-    overflow-y: auto; 
-    overflow-x: hidden; /* Prevents horizontal scroll if content is wider */
-    border: 1px solid red; /* Helps visualize the container size */
+    max-height: 300px; /* Change this to a fixed height if needed */
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    border: 1px solid red; /* For debugging - visualize the container size */
 }
+
 
 </style>
 

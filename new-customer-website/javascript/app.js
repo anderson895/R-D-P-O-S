@@ -613,29 +613,31 @@ $(document).on("click", ".btnViewProduct", function (e) {
         var vat = 0;
         var total = 0;
 
-        $("#placeOrderItemsContainer").html("");
+        $("#placeOrderItemsContainer").html(""); // Clear existing items
+
         items.forEach((element) => {
-          var tr = $("<tr>");
-          $(tr).append(
-            "<td class='prod-img-td'><img src='../upload_prodImg/" +
-            element.productImage +
-            "'></td>"
-          );
-          $(tr).append("<td>" + element.productName + "</td>");
-          $(tr).append(
-            "<td>" +
-            element.qty +
-            element.productUnitType +
-            " x " +
-            element.productPrice +
-            "</td>"
-          );
-
-          $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
-
-          subtotal += element.productAmount;
-          vat += element.productVat;
-          $("#placeOrderItemsContainer").append(tr);
+            var tr = $("<tr>");
+        
+            // Adding the product image
+            $(tr).append(
+                "<td class='prod-img-td'><img src='../upload_prodImg/" + element.productImage + "' alt='Product Image'></td>"
+            );
+        
+            // Adding product name
+            $(tr).append("<td>" + element.productName + "</td>");
+        
+            // Adding quantity and price
+            $(tr).append("<td>" + element.qty + " " + element.productUnitType + " x " + element.productPrice + "</td>");
+        
+            // Adding total amount
+            $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
+        
+            // Updating subtotal and VAT
+            subtotal += element.productAmount;
+            vat += element.productVat;
+        
+            // Append the row to the container
+            $("#placeOrderItemsContainer").append(tr);
         });
 
         // Computation
