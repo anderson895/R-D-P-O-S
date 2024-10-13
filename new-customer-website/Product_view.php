@@ -44,9 +44,9 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="img-zoom-container">
+                        
                             <img id="myimage" src="../upload_prodImg/<?=$image?>" class="img-fluid mb-3" width="300" height="240" />
-                        </div>
+                        
                     </div>
                     <div class="col-md-6">
                         <div id="myresult" class="container">
