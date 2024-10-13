@@ -640,7 +640,7 @@ items.forEach((element) => {
 
 // Gawing scrollable ang container kapag marami nang items
 $("#placeOrderItemsContainer").css({
-  "max-height": "300px", // Baguhin ayon sa gusto mong taas
+  "max-height": "30px", // Baguhin ayon sa gusto mong taas
   "overflow-y": "auto"   // Magbigay ng scroll bar kapag marami nang items
 });
 
