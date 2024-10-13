@@ -13,7 +13,8 @@
                     <h6>Are you sure that you want to change the Order Status to Delivered?</h6>
                     <div class="input-container-label-top mt-3">
                         <label>Upload a proof of delivery</label>
-                        <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" important>
+                        <input type="file" class="form-control" id="proofOfDel" name="proofOfDel" accept="image/*">
+
                     </div>
                 </div>
                 <div class="modal-footer">
