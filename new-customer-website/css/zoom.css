@@ -18,13 +18,3 @@
     cursor: crosshair; /* Change cursor to indicate zoom */
 }
 
-.img-zoom-result {
-    border: 1px solid #d4d4d4;
-    /* Set the size of the result div */
-    width: 300px;
-    height: 300px;
-    position: absolute; /* Necessary for proper placement */
-    top: 0; /* Adjust top position */
-    left: 120%; /* Position it to the right of the image */
-    background-repeat: no-repeat; /* No repeat for the zoomed image */
-}
