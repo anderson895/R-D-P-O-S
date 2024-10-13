@@ -614,36 +614,29 @@ $(document).on("click", ".btnViewProduct", function (e) {
         var total = 0;
 
         $("#placeOrderItemsContainer").html("");
-items.forEach((element) => {
-  var tr = $("<tr>");
-  $(tr).append(
-    "<td class='prod-img-td'><img src='../upload_prodImg/" +
-      element.productImage +
-      "'></td>"
-  );
-  $(tr).append("<td>" + element.productName + "</td>");
-  $(tr).append(
-    "<td>" +
-      element.qty +
-      element.productUnitType +
-      " x " +
-      element.productPrice +
-      "</td>"
-  );
+        items.forEach((element) => {
+          var tr = $("<tr>");
+          $(tr).append(
+            "<td class='prod-img-td'><img src='../upload_prodImg/" +
+            element.productImage +
+            "'></td>"
+          );
+          $(tr).append("<td>" + element.productName + "</td>");
+          $(tr).append(
+            "<td>sss" +
+            element.qty +
+            element.productUnitType +
+            " x " +
+            element.productPrice +
+            "</td>"
+          );
 
-  $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
+          $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
 
-  subtotal += element.productAmount;
-  vat += element.productVat;
-  $("#placeOrderItemsContainer").append(tr);
-});
-
-// Pagkatapos i-append ang items, gawin scrollable ang container
-$("#placeOrderItemsContainer").css({
-  "max-height": "300px", // Set ang taas kung saan magiging scrollable
-  "overflow-y": "auto"   // Magbigay ng vertical scroll
-});
-
+          subtotal += element.productAmount;
+          vat += element.productVat;
+          $("#placeOrderItemsContainer").append(tr);
+        });
 
         // Computation
         $("#checkOutSubtotal").text(subtotal.toFixed(2));
