@@ -48,10 +48,8 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                             <img id="myimage" src="../upload_prodImg/<?=$image?>" class="img-fluid mb-3" width="300" height="240" />
                         
                     </div>
-                    <div class="col-md-6">
-                        <div id="myresult" class="container">
-                            <!-- Content for myresult goes here -->
-                        </div>
+                    <div class="col-md-6" id="myresult">
+                       
                     </div>
                 </div>
             </div>
