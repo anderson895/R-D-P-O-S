@@ -257,9 +257,14 @@ function generateStarButtonsss(starCount) {
       const modalBody = modalImage.closest('.modal-body');
       let isZoomed = false;
       let scale = 1;
-      const scaleFactor = 1.5; // Adjust this for zoom level
+      const scaleFactor = 1.2; // Adjust this for zoom level
       const minScale = 1; // Minimum scale
       const maxScale = 3; // Maximum scale
+
+      // Function to set the zoom transform
+      function setZoom() {
+          modalImage.style.transform = `scale(${scale})`; // Apply the scale transformation
+      }
 
       // Function to zoom the image at the cursor position
       function zoom(event) {
@@ -267,18 +272,18 @@ function generateStarButtonsss(starCount) {
           const x = event.clientX - rect.left; // X coordinate within the image
           const y = event.clientY - rect.top; // Y coordinate within the image
 
-          // Update transform origin
+          // Set transform origin based on mouse position
           modalImage.style.transformOrigin = `${x}px ${y}px`; // Set the zoom origin
-          modalImage.style.transform = `scale(${scale})`; // Apply the scale transformation
+          setZoom(); // Apply zoom
 
-          // Check boundaries to keep the image within the modal
+          // Get modal dimensions to adjust position
           const modalRect = modalBody.getBoundingClientRect();
           const scaledWidth = rect.width * scale;
           const scaledHeight = rect.height * scale;
 
-          // Adjust position if scaled image is larger than modal
-          const translateX = scaledWidth > modalRect.width ? Math.min(0, (modalRect.width - scaledWidth) / 2) : 0;
-          const translateY = scaledHeight > modalRect.height ? Math.min(0, (modalRect.height - scaledHeight) / 2) : 0;
+          // Adjust position to keep the image centered within modal
+          const translateX = scaledWidth > modalRect.width ? (modalRect.width - scaledWidth) / 2 : 0;
+          const translateY = scaledHeight > modalRect.height ? (modalRect.height - scaledHeight) / 2 : 0;
 
           // Apply the translation if needed
           modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
@@ -315,6 +320,7 @@ function generateStarButtonsss(starCount) {
       });
   });
 </script>
+
 
 
 
