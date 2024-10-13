@@ -103,6 +103,8 @@ include "php/session_dir.php";
 
 <script src="Section/modal/plusMinusCart.js"></script>
 
+<script src="managefeedback/js/LenFunction.js"></script>
+
 
 
 
