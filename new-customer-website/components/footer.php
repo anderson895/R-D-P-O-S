@@ -243,9 +243,9 @@
                             <th>Amount</th>
                         </tr>
                     </thead>
-                    <tbody id="placeOrderItemsContainer">
+                    <tbody id="placeOrderItemsContainer" style="overflow: scroll; height: 200px;">
+</tbody>
 
-                    </tbody>
                 </table>
 
 
