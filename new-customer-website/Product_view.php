@@ -267,6 +267,7 @@ function generateStarButtonsss(starCount) {
           const x = event.clientX - rect.left; // X coordinate within the image
           const y = event.clientY - rect.top; // Y coordinate within the image
 
+          // Update transform origin
           modalImage.style.transformOrigin = `${x}px ${y}px`; // Set the zoom origin
           modalImage.style.transform = `scale(${scale})`; // Apply the scale transformation
 
@@ -276,14 +277,11 @@ function generateStarButtonsss(starCount) {
           const scaledHeight = rect.height * scale;
 
           // Adjust position if scaled image is larger than modal
-          if (scaledWidth > modalRect.width) {
-              const overflowX = (scaledWidth - modalRect.width) / 2; // Calculate overflow
-              modalImage.style.transform = `translateX(${-overflowX}px) scale(${scale})`;
-          }
-          if (scaledHeight > modalRect.height) {
-              const overflowY = (scaledHeight - modalRect.height) / 2; // Calculate overflow
-              modalImage.style.transform = `translateY(${-overflowY}px) scale(${scale})`;
-          }
+          const translateX = scaledWidth > modalRect.width ? Math.min(0, (modalRect.width - scaledWidth) / 2) : 0;
+          const translateY = scaledHeight > modalRect.height ? Math.min(0, (modalRect.height - scaledHeight) / 2) : 0;
+
+          // Apply the translation if needed
+          modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
       }
 
       // Zoom in/out on image click
