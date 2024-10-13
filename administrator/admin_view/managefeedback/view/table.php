@@ -77,7 +77,7 @@
                             </td>
                             <td>
                               
-                                <a class='viewFeedBack' data-r_feedback='<?= $r_feedback ?>'><?= strlen($r_feedback) > 100 ? substr($r_feedback, 0, 100) . '...' : $r_feedback; ?>
+                                <a class='viewFeedBack' data-r_feedback='<?= $r_feedback ?>'><?= strlen($r_feedback) > 100 ? substr($r_feedback, 0, 100) . '...' : $r_feedback; ?></a>
                             </td>
                             
 
