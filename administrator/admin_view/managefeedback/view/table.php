@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="card">
-            <div class="table-responsive mt-3 mb-3">
+            <div class="table-responsive mt-3 mb-3 ml-3 mr-3">
                 <table class="table table-striped" id="myTable">
                     <thead class="table-header">
                         <tr>
