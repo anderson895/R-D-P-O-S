@@ -37,8 +37,9 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="modal-body">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
                 <div class="img-zoom-container">
                     <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240" />
                     <div id="myresult" class="img-zoom-result"></div>
