@@ -32,7 +32,20 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
         <div class="row mt-4">
             <div class="text-center">
-                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" >
+                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
+                <!-- Modal Structure -->
+                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <!-- Image in Modal -->
+                                    <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 <div class="d-flex justify-content-center">
 
@@ -219,18 +232,29 @@ function generateStarButtonsss(starCount) {
 
   <!-- End reviews -->
 
-    <script>
-        function changeImage(src) {
-            document.getElementById('mainImage').src = src;
+  <script>
+    function changeImage(src) {
+        // Update the main image source
+        document.getElementById('mainImage').src = src;
+        
+        // Update the modal image to match the main image's new source
+        document.getElementById('modalImage').src = src;
 
-            let thumbnails = document.querySelectorAll('.thumb-img');
-            thumbnails.forEach(function(thumbnail) {
-                thumbnail.classList.remove('active');
-            });
+        // Remove 'active' class from all thumbnails
+        let thumbnails = document.querySelectorAll('.thumb-img');
+        thumbnails.forEach(function(thumbnail) {
+            thumbnail.classList.remove('active');
+        });
 
-            event.target.classList.add('active');
-        }
-    </script>
+        // Add 'active' class to the clicked thumbnail
+        event.target.classList.add('active');
+    }
+
+    // Update modal image each time the modal is shown, to match the current main image
+    document.getElementById('imageModal').addEventListener('show.bs.modal', function() {
+        document.getElementById('modalImage').src = document.getElementById('mainImage').src;
+    });
+</script>
 
 <?php
 include('components/footer.php');
