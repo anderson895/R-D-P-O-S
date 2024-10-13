@@ -22,37 +22,51 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+<?php
+            $count = 1;
+            $getRates = $db->getRates();
+            while ($rate = $getRates->fetch_assoc()) {
+                $getUser = $db->getUsertUsingId($rate['r_user_id']);
+                $rater = 'Anonymous';
+                if ($getUser->num_rows > 0) {
+                    $user = $getUser->fetch_assoc();
+                    $rater_username = $user['acc_username'];
+                    $rater_id = $user['acc_id'];
+                }
+
+                            
+                $dateAdded = new DateTime($rate['r_date_added']);
+
+
+                $smesId = $rate['r_prod_id'];
+               
+                $getSmes = $db->checkSmesId($smesId);
+                
+
+                $rateName = '';
+
+                if ($getSmes->num_rows > 0) {
+                    $smes = $getSmes->fetch_assoc();
+                    
+
+                        $rateName = $smes['prod_name'];
+                        
+                        $prod_code = $smes['prod_code'];
+                    
+                }
+
+                $r_feedback=$rate['r_feedback'];
+            ?>
+
+
+
                     <tbody class="table-body">
-                        <?php
-                        $count = 1;
-                        $getRates = $db->getRates();
-                        while ($rate = $getRates->fetch_assoc()) {
-                            $getUser = $db->getUsertUsingId($rate['r_user_id']);
-                            $rater = 'Anonymous';
-                            if ($getUser->num_rows > 0) {
-                                $user = $getUser->fetch_assoc();
-                                $rater_username = $user['acc_username'];
-                                $rater_id = $user['acc_id'];
-                            }
-                            $dateAdded = new DateTime($rate['r_date_added']);
-                            $smesId = $rate['r_prod_id'];
-                            $getSmes = $db->checkSmesId($smesId);
-                            $rateName = '';
-
-                            if ($getSmes->num_rows > 0) {
-                                $smes = $getSmes->fetch_assoc();
-                                $rateName = $smes['prod_name'];
-                                $prod_code = $smes['prod_code'];
-                            }
-
-                            $r_feedback = $rate['r_feedback'];
-                        ?>
                         <tr>
                             <td><?= $count ?></td>
                             <td><a href="profile_customer.php?target_id=<?=$rater_id?>"><?= $rater_username ?></a></td>
                             <td><a href="product-details.php?target_id=<?=$prod_code?>"><?= $rateName ?></a></td>
                             <td>
-                                <input class="rateValue" hidden type="text" value="<?= $rate['r_rate'] ?>">
+                                <input class="rateValue" hidden type="text" value="<?= $rate['r_rate'] ?>" >
                                 <div class="d-flex justify-content-center" style="width:100%;">
                                     <button type="button" style="border:0;" class="btn text-warning btnTsFrmStar <?php if($rate['r_rate']>0){ echo 'active';} ?>" data-id="1"><i class="bi <?php if($rate['r_rate']>0){ echo 'bi-star-fill';} else { echo 'bi-star'; } ?>"></i></button>
                                     <button type="button" style="border:0;" class="btn text-warning btnTsFrmStar <?php if($rate['r_rate']>=2){ echo 'active';} ?>" data-id="2"><i class="bi <?php if($rate['r_rate']>=2){ echo 'bi-star-fill';} else { echo 'bi-star'; } ?>"></i></button>
@@ -62,8 +76,11 @@
                                 </div>
                             </td>
                             <td>
+                              
                                 <a class='viewFeedBack' data-r_feedback='<?= $r_feedback ?>'><?= strlen($r_feedback) > 100 ? substr($r_feedback, 0, 100) . '...' : $r_feedback; ?></a>
                             </td>
+                            
+
                             <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
                             <td>
                                 <button type="button" 
@@ -71,12 +88,15 @@
                                 data-bs-toggle="modal" 
                                 data-bs-target="#modalDelete"
                                 data-id=<?= $rate['r_rate_id'] ?>
+                                
                                 ><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
+
                         <?php
                             $count++;
                         }
+
                         echo ($getRates->num_rows <= 0) ? '<tr><td colspan="6" class="text-center">No Rate Found.</td></tr>' : '';
                         ?>
                     </tbody>
@@ -86,19 +106,6 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable({
-            "paging": true,
-            "searching": true,
-            "ordering": true,
-            "order": [[5, 'desc']],
-            "language": {
-                "emptyTable": "No Rate Found."
-            }
-        });
-    });
-</script>
 
 
 
