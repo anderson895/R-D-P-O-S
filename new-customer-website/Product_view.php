@@ -53,7 +53,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                             }
                         } else {
                             // Optionally, you could display a message or an image if no thumbnails are available
-                            echo '<p>No thumbnails available.</p>'; // Remove this line if you don't want to display anything
+                            // echo '<p>No thumbnails available.</p>'; // Remove this line if you don't want to display anything
                         }
                         ?>
                     </div>
