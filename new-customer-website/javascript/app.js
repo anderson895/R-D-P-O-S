@@ -613,30 +613,47 @@ $(document).on("click", ".btnViewProduct", function (e) {
         var vat = 0;
         var total = 0;
 
+        // I-clear ang laman ng container
         $("#placeOrderItemsContainer").html("");
+
+        // Iteration ng bawat item
         items.forEach((element) => {
           var tr = $("<tr>");
           $(tr).append(
             "<td class='prod-img-td'><img src='../upload_prodImg/" +
-            element.productImage +
-            "'></td>"
+              element.productImage +
+              "'></td>"
           );
           $(tr).append("<td>" + element.productName + "</td>");
           $(tr).append(
             "<td>" +
-            element.qty +
-            element.productUnitType +
-            " x " +
-            element.productPrice +
-            "</td>"
+              element.qty +
+              element.productUnitType +
+              " x " +
+              element.productPrice +
+              "</td>"
           );
-
           $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
 
           subtotal += element.productAmount;
           vat += element.productVat;
           $("#placeOrderItemsContainer").append(tr);
         });
+
+        // Kontrolin ang CSS gamit ang JavaScript
+        // Halimbawa, gawing scrollable kung lumampas sa 10 items:
+        if (items.length > 10) {
+          $("#placeOrderItemsContainer").css({
+            "max-height": "300px", // Maaari mong baguhin depende sa nais na taas
+            "overflow-y": "auto" // Upang mag-scroll kapag lumampas
+          });
+        } else {
+          $("#placeOrderItemsContainer").css({
+            "max-height": "none",
+            "overflow-y": "visible"
+          });
+        }
+
 
         // Computation
         $("#checkOutSubtotal").text(subtotal.toFixed(2));
