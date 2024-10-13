@@ -218,7 +218,13 @@
 
 
 
+<style>
+    #tableContainerCart {
+  max-height: 300px; /* O depende sa height na kailangan mo */
+  overflow-y: auto;
+}
 
+</style>
 
 
 
@@ -232,7 +238,7 @@
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="container p-2">
-                <table class="table">
+                <table class="table" id="tableContainerCart">
                     <thead>
                         <tr>
                             <th></th>
