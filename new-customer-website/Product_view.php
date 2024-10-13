@@ -45,8 +45,9 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 
                 <div class="img-zoom-container">
                     <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240" />
-                    <div id="myresult" class="container "></div>
+                   
                 </div>
+                <div id="myresult" class="container "></div>
                 <!-- Optionally, you can include instructions or other content here -->
             </div>
         </div>
