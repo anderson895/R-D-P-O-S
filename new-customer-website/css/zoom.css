@@ -28,3 +28,30 @@
     left: 120%; /* Position it to the right of the image */
     background-repeat: no-repeat; /* No repeat for the zoomed image */
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .img-zoom-lens {
+        width: 40px; /* Decrease lens size for mobile */
+        height: 40px; /* Decrease lens size for mobile */
+    }
+
+    .img-zoom-result {
+        width: 200px; /* Decrease zoom result size for mobile */
+        height: 200px; /* Decrease zoom result size for mobile */
+        left: 100%; /* Adjust position for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .img-zoom-lens {
+        width: 30px; /* Further decrease lens size for smaller screens */
+        height: 30px; /* Further decrease lens size for smaller screens */
+    }
+
+    .img-zoom-result {
+        width: 150px; /* Further decrease zoom result size for smaller screens */
+        height: 150px; /* Further decrease zoom result size for smaller screens */
+        left: 90%; /* Adjust position for very small screens */
+    }
+}
