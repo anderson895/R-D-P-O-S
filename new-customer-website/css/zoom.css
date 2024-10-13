@@ -31,15 +31,3 @@
 
 
 
-.img-zoom-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.img-zoom-container img {
-    transition: transform 0.5s ease;
-}
-
-.img-zoom-container:hover img {
-    transform: scale(1.1);
-}
