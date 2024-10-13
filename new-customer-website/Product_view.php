@@ -33,27 +33,22 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
         <div class="row mt-4">
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-
-
 <!-- Modal Structure -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Added modal-lg for larger size -->
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body img-zoom-container" style="overflow: hidden;"> <!-- Added overflow hidden -->
-                <img id="myimage" src="../upload_prodImg/<?=$image?>" width="100%" height="auto" /> <!-- Set image to full width of modal -->
-                <div id="myresult" class="img-zoom-result"></div> <!-- Result placed inside the modal -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                
+                <div class="img-zoom-container">
+                    <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240" />
+                    <div id="myresult" class="img-zoom-result"></div>
+                </div>
                 <!-- Optionally, you can include instructions or other content here -->
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 
 
