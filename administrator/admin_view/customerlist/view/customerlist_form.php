@@ -136,10 +136,10 @@ while($row = mysqli_fetch_assoc($view_query)){ //<-- ginagamit tuwing kukuha ng 
 
 <td><?=$i?></td>
 <td class="productimgname">
-<a href="javascript:void(0);" class="product-img">
+<a href="profile_customer.php?target_id=<?=$acc_id?>" class="product-img">
 <img class="avatar-img rounded-circle" src="<?php if($emp_image){ echo "../../upload_img/$emp_image";}else{ echo "../../upload_system/empty.png";} ?>" alt="product">
 </a>
-<a ><?=$full_name?></a>
+<a href="profile_customer.php?target_id=<?=$acc_id?>"><?=$full_name?></a>
 </td>
 <td><?=$acc_code?></td>
 
