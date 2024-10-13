@@ -34,16 +34,14 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
               <!-- Modal Structure -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
+ <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <!-- Image in Modal -->
-                <!-- <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid"> -->
                 <div class="img-zoom-container">
-                <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240">
-                <div id="myresult" class="img-zoom-result"></div>
+                    <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240" />
+                    <div id="myresult" class="img-zoom-result"></div>
                 </div>
             </div>
         </div>
@@ -248,51 +246,51 @@ function imageZoom(imgID, resultID) {
     var img, lens, result, cx, cy;
     img = document.getElementById(imgID);
     result = document.getElementById(resultID);
-    
+
     // Create lens
     lens = document.createElement("DIV");
     lens.setAttribute("class", "img-zoom-lens");
-    
+
     // Insert lens
     img.parentElement.insertBefore(lens, img);
-    
+
     // Calculate the ratio between result DIV and lens
     cx = result.offsetWidth / lens.offsetWidth;
     cy = result.offsetHeight / lens.offsetHeight;
-    
+
     // Set background properties for the result DIV
     result.style.backgroundImage = "url('" + img.src + "')";
     result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-    
+
     // Execute a function when someone moves the cursor over the image or lens
     lens.addEventListener("mousemove", moveLens);
     img.addEventListener("mousemove", moveLens);
-    
+
     // Also for touch screens
     lens.addEventListener("touchmove", moveLens);
     img.addEventListener("touchmove", moveLens);
-    
+
     function moveLens(e) {
         var pos, x, y;
         e.preventDefault();
         pos = getCursorPos(e);
         x = pos.x - (lens.offsetWidth / 2);
         y = pos.y - (lens.offsetHeight / 2);
-        
+
         // Prevent the lens from being positioned outside the image
         if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
         if (x < 0) { x = 0; }
         if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
         if (y < 0) { y = 0; }
-        
+
         // Set the position of the lens
         lens.style.left = x + "px";
         lens.style.top = y + "px";
-        
+
         // Display what the lens "sees"
         result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
     }
-    
+
     function getCursorPos(e) {
         var a, x = 0, y = 0;
         e = e || window.event;
@@ -306,7 +304,9 @@ function imageZoom(imgID, resultID) {
 }
 
 // Initialize image zoom on the first load
-imageZoom("myimage", "myresult");
+document.getElementById('myimage').addEventListener('load', function() {
+    imageZoom("myimage", "myresult");
+});
 
 // Change image function
 function changeImage(src, event) {
