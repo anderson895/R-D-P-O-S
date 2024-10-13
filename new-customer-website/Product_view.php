@@ -232,106 +232,18 @@ function generateStarButtonsss(starCount) {
             </div>
 
   <!-- End reviews -->
-  <style>
-  .modal-body {
-      position: relative; /* Set position for the modal body */
-      overflow: hidden; /* Hide overflow to prevent image from exceeding modal */
-      max-height: 80vh; /* Limit height to 80% of viewport */
-  }
-
+<style>
   #modalImage {
       transition: transform 0.25s ease; /* Smooth transition for zoom */
       cursor: zoom-in; /* Change cursor to indicate zooming */
       max-width: 100%; /* Ensure image is responsive */
-      max-height: 100%; /* Ensure image does not exceed modal height */
+      max-height: 80vh; /* Limit height to 80% of viewport */
       transform-origin: top left; /* Set the origin point for zoom */
   }
-
   .zoomed {
       cursor: zoom-out; /* Change cursor for zoom out */
   }
 </style>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const modalImage = document.getElementById('modalImage');
-      const modalBody = modalImage.closest('.modal-body');
-      let isZoomed = false;
-      let scale = 1;
-      const scaleFactor = 1.2; // Adjust this for zoom level
-      const minScale = 1; // Minimum scale
-      const maxScale = 3; // Maximum scale
-
-      // Function to set the zoom transform
-      function setZoom() {
-          modalImage.style.transform = `scale(${scale})`; // Apply the scale transformation
-      }
-
-      // Function to zoom the image at the cursor position
-      function zoom(event) {
-          const rect = modalImage.getBoundingClientRect();
-          const x = event.clientX - rect.left; // X coordinate within the image
-          const y = event.clientY - rect.top; // Y coordinate within the image
-
-          // Set transform origin based on mouse position
-          modalImage.style.transformOrigin = `${x}px ${y}px`; // Set the zoom origin
-          setZoom(); // Apply zoom
-
-          // Get modal dimensions to adjust position
-          const modalRect = modalBody.getBoundingClientRect();
-          const scaledWidth = rect.width * scale;
-          const scaledHeight = rect.height * scale;
-
-          // Calculate the translation needed to keep the image centered on the cursor
-          const translateX = (modalRect.width / 2) - (x * scale);
-          const translateY = (modalRect.height / 2) - (y * scale);
-
-          // Apply the translation if needed
-          modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-      }
-
-      // Zoom in on image click (toggle zoom state)
-      modalImage.addEventListener('click', function (event) {
-          if (!isZoomed) {
-              scale = Math.min(scale * scaleFactor, maxScale); // Increase scale without exceeding max
-              modalImage.classList.add('zoomed');
-              isZoomed = true; // Set zoom state to true
-          }
-          zoom(event); // Apply the zoom effect
-      });
-
-      // Handle mouse down to initiate zoom
-      modalImage.addEventListener('mousedown', function (event) {
-          if (!isZoomed) {
-              scale = Math.min(scale * scaleFactor, maxScale); // Increase scale if not zoomed
-              modalImage.classList.add('zoomed');
-              isZoomed = true; // Set zoom state to true
-          }
-          zoom(event); // Apply the zoom effect
-      });
-
-      // Handle mouse up to keep zoom active
-      modalImage.addEventListener('mouseup', function () {
-          // Do not reset zoom state on mouseup
-      });
-
-      // Handle mouse move to update zoom position
-      modalImage.addEventListener('mousemove', function (event) {
-          if (isZoomed) {
-              zoom(event); // Update zoom position based on mouse movement
-          }
-      });
-
-      // Optional: Reset zoom when mouse leaves the image
-      modalImage.addEventListener('mouseleave', function () {
-          // Do not reset zoom state when leaving
-      });
-  });
-</script>
-
-
-
-
-
 
    <script>
     function changeImage(src) {
