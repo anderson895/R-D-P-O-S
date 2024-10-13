@@ -1,33 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+.img-zoom-container {
+    position: relative;
+    display: inline-block; /* Optional: makes sure the container fits the image */
+}
+
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /* Set the size of the lens */
+    width: 60px;  /* Increased size for better usability */
+    height: 60px; /* Increased size for better usability */
+    opacity: 0.5; /* Slightly transparent lens */
+    background-color: rgba(255, 255, 255, 0.5); /* Light background for visibility */
+    cursor: crosshair; /* Change cursor to indicate zoom */
+}
 .modal-body {
-    position: relative; /* Set position to relative for absolute positioning of children */
-    overflow: hidden; /* Prevent overflow */
+    position: relative; /* Necessary for absolute positioning of child elements */
 }
 
 .img-zoom-result {
     border: 1px solid #d4d4d4;
-    width: 300px; 
-    height: 300px; 
-    position: absolute; 
-    top: 0; 
-    left: 100%; /* Adjusted positioning for modal */
+    width: 300px; /* Set max size according to modal */
+    height: 300px; /* Set max size according to modal */
+    position: absolute; /* Necessary for proper placement */
+    top: 10%; /* Adjust top position */
+    left: 110%; /* Position it outside the image initially */
     background-repeat: no-repeat; 
     z-index: 1; 
-    transition: all 0.3s ease; /* Smooth transition */
+    overflow: hidden; /* Prevent content overflow */
 }
 
-/* Responsive Adjustments for modal */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .img-zoom-result {
-        width: 200px; 
-        height: 200px; 
-        left: 100%; 
+        width: 200px; /* Adjust size for mobile */
+        height: 200px; /* Adjust size for mobile */
+        left: 100%; /* Adjust position for mobile */
     }
 }
 
 @media (max-width: 480px) {
     .img-zoom-result {
-        width: 150px; 
-        height: 150px; 
-        left: 90%; 
+        width: 150px; /* Further adjust size for smaller screens */
+        height: 150px; /* Further adjust size for smaller screens */
+        left: 90%; /* Adjust position for very small screens */
     }
 }
