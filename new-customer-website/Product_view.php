@@ -40,7 +40,7 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <?php 
                 $photosArray = explode('%2C', $photos);
                 foreach ($photosArray as $photo) {
-                    $escapedPhoto = $photo;
+                    $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
                     $imgSrc = '../product_photos/' . $escapedPhoto;
                     echo '<img '.$hidden_photos.' src="' . $imgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail 1">';
                     
