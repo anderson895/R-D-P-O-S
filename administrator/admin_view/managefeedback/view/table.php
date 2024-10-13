@@ -8,8 +8,8 @@
                 <h4>Customers Feedback</h4>
             </div>
         </div>
-        <div class="card mt-3">
-            <div class="table-responsive">
+        <div class="card">
+            <div class="table-responsive mt-3 mb-3">
                 <table class="table table-striped" id="myTable">
                     <thead class="table-header">
                         <tr>
