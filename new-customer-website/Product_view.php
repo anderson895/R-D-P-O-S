@@ -37,15 +37,16 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
 <!-- Modal Structure -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <img src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
       </div>
     </div>
   </div>
 </div>
+
 
 
                 <div class="d-flex justify-content-center">
