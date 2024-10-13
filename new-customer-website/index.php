@@ -32,6 +32,22 @@ include('components/header.php');
                         <?= ($outOfStock) ? '<span class="txt-out-of-stock text-danger">Out of stock.</span>' : '' ?>
                         <img class="product-image" src="../upload_prodImg/<?= $bestProduct['prod_image'] ?>">
                         <div class="p-1 product-contents-container">
+
+                        <?php
+                    $avgRating = $response['avg_rating']; // Assuming avg_rating is already fetched
+
+                    echo '<div class="ratings">';
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= floor($avgRating)) {
+                            echo '<span id="star' . $i . '" class="text-warning">★</span>';
+                        } else {
+                            echo '<span id="star' . $i . '" class="text-muted">☆</span>';
+                        }
+                    }
+                    echo '<span id="avg-rating">(' . $avgRating . ')</span>';
+                    echo '</div>';
+                    ?>
+
                             <p class="product-name">
                                 <?= $bestProduct['prod_name'] ?>
                             </p>
