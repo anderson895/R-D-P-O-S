@@ -303,22 +303,27 @@ function imageZoom(imgID, resultID) {
 
 imageZoom("myimage", "myresult");
 
-    function changeImage(src) {
-        // Update the main image source
-        document.getElementById('mainImage').src = src;
-        
-        // Update the modal image to match the main image's new source
-        document.getElementById('myimage').src = src;
+function changeImage(src, event) {
+    // Update the main image source
+    document.getElementById('mainImage').src = src;
+    
+    // Update the modal image to match the main image's new source
+    document.getElementById('myimage').src = src;
 
-        // Remove 'active' class from all thumbnails
-        let thumbnails = document.querySelectorAll('.thumb-img');
-        thumbnails.forEach(function(thumbnail) {
-            thumbnail.classList.remove('active');
-        });
+    // Remove 'active' class from all thumbnails
+    let thumbnails = document.querySelectorAll('.thumb-img');
+    thumbnails.forEach(function(thumbnail) {
+        thumbnail.classList.remove('active');
+    });
 
-        // Add 'active' class to the clicked thumbnail
-        event.target.classList.add('active');
-    }
+    // Add 'active' class to the clicked thumbnail
+    event.target.classList.add('active');
+    
+    // Reinitialize zoom for the new image
+    imageZoom("myimage", "myresult");
+}
+
+
 
     // Update modal image each time the modal is shown, to match the current main image
     document.getElementById('imageModal').addEventListener('show.bs.modal', function() {
