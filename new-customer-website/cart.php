@@ -27,14 +27,15 @@ if ($getAddress->num_rows > 0) {
 <div class="d-flex justify-content-between align-items-center">
     <h2 class="mb-0"><i class="bi bi-cart-check"></i> Cart</h2>
 
-    <!-- Start check all -->
-    <div class="form-check ms-3">
-        <input type="checkbox" class="form-check-input" id="checkAll" style="width: 20px; height: 20px;">
-        <label class="form-check-label" for="checkAll">Check All</label>
+    <!-- Start check all and delete button container -->
+    <div class="d-flex align-items-center">
+        <div class="form-check me-3">
+            <input type="checkbox" class="form-check-input" id="checkAll" style="width: 20px; height: 20px;">
+            <label class="form-check-label" for="checkAll">Check All</label>
+        </div>
+        <?= ($getCartItems->num_rows > 0) ? '<button class="btn btn-danger" id="deleteAllItemsInCart"><i class="bi bi-trash3-fill"></i> Delete All</button>' : '' ?>
     </div>
-    <!-- End check all -->
-
-    <?= ($getCartItems->num_rows > 0) ? '<button class="btn btn-danger ms-3" id="deleteAllItemsInCart"><i class="bi bi-trash3-fill"></i> Delete All</button>' : '' ?>
+    <!-- End check all and delete button container -->
 </div>
 
 
