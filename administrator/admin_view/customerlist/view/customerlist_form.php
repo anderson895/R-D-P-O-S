@@ -145,7 +145,10 @@ while($row = mysqli_fetch_assoc($view_query)){ //<-- ginagamit tuwing kukuha ng 
 
 <td><?= $acc_contact?></td>
 <td><?=$masked_email?></td>
-<td><?=$user_complete_address = substr($user_complete_address, 0, 50);?></td>
+<!-- <td><?=$user_complete_address = substr($user_complete_address, 0, 50);?></td> -->
+<td><a class='viewAddress' data-user_complete_address='<?= $user_complete_address ?>'><?= strlen($user_complete_address) > 100 ? substr($user_complete_address, 0, 100) . '...' : $user_complete_address; ?></td>
+
+
 <td><div class="status-toggle d-flex justify-content-between align-items-center">
           <input type="checkbox" id="user<?= $i ?>" name="accountID" class="check" <?php if($acc_status==0){ echo "checked";}?> value='<?= $acc_id?>'>
           <label for="user<?= $i ?>" class="checktoggle"  data-toggle="modal" >checkbox</label>

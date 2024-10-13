@@ -83,5 +83,7 @@ include "php/session_dir.php";
 
 <script src="assets/js/script.js"></script>
 <script src="customerlist/controller/ajaxUserlist.js"></script>
+
+<script src="customerlist/js/LenFunction.js"></script>
 </body>
 </html>
