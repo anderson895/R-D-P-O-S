@@ -33,14 +33,23 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
         <div class="row mt-4">
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-              <!-- Modal Structure -->
+             
+             
+             
+                <!-- Modal Structure -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <!-- Image in Modal -->
-                <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+                <!-- <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid"> -->
+
+                <div class="img-zoom-container">
+                    <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240">
+                    
+                    <div id="myresult" class="img-zoom-result"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -111,8 +120,15 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
                 <div id="reviews-container" style="display:none;"></div>
-                <script>
-                    
+
+
+                
+<script>
+         
+// Initiate zoom effect:
+imageZoom("myimage", "myresult");
+         
+
 $(document).ready(function() {
     // Fetch product ID from the hidden input or any other element
     var rate_prod_id = $("#product_id").val();
@@ -232,18 +248,7 @@ function generateStarButtonsss(starCount) {
             </div>
 
   <!-- End reviews -->
-<style>
-  #modalImage {
-      transition: transform 0.25s ease; /* Smooth transition for zoom */
-      cursor: zoom-in; /* Change cursor to indicate zooming */
-      max-width: 100%; /* Ensure image is responsive */
-      max-height: 80vh; /* Limit height to 80% of viewport */
-      transform-origin: top left; /* Set the origin point for zoom */
-  }
-  .zoomed {
-      cursor: zoom-out; /* Change cursor for zoom out */
-  }
-</style>
+
 
    <script>
     function changeImage(src) {
