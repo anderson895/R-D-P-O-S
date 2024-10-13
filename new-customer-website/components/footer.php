@@ -218,16 +218,21 @@
 
 
 <style>
-    table {
-    width: 100%; /* O anumang width na kinakailangan */
-}
+   table {
+            width: 100%; 
+        }
 
-#placeOrderItemsContainer {
-    max-height: 300px; /* O anuman na angkop na height */
-    overflow-y: auto;  /* Mag-enable ng vertical scroll kung kailangan */
-    display: block; /* Gawin itong block para sa overflow */
-    height: 300px; /* Isang height para makontrol ang overflow */
-}
+        tbody {
+            display: block; 
+            max-height: 300px; 
+            overflow-y: auto; 
+        }
+
+        tr {
+            display: table; /* Ensure that rows are displayed correctly */
+            table-layout: fixed; /* Required for correct width in block tbody */
+            width: 100%; /* Full width */
+        }
 
 </style>
 
