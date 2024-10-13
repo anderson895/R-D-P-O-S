@@ -33,18 +33,19 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
         <div class="row mt-4">
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-                <!-- Modal Structure -->
-                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    <!-- Image in Modal -->
-                                    <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <!-- Modal Structure -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Image in Modal -->
+                <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
                 <div class="d-flex justify-content-center">
@@ -231,6 +232,41 @@ function generateStarButtonsss(starCount) {
             </div>
 
   <!-- End reviews -->
+  <style>
+    #modalImage {
+        transition: transform 0.25s ease; /* Smooth zoom */
+        cursor: crosshair; /* Change cursor to indicate zooming */
+        max-width: 100%; /* Ensure image is responsive */
+        max-height: 80vh; /* Limit height to 80% of viewport */
+    }
+    .zoomed {
+        transform: scale(2); /* Zoom in */
+        cursor: zoom-out; /* Change cursor for zoom out */
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modalImage = document.getElementById('modalImage');
+        let isZoomed = false;
+
+        // Zoom in/out on image click at the mouse position
+        modalImage.addEventListener('click', function (event) {
+            const rect = modalImage.getBoundingClientRect();
+            const x = event.clientX - rect.left; // x position within the image
+            const y = event.clientY - rect.top;  // y position within the image
+            
+            if (isZoomed) {
+                modalImage.style.transform = `scale(1)`;
+                modalImage.style.transformOrigin = 'center'; // Reset zoom origin
+                isZoomed = false;
+            } else {
+                modalImage.style.transform = `scale(2)`;
+                modalImage.style.transformOrigin = `${(x / modalImage.offsetWidth) * 100}% ${(y / modalImage.offsetHeight) * 100}%`; // Set zoom origin to clicked point
+                isZoomed = true;
+            }
+        });
+    });
+</script>
 
    <script>
     function changeImage(src) {
