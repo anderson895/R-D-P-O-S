@@ -199,7 +199,7 @@ function displayReview(reviews) {
                     <p>${generateStarButtonsss(review.r_rate)}</p>
                 </div>
                 <p class="mt-2">${review.r_feedback}</p>
-                <p class="text-muted mt-1">Commented on: ${formattedDate}</p> <!-- Displaying the comment date -->
+                <p class="text-muted mt-1"> ${formattedDate}</p> <!-- Displaying the comment date -->
             </div>
         </div>
         <hr>
