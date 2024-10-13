@@ -27,6 +27,19 @@ include('components/header.php');
                             $outOfStock = true;
                         }
                     }
+
+
+                    if (isset($bestProduct['prod_id'])) {
+                        $prod_id = $bestProduct['prod_id'];
+                        $response = $db->getAverageRating($prod_id);
+                        // echo json_encode($response);
+
+                    } else {
+                        echo json_encode(["error" => "Product ID is missing"]);
+                    }
+                    
+
+
                 ?>
                     <button class="m-2 p-0 product-container btnViewProduct" data-id="<?= $bestProduct['prod_id'] ?>" data-name="<?= $bestProduct['prod_name'] ?>" data-mg="<?= $bestProduct['prod_mg'] ?>" data-g="<?= $bestProduct['prod_g'] ?>" data-ml="<?= $bestProduct['prod_ml'] ?>" data-unitType="<?= $bestProduct['unit_type'] ?>" data-category="<?= $bestProduct['prod_category_id'] ?>" data-description="<?= $bestProduct['prod_description'] ?>" data-image="<?= $bestProduct['prod_image'] ?>" data-price="<?= $bestProduct['prod_currprice'] ?>" data-stock="<?= $productQty ?>">
                         <?= ($outOfStock) ? '<span class="txt-out-of-stock text-danger">Out of stock.</span>' : '' ?>
@@ -34,19 +47,19 @@ include('components/header.php');
                         <div class="p-1 product-contents-container">
 
                         <?php
-                    $avgRating = $response['avg_rating']; // Assuming avg_rating is already fetched
+                        $avgRating = $response['avg_rating']; // Assuming avg_rating is already fetched
 
-                    echo '<div class="ratings">';
-                    for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= floor($avgRating)) {
-                            echo '<span id="star' . $i . '" class="text-warning">★</span>';
-                        } else {
-                            echo '<span id="star' . $i . '" class="text-muted">☆</span>';
+                        echo '<div class="ratings">';
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($i <= floor($avgRating)) {
+                                echo '<span id="star' . $i . '" class="text-warning">★</span>';
+                            } else {
+                                echo '<span id="star' . $i . '" class="text-muted">☆</span>';
+                            }
                         }
-                    }
-                    echo '<span id="avg-rating">(' . $avgRating . ')</span>';
-                    echo '</div>';
-                    ?>
+                        echo '<span id="avg-rating">(' . $avgRating . ')</span>';
+                        echo '</div>';
+                        ?>
 
                             <p class="product-name">
                                 <?= $bestProduct['prod_name'] ?>
