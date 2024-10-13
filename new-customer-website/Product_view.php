@@ -233,23 +233,34 @@ function generateStarButtonsss(starCount) {
 
   <!-- End reviews -->
   <style>
+  .modal-body {
+      position: relative; /* Set position for the modal body */
+      overflow: hidden; /* Hide overflow to prevent image from exceeding modal */
+      max-height: 80vh; /* Limit height to 80% of viewport */
+  }
+
   #modalImage {
       transition: transform 0.25s ease; /* Smooth transition for zoom */
       cursor: zoom-in; /* Change cursor to indicate zooming */
       max-width: 100%; /* Ensure image is responsive */
-      max-height: 80vh; /* Limit height to 80% of viewport */
+      max-height: 100%; /* Ensure image does not exceed modal height */
       transform-origin: top left; /* Set the origin point for zoom */
   }
+
   .zoomed {
       cursor: zoom-out; /* Change cursor for zoom out */
   }
 </style>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
       const modalImage = document.getElementById('modalImage');
+      const modalBody = modalImage.closest('.modal-body');
       let isZoomed = false;
       let scale = 1;
       const scaleFactor = 1.5; // Adjust this for zoom level
+      const minScale = 1; // Minimum scale
+      const maxScale = 3; // Maximum scale
 
       // Function to zoom the image at the cursor position
       function zoom(event) {
@@ -259,15 +270,30 @@ function generateStarButtonsss(starCount) {
 
           modalImage.style.transformOrigin = `${x}px ${y}px`; // Set the zoom origin
           modalImage.style.transform = `scale(${scale})`; // Apply the scale transformation
+
+          // Check boundaries to keep the image within the modal
+          const modalRect = modalBody.getBoundingClientRect();
+          const scaledWidth = rect.width * scale;
+          const scaledHeight = rect.height * scale;
+
+          // Adjust position if scaled image is larger than modal
+          if (scaledWidth > modalRect.width) {
+              const overflowX = (scaledWidth - modalRect.width) / 2; // Calculate overflow
+              modalImage.style.transform = `translateX(${-overflowX}px) scale(${scale})`;
+          }
+          if (scaledHeight > modalRect.height) {
+              const overflowY = (scaledHeight - modalRect.height) / 2; // Calculate overflow
+              modalImage.style.transform = `translateY(${-overflowY}px) scale(${scale})`;
+          }
       }
 
       // Zoom in/out on image click
-      modalImage.addEventListener('click', function () {
+      modalImage.addEventListener('click', function (event) {
           if (isZoomed) {
-              scale = 1; // Reset scale
+              scale = minScale; // Reset scale to minimum
               modalImage.classList.remove('zoomed');
           } else {
-              scale *= scaleFactor; // Increase scale
+              scale = Math.min(scale * scaleFactor, maxScale); // Increase scale without exceeding max
               modalImage.classList.add('zoomed');
           }
           zoom(event); // Apply the zoom effect
@@ -284,7 +310,7 @@ function generateStarButtonsss(starCount) {
       // Optional: Reset zoom when mouse leaves the image
       modalImage.addEventListener('mouseleave', function () {
           if (isZoomed) {
-              scale = 1; // Reset scale
+              scale = minScale; // Reset scale to minimum
               modalImage.classList.remove('zoomed');
               modalImage.style.transform = `scale(1)`; // Reset transform
               isZoomed = false; // Reset zoom state
@@ -292,6 +318,7 @@ function generateStarButtonsss(starCount) {
       });
   });
 </script>
+
 
    <script>
     function changeImage(src) {
