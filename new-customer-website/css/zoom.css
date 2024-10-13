@@ -15,7 +15,7 @@
     height: 60px; /* Increased size for better usability */
     opacity: 0.5; /* Slightly transparent lens */
     background-color: rgba(255, 255, 255, 0.5); /* Light background for visibility */
-    cursor: crosshair; /* Change cursor to indicate zoom */
+    cursor: zoom-in; /* Change cursor to indicate zoom */
 }
 
 .img-zoom-result {
