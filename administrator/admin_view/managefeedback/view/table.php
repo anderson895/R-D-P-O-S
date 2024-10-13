@@ -122,42 +122,48 @@
     </div>
   </div>
 </div>
-
 <script>
-    // .toglerDeleteComRev
-    $(document).ready(function(){
-    // Click event
-    $('.toglerDeleteComRev').click(function(){
-        var id = $(this).attr('data-id');
+    $(document).ready(function() {
+        var id; // Declare a variable to hold the ID
 
-        console.log(id);
+        // Click event for togglerDeleteComRev
+        $(document).on("click", ".toglerDeleteComRev", function (e) {
+            id = $(this).attr('data-id'); // Store the ID in the variable
+            console.log(id); // Log the ID for debugging
 
-        // Display a confirmation dialog
-       
-        $('#btnConfirmDelete').click(function(){
-            $.ajax({
-                url: "managefeedback/controller/post.php",
-                type: "POST",
-                data: {
-                    id: id,
-                    SubmitType: 'deleteReviews'
-                },
-                success: function(data) {
-                    console.log(data); // Log the data to console for demonstration
-
-                    if(data=="success"){
-                        location.reload()
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Handle error
-                    console.error("Error occurred:", error);
-                }
-            });
+            // Display a confirmation dialog (implement this as per your UI)
+            $('#confirmDeleteModal').modal('show'); // Example if using Bootstrap modal
         });
-        
+
+        // Click event for the confirmation button
+        $(document).on("click", "#btnConfirmDelete", function (e) {
+            // Ensure id is available
+            if (id) {
+                $.ajax({
+                    url: "managefeedback/controller/post.php",
+                    type: "POST",
+                    data: {
+                        id: id,
+                        SubmitType: 'deleteReviews'
+                    },
+                    success: function(data) {
+                        console.log(data); // Log the data to console for demonstration
+
+                        if (data === "success") {
+                            location.reload(); // Reload the page on success
+                        } else {
+                            alert('Error: ' + data); // Handle unsuccessful deletion
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.error("Error occurred:", error);
+                        alert('An error occurred while trying to delete the review.');
+                    }
+                });
+            } else {
+                alert('No ID available for deletion.'); // Handle case where ID is not set
+            }
+        });
     });
-});
-
-
 </script>
