@@ -106,10 +106,10 @@ if ($result_active_inactive) {
                                 </div>
                             </td>
                             <td class="productimgname">
-                                <a href="javascript:void(0);" class="product-img">
+                                <a href="product-details.php?target_id=${item.prod_code}" class="product-img">
                                     <img src="../../upload_prodImg/${item.prod_image}" alt="product" />
                                 </a>
-                                <a href="javascript:void(0);">${item.prod_name}</a>
+                                <a href="product-details.php?target_id=${item.prod_code}">${item.prod_name}</a>
                             </td>
                             <td>${item.prod_code}</td>
                             <td>${item.category_name}</td>
