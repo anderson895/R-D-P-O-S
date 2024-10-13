@@ -220,10 +220,10 @@
 
 
 <style>
-    #placeOrderItemsContainer {
- 
+ #placeOrderItemsContainer {
   max-height: 300px; /* Halimbawa height */
   overflow-y: auto;
+  border: 1px solid red; /* Helps visualize the container size */
 }
 
 </style>
