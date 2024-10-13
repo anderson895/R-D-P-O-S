@@ -231,7 +231,7 @@
                 <button type="button" id="closeViewProductModal" class="btn-close btnCloseModal"
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="container p-2" id="tableContainer">
+            <div class="container p-2" >
                 <table class="table">
                     <thead>
                         <tr>
