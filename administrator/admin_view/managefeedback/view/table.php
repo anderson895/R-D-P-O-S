@@ -73,7 +73,8 @@
                                     <button type="button" style="border:0;" class="btn text-warning btnTsFrmStar <?php if($rate['r_rate']>=5){ echo 'active';} ?>" data-id="5"><i class="bi <?php if($rate['r_rate']>=5){ echo 'bi-star-fill';} else { echo 'bi-star'; } ?>"></i></button>
                                 </div>
                             </td>
-                            <td><?= $rate['r_feedback'] ?></td>
+                            <td><?= substr($rate['r_feedback'], 0, 100) . (strlen($rate['r_feedback']) > 100 ? '...' : '') ?></td>
+
                             <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
                             <td>
                                 <button type="button" 
