@@ -251,7 +251,6 @@ function generateStarButtonsss(starCount) {
       cursor: zoom-out; /* Change cursor for zoom out */
   }
 </style>
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
       const modalImage = document.getElementById('modalImage');
@@ -318,6 +317,7 @@ function generateStarButtonsss(starCount) {
       });
   });
 </script>
+
 
 
    <script>
