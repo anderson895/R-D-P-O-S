@@ -17,41 +17,31 @@
     background-color: rgba(255, 255, 255, 0.5); /* Light background for visibility */
     cursor: crosshair; /* Change cursor to indicate zoom */
 }
-
 .img-zoom-result {
     border: 1px solid #d4d4d4;
     /* Set the size of the result div */
-    width: 300px;
-    height: 300px;
+    width: 300px; /* Adjust according to modal size */
+    height: 300px; /* Adjust according to modal size */
     position: absolute; /* Necessary for proper placement */
     top: 0; /* Adjust top position */
-    left: 120%; /* Position it to the right of the image */
+    left: 100%; /* Initially position it outside the image, can be adjusted */
     background-repeat: no-repeat; /* No repeat for the zoomed image */
+    z-index: 1; /* Ensure it appears above other content */
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .img-zoom-lens {
-        width: 40px; /* Decrease lens size for mobile */
-        height: 40px; /* Decrease lens size for mobile */
-    }
-
     .img-zoom-result {
-        width: 200px; /* Decrease zoom result size for mobile */
-        height: 200px; /* Decrease zoom result size for mobile */
+        width: 200px; /* Adjust size for mobile */
+        height: 200px; /* Adjust size for mobile */
         left: 100%; /* Adjust position for mobile */
     }
 }
 
 @media (max-width: 480px) {
-    .img-zoom-lens {
-        width: 30px; /* Further decrease lens size for smaller screens */
-        height: 30px; /* Further decrease lens size for smaller screens */
-    }
-
     .img-zoom-result {
-        width: 150px; /* Further decrease zoom result size for smaller screens */
-        height: 150px; /* Further decrease zoom result size for smaller screens */
+        width: 150px; /* Further adjust size for smaller screens */
+        height: 150px; /* Further adjust size for smaller screens */
         left: 90%; /* Adjust position for very small screens */
     }
 }

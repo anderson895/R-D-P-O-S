@@ -38,20 +38,20 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5> <!-- Title for accessibility -->
+                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
                 <div class="img-zoom-container">
                     <img id="myimage" src="../upload_prodImg/<?=$image?>" width="300" height="240" />
-                    <div id="myresult" class="img-zoom-result"></div>
+                    <div id="myresult" class="img-zoom-result"></div> <!-- Result placed inside the modal -->
                 </div>
                 <!-- Optionally, you can include instructions or other content here -->
             </div>
         </div>
     </div>
 </div>
+
 
 
 
