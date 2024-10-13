@@ -1,6 +1,3 @@
-
-
-
 <div class="page-wrapper">
     <div class="content">
         <div class="page-header">
@@ -86,6 +83,27 @@
     </div>
 </div>
 
+<!-- Confirmation Modal -->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalDeleteLabel">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this review?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btnConfirmDelete" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable({
@@ -97,68 +115,34 @@
                 "emptyTable": "No Rate Found."
             }
         });
-    });
-</script>
 
+        // Click event for delete button
+        $('.toglerDeleteComRev').click(function() {
+            var id = $(this).attr('data-id');
+            console.log(id); // Log the ID to the console for debugging
 
+            // Set up the click event for the confirmation button
+            $('#btnConfirmDelete').off('click').on('click', function() {
+                $.ajax({
+                    url: "managefeedback/controller/post.php",
+                    type: "POST",
+                    data: {
+                        id: id,
+                        SubmitType: 'deleteReviews'
+                    },
+                    success: function(data) {
+                        console.log(data); // Log the response data to console for demonstration
 
-
-
-<!-- MODAL -->
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
-      
-      </div>
-      <div class="modal-body">
-       <h6 class="text-center">Are you sure to delete this FeedBack? </h6>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="btnConfirmDelete">Confirm</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-    // .toglerDeleteComRev
-
-    $(document).ready(function(){
-    // Click event
-    $('.toglerDeleteComRev').click(function(){
-        var id = $(this).attr('data-id');
-
-        console.log(id);
-
-        // Display a confirmation dialog
-       
-        $('#btnConfirmDelete').click(function(){
-            $.ajax({
-                url: "managefeedback/controller/post.php",
-                type: "POST",
-                data: {
-                    id: id,
-                    SubmitType: 'deleteReviews'
-                },
-                success: function(data) {
-                    console.log(data); // Log the data to console for demonstration
-
-                    if(data=="success"){
-                        location.reload()
+                        if (data == "success") {
+                            location.reload(); // Reload the page on success
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.error("Error occurred:", error);
                     }
-                },
-                error: function(xhr, status, error) {
-                    // Handle error
-                    console.error("Error occurred:", error);
-                }
+                });
             });
         });
-        
     });
-});
-
-
 </script>
