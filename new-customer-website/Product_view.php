@@ -33,20 +33,18 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
         <div class="row mt-4">
             <div class="text-center">
                 <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-              <!-- Modal Structure -->
+                <!-- Modal Structure -->
                 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                <!-- Image in Modal with Zoom Functionality -->
-                                <div class="img-magnifier-container">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <!-- Image in Modal -->
                                     <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
                 <div class="d-flex justify-content-center">
@@ -257,83 +255,6 @@ function generateStarButtonsss(starCount) {
         document.getElementById('modalImage').src = document.getElementById('mainImage').src;
     });
 </script>
-
-
-<script>
-    function magnify(imgID, zoom) {
-        var img, glass;
-        img = document.getElementById(imgID);
-
-        // Create magnifier glass
-        glass = document.createElement("div");
-        glass.setAttribute("class", "img-magnifier-glass");
-
-        // Insert magnifier glass
-        img.parentElement.insertBefore(glass, img);
-
-        // Set background properties for the glass
-        glass.style.backgroundImage = "url('" + img.src + "')";
-        glass.style.backgroundRepeat = "no-repeat";
-        glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-
-        // Set event listeners to move the glass when hovering over the image
-        glass.addEventListener("mousemove", moveMagnifier);
-        img.addEventListener("mousemove", moveMagnifier);
-
-        glass.addEventListener("mouseleave", function() {
-            glass.remove(); // Remove the glass when not hovering over the image
-        });
-
-        function moveMagnifier(e) {
-            var pos, x, y;
-            e.preventDefault();
-            pos = getCursorPos(e);
-            x = pos.x;
-            y = pos.y;
-
-            // Prevent the magnifier glass from being positioned outside the image
-            if (x > img.width - (glass.offsetWidth / zoom)) {x = img.width - (glass.offsetWidth / zoom);}
-            if (x < glass.offsetWidth / zoom) {x = glass.offsetWidth / zoom;}
-            if (y > img.height - (glass.offsetHeight / zoom)) {y = img.height - (glass.offsetHeight / zoom);}
-            if (y < glass.offsetHeight / zoom) {y = glass.offsetHeight / zoom;}
-
-            // Move the glass and change the background position
-            glass.style.left = (x - glass.offsetWidth / 2) + "px";
-            glass.style.top = (y - glass.offsetHeight / 2) + "px";
-            glass.style.backgroundPosition = "-" + ((x * zoom) - glass.offsetWidth / 2) + "px -" + ((y * zoom) - glass.offsetHeight / 2) + "px";
-        }
-
-        function getCursorPos(e) {
-            var a, x = 0, y = 0;
-            e = e || window.event;
-            // Get the x and y positions of the image
-            a = img.getBoundingClientRect();
-            // Calculate the cursor's x and y coordinates, relative to the image
-            x = e.pageX - a.left;
-            y = e.pageY - a.top;
-            // Consider page scrolling
-            x = x - window.pageXOffset;
-            y = y - window.pageYOffset;
-            return {x: x, y: y};
-        }
-    }
-</script>
-
-<style>
-    .img-magnifier-container {
-        position: relative;
-    }
-
-    .img-magnifier-glass {
-        position: absolute;
-        border: 3px solid #000;
-        border-radius: 50%;
-        cursor: none;
-        width: 100px; /* Adjust the size of the magnifier glass */
-        height: 100px; /* Adjust the size of the magnifier glass */
-        opacity: 0.7; /* Adjust transparency */
-    }
-</style>
 
 <?php
 include('components/footer.php');
