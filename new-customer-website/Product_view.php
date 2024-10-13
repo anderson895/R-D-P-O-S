@@ -32,32 +32,28 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
 
         <div class="row mt-4">
             <div class="text-center">
-                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" data-bs-toggle="modal" data-bs-target="#imageModal">
-
-                <!-- Modal Structure -->
-                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true" data-bs-backdrop="false">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <!-- Image in Modal -->
-                        <img id="modalImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="img-fluid">
-                    </div>
-                    </div>
-                </div>
-                </div>
+                <img id="mainImage" src="../upload_prodImg/<?=$image?>" alt="Product Image" class="product-image mb-4" >
 
                 <div class="d-flex justify-content-center">
-                    <div class="scroll-container">
-                    <?php 
-                    $photosArray = explode('%2C', $photos);
-                    foreach ($photosArray as $photo) {
-                        $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
-                        $imgSrc = '../product_photos/' . $escapedPhoto;
-                        echo '<img '.$hidden_photos.' src="' . $imgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail">';
-                    }
-                    ?>
-                    </div>
+
+                <div class="scroll-container">
+                <?php 
+                $photosArray = explode('%2C', $photos);
+                foreach ($photosArray as $photo) {
+                    $escapedPhoto = htmlspecialchars($photo, ENT_QUOTES, 'UTF-8');
+                    $imgSrc = '../product_photos/' . $escapedPhoto;
+                    echo '<img '.$hidden_photos.' src="' . $imgSrc . '" class="thumb-img me-2 active" onclick="changeImage(\'' . $imgSrc . '\')" alt="Product Thumbnail 1">';
+                    
+
+                    
+                }
+                ?>
+                </div>
+
+
+
+                    
+                  
                 </div>
 
              
@@ -101,17 +97,8 @@ $hidden_photos = ($photos == null) ? "hidden" : "";
                 <h4>Reviews</h4>
                 <div class="scrollable-div">
                 <div id="reviews-container" style="display:none;"></div>
- <script>
+                <script>
                     
-  // JavaScript function to change the image source in the modal
-  function changeImage(imgSrc) {
-    // Update the source of the main image
-    document.getElementById('mainImage').src = imgSrc;
-
-    // Update the source of the image in the modal
-    document.getElementById('modalImage').src = imgSrc;
-  }
-
 $(document).ready(function() {
     // Fetch product ID from the hidden input or any other element
     var rate_prod_id = $("#product_id").val();
