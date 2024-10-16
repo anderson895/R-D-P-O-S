@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2024 at 05:30 AM
+-- Generation Time: Sep 16, 2024 at 08:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -81,8 +81,9 @@ INSERT INTO `account` (`acc_id`, `acc_code`, `acc_created`, `acc_username`, `acc
 (252, 'ACC75423252', '2024-02-29', 'irapadrigon', 'c50d339c8af5e26a349c6e2fe127d1948f299403f5549531335ee64829c7ea79', 'Juliana Ira', 'Padrigon', '2000-02-11', 'customer', 0, 0, 'julianairapadrigon5@gmail.com', '09753035756', '', NULL, '', NULL, '0', 0, '2024-02-29 16:10:36'),
 (253, 'ACC35017253', '2024-03-04', 'costumer1', '693bfa3ccf2ba5458437468ada2fd3949319528867bff78de905cef88360d3d2', 'Jv', 'Magtalas', '2000-03-04', 'customer', 0, 0, 'jvmagtalas043@gmail.com', '09914965320', '', NULL, '', NULL, '', 0, '2024-03-04 12:46:47'),
 (262, 'ACC59775262', '2024-06-27', 'joshua', '0b126e93856f3289c7c9c9bad49733d101586065e41fcbd3b745c5291d5e93ff', 'joshua', 'padilla', '2024-06-12', 'customer', 1, 0, 'anderson@gmail.com', '09454454744', '', NULL, '', NULL, '4863', NULL, '2024-06-27 22:40:29'),
-(268, 'ACC03134268', '2024-06-27', 'padillajoshuaanderson.pdm', 'c9da6e6ac07fbfa8cbc71335f5b99c2d3eeb26c08c802d804252852476154f7e', 'alden', 'richards', '2000-06-13', 'customer', 0, 0, 'padillajoshuaanderson.pdm@gmail.com', '09454454744', '', NULL, '', NULL, '0', 0, '2024-06-27 23:35:04'),
-(269, 'ACC28144269', '2024-07-20', 'andersonandy046', 'aecf3f06d39b17636faff2099db795e9d156dc3444322c77d50cdad30df0a95f', 'daniel', 'padilla', '2000-07-10', 'customer', 0, 0, 'andersonandy046@gmail.com', '09454454744', 'profile_66d72d2d933e07.29775908.jpg', NULL, '', NULL, '', 0, '2024-09-03 23:41:15');
+(268, 'ACC03134268', '2024-06-27', 'padillajoshuaanderson', 'c9da6e6ac07fbfa8cbc71335f5b99c2d3eeb26c08c802d804252852476154f7e', 'alden', 'richards', '2000-06-13', 'customer', 0, 0, 'padillajoshuaanderson@gmail.com', '09454454744', '', NULL, '', NULL, '0', 0, '2024-06-27 23:35:04'),
+(269, 'ACC28144269', '2024-07-20', 'andersonandy046', '61e36b4d463fcf248af31898805050d4b137bb54e74c4e7e9b95b35ccb0f9753', 'daniel', 'padilla', '2000-07-10', 'customer', 0, 0, 'andersonandy046@gmail.com', '09454454744', 'profile_66d72d2d933e07.29775908.jpg', NULL, '', NULL, '', 0, '2024-09-05 21:44:51'),
+(270, 'ACC50455270', '2024-09-11', 'padillajoshuaanderson.pdm', 'c9da6e6ac07fbfa8cbc71335f5b99c2d3eeb26c08c802d804252852476154f7e', 'Joshua', 'Padilla', '2000-09-19', 'customer', 0, 0, 'padillajoshuaanderson.pdm@gmail.com', '09454454744', '', NULL, '', NULL, '0', 0, '2024-09-11 15:12:41');
 
 -- --------------------------------------------------------
 
@@ -194,14 +195,25 @@ INSERT INTO `maintinance` (`system_id`, `system_name`, `system_banner`, `system_
 
 CREATE TABLE `messages` (
   `mess_id` int(11) NOT NULL,
-  `mess_sender_id` int(11) NOT NULL,
+  `mess_sender` int(11) NOT NULL,
   `mess_content` varchar(255) DEFAULT NULL,
-  `mess_type` varchar(255) NOT NULL,
-  `mess_status` int(11) NOT NULL,
-  `mess_reciever_id` int(11) DEFAULT NULL,
+  `mess_reciever` varchar(60) DEFAULT NULL,
   `mess_date` datetime NOT NULL,
   `mess_seen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`mess_id`, `mess_sender`, `mess_content`, `mess_reciever`, `mess_date`, `mess_seen`) VALUES
+(210, 269, 'awd', 'Admin', '2024-09-16 13:36:26', 2),
+(211, 248, 'ako si johny', 'Admin', '2024-09-16 13:36:26', 2),
+(212, 16, 'hello johny', '248', '2024-09-16 14:20:39', 0),
+(213, 16, 'hello daniel', '269', '2024-09-16 14:31:13', 0),
+(214, 269, 'hi admin', 'Admin', '2024-09-16 14:46:37', 2),
+(215, 16, 'hello user', '269', '2024-09-16 14:46:45', 0),
+(216, 269, 'hello', 'Admin', '2024-09-16 14:49:09', 2);
 
 -- --------------------------------------------------------
 
@@ -268,7 +280,8 @@ INSERT INTO `new_cart` (`cart_id`, `prod_id`, `qty`, `user_id`) VALUES
 (169, 287, 1, 16),
 (170, 274, 1, 16),
 (171, 257, 1, 16),
-(172, 286, 1, 16);
+(172, 286, 1, 16),
+(191, 257, 1, 269);
 
 -- --------------------------------------------------------
 
@@ -300,35 +313,11 @@ CREATE TABLE `new_tbl_orders` (
 --
 
 INSERT INTO `new_tbl_orders` (`order_id`, `cust_id`, `payment_id`, `pof`, `subtotal`, `vat`, `sf`, `total`, `order_date`, `delivered_date`, `rider_id`, `status`, `reject_reason`, `proof_of_del`, `t_status`, `c_status`) VALUES
-('ORD-113128', 269, '57', 'ORD-113128.jpeg', 195.00, 19.50, 0.00, 214.50, '2024-07-20 20:42:11', '2024-07-28 21:54:28', 250, 'Delivered', NULL, 'proof_of_del_3147751385.png', 0, 'Collected'),
-('ORD-142105', 234, '58', 'ORD-142105.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:44:30', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-169634', 269, 'COD', NULL, 80.00, 8.00, 50.00, 138.00, '2024-07-20 20:43:51', NULL, NULL, 'Pending', NULL, '', 0, 'Not_Collected'),
-('ORD-213147', 234, '58', 'ORD-213147.jpeg', 1122.00, 134.64, 10.00, 1266.64, '2024-02-28 22:45:45', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-238827', 234, 'COD', NULL, 480.00, 48.00, 10.00, 538.00, '2024-03-06 21:47:41', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-250645', 226, '57', 'ORD-250645.png', 40.00, 4.80, 10.00, 54.80, '2024-02-27 22:24:02', '2024-09-04 11:21:32', 228, 'Delivered', NULL, 'proof_of_del_5048654672.jpg', 0, 'Collected'),
-('ORD-276607', 252, '57', 'ORD-276607.jpg', 62.00, 6.20, 80.00, 148.20, '2024-02-29 16:37:55', '2024-02-29 16:41:14', 228, 'Delivered', NULL, 'proof_of_del_7963301166.jpg', 1, 'Collected'),
-('ORD-290426', 223, '57', 'ORD-290426.jpg', 100.00, 12.00, 80.00, 192.00, '2024-02-27 22:46:58', NULL, NULL, 'Pending', NULL, '', 0, 'Not_Collected'),
-('ORD-290736', 234, '58', 'ORD-290736.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:43:49', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-301651', 249, '57', 'ORD-301651.jpg', 240.00, 28.80, 10.00, 278.80, '2024-02-28 23:25:47', '2024-02-28 23:31:05', 250, 'Delivered', NULL, 'proof_of_del_4194545267.jpg', 0, 'Collected'),
-('ORD-343160', 269, 'COD', NULL, 2147.00, 214.70, 50.00, 2411.70, '2024-09-04 00:30:41', '2024-09-04 00:31:07', 250, 'Delivered', NULL, 'proof_of_del_2806056121.jpeg', 0, 'Collected'),
-('ORD-388565', 226, 'COD', NULL, 140.00, 16.80, 10.00, 166.80, '2024-02-25 12:43:52', '2024-02-25 13:05:11', 16, 'Delivered', NULL, 'proof_of_del_5639775789.png', 0, 'Not_Collected'),
-('ORD-417162', 251, '57', 'ORD-417162.jpg', 480.00, 48.00, 30.00, 558.00, '2024-02-29 10:04:20', '2024-02-29 10:07:29', 250, 'Delivered', NULL, 'proof_of_del_3938352078.jpg', 0, 'Collected'),
-('ORD-432294', 226, 'COD', NULL, 100.00, 12.00, 10.00, 122.00, '2024-02-25 14:12:59', '2024-02-25 14:13:31', 16, 'Delivered', NULL, 'proof_of_del_7400632930.png', 0, 'Not_Collected'),
-('ORD-488654', 269, '57', 'ORD-488654.png', 98.00, 9.80, 50.00, 157.80, '2024-07-30 22:08:33', '2024-07-30 22:11:59', 16, 'Delivered', NULL, 'proof_of_del_2569559573.jpeg', 0, 'Not_Collected'),
-('ORD-547492', 253, '58', 'ORD-547492.jpg', 720.00, 72.00, 150.00, 942.00, '2024-03-04 12:45:33', '2024-03-04 12:47:34', 228, 'Delivered', NULL, 'proof_of_del_5523869610.jpg', 0, 'Collected'),
-('ORD-636833', 234, '58', 'ORD-636833.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:44:35', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-655388', 268, 'COD', NULL, 702.00, 70.20, 80.00, 852.20, '2024-07-30 00:20:24', '2024-09-04 11:30:21', 228, 'Delivered', NULL, 'proof_of_del_4894928319.jpg', 0, 'Collected'),
-('ORD-716493', 269, 'COD', NULL, 1340.00, 134.00, 50.00, 1524.00, '2024-09-03 23:37:45', '2024-09-03 23:39:20', 250, 'Delivered', NULL, 'proof_of_del_9296333623.jpg', 0, 'Collected'),
-('ORD-721475', 268, '58', 'ORD-721475.png', 140.00, 14.00, 80.00, 234.00, '2024-07-29 21:47:41', '2024-07-29 21:50:04', 250, 'Delivered', NULL, 'proof_of_del_1238195353.png', 0, 'Collected'),
-('ORD-751059', 246, 'COD', NULL, 160.00, 16.00, 80.00, 256.00, '2024-07-02 21:22:02', NULL, NULL, 'Pending', NULL, '', 0, 'Not_Collected'),
-('ORD-825276', 234, '58', 'ORD-825276.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:44:33', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-826417', 234, '58', 'ORD-826417.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:44:30', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-827898', 269, 'COD', NULL, 320.00, 32.00, 50.00, 402.00, '2024-08-12 20:29:07', '2024-09-04 11:21:47', 228, 'Delivered', NULL, 'proof_of_del_1393237155.jpeg', 0, 'Collected'),
-('ORD-917981', 234, 'COD', NULL, 2400.00, 288.00, 10.00, 2698.00, '2024-02-27 22:08:59', NULL, NULL, 'Rejected', NULL, '', 0, 'Not_Collected'),
-('ORD-986473', 269, '58', 'ORD-986473.png', 801.00, 80.10, 50.00, 931.10, '2024-07-30 00:16:45', '2024-07-30 00:18:03', 250, 'Delivered', NULL, 'proof_of_del_0399932304.jpg', 0, 'Collected'),
-('ORD-98954', 234, '58', 'ORD-98954.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:44:29', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-990516', 234, '58', 'ORD-990516.png', 185.00, 22.20, 10.00, 217.20, '2024-02-28 22:44:33', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-991979', 246, '57', 'ORD-991979.jpeg', 80.00, 8.00, 30.00, 118.00, '2024-07-20 20:33:40', NULL, NULL, 'Pending', NULL, '', 0, 'Not_Collected');
+('ORD-395125', 269, 'COD', NULL, 250.00, 25.00, 50.00, 325.00, '2024-09-05 21:50:39', '2024-09-05 21:51:53', 250, 'Delivered', NULL, 'proof_of_del_7389954246.jpg', 0, 'Collected'),
+('ORD-643118', 270, 'COD', NULL, 80.00, 8.00, 150.00, 238.00, '2024-09-11 15:20:53', '2024-09-11 15:25:23', 250, 'Delivered', NULL, 'proof_of_del_2050033080.jpg', 1, 'Collected'),
+('ORD-655800', 269, 'COD', NULL, 215.00, 21.50, 50.00, 286.50, '2024-09-05 22:24:44', NULL, 250, 'Ready For Delivery', NULL, '', 0, 'Collected'),
+('ORD-812347', 269, 'COD', NULL, 240.00, 24.00, 50.00, 314.00, '2024-09-05 21:56:00', '2024-09-05 21:56:37', 228, 'Delivered', NULL, 'proof_of_del_5324558829.jpeg', 0, 'Collected'),
+('ORD-94930', 269, 'COD', NULL, 1870.00, 187.00, 50.00, 2107.00, '2024-09-05 21:50:02', '2024-09-05 21:52:30', 250, 'Delivered', NULL, 'proof_of_del_8318757910.jpg', 0, 'Collected');
 
 -- --------------------------------------------------------
 
@@ -348,75 +337,17 @@ CREATE TABLE `new_tbl_order_items` (
 --
 
 INSERT INTO `new_tbl_order_items` (`id`, `order_id`, `product_id`, `qty`) VALUES
-(41, 'ORD-314701', 255, 1),
-(42, 'ORD-59454', 255, 1),
-(43, 'ORD-856262', 255, 1),
-(44, 'ORD-798562', 255, 3),
-(45, 'ORD-213856', 255, 14),
-(46, 'ORD-974469', 255, 5),
-(47, 'ORD-109134', 255, 10),
-(48, 'ORD-245143', 257, 1),
-(49, 'ORD-305901', 258, 2),
-(50, 'ORD-305901', 274, 1),
-(51, 'ORD-40275', 273, 2),
-(52, 'ORD-908018', 273, 1),
-(53, 'ORD-513659', 274, 10),
-(54, 'ORD-359731', 268, 1),
-(55, 'ORD-61835', 274, 3),
-(56, 'ORD-388565', 274, 1),
-(57, 'ORD-388565', 273, 1),
-(58, 'ORD-432294', 274, 1),
-(59, 'ORD-917981', 261, 4),
-(60, 'ORD-250645', 273, 1),
-(61, 'ORD-290426', 274, 1),
-(62, 'ORD-290736', 257, 1),
-(63, 'ORD-290736', 259, 3),
-(64, 'ORD-98954', 257, 1),
-(65, 'ORD-98954', 259, 3),
-(66, 'ORD-142105', 257, 1),
-(67, 'ORD-142105', 259, 3),
-(68, 'ORD-826417', 257, 1),
-(69, 'ORD-826417', 259, 3),
-(70, 'ORD-825276', 257, 1),
-(71, 'ORD-825276', 259, 3),
-(72, 'ORD-990516', 257, 1),
-(73, 'ORD-990516', 259, 3),
-(74, 'ORD-636833', 257, 1),
-(75, 'ORD-636833', 259, 3),
-(76, 'ORD-213147', 258, 1),
-(77, 'ORD-213147', 262, 1),
-(78, 'ORD-213147', 261, 1),
-(79, 'ORD-213147', 269, 1),
-(80, 'ORD-213147', 267, 1),
-(81, 'ORD-301651', 257, 1),
-(82, 'ORD-301651', 258, 1),
-(83, 'ORD-417162', 257, 4),
-(84, 'ORD-417162', 258, 1),
-(85, 'ORD-276607', 268, 1),
-(86, 'ORD-547492', 257, 1),
-(87, 'ORD-547492', 258, 4),
-(88, 'ORD-238827', 258, 2),
-(89, 'ORD-238827', 257, 2),
-(90, 'ORD-751059', 258, 1),
-(91, 'ORD-991979', 257, 1),
-(92, 'ORD-113128', 258, 1),
-(93, 'ORD-113128', 259, 1),
-(94, 'ORD-169634', 257, 1),
-(95, 'ORD-721475', 257, 1),
-(96, 'ORD-721475', 266, 1),
-(97, 'ORD-986473', 262, 3),
-(98, 'ORD-655388', 261, 1),
-(99, 'ORD-655388', 268, 1),
-(100, 'ORD-655388', 273, 1),
-(101, 'ORD-488654', 267, 1),
-(102, 'ORD-488654', 266, 1),
-(103, 'ORD-488654', 280, 1),
-(104, 'ORD-827898', 258, 2),
-(105, 'ORD-716493', 259, 4),
-(106, 'ORD-716493', 261, 2),
-(107, 'ORD-343160', 257, 1),
-(108, 'ORD-343160', 261, 3),
-(109, 'ORD-343160', 262, 1);
+(111, 'ORD-94930', 261, 3),
+(112, 'ORD-94930', 259, 2),
+(113, 'ORD-395125', 257, 2),
+(114, 'ORD-395125', 266, 1),
+(115, 'ORD-395125', 271, 1),
+(116, 'ORD-812347', 257, 1),
+(117, 'ORD-812347', 258, 1),
+(118, 'ORD-655800', 257, 1),
+(119, 'ORD-655800', 259, 1),
+(120, 'ORD-655800', 265, 1),
+(121, 'ORD-643118', 257, 1);
 
 -- --------------------------------------------------------
 
@@ -752,7 +683,8 @@ INSERT INTO `return_pos_table` (`id`, `rdate`, `rcode`, `rreason`, `rtype`, `sel
 (2, '2024-07-29', 'ORD-547492', 'Defective', 'Replace', '{\"257\":{\"prodName\":\"Bayong Big\",\"quantity\":\"1\",\"price\":80},\"258\":{\"prodName\":\"Cat Litter 5kg\",\"quantity\":\"4\",\"price\":160}}', 1, 'e08e9f3591d3eee6893eeabc8ac9891a.png', 'Mike Will'),
 (3, '2024-07-29', 'RD24184', 'Defective', 'Replace', '{\"268\":{\"prodName\":\"Lori Soap\",\"quantity\":\"2\",\"price\":62},\"277\":{\"prodName\":\"Wood Flakes\",\"quantity\":\"5\",\"price\":100}}', 0, '0223f32da20d5c2c2f5bf9c22374c3ff.png', 'John Arnold'),
 (4, '2024-07-29', 'RD57056', 'Wrong Product', 'Replace', '{\"243\":{\"prodName\":\"ambroxitil\",\"quantity\":\"1\",\"price\":35},\"252\":{\"prodName\":\"New Product\",\"quantity\":\"1\",\"price\":100},\"253\":{\"prodName\":\"Product 1\",\"quantity\":\"1\",\"price\":100}}', 0, '4040f011f17476f8643c408e8e147890.png', 'Juan Dela Cruz'),
-(5, '2024-07-29', 'RD95146', 'Wrong Product', 'Replace', '{\"277\":{\"prodName\":\"Wood Flakes\",\"quantity\":\"2\",\"price\":100}}', 0, 'bc4aad63284e9fccadc635fcffb6c7fc.png', 'Joshua');
+(5, '2024-07-29', 'RD95146', 'Wrong Product', 'Replace', '{\"277\":{\"prodName\":\"Wood Flakes\",\"quantity\":\"2\",\"price\":100}}', 0, 'bc4aad63284e9fccadc635fcffb6c7fc.png', 'Joshua'),
+(6, '2024-09-11', 'ORD-643118', 'Wrong Product', 'Replace', '{\"257\":{\"prodName\":\"Bayong Big\",\"quantity\":\"1\",\"price\":80}}', 1, 'ca22abc0242aa64df7637ac4389da522.jpg', 'joshua padilla');
 
 -- --------------------------------------------------------
 
@@ -779,17 +711,17 @@ CREATE TABLE `stocks` (
 --
 
 INSERT INTO `stocks` (`s_id`, `s_stockin_date`, `s_invoice`, `s_expiration`, `s_prod_id`, `s_stock_in_qty`, `s_amount`, `s_supplierPrice`, `s_spl_id`, `s_edited`, `s_status`) VALUES
-(444, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 495, 72, 42, NULL, 1),
-(445, '2024-02-22', 'INV0001', '0000-00-00', 258, 500, 489, 160, 42, NULL, 1),
-(446, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 496, 80, 42, NULL, 0),
-(447, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 499, 31.5, 42, NULL, 1),
+(444, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 492, 72, 42, NULL, 1),
+(445, '2024-02-22', 'INV0001', '0000-00-00', 258, 500, 487, 160, 42, NULL, 1),
+(446, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 492, 80, 42, NULL, 0),
+(447, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 498, 31.5, 42, NULL, 1),
 (448, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 496, 31.5, 42, NULL, 1),
-(449, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 500, 31.5, 42, NULL, 1),
-(450, '2024-02-22', 'INV002', '0000-00-00', 261, 500, 489, 540, 42, NULL, 1),
+(449, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 498, 31.5, 42, NULL, 1),
+(450, '2024-02-22', 'INV002', '0000-00-00', 261, 500, 483, 540, 42, NULL, 1),
 (451, '2024-02-22', 'INV002', '0000-00-00', 262, 500, 496, 240, 42, NULL, 1),
 (452, '2024-02-22', 'INV002', '0000-00-00', 265, 500, 499, 90, 42, NULL, 1),
-(453, '2024-02-22', 'INV002', '0000-00-00', 265, 500, 500, 90, 42, NULL, 0),
-(454, '2024-02-22', 'INV002', '0000-00-00', 266, 500, 493, 54, 42, NULL, 1),
+(453, '2024-02-22', 'INV002', '0000-00-00', 265, 500, 499, 90, 42, NULL, 0),
+(454, '2024-02-22', 'INV002', '0000-00-00', 266, 500, 492, 54, 42, NULL, 1),
 (455, '2024-02-22', 'inv003', '0000-00-00', 267, 500, 399, 22.5, 42, NULL, 1),
 (456, '2024-02-22', 'INV0001', '0000-00-00', 269, 20, 10, 11, 42, NULL, 1),
 (457, '2024-02-22', 'INV0001', '0000-00-00', 273, 500, 489, 36, 42, NULL, 1),
@@ -797,7 +729,7 @@ INSERT INTO `stocks` (`s_id`, `s_stockin_date`, `s_invoice`, `s_expiration`, `s_
 (459, '2024-02-22', 'INV0001', '0000-00-00', 276, 500, 494, 882, 42, NULL, 1),
 (460, '2024-02-22', 'INV0001', '0000-00-00', 277, 500, 425, 90, 42, NULL, 1),
 (461, '2024-02-22', 'INV0001', '0000-00-00', 269, 20, 20, 11, 42, NULL, 1),
-(462, '2024-02-22', 'INV0001', '0000-00-00', 271, 500, 500, 90, 42, NULL, 1),
+(462, '2024-02-22', 'INV0001', '0000-00-00', 271, 500, 499, 90, 42, NULL, 1),
 (463, '2024-02-22', 'INV0001', '0000-00-00', 259, 10, 10, 20, 42, NULL, 1),
 (464, '2024-02-22', 'INV0001', '0000-00-00', 259, 20, 20, 50, 42, NULL, 1),
 (465, '2024-02-29', 'INV0001', '0000-00-00', 266, 5, 5, 10, 42, NULL, 1),
@@ -988,7 +920,11 @@ INSERT INTO `users_log` (`act_id`, `act_account_id`, `act_activity`, `act_date`,
 (3781, 269, 'Gave 5 Stars and commented on Dog Cage: this cage is very good quality good job ', '2024-07-30 00:18:48', 'Feedback', '262', 1),
 (3782, 269, 'Gave 2 Stars and commented on Hair Brush: cool brush ', '2024-07-30 22:12:32', 'Feedback', '266', 1),
 (3783, 269, 'Their account successfully recovered', '2024-09-03 23:36:53', 'account', '269', 1),
-(3784, 269, 'RECOVER ACCOUNT', '2024-09-03 11:37:00', '', NULL, 1);
+(3784, 269, 'RECOVER ACCOUNT', '2024-09-03 11:37:00', '', NULL, 1),
+(3785, 269, 'Their account successfully recovered', '2024-09-05 21:40:21', 'account', '269', 1),
+(3786, 269, 'RECOVER ACCOUNT', '2024-09-05 09:40:00', '', NULL, 1),
+(3787, 270, 'Created their account: Joshua Padilla', '2024-09-11 15:07:41', 'account', '270', 1),
+(3788, 270, 'Successfully verified their account', '2024-09-11 15:11:32', 'account', '270', 1);
 
 -- --------------------------------------------------------
 
@@ -1039,7 +975,8 @@ INSERT INTO `user_address` (`id`, `user_acc_code`, `user_address_fullname`, `use
 (231, 'ACC75423252', 'Juliana Ira Padrigon', '09753035756', 'julianairapadrigon5@gmail.com', '031404011', 'Region III (Central Luzon) Bulacan Bocaue Duhat Abangan Norte, Marilao, Bulacan', 1, 1, 1),
 (232, 'ACC35017253', 'Jv Magtalas', '09914965320', 'jvmagtalas043@gmail.com', '031411014', 'Region III (Central Luzon) Bulacan Marilao Santa Rosa II Xkfjfjdjd', 1, 1, 1),
 (233, 'ACC28144269', 'daniel padilla', '09454454744', 'andersonandy046@gmail.com', '031412003', 'Region III (Central Luzon) Bulacan City Of Meycauayan Bancal nagbalon', 1, 1, 1),
-(234, 'ACC03134268', 'alden richards', '09454454744', 'padillajoshuaanderson.pdm@gmail.com', '031404011', 'Region III (Central Luzon) Bulacan Bocaue Duhat safron', 1, 1, 1);
+(234, 'ACC03134268', 'alden richards', '09454454744', 'padillajoshuaanderson.pdm@gmail.com', '031404011', 'Region III (Central Luzon) Bulacan Bocaue Duhat safron', 1, 1, 1),
+(235, 'ACC50455270', 'Joshua Padilla', '09454454744', 'padillajoshuaanderson.pdm@gmail.com', '031411014', 'Region III (Central Luzon) Bulacan Marilao Santa Rosa II tibagan', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1243,7 +1180,7 @@ ALTER TABLE `voucher`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=271;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -1273,7 +1210,7 @@ ALTER TABLE `maintinance`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `mess_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `mess_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
 
 --
 -- AUTO_INCREMENT for table `mode_of_payment`
@@ -1285,13 +1222,13 @@ ALTER TABLE `mode_of_payment`
 -- AUTO_INCREMENT for table `new_cart`
 --
 ALTER TABLE `new_cart`
-  MODIFY `cart_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `cart_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT for table `new_tbl_order_items`
 --
 ALTER TABLE `new_tbl_order_items`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -1345,7 +1282,7 @@ ALTER TABLE `return_ordering`
 -- AUTO_INCREMENT for table `return_pos_table`
 --
 ALTER TABLE `return_pos_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `stocks`
@@ -1381,13 +1318,13 @@ ALTER TABLE `unit`
 -- AUTO_INCREMENT for table `users_log`
 --
 ALTER TABLE `users_log`
-  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3785;
+  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3789;
 
 --
 -- AUTO_INCREMENT for table `user_address`
 --
 ALTER TABLE `user_address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
 
 --
 -- AUTO_INCREMENT for table `voucher`
