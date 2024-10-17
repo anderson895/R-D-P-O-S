@@ -89,20 +89,19 @@ WHERE
 
 
     public function getDeliveryRiderCount($accId)
-    {
-        $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_count new_tbl_orders WHERE rider_id =='$accId' GROUP BY rider_id;");
+{
+    // Directly include $accId in the SQL query without bind_param
+    $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_count FROM new_tbl_orders WHERE rider_id = '$accId' GROUP BY rider_id");
     
-        if ($query->execute()) {
-            $result = $query->get_result();
-            $count = 0;
-            while ($row = $result->fetch_assoc()) {
-                $count += $row['order_count'];
-            }
-            return $count;
+    if ($query->execute()) {
+        $result = $query->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['order_count'];
         }
-        return 0; // Return 0 if the query fails
     }
-    
+    return 0; // Return 0 if no orders are found or the query fails
+}
+
 
     
     
