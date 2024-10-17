@@ -56,7 +56,9 @@
       
   
 
-        <div class="form-group m-0 bg-light rounded">
+        <div class="row">
+          <div class="form-group">
+          
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
                         
                             <div class="form-floating mb-3 search-container">
@@ -70,7 +72,10 @@
                         <input hidden type="text" id="city_add">
                         <input hidden type="text" id="brgy_add" value="">
                      
+                     
+          </div>
         </div>
+
 
         
 
