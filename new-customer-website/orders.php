@@ -71,8 +71,8 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-        <table class="table">
-            <thead>
+    <div class="table-responsive">
+                <table class="table">
                 <tr>
                     <th>Order ID</th>
                     <th>Subtotal</th>
@@ -115,7 +115,7 @@ if (isset($_GET['page'])) {
                 }
                 ?>
             </tbody>
-        </table>
+            </table>
     </div>
 </div>
 <?php
