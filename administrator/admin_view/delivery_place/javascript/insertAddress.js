@@ -39,7 +39,8 @@ $(document).ready(function () {
         activeStatus:activeStatus,
         deliveryAllowed:deliveryAllowed,
         paymentfirstAllowed:paymentfirstAllowed,
-        shipping: shipping
+        shipping: shipping,
+        riderSelect:riderSelect
       };
   
       if (acc_id && region && province && city && barangay && shipping) {
