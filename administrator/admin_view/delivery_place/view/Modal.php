@@ -99,22 +99,7 @@
               <label for="activeStatus" class="checktoggle"></label>
           </div>
         </div>
-        <!--<div class="row">-->
-        <!--  <div class="form-group">-->
-        <!--      <label for="">Allowed Cash on delivery</label>-->
-        <!--      <input type="checkbox" id="deliveryAllowed" class="check" checked="">-->
-        <!--      <label for="deliveryAllowed" class="checktoggle"></label>-->
-             
-        <!--  </div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--  <div class="form-group">-->
-        <!--      <label for="">Allowed Payment first</label>-->
-        <!--      <input type="checkbox" id="paymentfirstAllowed" class="check" checked="">-->
-        <!--      <label for="paymentfirstAllowed" class="checktoggle">-->
-           
-        <!--  </div>-->
-        <!--</div>-->
+       
 
       </div>
       <div class="modal-footer">
