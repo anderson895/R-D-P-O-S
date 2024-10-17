@@ -7,6 +7,7 @@ $checkUser = $db->checkUser($_SESSION['acc_id']);
 $user = $checkUser->fetch_assoc();
 
 
+
 if (isset($_GET['orderId'])) {
     $orderId = $_GET['orderId'];
     $getOrders = $db->checkId('new_tbl_orders', 'order_id', $orderId);
@@ -21,6 +22,39 @@ $order = $getOrders->fetch_assoc();
 $getOrderItems = $db->getUserOrderItems($orderId);
 if ($getOrderItems->num_rows < 1) {
     backToPendingOrders();
+}
+
+// get rider
+$rider = 'Pending';
+if ($order['rider_id'] != '') {
+    $getRider = $db->checkUser($order['rider_id']);
+    if ($getRider->num_rows > 0) {
+        $riderResult = $getRider->fetch_assoc();
+        $rider = $riderResult['acc_fname'] . ' ' . $riderResult['acc_lname'];
+    }
+}
+
+// payment type
+$paymentType = $order['payment_id'];
+if ($paymentType != 'COD') {
+    $getPaymentType = $db->checkId('mode_of_payment', 'payment_id', $paymentType);
+    if ($getPaymentType->num_rows > 0) {
+        $paymentTypeResult = $getPaymentType->fetch_assoc();
+        $paymentType = $paymentTypeResult['payment_name'];
+    }
+}
+
+// adddress
+$delAddress = '';
+$orderBy = '';
+$userId = $order['cust_id'];
+$getAddress = $db->getUserAddress($userId);
+if($getAddress->num_rows > 0) {
+    $address = $getAddress->fetch_assoc();
+    $delAddress = $address['user_complete_address'];
+
+    $assignRider = $address['address_rider'];
+    $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
 }
 
 if (isset($_GET['orderId'])) {
