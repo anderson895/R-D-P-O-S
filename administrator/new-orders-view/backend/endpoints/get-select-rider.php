@@ -57,7 +57,7 @@ if (isset($_GET['orderId'])) {
 
         if ($order['status'] == 'Pending' || $order['status'] == 'Accepted' || $order['status'] == 'Ready For Delivery') {
 ?>
-          <select hidden class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
+          <select  class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
     <option selected disabled>Select Rider</option>
 
     <?php
