@@ -71,8 +71,8 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-        <div class="table-responsive">
-                <table class="table">
+        <table class="table">
+            <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Subtotal</th>
@@ -91,7 +91,7 @@ if (isset($_GET['page'])) {
                 if ($getOrders->num_rows > 0) {
                     while ($order = $getOrders->fetch_assoc()) {
                 ?>
-                        <tr >
+                        <tr class="orders-tr">
                             <td>
                                 <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                             </td>
@@ -116,7 +116,6 @@ if (isset($_GET['page'])) {
                 ?>
             </tbody>
         </table>
-    </div>
     </div>
 
 
