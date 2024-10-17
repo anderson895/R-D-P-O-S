@@ -1,5 +1,5 @@
 <?php
-include('components/header.php');
+// include('components/header.php');
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     if ($page != 'Pending' && $page != 'Accepted' && $page != 'Ready For Delivery' && $page != 'Shipped' && $page != 'Delivered' && $page != 'Cancelled' && $page != 'Rejected') {
