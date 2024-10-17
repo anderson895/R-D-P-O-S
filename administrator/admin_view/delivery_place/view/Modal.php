@@ -53,28 +53,8 @@
         <div class="row">
           <h4 class="text-center" id="AddressName"></h4>
         </div>
-      
-  <!--      <div class="row">
-          <div class="form-group">
-            <label>Region</label>
-            <select class="select" id="region" name="address_name" required ></select>
-          </div>
-          <div class="form-group">
-            <label>Province</label>
-            <select class="select" id="province" name="province" required></select>
-        
-          </div>
-          <div class="form-group">
-            <label>City</label>
-            <select class="select" id="city" name="city" required></select>
-           
-          </div>
-          <div class="form-group">
-            <label>Barangay</label>
-            <select class="select" id="barangay" name="barangay" required></select>
-          </div>
-        </div>--->
 
+        
         <div class="form-group m-0 bg-light rounded">
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
                         <div class="search-container">
