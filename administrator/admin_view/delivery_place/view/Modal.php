@@ -71,10 +71,10 @@
 
         
 
-        <div class="row">
+        <div class="row mt-4">
           <div class="form-group">
             <label for="riderSelect">Shipping fee</label>
-            <input type="number" class="form-control mt-4" value="" id="Addshipping" placeholder="Enter shipping price">
+            <input type="number" class="form-control " value="" id="Addshipping" placeholder="Enter shipping price">
           </div>
         </div>
 
