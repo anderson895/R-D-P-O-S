@@ -279,12 +279,9 @@ $(".editShipping").on("click", function() {
   $("#riderSelect").val(rider_id);
 
   $("#AddressName").text(address_name);
-  console.log(address_name);
 
   $("#address_id").val(address_id);
   $("#shipping").val(shipping);
-  console.log("address_id: " + address_id);
-  console.log("shipping: " + shipping);
 });
 
 
@@ -292,7 +289,7 @@ $(".editShipping").on("click", function() {
 
   let address_id = $("#address_id").val();
   let shipping = $("#shipping").val();
-
+  let rider_id = $("#riderSelect").val();
   console.log(acc_id)
 
   $.ajax({
@@ -301,7 +298,8 @@ $(".editShipping").on("click", function() {
       data: {
            acc_id: acc_id,
            address_id: address_id,
-          shipping: shipping
+          shipping: shipping,
+          rider_id:rider_id
       },
       success: function(response) {
                
