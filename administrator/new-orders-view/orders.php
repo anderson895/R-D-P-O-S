@@ -105,7 +105,7 @@ if($page == 'Collected'){ ?>
                         <th>Order Date</th>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
                         <?= ($page == 'Delivered' || $page == 'Shipped' || $page == 'Collected') ? '<th>Rider</th>' : '' ?>
-                        <!--<?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>-->
+                        <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
                     </tr>
                 </thead>
                 <tbody id="ordersContainer">
