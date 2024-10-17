@@ -19,14 +19,11 @@ $(document).ready(function () {
       var deliveryAllowed = $("#deliveryAllowed").prop("checked");
       var paymentfirstAllowed = $("#paymentfirstAllowed").prop("checked");
       
-
-      
-  
-     
       if (region === "" || province === "" ||  city === "" ||  barangay === "") {
         
         alertify.error("Select address ");
       }
+      
   
     //   console.log(data)
       // Create an object with the gathered values
@@ -100,7 +97,7 @@ $(document).ready(function () {
                     
                 }else{
                     alertify.success("Address added successfully");
-                   location.reload();
+                  //  location.reload();
                 }
             },
             error: function (error) {
