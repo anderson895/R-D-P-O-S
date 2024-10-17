@@ -137,7 +137,6 @@ if (isset($_GET['page'])) {
 </div>
 
     
-</div>
 <?php
 include('components/footer.php');
 ?>
