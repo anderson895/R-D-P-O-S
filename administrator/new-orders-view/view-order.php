@@ -185,7 +185,7 @@ if($getAddress->num_rows > 0) {
                                 </tr>
                             <?php } ?>
                             <tr>
-                                <td class="col-6 col-md-4"><span style="font-weight: 600;">Delivery Rider: <?=$assignRider?></span></td>
+                                <td class="col-6 col-md-4"><span style="font-weight: 600;">Delivery Rider: </span></td>
                                 <td class="col-6 col-md-8"><span style="font-weight: 600;" id="selectRiderContainer" data-assignRider='<?=$assignRider?>'></span></td>
                             </tr>
                         </tbody>

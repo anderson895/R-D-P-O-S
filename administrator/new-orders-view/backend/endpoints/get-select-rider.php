@@ -13,6 +13,9 @@ if (isset($_GET['orderId'])) {
         $order = $getOrder->fetch_assoc();
         $riderId = $order['rider_id'];
 
+
+        $assignRider=$_POST['assignRider'];
+
         if ($order['status'] == 'Pending' || $order['status'] == 'Accepted' || $order['status'] == 'Ready For Delivery') {
 ?>
             <select class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">

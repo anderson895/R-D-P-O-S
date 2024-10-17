@@ -150,11 +150,13 @@ $(document).ready(function () {
 
   const getSelectRider = () => {
     var orderId = getUrlParameter("orderId");
+    var assignRider=$(this).attr('data-assignRider');
     $.ajax({
       type: "GET",
       url: "backend/endpoints/get-select-rider.php",
       data: {
         orderId: orderId,
+        assignRider:assignRider
       },
       success: function (response) {
         $("#selectRiderContainer").html(response);
