@@ -78,6 +78,7 @@
         <div class="form-group m-0 bg-light rounded">
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
                         <div class="search-container">
+                        <label for="riderSelect">Search Barangay</label>
                             <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
                         </div>
                         <div id="barangaySuggestions_add" class="suggestions-row ml-4"></div>
@@ -91,10 +92,25 @@
         
 
         <div class="row">
+        <label for="riderSelect">Shipping fee</label>
           <div class="form-group">
             <input type="number" class="form-control mt-4" value="" id="Addshipping" placeholder="Enter shipping price">
           </div>
         </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="riderSelect">Assign Rider</label>
+            <select id="riderSelect" class="form-control">
+              <option value="">Select a rider</option>
+              <option value="rider1">Rider 1</option>
+              <option value="rider2">Rider 2</option>
+              <option value="rider3">Rider 3</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        </div>
+
 
         <div class="row">
           <div class="form-group">
