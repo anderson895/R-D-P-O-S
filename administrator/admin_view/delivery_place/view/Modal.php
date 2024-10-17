@@ -91,11 +91,12 @@
         
 
         <div class="row">
-          <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="Addshipping" placeholder=" " required>
-              <label for="Addshipping">Enter shipping price</label>
+          <div class="form-group">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="Addshipping" placeholder=" " required>
+                <label for="Addshipping">Enter shipping price</label>
+            </div>
           </div>
-
         </div>
 
         <div class="row">
