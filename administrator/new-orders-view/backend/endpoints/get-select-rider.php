@@ -57,36 +57,19 @@ if (isset($_GET['orderId'])) {
 
         if ($order['status'] == 'Pending' || $order['status'] == 'Accepted' || $order['status'] == 'Ready For Delivery') {
 ?>
-          <select  class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
-    <option selected disabled>Select Rider</option>
-
-    <?php
-    // Fetch all delivery staff
-    $getRiders = $db->getUserType('deliveryStaff');
-
-    // Loop through each rider to populate the options
-    while ($rider = $getRiders->fetch_assoc()) {
-        $isSelected = ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '';
-    ?>
-        <option value="<?= $rider['acc_id'] ?>" <?= $isSelected ?>>
-            <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?>
-        </option>
-    <?php
-    }
-    ?>
-</select>
-
-<?php
-// Display the selected rider's name
-$getRiders->data_seek(0); // Reset pointer for reuse
-
-while ($rider = $getRiders->fetch_assoc()) {
-    if ($assignRider == $rider['acc_id']) {
-        echo $rider['acc_fname'] . ' ' . $rider['acc_lname'];
-    }
-}
-?>
-
+            <select hidden class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
+                <option selected disabled>Select Rider</option>
+                <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></option>
+                <?php
+                $getRiders = $db->getUserType('deliveryStaff');
+                while ($rider = $getRiders->fetch_assoc()) {
+                ?>
+                    <option <?php if($assignRider==$rider['acc_id']){ echo "selected";} ?> value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?></option>
+                <?php
+                }
+                ?>
+            </select>
+            
 <?php
         } else {
             $riderName = 'N/A';
