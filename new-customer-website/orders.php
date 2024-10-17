@@ -70,7 +70,7 @@ if (isset($_GET['page'])) {
         </select>
     </div>
 
-    <div class="orders-container">
+    <!-- <div class="orders-container">
         <table class="table">
             <thead>
                 <tr>
@@ -116,7 +116,7 @@ if (isset($_GET['page'])) {
                 ?>
             </tbody>
         </table>
-    </div>
+    </div> -->
 </div>
 <?php
 include('components/footer.php');
