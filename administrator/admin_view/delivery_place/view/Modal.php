@@ -56,14 +56,21 @@
       
   
 
-        <div class="row">
-          <div class="form-group">
-          
+        <div class="form-group m-0 bg-light rounded">
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
                         
                             <div class="form-floating mb-3 search-container">
                               <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
                               <label for="searchBarangay_add">Search barangay</label>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="Addshipping" placeholder=" " required>
+                                    <label for="Addshipping">Enter shipping price</label>
+                                </div>
+                              </div>
                             </div>
                        
                         <div id="barangaySuggestions_add" class="suggestions-row ml-4"></div>
@@ -72,10 +79,7 @@
                         <input hidden type="text" id="city_add">
                         <input hidden type="text" id="brgy_add" value="">
                      
-                     
-          </div>
         </div>
-
 
         
 
