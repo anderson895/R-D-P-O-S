@@ -427,7 +427,7 @@ if ($getItems->execute()) {
     
     public function getUserAddress($userId)
     {
-        $query = $this->conn->prepare("SELECT ua.user_complete_address,ua.address_rider, a.acc_fname, a.acc_lname FROM `account` AS a JOIN `user_address` AS ua ON a.acc_code = ua.user_acc_code WHERE a.acc_id = '$userId'");
+        $query = $this->conn->prepare("SELECT ua.user_complete_address, a.acc_fname, a.acc_lname FROM `account` AS a JOIN `user_address` AS ua ON a.acc_code = ua.user_acc_code WHERE a.acc_id = '$userId'");
         if($query->execute()) {
             $result = $query->get_result();
             return $result;
