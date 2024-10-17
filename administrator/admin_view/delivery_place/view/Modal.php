@@ -75,7 +75,7 @@
           </div>
         </div>--->
 
-        <div class="form-group m-0 bg-light rounded">
+        <div class="form-group m-1 bg-light rounded">
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
                         <div class="search-container">
                             <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
