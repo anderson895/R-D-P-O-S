@@ -51,8 +51,6 @@ $getAddress = $db->getUserAddress($userId);
 if($getAddress->num_rows > 0) {
     $address = $getAddress->fetch_assoc();
     $delAddress = $address['user_complete_address'];
-
-    $assignRider = $address['address_rider'];
     $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
 }
 ?>
