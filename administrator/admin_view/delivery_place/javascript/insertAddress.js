@@ -96,9 +96,9 @@ $(document).ready(function () {
                   alertify.error("Barangay is already added");
                     
                 }else{
-                  console.log(response); 
-                  // alertify.success("Address added successfully");
-                  //  location.reload();
+                  // console.log(response); 
+                  alertify.success("Address added successfully");
+                   location.reload();
                 }
             },
             error: function (error) {
