@@ -78,15 +78,15 @@ WHERE
     }
 
 
-    public function getDelivery()
+    public function getDeliveryRiderCount()
     {
-        $query = $this->conn->prepare("SELECT * FROM `account` WHERE (`acc_type` = 'administrator' OR `acc_type` = 'deliveryStaff') AND `acc_status` = '0'");
+        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE (`status` = 'Ready For Delivery' OR `status` = 'Shipped') AND `acc_status` = '0'");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
         }
     }
-    
+
     
     
     
