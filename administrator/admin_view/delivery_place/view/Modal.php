@@ -92,7 +92,7 @@
           <div class="form-group search-container">
              <textarea style="display:block;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
             <div class="form-floating mb-3">
-                <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
+                <input type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add" required>
                 <label for="searchBarangay_add">Search brgy..</label>
             </div>
           </div>
