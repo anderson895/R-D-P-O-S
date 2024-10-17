@@ -14,6 +14,10 @@ if (isset($_GET['page'])) {
 
 
 ?>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 <div class="d-flex justify-content-between">
     <h2><i class="bi bi-newspaper"></i> My Orders <span style="font-size: 15px; color:crimson"><?= $page ?></span></h2>
 </div>
