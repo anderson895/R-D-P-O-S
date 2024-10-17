@@ -166,6 +166,11 @@ table {
                 $count++;
             }
             ?>
+
+
+
+        <table class="table">
+            <tbody>
             <tr>
                 <td colspan="4">
                     <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
@@ -210,8 +215,7 @@ table {
                 </td>
             </tr>
 
-            <table class="table">
-                <tbody>
+
                     <tr>
                         <td class="justify-content-between"><span style="font-weight: 600;">Address:</span></td>
                         <td></td>
