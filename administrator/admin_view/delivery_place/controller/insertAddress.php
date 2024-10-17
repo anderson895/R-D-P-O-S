@@ -13,10 +13,6 @@ $activeStatus = $_POST["activeStatus"];
 // $deliveryAllowed = $_POST["deliveryAllowed"];
 // $paymentfirstAllowed = $_POST["paymentfirstAllowed"];
 
-echo "<pre>";
-print_r($_POST);
-echo"</pre>";
-return;
 
 // Fetch the JSON data from the API endpoints
 $regionData = file_get_contents('../../../../ph-json/region.json');
