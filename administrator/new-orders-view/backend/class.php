@@ -91,7 +91,9 @@ WHERE
     public function getDeliveryRiderCount($accId)
 {
     // Directly include $accId in the SQL query without bind_param
-    $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_count FROM new_tbl_orders WHERE rider_id = '$accId' GROUP BY rider_id");
+    $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_count FROM new_tbl_orders WHERE rider_id = '$accId'
+     AND (`status`='Accepted' OR `status`='Ready For Delivery' OR `status`='Shipped') 
+     GROUP BY rider_id");
     
     if ($query->execute()) {
         $result = $query->get_result();
