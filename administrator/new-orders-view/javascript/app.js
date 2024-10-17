@@ -342,6 +342,16 @@ $(document).on("click", "#BtnCollect", function (e) {
   });
 
   $("#frmRejectOrder").submit(function (e) {
+
+
+    var rejectReason = $('#rejectReason').val();
+    if (!rejectReason) {
+        showAlert(".alert-danger", "Please provide a reason for rejection.!");
+
+        return;
+    }
+
+
     e.preventDefault();
     var formData = $(this).serialize();
     $.ajax({
