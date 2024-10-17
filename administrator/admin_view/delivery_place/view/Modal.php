@@ -24,7 +24,25 @@
 
 </div>
 </div>
+<div class="row">
+          <div class="form-group">
+            <label for="riderSelect">Assign Rider</label>
+            <select id="riderSelect" class="form-control">
+              <option disabled value="">Select a rider</option>
+              <?php
+                    $view_query = mysqli_query($connections, "SELECT * from account where acc_status='0' and acc_display_status='0' and (acc_type='deliveryStaff' OR acc_type='administrator') ");
 
+                    while ($row = mysqli_fetch_assoc($view_query)) {
+                      $acc_id = $row["acc_id"];
+                      $acc_fullname = $row["acc_fname"]." ".$row["acc_lname"];
+                      $acc_code = $row["acc_code"];
+                    ?>
+                      <option value='<?= $acc_id ?>'><?= $acc_fullname ?> (<?=$acc_code?>) </option>
+                    <?php } ?>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        </div>
 </div>
 </div>
 <div class="modal-footer">
