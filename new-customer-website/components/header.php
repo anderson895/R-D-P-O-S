@@ -32,7 +32,7 @@ $system = $maintinance->fetch_assoc();
     <link rel="stylesheet" href="css/zoom.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/cart.css">
+   
     <link rel="stylesheet" href="css/orders.css">
     <link rel="stylesheet" href="css/view-order.css">
     <link rel="stylesheet" href="css/profile.css">
@@ -79,6 +79,6 @@ $system = $maintinance->fetch_assoc();
         </ul>
     </aside>
 
-    
+
     <main class="">
         <div class="container p-3">

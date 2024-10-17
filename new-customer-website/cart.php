@@ -20,7 +20,7 @@ if ($getAddress->num_rows > 0) {
 }
 
 ?>
-
+ <link rel="stylesheet" href="css/cart.css">
 <link rel="stylesheet" href="css/gallery.css">
 
 
