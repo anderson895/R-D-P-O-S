@@ -82,7 +82,7 @@
           <div class="form-group">
             <label for="riderSelect">Assign Rider</label>
             <select id="riderSelect" class="form-control">
-              <option value="">Select a rider</option>
+              <option disabled value="">Select a rider</option>
               <option value="rider1">Rider 1</option>
               <option value="rider2">Rider 2</option>
               <option value="rider3">Rider 3</option>
