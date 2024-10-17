@@ -40,7 +40,7 @@
 
 
 
-<!---Start Modal for DeliveryAddress---->
+<!---Start Modal for edit---->
 <div class="modal fade" id="addDeliveryAddress" tabindex="-1" aria-labelledby="editShipping" aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
@@ -54,16 +54,32 @@
           <h4 class="text-center" id="AddressName"></h4>
         </div>
       
-  
+  <!--      <div class="row">
+          <div class="form-group">
+            <label>Region</label>
+            <select class="select" id="region" name="address_name" required ></select>
+          </div>
+          <div class="form-group">
+            <label>Province</label>
+            <select class="select" id="province" name="province" required></select>
+        
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <select class="select" id="city" name="city" required></select>
+           
+          </div>
+          <div class="form-group">
+            <label>Barangay</label>
+            <select class="select" id="barangay" name="barangay" required></select>
+          </div>
+        </div>--->
 
         <div class="form-group m-0 bg-light rounded">
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
-                        
-                            <div class="form-floating mb-3 search-container">
-                              <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
-                              <label for="searchBarangay_add">Search barangay</label>
-                            </div>
-                       
+                        <div class="search-container">
+                            <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
+                        </div>
                         <div id="barangaySuggestions_add" class="suggestions-row ml-4"></div>
                         <input hidden type="text" id="region_add">
                         <input hidden type="text" id="province_add">
@@ -76,10 +92,7 @@
 
         <div class="row">
           <div class="form-group">
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="Addshipping" placeholder=" " required>
-                <label for="Addshipping">Enter shipping price</label>
-            </div>
+            <input type="number" class="form-control mt-4" value="" id="Addshipping" placeholder="Enter shipping price">
           </div>
         </div>
 
@@ -90,7 +103,22 @@
               <label for="activeStatus" class="checktoggle"></label>
           </div>
         </div>
-       
+        <!--<div class="row">-->
+        <!--  <div class="form-group">-->
+        <!--      <label for="">Allowed Cash on delivery</label>-->
+        <!--      <input type="checkbox" id="deliveryAllowed" class="check" checked="">-->
+        <!--      <label for="deliveryAllowed" class="checktoggle"></label>-->
+             
+        <!--  </div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--  <div class="form-group">-->
+        <!--      <label for="">Allowed Payment first</label>-->
+        <!--      <input type="checkbox" id="paymentfirstAllowed" class="check" checked="">-->
+        <!--      <label for="paymentfirstAllowed" class="checktoggle">-->
+           
+        <!--  </div>-->
+        <!--</div>-->
 
       </div>
       <div class="modal-footer">
