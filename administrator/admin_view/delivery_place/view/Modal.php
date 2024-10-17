@@ -89,13 +89,18 @@
         </div> -->
 
         <div class="row">
-          <div class="form-group">
+          <div class="form-group search-container">
              <textarea style="display:block;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
             <div class="form-floating mb-3">
                 <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
                 <label for="searchBarangay_add">Search brgy..</label>
             </div>
           </div>
+
+          <input hidden type="text" id="region_add">
+                        <input hidden type="text" id="province_add">
+                        <input hidden type="text" id="city_add">
+                        <input hidden type="text" id="brgy_add" value="">
         </div>
 
         
