@@ -14,7 +14,7 @@ if (isset($_GET['page'])) {
 
 
 ?>
-<div class="d-flex justify-content-between">
+<!-- <div class="d-flex justify-content-between">
     <h2><i class="bi bi-newspaper"></i> My Orders <span style="font-size: 15px; color:crimson"><?= $page ?></span></h2>
 </div>
 
@@ -68,7 +68,7 @@ if (isset($_GET['page'])) {
             <option value="Cancelled" <?= ($page == 'Cancelled') ? 'selected' : '' ?>>Cancelled</option>
             <option value="Rejected" <?= ($page == 'Rejected') ? 'selected' : '' ?>>Rejected</option>
         </select>
-    </div>
+    </div> -->
 
     <div class="orders-container">
         <table class="table">
@@ -120,7 +120,7 @@ if (isset($_GET['page'])) {
 
 
     
-</div>
+<!-- </div> -->
 <?php
 include('components/footer.php');
 ?>
