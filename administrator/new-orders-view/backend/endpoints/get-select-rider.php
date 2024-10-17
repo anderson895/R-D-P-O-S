@@ -6,48 +6,6 @@ $db = new global_class();
 $checkUser = $db->checkUser($_SESSION['acc_id']);
 $user = $checkUser->fetch_assoc();
 
-
-// start script to get rider id
-if (isset($_GET['orderId'])) {
-    $orderId = $_GET['orderId'];
-    $getOrders = $db->checkId('new_tbl_orders', 'order_id', $orderId);
-    if ($getOrders->num_rows < 1) {
-        backToPendingOrders();
-    }
-} else {
-    backToPendingOrders();
-}
-
-$order = $getOrders->fetch_assoc();
-$getOrderItems = $db->getUserOrderItems($orderId);
-if ($getOrderItems->num_rows < 1) {
-    backToPendingOrders();
-}
-
-// get rider
-$rider = 'Pending';
-if ($order['rider_id'] != '') {
-    $getRider = $db->checkUser($order['rider_id']);
-    if ($getRider->num_rows > 0) {
-        $riderResult = $getRider->fetch_assoc();
-        $rider = $riderResult['acc_fname'] . ' ' . $riderResult['acc_lname'];
-    }
-}
-
-// adddress
-$delAddress = '';
-$orderBy = '';
-$userId = $order['cust_id'];
-$getAddress = $db->getUserAddress($userId);
-if($getAddress->num_rows > 0) {
-    $address = $getAddress->fetch_assoc();
-    $delAddress = $address['user_complete_address'];
-
-    $assignRider = $address['address_rider'];
-    $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
-}
-// end script to get rider id
-
 if (isset($_GET['orderId'])) {
     $orderId = $_GET['orderId'];
     $getOrder = $db->checkId('new_tbl_orders', 'order_id', $orderId);
@@ -61,16 +19,10 @@ if (isset($_GET['orderId'])) {
                 <option selected disabled>Select Rider</option>
                 <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></option>
                 <?php
-                $getRiders = $db->getDelivery();
+                $getRiders = $db->getUserType('deliveryStaff');
                 while ($rider = $getRiders->fetch_assoc()) {
-
-                    // $countDelivery = $db->getDeliveryRiderCount($rider['acc_id']);   
-                    // $countDel = $countDelivery->fetch_assoc();
                 ?>
-                    <option <?php if($order['status']=="Pending" && $assignRider==$rider['acc_id']){ echo "selected";} ?> value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
-                    <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> 
-                    <!-- (<?=$countDel['countDelivery']?>) -->
-                    </option>
+                    <option value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?></option>
                 <?php
                 }
                 ?>
