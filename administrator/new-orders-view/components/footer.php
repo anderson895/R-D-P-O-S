@@ -59,7 +59,7 @@
                     <h6>Select Reason for rejection</h6>
 
 
-                    <input type="text" class="form-control" name="rejectReason" id="rejectReason">
+                    <input type="text" class="form-control" name="rejectReason" id="rejectReason" value="">
 
                 </div>
                 <div class="modal-footer">
