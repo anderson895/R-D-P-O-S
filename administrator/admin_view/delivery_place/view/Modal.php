@@ -89,9 +89,9 @@
                     while ($row = mysqli_fetch_assoc($view_query)) {
                       $acc_id = $row["acc_id"];
                       $acc_fullname = $row["acc_fname"]." ".$row["acc_lname"];
-                      $acc_username = $row["acc_username"];
+                      $acc_code = $row["acc_code"];
                     ?>
-                      <option value='<?= $acc_id ?>'><?= $acc_fullname ?> (<?=$acc_username?>) </option>
+                      <option value='<?= $acc_id ?>'><?= $acc_fullname ?> (<?=$acc_code?>) </option>
                     <?php } ?>
               <!-- Add more options as needed -->
             </select>
