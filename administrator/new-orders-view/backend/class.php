@@ -90,7 +90,7 @@ WHERE
 
     public function getDeliveryRiderCount()
     {
-        $query = $this->conn->prepare("SELECT COUNT(*) as countDelivery FROM `new_tbl_orders` WHERE (`status` = 'Ready For Delivery' OR `status` = 'Shipped') AND `acc_status` = '0'");
+        $query = $this->conn->prepare("SELECT COUNT(*) as countDelivery FROM `new_tbl_orders` WHERE `status` = 'Ready For Delivery' OR `status` = 'Shipped'");
         if ($query->execute()) {
             $result = $query->get_result();
             $row = $result->fetch_assoc();
