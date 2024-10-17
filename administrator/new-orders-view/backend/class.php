@@ -76,6 +76,18 @@ WHERE
             return $result;
         }
     }
+
+
+    public function getDelivery()
+    {
+        $query = $this->conn->prepare("SELECT * FROM `account` WHERE (`acc_type` = 'administrator' OR `acc_type` = 'deliveryStaff') AND `acc_status` = '0'");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+    
+    
     
     
     public function getSystemMaintinance()

@@ -61,7 +61,7 @@ if (isset($_GET['orderId'])) {
                 <option selected disabled>Select Rider</option>
                 <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></option>
                 <?php
-                $getRiders = $db->getUserType('deliveryStaff');
+                $getRiders = $db->getDelivery();
                 while ($rider = $getRiders->fetch_assoc()) {
                 ?>
                     <option <?php if($assignRider==$rider['acc_id']){ echo "selected";} ?> value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?></option>
