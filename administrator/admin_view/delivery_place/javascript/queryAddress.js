@@ -289,7 +289,7 @@ $(".editShipping").on("click", function() {
 
   let address_id = $("#address_id").val();
   let shipping = $("#shipping").val();
-  let rider_id = $("#riderSelect").val();
+  let rider_id = $(".riderSelect").val();
   console.log(acc_id)
 
   $.ajax({

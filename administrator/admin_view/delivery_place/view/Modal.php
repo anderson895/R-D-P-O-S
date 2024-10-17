@@ -93,7 +93,7 @@
         <div class="row">
           <div class="form-group">
             <label for="riderSelect">Assign Rider</label>
-            <select id="riderSelect" class="form-control">
+            <select id="riderSelect" class="form-control riderSelect">
               <option disabled value="">Select a rider</option>
               <?php
                     $view_query = mysqli_query($connections, "SELECT * from account where acc_status='0' and acc_display_status='0' and (acc_type='deliveryStaff' OR acc_type='administrator') ");

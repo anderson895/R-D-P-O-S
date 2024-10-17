@@ -13,7 +13,7 @@ $(document).ready(function () {
     
       var shipping = $("#Addshipping").val();
 
-      var riderSelect = $("#riderSelect").val();
+      var riderSelect = $(".riderSelect").val();
 
       var activeStatus = $("#activeStatus").prop("checked");
       var deliveryAllowed = $("#deliveryAllowed").prop("checked");
