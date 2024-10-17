@@ -110,6 +110,25 @@ if($page == 'Collected'){ ?>
                 </thead>
                 <tbody id="ordersContainer">
 
+
+                <!-- 
+                <tr class="orders-tr">
+                <td>
+                    <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
+                </td>
+                <td>₱<?= number_format( $order['subtotal'],2) ?></td>
+                <td>₱<?= number_format($order['vat'],2) ?></td>
+                <td>₱<?= number_format( $order['sf'],2) ?></td>
+                <td>₱<?= number_format( $order['total'],2) ?></td>
+                <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
+                <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
+                <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($riderName) . '</td>' : '' ?>
+                <?= ($page == 'Rejected') ? '<td>' . ucfirst($reason) . '</td>' : '' ?>
+    
+            </tr>
+                -->
+
+
                 </tbody>
         </table>
     </div>
