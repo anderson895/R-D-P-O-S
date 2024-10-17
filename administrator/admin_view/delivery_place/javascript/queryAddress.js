@@ -24,6 +24,8 @@ $.each(addressData, function (index, item) {
 
     var riderName=item.acc_fname+" "+item.acc_lname;
 
+    var riderId=item.acc_id;
+
 
 
     var address_code = item.address_code;
@@ -94,7 +96,7 @@ var newRow =
     '<td>' + statusToggle + '</td>' +
     '<td>' +
     '<center>' +
-    '<a class="me-3 editShipping" data-bs-toggle="modal" data-address_name="' + address_name + '" data-address_id="' + address_id + '" data-shipping="' + shipping + '"  data-bs-target="#editShipping"><img src="assets/img/icons/edit.svg" alt="img"></a>' +
+    '<a class="me-3 editShipping" data-bs-toggle="modal" data-rider_id="'+riderId+'" data-address_name="' + address_name + '" data-address_id="' + address_id + '" data-shipping="' + shipping + '"  data-bs-target="#editShipping"><img src="assets/img/icons/edit.svg" alt="img"></a>' +
     '<a class="me-3 removeShipping" data-address_name="' + address_name + '" data-address_id="' + address_id + '"  ><img src="assets/img/icons/delete.svg" alt="img"></a>' +
     '</center>' +
     '</td>' +
@@ -267,19 +269,23 @@ $(".NotAllowedCod").on("click", function() {
 
 
 
-  $(".editShipping").on("click", function() {
-    
-      let address_id = $(this).attr("data-address_id");
-      let shipping = $(this).attr("data-shipping");
-      let address_name = $(this).attr("data-address_name");
-      $("#AddressName").text(address_name);
-      console.log(address_name)
+$(".editShipping").on("click", function() {
+  let rider_id = $(this).attr("data-rider_id");
+  let address_id = $(this).attr("data-address_id");
+  let shipping = $(this).attr("data-shipping");
+  let address_name = $(this).attr("data-address_name");
 
-      $("#address_id").val(address_id)
-      $("#shipping").val(shipping)
-      console.log("address_id: " + address_id);
-      console.log("shipping: " + shipping);
-  });
+  // Set the selected option based on rider_id
+  $("#riderSelect").val(rider_id);
+
+  $("#AddressName").text(address_name);
+  console.log(address_name);
+
+  $("#address_id").val(address_id);
+  $("#shipping").val(shipping);
+  console.log("address_id: " + address_id);
+  console.log("shipping: " + shipping);
+});
 
 
   $("#savePlace").on("click", function() {
