@@ -34,16 +34,6 @@ if ($order['rider_id'] != '') {
     }
 }
 
-// payment type
-$paymentType = $order['payment_id'];
-if ($paymentType != 'COD') {
-    $getPaymentType = $db->checkId('mode_of_payment', 'payment_id', $paymentType);
-    if ($getPaymentType->num_rows > 0) {
-        $paymentTypeResult = $getPaymentType->fetch_assoc();
-        $paymentType = $paymentTypeResult['payment_name'];
-    }
-}
-
 // adddress
 $delAddress = '';
 $orderBy = '';
