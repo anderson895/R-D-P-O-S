@@ -58,7 +58,7 @@ if (isset($_GET['orderId'])) {
         if ($order['status'] == 'Pending' || $order['status'] == 'Accepted' || $order['status'] == 'Ready For Delivery') {
 ?>
             <select class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
-                <option  disabled>Select Rider</option>
+                <option selected disabled>Select Rider</option>
                 <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></option>
                 <?php
                 $getRiders = $db->getUserType('deliveryStaff');
