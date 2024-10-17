@@ -91,9 +91,11 @@
         
 
         <div class="row">
-          <div class="form-group">
-            <input type="number" class="form-control mt-4" value="" id="Addshipping" placeholder="Enter shipping price">
+          <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="Addshipping" placeholder=" " required>
+              <label for="Addshipping">Enter shipping price</label>
           </div>
+
         </div>
 
         <div class="row">
