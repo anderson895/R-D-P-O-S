@@ -13,6 +13,8 @@ if (isset($_GET['page'])) {
                 $rider =  $getRider->fetch_assoc();
                 $riderName = $rider['acc_fname'] . ' ' . $rider['acc_lname'];
             }
+            $reason=$order['reject_reason'];
+            
 ?>
             <tr class="orders-tr">
                 <td>
@@ -25,6 +27,7 @@ if (isset($_GET['page'])) {
                 <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                 <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                 <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($riderName) . '</td>' : '' ?>
+                <?= ($page == 'Rejected') ? '<td>' . ucfirst($reason) . '</td>' : '' ?>
     
             </tr>
         <?php
