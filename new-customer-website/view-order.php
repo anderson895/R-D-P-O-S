@@ -60,9 +60,12 @@ if ($getAddress->num_rows > 0) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-<style>
+<!-- <style>
     
 
+table {
+            width: 100%; 
+        }
 
         tbody {
             display: block; 
@@ -77,7 +80,7 @@ if ($getAddress->num_rows > 0) {
         }
 
 
-</style>
+</style> -->
 
 <div class="d-flex justify-content-between">
     <a href="orders.php?page=<?= $order['status'] ?>" class="btn" style="font-size: 20px;"><i
