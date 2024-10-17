@@ -27,7 +27,7 @@ $system = $maintinance->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RDPOS</title>
     <link rel="shortcut icon" href="../assets/logos.png" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/zoom.css">
     <link rel="stylesheet" href="css/styles.css">
