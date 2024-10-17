@@ -71,8 +71,7 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-    <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Order ID</th>
@@ -94,14 +93,12 @@ if (isset($_GET['page'])) {
                 ?>
                         <tr class="orders-tr">
                             <td>
-                                <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;">
-                                    <i class="bi bi-eye"></i> <?= $order['order_id'] ?>
-                                </a>
+                                <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                             </td>
-                            <td class="text-right">₱<?= number_format($order['subtotal'], 2) ?></td>
-                            <td class="text-right">₱<?= number_format($order['vat'], 2) ?></td>
-                            <td class="text-right">₱<?= number_format($order['sf'], 2) ?></td>
-                            <td class="text-right">₱<?= number_format($order['total'], 2) ?></td>
+                            <td>₱<?= number_format($order['subtotal'],2) ?></td>
+                            <td>₱<?= number_format($order['vat'],2) ?></td>
+                            <td>₱<?= number_format( $order['sf'],2) ?></td>
+                            <td>₱<?= number_format($order['total'],2) ?></td>
                             <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                             <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                             <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
@@ -112,7 +109,7 @@ if (isset($_GET['page'])) {
                 } else {
                     ?>
                     <tr>
-                        <td colspan="<?= ($page == 'Delivered') ? '8' : (($page == 'Rejected') ? '7' : '6'); ?>" class="text-center">No Order Found.</td>
+                        <td colspan="7" style="text-align: center;">No Order Found.</td>
                     </tr>
                 <?php
                 }
@@ -120,17 +117,6 @@ if (isset($_GET['page'])) {
             </tbody>
         </table>
     </div>
-</div>
-
-<style>
-    .orders-tr td {
-        max-width: 150px; /* Set a max width for the cells */
-        white-space: nowrap; /* Prevent text from wrapping */
-        overflow: hidden; /* Hide overflow text */
-        text-overflow: ellipsis; /* Show ellipsis for overflow text */
-    }
-</style>
-
 
 
 
