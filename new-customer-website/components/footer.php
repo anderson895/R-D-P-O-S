@@ -55,6 +55,24 @@
     to { transform: rotate(360deg); }
 }
 
+
+table {
+            width: 100%; 
+        }
+
+        tbody {
+            display: block; 
+            max-height: 300px; 
+            overflow-y: auto; 
+        }
+
+        tr {
+            display: table; /* Ensure that rows are displayed correctly */
+            table-layout: fixed; /* Required for correct width in block tbody */
+            width: 100%; /* Full width */
+        }
+
+
 </style>
 
 
