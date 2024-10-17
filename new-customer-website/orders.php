@@ -94,7 +94,7 @@ if (isset($_GET['page'])) {
                     ?>
                             <tr class="orders-tr">
                                 <td>
-                                    <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
+                                    <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><?= $order['order_id'] ?></a>
                                 </td>
                                 <td>₱<?= number_format($order['subtotal'],2) ?></td>
                                 <td>₱<?= number_format($order['vat'],2) ?></td>
