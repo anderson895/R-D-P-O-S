@@ -71,9 +71,9 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-    <table class="table">
-        <thead>
-            <tr>
+        <div class="table-responsive">
+                <table class="table">
+                    <tr>
                 <th>Order ID</th>
                 <th>Subtotal</th>
                 <th>VAT</th>
@@ -90,7 +90,6 @@ if (isset($_GET['page'])) {
                     <th>Reject Reason</th>
                 <?php endif; ?>
             </tr>
-        </thead>
         <tbody>
             <?php
             $getOrders = $db->getUserOrders($user['acc_id'], $page);
@@ -135,8 +134,10 @@ if (isset($_GET['page'])) {
         </tbody>
     </table>
 </div>
+</div>
 
     
+</div>
 <?php
 include('components/footer.php');
 ?>
