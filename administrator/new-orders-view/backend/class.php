@@ -78,13 +78,25 @@ WHERE
     }
 
 
-    public function getDeliveryRiderCount()
+    public function getDelivery()
     {
-        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE (`status` = 'Ready For Delivery' OR `status` = 'Shipped') AND `acc_status` = '0'");
+        $query = $this->conn->prepare("SELECT * FROM `account` WHERE (`acc_type` = 'administrator' OR `acc_type` = 'deliveryStaff') AND `acc_status` = '0'");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
         }
+    }
+
+
+    public function getDeliveryRiderCount()
+    {
+        $query = $this->conn->prepare("SELECT COUNT(*) as count FROM `new_tbl_orders` WHERE (`status` = 'Ready For Delivery' OR `status` = 'Shipped') AND `acc_status` = '0'");
+        if ($query->execute()) {
+            $result = $query->get_result();
+            $row = $result->fetch_assoc();
+            return $row['count'];
+        }
+        return 0; // Return 0 if the query fails
     }
 
     
