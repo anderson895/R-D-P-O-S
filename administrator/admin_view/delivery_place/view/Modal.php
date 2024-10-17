@@ -91,7 +91,7 @@
                       $acc_fullname = $row["acc_fname"]." ".$row["acc_lname"];
                       $acc_username = $row["acc_username"];
                     ?>
-                      <option value='<?= $acc_id ?>'><?= $acc_fullname ?>(<?=$acc_username?>)</option>
+                      <option value='<?= $acc_id ?>'><?= $acc_fullname ?> (<?=$acc_username?>) </option>
                     <?php } ?>
               <!-- Add more options as needed -->
             </select>
