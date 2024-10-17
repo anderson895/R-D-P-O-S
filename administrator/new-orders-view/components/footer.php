@@ -61,9 +61,7 @@
                     <select class="form-control" name="rejectReason" id="rejectReason">
                         <option value="" disabled selected>Select a reason</option>
                         <option value="Out of Stock">Out of Stock</option>
-                        <option value="Incorrect Pricing">Incorrect Pricing</option>
-                        <option value="Customer Request">Customer Request</option>
-                        <option value="Fraudulent Order">Fraudulent Order</option>
+                        <option value="Invalid Pricing">Invalid Payment</option>
                         <option value="Other">Other</option>
                     </select>
 
