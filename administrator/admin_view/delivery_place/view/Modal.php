@@ -75,7 +75,7 @@
           </div>
         </div>--->
 
-        <!-- <div class="form-group m-1 bg-light rounded">
+        <div class="form-group m-0 bg-light rounded">
                         <textarea style="display:none;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
                         <div class="search-container">
                             <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
@@ -86,21 +86,6 @@
                         <input hidden type="text" id="city_add">
                         <input hidden type="text" id="brgy_add" value="">
                      
-        </div> -->
-
-        <div class="row">
-          <div class="form-group search-container">
-             <textarea style="display:block;" disabled id="complete_address_add" cols="30" rows="10"></textarea>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add" required>
-                <label for="searchBarangay_add">Search brgy..</label>
-            </div>
-          </div>
-
-                        <input  type="text" id="region_add">
-                        <input  type="text" id="province_add">
-                        <input  type="text" id="city_add">
-                        <input  type="text" id="brgy_add" value="">
         </div>
 
         
