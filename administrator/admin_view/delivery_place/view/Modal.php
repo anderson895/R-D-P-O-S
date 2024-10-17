@@ -97,10 +97,10 @@
             </div>
           </div>
 
-          <input hidden type="text" id="region_add">
-                        <input hidden type="text" id="province_add">
-                        <input hidden type="text" id="city_add">
-                        <input hidden type="text" id="brgy_add" value="">
+                        <input  type="text" id="region_add">
+                        <input  type="text" id="province_add">
+                        <input  type="text" id="city_add">
+                        <input  type="text" id="brgy_add" value="">
         </div>
 
         
