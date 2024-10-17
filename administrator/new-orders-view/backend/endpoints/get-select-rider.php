@@ -7,17 +7,20 @@ $checkUser = $db->checkUser($_SESSION['acc_id']);
 $user = $checkUser->fetch_assoc();
 
 
-// adddress
-$delAddress = '';
-$orderBy = '';
-$userId = $order['cust_id'];
-$getAddress = $db->getUserAddress($userId);
-if($getAddress->num_rows > 0) {
-    $address = $getAddress->fetch_assoc();
-    $delAddress = $address['user_complete_address'];
+if (isset($_GET['orderId'])) {
+    $orderId = $_GET['orderId'];
+    $getOrders = $db->checkId('new_tbl_orders', 'order_id', $orderId);
+    if ($getOrders->num_rows < 1) {
+        backToPendingOrders();
+    }
+} else {
+    backToPendingOrders();
+}
 
-    $assignRider = $address['address_rider'];
-    $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
+$order = $getOrders->fetch_assoc();
+$getOrderItems = $db->getUserOrderItems($orderId);
+if ($getOrderItems->num_rows < 1) {
+    backToPendingOrders();
 }
 
 if (isset($_GET['orderId'])) {
@@ -36,7 +39,7 @@ if (isset($_GET['orderId'])) {
                 $getRiders = $db->getUserType('deliveryStaff');
                 while ($rider = $getRiders->fetch_assoc()) {
                 ?>
-                    <option  value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?></option>
+                    <option <?php if($assignRider==$rider['acc_id']){ echo "selected";} ?> value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?></option>
                 <?php
                 }
                 ?>
