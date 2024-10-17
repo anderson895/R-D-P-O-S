@@ -93,7 +93,7 @@ if($page == 'Collected'){ ?>
 
 <?php }else{?>
 
-<div class="orders-container">
+<div class="">
     <div class="table-responsive">
                 <table class="table">
                     <tr>
