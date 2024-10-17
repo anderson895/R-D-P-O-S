@@ -25,3 +25,4 @@
         </tbody>
     </table>
 </div>
+<?php include "delivery_place/controller/query_address.php"; ?>

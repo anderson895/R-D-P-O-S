@@ -140,7 +140,6 @@ include "delivery_place/view/Modal.php";
 <script src="delivery_place/javascript/address_api.js"></script>
 <script src="delivery_place/javascript/insertAddress.js"></script>
 
-<script src="delivery_place/javascript/queryAddress.js"></script>
 
 <script src="delivery_place/javascript/ajaxCheckStatus.js"></script>
 
