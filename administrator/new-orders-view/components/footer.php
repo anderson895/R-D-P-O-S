@@ -56,7 +56,11 @@
                 <input type="hidden" name="requestType" value="RejectOrder">
                 <input type="hidden" name="orderId" id="rejectOrderId" value="">
                 <div class="modal-body">
-                    <h6>Are you sure that you want to reject this order?</h6>
+                    <h6>Select Reason for rejection</h6>
+
+
+                    <input type="text" class="form-control" name="rejectReason" id="rejectReason">
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Yes</button>
