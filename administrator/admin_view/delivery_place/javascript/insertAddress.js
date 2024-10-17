@@ -24,7 +24,9 @@ $(document).ready(function () {
         alertify.error("Select address ");
       }
       
-  
+    console.log(riderSelect);
+
+      return;
     //   console.log(data)
       // Create an object with the gathered values
       var data = {
