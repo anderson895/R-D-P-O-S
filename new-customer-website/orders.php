@@ -71,72 +71,52 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-        <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                <th>Order ID</th>
-                <th>Subtotal</th>
-                <th>VAT</th>
-                <th>Shipping Fee</th>
-                <th>Total</th>
-                <th>Order Date</th>
-                <?php if ($page == 'Delivered') : ?>
-                    <th>Delivery Date</th>
-                <?php endif; ?>
-                <?php if ($page == 'Delivered' || $page == 'Shipped') : ?>
-                    <th>Rider</th>
-                <?php endif; ?>
-                <?php if ($page == 'Rejected') : ?>
-                    <th>Reject Reason</th>
-                <?php endif; ?>
-            </tr>
-        <tbody>
-            <?php
-            $getOrders = $db->getUserOrders($user['acc_id'], $page);
-            if ($getOrders->num_rows > 0) {
-                while ($order = $getOrders->fetch_assoc()) {
-                    ?>
-                    <tr class="orders-tr">
-                        <td>
-                            <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;">
-                                <i class="bi bi-eye"></i> <?= $order['order_id'] ?>
-                            </a>
-                        </td>
-                        <td>₱<?= number_format($order['subtotal'], 2) ?></td>
-                        <td>₱<?= number_format($order['vat'], 2) ?></td>
-                        <td>₱<?= number_format($order['sf'], 2) ?></td>
-                        <td>₱<?= number_format($order['total'], 2) ?></td>
-                        <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
-                        <?php if ($page == 'Delivered') : ?>
-                            <td><?= date('F j, Y g:i A', strtotime($order['delivered_date'])) ?></td>
-                        <?php endif; ?>
-                        <?php if ($page == 'Delivered' || $page == 'Shipped') : ?>
-                            <td><?= ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] ?></td>
-                        <?php endif; ?>
-                        <?php if ($page == 'Rejected') : ?>
-                            <td><?= $order['reject_reason'] ?></td>
-                        <?php endif; ?>
-                    </tr>
-                    <?php
-                }
-            } else {
-                $colspan = 6;
-                if ($page == 'Delivered') $colspan++;
-                if ($page == 'Delivered' || $page == 'Shipped') $colspan++;
-                if ($page == 'Rejected') $colspan++;
-                ?>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td colspan="<?= $colspan ?>" style="text-align: center;">No Order Found.</td>
+                    <th>Order ID</th>
+                    <th>Subtotal</th>
+                    <th>VAT</th>
+                    <th>Shipping Fee</th>
+                    <th>Total</th>
+                    <th>Order Date</th>
+                    <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
+                    <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
+                    <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
                 </tr>
+            </thead>
+            <tbody>
                 <?php
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
-</div>
-
-    
+                $getOrders = $db->getUserOrders($user['acc_id'], $page);
+                if ($getOrders->num_rows > 0) {
+                    while ($order = $getOrders->fetch_assoc()) {
+                ?>
+                        <tr class="orders-tr">
+                            <td>
+                                <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
+                            </td>
+                            <td>₱<?= number_format($order['subtotal'],2) ?></td>
+                            <td>₱<?= number_format($order['vat'],2) ?></td>
+                            <td>₱<?= number_format( $order['sf'],2) ?></td>
+                            <td>₱<?= number_format($order['total'],2) ?></td>
+                            <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
+                            <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
+                            <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
+                            <?= ($page == 'Rejected') ? '<td>' . $order['reject_reason'] . '</td>' : '' ?>
+                        </tr>
+                    <?php
+                    }
+                } else {
+                    ?>
+                    <tr>
+                        <td colspan="7" style="text-align: center;">No Order Found.</td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 <?php
 include('components/footer.php');
