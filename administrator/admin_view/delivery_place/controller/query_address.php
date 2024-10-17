@@ -1,9 +1,9 @@
 <?php
     // SQL query to retrieve data from tbl_address
-    $sql = "SELECT * FROM tbl_address where address_display_status ='1'
+    $sql = "SELECT * FROM tbl_address 
     LEFT JOIN account
     ON tbl_address.address_rider  = account.acc_id
-    ";
+    where address_display_status ='1' ";
     $result = $connections->query($sql);
     
     // Check if there are rows in the result

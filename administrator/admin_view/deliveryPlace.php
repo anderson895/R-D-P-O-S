@@ -43,9 +43,9 @@ include "php/session_dir.php";
 <body>
 
 <div id="global-loader">
-<!-- <div class="whirly-loader"> </div>
+<div class="whirly-loader"> </div>
 
-</div> -->
+</div>
 
 <div class="main-wrapper">
 
