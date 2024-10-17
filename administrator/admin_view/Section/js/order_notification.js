@@ -6,7 +6,7 @@ const getOrdersCount = () => {
       type: 'GET',
       dataType: 'json',
       success: function(response) {
-        console.log(response);
+        // console.log(response);
 
           let pendingCount = response.Pending;
        
