@@ -57,27 +57,24 @@ if (isset($_GET['orderId'])) {
 
         if ($order['status'] == 'Pending' || $order['status'] == 'Accepted' || $order['status'] == 'Ready For Delivery') {
 ?>
-           <select class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
-    <option selected disabled>Select Rider</option>
-    <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
-        <?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?> (0)
-    </option>
-    <?php
-    $getRiders = $db->getDelivery();
-    while ($rider = $getRiders->fetch_assoc()) {
-        $countDelivery = $db->getDeliveryRiderCount($rider['acc_id']);   
-    ?>
-        <option 
-            <?php if($order['status'] == "Pending" && $assignRider == $rider['acc_id']) { echo "selected"; } ?>
-            value="<?= $rider['acc_id'] ?>" 
-            <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
-            <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> (<?= $countDelivery ?>)
-        </option>
-    <?php
-    }
-    ?>
-</select>
+            <select class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
+                <option selected disabled>Select Rider</option>
+                <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></option>
+                <?php
+                $getRiders = $db->getDelivery();
+                while ($rider = $getRiders->fetch_assoc()) {
 
+                    // $countDelivery = $db->getDeliveryRiderCount($rider['acc_id']);   
+                    // $countDel = $countDelivery->fetch_assoc();
+                ?>
+                    <option <?php if($order['status']=="Pending" && $assignRider==$rider['acc_id']){ echo "selected";} ?> value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
+                    <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> 
+                    <!-- (<?=$countDel['countDelivery']?>) -->
+                    </option>
+                <?php
+                }
+                ?>
+            </select>
 <?php
         } else {
             $riderName = 'N/A';
