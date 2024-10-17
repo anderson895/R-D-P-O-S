@@ -63,15 +63,6 @@
                               <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
                               <label for="searchBarangay_add">Search barangay</label>
                             </div>
-
-                            <div class="row">
-                              <div class="form-group">
-                                <div class="form-floating mb-3">
-                                    <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">g" placeholder=" " required>
-                                    <label for="Addshipping">Enter shipping price</label>
-                                </div>
-                              </div>
-                            </div>
                        
                         <div id="barangaySuggestions_add" class="suggestions-row ml-4"></div>
                         <input hidden type="text" id="region_add">
@@ -86,7 +77,7 @@
         <div class="row">
           <div class="form-group">
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="Addshipping" placeholder=" " required>
+                <input type="text" class="form-control" id="Addshipping" placeholder=" " required>
                 <label for="Addshipping">Enter shipping price</label>
             </div>
           </div>
@@ -109,7 +100,7 @@
     </div>
   </div>
 </div>
-<!---End Modal for DeliveryAddress---->
+<!---End Modal for edit---->
 
 
 
