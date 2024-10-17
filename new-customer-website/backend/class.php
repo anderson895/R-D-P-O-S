@@ -624,7 +624,7 @@ class global_class extends db_connect
         }
     }
 
-    public function updateAddress($post)
+    public function updateAddress($post,$userId)
     {
         $accCode = $post["accCode"];
 
@@ -650,7 +650,7 @@ class global_class extends db_connect
                     `user_add_display_status`,
                     `user_add_Default_status`
                 ) VALUES (
-                    '" . $post['accCode'] . "',
+                    '" . $userId . "',
                     '" . $post['userFullName'] . "',
                     '" . $post['userPhone'] . "',
                     '" . $post['userEmail'] . "',

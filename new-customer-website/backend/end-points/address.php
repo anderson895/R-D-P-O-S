@@ -7,7 +7,7 @@ $userId = $_SESSION['acc_id'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['requestType'])) {
         if ($_POST['requestType'] == 'EditAddress') {
-            echo $db->updateAddress($_POST);
+            echo $db->updateAddress($_POST,$userId);
         }
     } else {
         echo 'Access Denied! No Request Type.';
