@@ -52,7 +52,7 @@
 
 
 
-<!---Start Modal for edit---->
+<!---Start Modal for addDelivery Address---->
 <div class="modal fade" id="addDeliveryAddress" tabindex="-1" aria-labelledby="editShipping" aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
