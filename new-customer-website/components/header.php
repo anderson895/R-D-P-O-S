@@ -34,7 +34,7 @@ $system = $maintinance->fetch_assoc();
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="css/orders.css">
-    <link rel="stylesheet" href="css/view-order.css">
+    <!-- <link rel="stylesheet" href="css/view-order.css"> -->
     <link rel="stylesheet" href="css/profile.css">
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
