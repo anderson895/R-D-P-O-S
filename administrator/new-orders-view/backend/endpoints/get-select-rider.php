@@ -69,6 +69,15 @@ if (isset($_GET['orderId'])) {
                 }
                 ?>
             </select>
+
+            <?php
+               
+                while ($rider = $getRiders->fetch_assoc()) {
+                ?>
+                    <?php if($assignRider==$rider['acc_id']){ echo $rider['acc_fname'] . ' ' . $rider['acc_lname'];} ?> 
+                <?php
+                }
+                ?>
 <?php
         } else {
             $riderName = 'N/A';
