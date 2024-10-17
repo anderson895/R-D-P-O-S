@@ -66,11 +66,11 @@ table {
             overflow-y: auto; 
         }
 
-        tr {
+        /* tr {
             display: table; /* Ensure that rows are displayed correctly */
             table-layout: fixed; /* Required for correct width in block tbody */
             width: 100%; /* Full width */
-        }
+        } */
 
 
 </style>

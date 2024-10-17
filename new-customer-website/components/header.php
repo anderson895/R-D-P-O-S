@@ -78,5 +78,7 @@ $system = $maintinance->fetch_assoc();
             <!-- <li><a href="index.php" class="nav-notification"><i class="bi bi-bell"></i> Notification</a></li> -->
         </ul>
     </aside>
+
+    
     <main class="">
         <div class="container p-3">
