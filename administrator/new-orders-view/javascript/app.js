@@ -8,7 +8,7 @@ $(document).ready(function () {
       dataType: 'json',
       success: function(response) {
           // The response will be in JSON format
-          // console.log(response); // You can inspect the response in your browser console
+          console.log(response); // You can inspect the response in your browser console
 
       
         
@@ -28,7 +28,7 @@ $(document).ready(function () {
           dataType: 'json',
           success: function(response) {
               // The response will be in JSON format
-            // console.log(response); // You can inspect the response in your browser console
+            console.log(response); // You can inspect the response in your browser console
 
               // Example of how you can handle the response:
               let pendingCount = response.Pending;
@@ -155,7 +155,6 @@ $(document).ready(function () {
       url: "backend/endpoints/get-select-rider.php",
       data: {
         orderId: orderId,
-        assignRider:assignRider
       },
       success: function (response) {
         $("#selectRiderContainer").html(response);
