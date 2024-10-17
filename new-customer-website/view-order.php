@@ -207,7 +207,7 @@ table {
                     </h5>
                 </td>
             </tr>
-
+            <div class="table-responsive">
             <table class="table">
                 <tbody>
                     <tr>
@@ -252,8 +252,10 @@ table {
                 <td class="justify-content-between"><span style="font-weight: 600;"><?= $riderContactNo ?></span></td>
             </tr>
 
-                </body>
+                </tbody>
             </table>
+        </div>
+
             <tr>
                 <td colspan="4">
                     <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
