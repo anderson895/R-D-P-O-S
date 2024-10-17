@@ -63,9 +63,6 @@ if ($getAddress->num_rows > 0) {
 <style>
     
 
-table {
-            width: 100%; 
-        }
 
         tbody {
             display: block; 
