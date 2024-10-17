@@ -71,7 +71,8 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-        <table class="table">
+        <div class="table-responsive">
+
             <thead>
                 <tr>
                     <th>Order ID</th>
