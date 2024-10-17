@@ -69,7 +69,8 @@ if (isset($_GET['orderId'])) {
                 }
                 ?>
             </select>
-            <?= $rider?>
+            asdsdsd
+            
 <?php
         } else {
             $riderName = 'N/A';
