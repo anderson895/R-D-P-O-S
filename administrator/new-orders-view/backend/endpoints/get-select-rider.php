@@ -69,7 +69,7 @@ if (isset($_GET['orderId'])) {
                 }
                 ?>
             </select>
-            <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?>
+            <?= $rider?>
 <?php
         } else {
             $riderName = 'N/A';
