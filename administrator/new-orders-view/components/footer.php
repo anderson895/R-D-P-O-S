@@ -50,7 +50,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="bi bi-bag-x-fill"></i>Reject Order</h5>
+                <h5 class="modal-title"><i class="bi bi-bag-x-fill"></i> Reject Order</h5>
             </div>
             <form id="frmRejectOrder">
                 <input type="hidden" name="requestType" value="RejectOrder">
