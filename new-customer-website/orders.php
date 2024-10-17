@@ -73,7 +73,6 @@ if (isset($_GET['page'])) {
     <div class="orders-container">
         <div class="table-responsive">
                 <table class="table">
-                <thead>
                     <tr>
                         <th>Order ID</th>
                         <th>Subtotal</th>
@@ -85,7 +84,6 @@ if (isset($_GET['page'])) {
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
                     </tr>
-                </thead>
                 <tbody>
                     <?php
                     $getOrders = $db->getUserOrders($user['acc_id'], $page);
