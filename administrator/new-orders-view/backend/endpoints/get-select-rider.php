@@ -66,12 +66,12 @@ if (isset($_GET['orderId'])) {
                 $getRiders = $db->getDelivery();
                 while ($rider = $getRiders->fetch_assoc()) {
 
-                    // $countDelivery = $db->getDeliveryRiderCount($rider['acc_id']);   
-                    // $countDel = $countDelivery->fetch_assoc();
+                    $countDelivery = $db->getDeliveryRiderCount($rider['acc_id']);   
+                    $countDel = $countDelivery->fetch_assoc();
                 ?>
                     <option <?php if($order['status']=="Pending" && $assignRider==$rider['acc_id']){ echo "selected";} ?> value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
                     <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> (0)
-                    <!-- (<?=$countDel['countDelivery']?>) -->
+                    (<?=$countDel['order_count']?>)
                     </option>
                 <?php
                 }

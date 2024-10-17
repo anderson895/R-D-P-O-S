@@ -88,15 +88,15 @@ WHERE
     }
 
 
-    public function getDeliveryRiderCount()
+    public function getDeliveryRiderCount($accId)
     {
-        $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_countFROM new_tbl_orders WHERE rider_id IS NOT NULL GROUP BY rider_id;");
+        $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_count new_tbl_orders WHERE rider_id =='$accId' GROUP BY rider_id;");
     
         if ($query->execute()) {
             $result = $query->get_result();
             $count = 0;
             while ($row = $result->fetch_assoc()) {
-                $count += $row['countDelivery'];
+                $count += $row['order_count'];
             }
             return $count;
         }
