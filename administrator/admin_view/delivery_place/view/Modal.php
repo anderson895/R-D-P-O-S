@@ -84,7 +84,7 @@
             <select id="riderSelect" class="form-control">
               <option disabled value="">Select a rider</option>
               <?php
-                    $view_query = mysqli_query($connections, "SELECT * from account where acc_status='0' and acc_display_status='0' and acc_type='deliveryStaff' ");
+                    $view_query = mysqli_query($connections, "SELECT * from account where acc_status='0' and acc_display_status='0' and (acc_type='deliveryStaff' OR acc_type='administrator') ");
 
                     while ($row = mysqli_fetch_assoc($view_query)) {
                       $acc_id = $row["acc_id"];
