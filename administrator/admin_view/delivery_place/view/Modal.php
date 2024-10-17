@@ -80,7 +80,7 @@
                         <div class="search-container">
                             <div class="form-floating mb-3">
                               <input required type="text" class="form-control" id="searchBarangay_add" placeholder="Search brgy.." name="searchBarangay_add">
-                              <label for="Addshipping">Search barangay</label>
+                              <label for="searchBarangay_add">Search barangay</label>
                             </div>
                         </div>
                         <div id="barangaySuggestions_add" class="suggestions-row ml-4"></div>
