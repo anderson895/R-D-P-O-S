@@ -20,6 +20,12 @@ if (!$.fn.dataTable.isDataTable('.datanew')) {
 $.each(addressData, function (index, item) {
     var address_name = item.address_complete_name;
     var shipping = item.address_rate;
+
+
+    var riderName=item.acc_fname+" "+item.acc_lname;
+
+
+
     var address_code = item.address_code;
     var status = item.address_status;
     var address_id = item.address_id;
@@ -84,6 +90,7 @@ var newRow =
     '<td>' + address_code + '</td>' +
     '<td>' + address_name + '</td>' +
     '<td>' + shipping + '</td>' +
+    '<td>' + riderName + '</td>' +
     '<td>' + statusToggle + '</td>' +
     '<td>' +
     '<center>' +
