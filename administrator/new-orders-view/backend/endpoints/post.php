@@ -10,7 +10,7 @@ if (isset($_POST['requestType'])) {
             echo $db->changeOrderStatus($_POST['orderId']);
         }
     } elseif ($_POST['requestType'] == 'RejectOrder') {
-        echo $db->rejectOrder($_POST['orderId'],$_POST['rejectReason']);
+        echo $db->rejectOrder($_POST['orderId']);
     } elseif ($_POST['requestType'] == 'SelectRider') {
         echo $db->changeOrderRider($_POST['orderId'], $_POST['riderId']);
     }

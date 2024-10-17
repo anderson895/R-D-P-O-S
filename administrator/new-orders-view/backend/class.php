@@ -183,9 +183,9 @@ public function getOrderStatusCounts()
         }
     }
 
-    public function rejectOrder($orderId,$reason)
+    public function rejectOrder($orderId)
     {
-        $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`='Rejected',reject_reason='$reason' WHERE `order_id` = '$orderId'");
+        $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`='Rejected' WHERE `order_id` = '$orderId'");
         if ($query->execute()) {
             return 200;
         }

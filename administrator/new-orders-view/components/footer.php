@@ -50,21 +50,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="bi bi-bag-x-fill"></i> Reject Order</h5>
+                <h5 class="modal-title"><i class="bi bi-x-lg"></i> Reject Order</h5>
             </div>
             <form id="frmRejectOrder">
                 <input type="hidden" name="requestType" value="RejectOrder">
                 <input type="hidden" name="orderId" id="rejectOrderId" value="">
                 <div class="modal-body">
-                    <h6>Select Reason for rejection</h6>
-                    
-                    <select class="form-control" name="rejectReason" id="rejectReason">
-                        <option value="" disabled selected>Select a reason</option>
-                        <option value="Out of Stock">Out of Stock</option>
-                        <option value="Invalid Pricing">Invalid Payment</option>
-                        <option value="Other">Other</option>
-                    </select>
-
+                    <h6>Are you sure that you want to reject this order?</h6>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Yes</button>
@@ -74,7 +66,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="../admin_view/assets/plugins/alertify/alertify.min.js"></script>
 <script src="../admin_view/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>

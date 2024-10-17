@@ -341,25 +341,16 @@ $(document).on("click", "#BtnCollect", function (e) {
     $("#rejectOrderModal").modal("show");
   });
 
-
-  
   $("#frmRejectOrder").submit(function (e) {
     e.preventDefault();
-  
-    var rejectReason = $('#rejectReason').val();
-    if (!rejectReason) {
-      showAlert(".alert-danger", "Please provide a reason for rejection!");
-      return;
-    }
-  
     var formData = $(this).serialize();
     $.ajax({
       type: "POST",
       url: "backend/endpoints/post.php",
       data: formData,
       success: function (response) {
+        closeModal();
         if (response == "200") {
-          closeModal(); // Only close the modal when the form is successfully submitted
           showAlert(".alert-success", "Order Rejected!");
           getOrderStatus();
           getChangeOrderStatusButtons();
@@ -371,7 +362,6 @@ $(document).on("click", "#BtnCollect", function (e) {
       },
     });
   });
-  
 
   $(".btnCloseModal").click(function (e) {
     e.preventDefault();
