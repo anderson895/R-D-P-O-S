@@ -52,7 +52,7 @@ if (isset($_GET['page'])) {
         </li>
         <li class="nav-item">
             <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected">
-                <i class="bi bi-exclamation-circle"></i> Rejected <span id="RejectedCount" class="badge bg-danger">0</span>
+                <i class="bi bi-exclamation-circle"></i> Rejected <span id="rejectedCount" class="badge bg-danger">0</span>
             </a>
         </li>
     </ul>
