@@ -90,7 +90,7 @@ WHERE
 
     public function getDeliveryRiderCount()
     {
-        $query = $this->conn->prepare("SELECT COUNT(*) as countDelivery FROM `new_tbl_orders` WHERE (`status` = 'Ready For Delivery' OR `status` = 'Shipped')  GROUP BY `rider_id`");
+        $query = $this->conn->prepare("SELECT rider_id, COUNT(*) AS order_countFROM new_tbl_orders WHERE rider_id IS NOT NULL GROUP BY rider_id;");
     
         if ($query->execute()) {
             $result = $query->get_result();
