@@ -71,6 +71,7 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
+    <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -95,19 +96,19 @@ if (isset($_GET['page'])) {
                             <td>
                                 <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                             </td>
-                            <td>₱<?= number_format($order['subtotal'],2) ?></td>
-                            <td>₱<?= number_format($order['vat'],2) ?></td>
-                            <td>₱<?= number_format( $order['sf'],2) ?></td>
-                            <td>₱<?= number_format($order['total'],2) ?></td>
+                            <td>₱<?= number_format($order['subtotal'], 2) ?></td>
+                            <td>₱<?= number_format($order['vat'], 2) ?></td>
+                            <td>₱<?= number_format($order['sf'], 2) ?></td>
+                            <td>₱<?= number_format($order['total'], 2) ?></td>
                             <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                             <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                             <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
                             <?= ($page == 'Rejected') ? '<td>' . $order['reject_reason'] . '</td>' : '' ?>
                         </tr>
-                    <?php
+                <?php
                     }
                 } else {
-                    ?>
+                ?>
                     <tr>
                         <td colspan="7" style="text-align: center;">No Order Found.</td>
                     </tr>
@@ -117,10 +118,12 @@ if (isset($_GET['page'])) {
             </tbody>
         </table>
     </div>
+</div>
 
 
 
-    
+
+
 </div>
 <?php
 include('components/footer.php');
