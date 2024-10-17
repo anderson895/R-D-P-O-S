@@ -71,51 +71,53 @@ if (isset($_GET['page'])) {
     </div>
 
     <div class="orders-container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Subtotal</th>
-                    <th>VAT</th>
-                    <th>Shipping Fee</th>
-                    <th>Total</th>
-                    <th>Order Date</th>
-                    <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
-                    <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
-                    <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $getOrders = $db->getUserOrders($user['acc_id'], $page);
-                if ($getOrders->num_rows > 0) {
-                    while ($order = $getOrders->fetch_assoc()) {
-                ?>
-                        <tr class="orders-tr">
-                            <td>
-                                <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
-                            </td>
-                            <td>₱<?= number_format($order['subtotal'],2) ?></td>
-                            <td>₱<?= number_format($order['vat'],2) ?></td>
-                            <td>₱<?= number_format( $order['sf'],2) ?></td>
-                            <td>₱<?= number_format($order['total'],2) ?></td>
-                            <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
-                            <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
-                            <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
-                            <?= ($page == 'Rejected') ? '<td>' . $order['reject_reason'] . '</td>' : '' ?>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Subtotal</th>
+                        <th>VAT</th>
+                        <th>Shipping Fee</th>
+                        <th>Total</th>
+                        <th>Order Date</th>
+                        <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
+                        <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
+                        <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $getOrders = $db->getUserOrders($user['acc_id'], $page);
+                    if ($getOrders->num_rows > 0) {
+                        while ($order = $getOrders->fetch_assoc()) {
+                    ?>
+                            <tr class="orders-tr">
+                                <td>
+                                    <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
+                                </td>
+                                <td>₱<?= number_format($order['subtotal'],2) ?></td>
+                                <td>₱<?= number_format($order['vat'],2) ?></td>
+                                <td>₱<?= number_format( $order['sf'],2) ?></td>
+                                <td>₱<?= number_format($order['total'],2) ?></td>
+                                <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
+                                <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
+                                <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
+                                <?= ($page == 'Rejected') ? '<td>' . $order['reject_reason'] . '</td>' : '' ?>
+                            </tr>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <tr>
+                            <td colspan="7" style="text-align: center;">No Order Found.</td>
                         </tr>
                     <?php
                     }
-                } else {
                     ?>
-                    <tr>
-                        <td colspan="7" style="text-align: center;">No Order Found.</td>
-                    </tr>
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     
