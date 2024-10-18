@@ -485,6 +485,7 @@ class global_class extends db_connect
         } else {
             echo "Error inserting order or order items.";
         }
+        }
     }
 
     public function placeOrderWithPOF($post, $file)
