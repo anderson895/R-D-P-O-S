@@ -458,7 +458,26 @@ class global_class extends db_connect
         $insertItemQuery = "INSERT INTO `new_tbl_order_items` (`order_id`, `product_id`, `qty`) VALUES " . implode(", ", $insertValues);
         $insertItem = $this->conn->prepare($insertItemQuery);
 
-        $query = $this->conn->prepare("INSERT INTO `new_tbl_orders`(`order_id`, `cust_id`, `payment_id`, `subtotal`, `vat`, `sf`, `total`, `order_date`, `status`) VALUES ('$orderId', '$userId', 'COD', '$subtotal', '$vat', '$sf', '$total', '$date', 'Pending')");
+        // start getRiderId
+        $query = $this->conn->prepare("SELECT tbladd.address_rider as AssignRider,ua.user_complete_address AS address FROM `account` AS a 
+                                        LEFT JOIN `user_address` AS ua 
+                                        ON a.acc_code = ua.user_acc_code 
+                                        LEFT JOIN `tbl_address` AS tbladd 
+                                        ON tbladd.address_code = ua.user_address_code 
+                                        WHERE a.acc_id = '$userId'");
+       if ($query->execute()) {
+        $result = $query->get_result();
+    
+        // Fetch the result (assuming you're expecting a single result)
+        if ($row = $result->fetch_assoc()) {
+           $AssignRider=  $row['AssignRider']; // Return the user's address
+       
+        } else {
+            $AssignRider= null; // Return null if the query fails
+        }
+        // end getRiderId
+        
+        $query = $this->conn->prepare("INSERT INTO `new_tbl_orders`(`order_id`, `cust_id`, `payment_id`, `subtotal`, `vat`, `sf`,`rider_id`, `total`, `order_date`, `status`) VALUES ('$orderId', '$userId', 'COD', '$subtotal', '$vat', '$sf','$AssignRider', '$total', '$date', 'Pending')");
 
         if ($query->execute() && $insertItem->execute()) {
 
