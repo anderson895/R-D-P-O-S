@@ -558,6 +558,7 @@ class global_class extends db_connect
         } else {
             $AssignRider= null; // Return null if the query fails
         }
+        }
         // end getRiderId
 
         // $total = $subtotal + $vat + $sf; Old computation
