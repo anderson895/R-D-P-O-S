@@ -10,7 +10,7 @@ echo "</pre>";
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    $orders = $db->getCodCollected();
+    $orders = $db->getCodCollected($_SESSION['acc_id']);
     if ($orders->num_rows > 0) {
         while ($order = $orders->fetch_assoc()) {
             $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
