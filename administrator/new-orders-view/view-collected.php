@@ -1,63 +1,46 @@
 <?php
 include('components/header.php');
-if (isset($_GET['rider_id'])) {
-    $page = $_GET['rider_id'];
-    if (empty($page)) {
-        header("Location: orders.php?page=Collected");
-        exit;
-    }
-} else {
+
+// Redirect if 'rider_id' is not set or empty
+if (!isset($_GET['rider_id']) || empty($_GET['rider_id'])) {
     header("Location: orders.php?page=Collected");
     exit;
 }
+
+$page = $_GET['rider_id'];
 ?>
+
 <div class="container mt-4">
     <div class="overflow-auto">
         <ul class="nav nav-tabs flex-nowrap">
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Pending') ? 'active' : '' ?>" href="orders.php?page=Pending">
-                    <i class="bi bi-hourglass-split"></i> Pending <span id="pendingCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Accepted') ? 'active' : '' ?>" href="orders.php?page=Accepted">
-                    <i class="bi bi-check2-all"></i> Accepted <span id="acceptedCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Ready For Delivery') ? 'active' : '' ?>" href="orders.php?page=Ready For Delivery">
-                    <i class="bi bi-box-fill"></i> Ready For Delivery <span id="readyForDeliveryCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Shipped') ? 'active' : '' ?>" href="orders.php?page=Shipped">
-                    <i class="bi bi-truck"></i> Ongoing Delivery <span id="shippedCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Delivered') ? 'active' : '' ?>" href="orders.php?page=Delivered">
-                    <i class="bi bi-check-square"></i> Delivered <span id="deliveredCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Cancelled') ? 'active' : '' ?>" href="orders.php?page=Cancelled">
-                    <i class="bi bi-x-circle"></i> Cancelled <span id="cancelledCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Rejected') ? 'active' : '' ?>" href="orders.php?page=Rejected">
-                    <i class="bi bi-exclamation-circle"></i> Rejected <span id="rejectedCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Collected') ? 'active' : '' ?>" href="orders.php?page=Collected">
-                    <i class="bi bi-person-square"></i> COD Collected <span id="collectedCount" class="badge bg-danger">0</span>
-                </a>
-            </li>
+            <?php 
+            // Tab items with status names
+            $tabs = [
+                'Pending' => 'hourglass-split',
+                'Accepted' => 'check2-all',
+                'Ready For Delivery' => 'box-fill',
+                'Shipped' => 'truck',
+                'Delivered' => 'check-square',
+                'Cancelled' => 'x-circle',
+                'Rejected' => 'exclamation-circle',
+                'Collected' => 'person-square'
+            ];
+
+            // Loop to generate tab links
+            foreach ($tabs as $status => $icon) {
+                $active = (isset($_GET['page']) && $_GET['page'] == $status) ? 'active' : '';
+                echo "
+                <li class='nav-item'>
+                    <a class='nav-link $active' href='orders.php?page=$status'>
+                        <i class='bi bi-$icon'></i> $status 
+                        <span id='" . strtolower(str_replace(' ', '', $status)) . "Count' class='badge bg-danger'>0</span>
+                    </a>
+                </li>";
+            }
+            ?>
         </ul>
     </div>
 </div>
-
 
 <div class="orders-container container mt-4">
     <div class="card">
@@ -72,61 +55,38 @@ if (isset($_GET['rider_id'])) {
                             <th>Customer ID</th>
                             <th>Customer Name</th>
                             <th>Collected</th>
-                        
                         </tr>
                     </thead>
-                    <tbody >
-<?php 
-    if (isset($page)) {
-        $orders = $db->getEachCodCollected($page);
-        if ($orders->num_rows > 0) {
-            while ($order = $orders->fetch_assoc()) {
-                $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
-                $riderName = 'NA';
-                if ($getRider->num_rows > 0) {
-                    $rider =  $getRider->fetch_assoc();
-                    $riderName = $rider['acc_fname'] . ' ' . $rider['acc_lname'];
-                }
-    
-                
-    
-    
-    ?>
-   
-                <tr class="orders-tr">
-                    <td>
-                       <?= $order['customer_code'] ?>
-               
-                    </td>
-                    
-                    <td><?= ucfirst($order['customer_name']); ?></td>
-                    <td>₱ <?= $order['total_sales'] ?></td>
-    
-                                    
-                    
-                </tr>
-                
-            <?php
-            }
-        } else {
-            ?>
-
-</tbody>
+                    <tbody>
+                        <?php 
+                        if (isset($page)) {
+                            $orders = $db->getEachCodCollected($page);
+                            if ($orders->num_rows > 0) {
+                                while ($order = $orders->fetch_assoc()) {
+                                    $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
+                                    $riderName = ($getRider->num_rows > 0) ? $getRider->fetch_assoc()['acc_fname'] . ' ' . $getRider->fetch_assoc()['acc_lname'] : 'NA';
+                        ?>
+                                <tr class="orders-tr">
+                                    <td><?= $order['customer_code'] ?></td>
+                                    <td><?= ucfirst($order['customer_name']); ?></td>
+                                    <td>₱ <?= $order['total_sales'] ?></td>
+                                </tr>
+                        <?php
+                                }
+                            } else {
+                        ?>
+                                <tr>
+                                    <td colspan="9" style="text-align: center;">No Order Found.</td>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
                 </table>
-
-                        <!-- <div class="d-flex justify-content-center">
-                            <div class="spinner-border" role="status">
-                                <span class="sr-only"></span>
-                            </div>
-                        </div> -->
             </div>
         </div>
     </div>
 </div>
-            <tr>
-                <td colspan="9" style="text-align: center;">No Order Found.</td>
-            </tr>
-    <?php
-        }
-    } 
-include('components/footer.php');
+
+<?php include('components/footer.php'); ?>
