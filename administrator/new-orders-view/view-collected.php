@@ -59,7 +59,7 @@ if (isset($_GET['rider_id'])) {
 </div>
 
 <?php 
-    if (isset($_GET['page'])) {
+    if (isset($page)) {
         $page = $_GET['page'];
         $orders = $db->getEachCodCollected($page);
         if ($orders->num_rows > 0) {
