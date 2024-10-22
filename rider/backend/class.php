@@ -58,6 +58,29 @@ class global_class extends db_connect
         }
     }
 
+    
+            public function getCodCollected()
+        {
+            $query = $this->conn->prepare("SELECT CONCAT(acc.acc_fname, ' ', acc.acc_lname) AS rider_name,acc_code as acc_code,order_id, rider_id,c_status,
+            SUM(orders.total) AS total_sales
+        FROM new_tbl_orders AS orders
+        LEFT JOIN account AS acc ON orders.rider_id = acc.acc_id
+        WHERE orders.status = 'Delivered'
+        AND orders.payment_id = 'COD' AND c_status='Not_Collected'
+        GROUP BY rider_id
+        ORDER BY total_sales DESC;
+
+            ");
+            
+            if ($query->execute()) {
+                $result = $query->get_result();
+                return $result;
+            } else {
+                // Handle query execution failure
+                return null;
+            }
+        }
+
     public function getOrderUsingOrderId($riderId, $orderId)
     {
         $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `rider_id` = '$riderId' AND `order_id` = '$orderId'");
