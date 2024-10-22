@@ -523,7 +523,6 @@
       </div>
       <div class="modal-body">
 
-        <input type="hidden" id="order_id" name="order_id">
         
         <select name="CancelReason" id="cancelReason" class="form-select">
           <option value="" disabled selected>Select a reason</option>
@@ -535,7 +534,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Confirm</button>
+        <button type="button" id="btnCancelOrder"  class="btn btn-danger">Confirm</button>
       </div>
     </div>
   </div>

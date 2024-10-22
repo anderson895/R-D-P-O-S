@@ -804,25 +804,30 @@ $("#btnPlaceOrder").click(function (e) {
 
 
   
-
   $(".CancelModal").click(function (e) { 
     e.preventDefault();
 
     console.log('click');
-    
-    $('#cancelModal').modal('show');
 
+    $('#cancelModal').modal('show');
 
     var order_id = $(this).attr("data-id");
 
-    $('#order_id').val(order_id);
-
+    $('#btnCancelOrder').attr("data-id", order_id); // Corrected this line
 });
 
 
 
   $("#btnCancelOrder").click(function (e) {
     e.preventDefault();
+    
+
+    if(!$('#cancelReason').val()){
+      showAlert(".alert-danger", "Select Reason For Cancellation is Required");
+      return;
+    }
+
+
     $.ajax({
       type: "POST",
       url: "backend/end-points/orders.php",
