@@ -53,6 +53,7 @@ $page = $_GET['rider_id'];
                 <table class="table table-striped table-bordered mb-0">
                     <thead class="thead-dark">
                         <tr>
+                            <th>Order ID</th>
                             <th>Customer ID</th>
                             <th>Customer Name</th>
                             <th>Collected</th>
@@ -68,6 +69,7 @@ $page = $_GET['rider_id'];
                                    
                         ?>
                                 <tr class="orders-tr">
+                                    <td><?=$order['order_id'];?></td>
                                     <td><?= $order['customer_code'] ?></td>
                                     <td><?= ucfirst($order['customer_name']); ?></td>
                                     <td>₱ <?= $order['total_sales'] ?></td>
