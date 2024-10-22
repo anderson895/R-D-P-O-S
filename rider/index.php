@@ -51,7 +51,40 @@ if (isset($_GET['page'])) {
 </div>
 
 
+<?php 
+if($page == 'Collected'){ ?>
+<div class="orders-container container mt-4">
+    <div class="card">
+        <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
+            <h3 class="mb-0">Daily Cash on Delivery Collected</h3>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Rider ID</th>
+                            <th>Rider Name</th>
+                            <th>Collected</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="CodCollectedContainer">
+                    </tbody>
+                </table>
 
+                        <!-- <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                        </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php }else{?>
 <div class="orders-container">
     <div class="table-responsive">
         <table class="table">
@@ -74,7 +107,7 @@ if (isset($_GET['page'])) {
         </table>
     </div>
 </div>
-
+<?php } ?>
 
 <?php
 include('components/footer.php');
