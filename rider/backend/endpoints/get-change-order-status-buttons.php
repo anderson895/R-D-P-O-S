@@ -15,7 +15,14 @@ if (isset($_SESSION['acc_id'])) {
                 $order = $getOrder->fetch_assoc();
                 if ($order['status'] == 'Shipped') {
 ?>
-                    <button class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>"><i class="bi bi-check-square"></i> Delivered</button>
+                    <button class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>">
+                        <i class="bi bi-check-square"></i> Delivered
+                    </button>
+                  
+                    <button class="btn btn-danger btn-lg me-2" data-id="<?= $orderId ?>" title="Mark as Unsuccessful Delivery">
+                        <i class="bi bi-x-square"></i> Unsuccessful Delivery
+                    </button>
+
 <?php
                 }
             }
