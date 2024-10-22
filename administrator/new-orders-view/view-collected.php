@@ -44,10 +44,13 @@ $rider_id = $_GET['rider_id'];
 
 <div class="orders-container container mt-4">
     <div class="card">
-        <div class="card-header text-white text-center" style="background-color:rgb(131, 0, 0);">
-            <h1 >List of NOT COLLECTED COD on</h1>
-            <h3 class="mb-0">Rider: <a href="../admin_view/profile.php?account_id=<?=$rider_id;?>"><?=ucfirst($_GET['rider_name'])?></a> </h3>
-        </div>
+        <div class="card-header bg-danger text-white text-center">
+        <h1 class="h4 mb-0">List of NOT COLLECTED COD on</h1>
+        <h3 class="h6">
+            Rider: <a href="../admin_view/profile.php?account_id=<?=$rider_id;?>" class="text-white"><?=ucfirst($_GET['rider_name'])?></a>
+        </h3>
+    </div>
+
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered mb-0">
