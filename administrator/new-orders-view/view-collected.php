@@ -74,9 +74,25 @@ if (isset($_GET['rider_id'])) {
     
     
     ?>
+    <div class="orders-container container mt-4">
+    <div class="card">
+        <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
+            <h3 class="mb-0">Daily Cash on Delivery Collected</h3>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                            <th>Collected</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody id="CodCollectedContainer">
                 <tr class="orders-tr">
                     <td>
-                        <!-- <a href="view-collected.php?rider_id=<?= $order['rider_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['acc_code'] ?></a> -->
                        <?= $order['customer_code'] ?>
                
                     </td>
@@ -87,6 +103,18 @@ if (isset($_GET['rider_id'])) {
                                     
                     
                 </tr>
+                </tbody>
+                </table>
+
+                        <!-- <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                        </div> -->
+            </div>
+        </div>
+    </div>
+</div>
             <?php
             }
         } else {
