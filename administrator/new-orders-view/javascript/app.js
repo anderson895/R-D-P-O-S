@@ -266,7 +266,7 @@ $(document).on("click", "#BtnCollect", function (e) {
       }
     }
 
-    // return;
+    return;
     
 
     var formData = $(this).serialize();
