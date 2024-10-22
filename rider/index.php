@@ -40,6 +40,12 @@ if (isset($_GET['page'])) {
                     <!--  -->
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link <?= (isset($_GET['page']) && $_GET['page'] == 'Collected') ? 'active' : '' ?>" href="orders.php?page=Collected">
+                    <i class="bi bi-person-square"></i> COD Collected <span id="collectedCount" class="badge bg-danger">0</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
