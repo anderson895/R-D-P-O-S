@@ -1083,7 +1083,7 @@ $('#profileImgFRM').on('submit', function(e) {
       },
       success: function (response) {
         // Call the callback function with the response
-        console.log("start-" + response + "-end");
+        // console.log("start-" + response + "-end");
         callback(response);
       },
       error: function (xhr, status, error) {
