@@ -260,7 +260,7 @@ $(document).on("click", "#BtnCollect", function (e) {
 
 
     if(OrdStatus=="Ready For Delivery"){
-      if(!$("#estimatedDelivery")){
+      if(!$("#estimatedDelivery").val()){
         showAlert(".alert-danger", "Select Estimated Delivery Date");
         return;
       }
