@@ -190,7 +190,7 @@ $(document).ready(function () {
         $('#changeOrderStatusModalOrderIdDelivered').val($(this).data("id"));
     } else {
 
-      var viewOrderStatusContainer=$('#viewOrderStatusContainer').text()
+      var viewOrderStatusContainer=$('#viewOrderStatusContainer').val()
       console.log(viewOrderStatusContainer)
   
 
