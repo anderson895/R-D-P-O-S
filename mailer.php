@@ -91,7 +91,7 @@ try {
                       <strong style="font-size: 200%; color: #fff;">'.$db_otp.'</strong>
                     </div>
                     <br>
-                   
+                    Or just click here <a href="https://rdpos.store/Main/verification_code.php?accid='.$db_acc_id.'&otp='.$db_otp.'">Verify your account</a>
                     <p>Do not share this Passcode with anyone.<br><br>If you didn\'t request this, you can ignore this email.</p>
                   </div>
                 </td>
@@ -112,4 +112,3 @@ try {
     echo json_encode(["error" => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
 }
 ?>
-<!--  Or just click here <a href="https://rdpos.store/Main/verification_code.php?accid='.$db_acc_id.'&otp='.$db_otp.'">Verify your account</a> -->
