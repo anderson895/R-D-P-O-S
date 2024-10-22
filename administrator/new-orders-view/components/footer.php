@@ -8,12 +8,17 @@
                 <input type="hidden" name="requestType" value="UpgradeOrderStatus">
                 <input type="hidden" name="orderId" id="changeOrderStatusModalOrderId" value="">
 
-                <!--Start new added Input -->
-                <input type="date" class="form-control" id="estimatedDelivery" name="estimatedDelivery">
-                <!-- End new added Input -->
+              
                 <div class="modal-body">
                     <h6>Are you sure that you want to change the Order Status?</h6>
                 </div>
+                <!--Start new added Input -->
+                <div class="form-floating estimatedDeliveryFloating">
+                    <input type="date" class="form-control" id="estimatedDelivery" name="estimatedDelivery" placeholder="Estimated Delivery Date">
+                    <label for="estimatedDelivery">Estimated Delivery Date</label>
+                </div>
+
+                <!-- End new added Input -->
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Yes</button>
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">No</button>
