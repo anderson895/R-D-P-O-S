@@ -512,6 +512,7 @@
     </div>
 </div>
 <!-- End of user Password Modal -->
+
 <!-- Start user Modal -->
 <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -521,20 +522,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure you want to cancel this order?
+        Select Cancel Reason:
 
         <input type="hidden" id="order_id" name="order_id">
         
-        <div class="form-floating">
-          <select name="CancelReason" id="cancelReason" class="form-select">
-            <option value="" disabled selected>Select a reason</option>
-            <option value="change_mind">Changed my mind</option>
-            <option value="delivery_delay">Delivery is too slow</option>
-            <option value="price_issue">Found a better price</option>
-            <option value="other">Other</option>
-          </select>
-          <label for="cancelReason">Cancel Reason</label>
-        </div>
+        <select name="CancelReason" id="cancelReason" class="form-select">
+          <option value="" disabled selected>Select a reason</option>
+          <option value="change_mind">Changed my mind</option>
+          <option value="delivery_delay">Delivery is too slow</option>
+          <option value="price_issue">Found a better price</option>
+          <option value="other">Other</option>
+        </select>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -544,7 +542,6 @@
   </div>
 </div>
 <!-- End user Modal -->
-
 
 
 
