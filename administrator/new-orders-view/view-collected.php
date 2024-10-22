@@ -58,23 +58,8 @@ if (isset($_GET['rider_id'])) {
     </div>
 </div>
 
-<?php 
-    if (isset($page)) {
-        $orders = $db->getEachCodCollected($page);
-        if ($orders->num_rows > 0) {
-            while ($order = $orders->fetch_assoc()) {
-                $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
-                $riderName = 'NA';
-                if ($getRider->num_rows > 0) {
-                    $rider =  $getRider->fetch_assoc();
-                    $riderName = $rider['acc_fname'] . ' ' . $rider['acc_lname'];
-                }
-    
-                
-    
-    
-    ?>
-    <div class="orders-container container mt-4">
+
+<div class="orders-container container mt-4">
     <div class="card">
         <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
             <h3 class="mb-0">Daily Cash on Delivery Collected</h3>
@@ -91,6 +76,23 @@ if (isset($_GET['rider_id'])) {
                         </tr>
                     </thead>
                     <tbody >
+<?php 
+    if (isset($page)) {
+        $orders = $db->getEachCodCollected($page);
+        if ($orders->num_rows > 0) {
+            while ($order = $orders->fetch_assoc()) {
+                $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
+                $riderName = 'NA';
+                if ($getRider->num_rows > 0) {
+                    $rider =  $getRider->fetch_assoc();
+                    $riderName = $rider['acc_fname'] . ' ' . $rider['acc_lname'];
+                }
+    
+                
+    
+    
+    ?>
+   
                 <tr class="orders-tr">
                     <td>
                        <?= $order['customer_code'] ?>
@@ -103,7 +105,13 @@ if (isset($_GET['rider_id'])) {
                                     
                     
                 </tr>
-                </tbody>
+                
+            <?php
+            }
+        } else {
+            ?>
+
+</tbody>
                 </table>
 
                         <!-- <div class="d-flex justify-content-center">
@@ -115,10 +123,6 @@ if (isset($_GET['rider_id'])) {
         </div>
     </div>
 </div>
-            <?php
-            }
-        } else {
-            ?>
             <tr>
                 <td colspan="9" style="text-align: center;">No Order Found.</td>
             </tr>
