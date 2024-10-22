@@ -230,7 +230,7 @@ public function getOrderStatusCounts()
     }
 
 
-    public function changeOrderStatus($orderId)
+    public function changeOrderStatus($orderId,$estimatedDelivery)
     {
         $dateTime = date('Y-m-d H:i:s');
         $getOrder = $this->checkId('new_tbl_orders', 'order_id', $orderId);
@@ -338,10 +338,21 @@ public function getOrderStatusCounts()
 
             }
 
-            $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`='$newStatus' WHERE `order_id` = '$orderId'");
-            if ($query->execute()) {
-                return 200;
+
+            if($estimatedDelivery){
+
+                $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`='$newStatus',`estimated_delivery`='$estimatedDelivery' WHERE `order_id` = '$orderId'");
+                if ($query->execute()) {
+                    return 200;
+                }
+
+            }else{
+                $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`='$newStatus' WHERE `order_id` = '$orderId'");
+                if ($query->execute()) {
+                    return 200;
+                }
             }
+           
 
             return $newStatus;
         } else {
