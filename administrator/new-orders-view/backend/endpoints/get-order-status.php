@@ -10,7 +10,7 @@ if (isset($_GET['orderId'])) {
 ?>
         <div class="input-container-label-top m-2 <?= ($order['status'] == 'Cancelled' || $order['status'] == 'Rejected') ? 'text-danger' : '' ?>">
             <label>Status</label>
-            <input type="text" readonly class="form-control <?= ($order['status'] == 'Cancelled' || $order['status'] == 'Rejected') ? 'text-danger' : '' ?>" value="<?= ($order['status'] == 'Shipped') ? 'Ongoing Delivery' : $order['status'] ?>">
+            <input type="text" id="OrdStatus" readonly class="form-control <?= ($order['status'] == 'Cancelled' || $order['status'] == 'Rejected') ? 'text-danger' : '' ?>" value="<?= ($order['status'] == 'Shipped') ? 'Ongoing Delivery' : $order['status'] ?>">
         </div>
 <?php
     }

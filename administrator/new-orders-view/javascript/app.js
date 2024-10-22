@@ -129,9 +129,7 @@ $(document).ready(function () {
         orderId: orderId,
       },
       success: function (response) {
-
-        console.log(response);
-
+        
         $("#viewOrderStatusContainer").html(response);
       },
     });
@@ -193,8 +191,8 @@ $(document).ready(function () {
         $('#changeOrderStatusModalOrderIdDelivered').val($(this).data("id"));
     } else {
 
-      var viewOrderStatusContainer=$('#viewOrderStatusContainer').val()
-      console.log(viewOrderStatusContainer)
+      var OrdStatus=$('#OrdStatus').val()
+      console.log(OrdStatus)
   
 
      $("#changeOrderStatusModal").modal("show");
