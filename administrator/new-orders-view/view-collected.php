@@ -60,7 +60,6 @@ if (isset($_GET['rider_id'])) {
 
 <?php 
     if (isset($page)) {
-        $page = $_GET['page'];
         $orders = $db->getEachCodCollected($page);
         if ($orders->num_rows > 0) {
             while ($order = $orders->fetch_assoc()) {
