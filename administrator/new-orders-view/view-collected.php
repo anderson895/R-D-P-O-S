@@ -45,7 +45,7 @@ $page = $_GET['rider_id'];
 <div class="orders-container container mt-4">
     <div class="card">
         <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
-            <h3 class="mb-0">Daily Cash on Delivery Collected On Rider <?=ucfirst($_GET['rider_name'])?></h3>
+            <h3 class="mb-0">Rider <b><?=ucfirst($_GET['rider_name'])?></b> COD Collected</h3>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
