@@ -2,7 +2,7 @@
 include('components/header.php');
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    if ($page != 'Ready For Delivery' && $page != 'Shipped' && $page != 'Delivered') {
+    if ($page != 'Ready For Delivery' && $page != 'Shipped' && $page != 'Delivered' && $page != 'Collected') {
         header('Location: index.php?page=Ready For Delivery');
         exit;
     }
