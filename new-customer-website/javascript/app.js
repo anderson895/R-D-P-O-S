@@ -809,9 +809,9 @@ $("#btnPlaceOrder").click(function (e) {
     e.preventDefault();
 
     console.log('click');
+    
+    $('#cancelModal').modal('show');
 
-    $('#cancelModal').show();
-    $('.modal-backdrop').hide();  // Hide the backdrop
 
     var order_id = $(this).attr("data-id");
 
