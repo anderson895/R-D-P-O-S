@@ -66,7 +66,7 @@ if($page == 'Collected'){ ?>
                             <th>Rider ID</th>
                             <th>Rider Name</th>
                             <th>Collected</th>
-                            <th>Actions</th>
+                        
                         </tr>
                     </thead>
                     <tbody id="CodCollectedContainer">

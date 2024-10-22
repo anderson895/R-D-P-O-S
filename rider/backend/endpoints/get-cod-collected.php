@@ -34,17 +34,7 @@ if (isset($_GET['page'])) {
                 <td><?= ucfirst($order['rider_name']); ?></td>
                 <td>₱ <?= $order['total_sales'] ?></td>
 
-                <td>
-                <?php
-                if($order['c_status'] == "Not_Collected") {
-                    echo '<button type="button" class="text-light btn" style="background-color: crimson;" id="BtnCollect"
-                    data-rider-id="'.$order['rider_id'].'">Collect</button>';
-                }else{
-                    echo "<span class='text-success'>Collected</span>";
-                }
-                ?>
-
-                
+                                
                 
             </tr>
         <?php

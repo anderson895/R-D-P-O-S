@@ -37,7 +37,7 @@ if (isset($_GET['page'])) {
                     echo "<span class='text-success'>Collected</span>";
                 }
                 ?>
-
+                </td>
                 
                 
             </tr>
