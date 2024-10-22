@@ -522,7 +522,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Select Cancel Reason:
 
         <input type="hidden" id="order_id" name="order_id">
         
