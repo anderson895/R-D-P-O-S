@@ -7,6 +7,10 @@
             <form id="frmChangeOrderStatus">
                 <input type="hidden" name="requestType" value="UpgradeOrderStatus">
                 <input type="hidden" name="orderId" id="changeOrderStatusModalOrderId" value="">
+
+                <!--Start new added Input -->
+                <input type="date" id="estimatedDelivery" name="estimatedDelivery">
+                <!-- End new added Input -->
                 <div class="modal-body">
                     <h6>Are you sure that you want to change the Order Status?</h6>
                 </div>

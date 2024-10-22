@@ -195,8 +195,14 @@ $(document).ready(function () {
       console.log(OrdStatus)
   
 
-     $("#changeOrderStatusModal").modal("show");
-     
+      if(OrdStatus=="Ready For Delivery"){
+          $('#estimatedDelivery').show()
+      }else{
+          $('#estimatedDelivery').hide()
+      }
+      $("#changeOrderStatusModal").modal("show");
+      
+
      
 
 
