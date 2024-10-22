@@ -527,6 +527,7 @@
         <input type="hidden" id="order_id" name="order_id">
         
         <label for="cancelReason">Select Cancel Reason:</label>
+        <div class="mb-2"></div>
         <select name="CancelReason" id="cancelReason" class="form-select">
           <option value="" disabled selected>Select a reason</option>
           <option value="change_mind">Changed my mind</option>
