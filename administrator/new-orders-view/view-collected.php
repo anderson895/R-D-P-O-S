@@ -44,8 +44,9 @@ $page = $_GET['rider_id'];
 
 <div class="orders-container container mt-4">
     <div class="card">
-        <div class="card-header text-dark">
-            <h3 class="mb-0">Rider <?=ucfirst($_GET['rider_name'])?> COD Not Collected</h3>
+        <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
+            <h2 >List of Not COD collected on</h2>
+            <h3 class="mb-0">Rider <?=ucfirst($_GET['rider_name'])?> </h3>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
