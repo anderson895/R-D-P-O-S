@@ -67,6 +67,7 @@ class global_class extends db_connect
     customer.acc_code as customer_code,
     CONCAT(customer.acc_fname, ' ', customer.acc_lname) AS customer_name,
     orders.c_status,
+    orders.delivered_date,
     orders.total AS total_sales
 FROM 
     new_tbl_orders AS orders

@@ -30,7 +30,7 @@ if (isset($_GET['page'])) {
                 
                 <td><?= ucfirst($order['customer_name']); ?></td>
                 <td>₱ <?= $order['total_sales'] ?></td>
-
+                <td><?=date('F j, Y g:i A', strtotime($order['delivered_date']))?></td>
                                 
                 
             </tr>

@@ -66,6 +66,7 @@ if($page == 'Collected'){ ?>
                             <th>Customer ID</th>
                             <th>Customer Name</th>
                             <th>Collected</th>
+                            <th>Date</th>
                         
                         </tr>
                     </thead>
