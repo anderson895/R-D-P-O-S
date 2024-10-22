@@ -90,14 +90,14 @@ table {
     ?> -->
      <?=
         ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelModal" data-id="' . $orderId . '">
-        <i class="bi bi-x-lg"></i> Cancel Ordersssssssssssssssssssssssssss</button>' : '';
+        <i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
     ?>
 </div>
 
 <div class="container mt-3">
     <div class="d-flex justify-content-between flex-wrap">
         <div class="input-container-label-top m-2">
-            <label>Order IDsssss</label>
+            <label>Order ID</label>
             <input type="text" readonly class="form-control" value="<?= $order['order_id'] ?>">
         </div>
         <div
