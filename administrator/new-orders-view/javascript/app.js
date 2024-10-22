@@ -189,12 +189,15 @@ $(document).ready(function () {
         $("#changeOrderStatusModalToDelivered").modal("show");   
         $('#changeOrderStatusModalOrderIdDelivered').val($(this).data("id"));
     } else {
+
+      var viewOrderStatusContainer=$('#viewOrderStatusContainer').text()
+      console.log(viewOrderStatusContainer)
+  
+
      $("#changeOrderStatusModal").modal("show");
      
      
 
-    var viewOrderStatusContainer=$('#viewOrderStatusContainer').text()
-    console.log(viewOrderStatusContainer)
 
 
      $("#changeOrderStatusModalOrderId").val($(this).data("id"));
