@@ -89,7 +89,7 @@ table {
         ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" id="btnCancelOrder" data-id="' . $orderId . '"><i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
     ?> -->
      <?=
-        ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" id="CancelModal" data-id="' . $orderId . '">
+        ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger CancelModal" data-id="' . $orderId . '">
         <i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
     ?>
 </div>
