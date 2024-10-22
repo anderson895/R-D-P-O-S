@@ -47,7 +47,6 @@ if ($paymentType != 'COD') {
 $delAddress = '';
 $orderBy = '';
 $userId = $order['cust_id'];
-$userCode = $order['acc_code'];
 $getAddress = $db->getUserAddress($userId);
 if($getAddress->num_rows > 0) {
     $address = $getAddress->fetch_assoc();
@@ -55,6 +54,7 @@ if($getAddress->num_rows > 0) {
 
     $assignRider = $address['address_rider'];
     $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
+    $userCode = $order['acc_code'];
 }
 ?>
 <!-- SweetAlert2 CSS -->
