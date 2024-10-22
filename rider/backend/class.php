@@ -81,6 +81,34 @@ class global_class extends db_connect
             }
         }
 
+                
+        public function getCodCollectedCount($session_id)
+        {
+            $query = $this->conn->prepare("
+                SELECT COUNT(*) AS record_count
+                FROM (
+                    SELECT 1
+                    FROM new_tbl_orders AS orders
+                    LEFT JOIN account AS acc ON orders.rider_id = acc.acc_id
+                    WHERE orders.status = 'Delivered'
+                    AND orders.payment_id = 'COD'
+                    AND c_status='Not_Collected' AND rider_id='$session_id'
+                    GROUP BY rider_id
+                ) AS subquery;
+            ");
+            
+            if ($query->execute()) {
+                $result = $query->get_result();
+                $row = $result->fetch_assoc();
+                echo json_encode($row['record_count']);
+            } else {
+                // Handle query execution failure
+                return null;
+            }
+        }
+
+
+
     public function getOrderUsingOrderId($riderId, $orderId)
     {
         $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `rider_id` = '$riderId' AND `order_id` = '$orderId'");

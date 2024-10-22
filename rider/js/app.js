@@ -3,7 +3,24 @@ $(document).ready(function () {
   
   //   Functions
 
+  const getCollectedCount = () => {
+    $.ajax({
+      url: 'backend/endpoints/get-collected-count.php', // PHP file where the data is coming from
+      type: 'GET',
+      dataType: 'json',
+      success: function(response) {
+          // The response will be in JSON format
+          // console.log(response); // You can inspect the response in your browser console
 
+      
+        
+          $('#collectedCount').text(response);
+      },
+      error: function(xhr, status, error) {
+          console.error("Error fetching order status counts:", error);
+      }
+  });
+};
   
   const getCollectedCod = () => {
     var page = getUrlParameter("page");
@@ -179,6 +196,7 @@ $(document).ready(function () {
 
 
   setInterval(() => {
+    getCollectedCount();
     getCollectedCod();
     getOrdersCount();
     displayOrders();
@@ -190,6 +208,8 @@ $(document).ready(function () {
     getBtnDeliverOrder();
   }, 1000);
 
+  
+  getCollectedCount();
   getOrdersCount();
   getCollectedCod();
   displayOrders();
