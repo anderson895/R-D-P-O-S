@@ -255,6 +255,16 @@ $(document).on("click", "#BtnCollect", function (e) {
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
 
+    var OrdStatus=$('#OrdStatus').val()
+    console.log(OrdStatus)
+
+
+    if(OrdStatus=="Ready For Delivery"){
+      if(!$("##estimatedDelivery")){
+        showAlert(".alert-danger", "Select Estimated Delivery Date");
+        return;
+      }
+    }
     
 
     var formData = $(this).serialize();

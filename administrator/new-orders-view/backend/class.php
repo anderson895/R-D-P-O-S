@@ -242,6 +242,7 @@ public function getOrderStatusCounts()
             } elseif ($orderStatus == 'Accepted') {
                 $newStatus = 'Ready For Delivery';
             } elseif ($orderStatus == 'Ready For Delivery') {
+                
                 $newStatus = 'Shipped';
                 if ($order['rider_id'] == '') {
                     return 'Please select rider!';
