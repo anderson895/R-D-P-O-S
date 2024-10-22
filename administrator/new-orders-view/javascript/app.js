@@ -129,6 +129,9 @@ $(document).ready(function () {
         orderId: orderId,
       },
       success: function (response) {
+
+        console.log(response);
+
         $("#viewOrderStatusContainer").html(response);
       },
     });
