@@ -834,6 +834,7 @@ $("#btnPlaceOrder").click(function (e) {
       data: {
         requestType: "CancelOrder",
         id: $(this).data("id"),
+        cancelReason:$('#cancelReason').val(),
       },
       success: function (response) {
         console.log(response);

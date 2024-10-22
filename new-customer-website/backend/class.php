@@ -617,9 +617,9 @@ class global_class extends db_connect
         }
     }
 
-    public function cancelOrder($orderId)
+    public function cancelOrder($orderId,$cancelReason)
     {
-        $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`= 'Cancelled' WHERE `order_id` = '$orderId'");
+        $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`= 'Cancelled',`cancel_reason`='$cancelReason' WHERE `order_id` = '$orderId'");
         if ($query->execute()) {
             return 200;
         }
