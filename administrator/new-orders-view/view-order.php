@@ -178,7 +178,7 @@ if($getAddress->num_rows > 0) {
                             <tr>
                                 <td class="col-6 col-md-4"><span style="font-weight: 600;">Order By:</span></td>
                                 <td class="col-6 col-md-8">
-                                    <a href="../admin_view/customerlist.php?type=<?=$userCode?>" style="font-weight: 600; text-decoration: none;">
+                                    <a href="../admin_view/customerlist.php?type=<?=$userCode?>" >
                                         <?= $orderBy ?>
                                     </a>
                                 </td>
