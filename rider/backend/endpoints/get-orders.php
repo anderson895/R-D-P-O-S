@@ -26,6 +26,7 @@ if (isset($_SESSION['acc_id'])) {
                         <td>₱<?= number_format($order['sf'],2) ?></td>
                         <td>₱<?= number_format( $order['total'],2) ?></td>
                         <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
+                        <?= ($page == 'Delivered') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'])) . '</td>' : '' ?>
                         <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                     </tr>
                 <?php

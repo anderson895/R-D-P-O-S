@@ -57,7 +57,9 @@ if (isset($_GET['page'])) {
                     <th>Shipping Fee</th>
                     <th>Total</th>
                     <th>Order Date</th>
+                    <?= ($page == 'Delivered') ? '<th>Estimated Delivery</th>' : '' ?>
                     <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
+                   
                 </tr>
             </thead>
             <tbody id="OrdersContainer">
