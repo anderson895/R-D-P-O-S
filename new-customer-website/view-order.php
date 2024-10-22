@@ -88,15 +88,10 @@ table {
     <!-- <?=
         ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" id="btnCancelOrder" data-id="' . $orderId . '"><i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
     ?> -->
-     <?php
-    if ($order['status'] == 'Pending' || $order['status'] == 'Accepted') {
-        echo '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelModal" data-id="' . $orderId . '">
-              <i class="bi bi-x-lg"></i> Cancel Order</button>';
-    } else {
-        echo 'No cancel option available';
-    }
-?>
-
+     <?=
+        ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" id="CancelModal" data-id="' . $orderId . '">
+        <i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
+    ?>
 </div>
 
 

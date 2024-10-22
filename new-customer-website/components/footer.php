@@ -524,6 +524,8 @@
       </div>
       <div class="modal-body">
         Are you sure you want to cancel this order?
+
+        <input type="text" id="order_id" name="order_id">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -801,6 +801,24 @@ $("#btnPlaceOrder").click(function (e) {
   // End of Orders.php
 
   // View-Order.php
+
+
+  
+
+  $(".CancelModal").click(function (e) { 
+    e.preventDefault();
+
+    $('#cancelModal').show();
+    $('.modal-backdrop').hide();  // Hide the backdrop
+
+    var order_id = $(this).attr("data-id");
+
+    $('#order_id').val(order_id);
+
+});
+
+
+
   $("#btnCancelOrder").click(function (e) {
     e.preventDefault();
     $.ajax({
