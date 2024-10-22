@@ -44,7 +44,7 @@ $page = $_GET['rider_id'];
 
 <div class="orders-container container mt-4">
     <div class="card">
-        <div class="card-header text-white">
+        <div class="card-header text-dark">
             <h3 class="mb-0">Rider <?=ucfirst($_GET['rider_name'])?> COD Not Collected</h3>
         </div>
         <div class="card-body p-0">
