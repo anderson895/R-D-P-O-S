@@ -189,7 +189,14 @@ $(document).ready(function () {
         $("#changeOrderStatusModalToDelivered").modal("show");   
         $('#changeOrderStatusModalOrderIdDelivered').val($(this).data("id"));
     } else {
-     $("#changeOrderStatusModal").modal("show");   
+     $("#changeOrderStatusModal").modal("show");
+     
+     
+
+    var viewOrderStatusContainer=$('#viewOrderStatusContainer').text()
+    console.log(viewOrderStatusContainer)
+
+
      $("#changeOrderStatusModalOrderId").val($(this).data("id"));
     }
   });
@@ -237,6 +244,9 @@ $(document).on("click", "#BtnCollect", function (e) {
 
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
+
+    
+
     var formData = $(this).serialize();
     $.ajax({
       type: "POST",
