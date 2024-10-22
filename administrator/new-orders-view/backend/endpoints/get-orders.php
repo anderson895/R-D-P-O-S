@@ -29,7 +29,7 @@ if (isset($_GET['page'])) {
                 <?= ($page == 'Delivered') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'])) . '</td>' : '' ?>
                 <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                 <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($riderName) . '</td>' : '' ?>
-                <?= ($page == 'Rejected') ? '<td>' . ucfirst($reasreject_reasonon) . '</td>' : '' ?>
+                <?= ($page == 'Rejected') ? '<td>' . ucfirst($reject_reason) . '</td>' : '' ?>
                 <?= ($page == 'Cancelled') ? '<td>' . ucfirst($cancel_reason) . '</td>' : '' ?>
     
             </tr>
