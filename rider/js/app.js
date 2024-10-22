@@ -4,6 +4,31 @@ $(document).ready(function () {
   //   Functions
 
 
+  
+  const getCollectedCod = () => {
+    var page = getUrlParameter("page");
+
+    $.ajax({
+        type: "GET",
+        url: "backend/endpoints/get-cod-collected.php",
+        data: {
+            page: page,
+        },
+        beforeSend: function() {
+            // Show the spinner before sending the request
+            // $(".spinner-border").show();
+        },
+        success: function(response) {
+            $("#CodCollectedContainer").html(response);
+        },
+        complete: function() {
+            // Hide the spinner after the request is complete
+            // $(".spinner-border").hide();
+        },
+    });
+};
+
+
 
   const getOrdersCount = () => {
     $.ajax({
@@ -154,6 +179,7 @@ $(document).ready(function () {
 
 
   setInterval(() => {
+    getCollectedCod();
     getOrdersCount();
     displayOrders();
   }, 3000);
@@ -165,6 +191,7 @@ $(document).ready(function () {
   }, 1000);
 
   getOrdersCount();
+  getCollectedCod();
   displayOrders();
   getOrderStatus();
   getBtnDeliverOrder();
