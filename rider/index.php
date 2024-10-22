@@ -63,8 +63,8 @@ if($page == 'Collected'){ ?>
                 <table class="table table-striped table-bordered mb-0">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Rider ID</th>
-                            <th>Rider Name</th>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
                             <th>Collected</th>
                         
                         </tr>

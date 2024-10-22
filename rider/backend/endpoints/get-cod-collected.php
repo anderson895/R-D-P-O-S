@@ -27,11 +27,11 @@ if (isset($_GET['page'])) {
             <tr class="orders-tr">
                 <td>
                     <!-- <a href="view-collected.php?rider_id=<?= $order['rider_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['acc_code'] ?></a> -->
-                   <?= $order['acc_code'] ?>
+                   <?= $order['customer_code'] ?>
            
                 </td>
                 
-                <td><?= ucfirst($order['rider_name']); ?></td>
+                <td><?= ucfirst($order['customer_name']); ?></td>
                 <td>₱ <?= $order['total_sales'] ?></td>
 
                                 

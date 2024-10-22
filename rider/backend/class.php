@@ -64,6 +64,7 @@ class global_class extends db_connect
             $query = $this->conn->prepare("SELECT 
     orders.order_id,
     orders.rider_id,
+    customer.acc_code as customer_code,
     CONCAT(customer.acc_fname, ' ', customer.acc_lname) AS customer_name,
     orders.c_status,
     orders.total AS total_sales
