@@ -90,7 +90,7 @@ if (isset($_GET['rider_id'])) {
                         
                         </tr>
                     </thead>
-                    <tbody id="CodCollectedContainer">
+                    <tbody >
                 <tr class="orders-tr">
                     <td>
                        <?= $order['customer_code'] ?>
