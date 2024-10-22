@@ -1,13 +1,13 @@
 <?php
 include('components/header.php');
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
-    if ($page != 'Pending' && $page != 'Accepted' && $page != 'Ready For Delivery' && $page != 'Shipped' && $page != 'Delivered' && $page != 'Cancelled' && $page != 'Rejected' && $page != 'Collected') {
-        header("Location: orders.php?page=Pending");
+if (isset($_GET['rider_id'])) {
+    $page = $_GET['rider_id'];
+    if (empty($page)) {
+        header("Location: orders.php?page=Collected");
         exit;
     }
 } else {
-    header("Location: orders.php?page=Pending");
+    header("Location: orders.php?page=Collected");
     exit;
 }
 ?>
