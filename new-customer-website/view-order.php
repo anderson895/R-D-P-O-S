@@ -90,7 +90,7 @@ table {
     ?> -->
      <?=
         ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelModal" data-id="' . $orderId . '">
-        <i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
+        <i class="bi bi-x-lg"></i> Cancel Ordersssssssssssssssssssssssssss</button>' : '';
     ?>
 </div>
 
