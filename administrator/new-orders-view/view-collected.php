@@ -59,6 +59,7 @@ $page = $_GET['rider_id'];
                         </tr>
                     </thead>
                     <tbody>
+                    <a href="../admin_view/profile_customer.php?target_id=<?=$order['acc_id'];?>"><?=ucfirst($order['customer_name']);?></a>
                         <?php 
                         if (isset($page)) {
                             $orders = $db->getEachCodCollected($page);
@@ -72,7 +73,7 @@ $page = $_GET['rider_id'];
                                         <a href="view-order.php?orderId==<?=$order['order_id'];?>"><?=$order['order_id'];?></a>
                                     </td>
                                     <td>
-                                        <a href="admin_view/profile_customer.php?target_id=<?=$order['acc_id'];?>"><?=ucfirst($order['customer_name']);?></a>
+                                        <a href="../admin_view/profile_customer.php?target_id=<?=$order['acc_id'];?>"><?=ucfirst($order['customer_name']);?></a>
                                     </td>
 
                                     <td>₱ <?= $order['total_sales'] ?></td>
