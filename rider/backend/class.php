@@ -61,14 +61,22 @@ class global_class extends db_connect
     
             public function getCodCollected($session_id)
         {
-            $query = $this->conn->prepare("SELECT CONCAT(acc.acc_fname, ' ', acc.acc_lname) AS rider_name,acc_code as acc_code,order_id, rider_id,c_status,
-            SUM(orders.total) AS total_sales
-        FROM new_tbl_orders AS orders
-        LEFT JOIN account AS acc ON orders.rider_id = acc.acc_id
-        WHERE orders.status = 'Delivered'
-        AND orders.payment_id = 'COD' AND c_status='Not_Collected' AND rider_id='$session_id'
-        GROUP BY rider_id
-        ORDER BY total_sales DESC;
+            $query = $this->conn->prepare("SELECT 
+    orders.order_id,
+    orders.rider_id,
+    CONCAT(customer.acc_fname, ' ', customer.acc_lname) AS customer_name,
+    orders.c_status,
+    orders.total AS total_sales
+FROM 
+    new_tbl_orders AS orders
+LEFT JOIN 
+    account AS customer ON orders.cust_id = customer.acc_id
+WHERE 
+    orders.status = 'Delivered'
+    AND orders.payment_id = 'COD' 
+    AND orders.c_status = 'Not_Collected' AND rider_id='$session_id'
+ORDER BY 
+    total_sales DESC;
 
             ");
             
