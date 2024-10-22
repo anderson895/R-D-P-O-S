@@ -291,7 +291,7 @@ $(document).on("click", ".btnViewProduct", function (e) {
     const queryParams = $.param({
       id: $this.data('id'),
       productName: productName,
-      stock: displayStock,
+      stock: stock,
       image: $this.data('image'),
       description: $this.data('description'),
       price: $this.data('price'),
