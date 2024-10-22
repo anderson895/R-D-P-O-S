@@ -64,7 +64,7 @@ $page = $_GET['rider_id'];
                             if ($orders->num_rows > 0) {
                                 while ($order = $orders->fetch_assoc()) {
                                     $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
-                                    $riderName = ($getRider->num_rows > 0) ? $getRider->fetch_assoc()['acc_fname'] . ' ' . $getRider->fetch_assoc()['acc_lname'] : 'NA';
+                                   
                         ?>
                                 <tr class="orders-tr">
                                     <td><?= $order['customer_code'] ?></td>
