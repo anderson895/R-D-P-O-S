@@ -259,9 +259,10 @@ public function getOrderStatusCounts()
             }
 
             if ($newStatus == 'Ready For Delivery') {
-                
+                // // Deduct to the inventory
+               
 
-                // Deduct from the inventory
+                                    // Deduct from the inventory
                     $getItems = $this->conn->prepare("SELECT * FROM `new_tbl_order_items`
                     LEFT JOIN product
                     ON product.prod_id  = new_tbl_order_items.product_id
