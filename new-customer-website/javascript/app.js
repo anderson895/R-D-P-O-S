@@ -808,6 +808,8 @@ $("#btnPlaceOrder").click(function (e) {
   $(".CancelModal").click(function (e) { 
     e.preventDefault();
 
+    console.log('click');
+
     $('#cancelModal').show();
     $('.modal-backdrop').hide();  // Hide the backdrop
 
