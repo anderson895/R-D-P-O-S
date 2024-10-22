@@ -66,7 +66,7 @@ class global_class extends db_connect
         FROM new_tbl_orders AS orders
         LEFT JOIN account AS acc ON orders.rider_id = acc.acc_id
         WHERE orders.status = 'Delivered'
-        AND orders.payment_id = 'COD' AND c_status='Not_Collected'
+        AND orders.payment_id = 'COD' AND c_status='Not_Collected' AND 
         GROUP BY rider_id
         ORDER BY total_sales DESC;
 
