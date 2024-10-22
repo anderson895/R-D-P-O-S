@@ -97,7 +97,7 @@ table {
 <div class="container mt-3">
     <div class="d-flex justify-content-between flex-wrap">
         <div class="input-container-label-top m-2">
-            <label>Order ID</label>
+            <label>Order IDsssss</label>
             <input type="text" readonly class="form-control" value="<?= $order['order_id'] ?>">
         </div>
         <div
