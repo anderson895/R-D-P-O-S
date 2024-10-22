@@ -107,7 +107,7 @@ try {
 
     // Send the email
     $mail->send();
-    echo json_encode(["success" => "OTP Sent Successfully!"]);
+    echo json_encode(["success" => "OTPSentSuccessfully"]);
 } catch (Exception $e) {
     echo json_encode(["error" => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
 }

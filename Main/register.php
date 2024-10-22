@@ -404,47 +404,51 @@ $(document).ready(function() {
 
         // Perform an Ajax POST request to your PHP script
         $.ajax({
-            type: "POST",
-            url: "controller/register/back_register.php",
-            data: formData,
-            success: function(response) {
-                var result = response.response;
-                var last_id = response.last_id;
+    type: "POST",
+    url: "controller/register/back_register.php",
+    data: formData,
+    dataType: "json", // Expecting a JSON response
+    success: function(response) {
+        var result = response.response;
+        var last_id = response.last_id;
 
-                if (result === "success") {
-                    $.ajax({
-                        type: "POST",
-                        url: "../mailer.php",
-                        data: { db_acc_id: last_id },
-                        beforeSend: function() {
-                            $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
-                            $("#submitButton").hide();
-                        },
-                        success: function(response) {
-                           console.log(response);
-                        },
-                        error: function(xhr, status, error) {
-                            $("#loadingSpinner").hide();
-                            $("#submitButton").show();
-                            alertify.error("Error in sending OTP: " + error);
-                        },
-                        complete: function() {
-                            $("#loadingSpinner").hide();
-
-                            // alertify.success("Otp successfully sent to " + emailInput.val());
-                            // setTimeout(function() {
-                            //     window.location.href = "verification_code.php?accid=" + last_id;
-                            // }, 1000);
-                        }
-                    });
-                } else {
-                    alertify.error(result);
+        if (result === "success") {
+            $.ajax({
+                type: "POST",
+                url: "../mailer.php",
+                data: { db_acc_id: last_id },
+                dataType: "json", // Expecting a JSON response
+                beforeSend: function() {
+                    $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
+                    $("#submitButton").hide();
+                },
+                success: function(response) {
+                    console.log(response);
+                    if (response.success === "OTPSentSuccessfully") {
+                        $("#loadingSpinner").hide();
+                        alertify.success("OTP successfully sent to " + emailInput.val());
+                        setTimeout(function() {
+                            window.location.href = "verification_code.php?accid=" + last_id;
+                        }, 2000);
+                    } else {
+                        alertify.error(response.message || "Unexpected response");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $("#loadingSpinner").hide();
+                    $("#submitButton").show();
+                    alertify.error("Error in sending OTP: " + error);
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error("Submission error: " + error);
-            }
-        });
+            });
+        } else {
+            alertify.error(result);
+        }
+    },
+    error: function(xhr, status, error) {
+        console.error("Submission error: " + error);
+    }
+});
+
     }
 
     // Add event listener for form submission
