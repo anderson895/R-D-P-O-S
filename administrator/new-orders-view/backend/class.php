@@ -170,7 +170,7 @@ public function getCodCollectedCount()
 public function getEachCodCollected($session_id)
 {
             $query = $this->conn->prepare("SELECT 
-    cust_id.cust_id,
+    orders.cust_id,
     orders.order_id,
     orders.rider_id,
     customer.acc_code as customer_code,
