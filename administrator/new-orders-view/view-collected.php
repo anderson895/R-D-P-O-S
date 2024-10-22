@@ -59,66 +59,43 @@ if (isset($_GET['rider_id'])) {
 </div>
 
 <?php 
-if($page == 'Collected'){ ?>
-<div class="orders-container container mt-4">
-    <div class="card">
-        <div class="card-header text-white" style="background-color:rgb(131, 0, 0);">
-            <h3 class="mb-0">Daily Cash on Delivery Collected</h3>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered mb-0">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Rider ID</th>
-                            <th>Rider Name</th>
-                            <th>Collected</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="CodCollectedContainer">
-                    </tbody>
-                </table>
-
-                        <!-- <div class="d-flex justify-content-center">
-                            <div class="spinner-border" role="status">
-                                <span class="sr-only"></span>
-                            </div>
-                        </div> -->
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<?php }else{?>
-
-<div class="orders-container">
-    <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Subtotal</th>
-                        <th>VAT</th>
-                        <th>Shipping Fee</th>
-                        <th>Total</th>
-                        <th>Order Date</th>
-                        <?= ($page == 'Delivered') ? '<th>Estimated Delivery</th>' : '' ?>
-                        <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
-                        <?= ($page == 'Delivered' || $page == 'Shipped' || $page == 'Collected') ? '<th>Rider</th>' : '' ?>
-                        <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
-                        <?= ($page == 'Cancelled') ? '<th>Cancel Reason</th>' : '' ?>
-                    </tr>
-                <tbody id="ordersContainer">
-
-                </tbody>
-        </table>
-    </div>
-</div>
-
-<?php
-}
-?>
-
-<?php
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+        $orders = $db->getEachCodCollected($page);
+        if ($orders->num_rows > 0) {
+            while ($order = $orders->fetch_assoc()) {
+                $getRider = $db->checkId('account', 'acc_id', $order['rider_id']);
+                $riderName = 'NA';
+                if ($getRider->num_rows > 0) {
+                    $rider =  $getRider->fetch_assoc();
+                    $riderName = $rider['acc_fname'] . ' ' . $rider['acc_lname'];
+                }
+    
+                
+    
+    
+    ?>
+                <tr class="orders-tr">
+                    <td>
+                        <!-- <a href="view-collected.php?rider_id=<?= $order['rider_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['acc_code'] ?></a> -->
+                       <?= $order['customer_code'] ?>
+               
+                    </td>
+                    
+                    <td><?= ucfirst($order['customer_name']); ?></td>
+                    <td>₱ <?= $order['total_sales'] ?></td>
+    
+                                    
+                    
+                </tr>
+            <?php
+            }
+        } else {
+            ?>
+            <tr>
+                <td colspan="9" style="text-align: center;">No Order Found.</td>
+            </tr>
+    <?php
+        }
+    } 
 include('components/footer.php');

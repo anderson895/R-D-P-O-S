@@ -167,6 +167,36 @@ public function getCodCollectedCount()
     }
 }
 
+public function getEachCodCollected($session_id)
+{
+            $query = $this->conn->prepare("SELECT 
+    orders.order_id,
+    orders.rider_id,
+    customer.acc_code as customer_code,
+    CONCAT(customer.acc_fname, ' ', customer.acc_lname) AS customer_name,
+    orders.c_status,
+    orders.total AS total_sales
+FROM 
+    new_tbl_orders AS orders
+LEFT JOIN 
+    account AS customer ON orders.cust_id = customer.acc_id
+WHERE 
+    orders.status = 'Delivered'
+    AND orders.payment_id = 'COD' 
+    AND orders.c_status = 'Not_Collected' AND rider_id='$session_id'
+ORDER BY 
+    total_sales DESC;
+
+            ");
+            
+            if ($query->execute()) {
+                $result = $query->get_result();
+                return $result;
+            } else {
+                // Handle query execution failure
+                return null;
+            }
+}
 
 
 public function getOrderStatusCounts()
