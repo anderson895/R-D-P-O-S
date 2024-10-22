@@ -176,7 +176,12 @@ if($getAddress->num_rows > 0) {
                             </tr>
                             <tr>
                                 <td class="col-6 col-md-4"><span style="font-weight: 600;">Order By:</span></td>
-                                <td class="col-6 col-md-8"><span style="font-weight: 600;"><?= $orderBy ?></span></td>
+                                <td class="col-6 col-md-8">
+                                    <a href="your-link-here" style="font-weight: 600; text-decoration: none;">
+                                        <?= $orderBy ?>
+                                    </a>
+                                </td>
+
                             </tr>
                             <?php if ($order['status'] == 'Delivered') { ?>
                                 <tr>
