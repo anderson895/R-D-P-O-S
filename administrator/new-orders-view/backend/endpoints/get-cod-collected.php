@@ -20,7 +20,7 @@ if (isset($_GET['page'])) {
 ?>
             <tr class="orders-tr">
                 <td>
-                    <a href="view-collected.php?rider_id=<?= $order['rider_id']?>&&rider_name='<?=$order['rider_name']?>'" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['acc_code'] ?></a>
+                    <a href="view-collected.php?rider_id=<?= $order['rider_id']?>&&rider_name=<?=$order['rider_name']?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['acc_code'] ?></a>
                  
            
                 </td>
