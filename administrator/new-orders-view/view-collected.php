@@ -68,8 +68,13 @@ $page = $_GET['rider_id'];
                                    
                         ?>
                                 <tr class="orders-tr">
-                                    <td><?=$order['order_id'];?></td>
-                                    <td><?= ucfirst($order['customer_name']); ?></td>
+                                    <td>
+                                        <a href="view-order.php?orderId==<?=$order['order_id'];?>"><?=$order['order_id'];?></a>
+                                    </td>
+                                    <td>
+                                        <a href="profile_customer.php?target_id=<?=$order['acc_id'];?>"><?=ucfirst($order['customer_name']);?></a>
+                                    </td>
+
                                     <td>₱ <?= $order['total_sales'] ?></td>
                                 </tr>
                         <?php
