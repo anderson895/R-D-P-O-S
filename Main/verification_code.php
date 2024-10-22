@@ -77,10 +77,10 @@ if ($product_row) {
                             <p>Your OTP code was sent to <?= htmlspecialchars($masked_email, ENT_QUOTES, 'UTF-8'); ?></p>
            
                             <div class="otp-field mb-4">
-                                <input name="code1" type="number" min="0" max="9" value="<?= htmlspecialchars($digit0, ENT_QUOTES, 'UTF-8'); ?>" required />
-                                <input name="code2" type="number" min="0" max="9" value="<?= htmlspecialchars($digit1, ENT_QUOTES, 'UTF-8'); ?>" required />
-                                <input name="code3" type="number" min="0" max="9" value="<?= htmlspecialchars($digit2, ENT_QUOTES, 'UTF-8'); ?>" required />
-                                <input name="code4" type="number" min="0" max="9" value="<?= htmlspecialchars($digit3, ENT_QUOTES, 'UTF-8'); ?>" required />
+                                <input name="code1" type="number" min="0" max="9" value="" required />
+                                <input name="code2" type="number" min="0" max="9" value="" required />
+                                <input name="code3" type="number" min="0" max="9" value="" required />
+                                <input name="code4" type="number" min="0" max="9" value="" required />
                             </div>
 
                             <div>
