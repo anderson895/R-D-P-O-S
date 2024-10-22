@@ -196,9 +196,9 @@ $(document).ready(function () {
   
 
       if(OrdStatus=="Ready For Delivery"){
-          $('#estimatedDeliveryFloating').show()
+          $('.estimatedDeliveryFloating').show()
       }else{
-          $('#estimatedDeliveryFloating').hide()
+          $('.estimatedDeliveryFloating').hide()
       }
       $("#changeOrderStatusModal").modal("show");
       
