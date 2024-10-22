@@ -54,7 +54,7 @@ if($getAddress->num_rows > 0) {
 
     $assignRider = $address['address_rider'];
     $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
-    $userCode = $order['acc_code'];
+    $userCode = $address['acc_code'];
 }
 ?>
 <!-- SweetAlert2 CSS -->
