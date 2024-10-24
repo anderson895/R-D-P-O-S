@@ -23,15 +23,15 @@ if (isset($_GET['page'])) {
                 </td>
 
                 <td>
-                   <?php 
-                //    if($order['unsucessful_reason']){
-
-                //    }
-
-                echo $order['unsucessful_reason'];
-                   ?>
-            
+                    <?php 
+                    if($order['unsucessful_reason']){
+                        echo "<b class='text-danger'>" . $order['unsucessful_reason'] . "</b>";
+                    } else {
+                        echo "<b class='text-success'>New orders</b>"; 
+                    }
+                    ?>
                 </td>
+
 
                 <td>₱<?= number_format( $order['subtotal'],2) ?></td>
                 <td>₱<?= number_format($order['vat'],2) ?></td>
