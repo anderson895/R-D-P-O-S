@@ -477,7 +477,7 @@ public function getOrderStatusCounts()
 
     public function getRates()
     {
-        $query = $this->conn->prepare("SELECT * FROM `rate_reviews` ORDER BY `r_rate_id` DESC");
+        $query = $this->conn->prepare("SELECT * FROM `rate_reviews` ORDER BY `r_rate_id` asc");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
