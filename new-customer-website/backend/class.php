@@ -762,7 +762,8 @@ class global_class extends db_connect
          FROM rate_reviews as srr
          LEFT JOIN account as t
          ON t.acc_id = srr.r_user_id where srr.r_prod_id='$id'
-        ORDER BY srr.r_date_added DESC");
+         Where r_status ='1'
+         ORDER BY srr.r_date_added DESC");
          if ($query->execute()) {
              $result = $query->get_result();
              return $result;
