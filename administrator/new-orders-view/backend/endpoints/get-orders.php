@@ -27,7 +27,7 @@ if (isset($_GET['page'])) {
                 <td>
                     <?php 
                     if($order['unsucessful_reason']){
-                        echo "<b class='text-danger btnShowReason' data-reason='" . $order['unsucessful_reason'] . "' data-delivery_date='" . date('F j, Y g:i A', strtotime($order['delivered_date'])) . "'>Re-Deliver</b>";
+                        echo "<b class='text-danger btnShowReason cursor-pointer' data-reason='" . $order['unsucessful_reason'] . "' data-delivery_date='" . date('F j, Y g:i A', strtotime($order['delivered_date'])) . "'>Re-Deliver</b>";
                     } else {
                         echo "<b class='text-success'>New Order</b>"; 
                     }
