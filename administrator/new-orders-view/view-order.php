@@ -192,7 +192,12 @@ if($getAddress->num_rows > 0) {
                             <?php } ?>
                             <tr>
                                 <td class="col-6 col-md-4"><span style="font-weight: 600;">Delivery Rider: </span></td>
-                                <td class="col-6 col-md-8"><span style="font-weight: 600;" id="selectRiderContainer" data-assignRider='<?=$assignRider?>'></span></td>
+                                <td class="col-6 col-md-8">
+
+                                    <a href="../admin_view/profile.php?account_id=<?=$order['rider_id']?>" >
+                                        <span style="font-weight: 600;" id="selectRiderContainer" data-assignRider='<?=$assignRider?>'></span>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
