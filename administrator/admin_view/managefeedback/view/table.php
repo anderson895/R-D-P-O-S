@@ -52,7 +52,7 @@
                                 $button_for_approval='';
                                 $feed_status="<b class='text-success'>Allowed</b>";
                             }else if($r_status = $rate['r_status']=='2'){
-                                $button_for_approval='<button type="button" class="btn-success">Allowed</button>';
+                                $button_for_approval='<button type="button" class="btn btn-success"><i class="fas fa-check"></i></button>';
                                 $feed_status='<b class="text-secondary">Waiting for aproval</b>';
                                
                             }
