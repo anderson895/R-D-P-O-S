@@ -99,8 +99,6 @@ include "php/session_dir.php";
 <script src="assets/js/jquery.slimscroll.min.js"></script>
 
 
-<script src="Section/modal/requestMailer.js"></script>
-
 
 <script src="managefeedback/js/LenFunction.js"></script>
 
