@@ -188,7 +188,17 @@ echo '<input type="text" disabled style="border:none; background-color:transpare
 <div class="col-lg-12">
 <div class="form-group">
 <label>Default Address</label>
-<textarea disabled style="border:none; background-color:transparent;" class="form-control" name='pDescript' id="pDescript"><?=  $get_user_complete_address?></textarea>
+<textarea disabled style="border:none; background-color:transparent;" class="form-control" name='pDescript' id="pDescript">
+    
+<?php  
+if($get_user_complete_address){
+    echo $get_user_complete_address;
+}else{
+    echo "No Selected Address";
+
+}?>
+
+</textarea>
 <div style="display:none;" class="alert alert-danger" id="descriptionError"></div>
 </div>
 </div>
