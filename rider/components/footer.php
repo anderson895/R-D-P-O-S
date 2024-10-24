@@ -40,7 +40,7 @@
             </div>
             <form id="frmChangeOrderStatus">
                 <input type="text" name="requestType" value="UpgradeOrderStatus">
-                <input type="text" name="orderId" id="changeOrderStatusModalOrderId" value="">
+                <input type="text" name="orderId" id="UnsuccessOrderStatusModalOrderId" value="">
                 <div class="modal-body">
                     <h6>Are you sure that you want to change the Order Status to Delivered?</h6>
                     <div class="input-container-label-top mt-3">
