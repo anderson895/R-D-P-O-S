@@ -38,7 +38,7 @@ $(document).ready(function() {
               url: 'managefeedback/controller/post.php',
               type: 'POST',
               data: {
-                prod_id: prod_id,
+                r_id: r_id,
                 SubmitType:"AllowedReviews",
               },
               success: function (response) {
