@@ -95,6 +95,8 @@ $(document).ready(function() {
                 SubmitType:"RestrictRevs",
               },
               success: function (response) {
+
+                console.log(response);
                 // Handle the success response
                 Swal.fire({
                   type: "success",
