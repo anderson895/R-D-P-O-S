@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     
     // Listen for the checkbox change event
-    $(document).on("click", ".btnRequestToAllowed", function() {
+    $(document).on("click", ".btnRequestToAllowed", function (e) {
         var r_id = $(this).attr('data-id');
         
         console.log(r_id);
