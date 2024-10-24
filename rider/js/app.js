@@ -154,7 +154,7 @@ $(document).ready(function () {
   $(document).on("click", ".btnUnsucessStatus", function (e) {
     e.preventDefault();
     $("#changeOrderStatusModalOrderId").val($(this).data("id"));
-    $("#changeOrderStatusModal").modal("show");
+    $("#UnsuccessOrderStatusModal").modal("show");
   });
 
   
