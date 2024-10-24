@@ -49,9 +49,11 @@
                             $r_feedback = $rate['r_feedback'];
 
                             if($r_status = $rate['r_status']=='1'){
+                                $button_for_approval='';
                                 $feed_status="<b class='text-success'>Allowed</b>";
                             }else if($r_status = $rate['r_status']=='2'){
-                                $feed_status="<b class='text-secondary'>Waiting for aproval</b>";
+                                $button_for_approval='<button type="button" class="btn-success">Allowed</button>';
+                                $feed_status='<b class="text-secondary">Waiting for aproval</b>';
                                
                             }
                         ?>
@@ -75,12 +77,14 @@
                             <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
                             <td><?=$feed_status?></td>
                             <td>
+                                <?=$button_for_approval?>
                                 <button type="button" 
                                 class="btn btn-danger toglerDeleteComRev" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#modalDelete"
                                 data-id=<?= $rate['r_rate_id'] ?>
                                 ><i class="bi bi-trash"></i></button>
+
                             </td>
                         </tr>
                         <?php
