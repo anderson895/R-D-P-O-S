@@ -13,8 +13,9 @@ $sql_supplier = "SELECT COUNT(spl_id) AS count FROM `supplier` WHERE spl_status 
 $sql_customer = "SELECT COUNT(acc_type) AS count FROM `account`
 LEFT JOIN user_address
 ON account.acc_code = user_address.user_acc_code
- WHERE acc_type = 'customer' AND acc_display_status ='0' AND user_address.user_add_Default_status='1'
- AND (user_address.user_add_Default_status = '1' OR user_address.user_add_Default_status IS NULL)
+ WHERE acc_type = 'customer' 
+ AND acc_display_status ='0'
+  AND (user_address.user_add_Default_status = '1' OR user_address.user_add_Default_status IS NULL)
  ";
 $sql_delivery = "SELECT COUNT(acc_type) AS count FROM `account` WHERE acc_type = 'deliveryStaff' AND acc_display_status ='0'";
 
