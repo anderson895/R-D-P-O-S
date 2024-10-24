@@ -761,8 +761,8 @@ class global_class extends db_connect
          $query = $this->conn->prepare("SELECT srr.r_date_added,srr.r_rate,srr.r_feedback,t.acc_username,t.emp_image
          FROM rate_reviews as srr
          LEFT JOIN account as t
-         ON t.acc_id = srr.r_user_id where srr.r_prod_id='$id'
-         Where r_status ='1'
+         ON t.acc_id = srr.r_user_id 
+         where srr.r_prod_id='$id' AND r_status ='1'
          ORDER BY srr.r_date_added DESC");
          if ($query->execute()) {
              $result = $query->get_result();
