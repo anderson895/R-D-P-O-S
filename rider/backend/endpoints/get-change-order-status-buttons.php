@@ -19,7 +19,7 @@ if (isset($_SESSION['acc_id'])) {
                         <i class="bi bi-check-square"></i> Delivered
                     </button>
                   
-                    <button class="btn btn-danger me-2" data-id="<?= $orderId ?>" title="Mark as Unsuccessful Delivery">
+                    <button class="btn btn-danger me-2 btnUnsucessStatus" data-id="<?= $orderId ?>" title="Mark as Unsuccessful Delivery">
                         <i class="bi bi-x-square"></i> Unsuccessful
                     </button>
 
