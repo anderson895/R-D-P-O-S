@@ -92,7 +92,7 @@ $(document).ready(function() {
               type: 'POST',
               data: {
                 r_id: r_id,
-                SubmitType:"AllowedReviews",
+                SubmitType:"RestrictRevs",
               },
               success: function (response) {
                 // Handle the success response
