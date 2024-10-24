@@ -168,6 +168,20 @@ ORDER BY
             return 'File is empty';
         }
     }
+
+
+
+    public function productUnsucessful($orderId, $unsuccessReason)
+    {
+                    // Add in sales
+                    $dateTime = date('Y-m-d H:i:s');
+                    $query = $this->conn->prepare("UPDATE `new_tbl_orders` SET `status`='Pending', `delivered_date` = '$dateTime', `unsucessful_reason` = '$unsuccessReason' WHERE `order_id` = '$orderId'");
+                    
+                    if ($query->execute()) {
+                        return 200;
+                    }
+             
+    }
     
     public function getUserAddress($userId)
     {
