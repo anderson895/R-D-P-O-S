@@ -509,8 +509,18 @@ public function getOrderStatusCounts()
 
     public function deleteRevs($id)
     {
-      
         $query = $this->conn->prepare("DELETE FROM `rate_reviews` WHERE `r_rate_id` = '$id'");
+        if ($query->execute()) {
+            echo "success";
+        }else{
+            echo "errorsssss";
+        }
+    }
+
+
+    public function AllowedRevs($id)
+    {
+        $query = $this->conn->prepare("UPDATE `rate_reviews` SET `r_status` = '1' WHERE `r_rate_id` = '$id'");
         if ($query->execute()) {
             echo "success";
         }else{
