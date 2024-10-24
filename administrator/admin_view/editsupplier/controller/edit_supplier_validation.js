@@ -76,7 +76,7 @@ $(document).ready(function() {
                 Swal.fire({
                     type: "success",
                     title: "Success!",
-                    text: "Your category has been restore.",
+                    text: "Update Supplier successful.",
                     confirmButtonClass: "btn btn-success"
                 }).then(function() {
                   // location.reload();
