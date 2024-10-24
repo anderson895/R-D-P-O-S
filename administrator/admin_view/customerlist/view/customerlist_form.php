@@ -148,16 +148,18 @@ while($row = mysqli_fetch_assoc($view_query)){ //<-- ginagamit tuwing kukuha ng 
 <td><?= $acc_contact?></td>
 <td><?=$masked_email?></td>
 <td>
-  <?php 
-  if($user_complete_address){
+<?php 
+if ($user_complete_address) {
     echo "
-      <a class='viewAddress' data-user_complete_address='<?= $user_complete_address ?>'><?= strlen($user_complete_address) > 100 ? substr($user_complete_address, 0, 100) . '...' : 
-  $user_complete_address; ?></a>
+      <a class='viewAddress' data-user_complete_address='{$user_complete_address}'>" . 
+      (strlen($user_complete_address) > 100 ? substr($user_complete_address, 0, 100) . '...' : $user_complete_address) . 
+      "</a>
     ";
-  }else{
-      echo "No Selected Address";
-  }
-  ?>
+} else {
+    echo "No Selected Address";
+}
+?>
+
 
 </td>
 
