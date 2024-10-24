@@ -151,12 +151,6 @@ $(document).ready(function () {
   });
 
 
-  $(document).on("click", ".btnUnsucessStatus", function (e) {
-    e.preventDefault();
-    $("#UnsuccessOrderStatusModalOrderId").val($(this).data("id"));
-    $("#UnsuccessOrderStatusModal").modal("show");
-  });
-
   
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
