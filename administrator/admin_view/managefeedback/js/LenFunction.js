@@ -13,9 +13,9 @@ $(document).ready(function() {
     
     // Listen for the checkbox change event
     $(document).on("click", ".btnAllowed", function() {
-        var r_id = $(this);
+        var r_id = $(this).attr('data-id');
         
-        console.log();
+        console.log(r_id);
   
         // Traverse the DOM to find the associated acc_id
         var prod_id = checkbox.val();
