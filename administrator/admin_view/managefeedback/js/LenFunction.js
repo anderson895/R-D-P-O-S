@@ -17,8 +17,6 @@ $(document).ready(function() {
         
         console.log(r_id);
   
-        // Traverse the DOM to find the associated acc_id
-        var prod_id = checkbox.val();
   
         // Show the initial SweetAlert with "Yes" and "Cancel" options
         Swal.fire({
