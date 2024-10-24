@@ -94,7 +94,8 @@ if($page == 'Collected'){ ?>
                 <table class="table">
                     <tr>
                         <th>Order ID</th>
-                        <th>Status</th>
+                        <?= ($page != 'Delivered') ? '<th>Status</th>' : '' ?>
+                        
                         <th>Subtotal</th>
                         <th>VAT</th>
                         <th>Shipping Fee</th>

@@ -24,16 +24,16 @@ if (isset($_GET['page'])) {
                     <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                 </td>
 
+                <?php if ($page == 'Delivered') : ?>
                 <td>
-                    <?php 
-                    if($order['unsucessful_reason']){
-                        echo "<b class='text-danger btnShowReason cursor-pointer' data-reason='" . $order['unsucessful_reason'] . "' data-delivery_date='" . date('F j, Y g:i A', strtotime($order['delivered_date'])) . "'>Re-Deliver</b>";
-
-                    } else {
-                        echo "<b class='text-success'>New Order</b>"; 
-                    }
-                    ?>
+                    <?php if ($order['unsuccessful_reason']) : ?>
+                        <b class='text-danger btnShowReason cursor-pointer' data-reason='<?php echo $order['unsuccessful_reason']; ?>' data-delivery_date='<?php echo date('F j, Y g:i A', strtotime($order['delivered_date'])); ?>'>Re-Deliver</b>
+                    <?php else : ?>
+                        <b class='text-success'>New Order</b>
+                    <?php endif; ?>
                 </td>
+                <?php endif; ?>
+
 
 
                 <td>₱<?= number_format( $order['subtotal'],2) ?></td>
