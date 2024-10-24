@@ -214,10 +214,8 @@ $("#frmUnsuccessfulOrderStatus").submit(function (e) {
   if (!$("#unsuccessfulReason").val()) {
     showAlert(".alert-danger", "Selecting a reason for unsuccessful delivery is required!");
     return;
-}
-  alert("Success");
-
-  return;
+  }
+  
 
   // Show the spinner and disable the submit button
   var submitButton = $(this).find('button[type="submit"]');
