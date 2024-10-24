@@ -50,7 +50,7 @@
 
                             if ($r_status = $rate['r_status'] == '1') {
                                 $button_for_approval = '<button type="button" class="btn btn-secondary btn-block"><i class="fas fa-times"></i></button>';
-                                $feed_status = '<b class="alert alert-success text-success">Allowed</b>';
+                                $feed_status = '<b class="alert alert-success text-success w-4">Allowed</b>';
                             } else if ($r_status = $rate['r_status'] == '2') {
                                 $button_for_approval = '<button type="button" class="btn btn-success btn-block"><i class="fas fa-check"></i></button>';
                                 $feed_status = '<b class="alert alert-secondary text-secondary">Waiting for approval</b>';
