@@ -7,7 +7,7 @@ $target_id=$_GET["target_id"];
 
 $view_query = mysqli_query($connections, "SELECT *
 FROM account
-JOIN user_address
+LEFT JOIN user_address
 ON account.acc_code = user_address.user_acc_code
 WHERE account.acc_type = 'customer' AND account.acc_display_status = '0' AND user_address.user_add_Default_status='1' AND account.acc_id='$target_id';");
 
