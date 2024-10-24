@@ -162,16 +162,6 @@ $(document).ready(function () {
     e.preventDefault();
     
 
-    if (!$("#unsuccessfulReason").val()) {
-      showAlert(".alert-danger", "Selecting a reason for unsuccessful delivery is required!");
-      return;
-  }
-  
-
-
-    alert("Success");
-
-    return;
     // Show the spinner and disable the submit button
     var submitButton = $(this).find('button[type="submit"]');
     submitButton.find('.spinner-border').removeClass('d-none');
@@ -219,6 +209,16 @@ $(document).ready(function () {
 $("#frmUnsuccessfulOrderStatus").submit(function (e) {
   e.preventDefault();
   
+
+  
+  if (!$("#unsuccessfulReason").val()) {
+    showAlert(".alert-danger", "Selecting a reason for unsuccessful delivery is required!");
+    return;
+}
+  alert("Success");
+
+  return;
+
   // Show the spinner and disable the submit button
   var submitButton = $(this).find('button[type="submit"]');
   submitButton.find('.spinner-border').removeClass('d-none');
