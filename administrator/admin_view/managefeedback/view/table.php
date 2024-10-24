@@ -17,7 +17,7 @@
                             <th>Rated By</th>
                             <th>Product</th>
                             <th class="text-center">Rating</th>
-                            <th>FeedBack</th>
+                            <th>Comments</th>
                             <th>Date</th>
                             <th>Status</th>
                             <th>Action</th>
