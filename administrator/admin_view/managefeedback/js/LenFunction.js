@@ -13,7 +13,7 @@ $(document).ready(function() {
     
     // Listen for the checkbox change event
     $(document).on("click", ".btnRequestToAllowed", function (e) {
-        var r_id = $(this).attr('data-allowed-id');
+        var r_id = $(this).attr('data-allowedid');
         
         console.log(r_id);
   
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
       // Listen for the checkbox change event
     $(document).on("click", ".btnRequestToRestrict", function (e) {
-        var r_id = $(this).attr('data-pending-id');
+        var r_id = $(this).attr('data-pendingid');
         
         console.log(r_id);
   
