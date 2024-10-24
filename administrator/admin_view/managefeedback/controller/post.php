@@ -7,12 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         if ($_POST['SubmitType'] == 'deleteReviews') {
-            echo $db->deleteRevs($_POST['id']);
+             $db->deleteRevs($_POST['id']);
         }else if($_POST['SubmitType'] == 'AllowedReviews'){
 
-            echo"<pre>";
-            print_r($_POST);
-            echo"</pre>";
+
+            $db->AllowedRevs($_POST['r_id']);
 
         }
 
