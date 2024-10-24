@@ -49,7 +49,7 @@
                             $r_feedback = $rate['r_feedback'];
 
                             if ($r_status = $rate['r_status'] == '1') {
-                                $button_for_approval = '<button type="button" class="btn btn-secondary btn-block"><i class="fas fa-times"></i></button>';
+                                $button_for_approval = '<button type="button" class="btn btn-secondary btn-block btnRequestToRestrict"><i class="fas fa-times"></i></button>';
                                 $feed_status = '<b class="alert alert-success text-success " data-id="' . $rate['r_rate_id'] . '">Allowed</b>';
                             } else if ($r_status = $rate['r_status'] == '2') {
                                 $button_for_approval = '<button type="button" class="btn btn-success btn-block btnRequestToAllowed" data-id="' . $rate['r_rate_id'] . '"><i class="fas fa-check"></i></button>';

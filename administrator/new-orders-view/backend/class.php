@@ -528,4 +528,14 @@ public function getOrderStatusCounts()
         }
     }
 
+    public function RestrictRevs($id)
+    {
+        $query = $this->conn->prepare("UPDATE `rate_reviews` SET `r_status` = '2' WHERE `r_rate_id` = '$id'");
+        if ($query->execute()) {
+            echo "success";
+        }else{
+            echo "errorsssss";
+        }
+    }
+
 }

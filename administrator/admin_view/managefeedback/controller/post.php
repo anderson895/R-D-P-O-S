@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $db->AllowedRevs($_POST['r_id']);
 
+        }else if($_POST['SubmitType'] == 'RestrictRevs'){
+
+
+            $db->RestrictRevs($_POST['r_id']);
+
         }
 
 
