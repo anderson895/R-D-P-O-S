@@ -24,7 +24,7 @@ if (isset($_GET['page'])) {
                     <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                 </td>
 
-                <?php if ($page == 'Delivered') : ?>
+                <?php if ($page != 'Delivered') : ?>
                 <td>
                     <?php if ($order['unsucessful_reason']) : ?>
                         <b class='text-danger btnShowReason cursor-pointer' data-reason='<?php echo $order['unsucessful_reason']; ?>' data-delivery_date='<?php echo date('F j, Y g:i A', strtotime($order['delivered_date'])); ?>'>Re-Deliver</b>
