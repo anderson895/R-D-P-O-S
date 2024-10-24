@@ -98,7 +98,10 @@
             </div>
             <form id="frmRejectOrder">
                 <div class="modal-body">
-                    <h6>Select Reason for rejection</h6>
+                    <h6>Reason for rejection</h6>
+                    <p id="reasonTxt"></p>
+                    <h6>Date Unsuccessful</h6>
+                    <p id="dateUnsucessTxt"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">Close</button>

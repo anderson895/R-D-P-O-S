@@ -376,6 +376,13 @@ $(document).on("click", "#BtnCollect", function (e) {
 
   $(document).on("click", ".btnShowReason", function (e) {
     e.preventDefault();
+
+    var dateUnsucess=$(this).attr('data-delivery_date');
+    var reason=$(this).attr('data-reason');
+
+    $("#reasonTxt").text(reason)
+    $("#dateUnsucessTxt").text(dateUnsucess)
+    
     $("#ReasonModal").modal("show");
   });
 
