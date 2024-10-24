@@ -31,22 +31,26 @@
 
 
 
-
 <div class="modal" tabindex="-1" role="dialog" id="UnsuccessOrderStatusModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="bi bi-check-square"></i> Change Order Status to "Unsucessful"</h5>
+                <h5 class="modal-title"><i class="bi bi-check-square"></i> Change Order Status to "Unsuccessful"</h5>
             </div>
             <form id="frmUnsuccessfulOrderStatus">
                 <input type="hidden" name="requestType" value="UnsuccessOrderStatus">
                 <input type="hidden" name="orderId" id="UnsuccessOrderStatusModalOrderId" value="">
                 <div class="modal-body">
-                    <h6>Are you sure that you want to change the Order Status to Delivered?</h6>
+                    <h6>Are you sure that you want to change the Order Status to Unsuccessful?</h6>
                     <div class="input-container-label-top mt-3">
-                        <label>Upload a proof of delivery</label>
-                       
-
+                        <label>Unsuccessful Reason</label>
+                        <select name="unsuccessfulReason" id="unsuccessfulReason">
+                            <option value="">-- Select a reason --</option>
+                            <option value="OutOfStock">Out of Stock</option>
+                            <option value="PaymentFailed">Payment Failed</option>
+                            <option value="CustomerCancelled">Customer Cancelled</option>
+                            <option value="DeliveryIssues">Delivery Issues</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -60,6 +64,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
