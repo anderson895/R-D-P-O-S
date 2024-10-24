@@ -46,7 +46,7 @@ $(document).ready(function() {
                 Swal.fire({
                   type: "success",
                   title: "Action Successful",
-                  text: "Product has been " + (checkbox.is(":checked") ? "enabled" : "disabled") + ".",
+                  text: "Feedback has been display",
                   confirmButtonClass: "btn btn-success"
                 });
   
@@ -54,15 +54,6 @@ $(document).ready(function() {
                console.log(response);
                
               },
-              error: function (xhr, status, error) {
-                // Handle the error response
-                Swal.fire({
-                  type: "error",
-                  title: "Error",
-                  text: "An error occurred while enabling/disabling the account.",
-                  confirmButtonClass: "btn btn-danger"
-                });
-              }
             });
           } else {
             // If the user clicks "Cancel," handle any necessary actions (e.g., toggle the checkbox state)
