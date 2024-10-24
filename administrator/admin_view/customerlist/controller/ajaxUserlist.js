@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
-    $(".RemoveToDisplayUser").on("click", function () {
+    // $(".RemoveToDisplayUser").on("click", function () {
+      $(document).on("click", ".RemoveToDisplayUser", function() {
         var session_id = $('#session_id').val();
         var acc_id = $(this).data('acc-id'); // Get acc_id from the clicked element
       
@@ -66,7 +67,8 @@ $(document).ready(function () {
 
 
     // Listen for the checkbox change event
-    $(".check").on("change", function () {
+    // $(".check").on("change", function () {
+      $(document).on("change", ".check", function() {
       var checkbox = $(this);
       var session_id = $('#session_id').val();
 
