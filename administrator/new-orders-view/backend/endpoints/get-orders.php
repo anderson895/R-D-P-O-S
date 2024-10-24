@@ -25,7 +25,7 @@ if (isset($_GET['page'])) {
                 <td>
                     <?php 
                     if($order['unsucessful_reason']){
-                        echo "<b class='text-danger'>" . $order['unsucessful_reason'] . "</b>";
+                        echo "<b class='text-danger'>Unsucessful order</b>";
                     } else {
                         echo "<b class='text-success'>New orders</b>"; 
                     }
