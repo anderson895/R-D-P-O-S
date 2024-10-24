@@ -151,6 +151,12 @@ $(document).ready(function () {
   });
 
 
+  $(document).on("click", ".btnUnsucessStatus", function (e) {
+    e.preventDefault();
+    $("#UnsuccessOrderStatusModalOrderId").val($(this).data("id"));
+    $("#UnsuccessOrderStatusModal").modal("show");
+  });
+
   
   $("#frmChangeOrderStatus").submit(function (e) {
     e.preventDefault();
@@ -193,6 +199,54 @@ $(document).ready(function () {
       }
     });
 });
+
+
+
+
+// start for unsucessful order 
+
+$("#frmUnsuccessfulOrderStatus").submit(function (e) {
+  e.preventDefault();
+  
+  // Show the spinner and disable the submit button
+  var submitButton = $(this).find('button[type="submit"]');
+  submitButton.find('.spinner-border').removeClass('d-none');
+  submitButton.attr('disabled', true);
+  
+  var formData = new FormData($(this)[0]);
+  
+  $.ajax({
+    type: "POST",
+    url: "backend/endpoints/post.php",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function (response) {
+      // Hide the spinner and enable the submit button
+      submitButton.find('.spinner-border').addClass('d-none');
+      submitButton.attr('disabled', false);
+      
+      closeModal();
+      if (response == "200") {
+        showAlert(".alert-success", "Order Status Changed!");
+        getOrderStatus();
+        getBtnDeliverOrder();
+      } else if (response == "Please select rider!") {
+        showAlert(".alert-danger", response);
+      } else {
+        showAlert(".alert-danger", "Something went wrong!");
+        window.location.reload();
+      }
+    },
+    error: function () {
+      // Handle error
+      submitButton.find('.spinner-border').addClass('d-none');
+      submitButton.attr('disabled', false);
+      showAlert(".alert-danger", "An error occurred!");
+    }
+  });
+});
+// end for unsucessful oder
 
 
   setInterval(() => {
