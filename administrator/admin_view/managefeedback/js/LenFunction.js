@@ -39,12 +39,16 @@ $(document).ready(function() {
                 SubmitType:"AllowedReviews",
               },
               success: function (response) {
-                Swal.fire({
-                  type: "success",
-                  title: "Action Successful",
-                  text: "Feedback has been display",
-                  confirmButtonClass: "btn btn-success"
-                });
+
+                if(response=="success"){
+                  Swal.fire({
+                    type: "success",
+                    title: "Action Successful",
+                    text: "Feedback has been display",
+                    confirmButtonClass: "btn btn-success"
+                  });
+                }
+               
   
                console.log(response);
                
@@ -87,15 +91,16 @@ $(document).ready(function() {
                 SubmitType:"RestrictRevs",
               },
               success: function (response) {
-
-                console.log(response);
-                // Handle the success response
-                Swal.fire({
-                  type: "success",
-                  title: "Action Successful",
-                  text: "Feedback remove on the display successful",
-                  confirmButtonClass: "btn btn-success"
-                });
+                
+                if(response=="success"){
+                  Swal.fire({
+                    type: "success",
+                    title: "Action Successful",
+                    text: "Feedback remove on the display successful",
+                    confirmButtonClass: "btn btn-success"
+                  });
+                }
+               
 
               },
             });
