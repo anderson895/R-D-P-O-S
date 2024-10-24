@@ -106,7 +106,6 @@
             "paging": true,
             "searching": true,
             "ordering": true,
-            "order": [[5, 'desc']],
             "language": {
                 "emptyTable": "No Rate Found."
             }
