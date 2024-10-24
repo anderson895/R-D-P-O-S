@@ -48,7 +48,7 @@
                             <option value="">-- Select a reason --</option>
                             <option value="OutOfStock">Out of Stock</option>
                             <option value="PaymentFailed">Payment Failed</option>
-                            <option value="CustomerCancelled">Customer Cancelled</option>
+                            <option value="CustomerCancelled">Customer Unavailable</option>
                             <option value="DeliveryIssues">Delivery Issues</option>
                         </select>
                     </div>
