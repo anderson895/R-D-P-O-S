@@ -132,28 +132,28 @@
 
 <hr>
 
-<div class="col-lg-3 col-sm-6 col-12">
+<div class="col-lg-3 col-sm-6 col-12" hidden>
     <div class="form-group">
         <label>Region</label>
         <select class="select" id="region" name="region"  required></select>
         <div class="error-message" style="color: red;" id="accountTypeError"></div>
     </div>
 </div>
-<div class="col-lg-3 col-sm-6 col-12">
+<div class="col-lg-3 col-sm-6 col-12" hidden>
     <div class="form-group">
         <label>Province</label>
         <select class="select" id="province" name="province" required></select>
         <div class="error-message" style="color: red;" id="accountTypeError"></div>
     </div>
 </div>
-<div class="col-lg-3 col-sm-6 col-12">
+<div class="col-lg-3 col-sm-6 col-12" hidden>
     <div class="form-group">
         <label>City</label>
         <select class="select" id="city" name="city"  required></select>
         <div class="error-message" style="color: red;" id="accountTypeError"></div>
     </div>
 </div>
-<div class="col-lg-3 col-sm-6 col-12">
+<div class="col-lg-3 col-sm-6 col-12" hidden>
     <div class="form-group">
         <label>Barangay</label>
         <select class="select" id="barangay" name="barangay" required></select>
@@ -161,7 +161,7 @@
     </div>
 </div>
 
-<div class="col-lg-12 col-sm-6 col-12">
+<div class="col-lg-12 col-sm-6 col-12" hidden>
     <div class="form-group">
         <label>Street description</label>
         
