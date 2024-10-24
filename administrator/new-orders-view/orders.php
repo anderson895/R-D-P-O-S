@@ -101,7 +101,7 @@ if($page == 'Collected'){ ?>
                         <th>Shipping Fee</th>
                         <th>Total</th>
                         <th>Order Date</th>
-                        <?= ($page == 'Delivered') ? '<th>Estimated Delivery</th>' : '' ?>
+                        <?= ($page == 'Delivered'||$page == 'Shipped') ? '<th>Estimated Delivery</th>' : '' ?>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
                         <th>Rider</th>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>

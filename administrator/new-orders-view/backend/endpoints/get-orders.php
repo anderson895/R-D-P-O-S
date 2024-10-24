@@ -41,7 +41,7 @@ if (isset($_GET['page'])) {
                 <td>₱<?= number_format( $order['sf'],2) ?></td>
                 <td>₱<?= number_format( $order['total'],2) ?></td>
                 <td><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
-                <?= ($page == 'Delivered') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'])) . '</td>' : '' ?>
+                <?= ($page == 'Delivered'||$page == 'Shipped') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'])) . '</td>' : '' ?>
                 <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                 <td><?=ucfirst($riderName)?></td>
                 <?= ($page == 'Rejected') ? '<td>' . ucfirst($reject_reason) . '</td>' : '' ?>
