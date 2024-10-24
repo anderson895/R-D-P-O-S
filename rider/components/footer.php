@@ -44,7 +44,7 @@
                     <h6>Are you sure that you want to change the Order Status to Unsuccessful?</h6>
                     <div class="input-container-label-top mt-3">
                         <label>Unsuccessful Reason</label>
-                        <select name="unsuccessfulReason" id="unsuccessfulReason">
+                        <select class="form-select" name="unsuccessfulReason" id="unsuccessfulReason">
                             <option value="">-- Select a reason --</option>
                             <option value="OutOfStock">Out of Stock</option>
                             <option value="PaymentFailed">Payment Failed</option>
