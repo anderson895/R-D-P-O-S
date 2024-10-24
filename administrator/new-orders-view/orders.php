@@ -103,7 +103,7 @@ if($page == 'Collected'){ ?>
                         <th>Order Date</th>
                         <?= ($page == 'Delivered') ? '<th>Estimated Delivery</th>' : '' ?>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
-                        <?= ($page == 'Delivered' || $page == 'Shipped' || $page == 'Collected') ? '<th>Rider</th>' : '' ?>
+                        <th>Rider</th>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
                         <?= ($page == 'Cancelled') ? '<th>Cancel Reason</th>' : '' ?>
                     </tr>
