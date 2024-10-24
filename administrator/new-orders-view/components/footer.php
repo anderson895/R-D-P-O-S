@@ -97,7 +97,7 @@
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="frmRejectOrder">
+         
                 <div class="modal-body">
                     <h6>Reason for rejection</h6>
                     <p id="reasonTxt"></p>
@@ -107,7 +107,7 @@
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-bs-dismiss="modal">Close</button>
                 </div>
-            </form>
+          
         </div>
     </div>
 </div>
