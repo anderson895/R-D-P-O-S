@@ -38,7 +38,7 @@ $(document).ready(function() {
                         if (firstMessage.acc_type === "Customer") {
                             // Set the onclick attribute for customer
                             $("#reciever_image").on("click", function() {
-                                window.location.href = 'profile.php?account_id=' + account_id;
+                                window.location.href = 'profile_customer.php?target_id=' + account_id;
                             });
                         } else {
                             // Set the onclick attribute for other account types
