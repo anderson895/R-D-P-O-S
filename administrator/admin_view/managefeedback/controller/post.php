@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         }else if($_POST['SubmitType'] == 'RestrictRevs'){
 
+            print_r($_POST);
 
             $db->RestrictRevs($_POST['r_id']);
 
