@@ -243,8 +243,9 @@ $("#frmUnsuccessfulOrderStatus").submit(function (e) {
       } else if (response == "Please select rider!") {
         showAlert(".alert-danger", response);
       } else {
+        console.log(response);
         showAlert(".alert-danger", "Something went wrong!");
-        window.location.reload();
+        // window.location.reload();
       }
     },
     error: function () {
