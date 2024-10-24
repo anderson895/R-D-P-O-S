@@ -16,8 +16,8 @@
                             <th>No.</th>
                             <th>Rated By</th>
                             <th>Product</th>
-                            <th class="text-center">Rating</th>
-                            <th>Comment</th>
+                            <th class="text-center">Ratings</th>
+                            <th>Comments</th>
                             <th>Date</th>
                             <th>Status</th>
                             <th>Action</th>
