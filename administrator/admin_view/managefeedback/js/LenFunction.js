@@ -11,7 +11,7 @@ $(document).ready(function() {
     
 
     $(document).on("click", ".btnRequestToAllowed", function (e) {
-        var r_id = $(this).attr('data-pendingid');
+        var r_id = $(this).attr('data-id');
         
         console.log(r_id);
   
@@ -58,7 +58,7 @@ $(document).ready(function() {
 
 
     $(document).on("click", ".btnRequestToRestrict", function (e) {
-        var r_id = $(this).attr('data-allowedid');
+        var r_id = $(this).attr('data-id');
         
         console.log(r_id);
   
