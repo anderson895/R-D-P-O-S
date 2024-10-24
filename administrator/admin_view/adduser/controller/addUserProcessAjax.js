@@ -6,7 +6,8 @@ $(document).ready(function () {
 
         if (input.files && input.files[0]) {
             var file = input.files[0];
-            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif|\.webp)$/i;
+
 
             if (!allowedExtensions.exec(file.name)) {
                 // Display an error message if the file is not an image
