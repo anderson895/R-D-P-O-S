@@ -10,15 +10,12 @@ $(document).ready(function() {
 
     
 
-    
-    // Listen for the checkbox change event
     $(document).on("click", ".btnRequestToAllowed", function (e) {
         var r_id = $(this).attr('data-pendingid');
         
         console.log(r_id);
   
-  
-        // Show the initial SweetAlert with "Yes" and "Cancel" options
+
         Swal.fire({
           title: "Are you sure?",
           text: "Are you sure you want to display this customer feedback?",
@@ -42,7 +39,6 @@ $(document).ready(function() {
                 SubmitType:"AllowedReviews",
               },
               success: function (response) {
-                // Handle the success response
                 Swal.fire({
                   type: "success",
                   title: "Action Successful",
@@ -50,7 +46,6 @@ $(document).ready(function() {
                   confirmButtonClass: "btn btn-success"
                 });
   
-                // Log the response inside the success callback
                console.log(response);
                
               },
@@ -62,9 +57,6 @@ $(document).ready(function() {
       });
 
 
-
-
-      // Listen for the checkbox change event
     $(document).on("click", ".btnRequestToRestrict", function (e) {
         var r_id = $(this).attr('data-allowedid');
         
