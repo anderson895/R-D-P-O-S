@@ -19,6 +19,7 @@
                             <th class="text-center">Rating</th>
                             <th>FeedBack</th>
                             <th>Date</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -65,6 +66,12 @@
                                 <a class='viewFeedBack' data-r_feedback='<?= $r_feedback ?>'><?= strlen($r_feedback) > 100 ? substr($r_feedback, 0, 100) . '...' : $r_feedback; ?></a>
                             </td>
                             <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
+                            <td>
+                                <?php 
+                                    
+                                ?>
+
+                            </td>
                             <td>
                                 <button type="button" 
                                 class="btn btn-danger toglerDeleteComRev" 
