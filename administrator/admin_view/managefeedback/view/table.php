@@ -47,6 +47,13 @@
                             }
 
                             $r_feedback = $rate['r_feedback'];
+
+                            if($r_status = $rate['r_status']=='1'){
+                                $feed_status="<b class='text-secondary'>Waiting for aproval</b>";
+                              
+                            }else if($r_status = $rate['r_status']=='2'){
+                                $feed_status="<b class='text-success'>Allowed</b>";
+                            }
                         ?>
                         <tr>
                             <td><?= $count ?></td>
@@ -66,12 +73,7 @@
                                 <a class='viewFeedBack' data-r_feedback='<?= $r_feedback ?>'><?= strlen($r_feedback) > 100 ? substr($r_feedback, 0, 100) . '...' : $r_feedback; ?></a>
                             </td>
                             <td><?= $dateAdded->format('F j, Y g:i A') ?></td>
-                            <td>
-                                <?php 
-                                    
-                                ?>
-
-                            </td>
+                            <td><?=$feed_status?></td>
                             <td>
                                 <button type="button" 
                                 class="btn btn-danger toglerDeleteComRev" 
