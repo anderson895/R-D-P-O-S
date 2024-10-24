@@ -47,10 +47,11 @@ $(document).ready(function() {
                     text: "Feedback has been display",
                     confirmButtonClass: "btn btn-success"
                   });
+
+                  location.reload();
                 }
                
   
-               console.log(response);
                
               },
             });
@@ -99,6 +100,8 @@ $(document).ready(function() {
                     text: "Feedback remove on the display successful",
                     confirmButtonClass: "btn btn-success"
                   });
+
+                  location.reload();
                 }
                
 
