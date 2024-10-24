@@ -373,6 +373,13 @@ $(document).on("click", "#BtnCollect", function (e) {
   });
 
 
+
+  $(document).on("click", ".btnShowReason", function (e) {
+    e.preventDefault();
+    $("#ReasonModal").modal("show");
+  });
+
+
   
   $("#frmRejectOrder").submit(function (e) {
     e.preventDefault();

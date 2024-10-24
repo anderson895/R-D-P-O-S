@@ -55,6 +55,9 @@
     </div>
 </div>
 
+
+
+
 <div class="modal" tabindex="-1" role="dialog" id="rejectOrderModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -78,6 +81,27 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Yes</button>
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">No</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="ReasonModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-bag-x-fill"></i> Unsuccessful Reason</h5>
+            </div>
+            <form id="frmRejectOrder">
+                <div class="modal-body">
+                    <h6>Select Reason for rejection</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">Cloase</button>
                 </div>
             </form>
         </div>
