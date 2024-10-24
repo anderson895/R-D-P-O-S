@@ -88,13 +88,14 @@
 </div>
 
 
-
-
-<div class="modal" tabindex="-1" role="dialog" id="ReasonModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="ReasonModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="bi bi-bag-x-fill"></i> Unsuccessful Reason</h5>
+                <h5 class="modal-title">
+                    <i class="bi bi-bag-x-fill"></i> Unsuccessful Reason
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="frmRejectOrder">
                 <div class="modal-body">
@@ -104,12 +105,13 @@
                     <p id="dateUnsucessTxt"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">Close</button>
+                    <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 
 <script src="../admin_view/assets/plugins/alertify/alertify.min.js"></script>
