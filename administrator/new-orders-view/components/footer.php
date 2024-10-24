@@ -101,7 +101,7 @@
             <div class="modal-body text-center">
                 <h6>Reason for rejection</h6>
                 <p id="reasonTxt"></p>
-                <h6>Date Unsuccessful</h6>
+                <h6>Date</h6>
                 <p id="dateUnsucessTxt"></p>
             </div>
 
