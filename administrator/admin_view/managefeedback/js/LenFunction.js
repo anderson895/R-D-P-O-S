@@ -21,7 +21,7 @@ $(document).ready(function() {
         // Show the initial SweetAlert with "Yes" and "Cancel" options
         Swal.fire({
           title: "Are you sure?",
-          text: "Are you sure you want to enable this customer feedback to display?",
+          text: "Are you sure you want to display this customer feedback?",
           type: "warning",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
