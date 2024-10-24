@@ -21,6 +21,18 @@ if (isset($_GET['page'])) {
                 <td>
                     <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                 </td>
+
+                <td>
+                   <?php 
+                //    if($order['unsucessful_reason']){
+
+                //    }
+
+                echo $order['unsucessful_reason'];
+                   ?>
+            
+                </td>
+
                 <td>₱<?= number_format( $order['subtotal'],2) ?></td>
                 <td>₱<?= number_format($order['vat'],2) ?></td>
                 <td>₱<?= number_format( $order['sf'],2) ?></td>
