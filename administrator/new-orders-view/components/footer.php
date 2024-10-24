@@ -101,7 +101,7 @@
                     <h6>Select Reason for rejection</h6>
                 </div>
                 <div class="modal-footer">
-                    <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">Cloase</button>
+                    <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
