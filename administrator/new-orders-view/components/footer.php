@@ -98,12 +98,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
          
-                <div class="modal-body">
-                    <h6>Reason for rejection</h6>
-                    <p id="reasonTxt"></p>
-                    <h6>Date Unsuccessful</h6>
-                    <p id="dateUnsucessTxt"></p>
-                </div>
+            <div class="modal-body text-center">
+                <h6>Reason for rejection</h6>
+                <p id="reasonTxt"></p>
+                <h6>Date Unsuccessful</h6>
+                <p id="dateUnsucessTxt"></p>
+            </div>
+
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary btnCloseModal" id="btnCloseModal" data-bs-dismiss="modal">Close</button>
                 </div>
