@@ -34,7 +34,7 @@ if (isset($_GET['orderId'])) {
             if ($getRider->num_rows > 0) {
                 $rider = $getRider->fetch_assoc();
                 $riderName = $rider['acc_fname'] . ' ' . $rider['acc_lname'];
-                echo $riderName;
+                echo '<a href="../admin_view/profile.php?account_id='.$order['rider_id'].'" >'.$riderName.'</a>';
             } else {
                 echo $riderName;
             }
