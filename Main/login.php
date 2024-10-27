@@ -60,6 +60,8 @@ $current_date = date('Y-m-d');
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="login-img">
                                 <div class="container">
                                     <img src="../upload_system/<?=$db_system_banner?>" alt="">
@@ -70,7 +72,7 @@ $current_date = date('Y-m-d');
             </div>
 
   
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
         <script src="view/Signup/view/assets/js/jquery-3.6.0.min.js"></script>
 
