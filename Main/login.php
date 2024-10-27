@@ -86,8 +86,6 @@ $current_date = date('Y-m-d');
     </div>
 </div>
 
-<!-- Bootstrap Icons CDN (optional for icons) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
             </div>
             <div class="login-img">
@@ -99,6 +97,8 @@ $current_date = date('Y-m-d');
     </div>
 </div>
 
+<!-- Bootstrap Icons CDN (optional for icons) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 
 
