@@ -59,7 +59,6 @@ $current_date = date('Y-m-d');
                         <div class="signinform text-center">
                             <p class="text-muted">Don’t have an account? <a href="register.php" class="text-decoration-none text-primary">Sign Up</a></p>
                         </div>
-                    </div>
 
 
                             <div class="login-img">
