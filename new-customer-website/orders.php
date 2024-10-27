@@ -84,6 +84,7 @@ if (isset($_GET['page'])) {
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Estimated Delivery</th>' : '' ?>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
+                        <?= ($page == 'Cancelled') ? '<th>Cancellation Reason</th>' : '' ?>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
                     </tr>
                 <tbody>
@@ -105,6 +106,7 @@ if (isset($_GET['page'])) {
                                 <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
                                <?= ($page == 'Delivered'|| $page == 'Shipped') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'] ?? '')) . '</td>' : '' ?>
                                <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
+                               <?= ($page == 'Rejected') ? '<td>' . $order['cancel_reason'] . '</td>' : '' ?>
                                 <?= ($page == 'Rejected') ? '<td>' . $order['reject_reason'] . '</td>' : '' ?>
                             </tr>
                         <?php
