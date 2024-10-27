@@ -65,10 +65,8 @@ $current_date = date('Y-m-d');
                     <a href="forgetpassword.php" class="text-decoration-none">Forgot Password?</a>
                 </div>
 
-                <div class="mb-4">
-                                        <div class="form-login">
-                                            <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
-                                        </div>
+                <div class="form-login">
+                    <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
                 </div>
             </form>
 
