@@ -41,54 +41,45 @@ $current_date = date('Y-m-d');
 
         <div class="main-wrapper" style="background-color:#F7F7F7; ">
             <div class="account-content">
-                    <div class="login-wrapper">
-                        <div class="login-content">
-                            <div class="container" style="background-color:white; border-radius:15px;">
-                                <div class="login-userset">
-                                    <form method="POST">
-                                        <div class="login-userheading mt-3">
-                                            <h3>Sign In</h3>
-                                        </div>
+            <div class="login-wrapper d-flex align-items-center justify-content-center vh-100">
+    <div class="login-content">
+        <div class="container p-4" style="background-color: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <div class="text-center mb-4">
+                <h3 class="mb-3">Sign In</h3>
+            </div>
 
-                                        <!-- Username Field -->
-                                        <div class="form-login">
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
-                                                <label for="username">Username</label>
-                                            </div>
-                                        </div>
+            <form method="POST">
+                <!-- Username Field -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
+                    <label for="username">Username</label>
+                </div>
 
-                                        <!-- Password Field -->
-                                        <div class="form-login">
-                                            <div class="form-floating mb-3">
-                                                <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
-                                                <label for="password">Password</label>
-                                            </div>
-                                        </div>
+                <!-- Password Field -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
 
-                                        <div class="form-login">
-                                            <div class="alreadyuser">
-                                                <h4><a href="forgetpassword.php" class="hover-a">Forgot Password?</a></h4>
-                                            </div>
-                                        </div>
+                <div class="mb-3 text-end">
+                    <a href="forgetpassword.php" class="text-decoration-none">Forgot Password?</a>
+                </div>
 
-                                        <div class="form-login">
-                                            <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
-                                        </div>
-                                    </form>
+                <div class="mb-4">
+                    <button class="btn btn-primary w-100" type="submit" name="btnLogin">Sign In</button>
+                </div>
+            </form>
 
-                                    <div class="signinform text-center">
-                                        <h4>Don’t have an account? <a href="register.php" class="hover-a">Sign Up</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="login-img">
-                            <div class="container">
-                                <img src="../upload_system/<?=$db_system_banner?>" alt="">
-                            </div>
-                        </div>
-                    </div>
+            <div class="text-center">
+                <h4>Don’t have an account? <a href="register.php" class="text-decoration-none">Sign Up</a></h4>
+            </div>
+        </div>
+    </div>
+    <div class="login-img d-none d-md-block">
+        <img src="../upload_system/<?=$db_system_banner?>" alt="Login Image" class="img-fluid" style="max-height: 100vh; object-fit: cover;">
+    </div>
+</div>
+
             </div>
         </div>
 
