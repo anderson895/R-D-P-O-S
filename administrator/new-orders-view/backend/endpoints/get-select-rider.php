@@ -19,13 +19,18 @@ if (isset($_GET['orderId'])) {
                 <option selected disabled>Select Rider</option>
                 <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></option>
                 <?php
-                $getRiders = $db->getUserType('deliveryStaff');
-                while ($rider = $getRiders->fetch_assoc()) {
-                ?>
-                    <option value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?></option>
-                <?php
-                }
-                ?>
+                    $getRiders = $db->getUserType('deliveryStaff');
+                    while ($rider = $getRiders->fetch_assoc()) {
+                        // Get the rider count for each rider
+                        $riderCount = $db->getDeliveryRiderCount($orderId, $rider['acc_id']);
+                        ?>
+                        <option value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
+                            <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> (Rider Count: <?= $riderCount ?>)
+                        </option>
+                    <?php
+                    }
+                    ?>
+
             </select>
 <?php
         } else {
