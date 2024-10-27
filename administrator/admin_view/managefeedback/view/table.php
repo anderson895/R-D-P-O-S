@@ -60,7 +60,7 @@
                         ?>
                         <tr>
                             <td><?= $count ?></td>
-                            <td><a href="profile_customer.php?target_id=<?=$rater_id?>"><?= $rater_username ?></a></td>
+                            <td><a href="customerlist.php?type=<?=$rater_username?>"><?= $rater_username ?></a></td>
                             <td><a href="product-details.php?target_id=<?=$prod_code?>"><?= $rateName ?></a></td>
                             <td>
                                 <input class="rateValue" hidden type="text" value="<?= $rate['r_rate'] ?>">
