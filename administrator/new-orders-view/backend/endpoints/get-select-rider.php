@@ -25,7 +25,7 @@ if (isset($_GET['orderId'])) {
                         $riderCount = $db->getDeliveryRiderCount($orderId, $rider['acc_id']);
                         ?>
                         <option value="<?= $rider['acc_id'] ?>" <?= ($rider['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>>
-                            <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> (Rider Count: <?= $riderCount ?>)
+                            <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> (<?= $riderCount ?>)
                         </option>
                     <?php
                     }
