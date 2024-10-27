@@ -1,12 +1,26 @@
 <?php
 include("back_login.php");
+
+
+
+
 include("controller/maintinance.php");
+
+
 include "include/session_dir.php";
+
+
 $current_date = date('Y-m-d');
+
 ?>
+
+
 
 <!doctype html>
 <html class="no-js" lang="zxx">
+
+<!-- index-431:41-->
+
 <link rel="stylesheet" href="view/Signup/view/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="view/Signup/view/assets/plugins/fontawesome/css/fontawesome.min.css">
@@ -15,9 +29,11 @@ $current_date = date('Y-m-d');
 
 
 <body>
+
     <div class="body-wrapper">
         <?php 
-            include "include/header.php"; 
+            include "include/header.php";
+        
         ?>
       
 
@@ -87,6 +103,24 @@ $current_date = date('Y-m-d');
 
         <script src="view/Signup/view/assets/js/script.js"></script>
 </body>
+
+
+
+
+<!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
