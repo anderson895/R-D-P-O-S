@@ -43,7 +43,7 @@ $current_date = date('Y-m-d');
     <div class="account-content container">
         <div class="row align-items-center justify-content-center">
             <!-- Banner Image (hidden on small screens) -->
-            <div class="col-md-6 d-none d-md-block position-fixed top-0 start-0 h-100 w-50" style="background-image: url('../upload_system/<?=$db_system_banner?>'); background-size: cover; background-position: center;">
+            <div class="col-md-6 d-none d-md-block position-relative top-0 end-0 h-100 w-50" style="background-image: url('../upload_system/<?=$db_system_banner?>'); background-size: cover; background-position: center;">
             </div>
 
             <!-- Login Form -->
