@@ -12,7 +12,7 @@ if (isset($_GET['orderId'])) {
     if ($getOrder->num_rows > 0) {
         $order = $getOrder->fetch_assoc();
         
-        $AdminParcelCount = $db->getDeliveryRiderCount($orderId, $order['acc_id']);
+        $AdminParcelCount = $db->getDeliveryRiderCount($orderId, $user['acc_id']);
 
         $riderId = $order['rider_id'];
 
