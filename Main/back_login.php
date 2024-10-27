@@ -72,7 +72,7 @@ if (isset($_POST["btnLogin"])) {
                 header('Location: verification_code.php?accid='.$acc_id);
                 exit();
             } elseif ($accountstatus == '2') {
-                displayError("This account is temporarily blocked. Message the Administrator to Activate.");
+                displayError("This account has been disabled by the administrator.");
             }
         } else {
             // Username not registered
