@@ -66,7 +66,9 @@ $current_date = date('Y-m-d');
                 </div>
 
                 <div class="mb-4">
-                    <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
+                                        <div class="form-login">
+                                            <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
+                                        </div>
                 </div>
             </form>
 
