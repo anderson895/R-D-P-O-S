@@ -71,7 +71,7 @@ $current_date = date('Y-m-d');
             </form>
 
             <div class="text-center">
-                <h4>Don’t have an account? <a href="register.php" class="text-decoration-none">Sign Up</a></h4>
+                <h5>Don’t have an account? <a href="register.php" class="text-decoration-none">Sign Up</a></h5>
             </div>
         </div>
     </div>
