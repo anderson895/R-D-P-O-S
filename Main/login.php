@@ -51,7 +51,7 @@ $current_date = date('Y-m-d');
             <form method="POST">
                  <!-- Username Field -->
                             <div class="form-login">
-                                <div class="form-floating mb-3">
+                                <div class="form-floating mb-4">
                                     <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
                                     <label for="username"><i class="bi bi-person-circle me-2"></i>Username</label>
                                 </div>
@@ -59,7 +59,7 @@ $current_date = date('Y-m-d');
 
                             <!-- Password Field -->
                             <div class="form-login">
-                                <div class="form-floating mb-3">
+                                <div class="form-floating mb-4">
                                     <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
                                     <label for="password"><i class="bi bi-lock me-2"></i>Password</label>
                                 </div>
