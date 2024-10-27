@@ -66,12 +66,12 @@ $current_date = date('Y-m-d');
                                 <h4><a href="forgetpassword.php" class="text-decoration-none">Forgot Password?</a></h4>
                             </div>
 
-                            <div class="mb-3">
-                                <button class="btn btn-primary btn-login w-100" type="submit" name="btnLogin">Sign In</button>
-                            </div>
-                            <!-- <div class="form-login">
-                                        <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
+                            <!-- <div class="mb-3">
+                                <button class="btn btn-primary w-100" type="submit" name="btnLogin">Sign In</button>
                             </div> -->
+                            <div class="form-login">
+                                        <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
+                            </div>
                         </form>
 
                         <div class="signinform text-center">
