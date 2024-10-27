@@ -11,19 +11,14 @@ if (isset($_GET['orderId'])) {
     $getOrder = $db->checkId('new_tbl_orders', 'order_id', $orderId);
     if ($getOrder->num_rows > 0) {
         $order = $getOrder->fetch_assoc();
-        
-        $AdminParcelCount = $db->getDeliveryRiderCount($orderId, $user['acc_id']);
-
         $riderId = $order['rider_id'];
-
-
 
         if ($order['status'] == 'Pending' || $order['status'] == 'Accepted' || $order['status'] == 'Ready For Delivery') {
 ?>
             <select class="form-control" id="selectRider" data-id="<?= $order['order_id'] ?>">
                 <option selected disabled>Select Rider</option>
                 <option value="<?= $user['acc_id'] ?>" <?= ($user['acc_id'] == $order['rider_id']) ? 'selected' : '' ?>><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?>
-                <?= $rider['acc_fname'] . ' ' . $rider['acc_lname'] ?> ()
+            
                 </option>
                 <?php
                     $getRiders = $db->getUserType('deliveryStaff');
