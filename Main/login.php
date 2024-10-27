@@ -27,12 +27,7 @@ $current_date = date('Y-m-d');
 
 <link rel="stylesheet" href="view/Signup/view/assets/css/style.css">
 
-<style>
-    .object-fit-cover {
-    object-fit: cover;
-}
 
-</style>
 <body>
 
     <div class="body-wrapper">
@@ -93,11 +88,11 @@ $current_date = date('Y-m-d');
 
 
             </div>
-            <!-- Banner Image -->
-            <div class="login-img position-fixed w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center bg-dark bg-opacity-50">
-                <img src="../upload_system/<?=$db_system_banner?>" alt="Banner Image" class="img-fluid w-100 h-100 object-fit-cover">
+            <div class="login-img">
+                <div class="container">
+                    <img src="../upload_system/<?=$db_system_banner?>" alt="">
+                </div>
             </div>
-
         </div>
     </div>
 </div>
