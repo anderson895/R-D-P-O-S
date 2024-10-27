@@ -88,11 +88,11 @@ $current_date = date('Y-m-d');
 
 
             </div>
-            
-                <div class="container">
-                    <img src="../upload_system/<?=$db_system_banner?>" alt="">
+                <div class="login-img">
+                    <div class="container">
+                        <img src="../upload_system/<?=$db_system_banner?>" alt="">
+                    </div>
                 </div>
-           
         </div>
     </div>
 </div>
