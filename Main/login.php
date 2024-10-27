@@ -21,12 +21,6 @@ $current_date = date('Y-m-d');
 
 <!-- index-431:41-->
 
-<link rel="stylesheet" href="view/Signup/view/assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="view/Signup/view/assets/plugins/fontawesome/css/fontawesome.min.css">
-
-<link rel="stylesheet" href="view/Signup/view/assets/css/style.css">
-
 
 <body>
 
