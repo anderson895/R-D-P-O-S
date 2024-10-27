@@ -105,6 +105,7 @@ if($page == 'Collected'){ ?>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
                         <th>Rider</th>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
+                        <?= ($page == 'Cancelled') ? '<th>Customer Name</th>' : '' ?>
                         <?= ($page == 'Cancelled') ? '<th>Cancel Reason</th>' : '' ?>
                     </tr>
                 <tbody id="ordersContainer">

@@ -16,6 +16,8 @@ if (isset($_GET['page'])) {
             $reject_reason=$order['reject_reason'];
             $cancel_reason=$order['cancel_reason'];
 
+            $cancel_customername=$order['acc_fname']." ".$order['acc_lname'];
+
 
             
 ?>
@@ -45,7 +47,9 @@ if (isset($_GET['page'])) {
                 <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                 <td><?=ucfirst($riderName)?></td>
                 <?= ($page == 'Rejected') ? '<td>' . ucfirst($reject_reason) . '</td>' : '' ?>
+                <?= ($page == 'Cancelled') ? '<td>' . ucfirst($cancel_customername) . '</td>' : '' ?>
                 <?= ($page == 'Cancelled') ? '<td>' . ucfirst($cancel_reason) . '</td>' : '' ?>
+
     
             </tr>
         <?php

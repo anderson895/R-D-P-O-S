@@ -228,7 +228,10 @@ public function getOrderStatusCounts()
 
     public function getOrders($status)
     {
-        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` WHERE `status` = '$status' ORDER BY `new_tbl_orders`.`order_date` DESC");
+        $query = $this->conn->prepare("SELECT * FROM `new_tbl_orders` 
+        LEFT JOIN account
+        ON new_tbl_orders.cust_id = account.acc_id
+        WHERE `status` = '$status' ORDER BY `new_tbl_orders`.`order_date` DESC");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
