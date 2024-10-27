@@ -77,7 +77,8 @@ $current_date = date('Y-m-d');
 </div>
 
 
-
+<!-- Bootstrap Icons CDN (optional for icons) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
         <script src="view/Signup/view/assets/js/jquery-3.6.0.min.js"></script>
 
