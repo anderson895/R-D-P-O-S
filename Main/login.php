@@ -42,44 +42,47 @@ $current_date = date('Y-m-d');
       <div class="main-wrapper" style="background-color:#F7F7F7; ">
         <div class="account-content">
             <div class="login-wrapper">
-            <div class="login-content">
-    <div class="container my-5 p-4 shadow-lg" style="background-color: white; border-radius: 15px;">
-        <div class="text-center mb-4">
-            <h3 class="font-weight-bold">Sign In</h3>
-            <p class="text-muted">Welcome back! Please login to your account.</p>
-        </div>
-        
-        <form method="POST">
-            <!-- Username Field -->
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
-                <label for="username">Username</label>
-            </div>
+                <div class="login-content">
+                    <div class="container" style="background-color:white; border-radius:15px;">
+                        <div class="login-userset">
+                            <form method="POST">
+                                <div class="login-userheading mt-3">
+                                    <h3>Sign In</h3>
+                                </div>
 
-            <!-- Password Field -->
-            <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
-                <label for="password">Password</label>
-            </div>
+                                <!-- Username Field -->
+                                <div class="form-login">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
+                                        <label for="username">Username</label>
+                                    </div>
+                                </div>
 
-            <!-- Forgot Password Link -->
-            <div class="mb-3">
-                <h6><a href="forgetpassword.php" class="text-primary">Forgot Password?</a></h6>
-            </div>
+                                <!-- Password Field -->
+                                <div class="form-login">
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
 
-            <!-- Sign In Button -->
-            <div class="d-grid mb-3">
-                <button class="btn btn-primary btn-lg" type="submit" name="btnLogin">Sign In</button>
-            </div>
-        </form>
+                                <div class="form-login">
+                                    <div class="alreadyuser">
+                                        <h4><a href="forgetpassword.php" class="hover-a">Forgot Password?</a></h4>
+                                    </div>
+                                </div>
 
-        <!-- Sign Up Link -->
-        <div class="text-center">
-            <h6>Don’t have an account? <a href="register.php" class="text-primary">Sign Up</a></h6>
-        </div>
-    </div>
-</div>
+                                <div class="form-login">
+                                    <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
+                                </div>
+                            </form>
 
+                            <div class="signinform text-center">
+                                <h4>Don’t have an account? <a href="register.php" class="hover-a">Sign Up</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="login-img">
                     <div class="container">
                         <img src="../upload_system/<?=$db_system_banner?>" alt="">
