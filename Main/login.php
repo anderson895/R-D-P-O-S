@@ -49,25 +49,31 @@ $current_date = date('Y-m-d');
             </div>
 
             <form method="POST">
-                <!-- Username Field -->
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
-                    <label for="username">Username</label>
-                </div>
+                 <!-- Username Field -->
+                            <div class="form-login">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
+                                    <label for="username"><i class="bi bi-person-circle me-2"></i>Username</label>
+                                </div>
+                            </div>
 
-                <!-- Password Field -->
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
-                    <label for="password">Password</label>
-                </div>
+                            <!-- Password Field -->
+                            <div class="form-login">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
+                                    <label for="password"><i class="bi bi-lock me-2"></i>Password</label>
+                                </div>
+                            </div>
 
-                <div class="mb-3 text-end">
-                    <a href="forgetpassword.php" class="text-decoration-none">Forgot Password?</a>
-                </div>
+                            <!-- Forgot Password Link -->
+                            <div class="form-login mb-3 text-end">
+                                    <a href="forgetpassword.php" class="text-decoration-none text-primary">Forgot Password?</a>
+                            </div>
 
-                <div class="form-login">
-                    <button class="btn btn-login" type="submit" name="btnLogin">Sign In</button>
-                </div>
+                            <!-- Submit Button -->
+                            <div class="form-login mb-4">
+                                <button class="btn btn-primary w-100 fw-bold py-2" type="submit" name="btnLogin">Sign In</button>
+                            </div>
             </form>
 
             <div class="text-center">
@@ -83,7 +89,8 @@ $current_date = date('Y-m-d');
             </div>
         </div>
 
-
+        <!-- Bootstrap Icons CDN (optional for icons) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 
         <script src="view/Signup/view/assets/js/jquery-3.6.0.min.js"></script>
