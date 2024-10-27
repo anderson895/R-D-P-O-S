@@ -6035,7 +6035,7 @@ span.select2-container.select2-container--default.select2-container--open {
   color: #fff;
 }
 .login-wrapper .login-img {
-  width: 100%;
+  width: 60%;
 }
 @media (max-width: 991px) {
   .login-wrapper .login-img {
