@@ -85,7 +85,10 @@ include "php/session_dir.php";
 <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 <script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
 
-<script src="assets/plugins/apexchart/apexcharts.min.js"></script>
+<!-- <script src="assets/plugins/apexchart/apexcharts.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
 <script src="assets/plugins/apexchart/chart-data.js"></script>
 
 <script src="assets/js/script.js"></script>
