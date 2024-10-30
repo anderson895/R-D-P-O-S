@@ -6,6 +6,8 @@ $db = new global_class();
 $sender_id = $_POST['mess_sender_id'];
 $sender_Messages = $_POST['sender_Messages'];
 
+header('Content-Type: application/json'); // Set content type to JSON
+
 if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
     // Sanitize inputs
     $sender_id = htmlspecialchars(trim($sender_id));
@@ -42,11 +44,11 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
                 // Update the fileName variable with the unique name
                 $fileName = $newFileName; 
             } else {
-                echo 'Error moving uploaded file.'; // Plain text response
+                echo json_encode(['error' => 'Error moving uploaded file.']);
                 exit;
             }
         } else {
-            echo 'Invalid file type or size exceeded.'; // Plain text response
+            echo json_encode(['error' => 'Invalid file type or size exceeded.']);
             exit;
         }
     }
@@ -56,10 +58,10 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
 
     // Provide response based on the result of sending the message
     if ($messageResponse === 'Message sent!') {
-        echo 'Message sent successfully!' . ($fileName ? " File uploaded: $fileName" : ''); // Success response
+        echo json_encode(['success' => 'Message sent successfully!', 'file' => $fileName]); // Success response
     } else {
-        echo $messageResponse; // Plain text response for error in message sending
+        echo json_encode(['error' => $messageResponse]); // Error in message sending
     }
 } else {
-    echo 'Access Denied! No Request Type.'; // Plain text response
+    echo json_encode(['error' => 'Access Denied! No Request Type.']); // Access denied response
 }
