@@ -60,7 +60,7 @@ include('components/header.php');
 
         <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
 
-        <span class="spinner-border spinner-border-sm" style="display: none;" id="spinner" role="status" aria-hidden="true"></span>
+        <span class="spinner-border spinner-border-sm" style="display: block;" id="spinner" role="status" aria-hidden="true"></span>
         <!-- Button with spinner -->
         <button type="button" id="btnSentMessage" class="btn btn-primary btn_send">
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
