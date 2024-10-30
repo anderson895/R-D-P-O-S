@@ -64,9 +64,7 @@ $(document).ready(function() {
 
                             // Start building the message HTML
                             var messageHtml = '<li class="media ';
-                            if(message.mess_content==null){
-                                message.mess_content=="";
-                            }
+                            
                             messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
                              
                             messageHtml += '<div class="avatar flex-shrink-0">';
@@ -76,7 +74,10 @@ $(document).ready(function() {
                             messageHtml += '<div class="msg-box"><div>';
 
                             messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
-                            messageHtml += '<p>' + message.mess_content + '</p>';
+                            if (message.mess_content) {
+                                messageHtml += '<p>' + message.mess_content + '</p>';
+                            }
+
 
                             // Check if message image exists and include it
                             if (message.mess_img) {
