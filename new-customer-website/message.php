@@ -76,7 +76,7 @@ include('components/header.php');
             <label for="fileInput" class="btn btn-primary">
                 <i class="fa fa-paperclip"></i> &nbsp;
             </label>
-            <input type="file" id="fileInput" class="form-control-file" style="display: block;" accept="image/*">
+            <input type="file" id="fileInput" class="form-control-file" style="display: none;" accept="image/*">
         </div>
 
         <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
