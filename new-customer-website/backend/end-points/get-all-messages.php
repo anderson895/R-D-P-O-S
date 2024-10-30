@@ -72,7 +72,7 @@ if (isset($_SESSION['acc_id'])) {
                                 </div>
                                 <div class="card-body">
                                     <p class="mb-0"><?= $messages['mess_content'] ?></p>
-                                    
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15428.57796196274!2d120.95815599999999!3d14.817146600000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad2815babb8d%3A0x866d22682ef13094!2sR.%20De%20Leon%20Poultry%20Supply!5e
                                     <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
                                         <div class="d-flex align-items-center mt-2">
