@@ -267,6 +267,7 @@ class global_class extends db_connect
     {
         $dateToday = date('Y-m-d H:i:s'); 
 
+        
         // Prepare the SQL statement
         $query = "INSERT INTO `messages` (`mess_sender`, `mess_content`, `mess_date`, `mess_reciever`, `mess_img`) VALUES ('$sender_id', '$sender_Messages', '$dateToday', 'Admin', '$fileName')";
         
