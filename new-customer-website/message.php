@@ -35,30 +35,28 @@ include('components/header.php');
 
          
 
+          
         <li class="mb-3 mt-3">
-          <div data-mdb-input-init class="form-outline form-white">
-            <input type="hidden" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
+  <div data-mdb-input-init class="form-outline form-white">
+    <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
-            <div class="d-flex flex-column flex-md-row align-items-start">
-              <textarea class="form-control me-2 mb-2 mb-md-0" id="sender_Messages" name="sender_Messages" rows="2" style="flex: 1;"></textarea>
-              
-              <button type="button" id="btnSentMessage" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded">
-                Send
-              </button>
-            </div>
+    <div class="d-flex flex-column flex-md-row align-items-start">
+  <textarea class="form-control me-2 mb-2 mb-md-0" id="sender_Messages" name="sender_Messages" rows="2" style="flex: 1; margin-right: 8px;"></textarea>
+  
+  <button type="button" id="btnSentMessage" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded" style="margin-right: 8px;">
+    Send
+  </button>
 
-            <div class="mt-3">
-              <label for="fileUpload" class="form-label">Attach File</label>
-              <input class="form-control" type="file" id="fileUpload" name="fileUpload">
-            </div>
+  <input type="file" id="fileUpload" name="fileUpload" class="form-control" style="width: auto; margin-top: auto;">
+</div>
 
-            <label class="form-label mt-2" for="sender_Messages">Message</label>
-            <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        </li>
 
+    <label class="form-label mt-2" for="sender_Messages">Message</label>
+    <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</li>
 
 
 
