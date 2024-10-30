@@ -70,18 +70,19 @@ include('components/header.php');
 
 
 
+
 <div class="card-footer">
     <div class="input-group">
         <div class="input-group-prepend">
             <label for="fileInput" class="btn btn-primary">
                 <i class="fa fa-paperclip"></i> &nbsp;
             </label>
-            <input type="file" id="fileInput" class="form-control-file" style="display: block;">
+            <input type="file" id="fileInput" class="form-control-file" style="display: none;">
         </div>
 
         <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
-        <input type="text" hidden class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
+        <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
         <div id="loadingSpinner"></div>
         <button type="button" id="btnSentMessage" class="btn btn-primary btn_send">
         <span class="spinner-border spinner-border-sm" style="display: none;" id="spinner" role="status" aria-hidden="true"></span>
