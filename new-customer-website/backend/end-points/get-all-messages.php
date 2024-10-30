@@ -16,8 +16,9 @@ if (isset($_SESSION['acc_id'])) {
                     // Format the date
                     $message_date = date('F j, Y, g:i a', strtotime($messages['mess_date']));
 
+                    // Check if the message sender is the current user (Customer)
                     if ($messages['mess_sender'] == $acc_id) {
-?>
+                        ?>
                         <!-- Customer message -->
                         <li class="d-flex justify-content-between mb-4">
                             <div class="card mask-custom w-100" style="background-color:#0084ff;">
@@ -25,51 +26,46 @@ if (isset($_SESSION['acc_id'])) {
                                     <p class="fw-bold mb-0 text-white"><?= ucfirst($messages['acc_fname']) ?> <?= $messages['acc_lname'] ?> (Customer)</p>
                                 </div>
                                 <div class="card-body">
-                                    <p class="mb-0 text-white">
-                                        <?= $messages['mess_content'] ?>
-                                    </p>
+                                    <p class="mb-0 text-white"><?= $messages['mess_content'] ?></p>
                                     <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
-
                                 </div>
                             </div>
                             <?php if (!empty($messages['emp_image'])): ?>
-                                <img src="../upload_img/<?= $messages['emp_image'] ?>" alt="avatar"
+                                <img src="../upload_img/<?= htmlspecialchars($messages['emp_image']) ?>" alt="avatar"
                                      class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" style="width: 60px; height: 60px; object-fit: cover;">
                             <?php else: ?>
                                 <i class="bi bi-person-fill d-flex align-self-start ms-3" style="font-size: 60px; background-color:black; border-radius:50px;"></i>
                             <?php endif; ?>
                         </li>
-
-                    <?php
+                        <?php
                     } else {
-                    ?>
-
-                        <!-- Admin message -->
+                        // Admin message
+                        ?>
                         <li class="d-flex justify-content-between mb-4">
-                            <img src="../upload_img/<?= $messages['emp_image'] ?>" alt="avatar"
-                                 class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" style="width: 60px; height: 60px; object-fit: cover;">
+                            <?php if (!empty($messages['emp_image'])): ?>
+                                <img src="../upload_img/<?= htmlspecialchars($messages['emp_image']) ?>" alt="avatar"
+                                     class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" style="width: 60px; height: 60px; object-fit: cover;">
+                            <?php else: ?>
+                                <i class="bi bi-person-fill d-flex align-self-start me-3" style="font-size: 60px; background-color:black; border-radius:50px;"></i>
+                            <?php endif; ?>
                             <div class="card mask-custom w-100">
                                 <div class="card-header d-flex justify-content-between p-3"
                                      style="border-bottom: 1px solid rgba(255,255,255,.3);">
                                     <p class="fw-bold mb-0"><?= ucfirst($messages['acc_fname']) ?> <?= $messages['acc_lname'] ?> (Administrator)</p>
                                 </div>
                                 <div class="card-body">
-                                    <p class="mb-0">
-                                        <?= $messages['mess_content'] ?>
-                                    </p>
+                                    <p class="mb-0"><?= $messages['mess_content'] ?></p>
                                     <p class="text-secondary small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
-
                                 </div>
                             </div>
                         </li>
-
-                    <?php
+                        <?php
                     }
                 }
             } else {
                 ?>
                 <center class="pt-5 pb-5 mt-5 mb-5 text-primary">No Message Found.</center>
-<?php
+                <?php
             }
         }
     }
