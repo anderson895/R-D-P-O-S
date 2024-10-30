@@ -58,15 +58,19 @@ include('components/header.php');
     <div class="input-group">
         <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
-        <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
-        
+        <div class="input-group position-relative">
+            <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
+            <!-- Spinner inside input -->
+            <span class="spinner-border spinner-border-sm position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); display: none;" id="spinner" role="status" aria-hidden="true"></span>
+        </div>
+
         <!-- Button with spinner -->
         <button type="button" id="btnSentMessage" class="btn btn-primary btn_send">
-            <span class="spinner-border spinner-border-sm" style="display: none;" id="spinner" role="status" aria-hidden="true"></span>
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
     </div>
 </div>
+
 
 
 
