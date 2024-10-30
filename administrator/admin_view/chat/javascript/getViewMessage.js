@@ -65,7 +65,7 @@ $(document).ready(function() {
                             // Start building the message HTML
                             var messageHtml = '<li class="media ';
                             
-                            messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
+                            messageHtml += (message.mess_sender == session_id) ? 'sent d-flex text-white">' : 'received d-flex">';
                              
                             messageHtml += '<div class="avatar flex-shrink-0">';
                             messageHtml += '<img src="' + imagePath + '" alt="User Image" class="avatar-img rounded-circle">';
