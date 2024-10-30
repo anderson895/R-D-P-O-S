@@ -70,7 +70,6 @@ include('components/header.php');
 
 
 
-
 <div class="card-footer">
     <div class="input-group">
         <div class="input-group-prepend">
@@ -96,28 +95,26 @@ include('components/header.php');
 </div>
 
 
-<script>
-  $(document).ready(function() {
-    $('#fileInput').on('change', function(event) {
-        // Get the file name
-        const fileName = event.target.files[0].name;
 
-        // Display the file name and show the remove button
-        $('#fileName').text('Selected File: ' + fileName);
-        $('#fileDisplay').show();
-        $('#sender_Messages').prop('disabled', true); // Disable the message input
+<script>
+$(document).ready(function() {
+    $('#fileInput').change(function() {
+        const file = this.files[0]; // Get the selected file
+
+        if (file) {
+            // Display the file name
+            $('#fileName').append(file.name);
+            $('#fileDisplay').show(); // Show the file display
+            $('#sender_Messages').prop('disabled', true); // Disable the message input
+        }
     });
 
-    // Remove file function
-    $('#removeFile').on('click', function() {
-        // Clear the file input
-        $('#fileInput').val('');
+    $('#removeFile').click(function() {
+        $('#fileInput').val(''); // Clear the file input
+        $('#fileName').text('Selected File: '); // Reset the file name display
         $('#fileDisplay').hide(); // Hide the file display
         $('#sender_Messages').prop('disabled', false); // Enable the message input
     });
-
-    // Optional: You can also enable the message input when the form is ready
-    $('#sender_Messages').prop('disabled', true); // Initially disabled
 });
 
 </script>
