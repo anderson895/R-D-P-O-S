@@ -378,6 +378,8 @@ $("#btnSentMessage").click(function (e) {
       contentType: false, // Important for FormData
       processData: false, // Important for FormData
       success: function (response) {
+        console.log(response);
+
           if (response == "400") {
               showAlert(".alert-danger", "Sent message unsuccessful!");
           } else {
