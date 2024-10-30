@@ -322,32 +322,30 @@ $(document).on("click", ".btnViewProduct", function (e) {
 
   // Sent Messages
 
-  $('#fileInput').change(function() {
-    const file = this.files[0]; // Get the selected file
-
+  $("#fileInput").change(function() {
+    var file = this.files[0];
     if (file) {
-        const reader = new FileReader(); // Create a FileReader to read the file
+        $("#fileName").text("Selected File: " + file.name);
+        $("#fileDisplay").show();
 
+        // Preview the image
+        var reader = new FileReader();
         reader.onload = function(e) {
-            $('#imagePreview').attr('src', e.target.result); // Set the image src to the file data
-            $('#imagePreviewContainer').show(); // Show the image container
+            $("#imagePreview").attr("src", e.target.result);
+            $("#imagePreviewContainer").show();
         };
-
-        reader.readAsDataURL(file); // Read the file as a Data URL
-
-        $('#fileName').append(file.name); // Display the file name
-        $('#fileDisplay').show(); // Show the file display
-        $('#sender_Messages').prop('disabled', true); // Disable the message input
+        reader.readAsDataURL(file);
     }
 });
 
-$('#removeFile').click(function() {
-    $('#fileInput').val(''); // Clear the file input
-    $('#fileName').text('Selected File: '); // Reset the file name display
-    $('#imagePreviewContainer').hide(); // Hide the image preview
-    $('#fileDisplay').hide(); // Hide the file display
-    $('#sender_Messages').prop('disabled', false); // Enable the message input
+// Optional: For the remove file button
+$("#removeFile").click(function() {
+    $("#fileInput").val(''); // Clear the file input
+    $("#fileName").text("Selected File: ");
+    $("#imagePreviewContainer").hide(); // Hide image preview
+    $("#fileDisplay").hide(); // Hide file display
 });
+
 
 
 $("#btnSentMessage").click(function (e) {
