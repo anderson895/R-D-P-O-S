@@ -33,7 +33,7 @@ if (isset($_SESSION['acc_id'])) {
                                             <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
                                                  class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
                                             <!-- Download icon -->
-                                            <a href="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" 
+                                            <a href="../upload_message/<?= $messages['mess_img'] ?>" 
                                                download 
                                                class="btn btn-link text-white ms-2 p-0" 
                                                title="Download Image">
@@ -79,7 +79,7 @@ if (isset($_SESSION['acc_id'])) {
                                             <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
                                                  class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
                                             <!-- Download icon -->
-                                            <a href="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" 
+                                            <a href="../upload_message/<?= $messages['mess_img'] ?>" 
                                                download 
                                                class="btn btn-link text-secondary ms-2 p-0" 
                                                title="Download Image">
