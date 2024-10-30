@@ -82,10 +82,10 @@ include('components/header.php');
 
         <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
-        <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
+        <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message..." disabled>
         <div id="loadingSpinner"></div>
         <button type="button" id="btnSentMessage" class="btn btn-primary btn_send">
-        <span class="spinner-border spinner-border-sm" style="display: none;" id="spinner" role="status" aria-hidden="true"></span>
+            <span class="spinner-border spinner-border-sm" style="display: none;" id="spinner" role="status" aria-hidden="true"></span>
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
     </div>
@@ -94,6 +94,33 @@ include('components/header.php');
         <button id="removeFile" class="btn btn-danger">X</button>
     </div>
 </div>
+
+
+<script>
+  $(document).ready(function() {
+    $('#fileInput').on('change', function(event) {
+        // Get the file name
+        const fileName = event.target.files[0].name;
+
+        // Display the file name and show the remove button
+        $('#fileName').text('Selected File: ' + fileName);
+        $('#fileDisplay').show();
+        $('#sender_Messages').prop('disabled', true); // Disable the message input
+    });
+
+    // Remove file function
+    $('#removeFile').on('click', function() {
+        // Clear the file input
+        $('#fileInput').val('');
+        $('#fileDisplay').hide(); // Hide the file display
+        $('#sender_Messages').prop('disabled', false); // Enable the message input
+    });
+
+    // Optional: You can also enable the message input when the form is ready
+    $('#sender_Messages').prop('disabled', true); // Initially disabled
+});
+
+</script>
 
 
 
