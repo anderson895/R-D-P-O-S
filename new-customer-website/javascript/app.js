@@ -129,6 +129,22 @@ $(document).ready(function () {
   };
 
 
+  // const displayMessage = () => {
+  //   $.ajax({
+  //     type: "GET",
+  //     url: "backend/end-points/get-all-messages.php",
+  //     data: {
+  //       requestType: "getAllMessages",
+  //     },
+  //     success: function (response) {
+
+  //       // console.log(response);
+
+  //       $("#allMessagesContainer").html(response);
+  //     },
+  //   });
+  // };
+
   const displayMessage = () => {
     $.ajax({
       type: "GET",
@@ -140,8 +156,14 @@ $(document).ready(function () {
         // Update the container with the new messages
         $("#allMessagesContainer").html(response);
   
-        // Scroll to the bottom of the container
-        $('#allMessagesContainer').scrollTop($('#allMessagesContainer')[0].scrollHeight);
+        // Check if the user is at the bottom
+        const $container = $('#allMessagesContainer');
+        const isAtBottom = $container.scrollTop() + $container.innerHeight() >= $container[0].scrollHeight;
+  
+        // If the user is at the bottom, scroll to the bottom
+        if (isAtBottom) {
+          $container.scrollTop($container[0].scrollHeight);
+        }
       },
       error: function (xhr, status, error) {
         console.error("Error fetching messages:", status, error);
@@ -152,6 +174,9 @@ $(document).ready(function () {
   // Call displayMessage when needed, for example on page load or periodically
   $(document).ready(function() {
     displayMessage();
+  
+    // Optional: Refresh messages every 5 seconds
+    setInterval(displayMessage, 5000); // Refresh every 5 seconds
   });
   
 
