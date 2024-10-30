@@ -15,7 +15,7 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
     $messageResponse = $db->sentMessage($sender_id, $sender_Messages);
 
     if ($messageResponse === 'Message sent successfully!') {
-        // File upload handling
+                // File upload handling
         if (isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK) {
             $fileTmpPath = $_FILES['file']['tmp_name'];
             $fileName = $_FILES['file']['name'];
@@ -31,7 +31,10 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
             if (in_array($fileExtension, $allowedfileExtensions) && $fileSize <= $maxFileSize) {
                 // Define the upload directory
                 $uploadFileDir = '../upload_message/';
-                $newFileName = uniqid() . '_' . $fileName;
+                
+                // Generate a unique file name
+                $newFileName = uniqid('file_', true) . '.' . $fileExtension; // or use the alternative line above
+                
                 $dest_path = $uploadFileDir . $newFileName;
 
                 // Move the file
@@ -46,6 +49,7 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
         } else {
             echo $messageResponse; // Plain text response for message only
         }
+
     } else {
         echo $messageResponse; // Plain text response for error in message sending
     }
