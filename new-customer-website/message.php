@@ -61,6 +61,10 @@ include('components/header.php');
 
                 <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
                 <button  type="button" id="btnSentMessage" class="btn btn-primary btn_send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                
+                <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
 
