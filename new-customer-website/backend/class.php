@@ -262,26 +262,24 @@ class global_class extends db_connect
         }
     }
 
-
-   // sentMessage
-    public function sentMessage($sender_id, $sender_Messages, $filePath = null)
+    // sentMessage
+    public function sentMessage($sender_id, $sender_Messages, $fileName = null)
     {
         $dateToday = date('Y-m-d H:i:s'); 
 
-        // Prepare the SQL query with an optional file path
-        $query = $this->conn->prepare("INSERT INTO `messages`(`mess_sender`, `mess_content`, `mess_date`, `mess_reciever`, `mess_img`) VALUES (?, ?, ?, 'Admin', ?)");
+        // Prepare the SQL statement
+        $query = "INSERT INTO `messages` (`mess_sender`, `mess_content`, `mess_date`, `mess_reciever`, `mess_img`) VALUES ('$sender_id', '$sender_Messages', '$dateToday', 'Admin', '$fileName')";
         
-        // Bind parameters
-        $filePath = $filePath ? $filePath : null; // Use null if no file is provided
-        $query->bind_param("ssss", $sender_id, $sender_Messages, $dateToday, $filePath);
-        
+        $response = 'Message sent!';
+
         // Execute the query
-        if ($query->execute()) {
-            return 'Message sent successfully!';
+        if ($this->conn->query($query) === TRUE) {
+            return $response;
         } else {
-            return 'Failed to send message.';
+            return 400; // Error code
         }
     }
+
 
     
 
