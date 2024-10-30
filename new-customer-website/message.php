@@ -70,7 +70,6 @@ include('components/header.php');
 
 
 
-
 <div class="card-footer">
     <div class="input-group">
         <div class="input-group-prepend">
@@ -89,17 +88,21 @@ include('components/header.php');
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
     </div>
-    <div id="fileDisplay" style="display: none;">
+    
+    <div id="fileDisplay" class="mt-2" style="display: none;">
         <span id="fileName">Selected File: </span>
-        <img id="imagePreview" style="max-width: 100%; max-height: 150px; display: none;" />
-        <button id="removeFile" class="btn btn-danger">X</button>
+        <div id="imagePreviewContainer" class="border rounded p-2 mt-2" style="display: none;">
+            <img id="imagePreview" class="img-fluid" style="max-height: 150px;"/>
+        </div>
+        <button id="removeFile" class="btn btn-danger mt-2">X</button>
     </div>
 </div>
 
 
 
+
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
     $('#fileInput').change(function() {
         const file = this.files[0]; // Get the selected file
 
@@ -108,7 +111,7 @@ include('components/header.php');
 
             reader.onload = function(e) {
                 $('#imagePreview').attr('src', e.target.result); // Set the image src to the file data
-                $('#imagePreview').show(); // Show the image
+                $('#imagePreviewContainer').show(); // Show the image container
             };
 
             reader.readAsDataURL(file); // Read the file as a Data URL
@@ -122,11 +125,12 @@ include('components/header.php');
     $('#removeFile').click(function() {
         $('#fileInput').val(''); // Clear the file input
         $('#fileName').text('Selected File: '); // Reset the file name display
-        $('#imagePreview').hide(); // Hide the image preview
+        $('#imagePreviewContainer').hide(); // Hide the image preview
         $('#fileDisplay').hide(); // Hide the file display
         $('#sender_Messages').prop('disabled', false); // Enable the message input
     });
 });
+
 
 </script>
 
