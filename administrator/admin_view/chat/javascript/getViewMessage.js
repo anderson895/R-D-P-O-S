@@ -76,16 +76,16 @@ $(document).ready(function() {
                             messageHtml += '<p>' + message.mess_content + '</p>';
 
                             // Check if message image exists and include it
-if (message.mess_img) {
-    messageHtml += '<div class="chat-msg-attachments">';
-    messageHtml += '<div class="chat-attachment">';
-    messageHtml += '<img src="../upload_message/' + message.mess_img + '" alt="Message Image" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">';
-    messageHtml += '<a href="../upload_message/' + message.mess_img + '" download class="chat-attach-download" title="Download Image">';
-    messageHtml += '<i class="fas fa-download"></i>';
-    messageHtml += '</a>';
-    messageHtml += '</div>';
-    messageHtml += '</div>';
-}
+                            if (message.mess_img) {
+                                messageHtml += '<div class="chat-msg-attachments">';
+                                messageHtml += '<div class="chat-attachment">';
+                                messageHtml += '<img src="../../upload_message/' + message.mess_img + '" alt="Message Image" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">';
+                                messageHtml += '<a href="../../upload_message/' + message.mess_img + '" download class="chat-attach-download" title="Download Image">';
+                                messageHtml += '<i class="fas fa-download"></i>';
+                                messageHtml += '</a>';
+                                messageHtml += '</div>';
+                                messageHtml += '</div>';
+                            }
 
 
                             messageHtml += '<ul class="chat-msg-info"><li>';
