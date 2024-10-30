@@ -78,8 +78,8 @@ $(document).ready(function() {
                             // Check if message image exists and include it
                             if (message.mess_img) {
                                 messageHtml += '<div class="d-flex align-items-center mt-2">';
-                                messageHtml += '<img src="../upload_message/' + message.mess_img + '" alt="Message Image" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">';
-                                messageHtml += '<a href="../upload_message/' + message.mess_img + '" download class="btn btn-link p-0 ms-2" title="Download Image">';
+                                messageHtml += '<img src="../../upload_message/' + message.mess_img + '" alt="Message Image" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">';
+                                messageHtml += '<a href="../../upload_message/' + message.mess_img + '" download class="btn btn-link p-0 ms-2" title="Download Image">';
                                 messageHtml += '<i class="fas fa-download"></i>';
                                 messageHtml += '</a>';
                                 messageHtml += '</div>';
