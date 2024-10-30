@@ -137,13 +137,23 @@ $(document).ready(function () {
         requestType: "getAllMessages",
       },
       success: function (response) {
-
-        // console.log(response);
-
+        // Update the container with the new messages
         $("#allMessagesContainer").html(response);
+  
+        // Scroll to the bottom of the container
+        $('#allMessagesContainer').scrollTop($('#allMessagesContainer')[0].scrollHeight);
       },
+      error: function (xhr, status, error) {
+        console.error("Error fetching messages:", status, error);
+      }
     });
   };
+  
+  // Call displayMessage when needed, for example on page load or periodically
+  $(document).ready(function() {
+    displayMessage();
+  });
+  
 
 
   displayMessage();
@@ -363,6 +373,9 @@ $("#btnSentMessage").click(function (e) {
       alertify.error('Message is Empty');
   }
 });
+
+
+
 
 
 
