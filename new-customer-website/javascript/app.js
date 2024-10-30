@@ -362,7 +362,7 @@ $("#btnSentMessage").click(function(e) {
   }
 
   // Input validation
-  if (sender_Messages.trim() === '' && fileInput.files.length === 0) {
+  if (sender_Messages=== null && fileInput.files.length === 0) {
       showAlert(".alert-danger", "Message cannot be empty!");
       return;
   }
