@@ -112,7 +112,8 @@ if ($acc_type == "customer") {
 
     </div>
     <div class="user_info">
-    <span><strong id="receiver_name"><?=$fullname?></strong></span>
+    <span class="cursor-pointer"><strong id="receiver_name"><?=$fullname?></strong></span>
+
               
     <p class="mb-0">Messages</p>
     </div>
