@@ -25,7 +25,7 @@ if (isset($_SESSION['acc_id'])) {
                                     <p class="fw-bold mb-0 text-white"><?= ucfirst($messages['acc_fname']) ?> <?= $messages['acc_lname'] ?> (Customer)</p>
                                 </div>
                                 <div class="card-body">
-                                    <p class="mb-0 text-white"><?= $messages['mess_content'] ?></p>
+                                    <p class="mb-0 text-white"><?= htmlspecialchars($messages['mess_content'])?></p>
                                     
                                     <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
@@ -71,7 +71,7 @@ if (isset($_SESSION['acc_id'])) {
                                     <p class="fw-bold mb-0"><?= ucfirst($messages['acc_fname']) ?> <?= $messages['acc_lname'] ?> (Administrator)</p>
                                 </div>
                                 <div class="card-body">
-                                    <p class="mb-0"><?= $messages['mess_content'] ?></p>
+                                    <p class="mb-0"><?= htmlspecialchars($messages['mess_content']) ?></p>
                                     
                                     <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
