@@ -64,6 +64,9 @@ $(document).ready(function() {
 
                             // Start building the message HTML
                             var messageHtml = '<li class="media ';
+                            if(message.mess_content==null){
+                                message.mess_content=="";
+                            }
                             messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
                              
                             messageHtml += '<div class="avatar flex-shrink-0">';
