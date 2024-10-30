@@ -73,7 +73,10 @@ $(document).ready(function() {
                             messageHtml += '<div class="media-body flex-grow-1">';
                             messageHtml += '<div class="msg-box"><div>';
 
-                            messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+
+
+                            messageHtml += (message.mess_sender == session_id) ? ' ">' : '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>">';
+                         
                             if (message.mess_content) {
                                 messageHtml += '<p>' + message.mess_content + '</p>';
                             }
