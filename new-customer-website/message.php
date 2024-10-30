@@ -56,8 +56,11 @@ include('components/header.php');
 
 <div class="card-footer">
             <div class="input-group">
-                <input class="form-control type_msg mh-auto empty_check" placeholder="Type your message...">
-                <button class="btn btn-primary btn_send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+
+                <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
+
+                <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
+                <button  type="button" id="btnSentMessage" class="btn btn-primary btn_send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </div>
         </div>
 
