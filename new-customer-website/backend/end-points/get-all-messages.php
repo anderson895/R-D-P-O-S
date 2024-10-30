@@ -72,7 +72,7 @@ if (isset($_SESSION['acc_id'])) {
                                 </div>
                                 <div class="card-body">
                                     <p class="mb-0">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d61714.311733878276!2d120.95815599999999!3d14.817147000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad2815babb8d%3A0x866d22682ef13094!2sR.%20De%20Leon%20Poultry%20Supply!5e0!3m2!1sen!2sus!4v1730271034384!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        <?= $messages['mess_content'] ?>
                                     
                                     
                                     </p>
