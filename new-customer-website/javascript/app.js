@@ -360,15 +360,22 @@ $("#btnSentMessage").click(function(e) {
       showAlert(".alert-danger", "Message cannot be empty!");
       return;
   }
-  
 
   // Prepare FormData
   var formData = new FormData();
   formData.append("requestType", "SentMessage");
   formData.append("mess_sender_id", mess_sender_id);
   formData.append("sender_Messages", sender_Messages);
+
+  // Check for file input and append if available
   if (fileInput.files.length > 0) {
-      formData.append("file", fileInput.files[0]); // Append the file
+      var file = fileInput.files[0];
+      var maxFileSize = 10 * 1024 * 1024; // 10 MB limit
+      if (file.size > maxFileSize) {
+          showAlert(".alert-danger", "File size must be less than 10MB!");
+          return;
+      }
+      formData.append("file", file); // Append the file
   }
 
   // Show spinner and disable button
@@ -406,6 +413,7 @@ $("#btnSentMessage").click(function(e) {
       }
   });
 });
+
 
 
 
