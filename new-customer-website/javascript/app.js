@@ -322,79 +322,80 @@ $(document).on("click", ".btnViewProduct", function (e) {
 
   // Sent Messages
 
-  $("#fileInput").change(function() {
-    var file = this.files[0];
-    if (file) {
-        $("#fileName").text("Selected File: " + file.name);
-        $("#fileDisplay").show();
+  // File input change event
+$("#fileInput").change(function() {
+  var file = this.files[0];
+  if (file) {
+      $("#fileName").text("Selected File: " + file.name);
+      $("#fileDisplay").show();
 
-        // Preview the image
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $("#imagePreview").attr("src", e.target.result);
-            $("#imagePreviewContainer").show();
-        };
-        reader.readAsDataURL(file);
-    }
+      // Preview the image
+      var reader = new FileReader();
+      reader.onload = function(e) {
+          $("#imagePreview").attr("src", e.target.result);
+          $("#imagePreviewContainer").show();
+      };
+      reader.readAsDataURL(file);
+  }
 });
 
 // Optional: For the remove file button
 $("#removeFile").click(function() {
-    $("#fileInput").val(''); // Clear the file input
-    $("#fileName").text("Selected File: ");
-    $("#imagePreviewContainer").hide(); // Hide image preview
-    $("#fileDisplay").hide(); // Hide file display
+  $("#fileInput").val(''); // Clear the file input
+  $("#fileName").text("Selected File: ");
+  $("#imagePreviewContainer").hide(); // Hide image preview
+  $("#fileDisplay").hide(); // Hide file display
 });
 
-
-
-$("#btnSentMessage").click(function (e) {
+// Send message button click event
+$("#btnSentMessage").click(function(e) {
   e.preventDefault();
 
   var mess_sender_id = $("#mess_sender_id").val();
   var sender_Messages = $("#sender_Messages").val();
   var fileInput = $('#fileInput')[0]; // Get the file input element
 
-  // Check if there's a file selected
+  // Prepare FormData
   var formData = new FormData();
   formData.append("requestType", "SentMessage");
   formData.append("mess_sender_id", mess_sender_id);
   formData.append("sender_Messages", sender_Messages);
   if (fileInput.files.length > 0) {
-      formData.append("file", fileInput.files[0]); // Append the file to the FormData
+      formData.append("file", fileInput.files[0]); // Append the file
   }
 
-  // The rest of the AJAX request remains similar
+  // Show spinner and disable button
   $("#spinner").show();
   $("#btnSentMessage i").hide();
   $("#btnSentMessage").prop('disabled', true);
 
+  // AJAX request
   $.ajax({
       type: "POST",
       url: "backend/end-points/SentMessage.php",
       data: formData,
       contentType: false, // Important for FormData
       processData: false, // Important for FormData
-      success: function (response) {
-        console.log(response);
-
+      success: function(response) {
+          console.log(response);
           if (response == "400") {
               showAlert(".alert-danger", "Sent message unsuccessful!");
           } else {
               showAlert(".alert-success", response);
-              $('#sender_Messages').val('');
-              $('#fileInput').val(''); // Clear file input if needed
+              $('#sender_Messages').val(''); // Clear message input
+              $('#fileInput').val(''); // Clear file input
               $('#imagePreviewContainer').hide(); // Hide image preview
               $('#fileDisplay').hide(); // Hide file display
           }
       },
       complete: function() {
-          $("#spinner").hide();
-          $("#btnSentMessage i").show();
-          $("#btnSentMessage").prop('disabled', false);
+          $("#spinner").hide(); // Hide spinner
+          $("#btnSentMessage i").show(); // Show button icon
+          $("#btnSentMessage").prop('disabled', false); // Enable button
       }
   });
 });
+
 
 
 
