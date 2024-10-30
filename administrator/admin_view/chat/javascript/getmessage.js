@@ -55,7 +55,13 @@ $(document).ready(function() {
                         messagesHTML += '<div class="media-body flex-grow-1">';
                         messagesHTML += '<div>';
                         messagesHTML += '<div class="user-name">' + message.acc_fname + ' ' + message.acc_lname + '</div>';
-                        messagesHTML += '<div class="user-last-chat" >' + message.mess_content + '</div>';
+                        
+                        if (message.mess_content) {
+                            messagesHTML += '<div class="user-last-chat" >' + message.mess_content + '</div>';
+                        } else {
+                            messagesHTML += `<div class="user-last-chat">Sent Attachment</div>`;
+                        }
+                        
                         messagesHTML += '</div>';
                         messagesHTML += '<div>';
                         messagesHTML += '<div class="last-chat-time">' + messageDate.toLocaleString() + '</div>'; // Date as string
