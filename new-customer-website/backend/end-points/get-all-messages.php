@@ -16,9 +16,8 @@ if (isset($_SESSION['acc_id'])) {
                     // Format the date
                     $message_date = date('F j, Y, g:i a', strtotime($messages['mess_date']));
 
-                    // Check if the message sender is the current user (Customer)
                     if ($messages['mess_sender'] == $acc_id) {
-                        ?>
+?>
                         <!-- Customer message -->
                         <li class="d-flex justify-content-between mb-4">
                             <div class="card mask-custom w-100" style="background-color:#0084ff;">
@@ -27,6 +26,13 @@ if (isset($_SESSION['acc_id'])) {
                                 </div>
                                 <div class="card-body">
                                     <p class="mb-0 text-white"><?= $messages['mess_content'] ?></p>
+                                    
+                                    <!-- Display message image if it exists -->
+                                    <?php if (!empty($messages['mess_img'])): ?>
+                                        <img src="../upload_img/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
+                                             class="img-fluid mt-2" style="max-width: 100%; height: auto;">
+                                    <?php endif; ?>
+
                                     <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
                                 </div>
                             </div>
@@ -37,10 +43,12 @@ if (isset($_SESSION['acc_id'])) {
                                 <i class="bi bi-person-fill d-flex align-self-start ms-3" style="font-size: 60px; background-color:black; border-radius:50px;"></i>
                             <?php endif; ?>
                         </li>
-                        <?php
+
+                    <?php
                     } else {
-                        // Admin message
-                        ?>
+                    ?>
+
+                        <!-- Admin message -->
                         <li class="d-flex justify-content-between mb-4">
                             <?php if (!empty($messages['emp_image'])): ?>
                                 <img src="../upload_img/<?= htmlspecialchars($messages['emp_image']) ?>" alt="avatar"
@@ -55,11 +63,19 @@ if (isset($_SESSION['acc_id'])) {
                                 </div>
                                 <div class="card-body">
                                     <p class="mb-0"><?= $messages['mess_content'] ?></p>
+                                    
+                                    <!-- Display message image if it exists -->
+                                    <?php if (!empty($messages['mess_img'])): ?>
+                                        <img src="../upload_img/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
+                                             class="img-fluid mt-2" style="max-width: 100%; height: auto;">
+                                    <?php endif; ?>
+
                                     <p class="text-secondary small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
                                 </div>
                             </div>
                         </li>
-                        <?php
+
+                    <?php
                     }
                 }
             } else {
