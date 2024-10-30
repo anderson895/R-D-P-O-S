@@ -36,10 +36,20 @@ $(document).ready(function() {
                             $("#reciever_image").on("click", function() {
                                 window.location.href = 'profile_customer.php?target_id=' + account_id;
                             });
+
+                            $("#receiver_name").on("click", function() {
+                                window.location.href = 'profile_customer.php?target_id=' + account_id;
+                            });
+
+
                         } else {
                             // Set the onclick attribute for other account types
                             $("#reciever_image").on("click", function() {
                                 window.location.href = 'profile.php?account_id=' + account_id;
+                            });
+
+                            $("#receiver_name").on("click", function() {
+                                window.location.href = 'profile_customer.php?target_id=' + account_id;
                             });
                         }
 
