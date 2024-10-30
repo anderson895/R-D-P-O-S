@@ -272,6 +272,10 @@ public function sentMessage($sender_id, $sender_Messages, $fileName)
         $sender_Messages = null;
     }
 
+    if ($fileName === "") {
+        $fileName = null;
+    }
+
     // Prepare the SQL statement using prepared statements
     $stmt = $this->conn->prepare("INSERT INTO `messages` (`mess_sender`, `mess_content`, `mess_date`, `mess_reciever`, `mess_img`) VALUES (?, ?, ?, 'Admin', ?)");
     
