@@ -75,10 +75,9 @@ $(document).ready(function() {
 
 
 
-                            messageHtml += (message.mess_sender == session_id) ? '' : '<i class="text-white"><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+                            // messageHtml += (message.mess_sender == session_id) ? '' : '<i class="text-white"><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
                          
                             if (message.mess_content) {
-                                messageHtml += '<hr>';
                                 messageHtml += '<p >' + message.mess_content + '</p>';
                             }
 
