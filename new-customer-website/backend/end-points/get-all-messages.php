@@ -34,7 +34,7 @@ if (isset($_SESSION['acc_id'])) {
                             </div>
                             <?php if (!empty($messages['emp_image'])): ?>
                                 <img src="../upload_img/<?= $messages['emp_image'] ?>" alt="avatar"
-                                     class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" style="width: 60px; height: 80px; object-fit: cover;">
+                                     class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" style="width: 60px; height: 60px; object-fit: cover;">
                             <?php else: ?>
                                 <i class="bi bi-person-fill d-flex align-self-start ms-3" style="font-size: 60px; background-color:black; border-radius:50px;"></i>
                             <?php endif; ?>
