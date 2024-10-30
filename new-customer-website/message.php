@@ -62,7 +62,7 @@ include('components/header.php');
         
         <!-- Button with spinner -->
         <button type="button" id="btnSentMessage" class="btn btn-primary btn_send">
-            <span class="spinner-border spinner-border-sm" style="display: none;" id="messageSpinner" role="status" aria-hidden="true"></span>
+            <span class="spinner-border spinner-border-sm" style="display: none;" id="spinner" role="status" aria-hidden="true"></span>
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
     </div>
