@@ -78,7 +78,7 @@ $(document).ready(function() {
                             messageHtml += (message.mess_sender == session_id) ? '' : '<i class="text-white"><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
                          
                             if (message.mess_content) {
-                                messageHtml += '<p>' + message.mess_content + '</p>';
+                                messageHtml += '<p class="text-dark">' + message.mess_content + '</p>';
                             }
 
 
