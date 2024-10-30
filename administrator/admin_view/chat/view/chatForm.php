@@ -93,7 +93,7 @@ if ($acc_type == "customer") {
         <img
             
             id="reciever_image"
-            class="rounded-circle user_img" src="../../upload_system/empty.png" alt=""' . '
+            class="rounded-circle user_img" src="../../upload_system/empty.png" alt="" style="cursor: pointer;"' . '
         >
     ';
 } else {
@@ -102,7 +102,7 @@ if ($acc_type == "customer") {
         
             id="reciever_image"
             class="rounded-circle user_img"
-            src="../../upload_system/empty.png" alt=""' . '
+            src="../../upload_system/empty.png" alt="" style="cursor: pointer;"' . '
         >
     ';
 }
