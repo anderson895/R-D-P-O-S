@@ -29,8 +29,17 @@ if (isset($_SESSION['acc_id'])) {
                                     
                                     <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
-                                        <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
-                                             class="img-fluid mt-2" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
+                                                 class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                                            <!-- Download icon -->
+                                            <a href="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" 
+                                               download 
+                                               class="btn btn-link text-white ms-2 p-0" 
+                                               title="Download Image">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                        </div>
                                     <?php endif; ?>
 
                                     <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
@@ -66,8 +75,17 @@ if (isset($_SESSION['acc_id'])) {
                                     
                                     <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
-                                        <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
-                                             class="img-fluid mt-2" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
+                                                 class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                                            <!-- Download icon -->
+                                            <a href="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" 
+                                               download 
+                                               class="btn btn-link text-secondary ms-2 p-0" 
+                                               title="Download Image">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                        </div>
                                     <?php endif; ?>
 
                                     <p class="text-secondary small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
