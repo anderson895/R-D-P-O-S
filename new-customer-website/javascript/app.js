@@ -354,12 +354,13 @@ $("#btnSentMessage").click(function(e) {
   var mess_sender_id = $("#mess_sender_id").val();
   var sender_Messages = $("#sender_Messages").val();
   var fileInput = $('#fileInput')[0]; // Get the file input element
-
+  
   // Input validation
-  if (sender_Messages.trim() === '' && fileInput=== '') {
+  if (sender_Messages.trim() === '' && fileInput.files.length === 0) {
       showAlert(".alert-danger", "Message cannot be empty!");
       return;
   }
+  
 
   // Prepare FormData
   var formData = new FormData();
