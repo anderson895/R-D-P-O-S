@@ -118,10 +118,9 @@ while ($row = mysqli_fetch_assoc($view_query)) {
     // Set the activity based on available message content
     if ($mess_content) {
         $act_activity = (strlen($mess_content) > 150) ? substr($mess_content, 0, 150) . '...' : $mess_content;
-    } else if ($mess_doc) {
-        $act_activity = (strlen($mess_doc) > 150) ? substr($mess_doc, 0, 150) . '...' : $mess_doc;
-    } else if ($mess_image) {
-        $act_activity = (strlen($mess_image) > 150) ? substr($mess_image, 0, 150) . '...' : $mess_image;
+    }else{
+        $act_activity = "Sent Attachment";
+       
     }
 
  $mess_seen;
