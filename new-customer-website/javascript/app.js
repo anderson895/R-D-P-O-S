@@ -397,7 +397,7 @@ $("#btnSentMessage").click(function(e) {
               // Assuming your backend returns a JSON object with an 'error' key
               showAlert(".alert-danger", response.error);
           } else {
-              showAlert(".alert-success", response.message);
+              showAlert(".alert-success", response.success);
               $('#sender_Messages').val(''); // Clear message input
               $('#fileInput').val(''); // Clear file input
               $('#imagePreviewContainer').hide(); // Hide image preview
