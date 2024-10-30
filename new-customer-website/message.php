@@ -54,7 +54,7 @@ include('components/header.php');
   </div>
 </li> -->
 
-<div class="card-footer">
+        <div class="card-footer">
             <div class="input-group">
 
                 <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
