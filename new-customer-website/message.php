@@ -36,7 +36,7 @@ include('components/header.php');
          
 
           
-        <li class="mb-3 mt-3">
+        <!-- <li class="mb-3 mt-3">
   <div data-mdb-input-init class="form-outline form-white">
     <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
@@ -52,7 +52,14 @@ include('components/header.php');
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-</li>
+</li> -->
+
+<div class="card-footer">
+            <div class="input-group">
+                <input class="form-control type_msg mh-auto empty_check" placeholder="Type your message...">
+                <button class="btn btn-primary btn_send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+        </div>
 
 
 
