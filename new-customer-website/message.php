@@ -54,19 +54,20 @@ include('components/header.php');
   </div>
 </li> -->
 
-        <div class="card-footer">
-            <div class="input-group">
+<div class="card-footer">
+    <div class="input-group">
+        <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
 
-                <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
+        <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
+        
+        <!-- Button with spinner -->
+        <button type="button" id="btnSentMessage" class="btn btn-primary btn_send">
+            <span class="spinner-border spinner-border-sm " id="messageSpinner" role="status" aria-hidden="true"></span>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
 
-                <input type="text" class="form-control type_msg mh-auto empty_check" id="sender_Messages" name="sender_Messages" placeholder="Type your message...">
-                <button  type="button" id="btnSentMessage" class="btn btn-primary btn_send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                
-                <div id="spinner" class="spinner-border text-primary" role="status" style="display: block;">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </div>
 
 
 
