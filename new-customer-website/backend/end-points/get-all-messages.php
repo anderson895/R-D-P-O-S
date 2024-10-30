@@ -29,7 +29,7 @@ if (isset($_SESSION['acc_id'])) {
                                     
                                     <!-- Display message image if it exists -->
                                     <?php if (!empty($messages['mess_img'])): ?>
-                                        <img src="../upload_img/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
+                                        <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
                                              class="img-fluid mt-2" style="max-width: 100%; height: auto;">
                                     <?php endif; ?>
 
@@ -66,7 +66,7 @@ if (isset($_SESSION['acc_id'])) {
                                     
                                     <!-- Display message image if it exists -->
                                     <?php if (!empty($messages['mess_img'])): ?>
-                                        <img src="../upload_img/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
+                                        <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
                                              class="img-fluid mt-2" style="max-width: 100%; height: auto;">
                                     <?php endif; ?>
 
