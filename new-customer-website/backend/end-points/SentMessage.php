@@ -30,7 +30,7 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
 
                 if (in_array($fileExtension, $allowedfileExtensions) && $fileSize <= $maxFileSize) {
                     // Define the upload directory
-                    $uploadFileDir = '../upload_message/';
+                    $uploadFileDir = '../../upload_message/';
                     
                     // Generate a unique file name using only the original filename
                     $newFileName = uniqid('file_', true) . '.' . $fileExtension; // Keep the extension
