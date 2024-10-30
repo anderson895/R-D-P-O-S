@@ -27,10 +27,10 @@ if (isset($_SESSION['acc_id'])) {
                                 <div class="card-body">
                                     <p class="mb-0 text-white"><?= $messages['mess_content'] ?></p>
                                     
-                                    <!-- Display message image if it exists -->
+                                    <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
                                         <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
-                                             class="img-fluid mt-2" style="max-width: 100%; height: auto;">
+                                             class="img-fluid mt-2" style="width: 100px; height: 100px; object-fit: cover;">
                                     <?php endif; ?>
 
                                     <p class="text-light small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
@@ -64,10 +64,10 @@ if (isset($_SESSION['acc_id'])) {
                                 <div class="card-body">
                                     <p class="mb-0"><?= $messages['mess_content'] ?></p>
                                     
-                                    <!-- Display message image if it exists -->
+                                    <!-- Display message image if it exists with fixed size -->
                                     <?php if (!empty($messages['mess_img'])): ?>
                                         <img src="../upload_message/<?= htmlspecialchars($messages['mess_img']) ?>" alt="message image"
-                                             class="img-fluid mt-2" style="max-width: 100%; height: auto;">
+                                             class="img-fluid mt-2" style="width: 100px; height: 100px; object-fit: cover;">
                                     <?php endif; ?>
 
                                     <p class="text-secondary small mt-2 mb-0 text-end"><i class="far fa-clock"></i> <?= $message_date ?></p>
