@@ -1,11 +1,8 @@
 $(document).ready(function() {
     var account_id = $("#account_id").val(); 
-    var session_id= $("#session_id").val();
+    var session_id = $("#session_id").val();
   
     var pollInterval = 1000; 
-
-
-    
 
     function retrieveViewMessages(accountId) {
         $.ajax({
@@ -14,7 +11,6 @@ $(document).ready(function() {
             data: { account_id: accountId },
             dataType: 'json',
             success: function(data) {
-
                 console.log(data);
                 
                 var chatBody = $('#messageList');
@@ -47,16 +43,14 @@ $(document).ready(function() {
                             });
                         }
 
-        
                         data.forEach(function(message) {
                             var formattedTime = formatTimeTo12HourFormat(message.mess_date);
 
                             if (message.Reciever_id === null) {
                                 $('#chatbox').hide();
-                            }else{
+                            } else {
                                 $('#chatbox').show();
                             }
-                            
         
                             var imagePathReciever = '../../upload_system/empty.png';
                             if (message.Reciever_image !== '') {
@@ -67,65 +61,63 @@ $(document).ready(function() {
                             if (message.emp_image !== '') {
                                 imagePath = '../../upload_img/' + message.emp_image;
                             }
-        
+
+                            // Start building the message HTML
                             var messageHtml = '<li class="media ';
                             messageHtml += (message.mess_sender == session_id) ? 'sent d-flex">' : 'received d-flex">';
                              
-                    messageHtml += '<div class="avatar flex-shrink-0">';
-                    messageHtml += '<img src="' + imagePath + '" alt="User Image" class="avatar-img rounded-circle">';
-                    messageHtml += '</div>';
-                    messageHtml += '<div class="media-body flex-grow-1">';
-                    messageHtml += '<div class="msg-box"><div>';
+                            messageHtml += '<div class="avatar flex-shrink-0">';
+                            messageHtml += '<img src="' + imagePath + '" alt="User Image" class="avatar-img rounded-circle">';
+                            messageHtml += '</div>';
+                            messageHtml += '<div class="media-body flex-grow-1">';
+                            messageHtml += '<div class="msg-box"><div>';
 
-                   
+                            messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+                            messageHtml += '<p>' + message.mess_content + '</p>';
 
-                       messageHtml += '<i><b>' + message.acc_fname + ' ' + message.acc_lname + '</b> (' + message.acc_type + ')</i>';
+                            // Check if message image exists and include it
+                            if (message.mess_img) {
+                                messageHtml += '<div class="d-flex align-items-center mt-2">';
+                                messageHtml += '<img src="../upload_message/' + message.mess_img + '" alt="Message Image" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">';
+                                messageHtml += '<a href="../upload_message/' + message.mess_img + '" download class="btn btn-link p-0 ms-2" title="Download Image">';
+                                messageHtml += '<i class="fas fa-download"></i>';
+                                messageHtml += '</a>';
+                                messageHtml += '</div>';
+                            }
 
+                            messageHtml += '<ul class="chat-msg-info"><li>';
+                            messageHtml += '<div class="chat-time"><span>' + formattedTime + '</span></div>';
+                            messageHtml += '</li></ul></div></div></div></li>';
 
-                        messageHtml += '<p >'+ message.mess_content + '</p>';
-                    
-
-                    messageHtml += '<ul class="chat-msg-info"><li>';
-                    messageHtml += '<div class="chat-time"><span>' + formattedTime + '</span></div>';
-                    messageHtml += '</li></ul></div></div></div></li>';
-
-                    chatBody.append(messageHtml);
-                });
-
-            
-
-
-            } else {
-                console.error('Reciever_fullname property is missing in the data:', data);
+                            chatBody.append(messageHtml);
+                        });
+                    } else {
+                        console.error('Reciever_fullname property is missing in the data:', data);
+                    }
+                } else {
+                    console.error('Empty or invalid data received:', data);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("XHR Status: " + xhr.status);
+                console.error("Status: " + status);
+                console.error("Error: " + error);
+            },
+            complete: function() {
+                // After each Ajax request is complete, set up the next polling request
+                setTimeout(function() {
+                    retrieveViewMessages(account_id);
+                }, pollInterval);
             }
-        } else {
-            console.error('Empty or invalid data received:', data);
-        }
-    },
-    error: function(xhr, status, error) {
-        console.error("XHR Status: " + xhr.status);
-        console.error("Status: " + status);
-        console.error("Error: " + error);
-    },
-    complete: function() {
-        // After each Ajax request is complete, set up the next polling request
-        setTimeout(function() {
-            retrieveViewMessages(account_id);
-        }, pollInterval);
-    }
-});
+        });
     }
 
     retrieveViewMessages(account_id);
 
     $('#chatMessages .contacts_body').on('click', '.changeChatView', function() {
         var clickedAccountID = $(this).data("account_id"); // Get the clicked account_id
-         account_id = clickedAccountID; // Update the account_id based on the clicked element
+        account_id = clickedAccountID; // Update the account_id based on the clicked element
 
         retrieveViewMessages(account_id);
-
-        
-        //window.location.href = 'profile_customer.php?target_id=' + clickedAccountID;
-
     });
 });
