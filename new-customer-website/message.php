@@ -92,7 +92,7 @@ include('components/header.php');
     <div id="fileDisplay" class="mt-2" style="display: none;">
         <span id="fileName">Selected File: </span>
         <div id="imagePreviewContainer" class="border rounded p-2 mt-2" style="display: none;">
-          <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+          <div class="d-flex justify-content-center align-items-center">
               <img id="imagePreview" class="img-fluid" style="max-height: 150px;" />
           </div>
 
