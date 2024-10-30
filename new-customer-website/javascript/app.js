@@ -355,14 +355,9 @@ $("#btnSentMessage").click(function(e) {
   var sender_Messages = $("#sender_Messages").val();
   var fileInput = $('#fileInput')[0]; // Get the file input element
   
-
- // Trim whitespace from sender_Messages and handle empty case
-  if (sender_Messages.trim() === '') {
-    sender_Messages = null;
-  }
-
+  
   // Input validation
-  if (sender_Messages=== null && fileInput.files.length === 0) {
+  if (sender_Messages.trim() === '' && fileInput.files.length === 0) {
       showAlert(".alert-danger", "Message cannot be empty!");
       return;
   }

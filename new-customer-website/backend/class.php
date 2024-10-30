@@ -263,23 +263,29 @@ class global_class extends db_connect
     }
 
     // sentMessage
-    public function sentMessage($sender_id, $sender_Messages, $fileName)
-    {
-        $dateToday = date('Y-m-d H:i:s'); 
+public function sentMessage($sender_id, $sender_Messages, $fileName)
+{
+    $dateToday = date('Y-m-d H:i:s'); 
 
-        
-        // Prepare the SQL statement
-        $query = "INSERT INTO `messages` (`mess_sender`, `mess_content`, `mess_date`, `mess_reciever`, `mess_img`) VALUES ('$sender_id', '$sender_Messages', '$dateToday', 'Admin', '$fileName')";
-        
-        $response = 'Message sent!';
-
-        // Execute the query
-        if ($this->conn->query($query) === TRUE) {
-            return $response;
-        } else {
-            return 400; // Error code
-        }
+    // Use null if $sender_Messages is an empty string
+    if ($sender_Messages === "") {
+        $sender_Messages = null;
     }
+
+    // Prepare the SQL statement using prepared statements
+    $stmt = $this->conn->prepare("INSERT INTO `messages` (`mess_sender`, `mess_content`, `mess_date`, `mess_reciever`, `mess_img`) VALUES (?, ?, ?, 'Admin', ?)");
+    
+    // Bind parameters
+    $stmt->bind_param("isss", $sender_id, $sender_Messages, $dateToday, $fileName);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        return 'Message sent!';
+    } else {
+        return 400; // Error code
+    }
+}
+
 
 
     
