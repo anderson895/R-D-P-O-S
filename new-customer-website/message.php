@@ -70,13 +70,14 @@ include('components/header.php');
 
 
 
+
 <div class="card-footer">
     <div class="input-group">
         <div class="input-group-prepend">
             <label for="fileInput" class="btn btn-primary">
                 <i class="fa fa-paperclip"></i> &nbsp;
             </label>
-            <input type="file" id="fileInput" class="form-control-file" style="display: none;">
+            <input type="file" id="fileInput" class="form-control-file" style="display: none;" accept="image/*">
         </div>
 
         <input hidden type="text" name="mess_sender_id" id="mess_sender_id" value="<?=$_SESSION['acc_id']?>">
@@ -90,6 +91,7 @@ include('components/header.php');
     </div>
     <div id="fileDisplay" style="display: none;">
         <span id="fileName">Selected File: </span>
+        <img id="imagePreview" style="max-width: 100%; max-height: 150px; display: none;" />
         <button id="removeFile" class="btn btn-danger">X</button>
     </div>
 </div>
@@ -97,13 +99,21 @@ include('components/header.php');
 
 
 <script>
-$(document).ready(function() {
+  $(document).ready(function() {
     $('#fileInput').change(function() {
         const file = this.files[0]; // Get the selected file
 
         if (file) {
-            // Display the file name
-            $('#fileName').append(file.name);
+            const reader = new FileReader(); // Create a FileReader to read the file
+
+            reader.onload = function(e) {
+                $('#imagePreview').attr('src', e.target.result); // Set the image src to the file data
+                $('#imagePreview').show(); // Show the image
+            };
+
+            reader.readAsDataURL(file); // Read the file as a Data URL
+
+            $('#fileName').append(file.name); // Display the file name
             $('#fileDisplay').show(); // Show the file display
             $('#sender_Messages').prop('disabled', true); // Disable the message input
         }
@@ -112,15 +122,13 @@ $(document).ready(function() {
     $('#removeFile').click(function() {
         $('#fileInput').val(''); // Clear the file input
         $('#fileName').text('Selected File: '); // Reset the file name display
+        $('#imagePreview').hide(); // Hide the image preview
         $('#fileDisplay').hide(); // Hide the file display
         $('#sender_Messages').prop('disabled', false); // Enable the message input
     });
 });
 
 </script>
-
-
-
 
 
          
