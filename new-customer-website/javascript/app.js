@@ -355,6 +355,12 @@ $("#btnSentMessage").click(function(e) {
   var sender_Messages = $("#sender_Messages").val();
   var fileInput = $('#fileInput')[0]; // Get the file input element
 
+  // Input validation
+  if (sender_Messages.trim() === '') {
+      showAlert(".alert-danger", "Message cannot be empty!");
+      return;
+  }
+
   // Prepare FormData
   var formData = new FormData();
   formData.append("requestType", "SentMessage");
@@ -378,15 +384,19 @@ $("#btnSentMessage").click(function(e) {
       processData: false, // Important for FormData
       success: function(response) {
           console.log(response);
-          if (response == "400") {
-              showAlert(".alert-danger", "Sent message unsuccessful!");
+          if (response.error) {
+              // Assuming your backend returns a JSON object with an 'error' key
+              showAlert(".alert-danger", response.error);
           } else {
-              showAlert(".alert-success", response);
+              showAlert(".alert-success", response.message);
               $('#sender_Messages').val(''); // Clear message input
               $('#fileInput').val(''); // Clear file input
               $('#imagePreviewContainer').hide(); // Hide image preview
               $('#fileDisplay').hide(); // Hide file display
           }
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          showAlert(".alert-danger", "An error occurred: " + textStatus);
       },
       complete: function() {
           $("#spinner").hide(); // Hide spinner

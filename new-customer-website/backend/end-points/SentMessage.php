@@ -6,15 +6,11 @@ $db = new global_class();
 $sender_id = $_POST['mess_sender_id'];
 $sender_Messages = $_POST['sender_Messages'];
 
-if(isset($_FILES)){
-    echo "<pre>";
-    print_r($_FILES);
-    echo "</pre>";
-}else{
+
     echo "<pre>";
     print_r($_POST);
     echo "</pre>";
-}
+
 
 
 
