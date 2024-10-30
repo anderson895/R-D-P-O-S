@@ -263,7 +263,7 @@ class global_class extends db_connect
     }
 
     // sentMessage
-    public function sentMessage($sender_id, $sender_Messages, $fileName = null)
+    public function sentMessage($sender_id, $sender_Messages, $fileName)
     {
         $dateToday = date('Y-m-d H:i:s'); 
 
