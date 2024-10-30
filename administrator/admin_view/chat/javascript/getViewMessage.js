@@ -96,7 +96,7 @@ $(document).ready(function() {
 
 
                             messageHtml += '<ul class="chat-msg-info"><li>';
-                            messageHtml += '<div class="chat-time"><span>' + formattedTime + '</span></div>';
+                            messageHtml += '<div class="chat-time text-dark"><span>' + formattedTime + '</span></div>';
                             messageHtml += '</li></ul></div></div></div></li>';
 
                             chatBody.append(messageHtml);
