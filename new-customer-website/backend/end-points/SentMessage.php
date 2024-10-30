@@ -25,7 +25,7 @@ if (isset($_POST['requestType']) && $_POST['requestType'] == 'SentMessage') {
                 $fileExtension = strtolower(end($fileNameCmps));
 
                 // Validate file type and size
-                $allowedfileExtensions = ['jpg', 'gif', 'png', 'pdf', 'doc', 'docx', 'txt'];
+                $allowedfileExtensions = ['jpg','jpeg','png', 'pdf', 'webp'];
                 $maxFileSize = 10 * 1024 * 1024; // 10 MB limit
 
                 if (in_array($fileExtension, $allowedfileExtensions) && $fileSize <= $maxFileSize) {
