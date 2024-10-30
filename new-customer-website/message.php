@@ -67,7 +67,6 @@ include('components/header.php');
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </button>
     </div>
-
 </div>
 
 

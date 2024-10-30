@@ -321,46 +321,49 @@ $(document).on("click", ".btnViewProduct", function (e) {
 
 
   // Sent Messages
-  $("#btnSentMessage").click(function (e) {
-    e.preventDefault(); // Prevent default button action
+$("#btnSentMessage").click(function (e) {
+  e.preventDefault(); // Prevent default button action
 
-    var mess_sender_id = $("#mess_sender_id").val();
-    var sender_Messages = $("#sender_Messages").val();
+  var mess_sender_id = $("#mess_sender_id").val();
+  var sender_Messages = $("#sender_Messages").val();
 
-    console.log(mess_sender_id);
+  console.log(mess_sender_id);
 
-    if (sender_Messages) {
-      // Show spinner and disable button
+  if (sender_Messages) {
+      // Show spinner, hide icon, and disable button
       $("#spinner").show();
+      $("#btnSentMessage i").hide(); // Hide the paper-plane icon
       $("#btnSentMessage").prop('disabled', true);
 
       $.ajax({
-        type: "POST",
-        url: "backend/end-points/SentMessage.php",
-        data: {
-          requestType: "SentMessage",
-          mess_sender_id: mess_sender_id,
-          sender_Messages: sender_Messages
-        },
-        success: function (response) {
-          if (response == "400") {
-            showAlert(".alert-danger", "Sent message unsuccessful!");
-          } else {
-            showAlert(".alert-success", response);
-            // Clear the sender_Messages input field
-            $('#sender_Messages').val('');
+          type: "POST",
+          url: "backend/end-points/SentMessage.php",
+          data: {
+              requestType: "SentMessage",
+              mess_sender_id: mess_sender_id,
+              sender_Messages: sender_Messages
+          },
+          success: function (response) {
+              if (response == "400") {
+                  showAlert(".alert-danger", "Sent message unsuccessful!");
+              } else {
+                  showAlert(".alert-success", response);
+                  // Clear the sender_Messages input field
+                  $('#sender_Messages').val('');
+              }
+          },
+          complete: function() {
+              // Hide spinner, show icon, and enable button
+              $("#spinner").hide();
+              $("#btnSentMessage i").show(); // Show the paper-plane icon again
+              $("#btnSentMessage").prop('disabled', false);
           }
-        },
-        complete: function() {
-          // Hide spinner and enable button
-          $("#spinner").hide();
-          $("#btnSentMessage").prop('disabled', false);
-        }
       });
-    } else {
+  } else {
       alertify.error('Message is Empty');
-    }
-  });
+  }
+});
+
 
 
 
