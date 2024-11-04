@@ -403,21 +403,11 @@ $(document).ready(function() {
         };
 
         // Perform an Ajax POST request to your PHP script
-        function showLoading() {
-    $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
-    $("#submitButton").hide();
-}
-
-function hideLoading() {
-    $("#loadingSpinner").hide();
-    $("#submitButton").show();
-}
-
-$.ajax({
+        $.ajax({
     type: "POST",
     url: "controller/register/back_register.php",
     data: formData,
-    dataType: "json",
+    dataType: "json", // Expecting a JSON response
     success: function(response) {
         var result = response.response;
         var last_id = response.last_id;
@@ -427,11 +417,15 @@ $.ajax({
                 type: "POST",
                 url: "../mailer.php",
                 data: { db_acc_id: last_id },
-                dataType: "json",
-                beforeSend: showLoading,
+                dataType: "json", // Expecting a JSON response
+                beforeSend: function() {
+                    $("#loadingSpinner").html('<div class="spinner-border text-warning" role="status"><span class="sr-only"></span></div>').show();
+                    $("#submitButton").hide();
+                },
                 success: function(response) {
-                    hideLoading();
+                    console.log(response);
                     if (response.success === "OTPSentSuccessfully") {
+                        $("#loadingSpinner").hide();
                         alertify.success("OTP successfully sent to " + emailInput.val());
                         setTimeout(function() {
                             window.location.href = "verification_code.php?accid=" + last_id;
@@ -441,20 +435,19 @@ $.ajax({
                     }
                 },
                 error: function(xhr, status, error) {
-                    hideLoading();
+                    $("#loadingSpinner").hide();
+                    $("#submitButton").show();
                     alertify.error("Error in sending OTP: " + error);
                 }
             });
         } else {
-            alertify.error(response.message || result || "Unexpected error in registration");
+            alertify.error(result);
         }
     },
     error: function(xhr, status, error) {
         console.error("Submission error: " + error);
-        alertify.error("Failed to submit form. Please try again.");
     }
 });
-
 
     }
 
