@@ -96,7 +96,7 @@ if ($product_row) {
                         <div id="resendDiv">
                             <center><span class="error" id="errorCount"><?= isset($EnterOtpErr) ? htmlspecialchars($EnterOtpErr, ENT_QUOTES, 'UTF-8') : ''; ?></span></center>
                             <p class="resend text-muted mb-0">
-                                Didn't receive code? <a id="resendLink" style="color: green; text-decoration: underline;">Request again</a>
+                                Didn't receive code? <a id="resendLink" style="color: green; text-decoration: underline; cursor:pointer;">Request again</a>
                             </p>
                         </div>
                     </div>
