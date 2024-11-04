@@ -141,7 +141,8 @@ $system_fb	 = $main_row["system_fb"];
                                     </div>
                                     <div class="mb-3 text-primary">
                                         <?php if($db_acc_status != 2) { ?>
-                                            <a id="resendLink" class="nav-link" href="back_resendOtp.php?accid=<?php echo $accid ?>">Resend Otp</a>
+                                            <a id="resendLink" class="nav-link" href="back_resendOtp.php?accid=<?php echo $accid ?>" style="cursor: pointer;">Resend Otp</a>
+
                                         <?php }else{
                                             echo "
                                             <b style='color:red;'>
