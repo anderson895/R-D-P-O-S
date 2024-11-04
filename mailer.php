@@ -53,7 +53,7 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'ardeleonpoultrysupplies@gmail.com';
-    $mail->Password = 'tnsavbpnkjjwomzo'; // Consider using an environment variable instead
+    $mail->Password = 'tnsavbpnkjjwomzo'; 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
@@ -65,44 +65,43 @@ try {
     // Email content
     $mail->isHTML(true);
     $mail->Subject = 'Account Confirmation For Ardeleon Poultry Supplies';
-    // $mail->Body = '
-    // <!DOCTYPE html>
-    // <html>
-    // <head>
-    //   <meta charset="utf-8">
-    //   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    // </head>
-    // <body style="font-family: Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #fff;">
-    //   <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; background-color: #efefef;" cellpadding="0" cellspacing="0">
-    //     <tr>
-    //       <td align="center" style="padding: 1rem 0; width: 100%;">
-    //         <table style="max-width: 600px; margin: 0 auto; text-align: left;" cellpadding="0" cellspacing="0">
-    //           <tr>
-    //             <td style="padding: 40px 0 0;">
-    //               <div style="background-color: maroon; height: 70px; text-align: center;">
-    //                 <img src="https://ucarecdn.com/48afb9df-9145-434f-8512-057a498ed892/6534e356c9783.png" alt="rdpos" style="height: 75px; width: 75px;">
-    //               </div>
-    //               <div style="padding: 20px; background-color: #fff;">
-    //                 <h1 style="margin: 1rem 0;">Verification code</h1>
-    //                 <hr>
-    //                 <p>Please use the verification code below to confirm your account:</p>
-    //                 <p>This OTP will expire in 5 minutes.</p><br><br>
-    //                 <div style="background-color: maroon; text-align: center;">
-    //                   <strong style="font-size: 200%; color: #fff;">'.$db_otp.'</strong>
-    //                 </div>
-    //                 <br>
-    //                 Or just click here <a href="https://rdpos.store/Main/verification_code.php?accid='.$db_acc_id.'&otp='.$db_otp.'">Verify your account</a>
-    //                 <p>Do not share this Passcode with anyone.<br><br>If you didn\'t request this, you can ignore this email.</p>
-    //               </div>
-    //             </td>
-    //           </tr>
-    //         </table>
-    //       </td>
-    //     </tr>
-    //   </table>
-    // </body>
-    // </html>';
-    $mail->Body = 'Test Latency';
+    $mail->Body = '
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="font-family: Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #fff;">
+      <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; background-color: #efefef;" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" style="padding: 1rem 0; width: 100%;">
+            <table style="max-width: 600px; margin: 0 auto; text-align: left;" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="padding: 40px 0 0;">
+                  <div style="background-color: maroon; height: 70px; text-align: center;">
+                    <img src="https://ucarecdn.com/48afb9df-9145-434f-8512-057a498ed892/6534e356c9783.png" alt="rdpos" style="height: 75px; width: 75px;">
+                  </div>
+                  <div style="padding: 20px; background-color: #fff;">
+                    <h1 style="margin: 1rem 0;">Verification code</h1>
+                    <hr>
+                    <p>Please use the verification code below to confirm your account:</p>
+                    <p>This OTP will expire in 5 minutes.</p><br><br>
+                    <div style="background-color: maroon; text-align: center;">
+                      <strong style="font-size: 200%; color: #fff;">'.$db_otp.'</strong>
+                    </div>
+                    <br>
+                    Or just click here <a href="https://rdpos.store/Main/verification_code.php?accid='.$db_acc_id.'&otp='.$db_otp.'">Verify your account</a>
+                    <p>Do not share this Passcode with anyone.<br><br>If you didn\'t request this, you can ignore this email.</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>';
 
     $mail->AltBody = '';
 
