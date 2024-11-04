@@ -8,8 +8,6 @@ if (empty($_GET)) {
     exit;
 }
 
-
-
 // Get account ID from the URL safely
 $accid = htmlspecialchars($_GET['accid'], ENT_QUOTES, 'UTF-8');
 
@@ -19,23 +17,28 @@ $stmt->bind_param("s", $accid);
 $stmt->execute();
 $product_row = $stmt->get_result()->fetch_assoc();
 
-// Check if account was found
-if ($product_row) {
-    $db_acc_id = $product_row["acc_id"];
-    $db_acc_email = $product_row["acc_email"];
-    $email_parts = explode('@', $db_acc_email);
-    $username = $email_parts[0];
-    $domain = $email_parts[1];
-
-    $username_length = strlen($username);
-    $hidden_username = substr_replace($username, '*', 1, $username_length - 2);
-    $masked_email = $hidden_username . '@' . $domain;
-
-    $db_acc_otp = $product_row["Otp"];
-    $db_acc_status = $product_row["acc_status"];
-    $otp_expiration = $product_row["otp_expiration"];
+// Redirect to register.php if account ID not found
+if (!$product_row) {
+    header("Location: register.php");
+    exit;
 }
+
+// Proceed if account was found
+$db_acc_id = $product_row["acc_id"];
+$db_acc_email = $product_row["acc_email"];
+$email_parts = explode('@', $db_acc_email);
+$username = $email_parts[0];
+$domain = $email_parts[1];
+
+$username_length = strlen($username);
+$hidden_username = substr_replace($username, '*', 1, $username_length - 2);
+$masked_email = $hidden_username . '@' . $domain;
+
+$db_acc_otp = $product_row["Otp"];
+$db_acc_status = $product_row["acc_status"];
+$otp_expiration = $product_row["otp_expiration"];
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
