@@ -178,42 +178,43 @@ table {
 
         <table class="table">
             <tbody>
+            
+            
             <tr>
-                <td colspan="4">
-                    <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
-                        <i class="bi bi-currency-exchange"></i> Order Details
-                    </h5>
-                </td>
-            </tr>
-            <tr>
-                <td class="justify-content-between"><span class="" style="font-weight: 600;">Subtotal:</span></td>
-                <td></td>
-                <td></td>
-                <td class="justify-content-between"><span class=""
-                        style="font-weight: 600;">₱<?= number_format($order['subtotal'],2) ?></span></td>
-            </tr>
-            <tr>
-                <td class="justify-content-between"><span class="" style="font-weight: 600;">Vat:</span></td>
-                <td></td>
-                <td></td>
-                <td class="justify-content-between"><span class="" style="font-weight: 600;">₱<?= number_format($order['vat'],2) ?></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="justify-content-between"><span class="" style="font-weight: 600;">Shipping Fee:</span></td>
-                <td></td>
-                <td></td>
-                <td class="justify-content-between"><span class="" style="font-weight: 600;">₱<?= number_format($order['sf'],2) ?></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="justify-content-between"><span class="text-success" style="font-weight: 700;">Total:</span>
-                </td>
-                <td></td>
-                <td></td>
-                <td class="justify-content-between"><span class="text-success"
-                        style="font-weight: 700;">₱<?= number_format($order['total'],2) ?></span></td>
-            </tr>
+    <td colspan="4">
+        <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
+            <i class="bi bi-currency-exchange"></i> Order Details
+        </h5>
+    </td>
+</tr>
+<tr>
+    <td><span style="font-weight: 600;">Subtotal:</span></td>
+    <td></td>
+    <td></td>
+    <td class="text-end"><span style="font-weight: 600;">₱<?= number_format($order['subtotal'],2) ?></span></td>
+</tr>
+<tr>
+    <td><span style="font-weight: 600;">Vat:</span></td>
+    <td></td>
+    <td></td>
+    <td class="text-end"><span style="font-weight: 600;">₱<?= number_format($order['vat'],2) ?></span></td>
+</tr>
+<tr>
+    <td><span style="font-weight: 600;">Shipping Fee:</span></td>
+    <td></td>
+    <td></td>
+    <td class="text-end"><span style="font-weight: 600;">₱<?= number_format($order['sf'],2) ?></span></td>
+</tr>
+<tr>
+    <td><span class="text-success" style="font-weight: 700;">Total:</span></td>
+    <td></td>
+    <td></td>
+    <td class="text-end"><span class="text-success" style="font-weight: 700;">₱<?= number_format($order['total'],2) ?></span></td>
+</tr>
+
+
+
+            
             <tr>
                 <td colspan="4">
                     <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
