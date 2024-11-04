@@ -427,9 +427,9 @@ $(document).ready(function() {
                     if (response.success === "OTPSentSuccessfully") {
                         $("#loadingSpinner").hide();
                         alertify.success("OTP successfully sent to " + emailInput.val());
-                        setTimeout(function() {
-                            window.location.href = "verification_code.php?accid=" + last_id;
-                        }, 2000);
+                        // setTimeout(function() {
+                        //     window.location.href = "verification_code.php?accid=" + last_id;
+                        // }, 2000);
                     } else {
                         alertify.error(response.message || "Unexpected response");
                     }
