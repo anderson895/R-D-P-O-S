@@ -56,7 +56,7 @@ include "php/session_dir.php";
 
     <?php include "topBar/mobilUserMenu.php"; ?>
 </div>
-    <?php  include "Section/sidebar.php"; ?>
+    <?php  include "Section/sidebar.phsp"; ?>
 
 
 <!---start-changit--->
@@ -68,7 +68,7 @@ include "php/session_dir.php";
             </div>
         </div>
     </div>
-    
+
 <!---end-changit--->
 
 </div>
