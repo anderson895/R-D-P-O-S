@@ -53,15 +53,14 @@ include "php/session_dir.php";
 
         <?php include "Section/sidebar.php"; ?>
 
-        <!---start-changit--->
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-primary" style="background-color: blue; color: white;">Download</button>
                 </div>
             </div>
         </div>
-        <!---end-changit--->
+
         
     </div>
     
