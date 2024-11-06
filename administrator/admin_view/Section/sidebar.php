@@ -80,6 +80,11 @@ $currentURL = $_SERVER['REQUEST_URI'];
                     </li>
 
 
+                    <li>
+                        <a href="reports.php"><img src="assets/img/restore.png" alt="img"><span class="text-white"> Backup</span> </a>
+                    </li>
+
+
 
 
 
