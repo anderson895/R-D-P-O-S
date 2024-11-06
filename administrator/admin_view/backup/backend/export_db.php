@@ -10,13 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Ensure the command is built securely
     $command = escapeshellcmd("mysqldump --opt -h localhost -u u547077750_rdpos -p'Rdpos2024' u547077750_rdpos > $filename");
 
-    // Execute the command and capture any error output
-    $output = null;
-    $resultCode = null;
-    exec($command, $output, $resultCode);
+    // Execute the command and capture the output
+    $output = shell_exec($command);
 
-    // Check for success
-    if ($resultCode === 0) {
+    // Check if the file was created
+    if (file_exists($filename)) {
         // Send headers to trigger file download
         header('Content-Type: application/sql');
         header("Content-Disposition: attachment; filename=" . basename($filename));
@@ -27,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Delete the backup file after download
         unlink($filename);
     } else {
-        // Handle errors and display them
-        echo "Error exporting database! Command output: " . implode("\n", $output);
+        // Handle errors
+        echo "Error exporting database!";
     }
 }
 ?>
