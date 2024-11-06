@@ -58,9 +58,17 @@ include "php/session_dir.php";
 </div>
     <?php  include "Section/sidebar.php"; ?>
 
+
 <!---start-changit--->
 
-    <button class="btn btn-primary">Download</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button class="btn btn-primary">Download</button>
+            </div>
+        </div>
+    </div>
+    
 <!---end-changit--->
 
 </div>
