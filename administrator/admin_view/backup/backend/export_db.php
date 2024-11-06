@@ -3,7 +3,7 @@ include "../../../../connection.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $filename = $database . date('Y-m-d_H-i-s') . '.sql';
+    $filename = $database."_" . date('Y-m-d_H-i-s') . '.sql';
     
     // Open file for writing
     $backupFile = fopen($filename, 'w');
