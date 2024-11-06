@@ -55,9 +55,13 @@ include "php/session_dir.php";
 
         <!---start-changit--->
         <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <button class="btn btn-primary">Download</button>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Export Database</h5>
+                    <p class="card-text text-center">Click the button below to export the database.</p>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary">Export Database</button>
+                    </div>
                 </div>
             </div>
         </div>
