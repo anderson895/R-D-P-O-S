@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $table = $row[0];
         
         // Write the CREATE TABLE statement
-        $createTableResult = mysqli_query($connection, "SHOW CREATE TABLE $table");
+        $createTableResult = mysqli_query($connections, "SHOW CREATE TABLE $table");
         $createTableRow = mysqli_fetch_row($createTableResult);
         fwrite($file, $createTableRow[1] . ";\n\n");
 
         // Write the INSERT INTO statements for each row in the table
-        $dataResult = mysqli_query($connection, "SELECT * FROM $table");
+        $dataResult = mysqli_query($connections, "SELECT * FROM $table");
         while ($dataRow = mysqli_fetch_assoc($dataResult)) {
             $columns = array_keys($dataRow);
             $values = array_map(function($value) {
