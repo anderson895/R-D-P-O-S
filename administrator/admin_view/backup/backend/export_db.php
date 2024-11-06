@@ -1,9 +1,16 @@
 <?php
-$database = 'u547077750_rdpos';
-$user = 'u547077750_rdpos';
-$pass = 'Rdpos2024';
-$host = 'localhost';
-$dir = dirname(__FILE__) . '/dump.sql';
+
+include "../../../../connection.php";
+
+
+date_default_timezone_set('Asia/Manila');
+
+// Get today's date in the format YYYY-MM-DD
+$dateToday = date('Y-m-d');
+
+
+// Update the $dir variable with the formatted date
+$dir = dirname(__FILE__) . "/u547077750_rdpos_{$dateToday}.sql";
 
 // Connect to MySQL
 $conn = new mysqli($host, $user, $pass, $database);
