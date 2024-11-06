@@ -81,7 +81,7 @@ $currentURL = $_SERVER['REQUEST_URI'];
 
 
                     <li>
-                        <a href="reports.php"><img src="assets/img/restore.png" alt="img"><span class="text-white"> Backup</span> </a>
+                        <a href="restore.php"><img src="assets/img/restore.png" alt="img"><span class="text-white"> Backup</span> </a>
                     </li>
 
 
