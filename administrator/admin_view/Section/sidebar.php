@@ -81,11 +81,8 @@ $currentURL = $_SERVER['REQUEST_URI'];
 
 
                     <li>
-    <a href="restore.php">
-        <i class="bi bi-arrow-repeat"></i><span class="text-white"> Backup</span>
-    </a>
-</li>
-
+                        <a href="restore.php"><img src="assets/img/database.png" alt="img"><span class="text-white"> Backup</span> </a>
+                    </li>
 
 
 
