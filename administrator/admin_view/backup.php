@@ -54,13 +54,14 @@ include "php/session_dir.php";
         <?php include "Section/sidebar.php"; ?>
 
         <!---start-changit--->
-        <div class="container mt-12">
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             <div class="row justify-content-center">
                 <div class="col-auto">
                     <button class="btn btn-primary">Download</button>
                 </div>
             </div>
         </div>
+
         <!---end-changit--->
         
     </div>
