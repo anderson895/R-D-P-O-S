@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dbName = 'u547077750_rdpos';
 
     // Get all the tables in the database
-    $tablesResult = mysqli_query($connection, "SHOW TABLES");
+    $tablesResult = mysqli_query($connections, "SHOW TABLES");
 
     if (!$tablesResult) {
         echo "Error fetching tables.";
