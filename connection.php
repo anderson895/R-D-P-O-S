@@ -1,4 +1,16 @@
 <?php
-$connections = mysqli_connect ("localhost","u547077750_rdpos","Rdpos2024","u547077750_rdpos");
-// $connections = mysqli_connect ("localhost","u533477241_rdpos","Rdpos2024","u533477241_rdpos");
+$host = "localhost";
+$user = "u547077750_rdpos";
+$password = "Rdpos2024";
+$database = "u547077750_rdpos";
+
+// Create a connection
+$connections = mysqli_connect($host, $user, $password, $database);
+
+// Check connection
+if (!$connections) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully";
 ?>
