@@ -1,50 +1,32 @@
 <?php
 include "../../../../connection.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $filename = $database . '-' . date('Y-m-d_H-i-s') . '.sql';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-    // Open a file for writing
-    $file = fopen($filename, 'w');
-    if (!$file) {
-        echo "Error: Could not create file.";
-        exit;
-    }
+define('DS', DIRECTORY_SEPARATOR);
 
-    // Connect to the database
-    $connection = new mysqli($host, $user, $password, $database);
-    if ($connection->connect_error) {
-        echo "Error: Could not connect to the database.";
-        exit;
-    }
+$database = 'u547077750_rdpos';
+$user = 'u547077750_rdpos';
+$pass = 'Rdpos2024';
+$host = 'localhost';
+$dir = dirname(__FILE__) . DS . 'dump.sql';
 
-    // Get all tables
-    $tables = $connection->query("SHOW TABLES");
-    while ($table = $tables->fetch_array()) {
-        $tableName = $table[0];
+$mysqlDir = 'D:' . DS . 'wamp64' . DS . 'bin' . DS . 'mysql' . DS . 'mysql8.0.18' . DS . 'bin'; // Adjust path if necessary
+$mysqldump = $mysqlDir . DS . 'mysqldump';
 
-        // Get CREATE TABLE statement
-        $createTableQuery = $connection->query("SHOW CREATE TABLE $tableName")->fetch_array();
-        fwrite($file, "\n\n" . $createTableQuery[1] . ";\n\n");
+echo "<h3>Backing up database to `<code>{$dir}</code>`</h3>";
 
-        // Get table data
-        $rows = $connection->query("SELECT * FROM $tableName");
-        while ($row = $rows->fetch_assoc()) {
-            $values = array_map([$connection, 'real_escape_string'], array_values($row));
-            $valuesList = "'" . implode("', '", $values) . "'";
-            $sql = "INSERT INTO $tableName VALUES ($valuesList);\n";
-            fwrite($file, $sql);
-        }
-    }
+$command = "{$mysqldump} --user={$user} --password={$pass} --host={$host} {$database} --result-file={$dir} 2>&1";
+exec($command, $output, $return_var);
 
-    // Close file and connection
-    fclose($file);
-    $connection->close();
-
-    // Prompt download of the SQL file
-    header('Content-Type: application/octet-stream');
-    header("Content-Disposition: attachment; filename=$filename");
-    readfile($filename);
-    unlink($filename); // Delete file after download
+if ($return_var === 0) {
+    echo "<p>Database backup successful!</p>";
+} else {
+    echo "<p>Error during backup.</p>";
+    file_put_contents('error_log.txt', implode("\n", $output), FILE_APPEND); // Log output to file
 }
+
+var_dump($output); // Optional, you can remove this or redirect to log file
 ?>
