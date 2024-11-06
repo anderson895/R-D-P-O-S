@@ -52,9 +52,9 @@ include "php/session_dir.php";
         </div>
 
         <?php include "Section/sidebar.php"; ?>
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio eius laboriosam totam odio consequatur atque unde eveniet nostrum voluptatibus, error sequi ut nesciunt quis at illo temporibus iure ipsa recusandae amet. Molestias aspernatur quaerat aperiam ipsam, totam minus iusto corrupti eligendi voluptatem laboriosam mollitia amet, doloribus odio quisquam reprehenderit commodi? Beatae quam, fuga dicta, deleniti neque totam voluptate ex saepe ratione a alias quia vitae sed molestiae quod perspiciatis eveniet suscipit. Ratione quibusdam rerum consectetur ad nihil perferendis praesentium tempora eos? Nulla ullam earum aliquam placeat quidem, sunt et blanditiis culpa fugit eveniet laboriosam minus cum, odit ipsum dicta quos.
+
         <!---start-changit--->
-        <div class="container">
+        <div class="container mt-12">
             <div class="row justify-content-center">
                 <div class="col-auto">
                     <button class="btn btn-primary">Download</button>
