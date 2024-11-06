@@ -45,7 +45,18 @@ while ($table = $tables->fetch_row()) {
 }
 
 fclose($fp);
-echo "<p>Database backup successful!</p>";
-
 $conn->close();
+
+// Force file download
+if (file_exists($dir)) {
+    // Set headers to force download
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/sql');
+    header('Content-Disposition: attachment; filename="' . basename($dir) . '"');
+    header('Content-Length: ' . filesize($dir));
+    readfile($dir);
+    exit;
+} else {
+    echo "<p>Error: Backup file not found.</p>";
+}
 ?>
