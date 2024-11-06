@@ -60,7 +60,9 @@ include "php/session_dir.php";
                     <h5 class="card-title text-center">Export Database</h5>
                     <p class="card-text text-center">Click the button below to export the database.</p>
                     <div class="d-flex justify-content-center">
-                        <button class="btn btn-primary">Export Database</button>
+                        <button class="btn btn-primary">
+                            <i class="bi bi-download"></i> Export Database
+                        </button>
                     </div>
                 </div>
             </div>
