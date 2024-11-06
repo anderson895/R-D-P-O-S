@@ -3,6 +3,14 @@
 include "../../../../connection.php";
 
 
+/**
+ 
+ $host = "localhost";
+$user = "u547077750_rdpos";
+$password = "Rdpos2024";
+$database = "u547077750_rdpos"; 
+ */
+
 date_default_timezone_set('Asia/Manila');
 
 // Get today's date in the format YYYY-MM-DD
@@ -13,7 +21,7 @@ $dateToday = date('Y-m-d');
 $dir = dirname(__FILE__) . "/u547077750_rdpos_{$dateToday}.sql";
 
 // Connect to MySQL
-$conn = new mysqli($host, $user, $pass, $database);
+$conn = new mysqli($host, $user, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
