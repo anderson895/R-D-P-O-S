@@ -28,6 +28,7 @@ $result = mysqli_query($connections, $query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PDF Inventory</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -80,25 +81,23 @@ $result = mysqli_query($connections, $query);
             <p class="m-0 p-0">________________________</p>
             <p class="m-0 p-0">Printed By</p>
             <p class="m-0 p-0" id="date-today">Date today</p>
-        <script>
-            $(document).ready(function() {
-                // Get today's date
-                let today = new Date();
-                
-                // Format the date (e.g., 'MM/DD/YYYY')
-                let formattedDate = today.toLocaleDateString('en-US', {
-                    month: 'long', day: 'numeric', year: 'numeric'
+            <script>
+                $(document).ready(function() {
+                    // Get today's date
+                    let today = new Date();
+                    
+                    // Format the date (e.g., 'MM/DD/YYYY')
+                    let formattedDate = today.toLocaleDateString('en-US', {
+                        month: 'long', day: 'numeric', year: 'numeric'
+                    });
+                    
+                    // Set the formatted date in the <p> element
+                    $('#date-today').text(`Date today: ${formattedDate}`);
                 });
-                
-                // Set the formatted date in the <p> element
-                $('#date-today').text(`Date today: ${formattedDate}`);
-            });
-        </script>
+            </script>
         </div>
     </div>
-    
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
