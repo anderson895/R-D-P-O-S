@@ -46,10 +46,11 @@
                         <label>Unsuccessful Reason</label>
                         <select class="form-select" name="unsuccessfulReason" id="unsuccessfulReason">
                             <option value="">-- Select a reason --</option>
-                            <option value="Out of Stock">Out of Stock</option>
-                            <option value="Payment Failed">Payment Failed</option>
+                            <option value="Payment Issue">Payment Issue</option>
+                            <option value="Bad Weather">Bad Weather</option>
                             <option value="Customer Unavailable">Customer Unavailable</option>
-                            <option value="Delivery Issues">Delivery Issues</option>
+                            <option value="Incorrect Address">Incorrect Address</option>
+                            <option value="Wrong Contact Information">Wrong Contact Information</option>
                         </select>
                     </div>
                 </div>
