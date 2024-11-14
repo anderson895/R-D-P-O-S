@@ -93,7 +93,7 @@ if (isset($_GET['page'])) {
                     if ($getOrders->num_rows > 0) {
                         while ($order = $getOrders->fetch_assoc()) {
                     ?>
-                            <tr class="orders-tr">
+                            <tr class="orders-tr text-end">
                                 <td>
                                     <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                                 </td>
