@@ -10,10 +10,10 @@
             <input type="text" id="search_monthly_pos" style="display: none;" class="form-control w-100" placeholder="Search...">
             <input type="text" id="search_yearly_pos" style="display: none;" class="form-control w-100" placeholder="Search...">
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-1">
             <a href="reports.php" class="btn btn-added"><i class="bi bi-globe me-2"></i>Online</a>
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-1">
             <a class="btn btn-added"><i class="bi bi-cart me-2"></i>POS</a>
         </div>
         <div class="col-6 col-md-2">
