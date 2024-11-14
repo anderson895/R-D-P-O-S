@@ -47,7 +47,7 @@ $result = mysqli_query($connections, $query);
         </div>
         <hr>
         
-        <table class="table table-bordered mt-4" style="font-size: 12px">
+        <table class="table table-bordered-bottom mt-4" style="font-size: 12px">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -78,7 +78,7 @@ $result = mysqli_query($connections, $query);
             </tbody>
         </table>
 
-        <div class="mt-5">
+        <div class="mt-5 mb-5">
             <p class="m-0 p-0">________________________</p>
             <p class="m-0 p-0">Printed By</p>
             <script>
