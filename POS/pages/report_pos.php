@@ -28,8 +28,8 @@
                 </ul>
             </div>
         </div>
-        <div class="col-6 col-md-3 me-2">
-            <a class="btn btn-added w-50" data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export CSV</a>
+        <div class="col-6 col-md-3 d-flex flex-row">
+            <a class="btn btn-added w-50 me-2" data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export CSV</a>
             <a class="btn btn-added w-50" data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export PDF</a>
         </div>
     </div>
