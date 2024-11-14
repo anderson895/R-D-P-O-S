@@ -244,11 +244,11 @@
             <div class="col-12 col-md-12">
                 <label for="" class="form-label">Select Export Type</label>
                 <select name="" id="" class="form-select">
-                    <option value="orders">Orders</option>
-                    <option value="inventory">Inventory</option>
-                    <option value="supplier">Supplier</option>
-                    <option value="category">Category</option>
-                    <option value="accounts">Accounts</option>
+                    <option value="pdf_orders.php">Orders</option>
+                    <option value="pdf_inventory.php">Inventory</option>
+                    <option value="pdf_supplier.php">Supplier</option>
+                    <option value="pdf_category.php">Category</option>
+                    <option value="pdf_accounts.php">Accounts</option>
                 </select>
             </div>
       </div>
@@ -259,8 +259,27 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </button>
-        <button type="button" class="btn btn-sm btn-primary" id="">Export PDF</button>
+        <button type="button" class="btn btn-sm btn-primary" id="open_link">Export PDF</button>
       </div>
+      <script>
+        $(document).ready(function() {
+            $('#open_link').on('click', function() {
+                // Get the selected option's value
+                let selectedOption = $('.form-select').val();
+
+                // Open the link in a new tab
+                let newTab = window.open(selectedOption, '_blank');
+
+                // Trigger download if needed by setting headers server-side or using jsPDF for in-page HTML to PDF
+                if (newTab) {
+                    newTab.focus();
+                } else {
+                    alert("Popup blocked. Please allow popups for this website.");
+                }
+            });
+        });
+
+      </script>
     </div>
   </div>
 </div>
