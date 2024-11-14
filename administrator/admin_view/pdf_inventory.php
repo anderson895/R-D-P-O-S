@@ -76,7 +76,7 @@ $result = mysqli_query($connections, $query);
             </tbody>
         </table>
 
-        <div>
+        <div class="mt-4">
             <p>________________________</p>
             <p>Printed By</p>
             <p>Date today</p>
