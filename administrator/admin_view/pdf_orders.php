@@ -12,6 +12,7 @@ $query = "
     orders_payment,
     orders_change
     FROM pos_orders
+    GROUP BY orders_tcode
 ";
 $result = mysqli_query($connections, $query);
 ?>
