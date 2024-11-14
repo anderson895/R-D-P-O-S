@@ -5,7 +5,7 @@
         <h6>Views/Reports</h6>
     </div>
     <div class="row g-2">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-2">
             <input type="text" id="search" class="form-control w-100" placeholder="Search...">
             <input type="text" id="search_monthly" style="display: none;" class="form-control w-100" placeholder="Search...">
             <input type="text" id="search_yearly" style="display: none;" class="form-control w-100" placeholder="Search...">
