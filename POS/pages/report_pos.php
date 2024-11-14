@@ -244,53 +244,13 @@
             <div class="col-12 col-md-6 d-none">
                 <label for="select_report" class="form-label">Select Export Type</label>
                 <select name="" id="select_report" class="form-select">
-                    <option value="excel">Excel</option>
-                    <option value="pdf">PDF</option>
-                    <option value="analytics">Analytics</option>
+                    <option value="orders">Orders</option>
+                    <option value="inventory">Inventory</option>
+                    <option value="supplier">Supplier</option>
+                    <option value="category">Category</option>
+                    <option value="accounts">Accounts</option>
                 </select>
             </div>
-            <div class="col-12 col-md-12">
-                <label for="select_type" class="form-label">Select Report Type</label>
-                <select name="" id="select_type" class="form-select">
-                    <option value="daily">Daily</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="yearly">Yearly</option>
-                </select>
-            </div>
-        </div>
-        <!-- daily -->
-        <div id="daily_reports" class="mt-2">
-          <div class="mb-3">
-            <label for="startDate" class="form-label">Start Date</label>
-            <input type="date" class="form-control" id="startDate" required>
-          </div>
-          <div class="mb-3">
-            <label for="endDate" class="form-label">End Date</label>
-            <input type="date" class="form-control" id="endDate" required>
-          </div>
-        </div>
-        <!-- monthly -->
-        <div id="monthly_reports" class="mt-2" style="display: none">
-          <div class="mb-3">
-            <label for="startMonthYear" class="form-label">Start Month and Year</label>
-            <input type="month" class="form-control" id="startMonthYear" required>
-          </div>
-          <div class="mb-3">
-            <label for="endMonthYear" class="form-label">End Month and Year</label>
-            <input type="month" class="form-control" id="endMonthYear" required>
-          </div>
-        </div>
-        <!-- yearly -->
-        <div id="yearly_reports" class="mt-2" style="display: none">
-          <div class="mb-3">
-            <label for="startYear" class="form-label">Start Year</label>
-            <input type="number" class="form-control" id="startYear" min="2020" max="2100" required>
-          </div>
-          <div class="mb-3">
-            <label for="endYear" class="form-label">End Year</label>
-            <input type="number" class="form-control" id="endYear" min="2020" max="2100" required>
-          </div>
-        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -299,9 +259,7 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </button>
-        <button type="button" class="btn btn-sm btn-primary" id="proceed_excel_walkin">Export Excel</button>
-        <button type="button" class="btn btn-sm btn-primary" id="proceed_pdf" style="display: none;">Export PDF</button>
-        <button type="button" class="btn btn-sm btn-primary" id="proceed_analytics" style="display: none;">Export Analytics</button>
+        <button type="button" class="btn btn-sm btn-primary" id="">Export PDF</button>
       </div>
     </div>
   </div>
