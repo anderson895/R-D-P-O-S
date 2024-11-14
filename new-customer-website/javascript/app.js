@@ -691,7 +691,7 @@ $("#btnSentMessage").click(function(e) {
             "</td>"
           );
 
-          $(tr).append("<td> ₱ " + element.productAmount.toFixed(2) + "</td>");
+          $(tr).append("<td class='text-end'> ₱ " + element.productAmount.toFixed(2) + "</td>");
 
           subtotal += element.productAmount;
           vat += element.productVat;
