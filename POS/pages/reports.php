@@ -28,8 +28,9 @@
                 </ul>
             </div>
         </div>
-        <div class="col-6 col-md-2">
-            <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export</a>
+        <div class="col-6 col-md-3 d-flex flex-row">
+            <a class="btn btn-added w-50 me-2" data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>CSV</a>
+            <a class="btn btn-added w-50" data-bs-toggle="modal" data-bs-target="#createReportPDF"><i class="bi bi-arrow-up-right-square-fill me-2"></i>PDF</a>
         </div>
     </div>
 </div>
@@ -223,6 +224,70 @@
         <button type="button" class="btn btn-sm btn-primary" id="proceed_pdf" style="display: none;">Export PDF</button>
         <button type="button" class="btn btn-sm btn-primary" id="proceed_analytics" style="display: none;">Export Analytics</button>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal mt-5 fade" id="createReportPDF" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Export PDF Reports</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <div class="row g-2">
+                <div class="col-12 col-md-12">
+                    <label for="exportType" class="form-label">Select Export Type</label>
+                    <select id="exportType" class="form-select">
+                    <option value="pdf_inventory.php">Inventory</option>
+                        <option value="pdf_orders.php">Orders</option>
+                        <option value="pdf_supplier.php">Supplier</option>
+                        <option value="pdf_category.php">Category</option>
+                        <option value="pdf_accounts.php">Accounts</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-primary" id="proceed_loader" disabled style="display: none">
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </button>
+            <button type="button" class="btn btn-sm btn-primary" id="open_link">Export PDF</button>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#open_link').on('click', function() {
+                    // Get the selected option's value
+                    let selectedOption = $('#exportType').val();
+
+                    // Open the link in a new tab
+                    let newTab = window.open(selectedOption, '_blank');
+
+                    // Check if the new tab was opened successfully
+                    if (newTab) {
+                        newTab.focus();
+
+                        // Wait for the new tab to load its content, then trigger print after a 1-second delay
+                        newTab.onload = function() {
+                            setTimeout(function() {
+                                newTab.print();
+                            }, 1000); // 1000 milliseconds = 1 second
+                        };
+                    } else {
+                        alert("Popup blocked. Please allow popups for this website.");
+                    }
+                });
+            });
+
+        </script>
+
     </div>
   </div>
 </div>
