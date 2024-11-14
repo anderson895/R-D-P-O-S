@@ -246,9 +246,9 @@
                     <select id="exportType" class="form-select">
                     <option value="pdf_inventory.php">Inventory</option>
                         <option value="pdf_orders.php">Orders</option>
+                        <option value="pdf_accounts.php">Accounts</option>
                         <option value="pdf_supplier.php">Supplier</option>
                         <option value="pdf_category.php">Category</option>
-                        <option value="pdf_accounts.php">Accounts</option>
                     </select>
                 </div>
             </div>
