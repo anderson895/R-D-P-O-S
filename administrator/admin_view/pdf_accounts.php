@@ -11,7 +11,7 @@ $query = "
     acc_lname,
     acc_email,
     acc_contact
-    FROM pos_orders
+    FROM accounts
 ";
 $result = mysqli_query($connections, $query);
 ?>
