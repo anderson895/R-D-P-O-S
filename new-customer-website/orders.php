@@ -83,9 +83,9 @@ if (isset($_GET['page'])) {
                        
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th class="text-center">Rider</th>' : '' ?>
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th class="text-center">Estimated Delivery</th>' : '' ?>
-                        <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
-                        <?= ($page == 'Cancelled') ? '<th>Cancellation Reason</th>' : '' ?>
-                        <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
+                        <?= ($page == 'Delivered') ? '<th class="text-center">Delivery Date</th>' : '' ?>
+                        <?= ($page == 'Cancelled') ? '<th class="text-center">Cancellation Reason</th>' : '' ?>
+                        <?= ($page == 'Rejected') ? '<th class="text-center">Reject Reason</th>' : '' ?>
                     </tr>
                 <tbody>
                     <?php
