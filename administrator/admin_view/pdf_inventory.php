@@ -19,6 +19,7 @@
                 <img style="width: 50%;" src="assets/img/print_logo.png" alt="">
             </div>
         </div>
+        <hr>
     </div>
 
 
