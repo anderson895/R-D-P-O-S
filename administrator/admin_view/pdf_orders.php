@@ -58,7 +58,7 @@ $result = mysqli_query($connections, $query);
                 // Loop through the fetched data and display it in the table
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>{$row['order_tcode']}</td>";
+                    echo "<td>{$row['orders_tcode']}</td>";
                     echo "<td>{$row['orders_date']}</td>";
                     echo "<td>{$row['orders_subtotal']}</td>";
                     echo "<td>{$row['orders_discount']}</td>";
