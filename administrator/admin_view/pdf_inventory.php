@@ -48,12 +48,10 @@ $result = mysqli_query($connections, $query);
         <table class="table table-bordered mt-4">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Date Added</th>
                     <th>Product Code</th>
                     <th>Product Name</th>
                     <th>Current Price</th>
-                    <th>Barcode</th>
                     <th>Unit Type</th>
                     <th>Stock Quantity</th>
                 </tr>
@@ -63,12 +61,10 @@ $result = mysqli_query($connections, $query);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>
-                            <td>{$row['prod_id']}</td>
                             <td>{$row['prod_added']}</td>
                             <td>{$row['prod_code']}</td>
                             <td>{$row['prod_name']}</td>
                             <td>{$row['prod_currprice']}</td>
-                            <td>{$row['barcode']}</td>
                             <td>{$row['unit_type']}</td>
                             <td>{$row['s_stock_in_qty']}</td>
                         </tr>";
