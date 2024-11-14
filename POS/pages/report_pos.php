@@ -166,7 +166,7 @@
         <div class="row g-2">
             <div class="col-12 col-md-6">
                 <label for="select_report" class="form-label">Select Export Type</label>
-                <select name="" id="select_report" class="form-select">
+                <select disabled name="" id="select_report" class="form-select">
                     <option value="excel">Excel</option>
                     <option value="pdf">PDF</option>
                     <option value="analytics">Analytics</option>
