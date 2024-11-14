@@ -103,7 +103,7 @@ if (isset($_GET['page'])) {
                                 <td class='text-center'>₱<?= number_format($order['total'],2) ?></td>
                                 <td class='text-center'><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                                
-                                <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
+                                <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td text-start>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
                                <?= ($page == 'Delivered'|| $page == 'Shipped') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'] ?? '')) . '</td>' : '' ?>
                                <?= ($page == 'Delivered') ? '<td>' . date('F j, Y g:i A', strtotime($order['delivered_date'])) . '</td>' : '' ?>
                                <?= ($page == 'Cancelled') ? '<td>' . $order['cancel_reason'] . '</td>' : '' ?>
