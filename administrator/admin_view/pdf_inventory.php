@@ -50,12 +50,12 @@ $result = mysqli_query($connections, $query);
         <table class="table table-bordered-bottom" style="font-size: 12px">
             <thead>
                 <tr>
-                    <th class="pt-5">Date</th>
-                    <th class="pt-5">Code</th>
-                    <th class="pt-5">Product</th>
-                    <th class="pt-5">Price</th>
-                    <th class="pt-5">Type</th>
-                    <th class="pt-5">Stock</th>
+                    <th>Date</th>
+                    <th>Code</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Stock</th>
                 </tr>
             </thead>
             <tbody>
