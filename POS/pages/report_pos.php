@@ -172,7 +172,7 @@
                     <option value="analytics">Analytics</option>
                 </select>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-12">
                 <label for="select_type" class="form-label">Select Report Type</label>
                 <select name="" id="select_type" class="form-select">
                     <option value="daily">Daily</option>
