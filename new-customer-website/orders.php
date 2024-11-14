@@ -94,7 +94,7 @@ if (isset($_GET['page'])) {
                         while ($order = $getOrders->fetch_assoc()) {
                     ?>
                             <tr class="orders-tr">
-                                <td class='text-end'>
+                                <td class='text-start'>
                                     <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                                 </td>
                                 <td>₱<?= number_format($order['subtotal'],2) ?></td>
