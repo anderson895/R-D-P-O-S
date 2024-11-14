@@ -74,7 +74,7 @@ if (isset($_GET['page'])) {
         <div class="table-responsive">
                 <table class="table">
                     <tr class='text-start'>
-                        <th>Order ID</th>
+                        <th>Order ID1</th>
                         <th>Subtotal</th>
                         <th>VAT</th>
                         <th>Shipping Fee</th>
