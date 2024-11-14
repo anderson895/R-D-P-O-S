@@ -1,5 +1,18 @@
 <?php
 include "../../connection.php";
+
+// Query to fetch the data
+$query = "
+    SELECT 
+    order_transaction_code,
+    orders_date,
+    orders_subtotal,
+    orders_gradeTotal,
+    orders_ship_fee,
+    orders_tax
+    FROM orders
+";
+$result = mysqli_query($connections, $query);
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,7 +52,19 @@ include "../../connection.php";
                 </tr>
             </thead>
             <tbody>
-                
+                <?php
+                // Loop through the fetched data and display it in the table
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>{$row['order_transaction_code']}</td>";
+                    echo "<td>{$row['orders_date']}</td>";
+                    echo "<td>{$row['orders_subtotal']}</td>";
+                    echo "<td>{$row['orders_gradeTotal']}</td>";
+                    echo "<td>{$row['orders_ship_fee']}</td>";
+                    echo "<td>{$row['orders_tax']}</td>";
+                    echo "</tr>";
+                }
+                ?>
             </tbody>
         </table>
 
