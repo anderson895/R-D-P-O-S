@@ -77,9 +77,9 @@ $result = mysqli_query($connections, $query);
         </table>
 
         <div class="mt-4">
-            <p>________________________</p>
-            <p>Printed By</p>
-            <p>Date today</p>
+            <p class="m-0 p-0">________________________</p>
+            <p class="m-0 p-0">Printed By</p>
+            <p class="m-0 p-0">Date today</p>
         </div>
     </div>
 
