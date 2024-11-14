@@ -15,7 +15,7 @@
             <p class="m-0 p-0">rdeleon@gmail.com | 09876543211</p>
         </div>
         <div>
-            <img src="" alt="">
+            <img src="assets/img/print_logo.png" alt="">
         </div>
     </div>
 
