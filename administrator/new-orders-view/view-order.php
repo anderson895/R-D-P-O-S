@@ -102,7 +102,7 @@ if($getAddress->num_rows > 0) {
                         <th class="">Code</th>
                         <th class="">Item</th>
                         <th class="">Quantity</th>
-                        <th class="">Amount</th>
+                        <th class="text-end">Amount</th>
                     </tr>
                 </thead>
                 <tbody>
