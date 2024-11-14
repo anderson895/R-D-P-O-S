@@ -277,9 +277,11 @@
                     if (newTab) {
                         newTab.focus();
 
-                        // Wait for the new tab to load its content, then trigger print
+                        // Wait for the new tab to load its content, then trigger print after a 1-second delay
                         newTab.onload = function() {
-                            newTab.print();
+                            setTimeout(function() {
+                                newTab.print();
+                            }, 1000); // 1000 milliseconds = 1 second
                         };
                     } else {
                         alert("Popup blocked. Please allow popups for this website.");
