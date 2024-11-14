@@ -161,7 +161,7 @@ if($getAddress->num_rows > 0) {
                         <td class="justify-content-between"><span class="text-success" style="font-weight: 700;">Total:</span></td>
                         <td></td>
                         <td></td>
-                        <td class="justify-content-between"><span class="text-success" style="font-weight: 700;">₱<?= number_format( $order['total'] ,2)?></span></td>
+                        <td class="justify-content-between text-end"><span class="text-success" style="font-weight: 700;">₱<?= number_format( $order['total'] ,2)?></span></td>
                     </tr>
 
 
