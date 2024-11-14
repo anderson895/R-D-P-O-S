@@ -241,7 +241,7 @@
       </div>
       <div class="modal-body">
         <div class="row g-2">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-12">
                 <label for="" class="form-label">Select Export Type</label>
                 <select name="" id="" class="form-select">
                     <option value="orders">Orders</option>
