@@ -29,10 +29,8 @@
             </div>
         </div>
         <div class="col-6 col-md-3 me-2">
-            <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export CSV</a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export PDF</a>
+            <a class="btn btn-added w-50" data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export CSV</a>
+            <a class="btn btn-added w-50" data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export PDF</a>
         </div>
     </div>
 </div>
