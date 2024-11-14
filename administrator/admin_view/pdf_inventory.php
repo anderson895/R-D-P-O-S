@@ -48,12 +48,12 @@ $result = mysqli_query($connections, $query);
         <table class="table table-bordered mt-4">
             <thead>
                 <tr>
-                    <th>Date Added</th>
-                    <th>Product Code</th>
-                    <th>Product Name</th>
-                    <th>Current Price</th>
-                    <th>Unit Type</th>
-                    <th>Stock Quantity</th>
+                    <th>Date</th>
+                    <th>Code</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Stock</th>
                 </tr>
             </thead>
             <tbody>
