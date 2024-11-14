@@ -120,7 +120,7 @@ if ($getCartItemsPhotos->num_rows > 0){
                     <button class="btn btn-outline-secondary btn-sm ms-2 addCartQty" data-id="<?= $cartItem['cart_id'] ?>"><i class="bi bi-plus"></i></button>
                 </div>
                 <hr>
-                <p class="mb-2">Amount: <span class="text-success fw-bold">₱ sssssssssssssssssss <?= number_format($itemAmount, 2) ?></span></p>
+                <p class="mb-2">Amount: <span class="text-success fw-bold">₱ <?= number_format($itemAmount, 2) ?></span></p>
                 
             </div>
         </div>
