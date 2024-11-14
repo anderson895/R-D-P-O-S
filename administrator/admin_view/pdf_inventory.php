@@ -39,6 +39,7 @@ $result = mysqli_query($connections, $query);
                 <p class="m-0 p-0">R De Leon Poultry Supplies</p>
                 <p class="m-0 p-0">Bagbaguin Sta. Maria Bulacan</p>
                 <p class="m-0 p-0">rdeleon@gmail.com | 09876543211</p>
+                <p class="m-0 p-0" id="date-today">Date today</p>
             </div>
             <div style="width: 20%">
                 <img style="width: 50%;" src="assets/img/print_logo.png" alt="Company Logo">
@@ -77,10 +78,9 @@ $result = mysqli_query($connections, $query);
             </tbody>
         </table>
 
-        <div class="mt-4">
+        <div class="mt-5">
             <p class="m-0 p-0">________________________</p>
             <p class="m-0 p-0">Printed By</p>
-            <p class="m-0 p-0" id="date-today">Date today</p>
             <script>
                 $(document).ready(function() {
                     // Get today's date
@@ -92,7 +92,7 @@ $result = mysqli_query($connections, $query);
                     });
                     
                     // Set the formatted date in the <p> element
-                    $('#date-today').text(`Date today: ${formattedDate}`);
+                    $('#date-today').text(`${formattedDate}`);
                 });
             </script>
         </div>
