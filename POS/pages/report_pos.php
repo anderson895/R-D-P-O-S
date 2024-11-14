@@ -5,7 +5,7 @@
         <h6>Views/Reports</h6>
     </div>
     <div class="row g-2">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-2">
             <input type="text" id="searchpos" class="form-control w-100" placeholder="Search...">
             <input type="text" id="search_monthly_pos" style="display: none;" class="form-control w-100" placeholder="Search...">
             <input type="text" id="search_yearly_pos" style="display: none;" class="form-control w-100" placeholder="Search...">
@@ -30,6 +30,8 @@
         </div>
         <div class="col-6 col-md-2">
             <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export Excell</a>
+        </div>
+        <div class="col-6 col-md-2">
             <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export PDF</a>
         </div>
     </div>
