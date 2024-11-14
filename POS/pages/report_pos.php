@@ -241,9 +241,9 @@
       </div>
       <div class="modal-body">
         <div class="row g-2">
-            <div class="col-12 col-md-6 d-none">
-                <label for="select_report" class="form-label">Select Export Type</label>
-                <select name="" id="select_report" class="form-select">
+            <div class="col-12 col-md-6">
+                <label for="" class="form-label">Select Export Type</label>
+                <select name="" id="" class="form-select">
                     <option value="orders">Orders</option>
                     <option value="inventory">Inventory</option>
                     <option value="supplier">Supplier</option>
