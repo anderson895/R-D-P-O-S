@@ -81,8 +81,8 @@ if (isset($_GET['page'])) {
                         <th class='text-center'>Total</th>
                         <th class='text-center'>Order Date</th>
                        
-                        <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th class='text-center'>Rider</th>' : '' ?>
-                        <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th class='text-center'>Estimated Delivery</th>' : '' ?>
+                        <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
+                        <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Estimated Delivery</th>' : '' ?>
                         <?= ($page == 'Delivered') ? '<th>Delivery Date</th>' : '' ?>
                         <?= ($page == 'Cancelled') ? '<th>Cancellation Reason</th>' : '' ?>
                         <?= ($page == 'Rejected') ? '<th>Reject Reason</th>' : '' ?>
