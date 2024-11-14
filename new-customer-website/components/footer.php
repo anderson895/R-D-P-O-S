@@ -234,7 +234,7 @@
                             <th></th>
                             <th>Item</th>
                             <th>Quantity</th>
-                            <th>Amount</th>
+                            <th class='text-end'>Amount</th>
                         </tr>
                     </thead>
                     <tbody id="placeOrderItemsContainer">
