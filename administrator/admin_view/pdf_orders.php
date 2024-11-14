@@ -4,20 +4,14 @@ include "../../connection.php";
 // Query to fetch the data
 $query = "
     SELECT 
-        product.prod_id,
-        product.prod_added,
-        product.prod_code,
-        product.prod_name,
-        product.prod_currprice,
-        product.barcode,
-        product.unit_type,
-        stocks.s_stock_in_qty
-    FROM 
-        stocks 
-    JOIN 
-        product 
-    ON 
-        stocks.s_prod_id = product.prod_id;
+        order_transaction_code,
+        ANY_VALUE(orders_date) AS orders_date,
+        ANY_VALUE(orders_subtotal) AS orders_subtotal,
+        ANY_VALUE(orders_gradeTotal) AS orders_gradeTotal,
+        ANY_VALUE(orders_ship_fee) AS orders_ship_fee,
+        ANY_VALUE(orders_tax) AS orders_tax
+    FROM orders
+    GROUP BY order_transaction_code;
 ";
 
 $result = mysqli_query($connections, $query);
@@ -47,34 +41,29 @@ $result = mysqli_query($connections, $query);
         </div>
         <hr>
         
+        <!-- Table to display the orders data -->
         <table class="table table-bordered-bottom" style="font-size: 12px">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Code</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Type</th>
-                    <th>Stock</th>
+                    <th>Order Transaction Code</th>
+                    <th>Order Date</th>
+                    <th>Order Subtotal</th>
+                    <th>Order Grade Total</th>
+                    <th>Order Ship Fee</th>
+                    <th>Order Tax</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>
-                            <td>{$row['prod_added']}</td>
-                            <td>{$row['prod_code']}</td>
-                            <td>{$row['prod_name']}</td>
-                            <td>{$row['prod_currprice']}</td>
-                            <td>{$row['unit_type']}</td>
-                            <td>{$row['s_stock_in_qty']}</td>
-                        </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='8' class='text-center'>No data available</td></tr>";
-                }
-                ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['order_transaction_code']); ?></td>
+                        <td><?php echo htmlspecialchars($row['orders_date']); ?></td>
+                        <td><?php echo htmlspecialchars($row['orders_subtotal']); ?></td>
+                        <td><?php echo htmlspecialchars($row['orders_gradeTotal']); ?></td>
+                        <td><?php echo htmlspecialchars($row['orders_ship_fee']); ?></td>
+                        <td><?php echo htmlspecialchars($row['orders_tax']); ?></td>
+                    </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
 
