@@ -11,6 +11,7 @@
         <h1>Inventory Report</h1>
         <p class="m-0 p-0">R De Leon Poultry Supplies</p>
         <p class="m-0 p-0">Bagbaguin Sta. Maria Bulacan</p>
+        <p class="m-0 p-0">rdeleon@gmail.com | 09876543211</p>
     </div>
 
 
