@@ -106,7 +106,10 @@ if($getAddress->num_rows > 0) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                   
+                   
+                   
+                   <?php
                     $count = 1;
                     while ($orderItem = $getOrderItems->fetch_assoc()) {
                     ?>
@@ -119,12 +122,16 @@ if($getAddress->num_rows > 0) {
                                 <?= $orderItem['prod_name'] ?>
                             </td>
                             <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
-                            <td class="pt-3">₱<?= number_format($Amount=$orderItem['qty'] * $orderItem['prod_currprice'],2) ?></td>
+                            <td class="pt-3">1<?= number_format($Amount=$orderItem['qty'] * $orderItem['prod_currprice'],2) ?></td>
                         </tr>
                     <?php
                         $count++;
                     }
                     ?>
+
+
+
+
                     <tr>
                         <td colspan="4">
                             <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
@@ -156,6 +163,15 @@ if($getAddress->num_rows > 0) {
                         <td></td>
                         <td class="justify-content-between"><span class="text-success" style="font-weight: 700;">₱<?= number_format( $order['total'] ,2)?></span></td>
                     </tr>
+
+
+
+
+
+
+
+
+
                     <tr>
                         <td colspan="4">
                             <h5 style="font-weight: 700;" class="mt-5 mb-2 text-secondary">
