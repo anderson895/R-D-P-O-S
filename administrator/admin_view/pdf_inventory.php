@@ -79,10 +79,26 @@ $result = mysqli_query($connections, $query);
         <div class="mt-4">
             <p class="m-0 p-0">________________________</p>
             <p class="m-0 p-0">Printed By</p>
-            <p class="m-0 p-0">Date today</p>
+            <p class="m-0 p-0" id="date-today">Date today</p>
+        <script>
+            $(document).ready(function() {
+                // Get today's date
+                let today = new Date();
+                
+                // Format the date (e.g., 'MM/DD/YYYY')
+                let formattedDate = today.toLocaleDateString('en-US', {
+                    month: 'long', day: 'numeric', year: 'numeric'
+                });
+                
+                // Set the formatted date in the <p> element
+                $('#date-today').text(`Date today: ${formattedDate}`);
+            });
+        </script>
         </div>
     </div>
+    
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
