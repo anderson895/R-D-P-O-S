@@ -47,9 +47,9 @@ $result = mysqli_query($connections, $query);
         </div>
         <hr>
         
-        <table class="table table-bordered-bottom mt-4" style="font-size: 12px">
+        <table class="table table-bordered-bottom" style="font-size: 12px">
             <thead>
-                <tr>
+                <tr class="pt-5">
                     <th>Date</th>
                     <th>Code</th>
                     <th>Product</th>
