@@ -276,11 +276,17 @@
                     // Check if the new tab was opened successfully
                     if (newTab) {
                         newTab.focus();
+
+                        // Wait for the new tab to load its content, then trigger print
+                        newTab.onload = function() {
+                            newTab.print();
+                        };
                     } else {
                         alert("Popup blocked. Please allow popups for this website.");
                     }
                 });
             });
+
         </script>
 
     </div>
