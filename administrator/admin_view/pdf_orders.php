@@ -1,16 +1,17 @@
 <?php
 include "../../connection.php";
 
-// Query to fetch the data
+// Query to fetch the data from the database
 $query = "
     SELECT 
-    order_transaction_code,
+    orders_tcode,
     orders_date,
     orders_subtotal,
-    orders_gradeTotal,
-    orders_ship_fee,
-    orders_tax
-    FROM orders
+    orders_discount,
+    orders_tax,
+    orders_payment,
+    orders_change
+    FROM pos_orders
 ";
 $result = mysqli_query($connections, $query);
 ?>
@@ -46,9 +47,10 @@ $result = mysqli_query($connections, $query);
                     <th>Transaction Code</th>
                     <th>Order Date</th>
                     <th>Subtotal</th>
-                    <th>Grade Total</th>
-                    <th>Shipping Fee</th>
+                    <th>Discount</th>
                     <th>Tax</th>
+                    <th>Payment</th>
+                    <th>Change</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,12 +58,13 @@ $result = mysqli_query($connections, $query);
                 // Loop through the fetched data and display it in the table
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>{$row['order_transaction_code']}</td>";
+                    echo "<td>{$row['order_tcode']}</td>";
                     echo "<td>{$row['orders_date']}</td>";
                     echo "<td>{$row['orders_subtotal']}</td>";
-                    echo "<td>{$row['orders_gradeTotal']}</td>";
-                    echo "<td>{$row['orders_ship_fee']}</td>";
+                    echo "<td>{$row['orders_discount']}</td>";
                     echo "<td>{$row['orders_tax']}</td>";
+                    echo "<td>{$row['orders_payment']}</td>";
+                    echo "<td>{$row['orders_change']}</td>";
                     echo "</tr>";
                 }
                 ?>
