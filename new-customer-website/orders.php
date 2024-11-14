@@ -74,12 +74,12 @@ if (isset($_GET['page'])) {
         <div class="table-responsive">
                 <table class="table">
                     <tr>
-                        <th>Order ID</th>
-                        <th>Subtotal</th>
-                        <th>VAT</th>
-                        <th>Shipping Fee</th>
-                        <th>Total</th>
-                        <th>Order Date</th>
+                        <th class='text-center'>Order ID</th>
+                        <th class='text-center'>Subtotal</th>
+                        <th class='text-center'>VAT</th>
+                        <th class='text-center'>Shipping Fee</th>
+                        <th class='text-center'>Total</th>
+                        <th class='text-center'>Order Date</th>
                        
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Rider</th>' : '' ?>
                         <?= ($page == 'Delivered' || $page == 'Shipped') ? '<th>Estimated Delivery</th>' : '' ?>
@@ -97,11 +97,11 @@ if (isset($_GET['page'])) {
                                 <td class='text-start'>
                                     <a href="view-order.php?orderId=<?= $order['order_id'] ?>" class="btn text-light" style="background-color: crimson;"><i class="bi bi-eye"></i> <?= $order['order_id'] ?></a>
                                 </td>
-                                <td class='text-start'>₱<?= number_format($order['subtotal'],2) ?></td>
-                                <td class='text-start'>₱<?= number_format($order['vat'],2) ?></td>
-                                <td class='text-start'>₱<?= number_format( $order['sf'],2) ?></td>
-                                <td class='text-start'>₱<?= number_format($order['total'],2) ?></td>
-                                <td class='text-start'><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
+                                <td class='text-center'>₱<?= number_format($order['subtotal'],2) ?></td>
+                                <td class='text-center'>₱<?= number_format($order['vat'],2) ?></td>
+                                <td class='text-center'>₱<?= number_format( $order['sf'],2) ?></td>
+                                <td class='text-center'>₱<?= number_format($order['total'],2) ?></td>
+                                <td class='text-center'><?= date('F j, Y g:i A', strtotime($order['order_date'])) ?></td>
                                
                                 <?= ($page == 'Delivered' || $page == 'Shipped') ? '<td>' . ucfirst($order['acc_fname']) . ' ' . $order['acc_lname'] . '</td>' : '' ?>
                                <?= ($page == 'Delivered'|| $page == 'Shipped') ? '<td>' . date('F j, Y', strtotime($order['estimated_delivery'] ?? '')) . '</td>' : '' ?>
