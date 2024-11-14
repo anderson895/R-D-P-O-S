@@ -29,23 +29,23 @@ $result = mysqli_query($connections, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PDF Inventory</title>
     <style>
-        .signature-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-            text-align: center;
-        }
-        .signature-line {
-            border-top: 1px solid black;
-            width: 200px;
-            margin-bottom: 5px;
-            padding-top: 10px;
-        }
-        .printed-name {
-            font-weight: bold;
-        }
-</style>
+            .signature-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+                text-align: center;
+            }
+            .signature-line {
+                border-top: 1px solid black;
+                width: 200px;
+                margin-bottom: 5px;
+                padding-top: 10px;
+            }
+            .printed-name {
+                font-weight: bold;
+            }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -63,36 +63,7 @@ $result = mysqli_query($connections, $query);
         </div>
         <hr>
         
-        <table class="table table-bordered mt-4" style="font-size: 12px">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Code</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Type</th>
-                    <th>Stock</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>
-                            <td>{$row['prod_added']}</td>
-                            <td>{$row['prod_code']}</td>
-                            <td>{$row['prod_name']}</td>
-                            <td>{$row['prod_currprice']}</td>
-                            <td>{$row['unit_type']}</td>
-                            <td>{$row['s_stock_in_qty']}</td>
-                        </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='8' class='text-center'>No data available</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        
 
         <div class="signature-container">
             <div class="signature-line">Signature</div>
