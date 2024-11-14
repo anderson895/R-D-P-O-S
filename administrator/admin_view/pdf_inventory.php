@@ -17,8 +17,8 @@
         <div style="width: 20%">
             <img style="width: 50%;" src="assets/img/print_logo.png" alt="">
         </div>
+        <hr>
     </div>
-    <hr>
 
 
 
