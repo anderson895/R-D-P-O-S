@@ -23,10 +23,10 @@
                 </ul>
             </div>
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-3">
             <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export Excell</a>
         </div>
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-3">
             <a class="btn btn-added " data-bs-toggle="modal" data-bs-target="#createReport"><i class="bi bi-arrow-up-right-square-fill me-2"></i>Export PDF</a>
         </div>
     </div>
