@@ -240,46 +240,49 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row g-2">
-            <div class="col-12 col-md-12">
-                <label for="" class="form-label">Select Export Type</label>
-                <select name="" id="" class="form-select">
-                    <option value="pdf_orders.php">Orders</option>
-                    <option value="pdf_inventory.php">Inventory</option>
-                    <option value="pdf_supplier.php">Supplier</option>
-                    <option value="pdf_category.php">Category</option>
-                    <option value="pdf_accounts.php">Accounts</option>
-                </select>
+            <div class="row g-2">
+                <div class="col-12 col-md-12">
+                    <label for="exportType" class="form-label">Select Export Type</label>
+                    <select id="exportType" class="form-select">
+                        <option value="pdf_orders.php">Orders</option>
+                        <option value="pdf_inventory.php">Inventory</option>
+                        <option value="pdf_supplier.php">Supplier</option>
+                        <option value="pdf_category.php">Category</option>
+                        <option value="pdf_accounts.php">Accounts</option>
+                    </select>
+                </div>
             </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-sm btn-primary" id="proceed_loader" disabled style="display: none">
-            <div class="spinner-grow spinner-grow-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </button>
-        <button type="button" class="btn btn-sm btn-primary" id="open_link">Export PDF</button>
-      </div>
-      <script>
-        $(document).ready(function() {
-            $('#open_link').on('click', function() {
-                // Get the selected option's value
-                let selectedOption = $('.form-select').val();
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-sm btn-primary" id="proceed_loader" disabled style="display: none">
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </button>
+            <button type="button" class="btn btn-sm btn-primary" id="open_link">Export PDF</button>
+        </div>
 
-                // Open the link in a new tab
-                let newTab = window.open(selectedOption, '_blank');
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#open_link').on('click', function() {
+                    // Get the selected option's value
+                    let selectedOption = $('#exportType').val();
 
-                // Trigger download if needed by setting headers server-side or using jsPDF for in-page HTML to PDF
-                if (newTab) {
-                    newTab.focus();
-                } else {
-                    alert("Popup blocked. Please allow popups for this website.");
-                }
+                    // Open the link in a new tab
+                    let newTab = window.open(selectedOption, '_blank');
+
+                    // Check if the new tab was opened successfully
+                    if (newTab) {
+                        newTab.focus();
+                    } else {
+                        alert("Popup blocked. Please allow popups for this website.");
+                    }
+                });
             });
-        });
+        </script>
 
-      </script>
     </div>
   </div>
 </div>
