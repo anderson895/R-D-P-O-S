@@ -136,7 +136,7 @@ table {
                 <th class="">#</th>
                 <th class="">Item</th>
                 <th class="">Quantity</th>
-                <th class="">Amount</th>
+                <th class="text-end">Amount</th>
                 <?php if ($order['status'] == 'Delivered') { ?>
                     <th class="">Actions</th>
                 <?php } ?>
@@ -155,7 +155,7 @@ table {
                         <?= $orderItem['prod_name'] ?>
                     </td>
                     <td class="pt-3"><?= $orderItem['qty'] . ' x ' . $orderItem['prod_currprice'] ?></td>
-                    <td class="pt-3">₱<?= number_format($Amount=$orderItem['qty'] * $orderItem['prod_currprice'],2) ?></td>
+                    <td class="pt-3 text-end">₱<?= number_format($Amount=$orderItem['qty'] * $orderItem['prod_currprice'],2) ?></td>
 
 
                     <?php if ($order['status'] == 'Delivered') { 
