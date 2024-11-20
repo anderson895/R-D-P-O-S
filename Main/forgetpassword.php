@@ -79,9 +79,7 @@ $current_date = date('Y-m-d');
                     </div>
                 </div>
             </div>
-            <div class="login-img">
-                <img src="../upload_system/<?php echo $db_system_banner; ?>" alt="img">
-            </div>
+            
         </div>
     </div>
 </div>

@@ -47,13 +47,7 @@ $current_date = date('Y-m-d');
             <div class="text-center mb-4">
                 <h3 class="mb-3">Sign In</h3>
             </div>
-            <style>
-            input.form-control {
-                background-color: transparent; /* Removes background color */
-                border: 1px solid #ccc; /* Optional: border */
-                color: #000; /* Ensures text is visible */
-            }
-        </style>
+
             <form method="POST">
                  <!-- Username Field -->
                             <div class="form-login">
