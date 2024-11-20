@@ -84,17 +84,20 @@
                             </div>
 
                             <!-- Terms and Conditions -->
-                            <div class="form-login">
-                            <div class="form-check" style="display: flex; align-items: center;">
-                                <input type="checkbox" id="agreeTermsCheckbox" style="width: 16px; height: 16px; margin-right: 5px;" placeholder="">
-                                <label for="agreeTermsCheckbox" style="margin: 0;">
-                                    <a href="#" id="termsLink" style="text-decoration: underline;">I agree to the Terms and Conditions</a>
-                                </label>
+                            <div class="form-login mb-3">
+                                <div class="form-check d-flex align-items-center">
+                                    <input class="form-check-input me-2" type="checkbox" id="agreeTermsCheckbox">
+                                    <label class="form-check-label" for="agreeTermsCheckbox">
+                                        <a href="#" class="text-decoration-underline">I agree to the Terms and Conditions</a>
+                                    </label>
+                                </div>
                             </div>
 
+                            <!-- Submit Button -->
+                            <div class="form-login text-center">
                             <button class="btn btn-login" type="submit" id="submitButton" disabled>Create Account</button>
                             <div class="text-center" id="loadingSpinner"></div>
-                        </div>
+                            </div>
                         </form>
 
                         <!-- Sign-in Link -->
