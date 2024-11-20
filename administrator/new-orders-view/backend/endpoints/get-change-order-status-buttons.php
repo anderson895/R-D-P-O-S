@@ -43,15 +43,17 @@ $current_time = date("H:i:s");
 // Compare current time with cutoff
 if ($current_time < $cutoff) {
     // If the current time is before the cutoff time, enable the element
-   $cutoffStatus = "Enable";
+   $cutoffStatus = ?>
+     <button <?=$cutoffStatus?> class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>" data-currstats="<?= $orderStatus ?>"><i class="bi bi-check2"></i> Accept</button>
+     <button class="btn btn-danger btnRejectOrder" data-id="<?= $orderId ?>"><i class="bi bi-x-lg"></i> Reject</button>
+   <?php;
 } else {
     // If the current time is equal to or after the cutoff time, disable the element
-   $cutoffStatus = "Disabled";
+   $cutoffStatus = "The Rider is No Longer Accepting orders";
 }?>
 
-
-            <button <?=$cutoffStatus?> class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>" data-currstats="<?= $orderStatus ?>"><i class="bi bi-check2"></i> Accept</button>
-            <button class="btn btn-danger btnRejectOrder" data-id="<?= $orderId ?>"><i class="bi bi-x-lg"></i> Reject</button>
+        <?=$cutoffStatus?>
+          
         <?php
         } elseif ($orderStatus == 'Accepted') {
         ?>
