@@ -95,7 +95,7 @@
 
                             <!-- Submit Button -->
                             <div class="form-login text-center">
-                                <button class="btn btn-primary w-100 py-2 fw-bold" type="submit" id="submitButton" disabled>Create Account</button>
+                                <button class="btn btn-login w-100 py-2 fw-bold" type="submit" id="submitButton" disabled>Create Account</button>
                                 <div id="loadingSpinner" class="mt-3"></div>
                             </div>
                         </form>
