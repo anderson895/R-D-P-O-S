@@ -40,7 +40,7 @@ if($getAddress->num_rows > 0) {
 
 
    
-}?>
+?>
 
 <?php 
 $current_time = date("H:i:s");
