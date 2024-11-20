@@ -60,34 +60,12 @@ if ($getAddress->num_rows > 0) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-<!-- <style>
-    
 
-table {
-            width: 100%; 
-        }
-
-        tbody {
-            display: block; 
-            max-height: 300px; 
-            overflow-y: auto; 
-        }
-
-        tr {
-            display: table; /* Ensure that rows are displayed correctly */
-            table-layout: fixed; /* Required for correct width in block tbody */
-            width: 100%; /* Full width */
-        }
-
-
-</style> -->
 
 <div class="d-flex justify-content-between">
     <a href="orders.php?page=<?= $order['status'] ?>" class="btn" style="font-size: 20px;"><i
             class="bi bi-arrow-return-left"></i> Back</a>
-    <!-- <?=
-        ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger" id="btnCancelOrder" data-id="' . $orderId . '"><i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
-    ?> -->
+   
      <?=
         ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger CancelModal" data-id="' . $orderId . '">
         <i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
