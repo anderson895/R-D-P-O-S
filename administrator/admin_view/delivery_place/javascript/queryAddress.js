@@ -120,7 +120,7 @@ function formatTime(cutoff) {
         // Convert to 12-hour format
         hours = hours % 12 || 12; // Converts 0 hours to 12 (for midnight)
         
-        return hours + ":" + minutes;
+        return hours + ":" + minutes + ":" + period;
     } else {
         // Return the time as it is if the format is unexpected
         return cutoff;
