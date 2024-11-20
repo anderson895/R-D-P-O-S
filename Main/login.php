@@ -53,7 +53,7 @@ $current_date = date('Y-m-d');
                             <div class="form-login">
                                 <div class="form-floating mb-4">
                                     <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
-                                    <label for="username">Username</label>
+                                    <label for="username" style="background-color:transparent;"><i class="bi bi-person-circle me-2"></i>Username</label>
                                 </div>
                             </div>
 
@@ -61,7 +61,7 @@ $current_date = date('Y-m-d');
                             <div class="form-login">
                                 <div class="form-floating mb-4">
                                     <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
-                                    <label for="password">Password</label>
+                                    <label for="password" style="background-color:transparent;"><i class="bi bi-lock me-2"></i>Password</label>
                                 </div>
                             </div>
 
