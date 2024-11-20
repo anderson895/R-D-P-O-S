@@ -56,10 +56,7 @@ $current_date = date('Y-m-d');
             <div class="container bg-white p-4 rounded-4 shadow-sm">
                 <div class="login-userset">
                     <!-- Optional Logo Section -->
-                    <div class="login-logo text-center mb-4">
-                        <!-- Add logo image here if needed -->
-                        <img src="your-logo.png" alt="Logo" class="img-fluid" style="max-width: 120px;">
-                    </div>
+                  
 
                     <!-- User Heading -->
                     <div class="login-userheading text-center mb-4">
