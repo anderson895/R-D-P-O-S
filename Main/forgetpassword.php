@@ -50,38 +50,53 @@ $current_date = date('Y-m-d');
    
    ?>
 <div class="main-wrapper">
-    <div class="account-content">
-        <div class="login-wrapper">
-            <div class="login-content">
-                <div class="container" style="background-color:white; border-radius:15px;">
-                    <div class="login-userset">
-                        <div class="login-logo">
-                            <!-- Logo can be added here if needed -->
-                        </div>
-                        <div class="login-userheading">
-                            <h3>Forgot Password?</h3>
-                            <h4>Please enter the email address associated with your account.</h4>
-                        </div>
+<div class="account-content py-5 bg-light">
+    <div class="login-wrapper d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-content">
+            <div class="container bg-white p-4 rounded-4 shadow-sm">
+                <div class="login-userset">
+                    <!-- Optional Logo Section -->
+                    <div class="login-logo text-center mb-4">
+                        <!-- Add logo image here if needed -->
+                        <img src="your-logo.png" alt="Logo" class="img-fluid" style="max-width: 120px;">
+                    </div>
 
-                        <!-- Email Field with Floating Label -->
-                        <div class="form-login">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="email" placeholder="Enter your email address" required>
-                                <label for="email">Email address</label>
-                            </div>
-                        </div>
+                    <!-- User Heading -->
+                    <div class="login-userheading text-center mb-4">
+                        <h3 class="fw-bold">Forgot Password?</h3>
+                        <p class="text-muted">Please enter the email address associated with your account.</p>
+                    </div>
 
-                        <div class="text-center" id="loadingSpinner"></div>
-                        
-                        <div class="form-login">
-                            <a class="btn btn-login" id="btnForgotPass">Submit</a>
+                    <!-- Email Field -->
+                    <div class="form-login">
+                        <div class="form-floating mb-3">
+                            <input 
+                                type="email" 
+                                class="form-control" 
+                                id="email" 
+                                placeholder="Enter your email address" 
+                                required>
+                            <label for="email" class="text-secondary">
+                                <i class="bi bi-envelope me-2"></i>Email address
+                            </label>
                         </div>
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div class="text-center my-3" id="loadingSpinner">
+                        <!-- Spinner will appear dynamically -->
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-login">
+                        <button class="btn btn-primary w-100 fw-bold py-2" id="btnForgotPass">Submit</button>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
+</div>
+
 </div>
 
 
