@@ -169,9 +169,9 @@ echo '
 </div>
 </div>
 
-<div class="col-lg-6 col-sm-12">
+<!-- <div class="col-lg-6 col-sm-12">
 <div class="form-group">
-<label>Agessssssss</label>
+<label>Age</label>
 <?php 
 if($db_acc_id===$target_id){ 
 echo "// ilagay dito ang birthday kapag ng may ari ng account";
@@ -181,7 +181,7 @@ echo '<input type="text" disabled style="border:none; background-color:transpare
 
 
 </div>
-</div>
+</div> -->
 
 <hr>
 
