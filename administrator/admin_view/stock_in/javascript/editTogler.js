@@ -1,106 +1,69 @@
 $(document).ready(function () {
-  // Function to fetch and update table data
-  function updateStockTable() {
-    // Get the invoice number
-    var invoice_no = $("#invoice_no").val();
 
-    // Make an AJAX request to get_stock_data.php
+  function updateStockTable() {
+    var invoice_no = $("#invoice_no").val();
     $.ajax({
       type: "POST",
       url: "stock_in/controller/get_stock_data.php",
       data: { invoice_no: invoice_no },
       dataType: "json",
       success: function (data) {
-        // console.log(data)
-        // Clear existing table content
         $("#stockTableBody").empty();
-
-        // Append new data to the table
+  
+        // Get today's date
+        var today = new Date();
+  
         $.each(data, function (index, row) {
+          var expirationDate = new Date(row.s_expiration);
+          var diffTime = expirationDate - today; // Difference in milliseconds
+          var diffDays = diffTime / (1000 * 3600 * 24); // Convert ms to days
+  
           // Add your HTML generation logic here
           var html = "<tr>";
           html += '<td><input type="checkbox" id="EachCheckbox"></td>';
           html += "<td>" + row.prod_name + "</td>";
           html += "<td>" + row.s_stock_in_qty + "</td>";
           html += "<td>" + row.s_amount + "</td>";
-          html += "<td>";
-
-          // Logic for displaying the appropriate unit
-          // if (row.prod_kg != 0) {
-          //     html += row.prod_kg + 'Kg';
-          // } else if (row.prod_ml != 0) {
-          //     html += row.prod_ml + 'Ml';
-          // } else if (row.prod_g != 0) {
-          //     html += row.prod_g + 'g';
-          // } else {
-          //     html += 'Pcs';
-          // }
-
-          html += row.unit_type;
-
-          html += "</td>";
+          html += "<td>" + row.unit_type + "</td>";
           html += "<td>" + row.prod_currprice + "</td>";
           html += "<td>" + row.s_supplierPrice + "</td>";
-        html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
-
-          html +=
-            "<td>" +
-            (row.s_expiration !== "0000-00-00"
-              ? row.s_expiration
-              : "No expiration") +
-            "</td>";
+          html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
+  
+          html += "<td>" + (row.s_expiration !== "0000-00-00" ? row.s_expiration : "No expiration") + "</td>";
           html += "<td>" + row.s_stockin_date + "</td>";
-          html += '<td class="text-end">';
+  
+          // Add color based on expiration date
+          var expirationClass = (diffDays <= 60 && diffDays >= 0) ? 'red' : 'green';
+  
+          html += '<td class="text-end ' + expirationClass + '">';
           html +=
             '<button class="btn btn-sm border editTogler" data-bs-toggle="modal" data-bs-target="#edit" ' +
-            'data-db_prod_name="' +
-            row.prod_name +
-            '" ' +
-            'data-db_s_expiration="' +
-            row.s_expiration +
-            '" ' +
-            'data-db_s_supplierPrice="' +
-            row.s_supplierPrice +
-            '" ' +
-            'data-db_s_amount="' +
-            row.s_amount +
-            '" ' +
-            'data-db_prod_kg="' +
-            row.prod_kg +
-            '" ' +
-            'data-db_prod_ml="' +
-            row.prod_ml +
-            '" ' +
-            'data-db_prod_g="' +
-            row.prod_g +
-            '" ' +
-            'data-db_prod_image="' +
-            row.prod_image +
-            '" ' +
-            'data-db_prod_currprice="' +
-            row.prod_currprice +
-            '" ' +
-            'data-db_prod_expirationStatus="' +
-            row.prod_expirationStatus +
-            '" ' +
-            'data-db_prod_code="' +
-            row.prod_code +
-            '" ' +
-            'data-db_s_id="' +
-            row.s_id +
-            '" ' +
+            'data-db_prod_name="' + row.prod_name + '" ' +
+            'data-db_s_expiration="' + row.s_expiration + '" ' +
+            'data-db_s_supplierPrice="' + row.s_supplierPrice + '" ' +
+            'data-db_s_amount="' + row.s_amount + '" ' +
+            'data-db_prod_kg="' + row.prod_kg + '" ' +
+            'data-db_prod_ml="' + row.prod_ml + '" ' +
+            'data-db_prod_g="' + row.prod_g + '" ' +
+            'data-db_prod_image="' + row.prod_image + '" ' +
+            'data-db_prod_currprice="' + row.prod_currprice + '" ' +
+            'data-db_prod_expirationStatus="' + row.prod_expirationStatus + '" ' +
+            'data-db_prod_code="' + row.prod_code + '" ' +
+            'data-db_s_id="' + row.s_id + '" ' +
             ">Edit</button>";
           html +=
-            '<button class="btn btn-sm border btnRemove" data-db_s_id="' +
-            row.s_id +
-            '">Remove</button>';
+            '<button class="btn btn-sm border btnRemove" data-db_s_id="' + row.s_id + '">Remove</button>';
           html += "</td></tr>";
-
+  
           $("#stockTableBody").append(html);
         });
       },
     });
   }
+  
+
+
+
 
   // Event listener for the "Select All" checkbox
   $("#AllCheckbox").change(function () {
