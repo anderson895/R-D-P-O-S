@@ -42,7 +42,7 @@
 
                 <div class="row mt-4">
                   <div class="form-group">
-                    <label for="setCutOff_update">setCutOff</label>
+                    <label for="setCutOff_update">Set CutOff</label>
                     <input type="time" class="form-control " value="" name="setCutOff_update" id="setCutOff_update" placeholder="Set Cutoff">
                   </div>
                 </div>
