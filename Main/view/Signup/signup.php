@@ -60,11 +60,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-floating mb-3">
+                            <!-- <div class="form-floating mb-3">
                                 <input type="date" class="form-control" id="birthdate" name="bday" value="2006-05-31">
                                 <label for="birthdate">Birthday</label>
                                 <div class="text-danger" id="birthdateError"></div>
-                            </div>
+                            </div> -->
 
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
