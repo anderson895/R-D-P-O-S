@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                <div class="login-content bg-white shadow rounded p-4">
+                <div class="login-wrapper login-content bg-white shadow rounded p-4">
                     <div class="login-userset">
                         <form method="POST">
                             <!-- Heading -->
@@ -103,9 +103,7 @@
                         <!-- Sign-in Link -->
                         <div class="signinform text-center mt-4">
 
-                        <div class="form-login mb-4">
-                                <button class="btn btn-login w-100 fw-bold py-2" type="submit" name="btnLogin">Sign In</button>
-                            </div>
+                        
                             <h5>Already a user? <a href="login.php" class="text-primary fw-bold">Sign In</a></h5>
                         </div>
                     </div>
