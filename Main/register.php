@@ -292,15 +292,15 @@ $(document).ready(function() {
         }
     });
 
-    birthdateInput.on('input', function () {
-        if (validateAge($(this).val())) {
-            $('#birthdateError').text('');
-            resetStyles(birthdateInput);
-        } else {
-            $('#birthdateError').text('Invalid date or Age must be at least 18 years old.');
-            setStyleInvalid(birthdateInput);
-        }
-    });
+    // birthdateInput.on('input', function () {
+    //     if (validateAge($(this).val())) {
+    //         $('#birthdateError').text('');
+    //         resetStyles(birthdateInput);
+    //     } else {
+    //         $('#birthdateError').text('Invalid date or Age must be at least 18 years old.');
+    //         setStyleInvalid(birthdateInput);
+    //     }
+    // });
 
     emailInput.on('input', function () {
         if (validateEmail($(this).val())) {
@@ -365,11 +365,11 @@ $(document).ready(function() {
             hasError = true;
         }
 
-        if (!validateAge(birthdateInput.val())) {
-            $('#birthdateError').text('Invalid date or Age must be at least 18 years old.');
-            setStyleInvalid(birthdateInput);
-            hasError = true;
-        }
+        // if (!validateAge(birthdateInput.val())) {
+        //     $('#birthdateError').text('Invalid date or Age must be at least 18 years old.');
+        //     setStyleInvalid(birthdateInput);
+        //     hasError = true;
+        // }
 
         if (passwordInput.val() !== confirmPasswordInput.val()) {
             $('#passwordMatchError').text('Passwords do not match.');
