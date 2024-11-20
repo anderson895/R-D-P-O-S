@@ -12,6 +12,20 @@
     color: white; /* Color ng text kapag na-hover */
 }
 
+
+.btn-login {
+  width: 100%;
+  font-weight: 700;
+  background: linear-gradient(to left, #A52A2A, #800000);
+  border-color: #ff9f43;
+  padding: 12px;
+  -webkit-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin-top: 15px;
+  color: #fff;
+}
+
 </style>
 
 <body class="account-page">
@@ -95,7 +109,7 @@
 
                             <!-- Submit Button -->
                             <div class="form-login text-center">
-                            <button class="btn btn-primary" type="submit" id="submitButton" disabled>Create Account</button>
+                            <button class="btn btn-login" type="submit" id="submitButton" disabled>Create Account</button>
                             <div class="text-center" id="loadingSpinner"></div>
                             </div>
                         </form>
