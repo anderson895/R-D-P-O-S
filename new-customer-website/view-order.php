@@ -65,7 +65,7 @@ if ($getAddress->num_rows > 0) {
 <div class="d-flex justify-content-between">
     <a href="orders.php?page=<?= $order['status'] ?>" class="btn" style="font-size: 20px;"><i
             class="bi bi-arrow-return-left"></i> Back</a>
-       
+   
      <?=
         ($order['status'] == 'Pending' || $order['status'] == 'Accepted') ? '<button type="button" class="btn btn-danger CancelModal" data-id="' . $orderId . '">
         <i class="bi bi-x-lg"></i> Cancel Order</button>' : '';
@@ -106,7 +106,7 @@ if ($getAddress->num_rows > 0) {
             <tr>
                 <td colspan="5">
                     <h5 style="font-weight: 700;" class="mt-3 mb-2 text-secondary">
-                        <i class="bi bi-feather"></i> Items SSSSSS
+                        <i class="bi bi-feather"></i> Items
                     </h5>
                 </td>
             </tr>

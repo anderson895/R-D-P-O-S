@@ -458,7 +458,7 @@ public function getOrderStatusCounts()
     
     public function getUserAddress($userId)
     {
-        $query = $this->conn->prepare("SELECT a.acc_code,tbladd.address_rider,ua.user_complete_address, a.acc_fname, a.acc_lname 
+        $query = $this->conn->prepare("SELECT a.acc_code,tbladd.address_rider,tbladd.cutoff,ua.user_complete_address, a.acc_fname, a.acc_lname 
         FROM `account`
          AS a JOIN `user_address` AS ua 
          ON a.acc_code = ua.user_acc_code

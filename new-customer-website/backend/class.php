@@ -642,16 +642,8 @@ public function sentMessage($sender_id, $sender_Messages, $fileName)
 
     public function getUserAddress($userId)
     {
-        // $query = $this->conn->prepare("SELECT ua.user_complete_address AS address FROM `account` AS a 
-        //                                 LEFT JOIN `user_address` AS ua ON a.acc_code = ua.user_acc_code WHERE a.acc_id = '$userId'");
-
-
         $query = $this->conn->prepare("SELECT ua.user_complete_address AS address FROM `account` AS a 
-        LEFT JOIN `user_address` AS ua ON a.acc_code = ua.user_acc_code
-        LEFT JOIN `tbl_address` AS ta ON ua.user_address_code = ua.address_code
-        WHERE a.acc_id = '$userId'");
-
-        
+                                        LEFT JOIN `user_address` AS ua ON a.acc_code = ua.user_acc_code WHERE a.acc_id = '$userId'");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
