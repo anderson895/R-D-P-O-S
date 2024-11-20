@@ -10,6 +10,8 @@ $acc_id = $_POST["acc_id"];
 $shipping = $_POST["shipping"];
 $riderSelect=$_POST['riderSelect'];
 $activeStatus = $_POST["activeStatus"];
+
+$setCutOff=$_POST['setCutOff'];
 // $deliveryAllowed = $_POST["deliveryAllowed"];
 // $paymentfirstAllowed = $_POST["paymentfirstAllowed"];
 
@@ -84,8 +86,8 @@ if ($count > 0) {
 } else {
     $activeStatus = $activeStatus == "true" ? 1 : 0;
 
-    $insertQuery = "INSERT INTO tbl_address (address_code, muni_code, prov_code, reg_code, address_complete_name, address_rate,address_rider, address_status, address_date_added, address_display_status) 
-VALUES (?, ?, ?, ?, ?, ?, ?,?, NOW(), 1)";
+    $insertQuery = "INSERT INTO tbl_address (address_code, muni_code, prov_code, reg_code, address_complete_name, address_rate,address_rider,cutoff, address_status, address_date_added, address_display_status) 
+VALUES (?, ?, ?, ?, ?, ?, ?,?,?, NOW(), 1)";
 
 $stmt = mysqli_prepare($connections, $insertQuery);
 
@@ -93,7 +95,7 @@ if (!$stmt) {
     die("Error in preparing statement: " . mysqli_error($connections));
 }
 
-mysqli_stmt_bind_param($stmt, "ssssssii", $brgy_code, $cityId, $provinceId, $regionId, $completeAddress, $shipping,$riderSelect, $activeStatus);
+mysqli_stmt_bind_param($stmt, "ssssssisi", $brgy_code, $cityId, $provinceId, $regionId, $completeAddress, $shipping,$riderSelect,$setCutOff, $activeStatus);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 

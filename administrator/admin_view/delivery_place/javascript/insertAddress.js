@@ -10,6 +10,7 @@ $(document).ready(function () {
       var province = $("#province_add").val();
       var city = $("#city_add").val();
       var barangay = $("#brgy_add").val();
+      var setCutOff = $("#setCutOff").val();
     
       var shipping = $("#Addshipping").val();
 
@@ -33,6 +34,7 @@ $(document).ready(function () {
         province: province,
         city: city,
         barangay: barangay,
+        setCutOff:setCutOff,
         activeStatus:activeStatus,
         deliveryAllowed:deliveryAllowed,
         paymentfirstAllowed:paymentfirstAllowed,
