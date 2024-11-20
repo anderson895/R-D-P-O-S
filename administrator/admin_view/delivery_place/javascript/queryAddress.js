@@ -2,6 +2,7 @@ $(document).ready(function () {
     var acc_id = $("#acc_id").val();
 
 
+    console.log(addressData);
     // Check if DataTable is already initialized
 var dataTable = $('.datanew').DataTable();
 if (!$.fn.dataTable.isDataTable('.datanew')) {
