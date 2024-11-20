@@ -32,10 +32,7 @@ $(document).ready(function () {
           html += "<td>" + (row.s_expiration !== "0000-00-00" ? row.s_expiration : "No expiration") + "</td>";
           html += "<td>" + row.s_stockin_date + "</td>";
   
-          // Add color based on expiration date
-          var expirationClass = (diffDays <= 60 && diffDays >= 0) ? 'red' : 'green';
-  
-          html += '<td class="text-end ' + expirationClass + '">';
+          html += '<td class="text-end">';
           html +=
             '<button class="btn btn-sm border editTogler" data-bs-toggle="modal" data-bs-target="#edit" ' +
             'data-db_prod_name="' + row.prod_name + '" ' +
@@ -55,7 +52,23 @@ $(document).ready(function () {
             '<button class="btn btn-sm border btnRemove" data-db_s_id="' + row.s_id + '">Remove</button>';
           html += "</td></tr>";
   
-          $("#stockTableBody").append(html);
+          // Append row to the table
+          var $row = $(html);
+  
+          // Apply dynamic styling based on expiration date
+          if (diffDays <= 60 && diffDays >= 0) {
+            $row.css({
+              'background-color': 'red',
+              'color': 'white'
+            });
+          } else {
+            $row.css({
+              'background-color': 'green',
+              'color': 'white'
+            });
+          }
+  
+          $("#stockTableBody").append($row);
         });
       },
     });
