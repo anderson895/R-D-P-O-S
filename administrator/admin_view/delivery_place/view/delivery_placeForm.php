@@ -13,6 +13,7 @@
                 <th >Address</th>
                 <th >Shipping</th>
                 <th >Rider Assign</th>
+                <th >Cutoff</th>
                 <th >Status</th>
                 <!--<th >Cod</th>-->
                 <!--<th >Pay first</th>-->
