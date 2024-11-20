@@ -98,9 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="login-img d-none d-md-block">
-                <img src="../upload_system/<?=$db_system_banner?>" alt="Login Image" class="img-fluid" style="max-height: 100vh; object-fit: cover;">
-            </div>
+           
         </div>
     </div>
 </div>
