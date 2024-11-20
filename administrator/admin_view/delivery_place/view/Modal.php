@@ -37,6 +37,17 @@
                         <!-- Add more options as needed -->
                     </select>
                 </div>
+
+
+
+                <div class="row mt-4">
+                  <div class="form-group">
+                    <label for="setCutOff_update">setCutOff</label>
+                    <input type="time" class="form-control " value="" name="setCutOff_update" id="setCutOff_update" placeholder="Set Cutoff">
+                  </div>
+                </div>
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" id="savePlace" class="btn btn-submit">Save</button>

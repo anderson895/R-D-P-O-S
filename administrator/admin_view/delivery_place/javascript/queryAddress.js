@@ -101,7 +101,7 @@ var newRow =
     '<td>' + statusToggle + '</td>' +
     '<td>' +
     '<center>' +
-    '<a class="me-3 editShipping" data-bs-toggle="modal" data-rider_id="'+riderId+'" data-address_name="' + address_name + '" data-address_id="' + address_id + '" data-shipping="' + shipping + '"  data-bs-target="#editShipping"><img src="assets/img/icons/edit.svg" alt="img"></a>' +
+    '<a class="me-3 editShipping" data-bs-toggle="modal" data-cutoff="'+cutoff+'" data-rider_id="'+riderId+'" data-address_name="' + address_name + '" data-address_id="' + address_id + '" data-shipping="' + shipping + '"  data-bs-target="#editShipping"><img src="assets/img/icons/edit.svg" alt="img"></a>' +
     '<a class="me-3 removeShipping" data-address_name="' + address_name + '" data-address_id="' + address_id + '"  ><img src="assets/img/icons/delete.svg" alt="img"></a>' +
     '</center>' +
     '</td>' +
@@ -275,6 +275,7 @@ $(".NotAllowedCod").on("click", function() {
 
 
 $(".editShipping").on("click", function() {
+  let setCutOff_update =$(this).attr("data-cutoff");
   let rider_id = $(this).attr("data-rider_id");
   let address_id = $(this).attr("data-address_id");
   let shipping = $(this).attr("data-shipping");
@@ -283,6 +284,8 @@ $(".editShipping").on("click", function() {
   // Set the selected option based on rider_id
   $("#riderSelect").val(rider_id);
 
+
+  $("#setCutOff_update").val(setCutOff_update);
   $("#AddressName").text(address_name);
 
   $("#address_id").val(address_id);
