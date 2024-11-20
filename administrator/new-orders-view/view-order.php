@@ -74,10 +74,10 @@ $current_time = date("H:i:s");
 // Compare current time with cutoff
 if ($current_time < $cutoff) {
     // If the current time is before the cutoff time, enable the element
-    $disable = false;
+  echo  $disable = false;
 } else {
     // If the current time is equal to or after the cutoff time, disable the element
-    $disable = true;
+  echo   $disable = true;
 }
 
 
