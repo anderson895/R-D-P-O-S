@@ -97,7 +97,7 @@ var newRow =
     '<td>' + address_name + '</td>' +
     '<td>' + shipping + '</td>' +
     '<td>' + riderName + '</td>' +
-    '<td>' + cutoff + '</td>' +
+    '<td>' + (cutoff === null || cutoff === "" ? "No Cutoff" : formatTime(cutoff)) + '</td>' +
     '<td>' + statusToggle + '</td>' +
     '<td>' +
     '<center>' +
@@ -106,6 +106,27 @@ var newRow =
     '</center>' +
     '</td>' +
     '</tr>';
+
+// Function to format the cutoff time
+function formatTime(cutoff) {
+    var timeParts = cutoff.split(":"); // Split the time into hours, minutes, and seconds
+    if (timeParts.length === 3) {
+        // If the time is in HH:mm:ss format
+        var hours = parseInt(timeParts[0], 10);
+        var minutes = timeParts[1];
+        var seconds = timeParts[2];
+        var period = hours >= 12 ? 'PM' : 'AM';
+
+        // Convert to 12-hour format
+        hours = hours % 12 || 12; // Converts 0 hours to 12 (for midnight)
+        
+        return hours + ":" + minutes + ":" + seconds + " " + period;
+    } else {
+        // Return the time as it is if the format is unexpected
+        return cutoff;
+    }
+}
+
 
   dataTable.row.add($(newRow)).draw();
 });
