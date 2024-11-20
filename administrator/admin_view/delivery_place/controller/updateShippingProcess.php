@@ -7,6 +7,7 @@ date_default_timezone_set('Asia/Manila');
 $currentDateTime = date('Y-m-d H:i:s');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $setCutOff_update=$_POST['setCutOff_update'];
     $acc_id = $_POST["acc_id"];
     $address_id = $_POST["address_id"];
     $shipping = $_POST["shipping"];
@@ -17,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db_address_rate = $row["address_rate"];
 
     // Prepare the SQL statement
-    $sql = "UPDATE tbl_address SET address_rate = ?,address_rider = ?, address_date_edited = ? WHERE address_id = ?";
+    $sql = "UPDATE tbl_address SET address_rate = ?,address_rider = ?,cutoff=?, address_date_edited = ? WHERE address_id = ?";
 
     // Use a prepared statement to update the shipping
     if ($stmt = $connections->prepare($sql)) {
-        $stmt->bind_param("sisi", $shipping,$rider_id, $currentDateTime, $address_id);
+        $stmt->bind_param("sissi", $shipping,$rider_id,$setCutOff_update, $currentDateTime, $address_id);
 
         if ($stmt->execute()) {
             echo "shipping updated successfully.";

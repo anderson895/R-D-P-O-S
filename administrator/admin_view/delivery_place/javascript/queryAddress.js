@@ -295,6 +295,10 @@ $(".editShipping").on("click", function() {
 
   $("#savePlace").on("click", function() {
 
+
+  
+  let setCutOff_update = $("#setCutOff_update").val();
+  
   let address_id = $("#address_id").val();
   let shipping = $("#shipping").val();
   let rider_id = $("#riderSelect").val();
@@ -307,7 +311,8 @@ $(".editShipping").on("click", function() {
            acc_id: acc_id,
            address_id: address_id,
           shipping: shipping,
-          rider_id:rider_id
+          rider_id:rider_id,
+          setCutOff_update:setCutOff_update
       },
       success: function(response) {
                
