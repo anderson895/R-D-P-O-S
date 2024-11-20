@@ -69,15 +69,54 @@ $system = $maintinance->fetch_assoc();
 
 
     
-    <aside class="side-nav">
+    <!-- <aside class="side-nav">
         <ul class="list-group">
             <li><a href="index.php" class="nav-all-products"><i class="bi bi-shop"></i> All Products</a></li>
             <li><a href="cart.php" class="nav-cart"><i class="bi bi-cart-check"></i> Cart <span class="badge bg-danger mx-2" id="cart-count"></span></a></li>
             <li><a href="orders.php?page=Pending" class="nav-my-orders"><i class="bi bi-newspaper"></i> My Orders</a></li>
             <li><a href="message.php" class="nav-message"><i class="bi bi-chat"></i> Message</a></li>
-            <!-- <li><a href="index.php" class="nav-notification"><i class="bi bi-bell"></i> Notification</a></li> -->
+          
         </ul>
-    </aside>
+    </aside> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <!-- Brand Logo or Title (optional) -->
+        <a class="navbar-brand" href="index.php">
+            <i class="bi bi-shop"></i> Shop
+        </a>
+
+        <!-- Navbar Links -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">
+                        <i class="bi bi-shop"></i> All Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.php">
+                        <i class="bi bi-cart-check"></i> Cart 
+                        <span class="badge bg-danger mx-2" id="cart-count"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.php?page=Pending">
+                        <i class="bi bi-newspaper"></i> My Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="message.php">
+                        <i class="bi bi-chat"></i> Message
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 
     <main class="">
