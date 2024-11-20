@@ -51,7 +51,7 @@ $current_date = date('Y-m-d');
    ?>
 <div class="main-wrapper">
 <div class="account-content py-5 bg-light">
-    <div class="login-wrapper d-flex justify-content-center align-items-center min-vh-80">
+    <div class="login-wrapper d-flex justify-content-center align-items-center min-vh-100">
         <div class="login-content">
             <div class="container bg-white p-4 rounded-4 shadow-sm">
                 <div class="login-userset">
