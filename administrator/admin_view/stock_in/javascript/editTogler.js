@@ -56,30 +56,26 @@ $(document).ready(function () {
           // Append row to the table
           var $row = $(html);
           
-         // Apply dynamic text color, border, and border-radius to the expiration date cell only
-if (diffDays < 0) {
-  // Expired: set text color to red and add a border with rounded corners
-  $row.find('.expiration-date').css({
-    'color': 'red',
-    'border': '1px solid red',
-    'border-radius': '5px'  // Add border-radius for rounded corners
-  });
-} else if (diffDays <= 60) {
-  // Soon to expire (within 2 months): set text color to orange and add a border with rounded corners
-  $row.find('.expiration-date').css({
-    'color': 'orange',
-    'border': '1px solid orange',
-    'border-radius': '5px'  // Add border-radius for rounded corners
-  });
-} else {
-  // More than 2 months: set text color to green and add a border with rounded corners
-  $row.find('.expiration-date').css({
-    'color': 'green',
-    'border': '1px solid green',
-    'border-radius': '5px'  // Add border-radius for rounded corners
-  });
-}
-
+          // Apply dynamic text color and border to the expiration date cell only
+          if (diffDays < 0) {
+            // Expired: set text color to red and add a border
+            $row.find('.expiration-date').css({
+              'color': 'red',
+              'border': '1px solid red'
+            });
+          } else if (diffDays <= 60) {
+            // Soon to expire (within 2 months): set text color to orange and add a border
+            $row.find('.expiration-date').css({
+              'color': 'orange',
+              'border': '1px solid orange'
+            });
+          } else {
+            // More than 2 months: set text color to green and add a border
+            $row.find('.expiration-date').css({
+              'color': 'green',
+              'border': '1px solid green'
+            });
+          }
   
           $("#stockTableBody").append($row);
         });
