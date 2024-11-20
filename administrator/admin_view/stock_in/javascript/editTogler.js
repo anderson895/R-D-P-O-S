@@ -58,14 +58,20 @@ $(document).ready(function () {
           var $row = $(html);
           
           // Apply dynamic styling to the expiration date cell only
-          if (diffDays <= 60 && diffDays >= 0) {
-            // Change the color of the expiration date to red
+          if (diffDays < 0) {
+            // Expired: set to red
             $row.find('.expiration-date').css({
               'background-color': 'red',
               'color': 'white'
             });
+          } else if (diffDays <= 60) {
+            // Soon to expire (within 2 months): set to orange
+            $row.find('.expiration-date').css({
+              'background-color': 'orange',
+              'color': 'white'
+            });
           } else {
-            // Change the color of the expiration date to green
+            // More than 2 months: set to green
             $row.find('.expiration-date').css({
               'background-color': 'green',
               'color': 'white'
