@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                <div class="login-wrapper login-content bg-white shadow rounded p-4">
+                <div class="login-content bg-white shadow rounded p-4">
                     <div class="login-userset">
                         <form method="POST">
                             <!-- Heading -->
