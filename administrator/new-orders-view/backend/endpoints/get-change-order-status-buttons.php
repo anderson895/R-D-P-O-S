@@ -10,7 +10,49 @@ if (isset($_GET['orderId'])) {
         $orderStatus = $order['status'];
         if ($orderStatus == 'Pending') {
 ?>
-            <button class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>" data-currstats="<?= $orderStatus ?>"><i class="bi bi-check2"></i> Accept</button>
+
+<?php 
+$paymentType = $order['payment_id'];
+if ($paymentType != 'COD') {
+    $getPaymentType = $db->checkId('mode_of_payment', 'payment_id', $paymentType);
+    if ($getPaymentType->num_rows > 0) {
+        $paymentTypeResult = $getPaymentType->fetch_assoc();
+        $paymentType = $paymentTypeResult['payment_name'];
+    }
+}
+
+// adddress
+$delAddress = '';
+$orderBy = '';
+$userId = $order['cust_id'];
+
+$getAddress = $db->getUserAddress($userId);
+if($getAddress->num_rows > 0) {
+    $address = $getAddress->fetch_assoc();
+    $delAddress = $address['user_complete_address'];
+
+    $assignRider = $address['address_rider'];
+    $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
+    $userCode = $address['acc_code'];
+
+    $cutoff = $address['cutoff'];
+}
+
+$current_time = date("H:i:s");
+
+echo "the current cut off is $cutoff";
+
+// Compare current time with cutoff
+if ($current_time < $cutoff) {
+    // If the current time is before the cutoff time, enable the element
+   $cutoffStatus = "Enable";
+} else {
+    // If the current time is equal to or after the cutoff time, disable the element
+   $cutoffStatus = "Disabled";
+}?>
+
+
+            <button <?=$cutoffStatus?> class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>" data-currstats="<?= $orderStatus ?>"><i class="bi bi-check2"></i> Accept</button>
             <button class="btn btn-danger btnRejectOrder" data-id="<?= $orderId ?>"><i class="bi bi-x-lg"></i> Reject</button>
         <?php
         } elseif ($orderStatus == 'Accepted') {

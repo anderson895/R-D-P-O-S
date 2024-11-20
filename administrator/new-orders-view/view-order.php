@@ -1,8 +1,5 @@
 <?php
 include('components/header.php');
-date_default_timezone_set("Asia/Manila");
-
-
 
 function backToPendingOrders()
 {
@@ -65,25 +62,6 @@ if($getAddress->num_rows > 0) {
 }
 ?>
 
-
-
-<?php
-// Get the current time in HH:mm:ss format
-$current_time = date("H:i:s");
-
-echo "the current cut off is $cutoff";
-
-// Compare current time with cutoff
-if ($current_time < $cutoff) {
-    // If the current time is before the cutoff time, enable the element
-  echo  $disable = "Enable";
-} else {
-    // If the current time is equal to or after the cutoff time, disable the element
-  echo   $disable = "Disabled";
-}
-
-
-?>
 
 <div class="container pt-4">
     <div class="container d-flex justify-content-between">
