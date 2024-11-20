@@ -51,12 +51,11 @@ $current_date = date('Y-m-d');
    ?>
 <div class="main-wrapper">
 <div class="account-content py-5 bg-light">
-    <div class="login-wrapper d-flex justify-content-center align-items-center min-vh-100">
+    <div class="login-wrapper d-flex justify-content-center align-items-start min-vh-100 pt-4"> <!-- Changed align-items-center to align-items-start and added pt-4 to move the content higher -->
         <div class="login-content">
             <div class="container bg-white p-4 rounded-4 shadow-sm">
                 <div class="login-userset">
                     <!-- Optional Logo Section -->
-                  
 
                     <!-- User Heading -->
                     <div class="login-userheading text-center mb-4">
@@ -86,13 +85,14 @@ $current_date = date('Y-m-d');
 
                     <!-- Submit Button -->
                     <div class="form-login">
-                        <button class="btn btn-login w-100 fw-bold py-2" id="btnForgotPass">Submit</button>
+                        <button class="btn btn-primary w-100 fw-bold py-2" id="btnForgotPass">Submit</button> <!-- Used btn-primary for consistent button style -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 </div>
 
