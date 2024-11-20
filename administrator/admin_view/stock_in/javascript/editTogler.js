@@ -56,21 +56,24 @@ $(document).ready(function () {
           // Append row to the table
           var $row = $(html);
           
-          // Apply dynamic text color to the expiration date cell only
+          // Apply dynamic text color and border to the expiration date cell only
           if (diffDays < 0) {
-            // Expired: set text color to red
+            // Expired: set text color to red and add a border
             $row.find('.expiration-date').css({
-              'color': 'red'
+              'color': 'red',
+              'border': '1px solid red'
             });
           } else if (diffDays <= 60) {
-            // Soon to expire (within 2 months): set text color to orange
+            // Soon to expire (within 2 months): set text color to orange and add a border
             $row.find('.expiration-date').css({
-              'color': 'orange'
+              'color': 'orange',
+              'border': '1px solid orange'
             });
           } else {
-            // More than 2 months: set text color to green
+            // More than 2 months: set text color to green and add a border
             $row.find('.expiration-date').css({
-              'color': 'green'
+              'color': 'green',
+              'border': '1px solid green'
             });
           }
   
@@ -79,7 +82,7 @@ $(document).ready(function () {
       },
     });
   }
-  
+    
 
 
 
