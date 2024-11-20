@@ -169,7 +169,7 @@ echo '
 </div>
 </div>
 
-<div class="col-lg-6 col-sm-12">
+<!-- <div class="col-lg-6 col-sm-12">
 <div class="form-group">
 <label>Age</label>
 <?php 
@@ -181,7 +181,7 @@ echo '<input type="text" disabled style="border:none; background-color:transpare
 
 
 </div>
-</div>
+</div> -->
 
 <hr>
 
