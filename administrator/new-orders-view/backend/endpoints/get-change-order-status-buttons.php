@@ -51,13 +51,11 @@ if ($current_time < $cutoff) {
 } else {
     // If the current time is equal to or after the cutoff time, disable the element
    
-$cutoffStatus = '<div class="alert alert-danger border border-danger" role="alert">
-    <strong>Unable to Accept Orders: Cutoff Time Reached</strong>
-</div>'; // Message when cutoff is reached
+$cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; // Message when cutoff is reached
    
 }?>
 
-<?=$cutoffStatus?>
+        <?php echo $cutoffStatus?>
 
           
         <?php
