@@ -51,7 +51,17 @@ while ($row = mysqli_fetch_assoc($view_query)) {
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#export">Export</button>
         </div>
 
-        <div class=" col-12 col-lg-12 mt-3">
+        <!-- Expiration Status Legend -->
+        <div class="col-12 mt-3">
+            <div class="border rounded p-3">
+                <h6 class="fw-bold">Expiration Status Legend</h6>
+                <p><span style="color: green; font-weight: bold;">●</span> Normal (Green)</p>
+                <p><span style="color: orange; font-weight: bold;">●</span> Soon to Expire (Orange)</p>
+                <p><span style="color: red; font-weight: bold;">●</span> Expired (Red)</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-12 mt-3">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -71,13 +81,8 @@ while ($row = mysqli_fetch_assoc($view_query)) {
                 <tbody id="stockTableBody">
                     <!-- Table content will be dynamically updated here -->
                 </tbody>
-                
-                
-               
-
             </table>
-             <button class="btn btn-primary btn-sm mt-2">Delete all</button>
+            <button class="btn btn-primary btn-sm mt-2">Delete all</button>
         </div>
-        
     </div>
 </div>
