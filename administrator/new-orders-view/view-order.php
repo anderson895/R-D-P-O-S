@@ -71,13 +71,14 @@ if($getAddress->num_rows > 0) {
 // Get the current time in HH:mm:ss format
 $current_time = date("H:i:s");
 
+echo "the current cut off is "+$cutoff;
 // Compare current time with cutoff
 if ($current_time < $cutoff) {
     // If the current time is before the cutoff time, enable the element
-  echo  $disable = false;
+  echo  $disable = "Enable";
 } else {
     // If the current time is equal to or after the cutoff time, disable the element
-  echo   $disable = true;
+  echo   $disable = "Disabled";
 }
 
 
