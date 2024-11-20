@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
                         <th scope="col">Supplier price</th>
                         <th scope="col">Mark up</th>
                         <th scope="col">Expiration</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Date Added</th>
                         <th class="text-end" scope="col">Actions</th>
                     </tr>
                 </thead>
