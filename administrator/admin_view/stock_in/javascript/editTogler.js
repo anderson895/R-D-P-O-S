@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   function updateStockTable() {
     var invoice_no = $("#invoice_no").val();
     $.ajax({
@@ -57,24 +56,21 @@ $(document).ready(function () {
           // Append row to the table
           var $row = $(html);
           
-          // Apply dynamic styling to the expiration date cell only
+          // Apply dynamic text color to the expiration date cell only
           if (diffDays < 0) {
-            // Expired: set to red
+            // Expired: set text color to red
             $row.find('.expiration-date').css({
-              'background-color': 'red',
-              'color': 'white'
+              'color': 'red'
             });
           } else if (diffDays <= 60) {
-            // Soon to expire (within 2 months): set to orange
+            // Soon to expire (within 2 months): set text color to orange
             $row.find('.expiration-date').css({
-              'background-color': 'orange',
-              'color': 'white'
+              'color': 'orange'
             });
           } else {
-            // More than 2 months: set to green
+            // More than 2 months: set text color to green
             $row.find('.expiration-date').css({
-              'background-color': 'green',
-              'color': 'white'
+              'color': 'green'
             });
           }
   
