@@ -49,53 +49,32 @@ $current_date = date('Y-m-d');
             </div>
 
             <form method="POST">
-    <!-- Username Field -->
-    <div class="form-login">
-        <div class="form-floating mb-4">
-            <input 
-                type="text" 
-                class="form-control" 
-                id="username" 
-                placeholder="Enter username" 
-                name="email_or_username" 
-                required 
-                style="background-color: transparent;"
-            >
-            <label for="username">
-                <i class="bi bi-person-circle me-2"></i>Username
-            </label>
-        </div>
-    </div>
+                 <!-- Username Field -->
+                            <div class="form-login">
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="email_or_username" required>
+                                    <label for="username"><i class="bi bi-person-circle me-2"></i>Username</label>
+                                </div>
+                            </div>
 
-    <!-- Password Field -->
-    <div class="form-login">
-        <div class="form-floating mb-4">
-            <input 
-                type="password" 
-                class="form-control" 
-                id="password" 
-                placeholder="Enter your password" 
-                name="password" 
-                required 
-                style="background-color: transparent;"
-            >
-            <label for="password">
-                <i class="bi bi-lock me-2"></i>Password
-            </label>
-        </div>
-    </div>
+                            <!-- Password Field -->
+                            <div class="form-login">
+                                <div class="form-floating mb-4">
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
+                                    <label for="password"><i class="bi bi-lock me-2"></i>Password</label>
+                                </div>
+                            </div>
 
-    <!-- Forgot Password Link -->
-    <div class="form-login mb-3 text-end">
-        <a href="forgetpassword.php" class="text-decoration-none text-primary">Forgot Password?</a>
-    </div>
+                            <!-- Forgot Password Link -->
+                            <div class="form-login mb-3 text-end">
+                                    <a href="forgetpassword.php" class="text-decoration-none text-primary">Forgot Password?</a>
+                            </div>
 
-    <!-- Submit Button -->
-    <div class="form-login mb-4">
-        <button class="btn btn-login w-100 fw-bold py-2" type="submit" name="btnLogin">Sign In</button>
-    </div>
-</form>
-
+                            <!-- Submit Button -->
+                            <div class="form-login mb-4">
+                                <button class="btn btn-login w-100 fw-bold py-2" type="submit" name="btnLogin">Sign In</button>
+                            </div>
+            </form>
 
             <div class="text-center">
                 <h6>Don’t have an account? <a href="register.php" class="text-decoration-none">Sign Up</a></h6>
