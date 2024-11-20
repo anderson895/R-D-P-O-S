@@ -25,6 +25,9 @@ $.each(addressData, function (index, item) {
 
     var riderName=item.acc_fname+" "+item.acc_lname;
 
+    var cutoff=item.cutoff;
+
+
     var riderId=item.acc_id;
 
 
@@ -94,6 +97,7 @@ var newRow =
     '<td>' + address_name + '</td>' +
     '<td>' + shipping + '</td>' +
     '<td>' + riderName + '</td>' +
+    '<td>' + cutoff + '</td>' +
     '<td>' + statusToggle + '</td>' +
     '<td>' +
     '<center>' +
