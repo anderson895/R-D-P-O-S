@@ -97,7 +97,7 @@ var newRow =
     '<td>' + address_name + '</td>' +
     '<td>' + shipping + '</td>' +
     '<td>' + riderName + '</td>' +
-    '<td>' + cutoff + '</td>' +
+    '<td>' + (cutoff === null || cutoff === "" ? "No Cutoff" : formatCutoffTime(cutoff)) + '</td>' +
     '<td>' + statusToggle + '</td>' +
     '<td>' +
     '<center>' +
@@ -106,6 +106,23 @@ var newRow =
     '</center>' +
     '</td>' +
     '</tr>';
+
+
+// Function to format the cutoff time
+function formatCutoffTime(cutoff) {
+    var date = new Date(cutoff);
+    var options = { 
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit', 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: false
+    };
+    return date.toLocaleString('en-US', options); // Adjust to preferred locale if needed
+}
+
 
   dataTable.row.add($(newRow)).draw();
 });
