@@ -16,92 +16,94 @@
 
 <body class="account-page">
 <div class="main-wrapper d-flex align-items-center justify-content-center vh-100 bg-light">
-    <div class="account-content w-100">
-        <div class="login-wrapper container">
-            <div class="login-content bg-white shadow rounded p-4">
-                <div class="login-userset">
-                    <form method="POST">
-                        <!-- Heading -->
-                        <div class="login-userheading text-center mb-4">
-                            <h3 class="fw-bold">Create an Account</h3>
-                            <p class="text-muted">Fill in the details to get started</p>
-                        </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="login-content bg-white shadow rounded p-4">
+                    <div class="login-userset">
+                        <form method="POST">
+                            <!-- Heading -->
+                            <div class="login-userheading text-center mb-4">
+                                <h3 class="fw-bold">Create an Account</h3>
+                                <p class="text-muted">Fill in the details to get started</p>
+                            </div>
 
-                        <!-- Form Fields -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name">
-                                    <label for="fname">First Name</label>
-                                    <div class="text-danger" id="fnameError"></div>
+                            <!-- Form Fields -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter first name">
+                                        <label for="fname">First Name</label>
+                                        <div class="text-danger" id="fnameError"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter last name">
+                                        <label for="lname">Last Name</label>
+                                        <div class="text-danger" id="lnameError"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter last name">
-                                    <label for="lname">Last Name</label>
-                                    <div class="text-danger" id="lnameError"></div>
+
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="birthdate" name="bday" value="2006-05-31">
+                                <label for="birthdate">Birthday</label>
+                                <div class="text-danger" id="birthdateError"></div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                                <label for="username">Username</label>
+                                <div class="text-danger" id="usernameLengthError"></div>
+                                <div class="text-danger" id="usernameError"></div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                                <label for="email">Email</label>
+                                <div class="text-danger" id="emailError"></div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter contact number">
+                                <label for="contact">Contact Number</label>
+                                <div class="text-danger" id="contactError"></div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password" name="pass" placeholder="Enter password">
+                                <label for="password">Password</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="confirmPassword" name="cpass" placeholder="Confirm password">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <div class="text-danger" id="passwordError"></div>
+                                <div class="text-danger" id="passwordMatchError"></div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="form-login mb-3">
+                                <div class="form-check d-flex align-items-center">
+                                    <input class="form-check-input me-2" type="checkbox" id="agreeTermsCheckbox">
+                                    <label class="form-check-label" for="agreeTermsCheckbox">
+                                        <a href="#" class="text-decoration-underline">I agree to the Terms and Conditions</a>
+                                    </label>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="birthdate" name="bday" value="2006-05-31">
-                            <label for="birthdate">Birthday</label>
-                            <div class="text-danger" id="birthdateError"></div>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
-                            <label for="username">Username</label>
-                            <div class="text-danger" id="usernameLengthError"></div>
-                            <div class="text-danger" id="usernameError"></div>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-                            <label for="email">Email</label>
-                            <div class="text-danger" id="emailError"></div>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter contact number">
-                            <label for="contact">Contact Number</label>
-                            <div class="text-danger" id="contactError"></div>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="password" name="pass" placeholder="Enter password">
-                            <label for="password">Password</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="confirmPassword" name="cpass" placeholder="Confirm password">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <div class="text-danger" id="passwordError"></div>
-                            <div class="text-danger" id="passwordMatchError"></div>
-                        </div>
-
-                        <!-- Terms and Conditions -->
-                        <div class="form-login mb-3">
-                            <div class="form-check d-flex align-items-center">
-                                <input class="form-check-input me-2" type="checkbox" id="agreeTermsCheckbox">
-                                <label class="form-check-label" for="agreeTermsCheckbox">
-                                    <a href="#" class="text-decoration-underline">I agree to the Terms and Conditions</a>
-                                </label>
+                            <!-- Submit Button -->
+                            <div class="form-login text-center">
+                                <button class="btn btn-primary w-100 py-2 fw-bold" type="submit" id="submitButton" disabled>Create Account</button>
+                                <div id="loadingSpinner" class="mt-3"></div>
                             </div>
-                        </div>
+                        </form>
 
-                        <!-- Submit Button -->
-                        <div class="form-login text-center">
-                            <button class="btn btn-primary w-100 py-2 fw-bold" type="submit" id="submitButton" disabled>Create Account</button>
-                            <div id="loadingSpinner" class="mt-3"></div>
+                        <!-- Sign-in Link -->
+                        <div class="signinform text-center mt-4">
+                            <h5>Already a user? <a href="login.php" class="text-primary fw-bold">Sign In</a></h5>
                         </div>
-                    </form>
-
-                    <!-- Sign-in Link -->
-                    <div class="signinform text-center mt-4">
-                        <h5>Already a user? <a href="login.php" class="text-primary fw-bold">Sign In</a></h5>
                     </div>
                 </div>
             </div>
