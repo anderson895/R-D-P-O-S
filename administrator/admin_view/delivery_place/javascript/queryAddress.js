@@ -98,7 +98,7 @@ var newRow =
     '<td>' + shipping + '</td>' +
     '<td>' + riderName + '</td>' +
     
-   '<td>' + (cutoff === "null" ? "No Cutoff" : cutoff) + '</td>'
+   '<td>' + (cutoff === "null" ? "No Cutoff" : cutoff) + '</td>'+
 
     '<td>' + statusToggle + '</td>' +
     '<td>' +
