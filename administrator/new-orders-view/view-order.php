@@ -64,7 +64,18 @@ if($getAddress->num_rows > 0) {
 
 
 
-<?=$cutoff?>
+<?php
+// Get the current time (only the time part in HH:mm:ss format)
+$current_time = date("H:i:s");
+
+// Check if the current time is equal to or past the cutoff time today
+if ($current_time === $cutoff) {
+    echo "The cutoff time is today.";
+} else {
+    echo "The cutoff time is not today.";
+}
+
+?>
 
 <div class="container pt-4">
     <div class="container d-flex justify-content-between">
