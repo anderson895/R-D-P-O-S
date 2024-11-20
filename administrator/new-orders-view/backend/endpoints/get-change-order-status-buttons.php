@@ -46,10 +46,10 @@ if ($current_time < $cutoff) {
    $cutoffStatus = ?>
      <button <?=$cutoffStatus?> class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>" data-currstats="<?= $orderStatus ?>"><i class="bi bi-check2"></i> Accept</button>
      <button class="btn btn-danger btnRejectOrder" data-id="<?= $orderId ?>"><i class="bi bi-x-lg"></i> Reject</button>
-   <?php;
+   <?php
 } else {
     // If the current time is equal to or after the cutoff time, disable the element
-   $cutoffStatus = "The Rider is No Longer Accepting orders";
+   $cutoffStatus = "The Rider is Cutoff";
 }?>
 
         <?=$cutoffStatus?>
