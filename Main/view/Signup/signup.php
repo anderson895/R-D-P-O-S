@@ -95,7 +95,7 @@
 
                             <!-- Submit Button -->
                             <div class="form-login text-center">
-                            <button class="btn btn-login" type="submit" id="submitButton" disabled>Create Account</button>
+                            <button class="btn btn-primary" type="submit" id="submitButton" disabled>Create Account</button>
                             <div class="text-center" id="loadingSpinner"></div>
                             </div>
                         </form>
