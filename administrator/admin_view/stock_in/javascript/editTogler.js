@@ -61,19 +61,22 @@ $(document).ready(function () {
             // Expired: set text color to red and add a border
             $row.find('.expiration-date').css({
               'color': 'red',
-              'border': '1px solid red'
+              'border': '1px solid red',
+              'border-radius': '10px'
             });
           } else if (diffDays <= 60) {
             // Soon to expire (within 2 months): set text color to orange and add a border
             $row.find('.expiration-date').css({
               'color': 'orange',
-              'border': '1px solid orange'
+              'border': '1px solid orange',
+              'border-radius': '10px'
             });
           } else {
             // More than 2 months: set text color to green and add a border
             $row.find('.expiration-date').css({
               'color': 'green',
-              'border': '1px solid green'
+              'border': '1px solid green',
+              'border-radius': '10px'
             });
           }
   
