@@ -14,39 +14,12 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/header.css">
+    <!-- <link rel="stylesheet" href="css/header.css"> -->
 
 
     <title><?=$db_system_name?></title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .map-container {
-        position: relative;
-        padding-top: 75%;
-        }
-
-        .google-map {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .map-frame {
-        margin-top: 20px;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        }
-
-        h2 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: #2c3e50;
-        }
-    </style>
+    
   </head>
 
 
