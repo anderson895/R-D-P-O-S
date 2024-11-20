@@ -86,7 +86,7 @@ $current_date = date('Y-m-d');
 
                     <!-- Submit Button -->
                     <div class="form-login">
-                        <button class="btn btn-primary w-100 fw-bold py-2" id="btnForgotPass">Submit</button>
+                        <button class="btn btn-login w-100 fw-bold py-2" id="btnForgotPass">Submit</button>
                     </div>
                 </div>
             </div>
