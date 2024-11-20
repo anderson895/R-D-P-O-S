@@ -32,7 +32,7 @@ $current_date = date('Y-m-d');
 
     <div class="body-wrapper">
         <?php 
-            // include "include/header.php";
+            include "include/header.php";
         
         ?>
       
