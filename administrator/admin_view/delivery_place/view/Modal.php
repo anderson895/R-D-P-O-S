@@ -111,6 +111,13 @@
         </div>
 
 
+        <div class="row mt-4">
+          <div class="form-group">
+            <label for="setCutOff">setCutOff</label>
+            <input type="time" class="form-control " value="" id="setCutOff" placeholder="Set Cutoff">
+          </div>
+        </div>
+
         <div class="row">
           <div class="form-group">
               <label for="">Active Status</label>
