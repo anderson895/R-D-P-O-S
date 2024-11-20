@@ -38,6 +38,11 @@ if($getAddress->num_rows > 0) {
     $cutoff = $address['cutoff'];
 }
 
+
+   
+}?>
+
+<?php 
 $current_time = date("H:i:s");
 
 // Compare current time with cutoff
@@ -49,13 +54,15 @@ if ($current_time < $cutoff) {
     <button class="btn btn-danger btnRejectOrder" data-id="<?= $orderId ?>"><i class="bi bi-x-lg"></i> Reject</button>
     <?php
 } else {
-    // If the current time is equal to or after the cutoff time, disable the element
-   
-$cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; // Message when cutoff is reached
-   
-}?>
-
-        <?php echo $cutoffStatus?>
+    // If the current time is equal to or after the cutoff time, display a message
+    $cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; // Message when cutoff is reached
+    ?>
+    <div class="alert alert-danger border border-danger" role="alert">
+        <strong><?=$cutoffStatus?></strong>
+    </div>
+    <?php
+}
+?>
 
           
         <?php
