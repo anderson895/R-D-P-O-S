@@ -41,7 +41,7 @@ if($getAddress->num_rows > 0) {
 $current_time = date("H:i:s");
 
 // Compare current time with cutoff
-if ($current_time < $cutoff) {
+if ($current_time < $cutoff || $cutoff =="null") {
     // If the current time is before the cutoff time, enable the element
     $cutoffStatus = ''; // Empty status string for enabled state
     ?>
