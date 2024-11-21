@@ -38,21 +38,27 @@ if($getAddress->num_rows > 0) {
     $cutoff = $address['cutoff'];
 }
 
+?>
+
+<?php
 $current_time = date("H:i:s");
 
-if ($current_time < $cutoff || $cutoff ===null) {
+if ($current_time < $cutoff || $cutoff === null) {
     $cutoffStatus = ''; 
     ?>
     <button <?=$cutoffStatus?> class="btn btn-success btnUpgradeStatus" data-id="<?= $orderId ?>" data-currstats="<?= $orderStatus ?>"><i class="bi bi-check2"></i> Accept</button>
     <button class="btn btn-danger btnRejectOrder" data-id="<?= $orderId ?>"><i class="bi bi-x-lg"></i> Reject</button>
     <?php
 } else {
-   
-$cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; 
-   
-}?>
+    $cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; 
+    ?>
+    <div class="alert alert-danger text-center" role="alert">
+        <?= $cutoffStatus ?>
+    </div>
+    <?php
+}
+?>
 
-        <?php echo $cutoffStatus?>
 
           
         <?php
