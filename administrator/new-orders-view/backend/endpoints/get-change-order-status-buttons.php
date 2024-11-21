@@ -35,7 +35,7 @@ if($getAddress->num_rows > 0) {
     $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
     $userCode = $address['acc_code'];
 
-    $cutoff = $address['cutoff'];
+   echo $cutoff = $address['cutoff'];
 }
 
 $current_time = date("H:i:s");
