@@ -48,7 +48,7 @@ if ($current_time < $cutoff || $cutoff ===null) {
     <?php
 } else {
    
-$cutoffStatus = '<div class="alert alert-danger text-center" role="alert">
+$cutoffStatus = '<div class="alert alert-danger text-center" >
     <strong>Unable to Accept Orders:</strong><br> 
     Cutoff Time Reached
 </div>
