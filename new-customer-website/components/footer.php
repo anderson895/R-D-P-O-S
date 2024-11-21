@@ -348,10 +348,10 @@
                             <label>Last Name</label>
                             <input type="text" class="form-control" name="editLName" id="editLName">
                         </div>
-                        <div class="input-container-label-top mt-3">
+                        <!-- <div class="input-container-label-top mt-3">
                             <label>Birthday</label>
                             <input type="date" class="form-control" name="editBday" id="editBday">
-                        </div>
+                        </div> -->
                         <div class="input-container-label-top mt-3">
                             <label>Username</label>
                             <input type="text" class="form-control" name="editUsername" id="editUsername">
