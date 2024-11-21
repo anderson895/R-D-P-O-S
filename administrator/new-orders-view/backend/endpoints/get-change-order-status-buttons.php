@@ -55,7 +55,7 @@ $cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; // Message when 
    
 }?>
 
-        <?php echo $cutoff?>
+        <?php echo $cutoffStatus?>
 
           
         <?php
