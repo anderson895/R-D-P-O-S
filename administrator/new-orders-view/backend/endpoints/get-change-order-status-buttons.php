@@ -35,7 +35,7 @@ if($getAddress->num_rows > 0) {
     $orderBy = $address['acc_fname'].' '.$address['acc_lname'];
     $userCode = $address['acc_code'];
 
-   echo $cutoff = $address['cutoff'];
+    $cutoff = $address['cutoff'];
 }
 
 $current_time = date("H:i:s");
@@ -55,7 +55,7 @@ $cutoffStatus = 'Unable to Accept Orders: Cutoff Time Reached'; // Message when 
    
 }?>
 
-        <?php echo $cutoffStatus?>
+        <?php echo $cutoff?>
 
           
         <?php
