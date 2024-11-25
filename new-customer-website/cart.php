@@ -33,7 +33,7 @@ if ($getAddress->num_rows > 0) {
             <input type="checkbox" class="form-check-input" id="checkAll" style="width: 20px; height: 20px;">
             <label class="form-check-label" for="checkAll">Check All</label>
         </div>
-        <?= ($getCartItems->num_rows > 0) ? '<button class="btn btn-danger" id="deleteAllItemsInCart"><i class="bi bi-trash3-fill"></i> Delete All</button>' : '' ?>
+        <?= ($getCartItems->num_rows > 0) ? '<button class="btn btn-danger" id="deleteAllItemsInCart"><i class="bi bi-trash3-fill"></i> Remove All</button>' : '' ?>
     </div>
     <!-- End check all and delete button container -->
 </div>

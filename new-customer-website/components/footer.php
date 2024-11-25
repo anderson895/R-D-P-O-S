@@ -195,13 +195,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteCartItemTitle">remove Item</h5>
+                <h5 class="modal-title" id="deleteCartItemTitle">Remove Item</h5>
                 <button type="button" id="closeViewProductModal" class="btn-close btnCloseModal"
                     data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="container p-2">
                 <h6 class="container mt-3 mb-4" id="deleteCartItemQDisplay">
-                    Are you sure you want to remove this product in your cart?
+                    Are you sure you want to Remove this product in your cart?
                 </h6>
                 <hr>
                 <div class="d-flex justify-content-end align-items-end p-1">
