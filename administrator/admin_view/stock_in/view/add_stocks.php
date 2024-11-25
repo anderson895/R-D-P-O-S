@@ -56,7 +56,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
             <div class="border rounded p-3">
                 <h6 class="fw-bold">Expiration Status</h6>
                 <p><span style="color: green; font-weight: bold;">●</span> <strong>Normal (Green):</strong> Item is in good standing and not nearing expiration.</p>
-                <p><span style="color: orange; font-weight: bold;">●</span> <strong>Soon to Expire (Orange):</strong> Item will expire within the next 2 months.</p>
+                <p><span style="color: orange; font-weight: bold;">●</span> <strong>Soon to Expire (Orange):</strong> Item soon to expire within 2 months.</p>
                 <p><span style="color: red; font-weight: bold;">●</span> <strong>Expired (Red):</strong> Item has already expired.</p>
             </div>
         </div>
