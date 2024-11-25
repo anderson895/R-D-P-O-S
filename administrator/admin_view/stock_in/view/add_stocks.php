@@ -54,9 +54,9 @@ while ($row = mysqli_fetch_assoc($view_query)) {
         <!-- Expiration Status Legend -->
         <div class="col-12 mt-3">
             <div class="border rounded p-3">
-                <h6 class="fw-bold">Expiration Status Legend</h6>
+                <h6 class="fw-bold">Expiration Status</h6>
                 <p><span style="color: green; font-weight: bold;">●</span> Normal (Green)</p>
-                <p><span style="color: orange; font-weight: bold;">●</span> Soon to Expire (Orange)</p>
+                <p><span style="color: orange; font-weight: bold;">●</span> Soon to Expire within 2 Months (Orange)</p>
                 <p><span style="color: red; font-weight: bold;">●</span> Expired (Red)</p>
             </div>
         </div>
