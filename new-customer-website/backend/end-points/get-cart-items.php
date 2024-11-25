@@ -57,8 +57,9 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
         
         <!-- Image Banner and Gallery -->
         <div class="col-md-4 col-lg-3">
-            <img id="main-image" src="../upload_prodImg/<?= $cartItem['prod_image'] ?>" 
-                 class="img-fluid rounded-3 shadow-sm" alt="Product Image">
+        <img id="main-image" src="../upload_prodImg/<?= $cartItem['prod_image'] ?>" 
+     class="img-fluid rounded-3 shadow-sm" alt="Product Image" style="max-width: 100%; height: 250px; object-fit: cover;">
+
             
             <!-- Image Gallery -->
             <div class="mt-3 overflow-auto">
