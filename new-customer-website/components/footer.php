@@ -206,7 +206,7 @@
                 <hr>
                 <div class="d-flex justify-content-end align-items-end p-1">
                     <button class="btn text-light" style="height: 40px; background-color: crimson;"
-                        id="btnDeleteCartItem" data-prodid=""><i class="bi bi-trash3-fill"></i> remove</button>
+                        id="btnDeleteCartItem" data-prodid=""><i class="bi bi-trash3-fill"></i> Remove</button>
                 </div>
             </div>
         </div>
