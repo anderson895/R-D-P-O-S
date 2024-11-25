@@ -29,12 +29,16 @@ if ($getAddress->num_rows > 0) {
 
     <!-- Start check all and delete button container -->
     <div class="d-flex align-items-center">
+        <!-- Checkbox -->
         <div class="form-check me-3">
             <input type="checkbox" class="form-check-input" id="checkAll" style="width: 20px; height: 20px;">
             <label class="form-check-label" for="checkAll">Check All</label>
         </div>
-        <?= ($getCartItems->num_rows > 0) ? '<button class="btn btn-danger" id="deleteAllItemsInCart"><i class="bi bi-trash3-fill"></i>All</button>' : '' ?>
+        
+        <!-- Button for deleting all items in cart, conditional on items being present -->
+        <?= ($getCartItems->num_rows > 0) ? '<button class="btn btn-danger btn-sm" id="deleteAllItemsInCart"><i class="bi bi-trash3-fill"></i> Delete All</button>' : '' ?>
     </div>
+
     <!-- End check all and delete button container -->
 </div>
 
