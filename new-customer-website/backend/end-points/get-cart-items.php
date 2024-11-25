@@ -106,7 +106,8 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
                     <!-- Delete Button -->
                     <button class="btn btn-danger btn-sm d-flex align-items-center btnDeleteCartItem" 
                             data-id="<?= $cartItem['cart_id'] ?>">
-                        <i class="bi bi-trash3-fill"></i>
+                            <i class="bi bi-x"></i>
+
                     </button>
                 </div>
 
