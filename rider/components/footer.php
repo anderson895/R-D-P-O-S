@@ -35,15 +35,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="bi bi-check-square"></i> Change Order Status to "Unsuccessful"</h5>
+                <h5 class="modal-title"><i class="bi bi-check-square"></i> Change Order Status to "Re-Deliver"</h5>
             </div>
             <form id="frmUnsuccessfulOrderStatus">
                 <input type="hidden" name="requestType" value="UnsuccessOrderStatus">
                 <input type="hidden" name="orderId" id="UnsuccessOrderStatusModalOrderId" value="">
                 <div class="modal-body">
-                    <h6>Are you sure that you want to change the Order Status to Unsuccessful?</h6>
+                    <h6>Are you sure that you want to change the Order Status to Re-Deliver?</h6>
                     <div class="input-container-label-top mt-3">
-                        <label>Unsuccessful Reason</label>
+                        <label>Reason</label>
                         <select class="form-select" name="unsuccessfulReason" id="unsuccessfulReason">
                             <option value="">-- Select a reason --</option>
                             <option value="Payment Issue">Payment Issue</option>
