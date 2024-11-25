@@ -538,7 +538,7 @@ $("#btnSentMessage").click(function(e) {
   $("#deleteAllItemsInCart").click(function (e) {
     e.preventDefault();
     $("#deleteCartItemQDisplay").text(
-      "Are you sure that you want to delete all products in your cart?"
+      "Are you sure that you want to remove all products in your cart?"
     );
     $("#btnDeleteCartItem").data("prodid", "All");
     $("#deleteCartItemModal").modal("show");
