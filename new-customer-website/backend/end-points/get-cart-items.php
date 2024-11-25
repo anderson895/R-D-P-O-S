@@ -104,11 +104,6 @@ if ($getCartItemsPhotos->num_rows > 0){
                         <i class="bi bi-trash3-fill"></i>
                     </button>
                 </div>
-
-                <div class="mb-3">
-                    <label for="product-description" class="form-label">Description</label>
-                    <textarea id="product-description" class="form-control" style="height: 150px" readonly><?= $cartItem['prod_description'] ?></textarea>
-                </div>
                 <p class="text-success mb-1 h5">₱ <?= $cartItem['prod_currprice'] ?></p>
                 <p class="mt-0 <?= ($currentStock > 0) ? '' : 'text-danger' ?> mb-2">
                     <?= ($currentStock > 0) ? $currentStock . ' ' . $cartItem['unit_type'] . ' Available' : 'Out of Stock' ?>
