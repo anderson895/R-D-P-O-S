@@ -44,7 +44,7 @@ if (isset($_SESSION['acc_id'])) {
                             <label for="password">Password</label>
                         </div>
 
-                        <button type="submit" name="submit" class="btn btn-primary w-100" id="loginButton">LOGIN</button>
+                        <button type="submit" name="submit" style="border-radius: 10px; background-color: #760106; color: white" class="btn w-100" id="loginButton">LOGIN</button>
 
                         <div id="loading" class="d-none mt-3">
                             <div class="spinner-border text-danger" role="status">
