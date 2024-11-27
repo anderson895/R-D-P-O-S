@@ -27,10 +27,11 @@ if (isset($_SESSION['acc_id'])) {
         <div class="row w-100 justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-lg p-4">
-                    <div class="text-center mb-4">
+                     <div class="text-center mb-4 p-4 bg-light shadow-sm rounded">
                         <img src="../../upload_system/<?=$db_system_logo?>" alt="Logo" class="mb-3" width="80">
                         <h2 class="fw-bolder"><?=$db_system_name?></h2>
                     </div>
+
                     <form action="../functions/login.php" method="POST" id="loginForm">
                         <div class="form-floating mb-3">
                             <input required name="email" type="text" class="form-control" id="email" placeholder="Username">
