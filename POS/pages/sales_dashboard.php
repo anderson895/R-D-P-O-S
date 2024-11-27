@@ -88,7 +88,7 @@
     <div>
     <div id="salesOnline">
         <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
-            <h6 class="fw-bold">Daily Sales Forecast - Online</h6>
+            <h6 class="fw-bold">Daily Sales - Online</h6>
             <div>
                 <button class="stat-btn" id="showLine"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
                 <button class="reset-btn" id="showBar"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
@@ -103,7 +103,7 @@
     </div>
     <div id="salesWalkin" style="display: none;">
         <div class="d-flex color_red align-items-center flex-row pt-3 justify-content-between">
-            <h6 class="fw-bold">Daily Sales Forecast - Walkin</h6>
+            <h6 class="fw-bold">Daily Sales - Walkin</h6>
             <div>
                 <button class="stat-btn" id="showLinepos"><i class="bi color_red fs-5 me-2 bi-activity"></i></button>
                 <button class="reset-btn" id="showBarpos"><i class="bi color_red fs-5 me-2 bi-bar-chart-steps"></i></button>
