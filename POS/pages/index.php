@@ -21,7 +21,7 @@ if (isset($_SESSION['acc_id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body class="bg-light">
+<body style="background-color: rgb(113, 0, 0);">
 
     <div class="container vh-100 d-flex justify-content-center align-items-center">
         <div class="row w-100 justify-content-center">
