@@ -27,10 +27,11 @@ if (isset($_SESSION['acc_id'])) {
         <div class="row w-100 justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-lg p-4">
-                     <div class="text-center mb-4 p-4 bg-gray shadow-sm rounded">
+                    <div class="text-center mb-4 p-4 shadow-sm rounded" style="background-image: url('../../upload_system/<?=$db_system_banner?>'); background-size: cover; background-position: center; color: white;">
                         <img src="../../upload_system/<?=$db_system_logo?>" alt="Logo" class="mb-3" width="80">
                         <h2 class="fw-bolder"><?=$db_system_name?></h2>
                     </div>
+
 
                     <form action="../functions/login.php" method="POST" id="loginForm">
                         <div class="form-floating mb-3">
