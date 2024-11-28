@@ -29,8 +29,11 @@ if (isset($_SESSION['acc_id'])) {
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-lg p-4">
                     <div class="text-center mb-4 p-4 shadow-sm rounded" style="background-image: url('../../upload_system/<?=$db_system_banner?>'); background-size: cover; background-position: center; color: white;">
-                        <img src="../../upload_system/<?=$db_system_logo?>" alt="Logo" class="mb-3" width="80">
-                        <h2 class="fw-bolder"><?=$db_system_name?></h2>
+                        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
+                        <div class="position-relative">
+                            <img src="../../upload_system/<?=$db_system_logo?>" alt="Logo" class="mb-3" width="100">
+                            <h2 class="fw-bolder"><?=$db_system_name?></h2>
+                        </div>
                     </div>
 
 
