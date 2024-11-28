@@ -1,44 +1,54 @@
 $(document).ready(function () {
-  $(document).on('click', '.filter-btn', function() {
-    var filter = $(this).data('filter'); // Get the filter category
-    updateStockTable(filter); // Pass the filter to the updateStockTable function
-});
-
-function updateStockTable(filter) {
+  function updateStockTable() {
     var invoice_no = $("#invoice_no").val();
+    var filter = $("#expirationFilter").val(); // Get selected filter value
+
     $.ajax({
         type: "POST",
         url: "stock_in/controller/get_stock_data.php",
-        data: { 
-            invoice_no: invoice_no,
-            filter: filter // Pass the filter category
-        },
+        data: { invoice_no: invoice_no },
         dataType: "json",
         success: function (data) {
             $("#stockTableBody").empty();
+
+            // Get today's date
+            var today = new Date();
+
             $.each(data, function (index, row) {
                 var expirationDate = new Date(row.s_expiration);
-                var today = new Date();
-                var diffTime = expirationDate - today; 
-                var diffDays = diffTime / (1000 * 3600 * 24);
+                var diffTime = expirationDate - today; // Difference in milliseconds
+                var diffDays = diffTime / (1000 * 3600 * 24); // Convert ms to days
 
-                var html = "<tr>";
-                html += '<td><input type="checkbox" class="EachCheckbox" data-prod_code="' + row.prod_code + '"></td>';
-                html += "<td>" + row.prod_name + "</td>";
-                html += "<td>" + row.s_stock_in_qty + "</td>";
-                html += "<td>" + row.s_amount + "</td>";
-                html += "<td>" + row.unit_type + "</td>";
-                html += "<td>" + row.prod_currprice + "</td>";
-                html += "<td>" + row.s_supplierPrice + "</td>";
-                html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
+                // Apply expiration status color and border
+                var expirationStatus = '';
+                if (diffDays < 0) {
+                    expirationStatus = 'expired';
+                } else if (diffDays <= 60) {
+                    expirationStatus = 'soon_to_expire';
+                } else {
+                    expirationStatus = 'normal';
+                }
 
-                // Set expiration date cell
-                var expirationCell = row.s_expiration !== "0000-00-00" ? row.s_expiration : "No expiration";
-                html += "<td class='expiration-date'>" + expirationCell + "</td>";
-                html += "<td>" + row.s_stockin_date + "</td>";
+                // Filter based on the selected filter value
+                if (filter === 'all' || filter === expirationStatus) {
+                    var html = "<tr>";
+                    html += '<td><input type="checkbox" id="EachCheckbox"></td>';
+                    html += "<td>" + row.prod_name + "</td>";
+                    html += "<td>" + row.s_stock_in_qty + "</td>";
+                    html += "<td>" + row.s_amount + "</td>";
+                    html += "<td>" + row.unit_type + "</td>";
+                    html += "<td>" + row.prod_currprice + "</td>";
+                    html += "<td>" + row.s_supplierPrice + "</td>";
+                    html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
 
-                html += '<td class="text-end">';
-                html += '<button class="btn btn-sm border editTogler" data-bs-toggle="modal" data-bs-target="#edit" ' +
+                    // Set expiration date cell
+                    var expirationCell = row.s_expiration !== "0000-00-00" ? row.s_expiration : "No expiration";
+                    html += "<td class='expiration-date'>" + expirationCell + "</td>";
+                    html += "<td>" + row.s_stockin_date + "</td>";
+
+                    html += '<td class="text-end">';
+                    html +=
+                        '<button class="btn btn-sm border editTogler" data-bs-toggle="modal" data-bs-target="#edit" ' +
                         'data-db_prod_name="' + row.prod_name + '" ' +
                         'data-db_s_expiration="' + row.s_expiration + '" ' +
                         'data-db_s_supplierPrice="' + row.s_supplierPrice + '" ' +
@@ -52,35 +62,47 @@ function updateStockTable(filter) {
                         'data-db_prod_code="' + row.prod_code + '" ' +
                         'data-db_s_id="' + row.s_id + '" ' +
                         ">Edit</button>";
-                html += '<button class="btn btn-sm border btnRemove" data-db_s_id="' + row.s_id + '">Remove</button>';
-                html += "</td></tr>";
+                    html +=
+                        '<button class="btn btn-sm border btnRemove" data-db_s_id="' + row.s_id + '">Remove</button>';
+                    html += "</td></tr>";
 
-                var $row = $(html);
+                    // Append row to the table
+                    var $row = $(html);
 
-                // Apply dynamic text color and border to the expiration date cell
-                if (diffDays < 0) {
-                    $row.find('.expiration-date').css({
-                        'color': 'red',
-                        'border': '1px solid red'
-                    });
-                } else if (diffDays <= 60) {
-                    $row.find('.expiration-date').css({
-                        'color': 'orange',
-                        'border': '1px solid orange'
-                    });
-                } else {
-                    $row.find('.expiration-date').css({
-                        'color': 'green',
-                        'border': '1px solid green'
-                    });
+                    // Apply dynamic text color and border to the expiration date cell based on status
+                    if (expirationStatus === 'expired') {
+                        $row.find('.expiration-date').css({
+                            'color': 'red',
+                            'border': '1px solid red'
+                        });
+                    } else if (expirationStatus === 'soon_to_expire') {
+                        $row.find('.expiration-date').css({
+                            'color': 'orange',
+                            'border': '1px solid orange'
+                        });
+                    } else {
+                        $row.find('.expiration-date').css({
+                            'color': 'green',
+                            'border': '1px solid green'
+                        });
+                    }
+
+                    $("#stockTableBody").append($row);
                 }
-
-                $("#stockTableBody").append($row);
             });
-        }
+        },
     });
 }
-      
+
+// Call the update function initially and set an interval to update periodically
+updateStockTable();
+var updateInterval = setInterval(updateStockTable, 2000);
+
+// Add event listener to the filter dropdown to trigger the update when filter changes
+$("#expirationFilter").change(function () {
+    updateStockTable();
+});
+
 
 
 
@@ -113,9 +135,7 @@ function updateStockTable(filter) {
     }
   });
 
-  // Call the update function initially and set an interval to update periodically
-  updateStockTable();
-  var updateInterval = setInterval(updateStockTable, 2000);
+ 
 
   $(document).on("click", ".editTogler", function () {
     var db_prod_name = $(this).attr("data-db_prod_name");
