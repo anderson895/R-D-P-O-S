@@ -1,6 +1,6 @@
 <?php
-include '../config/config.php'; // Include the database configuration file
-session_start(); // Start the session
+include '../config/config.php';
+session_start(); // Start session
 
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
@@ -12,12 +12,6 @@ if (isset($_POST["submit"])) {
     // Use prepared statements to prevent SQL injection
     $query = "SELECT acc_id, acc_type, acc_status FROM account WHERE (acc_email = ? OR acc_username = ?) AND acc_password = ?";
     $stmt = $conn->prepare($query);
-
-    // Check if the prepared statement was successfully created
-    if ($stmt === false) {
-        die("Error preparing statement: " . $conn->error);
-    }
-
     $stmt->bind_param("sss", $email, $email, $hashed_password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -27,40 +21,37 @@ if (isset($_POST["submit"])) {
         $acc_id = $row['acc_id'];
         $acc_type = $row['acc_type'];
         $acc_status = $row['acc_status'];
-
-        if ($acc_status === 0) {
-            // User is active, proceed with login
-            $_SESSION['acc_id'] = $acc_id;
-
-            // Redirect based on account type
+        
+        if($acc_status === 0) {
             if ($acc_type == 'cashier') {
+                // Use the correct header redirection function
+                $_SESSION['acc_id'] = $acc_id;
                 header("Location: ../pages/pos");
-            } elseif ($acc_type == 'administrator') {
+                exit();
+            } else if ($acc_type == 'administrator') {
+                $_SESSION['acc_id'] = $acc_id;
                 header("Location: ../../administrator/admin_view/index.php");
-            } elseif ($acc_type == 'deliveryStaff') {
+                exit();
+            } else if ($acc_type == 'deliveryStaff') {
+                $_SESSION['acc_id'] = $acc_id;
                 header("Location: ../../rider?page=Ready For Delivery");
+                exit();
             } else {
-                // Invalid account type
-                echo "<script>alert('Login failed. Account type not recognized.')</script>";
+                echo "<script>alert('login failed')</script>";
                 header("Location: ../pages/?failed=true");
+                exit();
             }
-            exit();
         } else {
-            // Account is not active
-            header("Location: ../pages/?failed=true&id=" . $acc_status);
+            $failed = true;
+            header("Location: ../pages/?failed=true&id=".$acc_status);
             exit();
         }
 
+
+        //list_order.php
     } else {
-        // Invalid credentials
+        $failed = true;
         header("Location: ../pages/?failed=true");
         exit();
     }
-
-    // Close the prepared statement
-    $stmt->close();
-    
-    // Close the database connection
-    $conn->close();
 }
-?>
