@@ -23,15 +23,14 @@ if (isset($_SESSION['acc_id'])) {
 
 <body class="bg-light">
 
+
     <div class="container vh-100 d-flex justify-content-center align-items-center">
         <div class="row w-100 justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-lg p-4">
                     <div class="text-center mb-4 p-4 shadow-sm rounded" style="background-image: url('../../upload_system/<?=$db_system_banner?>'); background-size: cover; background-position: center; color: white;">
                         <img src="../../upload_system/<?=$db_system_logo?>" alt="Logo" class="mb-3" width="80">
-                        <h2 class="fw-bolder border p-2 shadow bg-light rounded text-dark"><?=$db_system_name?></h2>
-
-
+                        <h2 class="fw-bolder"><?=$db_system_name?></h2>
                     </div>
 
 
