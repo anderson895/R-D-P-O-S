@@ -12,24 +12,24 @@ $(document).ready(function () {
         // Get today's date
         var today = new Date();
   
-        // Sort the data to prioritize expired, then soon-to-expire items
-        data.sort(function (a, b) {
-          var expirationA = new Date(a.s_expiration);
-          var expirationB = new Date(b.s_expiration);
-          
-          // Handle expired first (diffDays < 0), then soon-to-expire (diffDays <= 60)
-          var diffTimeA = expirationA - today;
-          var diffTimeB = expirationB - today;
-          var diffDaysA = diffTimeA / (1000 * 3600 * 24);
-          var diffDaysB = diffTimeB / (1000 * 3600 * 24);
-          
-          // Compare expiration dates: expired first, then soon-to-expire
-          if (diffDaysA < 0 && diffDaysB >= 0) return -1;  // Expired comes first
-          if (diffDaysA >= 0 && diffDaysB < 0) return 1;   // Expired comes first
-          return diffDaysA - diffDaysB;                    // Sort soon-to-expire by closest date
+        // Sort the data by expiration status
+        data.sort(function(a, b) {
+          var expirationDateA = new Date(a.s_expiration);
+          var expirationDateB = new Date(b.s_expiration);
+          var diffTimeA = expirationDateA - today;
+          var diffTimeB = expirationDateB - today;
+          var diffDaysA = diffTimeA / (1000 * 3600 * 24); // Convert ms to days
+          var diffDaysB = diffTimeB / (1000 * 3600 * 24); // Convert ms to days
+  
+          // Prioritize expired items first, then soon to expire (within 2 months), then others
+          if (diffDaysA < 0 && diffDaysB >= 0) return -1; // expired first
+          if (diffDaysA >= 0 && diffDaysB < 0) return 1;  // expired last
+          if (diffDaysA <= 60 && diffDaysB > 60) return -1; // soon to expire next
+          if (diffDaysA > 60 && diffDaysB <= 60) return 1;  // soon to expire last
+          return 0; // if the same, maintain current order
         });
   
-        // Process and display sorted rows
+        // Loop through sorted data
         $.each(data, function (index, row) {
           var expirationDate = new Date(row.s_expiration);
           var diffTime = expirationDate - today; // Difference in milliseconds
