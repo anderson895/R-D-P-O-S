@@ -21,5 +21,6 @@ if ($get_record) {
     die('Query failed: ' . $conn->error);
 }
 
-
+// Close the connection after use
+$conn->close();
 ?>
