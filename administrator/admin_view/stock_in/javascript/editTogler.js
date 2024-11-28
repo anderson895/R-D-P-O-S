@@ -12,6 +12,24 @@ $(document).ready(function () {
         // Get today's date
         var today = new Date();
   
+        // Sort the data to prioritize expired, then soon-to-expire items
+        data.sort(function (a, b) {
+          var expirationA = new Date(a.s_expiration);
+          var expirationB = new Date(b.s_expiration);
+          
+          // Handle expired first (diffDays < 0), then soon-to-expire (diffDays <= 60)
+          var diffTimeA = expirationA - today;
+          var diffTimeB = expirationB - today;
+          var diffDaysA = diffTimeA / (1000 * 3600 * 24);
+          var diffDaysB = diffTimeB / (1000 * 3600 * 24);
+          
+          // Compare expiration dates: expired first, then soon-to-expire
+          if (diffDaysA < 0 && diffDaysB >= 0) return -1;  // Expired comes first
+          if (diffDaysA >= 0 && diffDaysB < 0) return 1;   // Expired comes first
+          return diffDaysA - diffDaysB;                    // Sort soon-to-expire by closest date
+        });
+  
+        // Process and display sorted rows
         $.each(data, function (index, row) {
           var expirationDate = new Date(row.s_expiration);
           var diffTime = expirationDate - today; // Difference in milliseconds
@@ -82,6 +100,7 @@ $(document).ready(function () {
       },
     });
   }
+  
       
 
 
