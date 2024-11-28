@@ -1,106 +1,85 @@
 $(document).ready(function () {
-  function updateStockTable() {
+  $(document).on('click', '.filter-btn', function() {
+    var filter = $(this).data('filter'); // Get the filter category
+    updateStockTable(filter); // Pass the filter to the updateStockTable function
+});
+
+function updateStockTable(filter) {
     var invoice_no = $("#invoice_no").val();
     $.ajax({
-      type: "POST",
-      url: "stock_in/controller/get_stock_data.php",
-      data: { invoice_no: invoice_no },
-      dataType: "json",
-      success: function (data) {
-        $("#stockTableBody").empty();
-  
-        // Get today's date
-        var today = new Date();
-  
-        // Sort the data by expiration status
-        data.sort(function(a, b) {
-          var expirationDateA = new Date(a.s_expiration);
-          var expirationDateB = new Date(b.s_expiration);
-          var diffTimeA = expirationDateA - today;
-          var diffTimeB = expirationDateB - today;
-          var diffDaysA = diffTimeA / (1000 * 3600 * 24); // Convert ms to days
-          var diffDaysB = diffTimeB / (1000 * 3600 * 24); // Convert ms to days
-  
-          // Prioritize expired items first, then soon to expire (within 2 months), then others
-          if (diffDaysA < 0 && diffDaysB >= 0) return -1; // expired first
-          if (diffDaysA >= 0 && diffDaysB < 0) return 1;  // expired last
-          if (diffDaysA <= 60 && diffDaysB > 60) return -1; // soon to expire next
-          if (diffDaysA > 60 && diffDaysB <= 60) return 1;  // soon to expire last
-          return 0; // if the same, maintain current order
-        });
-  
-        // Loop through sorted data
-        $.each(data, function (index, row) {
-          var expirationDate = new Date(row.s_expiration);
-          var diffTime = expirationDate - today; // Difference in milliseconds
-          var diffDays = diffTime / (1000 * 3600 * 24); // Convert ms to days
-  
-          // Add your HTML generation logic here
-          var html = "<tr>";
-          html += '<td><input type="checkbox" id="EachCheckbox"></td>';
-          html += "<td>" + row.prod_name + "</td>";
-          html += "<td>" + row.s_stock_in_qty + "</td>";
-          html += "<td>" + row.s_amount + "</td>";
-          html += "<td>" + row.unit_type + "</td>";
-          html += "<td>" + row.prod_currprice + "</td>";
-          html += "<td>" + row.s_supplierPrice + "</td>";
-          html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
-  
-          // Set expiration date cell
-          var expirationCell = row.s_expiration !== "0000-00-00" ? row.s_expiration : "No expiration";
-          html += "<td class='expiration-date'>" + expirationCell + "</td>";
-          html += "<td>" + row.s_stockin_date + "</td>";
-  
-          html += '<td class="text-end">';
-          html +=
-            '<button class="btn btn-sm border editTogler" data-bs-toggle="modal" data-bs-target="#edit" ' +
-            'data-db_prod_name="' + row.prod_name + '" ' +
-            'data-db_s_expiration="' + row.s_expiration + '" ' +
-            'data-db_s_supplierPrice="' + row.s_supplierPrice + '" ' +
-            'data-db_s_amount="' + row.s_amount + '" ' +
-            'data-db_prod_kg="' + row.prod_kg + '" ' +
-            'data-db_prod_ml="' + row.prod_ml + '" ' +
-            'data-db_prod_g="' + row.prod_g + '" ' +
-            'data-db_prod_image="' + row.prod_image + '" ' +
-            'data-db_prod_currprice="' + row.prod_currprice + '" ' +
-            'data-db_prod_expirationStatus="' + row.prod_expirationStatus + '" ' +
-            'data-db_prod_code="' + row.prod_code + '" ' +
-            'data-db_s_id="' + row.s_id + '" ' +
-            ">Edit</button>";
-          html +=
-            '<button class="btn btn-sm border btnRemove" data-db_s_id="' + row.s_id + '">Remove</button>';
-          html += "</td></tr>";
-  
-          // Append row to the table
-          var $row = $(html);
-          
-          // Apply dynamic text color and border to the expiration date cell only
-          if (diffDays < 0) {
-            // Expired: set text color to red and add a border
-            $row.find('.expiration-date').css({
-              'color': 'red',
-              'border': '1px solid red'
+        type: "POST",
+        url: "stock_in/controller/get_stock_data.php",
+        data: { 
+            invoice_no: invoice_no,
+            filter: filter // Pass the filter category
+        },
+        dataType: "json",
+        success: function (data) {
+            $("#stockTableBody").empty();
+            $.each(data, function (index, row) {
+                var expirationDate = new Date(row.s_expiration);
+                var today = new Date();
+                var diffTime = expirationDate - today; 
+                var diffDays = diffTime / (1000 * 3600 * 24);
+
+                var html = "<tr>";
+                html += '<td><input type="checkbox" class="EachCheckbox" data-prod_code="' + row.prod_code + '"></td>';
+                html += "<td>" + row.prod_name + "</td>";
+                html += "<td>" + row.s_stock_in_qty + "</td>";
+                html += "<td>" + row.s_amount + "</td>";
+                html += "<td>" + row.unit_type + "</td>";
+                html += "<td>" + row.prod_currprice + "</td>";
+                html += "<td>" + row.s_supplierPrice + "</td>";
+                html += "<td>" + ((row.prod_currprice - row.s_supplierPrice).toFixed(2)) + "</td>";
+
+                // Set expiration date cell
+                var expirationCell = row.s_expiration !== "0000-00-00" ? row.s_expiration : "No expiration";
+                html += "<td class='expiration-date'>" + expirationCell + "</td>";
+                html += "<td>" + row.s_stockin_date + "</td>";
+
+                html += '<td class="text-end">';
+                html += '<button class="btn btn-sm border editTogler" data-bs-toggle="modal" data-bs-target="#edit" ' +
+                        'data-db_prod_name="' + row.prod_name + '" ' +
+                        'data-db_s_expiration="' + row.s_expiration + '" ' +
+                        'data-db_s_supplierPrice="' + row.s_supplierPrice + '" ' +
+                        'data-db_s_amount="' + row.s_amount + '" ' +
+                        'data-db_prod_kg="' + row.prod_kg + '" ' +
+                        'data-db_prod_ml="' + row.prod_ml + '" ' +
+                        'data-db_prod_g="' + row.prod_g + '" ' +
+                        'data-db_prod_image="' + row.prod_image + '" ' +
+                        'data-db_prod_currprice="' + row.prod_currprice + '" ' +
+                        'data-db_prod_expirationStatus="' + row.prod_expirationStatus + '" ' +
+                        'data-db_prod_code="' + row.prod_code + '" ' +
+                        'data-db_s_id="' + row.s_id + '" ' +
+                        ">Edit</button>";
+                html += '<button class="btn btn-sm border btnRemove" data-db_s_id="' + row.s_id + '">Remove</button>';
+                html += "</td></tr>";
+
+                var $row = $(html);
+
+                // Apply dynamic text color and border to the expiration date cell
+                if (diffDays < 0) {
+                    $row.find('.expiration-date').css({
+                        'color': 'red',
+                        'border': '1px solid red'
+                    });
+                } else if (diffDays <= 60) {
+                    $row.find('.expiration-date').css({
+                        'color': 'orange',
+                        'border': '1px solid orange'
+                    });
+                } else {
+                    $row.find('.expiration-date').css({
+                        'color': 'green',
+                        'border': '1px solid green'
+                    });
+                }
+
+                $("#stockTableBody").append($row);
             });
-          } else if (diffDays <= 60) {
-            // Soon to expire (within 2 months): set text color to orange and add a border
-            $row.find('.expiration-date').css({
-              'color': 'orange',
-              'border': '1px solid orange'
-            });
-          } else {
-            // More than 2 months: set text color to green and add a border
-            $row.find('.expiration-date').css({
-              'color': 'green',
-              'border': '1px solid green'
-            });
-          }
-  
-          $("#stockTableBody").append($row);
-        });
-      },
+        }
     });
-  }
-  
+}
       
 
 

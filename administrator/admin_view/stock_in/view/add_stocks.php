@@ -63,6 +63,16 @@ while ($row = mysqli_fetch_assoc($view_query)) {
         </div>
 
 
+        
+        <div class="col-12 col-lg-6 mt-3">
+            <div class="d-flex justify-content-start">
+                <button class="btn btn-outline-primary filter-btn" data-filter="all">All</button>
+                <button class="btn btn-outline-success filter-btn" data-filter="normal">Normal</button>
+                <button class="btn btn-outline-warning filter-btn" data-filter="soon">Soon to Expire</button>
+                <button class="btn btn-outline-danger filter-btn" data-filter="expired">Expired</button>
+            </div>
+        </div>
+
         <div class="col-12 col-lg-12 mt-3">
             <table class="table table-hover">
                 <thead>
