@@ -44,7 +44,6 @@ while ($row = mysqli_fetch_assoc($view_query)) {
         <!-- Actions Section -->
         <div class="col-12 col-lg-6 text-lg-end mb-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Add Stock</button>
-            <button class="btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#export">Export</button>
         </div>
     </div>
 
