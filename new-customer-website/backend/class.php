@@ -238,13 +238,14 @@ class global_class extends db_connect
        
             // Get All
             $query = $this->conn->prepare("
-            SELECT SUM(s_amount) AS total_stock 
+            SELECT product.*, SUM(s_amount) AS total_stock
             FROM `stocks`
-            LEFT JOIN product
-            ON product.prod_id = stocks.s_prod_id
-            WHERE `s_prod_id` = '$prodid' 
-            AND `s_status` = '1' 
+            LEFT JOIN `product`
+            ON `product`.`prod_id` = `stocks`.`s_prod_id`
+            WHERE `s_prod_id` = '$prodid'
+            AND `s_status` = '1'
             AND (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE())
+            GROUP BY `product`.`prod_id`
             ");
        
 
