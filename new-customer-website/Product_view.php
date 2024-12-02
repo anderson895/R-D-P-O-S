@@ -9,23 +9,23 @@ $id=$_GET['id'];
 
 $getProducts = $db->getViewProducts($id);
 $product = $getProducts->fetch_assoc();
-echo $currentStock = $product['total_stock'];
+$currentStock = $product['total_stock'];
 
 
 echo "<input hidden type='text' name='product_id' id='product_id' value='$id'>";
 
-$productName=$_GET['productName'];
+$productName=ucfirst($product['prod_name']);
 
-$stock = $_GET['stock'];
+$stock = $currentStock;
 $stock_status = ($stock =="Out of Stock") ? 
     "<p class='stock text-danger'>Out of Stock</p>" : 
     "<p class='stock text-success'>Available Stock : " . $stock . "</p>";
 
 
 
-$description=$_GET['description'];
+$description=ucfirst($product['prod_description']);
 
-$image=$_GET['image'];
+$image=$product['prod_image'];
 $price=number_format($_GET['price'], 2);
 
 
