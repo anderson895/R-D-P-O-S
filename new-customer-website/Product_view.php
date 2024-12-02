@@ -8,6 +8,9 @@ $id=$_GET['id'];
 
 
 $getProducts = $db->getViewProducts($id);
+$product = $getProducts->fetch_assoc();
+echo $currentStock = $product['total_stock'];
+
 
 echo "<input hidden type='text' name='product_id' id='product_id' value='$id'>";
 
