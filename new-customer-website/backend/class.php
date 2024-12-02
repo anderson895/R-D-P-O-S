@@ -133,6 +133,17 @@ class global_class extends db_connect
         }
     }
 
+
+
+
+
+    
+
+
+
+
+
+
     public function getAllProducts($search, $category)
     {
         if ($search != '') {
@@ -218,6 +229,35 @@ class global_class extends db_connect
         }
 
     }
+
+
+
+
+    public function getViewProducts($prodid)
+    {
+       
+            // Get All
+            $query = $this->conn->prepare("
+            SELECT SUM(s_amount) AS total_stock 
+            FROM `stocks`
+            LEFT JOIN product
+            ON product.prod_id = stocks.s_prod_id
+            WHERE `s_prod_id` = '$productId' 
+            AND `s_status` = '1' 
+            AND (`s_expiration` = '0000-00-00' OR `s_expiration` > CURDATE())
+            ");
+       
+
+        if ($query->execute()) {
+            $result = $query->get_result();
+            return $result;
+        }
+    }
+
+
+
+
+
 
     public function getNewProducts()
     {

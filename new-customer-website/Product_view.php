@@ -7,7 +7,7 @@ $id=$_GET['id'];
 
 
 
-$getProducts = $db->getAllProducts($_GET['search'], $_GET['category']);
+$getProducts = $db->getViewProducts($id);
 
 echo "<input hidden type='text' name='product_id' id='product_id' value='$id'>";
 
