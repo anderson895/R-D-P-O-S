@@ -23,7 +23,7 @@ $(document).ready(function () {
                 var expirationStatus = '';
                 if (diffDays < 0) {
                     expirationStatus = 'expired';
-                } else if (diffDays <= 60) {
+                } else if (diffDays <= 180) { // Items expiring within 6 months (180 days)
                     expirationStatus = 'soon_to_expire';
                 } else {
                     expirationStatus = 'normal';
@@ -93,6 +93,7 @@ $(document).ready(function () {
         },
     });
 }
+
 
 // Call the update function initially and set an interval to update periodically
 updateStockTable();
