@@ -221,10 +221,10 @@ function displaySearchResults(results) {
             var minimumExpirationDate = new Date(today);
             minimumExpirationDate.setDate(today.getDate() + 7); // Minimum expiration date is today + 7 days
         
-            if (selectedExpirationDate < minimumExpirationDate) {
-                alertify.error('Expiration date must be at least 7 days from today or tomorrow.');
-                return;
-            }
+            // if (selectedExpirationDate < minimumExpirationDate) {
+            //     alertify.error('Expiration date must be at least 7 days from today or tomorrow.');
+            //     return;
+            // }
         
             ajaxParams.data.expirationDate = expirationDate;
         }
