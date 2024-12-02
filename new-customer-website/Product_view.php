@@ -4,6 +4,11 @@ include('components/header.php');
 
 
 $id=$_GET['id'];
+
+
+
+$getProducts = $db->getAllProducts($_GET['search'], $_GET['category']);
+
 echo "<input hidden type='text' name='product_id' id='product_id' value='$id'>";
 
 $productName=$_GET['productName'];
