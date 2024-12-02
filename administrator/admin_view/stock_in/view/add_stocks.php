@@ -53,7 +53,7 @@ while ($row = mysqli_fetch_assoc($view_query)) {
             <div class="card p-3">
                 <h6 class="fw-bold">Expiration Status</h6>
                 <p><span class="text-success">●</span> <strong>Normal (Green):</strong> Item is in good standing and not nearing expiration.</p>
-                <p><span class="text-warning">●</span> <strong>Soon to Expire (Orange):</strong> Item soon to expire within 2 months.</p>
+                <p><span class="text-warning">●</span> <strong>Soon to Expire (Orange):</strong> Item soon to expire before 6 months.</p>
                 <p><span class="text-danger">●</span> <strong>Expired (Red):</strong> The item has already expired and is automatically excluded from the stock count.</p>
             </div>
         </div>
