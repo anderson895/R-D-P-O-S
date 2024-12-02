@@ -220,18 +220,17 @@ function displaySearchResults(results) {
         };
     
         if (prod_expirationStatus === 'withExpi') {
-            // Check if the expiration date is valid (at least 7 days from today or tomorrow)
             var today = new Date();
-            today.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0 for accurate comparison
+            today.setHours(0, 0, 0, 0); 
         
             var selectedExpirationDate = new Date(expirationDate);
             selectedExpirationDate.setHours(0, 0, 0, 0);
         
             var minimumExpirationDate = new Date(today);
-            minimumExpirationDate.setDate(today.getDate() + 180); // Minimum expiration date is today + 7 days
+            minimumExpirationDate.setDate(today.getDate() + 180); 
         
             if (selectedExpirationDate < minimumExpirationDate) {
-                alertify.error('Expiration date must be at least 6 months from today or tomorrow.');
+                alertify.error('Expiration date must be at least 6 months from today.');
                 return;
             }
         
