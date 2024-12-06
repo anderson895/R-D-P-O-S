@@ -136,7 +136,7 @@ $spacedId = implode(' ', str_split($id));
             <p class="text-center m-0">Address: <?= $db_system_address ?></p>
             <div justify-content-center d-flex flex-column align-items-center><img src="../../upload_barcode/<?= $db_order_barcode ?>" class='w-75' alt=""></div>
             <?= $spacedId ?>
-            <p class="text-center m-0"><?php echo $cashier?></p>
+            <p class="text-center m-0">Printed by: <?php echo $cashier?></p>
 
         </div>
 
