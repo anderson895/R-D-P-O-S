@@ -161,7 +161,7 @@ if ($getAddress->num_rows > 0) {
     <div class="profile-info text-center">
     <img alt="Profile Image" class="profile-img" src="<?= ($user['emp_image'] != '') ? '../upload_img/' . $user['emp_image'] : 'assets/img/no-img-available.png' ?>">
         <h2><?= $user['acc_fname'] . ' ' . $user['acc_lname'] ?></h2>
-        <h6>Age: <span><?= $age ?></span></h6>
+        <!-- <h6>Age: <span><?= $age ?></span></h6> -->
     </div>
 
     <div class="row mb-3">
