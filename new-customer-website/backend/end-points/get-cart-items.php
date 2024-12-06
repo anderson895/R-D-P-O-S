@@ -86,7 +86,7 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
         
         <!-- Item Details -->
         <div class="col-md-8 col-lg-9">
-            <div class="item-details border p-4 rounded-3 shadow-sm bg-white">
+            <div class="item-details p-4 rounded-3 shadow-sm bg-white">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <!-- Checkbox and Product Name -->
                     <div class="d-flex align-items-center">
