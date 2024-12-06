@@ -7,7 +7,7 @@ $(document).ready(function () {
         type: "POST",
         url: "stock_in/controller/get_stock_data.php",
         data: { invoice_no: invoice_no },
-        // dataType: "json",
+        dataType: "json",
         success: function (data) {
 
             console.log(data);

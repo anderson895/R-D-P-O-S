@@ -337,7 +337,7 @@ public function sentMessage($sender_id, $sender_Messages, $fileName)
 
     public function getCartItems($userId)
     {
-        $query = $this->conn->prepare("SELECT nc.cart_id, nc.qty, p.* FROM `new_cart` AS nc JOIN `product` AS p ON nc.prod_id = p.prod_id WHERE nc.user_id = '$userId' total_stock > 0 ilagay sa hulihan");
+        $query = $this->conn->prepare("SELECT nc.cart_id, nc.qty, p.* FROM `new_cart` AS nc JOIN `product` AS p ON nc.prod_id = p.prod_id WHERE nc.user_id = '$userId'");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
