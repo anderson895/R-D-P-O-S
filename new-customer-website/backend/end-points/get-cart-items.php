@@ -153,18 +153,15 @@ if (isset($_SESSION['acc_id'])) {
                 </div>
                
 
-
-                <hr>
-
                 <!-- Amount -->
                 <p class="mb-0">Amount: <span class="text-success fw-bold">₱ <?= number_format($itemAmount, 2) ?></span></p>
-                
-                <?php } ?>
             </div>
 
+            <?php } ?>
         </div>
 
     </div>
+    <hr>
 </div>
 
 
