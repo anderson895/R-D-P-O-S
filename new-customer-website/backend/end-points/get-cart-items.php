@@ -88,8 +88,11 @@ if (isset($_SESSION['acc_id'])) {
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <!-- Checkbox and Product Name -->
                     <div class="d-flex align-items-center">
-                        <!-- Hide the checkbox if the item is out of stock -->
-                        <input type="checkbox" class="form-check-input me-3 cartSelect" 
+                        
+                    <?php 
+                    if($currentStock > 0){
+                        ?>
+                          <input type="checkbox" class="form-check-input me-3 cartSelect" 
                             data-id="<?= $cartItem['prod_id'] ?>" 
                             data-image="<?= $cartItem['prod_image'] ?>" 
                             data-name="<?= $productName ?>" 
@@ -99,10 +102,14 @@ if (isset($_SESSION['acc_id'])) {
                             data-stock="<?= $currentStock ?>" 
                             data-inputqty="<?= $cartItem['qty'] ?>" 
                             data-itemvat="<?= $vatPerItem ?>" 
-                            style="width: 25px; height: 25px; <?= ($currentStock <= 0) ? 'display: none;' : '' ?>">
+                            style="width: 25px; height: 25px;">
+                        <?php
+
+                    }
+                    ?>
+                  
                         <h4 class="fw-bold mb-0"><?= $productName ?></h4>
                     </div>
-
 
                     <!-- Delete Button -->
                     <button class="btn btn-danger btn-sm d-flex align-items-center btnDeleteCartItem" 
