@@ -165,7 +165,6 @@ if (isset($_SESSION['acc_id'])) {
         </div>
 
     </div>
-    <hr>
 </div>
 
 
