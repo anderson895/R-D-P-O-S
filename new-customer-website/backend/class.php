@@ -335,14 +335,31 @@ public function sentMessage($sender_id, $sender_Messages, $fileName)
 
     
 
-    public function getCartItems($userId)
+    // public function getCartItems($userId)
+    // {
+    //     $query = $this->conn->prepare("SELECT nc.cart_id, nc.qty, p.* FROM `new_cart` AS nc JOIN `product` AS p ON nc.prod_id = p.prod_id WHERE nc.user_id = '$userId' total_stock > 0 ilagay sa hulihan");
+    //     if ($query->execute()) {
+    //         $result = $query->get_result();
+    //         return $result;
+    //     }
+    // }
+
+        public function getCartItems($userId)
     {
-        $query = $this->conn->prepare("SELECT nc.cart_id, nc.qty, p.* FROM `new_cart` AS nc JOIN `product` AS p ON nc.prod_id = p.prod_id WHERE nc.user_id = '$userId'");
+        $query = $this->conn->prepare("
+            SELECT nc.cart_id, nc.qty, p.* 
+            FROM `new_cart` AS nc 
+            JOIN `product` AS p 
+            ON nc.prod_id = p.prod_id 
+            WHERE nc.user_id = '$userId'
+            ORDER BY p.total_stock = 0, p.total_stock DESC
+        ");
         if ($query->execute()) {
             $result = $query->get_result();
             return $result;
         }
     }
+
 
     public function getCartItemsPhotos($userId,$prod_id)
     {

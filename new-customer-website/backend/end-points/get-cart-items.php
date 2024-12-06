@@ -44,8 +44,7 @@ if (isset($_SESSION['acc_id'])) {
                     }
 ?>
 <!-- Lightbox2 CSS -->
-<link href="
-https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
 " rel="stylesheet">
 
 <!-- Lightbox2 JavaScript -->
