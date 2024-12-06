@@ -91,18 +91,20 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
                     <!-- Checkbox and Product Name -->
                     <div class="d-flex align-items-center">
                         <input type="checkbox" class="form-check-input me-3 cartSelect" 
-                               data-id="<?= $cartItem['prod_id'] ?>" 
-                               data-image="<?= $cartItem['prod_image'] ?>" 
-                               data-name="<?= $productName ?>" 
-                               data-price="<?= $cartItem['prod_currprice'] ?>" 
-                               data-unittype="<?= $cartItem['unit_type'] ?>" 
-                               data-amount="<?= $itemAmount ?>" 
-                               data-stock="<?= $currentStock ?>" 
-                               data-inputqty="<?= $cartItem['qty'] ?>" 
-                               data-itemvat="<?= $vatPerItem ?>" 
-                               style="width: 25px; height: 25px;">
+                            data-id="<?= $cartItem['prod_id'] ?>" 
+                            data-image="<?= $cartItem['prod_image'] ?>" 
+                            data-name="<?= $productName ?>" 
+                            data-price="<?= $cartItem['prod_currprice'] ?>" 
+                            data-unittype="<?= $cartItem['unit_type'] ?>" 
+                            data-amount="<?= $itemAmount ?>" 
+                            data-stock="<?= $currentStock ?>" 
+                            data-inputqty="<?= $cartItem['qty'] ?>" 
+                            data-itemvat="<?= $vatPerItem ?>" 
+                            style="width: 25px; height: 25px;"
+                            <?= ($currentStock <= 0) ? 'disabled' : '' ?>>
                         <h4 class="fw-bold mb-0"><?= $productName ?></h4>
                     </div>
+
                     <!-- Delete Button -->
                     <button class="btn btn-danger btn-sm d-flex align-items-center btnDeleteCartItem" 
                             data-id="<?= $cartItem['cart_id'] ?>">
