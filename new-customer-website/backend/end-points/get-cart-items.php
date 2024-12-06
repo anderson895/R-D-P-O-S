@@ -111,12 +111,17 @@ if (isset($_SESSION['acc_id'])) {
                         <h4 class="fw-bold mb-0"><?= $productName ?></h4>
                     </div>
 
+
+                    <?php 
+                    if($currentStock > 0){
+                        ?>
                     <!-- Delete Button -->
                     <button class="btn btn-danger btn-sm d-flex align-items-center btnDeleteCartItem" 
                             data-id="<?= $cartItem['cart_id'] ?>">
                             <i class="bi bi-x"></i>
 
                     </button>
+                    <?php } ?>
                 </div>
 
                 <!-- Price and Stock -->
