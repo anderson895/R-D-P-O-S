@@ -127,8 +127,6 @@ if (isset($_SESSION['acc_id'])) {
                     <?= ($currentStock > 0) ? $currentStock . ' ' . $cartItem['unit_type'] . ' Available' : 'Out of Stock' ?>
                 </p>
 
-                <hr>
-
 
                 <?php 
                     if($currentStock > 0){
