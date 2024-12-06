@@ -122,18 +122,22 @@ https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css
                 <!-- Quantity Control -->
                 <div class="d-flex align-items-center mb-3">
                     <button class="btn btn-outline-secondary btn-sm minusCartQty" 
-                            data-id="<?= $cartItem['cart_id'] ?>">
+                            data-id="<?= $cartItem['cart_id'] ?>" 
+                            <?= ($currentStock <= 0) ? 'disabled' : '' ?>>
                         <i class="bi bi-dash"></i>
                     </button>
                     <input type="number" class="form-control text-center mx-3 inputChangeCartItemQty" 
-                           data-id="<?= $cartItem['cart_id'] ?>" 
-                           value="<?= $cartItem['qty'] ?>" 
-                           style="max-width: 70px;">
+                        data-id="<?= $cartItem['cart_id'] ?>" 
+                        value="<?= $cartItem['qty'] ?>" 
+                        style="max-width: 70px;" 
+                        <?= ($currentStock <= 0) ? 'disabled' : '' ?>>
                     <button class="btn btn-outline-secondary btn-sm addCartQty" 
-                            data-id="<?= $cartItem['cart_id'] ?>">
+                            data-id="<?= $cartItem['cart_id'] ?>" 
+                            <?= ($currentStock <= 0) ? 'disabled' : '' ?>>
                         <i class="bi bi-plus"></i>
                     </button>
                 </div>
+
 
                 <hr>
 
