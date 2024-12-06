@@ -5,9 +5,9 @@ $invoice_no = $_POST["invoice_no"];
 
 // Fetch data from the database
 $view_query = mysqli_query($connections, "SELECT *
-FROM stocks s
+FROM stocks as s
 LEFT JOIN product p ON s.s_prod_id = p.prod_id
-WHERE s.s_invoice = '$invoice_no' AND s_status='1';");
+WHERE s.s_invoice = '$invoice_no' AND s.s_status='1' AND s.s_amount>0;");
 
 $data = array();
 
