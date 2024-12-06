@@ -45,7 +45,7 @@ if ($getAddress->num_rows > 0) {
 
 
 
-<div class="container card cart-items-container mt-5" id="cartItemsContainer">
+<div class="border-0 container card cart-items-container mt-5" id="cartItemsContainer">
 
 </div>
 <?php
