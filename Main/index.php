@@ -12,15 +12,10 @@ include "include/header.php";
 
 
 
-    
-
 <?php include "landing_page.php";?>
 
 
 
-
-   
-    
 
 
 
