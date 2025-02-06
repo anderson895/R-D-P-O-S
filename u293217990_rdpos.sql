@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 16, 2024 at 09:52 AM
--- Server version: 10.11.9-MariaDB
+-- Generation Time: Feb 06, 2025 at 08:21 AM
+-- Server version: 10.11.10-MariaDB
 -- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u547077750_rdpos`
+-- Database: `u293217990_rdpos`
 --
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ INSERT INTO `account` (`acc_id`, `acc_code`, `acc_created`, `acc_username`, `acc
 (271, '09611271', '2024-09-17', 'akosiadmin2', 'e7b4e4c5399117f0598f8ad03599646ed90b17ae3470edade11aa69dfe15b58c', 'ako si', 'admin', NULL, 'administrator', 0, 0, 'akosiadmin@gmail.com', '09454454744', '66e8ebf842aa7.jpg', NULL, '', NULL, '', NULL, NULL),
 (277, '89868277', '2024-10-07', 'ZyrineCashier', 'bf851b05275aadb143bae1913224f920e7719056b97dfe930d8fb821e8739a31', 'Zyrine', 'Alcarez', NULL, 'cashier', 0, 0, 'Cashier1@gmail.com', '09123456789', '670316b07dd89.jpg', NULL, '', NULL, '', NULL, NULL),
 (278, '40681278', '2024-10-07', 'JoshuaCashier', '3d5249419f27520249d4fd4cab2ea828a5de17ffc0c7cba17f4a04bea4ab4c86', 'Joshua Anderson', 'Padilla', NULL, 'cashier', 0, 0, 'Cashier2@gmail.com', '09123456789', '670316bb861b6.jpg', NULL, '', NULL, '', NULL, NULL),
-(292, 'ACC03771292', '2024-09-29', 'masterparj', '2448a34d49ecbe9f7c4293fcd3b5e359817322d4a615009158241bd0ab1a3547', 'christin', 'bermas', '2006-05-31', 'customer', 0, 0, 'masterparj@gmail.com', '09454454744', 'profile_66f83ee341c971.99247077.jpg', NULL, '', NULL, '', 0, '2024-09-30 18:14:36'),
+(292, 'ACC03771292', '2024-09-29', 'masterparj', '2448a34d49ecbe9f7c4293fcd3b5e359817322d4a615009158241bd0ab1a3547', 'christin', 'bermas', '2006-05-31', 'customer', 0, 0, 'masterparj@gmail.com', '09454454744', 'profile_67a46cbe392c73.22158487.png', NULL, '', NULL, '', 0, '2024-09-30 18:14:36'),
 (294, '49708294', '2024-09-29', 'christinsamson', '267bfa680a5819a0b7e145896b9b4268cfbf8ac0c2804e17e6706bb91e7a49b0267bfa680a5819a0b7e145896b9b4268cfbf8ac0c2804e17e6706bb91e7a49b0', 'christine', 'samson', NULL, 'cashier', 2, 0, 'christinsamson@gmail.com', '09454454746', '66f84601da7c9.jpeg', NULL, '', NULL, '', NULL, NULL),
 (301, 'ACC06596301', '2024-09-30', 'msMaloi2025', '9fac863470452c7ffc40117250176bb8ca002a199f114611902427200d2efc74', 'Mary Loi', 'Ricalde', '2002-05-27', 'customer', 0, 0, 'joshuaandersonpadilla8@gmail.com', '09454454744', 'profile_66fc171d36c0c5.94870671.jpg', NULL, '', NULL, '0', NULL, '2024-09-30 20:12:46'),
 (302, 'ACC42718302', '2024-09-30', 'Joe123', 'a5b4e89f9f0a84e8ce20eb595ea154ded9436ad93b704cf9c2058c46ecfa34fe', 'Joe', 'Nuck', '1996-05-31', 'customer', 1, 0, 'rickandandmorty0224@gmail.com', '09127856747', '', NULL, '', NULL, '1071', NULL, '2024-09-30 20:30:27'),
@@ -277,7 +277,8 @@ CREATE TABLE `new_cart` (
 INSERT INTO `new_cart` (`cart_id`, `prod_id`, `qty`, `user_id`) VALUES
 (273, 271, 1, 312),
 (274, 280, 1, 312),
-(277, 318, 1, 312);
+(277, 318, 1, 312),
+(384, 288, 1, 292);
 
 -- --------------------------------------------------------
 
@@ -301,55 +302,57 @@ CREATE TABLE `new_tbl_orders` (
   `reject_reason` varchar(255) DEFAULT NULL,
   `proof_of_del` varchar(60) NOT NULL,
   `t_status` int(1) NOT NULL DEFAULT 0,
-  `c_status` varchar(30) NOT NULL DEFAULT 'Not_Collected'
+  `c_status` varchar(30) NOT NULL DEFAULT 'Not_Collected',
+  `cancel_reason` text NOT NULL,
+  `unsucessful_reason` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `new_tbl_orders`
 --
 
-INSERT INTO `new_tbl_orders` (`order_id`, `cust_id`, `payment_id`, `pof`, `subtotal`, `vat`, `sf`, `total`, `order_date`, `delivered_date`, `rider_id`, `status`, `reject_reason`, `proof_of_del`, `t_status`, `c_status`) VALUES
-('ORD-131785', 321, 'COD', NULL, 55.00, 0.55, 50.00, 105.00, '2024-10-13 22:36:17', '2024-10-13 22:36:49', 16, 'Delivered', NULL, 'proof_of_del_2970113711.jpg', 0, 'Collected'),
-('ORD-134508', 292, 'COD', NULL, 38400.00, 384.00, 50.00, 38450.00, '2024-10-10 22:46:23', NULL, 236, 'Rejected', NULL, '', 0, 'Collected'),
-('ORD-13742', 301, 'COD', NULL, 105.00, 1.05, 140.00, 245.00, '2024-10-02 00:37:10', '2024-10-02 00:38:15', 250, 'Delivered', NULL, 'proof_of_del_7435705635.png', 0, 'Collected'),
-('ORD-162910', 320, '57', 'ORD-162910.jpg', 1293.00, 12.93, 140.00, 1433.00, '2024-10-12 22:41:13', '2024-10-12 22:47:30', 250, 'Delivered', NULL, 'proof_of_del_0609765276.jpg', 0, 'Collected'),
-('ORD-170617', 292, '57', 'ORD-170617.jpeg', 1561.00, 15.61, 50.00, 1611.00, '2024-10-13 23:36:01', '2024-10-13 23:37:25', 16, 'Delivered', NULL, 'proof_of_del_6203960084.png', 0, 'Collected'),
-('ORD-174675', 292, 'COD', NULL, 26.00, 0.26, 50.00, 76.00, '2024-10-03 14:49:01', '2024-10-06 20:59:20', 250, 'Delivered', NULL, 'proof_of_del_2453130996.png', 0, 'Collected'),
-('ORD-186210', 292, '57', 'ORD-186210.jpeg', 240.00, 2.40, 50.00, 290.00, '2024-09-29 03:18:59', '2024-09-29 03:36:18', 236, 'Delivered', NULL, 'proof_of_del_0404628840.png', 0, 'Collected'),
-('ORD-2096', 321, 'COD', NULL, 960.00, 9.60, 50.00, 1010.00, '2024-10-14 03:09:49', '2024-10-14 03:10:12', 250, 'Delivered', NULL, 'proof_of_del_7041745151.webp', 0, 'Not_Collected'),
-('ORD-231658', 322, 'COD', NULL, 4414.00, 44.14, 140.00, 4554.00, '2024-10-14 02:35:32', '2024-10-14 02:36:09', 236, 'Delivered', NULL, 'proof_of_del_1526277995.png', 0, 'Not_Collected'),
-('ORD-29258', 322, 'COD', NULL, 8432.50, 84.33, 130.00, 8562.50, '2024-10-14 02:31:43', '2024-10-14 02:32:15', 227, 'Delivered', NULL, 'proof_of_del_9878876425.jpg', 0, 'Not_Collected'),
-('ORD-303567', 320, 'COD', NULL, 163.00, 1.63, 140.00, 303.00, '2024-10-14 01:49:03', '2024-10-14 01:49:43', 16, 'Delivered', NULL, 'proof_of_del_4486748914.png', 0, 'Collected'),
-('ORD-314468', 301, '57', 'ORD-314468.jpeg', 320.00, 3.20, 140.00, 460.00, '2024-10-01 23:51:43', '2024-10-02 00:32:11', 16, 'Delivered', NULL, 'proof_of_del_1624166664.png', 0, 'Collected'),
-('ORD-332213', 292, 'COD', NULL, 70.00, 0.70, 50.00, 120.00, '2024-10-14 14:05:11', '2024-10-14 14:22:54', 250, 'Delivered', NULL, 'proof_of_del_5246680124.jpg', 1, 'Not_Collected'),
-('ORD-332534', 301, '57', 'ORD-332534.jpeg', 3243.00, 32.43, 140.00, 3383.00, '2024-10-02 01:15:55', '2024-10-02 01:16:34', 16, 'Delivered', NULL, 'proof_of_del_7592106828.png', 0, 'Collected'),
-('ORD-337882', 311, '57', 'ORD-337882.png', 70.00, 0.70, 130.00, 200.00, '2024-10-02 00:11:01', '2024-10-13 23:20:12', 227, 'Delivered', NULL, 'proof_of_del_0338655768.jpg', 0, 'Collected'),
-('ORD-341909', 292, 'COD', NULL, 124.00, 1.24, 50.00, 174.00, '2024-10-12 21:54:15', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-40470', 292, 'COD', NULL, 3000.00, 30.00, 60.00, 3060.00, '2024-09-29 01:05:54', '2024-09-29 01:30:51', 250, 'Delivered', NULL, 'proof_of_del_9829125581.png', 0, 'Collected'),
-('ORD-405539', 292, 'COD', NULL, 385.00, 3.85, 50.00, 435.00, '2024-10-12 23:53:01', '2024-10-13 00:04:16', 250, 'Delivered', NULL, 'proof_of_del_1647460354.jpg', 0, 'Collected'),
-('ORD-465438', 315, 'COD', NULL, 1413.00, 14.13, 50.00, 1463.00, '2024-10-14 01:56:19', '2024-10-14 01:56:44', 16, 'Delivered', NULL, 'proof_of_del_9084266991.jpeg', 0, 'Collected'),
-('ORD-503589', 292, 'COD', NULL, 80.00, 0.80, 50.00, 130.00, '2024-10-14 14:00:03', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-51149', 305, 'COD', NULL, 160.00, 1.60, 130.00, 290.00, '2024-09-30 20:55:37', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-521894', 301, 'COD', NULL, 4448.50, 44.49, 140.00, 4588.50, '2024-10-14 02:18:44', '2024-10-14 02:19:06', 227, 'Delivered', NULL, 'proof_of_del_7713906935.jpeg', 0, 'Not_Collected'),
-('ORD-541780', 313, 'COD', NULL, 13.00, 0.13, 140.00, 153.00, '2024-10-03 14:18:47', '2024-10-03 14:21:44', 16, 'Delivered', NULL, 'proof_of_del_0299477265.png', 0, 'Collected'),
-('ORD-560814', 313, '57', 'ORD-560814.jpg', 183.00, 1.83, 140.00, 323.00, '2024-10-03 14:43:18', '2024-10-03 14:45:05', 250, 'Delivered', NULL, 'proof_of_del_0920503602.png', 0, 'Collected'),
-('ORD-574587', 292, 'COD', NULL, 1600.00, 16.00, 50.00, 1650.00, '2024-10-10 23:17:54', '2024-10-13 22:38:12', 16, 'Delivered', NULL, 'proof_of_del_9490841162.png', 0, 'Collected'),
-('ORD-582396', 292, '57', 'ORD-582396.jpeg', 534.00, 5.34, 50.00, 584.00, '2024-09-29 03:00:44', '2024-09-29 03:38:02', 250, 'Delivered', NULL, 'proof_of_del_4219063463.jpg', 0, 'Collected'),
-('ORD-621865', 320, 'COD', NULL, 360.00, 3.60, 140.00, 500.00, '2024-10-12 22:57:56', '2024-10-13 22:37:20', 250, 'Delivered', NULL, 'proof_of_del_2169005129.jpg', 0, 'Collected'),
-('ORD-622808', 313, 'COD', NULL, 35.00, 0.35, 140.00, 175.00, '2024-10-06 20:23:25', '2024-10-06 20:30:00', 227, 'Delivered', NULL, 'proof_of_del_5265756913.jpg', 0, 'Collected'),
-('ORD-635283', 314, 'COD', NULL, 1757.50, 17.58, 60.00, 1817.50, '2024-10-14 00:44:40', '2024-10-14 00:45:28', 16, 'Delivered', NULL, 'proof_of_del_6845958442.png', 0, 'Collected'),
-('ORD-674480', 315, 'COD', NULL, 3836.00, 38.36, 50.00, 3886.00, '2024-10-14 02:00:29', '2024-10-14 02:01:08', 236, 'Delivered', NULL, 'proof_of_del_9468975667.webp', 0, 'Not_Collected'),
-('ORD-766363', 292, '58', 'ORD-766363.jpg', 774.00, 7.74, 50.00, 824.00, '2024-09-29 10:05:31', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-777559', 292, 'COD', NULL, 495.00, 4.95, 50.00, 545.00, '2024-10-10 23:35:29', '2024-10-13 22:37:48', 240, 'Delivered', NULL, 'proof_of_del_9471131568.jpg', 0, 'Collected'),
-('ORD-780811', 292, 'COD', NULL, 609.00, 6.09, 50.00, 659.00, '2024-10-12 21:48:00', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected'),
-('ORD-829289', 327, 'COD', NULL, 175.00, 1.75, 130.00, 305.00, '2024-10-14 13:54:08', NULL, NULL, 'Rejected', NULL, '', 0, 'Not_Collected'),
-('ORD-883131', 292, 'COD', NULL, 800.00, 8.00, 50.00, 850.00, '2024-09-29 03:41:22', '2024-09-29 03:49:20', 250, 'Delivered', NULL, 'proof_of_del_8087379779.jpg', 0, 'Collected'),
-('ORD-885157', 321, '57', 'ORD-885157.jpeg', 865.00, 8.65, 50.00, 915.00, '2024-10-13 19:12:21', '2024-10-13 19:15:46', 236, 'Delivered', NULL, 'proof_of_del_0296985028.png', 1, 'Collected'),
-('ORD-925374', 292, 'COD', NULL, 297.50, 2.98, 50.00, 347.50, '2024-10-10 23:55:31', '2024-10-13 23:31:06', 250, 'Delivered', NULL, 'proof_of_del_3774448954.jpeg', 0, 'Collected'),
-('ORD-946452', 311, '57', 'ORD-946452.png', 80.00, 0.80, 60.00, 140.00, '2024-10-01 23:59:58', '2024-10-02 00:00:44', 16, 'Delivered', NULL, 'proof_of_del_6665233805.png', 0, 'Collected'),
-('ORD-947240', 314, 'COD', NULL, 339.00, 3.39, 60.00, 399.00, '2024-10-14 00:52:10', '2024-10-14 00:52:37', 236, 'Delivered', NULL, 'proof_of_del_3177772974.jpg', 0, 'Collected'),
-('ORD-953842', 301, 'COD', NULL, 223.00, 2.23, 140.00, 363.00, '2024-10-13 23:59:38', '2024-10-14 00:03:21', 240, 'Delivered', NULL, 'proof_of_del_7509560819.png', 0, 'Collected'),
-('ORD-986815', 301, 'COD', NULL, 5920.00, 59.20, 140.00, 6060.00, '2024-10-02 01:00:24', '2024-10-02 01:01:01', 240, 'Delivered', NULL, 'proof_of_del_9247892975.png', 0, 'Collected');
+INSERT INTO `new_tbl_orders` (`order_id`, `cust_id`, `payment_id`, `pof`, `subtotal`, `vat`, `sf`, `total`, `order_date`, `delivered_date`, `rider_id`, `status`, `reject_reason`, `proof_of_del`, `t_status`, `c_status`, `cancel_reason`, `unsucessful_reason`) VALUES
+('ORD-131785', 321, 'COD', NULL, 55.00, 0.55, 50.00, 105.00, '2024-10-13 22:36:17', '2024-10-13 22:36:49', 16, 'Delivered', NULL, 'proof_of_del_2970113711.jpg', 0, 'Collected', '', ''),
+('ORD-134508', 292, 'COD', NULL, 38400.00, 384.00, 50.00, 38450.00, '2024-10-10 22:46:23', NULL, 236, 'Rejected', NULL, '', 0, 'Collected', '', ''),
+('ORD-13742', 301, 'COD', NULL, 105.00, 1.05, 140.00, 245.00, '2024-10-02 00:37:10', '2024-10-02 00:38:15', 250, 'Delivered', NULL, 'proof_of_del_7435705635.png', 0, 'Collected', '', ''),
+('ORD-162910', 320, '57', 'ORD-162910.jpg', 1293.00, 12.93, 140.00, 1433.00, '2024-10-12 22:41:13', '2024-10-12 22:47:30', 250, 'Delivered', NULL, 'proof_of_del_0609765276.jpg', 0, 'Collected', '', ''),
+('ORD-170617', 292, '57', 'ORD-170617.jpeg', 1561.00, 15.61, 50.00, 1611.00, '2024-10-13 23:36:01', '2024-10-13 23:37:25', 16, 'Delivered', NULL, 'proof_of_del_6203960084.png', 0, 'Collected', '', ''),
+('ORD-174675', 292, 'COD', NULL, 26.00, 0.26, 50.00, 76.00, '2024-10-03 14:49:01', '2024-10-06 20:59:20', 250, 'Delivered', NULL, 'proof_of_del_2453130996.png', 0, 'Collected', '', ''),
+('ORD-186210', 292, '57', 'ORD-186210.jpeg', 240.00, 2.40, 50.00, 290.00, '2024-09-29 03:18:59', '2024-09-29 03:36:18', 236, 'Delivered', NULL, 'proof_of_del_0404628840.png', 0, 'Collected', '', ''),
+('ORD-2096', 321, 'COD', NULL, 960.00, 9.60, 50.00, 1010.00, '2024-10-14 03:09:49', '2024-10-14 03:10:12', 250, 'Delivered', NULL, 'proof_of_del_7041745151.webp', 0, 'Not_Collected', '', ''),
+('ORD-231658', 322, 'COD', NULL, 4414.00, 44.14, 140.00, 4554.00, '2024-10-14 02:35:32', '2024-10-14 02:36:09', 236, 'Delivered', NULL, 'proof_of_del_1526277995.png', 0, 'Not_Collected', '', ''),
+('ORD-29258', 322, 'COD', NULL, 8432.50, 84.33, 130.00, 8562.50, '2024-10-14 02:31:43', '2024-10-14 02:32:15', 227, 'Delivered', NULL, 'proof_of_del_9878876425.jpg', 0, 'Not_Collected', '', ''),
+('ORD-303567', 320, 'COD', NULL, 163.00, 1.63, 140.00, 303.00, '2024-10-14 01:49:03', '2024-10-14 01:49:43', 16, 'Delivered', NULL, 'proof_of_del_4486748914.png', 0, 'Collected', '', ''),
+('ORD-314468', 301, '57', 'ORD-314468.jpeg', 320.00, 3.20, 140.00, 460.00, '2024-10-01 23:51:43', '2024-10-02 00:32:11', 16, 'Delivered', NULL, 'proof_of_del_1624166664.png', 0, 'Collected', '', ''),
+('ORD-332213', 292, 'COD', NULL, 70.00, 0.70, 50.00, 120.00, '2024-10-14 14:05:11', '2024-10-14 14:22:54', 250, 'Delivered', NULL, 'proof_of_del_5246680124.jpg', 1, 'Not_Collected', '', ''),
+('ORD-332534', 301, '57', 'ORD-332534.jpeg', 3243.00, 32.43, 140.00, 3383.00, '2024-10-02 01:15:55', '2024-10-02 01:16:34', 16, 'Delivered', NULL, 'proof_of_del_7592106828.png', 0, 'Collected', '', ''),
+('ORD-337882', 311, '57', 'ORD-337882.png', 70.00, 0.70, 130.00, 200.00, '2024-10-02 00:11:01', '2024-10-13 23:20:12', 227, 'Delivered', NULL, 'proof_of_del_0338655768.jpg', 0, 'Collected', '', ''),
+('ORD-341909', 292, 'COD', NULL, 124.00, 1.24, 50.00, 174.00, '2024-10-12 21:54:15', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
+('ORD-40470', 292, 'COD', NULL, 3000.00, 30.00, 60.00, 3060.00, '2024-09-29 01:05:54', '2024-09-29 01:30:51', 250, 'Delivered', NULL, 'proof_of_del_9829125581.png', 0, 'Collected', '', ''),
+('ORD-405539', 292, 'COD', NULL, 385.00, 3.85, 50.00, 435.00, '2024-10-12 23:53:01', '2024-10-13 00:04:16', 250, 'Delivered', NULL, 'proof_of_del_1647460354.jpg', 0, 'Collected', '', ''),
+('ORD-465438', 315, 'COD', NULL, 1413.00, 14.13, 50.00, 1463.00, '2024-10-14 01:56:19', '2024-10-14 01:56:44', 16, 'Delivered', NULL, 'proof_of_del_9084266991.jpeg', 0, 'Collected', '', ''),
+('ORD-503589', 292, 'COD', NULL, 80.00, 0.80, 50.00, 130.00, '2024-10-14 14:00:03', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
+('ORD-51149', 305, 'COD', NULL, 160.00, 1.60, 130.00, 290.00, '2024-09-30 20:55:37', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
+('ORD-521894', 301, 'COD', NULL, 4448.50, 44.49, 140.00, 4588.50, '2024-10-14 02:18:44', '2024-10-14 02:19:06', 227, 'Delivered', NULL, 'proof_of_del_7713906935.jpeg', 0, 'Not_Collected', '', ''),
+('ORD-541780', 313, 'COD', NULL, 13.00, 0.13, 140.00, 153.00, '2024-10-03 14:18:47', '2024-10-03 14:21:44', 16, 'Delivered', NULL, 'proof_of_del_0299477265.png', 0, 'Collected', '', ''),
+('ORD-560814', 313, '57', 'ORD-560814.jpg', 183.00, 1.83, 140.00, 323.00, '2024-10-03 14:43:18', '2024-10-03 14:45:05', 250, 'Delivered', NULL, 'proof_of_del_0920503602.png', 0, 'Collected', '', ''),
+('ORD-574587', 292, 'COD', NULL, 1600.00, 16.00, 50.00, 1650.00, '2024-10-10 23:17:54', '2024-10-13 22:38:12', 16, 'Delivered', NULL, 'proof_of_del_9490841162.png', 0, 'Collected', '', ''),
+('ORD-582396', 292, '57', 'ORD-582396.jpeg', 534.00, 5.34, 50.00, 584.00, '2024-09-29 03:00:44', '2024-09-29 03:38:02', 250, 'Delivered', NULL, 'proof_of_del_4219063463.jpg', 0, 'Collected', '', ''),
+('ORD-621865', 320, 'COD', NULL, 360.00, 3.60, 140.00, 500.00, '2024-10-12 22:57:56', '2024-10-13 22:37:20', 250, 'Delivered', NULL, 'proof_of_del_2169005129.jpg', 0, 'Collected', '', ''),
+('ORD-622808', 313, 'COD', NULL, 35.00, 0.35, 140.00, 175.00, '2024-10-06 20:23:25', '2024-10-06 20:30:00', 227, 'Delivered', NULL, 'proof_of_del_5265756913.jpg', 0, 'Collected', '', ''),
+('ORD-635283', 314, 'COD', NULL, 1757.50, 17.58, 60.00, 1817.50, '2024-10-14 00:44:40', '2024-10-14 00:45:28', 16, 'Delivered', NULL, 'proof_of_del_6845958442.png', 0, 'Collected', '', ''),
+('ORD-674480', 315, 'COD', NULL, 3836.00, 38.36, 50.00, 3886.00, '2024-10-14 02:00:29', '2024-10-14 02:01:08', 236, 'Delivered', NULL, 'proof_of_del_9468975667.webp', 0, 'Not_Collected', '', ''),
+('ORD-766363', 292, '58', 'ORD-766363.jpg', 774.00, 7.74, 50.00, 824.00, '2024-09-29 10:05:31', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
+('ORD-777559', 292, 'COD', NULL, 495.00, 4.95, 50.00, 545.00, '2024-10-10 23:35:29', '2024-10-13 22:37:48', 240, 'Delivered', NULL, 'proof_of_del_9471131568.jpg', 0, 'Collected', '', ''),
+('ORD-780811', 292, 'COD', NULL, 609.00, 6.09, 50.00, 659.00, '2024-10-12 21:48:00', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
+('ORD-829289', 327, 'COD', NULL, 175.00, 1.75, 130.00, 305.00, '2024-10-14 13:54:08', NULL, NULL, 'Rejected', NULL, '', 0, 'Not_Collected', '', ''),
+('ORD-883131', 292, 'COD', NULL, 800.00, 8.00, 50.00, 850.00, '2024-09-29 03:41:22', '2024-09-29 03:49:20', 250, 'Delivered', NULL, 'proof_of_del_8087379779.jpg', 0, 'Collected', '', ''),
+('ORD-885157', 321, '57', 'ORD-885157.jpeg', 865.00, 8.65, 50.00, 915.00, '2024-10-13 19:12:21', '2024-10-13 19:15:46', 236, 'Delivered', NULL, 'proof_of_del_0296985028.png', 1, 'Collected', '', ''),
+('ORD-925374', 292, 'COD', NULL, 297.50, 2.98, 50.00, 347.50, '2024-10-10 23:55:31', '2024-10-13 23:31:06', 250, 'Delivered', NULL, 'proof_of_del_3774448954.jpeg', 0, 'Collected', '', ''),
+('ORD-946452', 311, '57', 'ORD-946452.png', 80.00, 0.80, 60.00, 140.00, '2024-10-01 23:59:58', '2024-10-02 00:00:44', 16, 'Delivered', NULL, 'proof_of_del_6665233805.png', 0, 'Collected', '', ''),
+('ORD-947240', 314, 'COD', NULL, 339.00, 3.39, 60.00, 399.00, '2024-10-14 00:52:10', '2024-10-14 00:52:37', 236, 'Delivered', NULL, 'proof_of_del_3177772974.jpg', 0, 'Collected', '', ''),
+('ORD-953842', 301, 'COD', NULL, 223.00, 2.23, 140.00, 363.00, '2024-10-13 23:59:38', '2024-10-14 00:03:21', 240, 'Delivered', NULL, 'proof_of_del_7509560819.png', 0, 'Collected', '', ''),
+('ORD-986815', 301, 'COD', NULL, 5920.00, 59.20, 140.00, 6060.00, '2024-10-02 01:00:24', '2024-10-02 01:01:01', 240, 'Delivered', NULL, 'proof_of_del_9247892975.png', 0, 'Collected', '', '');
 
 -- --------------------------------------------------------
 
@@ -787,126 +790,127 @@ CREATE TABLE `rate_reviews` (
   `r_prod_id` int(11) NOT NULL,
   `r_rate` int(10) NOT NULL,
   `r_feedback` varchar(255) NOT NULL,
-  `r_date_added` datetime NOT NULL
+  `r_date_added` datetime NOT NULL,
+  `r_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `rate_reviews`
 --
 
-INSERT INTO `rate_reviews` (`r_rate_id`, `r_user_id`, `r_prod_id`, `r_rate`, `r_feedback`, `r_date_added`) VALUES
-(31, 292, 257, 4, 'Good quality', '2024-09-29 03:50:57'),
-(32, 301, 257, 5, 'Good Quality', '2024-10-01 23:56:20'),
-(33, 311, 257, 5, 'Maganda yung item tamang tama para sa mga gulay na napamalengke ko', '2024-10-02 00:03:24'),
-(41, 301, 259, 4, 'Good for my dogs', '2024-10-02 00:38:46'),
-(42, 301, 258, 5, 'Good Packaging', '2024-10-02 01:02:13'),
-(43, 301, 261, 4, 'Good Packaging and Good Quality', '2024-10-02 01:07:03'),
-(44, 301, 266, 3, 'cute brush', '2024-10-02 01:16:59'),
-(45, 301, 265, 5, 'nice collar', '2024-10-02 01:17:13'),
-(46, 301, 262, 5, 'Good for it\'s price , so easy to assemble.', '2024-10-02 01:18:13'),
-(48, 301, 265, 3, 'nice', '2024-10-02 01:19:21'),
-(50, 320, 257, 4, 'Ang ganda ng quality at ang bilis pa nadeliver ni rider', '2024-10-12 22:50:22'),
-(51, 320, 261, 5, 'ganda ng color pink', '2024-10-12 22:50:54'),
-(52, 292, 267, 4, '👍👍👍', '2024-10-13 00:05:36'),
-(53, 292, 260, 5, '🥰🥰🥰🥰', '2024-10-13 00:05:49'),
-(54, 292, 261, 5, '🥰🥰😍😍😍😍', '2024-10-13 17:19:41'),
-(55, 321, 257, 4, 'Ganda ng Quality 😍😍😍', '2024-10-13 19:48:21'),
-(56, 321, 325, 4, '😍😍😍', '2024-10-13 19:48:45'),
-(57, 321, 262, 3, '🤗🤗🤗', '2024-10-13 19:49:06'),
-(58, 292, 288, 5, '', '2024-10-13 23:38:45'),
-(59, 292, 280, 5, '', '2024-10-13 23:38:58'),
-(62, 292, 270, 5, '', '2024-10-13 23:39:19'),
-(63, 313, 280, 5, '', '2024-10-13 23:56:29'),
-(64, 313, 259, 5, '', '2024-10-13 23:56:41'),
-(65, 313, 257, 5, '', '2024-10-13 23:57:00'),
-(66, 313, 271, 5, '', '2024-10-13 23:57:04'),
-(67, 301, 280, 4, '', '2024-10-14 00:03:32'),
-(68, 301, 288, 3, '', '2024-10-14 00:03:37'),
-(69, 301, 266, 4, '', '2024-10-14 00:03:40'),
-(70, 301, 321, 3, '', '2024-10-14 00:03:45'),
-(71, 301, 273, 4, '', '2024-10-14 00:03:50'),
-(72, 301, 297, 4, '', '2024-10-14 00:03:56'),
-(73, 314, 324, 4, '', '2024-10-14 00:45:36'),
-(74, 314, 326, 4, '', '2024-10-14 00:45:43'),
-(76, 314, 272, 4, '', '2024-10-14 00:45:56'),
-(77, 314, 274, 4, 'Cute ng packaging', '2024-10-14 00:46:06'),
-(78, 314, 286, 4, '', '2024-10-14 00:46:16'),
-(79, 314, 273, 5, '', '2024-10-14 00:46:21'),
-(81, 314, 280, 4, '', '2024-10-14 00:46:33'),
-(82, 314, 262, 3, '', '2024-10-14 00:46:55'),
-(83, 314, 259, 4, 'My dogs love it = I love it. Truly indestructible appropriate for my dog that always destroys any toy i give to her. Its also heavy, indicative of the quality material its made of. So heavy enough that it might break your floor tiles.', '2024-10-14 00:47:32'),
-(85, 314, 275, 2, '', '2024-10-14 00:55:59'),
-(86, 314, 268, 2, '', '2024-10-14 00:56:10'),
-(88, 314, 321, 2, '', '2024-10-14 01:33:06'),
-(89, 314, 320, 4, '', '2024-10-14 01:34:35'),
-(91, 314, 257, 4, '', '2024-10-14 01:36:42'),
-(93, 292, 269, 5, '', '2024-10-14 01:39:52'),
-(94, 292, 268, 3, '', '2024-10-14 01:39:58'),
-(95, 292, 280, 5, '', '2024-10-14 01:40:13'),
-(97, 292, 269, 5, '', '2024-10-14 01:43:45'),
-(98, 320, 288, 5, '', '2024-10-14 01:49:55'),
-(99, 320, 266, 5, '', '2024-10-14 01:49:58'),
-(100, 320, 259, 5, '', '2024-10-14 01:50:06'),
-(102, 320, 260, 3, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 01:53:05'),
-(103, 315, 265, 4, '', '2024-10-14 01:57:12'),
-(104, 315, 280, 5, '', '2024-10-14 01:57:19'),
-(105, 315, 266, 5, '', '2024-10-14 02:01:24'),
-(106, 315, 267, 5, '', '2024-10-14 02:01:28'),
-(108, 315, 275, 5, '', '2024-10-14 02:01:42'),
-(109, 315, 268, 5, '', '2024-10-14 02:01:46'),
-(110, 315, 302, 4, '', '2024-10-14 02:01:52'),
-(111, 315, 287, 5, '', '2024-10-14 02:01:59'),
-(112, 315, 324, 4, '', '2024-10-14 02:02:06'),
-(113, 315, 325, 5, '', '2024-10-14 02:02:13'),
-(114, 315, 273, 4, '', '2024-10-14 02:02:19'),
-(115, 315, 270, 5, '', '2024-10-14 02:02:26'),
-(116, 315, 288, 5, '', '2024-10-14 02:02:33'),
-(119, 315, 257, 4, '', '2024-10-14 02:03:36'),
-(121, 315, 325, 5, '', '2024-10-14 02:06:07'),
-(122, 315, 320, 5, '', '2024-10-14 02:07:25'),
-(123, 315, 265, 4, '', '2024-10-14 02:11:34'),
-(124, 315, 265, 2, '', '2024-10-14 02:11:38'),
-(125, 315, 265, 5, '', '2024-10-14 02:11:55'),
-(126, 315, 265, 5, '', '2024-10-14 02:11:58'),
-(127, 315, 265, 5, '', '2024-10-14 02:11:58'),
-(128, 320, 266, 5, '', '2024-10-14 02:14:39'),
-(129, 301, 273, 3, '', '2024-10-14 02:16:56'),
-(131, 301, 283, 4, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 02:19:58'),
-(132, 301, 275, 5, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 02:20:06'),
-(133, 301, 316, 2, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 02:20:15'),
-(134, 301, 283, 5, 'Delivery was fast and easy\n\nItem looks expensive but affordable and easy to use\nProduct came well packed with great quality\nMy dog loves em\n\nI will definitely buy again once our fur baby finishes it', '2024-10-14 02:20:41'),
-(135, 301, 326, 4, '', '2024-10-14 02:20:51'),
-(136, 301, 267, 4, 'Delivery was fast and easy\n\nItem looks expensive but affordable and easy to use\nProduct came well packed with great quality\nMy dog loves em\n\nI will definitely buy again once our fur baby finishes it', '2024-10-14 02:21:48'),
-(137, 301, 297, 3, '', '2024-10-14 02:22:02'),
-(138, 301, 260, 5, '', '2024-10-14 02:22:05'),
-(139, 301, 326, 5, 'Very fast shipping! This product really exceeded my expectation', '2024-10-14 02:22:52'),
-(140, 301, 321, 5, '', '2024-10-14 02:24:29'),
-(141, 301, 297, 4, '', '2024-10-14 02:24:56'),
-(142, 301, 316, 4, '', '2024-10-14 02:25:13'),
-(143, 301, 275, 5, '', '2024-10-14 02:25:19'),
-(144, 301, 284, 5, '', '2024-10-14 02:25:27'),
-(145, 322, 257, 5, '', '2024-10-14 02:32:35'),
-(146, 322, 280, 5, '', '2024-10-14 02:32:42'),
-(147, 322, 288, 5, '', '2024-10-14 02:32:46'),
-(148, 322, 259, 5, '', '2024-10-14 02:32:50'),
-(149, 322, 266, 5, '', '2024-10-14 02:32:54'),
-(150, 322, 258, 5, '', '2024-10-14 02:33:00'),
-(151, 322, 313, 5, '', '2024-10-14 02:33:06'),
-(152, 322, 321, 5, '', '2024-10-14 02:33:11'),
-(153, 322, 262, 5, '', '2024-10-14 02:33:18'),
-(154, 322, 279, 4, '', '2024-10-14 02:36:24'),
-(155, 322, 272, 3, '', '2024-10-14 02:36:32'),
-(156, 322, 286, 4, '', '2024-10-14 02:36:35'),
-(157, 322, 289, 4, '', '2024-10-14 02:36:40'),
-(158, 322, 304, 5, '', '2024-10-14 02:36:44'),
-(159, 322, 284, 4, '', '2024-10-14 02:36:53'),
-(160, 321, 280, 5, '', '2024-10-14 03:00:15'),
-(161, 321, 288, 5, '', '2024-10-14 03:00:19'),
-(162, 321, 257, 5, 'I love bayong 😍😍🤗🤗🤗🤗😍', '2024-10-14 03:02:28'),
-(163, 321, 262, 5, '', '2024-10-14 03:02:35'),
-(164, 321, 325, 3, '', '2024-10-14 03:02:40'),
-(165, 321, 318, 5, '', '2024-10-14 03:10:20'),
-(166, 292, 288, 1, 'bad item', '2024-10-14 14:24:54');
+INSERT INTO `rate_reviews` (`r_rate_id`, `r_user_id`, `r_prod_id`, `r_rate`, `r_feedback`, `r_date_added`, `r_status`) VALUES
+(31, 292, 257, 4, 'Good quality', '2024-09-29 03:50:57', 1),
+(32, 301, 257, 5, 'Good Quality', '2024-10-01 23:56:20', 1),
+(33, 311, 257, 5, 'Maganda yung item tamang tama para sa mga gulay na napamalengke ko', '2024-10-02 00:03:24', 1),
+(41, 301, 259, 4, 'Good for my dogs', '2024-10-02 00:38:46', 1),
+(42, 301, 258, 5, 'Good Packaging', '2024-10-02 01:02:13', 1),
+(43, 301, 261, 4, 'Good Packaging and Good Quality', '2024-10-02 01:07:03', 1),
+(44, 301, 266, 3, 'cute brush', '2024-10-02 01:16:59', 1),
+(45, 301, 265, 5, 'nice collar', '2024-10-02 01:17:13', 1),
+(46, 301, 262, 5, 'Good for it\'s price , so easy to assemble.', '2024-10-02 01:18:13', 1),
+(48, 301, 265, 3, 'nice', '2024-10-02 01:19:21', 1),
+(50, 320, 257, 4, 'Ang ganda ng quality at ang bilis pa nadeliver ni rider', '2024-10-12 22:50:22', 1),
+(51, 320, 261, 5, 'ganda ng color pink', '2024-10-12 22:50:54', 1),
+(52, 292, 267, 4, '👍👍👍', '2024-10-13 00:05:36', 1),
+(53, 292, 260, 5, '🥰🥰🥰🥰', '2024-10-13 00:05:49', 1),
+(54, 292, 261, 5, '🥰🥰😍😍😍😍', '2024-10-13 17:19:41', 1),
+(55, 321, 257, 4, 'Ganda ng Quality 😍😍😍', '2024-10-13 19:48:21', 1),
+(56, 321, 325, 4, '😍😍😍', '2024-10-13 19:48:45', 1),
+(57, 321, 262, 3, '🤗🤗🤗', '2024-10-13 19:49:06', 1),
+(58, 292, 288, 5, '', '2024-10-13 23:38:45', 1),
+(59, 292, 280, 5, '', '2024-10-13 23:38:58', 1),
+(62, 292, 270, 5, '', '2024-10-13 23:39:19', 1),
+(63, 313, 280, 5, '', '2024-10-13 23:56:29', 1),
+(64, 313, 259, 5, '', '2024-10-13 23:56:41', 1),
+(65, 313, 257, 5, '', '2024-10-13 23:57:00', 1),
+(66, 313, 271, 5, '', '2024-10-13 23:57:04', 1),
+(67, 301, 280, 4, '', '2024-10-14 00:03:32', 1),
+(68, 301, 288, 3, '', '2024-10-14 00:03:37', 1),
+(69, 301, 266, 4, '', '2024-10-14 00:03:40', 1),
+(70, 301, 321, 3, '', '2024-10-14 00:03:45', 1),
+(71, 301, 273, 4, '', '2024-10-14 00:03:50', 1),
+(72, 301, 297, 4, '', '2024-10-14 00:03:56', 1),
+(73, 314, 324, 4, '', '2024-10-14 00:45:36', 1),
+(74, 314, 326, 4, '', '2024-10-14 00:45:43', 1),
+(76, 314, 272, 4, '', '2024-10-14 00:45:56', 1),
+(77, 314, 274, 4, 'Cute ng packaging', '2024-10-14 00:46:06', 1),
+(78, 314, 286, 4, '', '2024-10-14 00:46:16', 1),
+(79, 314, 273, 5, '', '2024-10-14 00:46:21', 1),
+(81, 314, 280, 4, '', '2024-10-14 00:46:33', 1),
+(82, 314, 262, 3, '', '2024-10-14 00:46:55', 1),
+(83, 314, 259, 4, 'My dogs love it = I love it. Truly indestructible appropriate for my dog that always destroys any toy i give to her. Its also heavy, indicative of the quality material its made of. So heavy enough that it might break your floor tiles.', '2024-10-14 00:47:32', 1),
+(85, 314, 275, 2, '', '2024-10-14 00:55:59', 1),
+(86, 314, 268, 2, '', '2024-10-14 00:56:10', 1),
+(88, 314, 321, 2, '', '2024-10-14 01:33:06', 1),
+(89, 314, 320, 4, '', '2024-10-14 01:34:35', 1),
+(91, 314, 257, 4, '', '2024-10-14 01:36:42', 1),
+(93, 292, 269, 5, '', '2024-10-14 01:39:52', 1),
+(94, 292, 268, 3, '', '2024-10-14 01:39:58', 1),
+(95, 292, 280, 5, '', '2024-10-14 01:40:13', 1),
+(97, 292, 269, 5, '', '2024-10-14 01:43:45', 1),
+(98, 320, 288, 5, '', '2024-10-14 01:49:55', 1),
+(99, 320, 266, 5, '', '2024-10-14 01:49:58', 1),
+(100, 320, 259, 5, '', '2024-10-14 01:50:06', 1),
+(102, 320, 260, 3, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 01:53:05', 1),
+(103, 315, 265, 4, '', '2024-10-14 01:57:12', 1),
+(104, 315, 280, 5, '', '2024-10-14 01:57:19', 1),
+(105, 315, 266, 5, '', '2024-10-14 02:01:24', 1),
+(106, 315, 267, 5, '', '2024-10-14 02:01:28', 1),
+(108, 315, 275, 5, '', '2024-10-14 02:01:42', 1),
+(109, 315, 268, 5, '', '2024-10-14 02:01:46', 1),
+(110, 315, 302, 4, '', '2024-10-14 02:01:52', 1),
+(111, 315, 287, 5, '', '2024-10-14 02:01:59', 1),
+(112, 315, 324, 4, '', '2024-10-14 02:02:06', 1),
+(113, 315, 325, 5, '', '2024-10-14 02:02:13', 1),
+(114, 315, 273, 4, '', '2024-10-14 02:02:19', 1),
+(115, 315, 270, 5, '', '2024-10-14 02:02:26', 1),
+(116, 315, 288, 5, '', '2024-10-14 02:02:33', 1),
+(119, 315, 257, 4, '', '2024-10-14 02:03:36', 1),
+(121, 315, 325, 5, '', '2024-10-14 02:06:07', 1),
+(122, 315, 320, 5, '', '2024-10-14 02:07:25', 1),
+(123, 315, 265, 4, '', '2024-10-14 02:11:34', 1),
+(124, 315, 265, 2, '', '2024-10-14 02:11:38', 1),
+(125, 315, 265, 5, '', '2024-10-14 02:11:55', 1),
+(126, 315, 265, 5, '', '2024-10-14 02:11:58', 1),
+(127, 315, 265, 5, '', '2024-10-14 02:11:58', 1),
+(128, 320, 266, 5, '', '2024-10-14 02:14:39', 1),
+(129, 301, 273, 3, '', '2024-10-14 02:16:56', 1),
+(131, 301, 283, 4, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 02:19:58', 1),
+(132, 301, 275, 5, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 02:20:06', 1),
+(133, 301, 316, 2, 'Ganda ng packaging ng item ko they make sure na hindi mababbasag worth it s price nya pinakagat ko na s mga aso ko and nagustuhan naman nila kaso nag aagawan pa eh tig isa naman na sila hehe thank you seller till next transaction', '2024-10-14 02:20:15', 1),
+(134, 301, 283, 5, 'Delivery was fast and easy\n\nItem looks expensive but affordable and easy to use\nProduct came well packed with great quality\nMy dog loves em\n\nI will definitely buy again once our fur baby finishes it', '2024-10-14 02:20:41', 1),
+(135, 301, 326, 4, '', '2024-10-14 02:20:51', 1),
+(136, 301, 267, 4, 'Delivery was fast and easy\n\nItem looks expensive but affordable and easy to use\nProduct came well packed with great quality\nMy dog loves em\n\nI will definitely buy again once our fur baby finishes it', '2024-10-14 02:21:48', 1),
+(137, 301, 297, 3, '', '2024-10-14 02:22:02', 1),
+(138, 301, 260, 5, '', '2024-10-14 02:22:05', 1),
+(139, 301, 326, 5, 'Very fast shipping! This product really exceeded my expectation', '2024-10-14 02:22:52', 1),
+(140, 301, 321, 5, '', '2024-10-14 02:24:29', 1),
+(141, 301, 297, 4, '', '2024-10-14 02:24:56', 1),
+(142, 301, 316, 4, '', '2024-10-14 02:25:13', 1),
+(143, 301, 275, 5, '', '2024-10-14 02:25:19', 1),
+(144, 301, 284, 5, '', '2024-10-14 02:25:27', 1),
+(145, 322, 257, 5, '', '2024-10-14 02:32:35', 1),
+(146, 322, 280, 5, '', '2024-10-14 02:32:42', 1),
+(147, 322, 288, 5, '', '2024-10-14 02:32:46', 1),
+(148, 322, 259, 5, '', '2024-10-14 02:32:50', 1),
+(149, 322, 266, 5, '', '2024-10-14 02:32:54', 1),
+(150, 322, 258, 5, '', '2024-10-14 02:33:00', 1),
+(151, 322, 313, 5, '', '2024-10-14 02:33:06', 1),
+(152, 322, 321, 5, '', '2024-10-14 02:33:11', 1),
+(153, 322, 262, 5, '', '2024-10-14 02:33:18', 1),
+(154, 322, 279, 4, '', '2024-10-14 02:36:24', 1),
+(155, 322, 272, 3, '', '2024-10-14 02:36:32', 1),
+(156, 322, 286, 4, '', '2024-10-14 02:36:35', 1),
+(157, 322, 289, 4, '', '2024-10-14 02:36:40', 1),
+(158, 322, 304, 5, '', '2024-10-14 02:36:44', 1),
+(159, 322, 284, 4, '', '2024-10-14 02:36:53', 1),
+(160, 321, 280, 5, '', '2024-10-14 03:00:15', 2),
+(161, 321, 288, 5, '', '2024-10-14 03:00:19', 1),
+(162, 321, 257, 5, 'I love bayong 😍😍🤗🤗🤗🤗😍', '2024-10-14 03:02:28', 1),
+(163, 321, 262, 5, '', '2024-10-14 03:02:35', 1),
+(164, 321, 325, 3, '', '2024-10-14 03:02:40', 1),
+(165, 321, 318, 5, '', '2024-10-14 03:10:20', 1),
+(166, 292, 288, 1, 'bad item', '2024-10-14 14:24:54', 1);
 
 -- --------------------------------------------------------
 
@@ -987,7 +991,7 @@ INSERT INTO `stocks` (`s_id`, `s_stockin_date`, `s_invoice`, `s_expiration`, `s_
 (444, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 0, 72.00, 42, NULL, 1),
 (445, '2024-02-22', 'INV0001', '0000-00-00', 258, 500, 458, 160.00, 42, NULL, 1),
 (446, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 471, 80.00, 42, NULL, 0),
-(447, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 491, 31.50, 42, NULL, 1),
+(447, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 506, 31.50, 42, NULL, 1),
 (448, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 489, 31.50, 42, NULL, 1),
 (449, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 491, 31.50, 42, NULL, 1),
 (450, '2024-02-22', 'INV002', '0000-00-00', 261, 500, 450, 540.00, 42, NULL, 1),
@@ -998,11 +1002,11 @@ INSERT INTO `stocks` (`s_id`, `s_stockin_date`, `s_invoice`, `s_expiration`, `s_
 (455, '2024-02-22', 'inv003', '0000-00-00', 267, 500, 395, 22.50, 42, NULL, 1),
 (456, '2024-02-22', 'INV0001', '0000-00-00', 269, 20, 9, 11.00, 42, NULL, 1),
 (457, '2024-02-22', 'INV0001', '0000-00-00', 273, 500, 470, 36.00, 42, NULL, 1),
-(458, '2024-02-22', 'INV0001', '0000-00-00', 274, 500, 461, 90.00, 42, NULL, 1),
+(458, '2024-02-22', 'INV0001', '0000-00-00', 274, 500, 481, 90.00, 42, NULL, 1),
 (459, '2024-02-22', 'INV0001', '0000-00-00', 276, 500, 475, 882.00, 42, NULL, 1),
-(460, '2024-02-22', 'INV0001', '0000-00-00', 277, 500, 424, 90.00, 42, NULL, 1),
+(460, '2024-02-22', 'INV0001', '0000-00-00', 277, 500, 434, 90.00, 42, NULL, 1),
 (461, '2024-02-22', 'INV0001', '0000-00-00', 269, 20, 15, 11.00, 42, NULL, 1),
-(462, '2024-02-22', 'INV0001', '0000-00-00', 271, 500, 473, 90.00, 42, NULL, 1),
+(462, '2024-02-22', 'INV0001', '0000-00-00', 271, 500, 513, 90.00, 42, NULL, 1),
 (463, '2024-02-22', 'INV0001', '0000-00-00', 259, 10, 10, 20.00, 42, NULL, 1),
 (464, '2024-02-22', 'INV0001', '0000-00-00', 259, 20, 20, 50.00, 42, NULL, 1),
 (465, '2024-02-29', 'INV0001', '0000-00-00', 266, 5, 5, 10.00, 42, NULL, 1),
@@ -1251,23 +1255,25 @@ CREATE TABLE `tbl_address` (
   `address_paynow` int(11) NOT NULL DEFAULT 1,
   `address_date_added` varchar(255) NOT NULL,
   `address_date_edited` varchar(255) DEFAULT NULL,
-  `address_display_status` int(11) NOT NULL
+  `address_display_status` int(11) NOT NULL,
+  `address_rider` int(11) NOT NULL,
+  `cutoff` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_address`
 --
 
-INSERT INTO `tbl_address` (`address_id`, `address_code`, `muni_code`, `prov_code`, `reg_code`, `address_complete_name`, `address_rate`, `address_status`, `address_cod`, `address_paynow`, `address_date_added`, `address_date_edited`, `address_display_status`) VALUES
-(69, '031411006', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Loma de Gato', 10, 1, 1, 1, '2024-02-22 08:51:20', '2024-02-23 11:37:23', 0),
-(70, '031404011', '031404', '0314', '03', 'Region III (Central Luzon) Bulacan Bocaue Duhat', 60, 1, 1, 1, '2024-02-22 13:17:35', '2024-09-25 03:57:11', 1),
-(71, '031411011', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Prenza I', 130, 1, 1, 1, '2024-02-23 04:12:10', '2024-09-25 03:53:16', 1),
-(72, '031411001', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Abangan Norte', 50, 1, 1, 1, '2024-02-28 15:33:31', NULL, 0),
-(73, '031411014', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Santa Rosa II', 100, 1, 1, 1, '2024-02-29 02:10:21', NULL, 0),
-(74, '031412003', '031412', '0314', '03', 'Region III (Central Luzon) Bulacan City Of Meycauayan Bancal', 50, 1, 1, 1, '2024-03-06 13:41:20', NULL, 0),
-(76, '031411008', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Patubig', 140, 1, 1, 1, '2024-09-23 08:23:37', '2024-09-25 03:53:36', 1),
-(77, '031423001', '031423', '0314', '03', 'Region III (Central Luzon) Bulacan Santa Maria Bagbaguin', 50, 1, 1, 1, '2024-09-24 19:56:40', NULL, 1),
-(78, '012802007', '012802', '0128', '01', 'Region I (Ilocos Region) Ilocos Norte Bacarra Calioet-Libong', 50, 1, 1, 1, '2024-10-13 11:23:12', NULL, 0);
+INSERT INTO `tbl_address` (`address_id`, `address_code`, `muni_code`, `prov_code`, `reg_code`, `address_complete_name`, `address_rate`, `address_status`, `address_cod`, `address_paynow`, `address_date_added`, `address_date_edited`, `address_display_status`, `address_rider`, `cutoff`) VALUES
+(69, '031411006', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Loma de Gato', 10, 1, 1, 1, '2024-02-22 08:51:20', '2024-02-23 11:37:23', 0, 250, NULL),
+(70, '031404011', '031404', '0314', '03', 'Region III (Central Luzon) Bulacan Bocaue Duhat', 60, 1, 1, 1, '2024-02-22 13:17:35', '2024-09-25 03:57:11', 1, 250, NULL),
+(71, '031411011', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Prenza I', 130, 1, 1, 1, '2024-02-23 04:12:10', '2024-09-25 03:53:16', 1, 250, NULL),
+(72, '031411001', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Abangan Norte', 50, 1, 1, 1, '2024-02-28 15:33:31', NULL, 0, 250, NULL),
+(73, '031411014', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Santa Rosa II', 100, 1, 1, 1, '2024-02-29 02:10:21', NULL, 0, 250, NULL),
+(74, '031412003', '031412', '0314', '03', 'Region III (Central Luzon) Bulacan City Of Meycauayan Bancal', 50, 1, 1, 1, '2024-03-06 13:41:20', NULL, 0, 250, NULL),
+(76, '031411008', '031411', '0314', '03', 'Region III (Central Luzon) Bulacan Marilao Patubig', 140, 1, 1, 1, '2024-09-23 08:23:37', '2024-09-25 03:53:36', 1, 250, NULL),
+(77, '031423001', '031423', '0314', '03', 'Region III (Central Luzon) Bulacan Santa Maria Bagbaguin', 50, 1, 1, 1, '2024-09-24 19:56:40', NULL, 1, 250, NULL),
+(78, '012802007', '012802', '0128', '01', 'Region I (Ilocos Region) Ilocos Norte Bacarra Calioet-Libong', 50, 1, 1, 1, '2024-10-13 11:23:12', NULL, 0, 250, NULL);
 
 -- --------------------------------------------------------
 
@@ -1877,7 +1883,7 @@ ALTER TABLE `mode_of_payment`
 -- AUTO_INCREMENT for table `new_cart`
 --
 ALTER TABLE `new_cart`
-  MODIFY `cart_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=384;
+  MODIFY `cart_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=385;
 
 --
 -- AUTO_INCREMENT for table `new_tbl_order_items`
@@ -1901,7 +1907,7 @@ ALTER TABLE `pickup`
 -- AUTO_INCREMENT for table `pos_cart`
 --
 ALTER TABLE `pos_cart`
-  MODIFY `pos_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1090;
+  MODIFY `pos_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1095;
 
 --
 -- AUTO_INCREMENT for table `pos_orders`
