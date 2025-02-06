@@ -30,7 +30,7 @@ class db_connect
                 return false;
             }
         } catch (\Throwable $th) {
-            header("Location:setup.php");
+            header("Location:setupRider.php");
         }
     }
 }
