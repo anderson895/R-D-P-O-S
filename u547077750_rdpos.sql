@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Feb 06, 2025 at 08:21 AM
--- Server version: 10.11.10-MariaDB
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1
+-- Generation Time: Mar 12, 2025 at 02:58 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u293217990_rdpos`
+-- Database: `u547077750_rdpos`
 --
 
 -- --------------------------------------------------------
@@ -55,7 +55,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`acc_id`, `acc_code`, `acc_created`, `acc_username`, `acc_password`, `acc_fname`, `acc_lname`, `acc_birthday`, `acc_type`, `acc_status`, `acc_display_status`, `acc_email`, `acc_contact`, `emp_image`, `acc_cover_img`, `acc_added`, `acc_lastEdit`, `Otp`, `incorrect_attempts`, `otp_expiration`) VALUES
-(16, 'ACC6038616', '2023-06-01', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Freddie mark', 'Santiago', '2000-10-03', 'administrator', 0, 0, 'freddiemark123@gmail.com', '09770987021', '670a9315369a3.png', '66f30847d85f3.jpeg', '', '2024-10-12 23:17:41', '0', NULL, NULL),
+(16, 'ACC6038616', '2023-06-01', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Freddie mark', 'Santiago', '2000-10-03', 'administrator', 0, 0, 'freddiemark123@gmail.com', '09770987021', '67d170ddf31cf.png', '66f30847d85f3.jpeg', '', '2025-03-12 19:32:45', '0', NULL, NULL),
 (227, '08884227', '2024-10-07', 'ZyrineRider', 'ea6cb441794bb6cbf666d3e5eae8b399dc0019dfb999f77ee24efc14311e59ed', 'Zyrine', 'Alcarez', NULL, 'deliveryStaff', 0, 0, 'ZyrineAlcarez@gmail.com', '09123456789', '6703163903144.jpg', NULL, '', NULL, '', NULL, NULL),
 (229, '85008229', '2024-02-19', 'MikeWill', 'ba38fa8eb6abfe591896129ce1c4fe8b2ea736bad64b0c0d9f82b03078c4f101', 'Mike', 'Will', NULL, 'administrator', 0, 0, 'mike@gmail.com', '09120912091', '65d377cad0800.png', NULL, '', NULL, '', NULL, NULL),
 (230, '57607230', '2024-02-19', 'Mike@will', '6a01a215a91e2534030040547166fac496a29d273ed9124ef36c1124a301bf92', 'Mike', 'Will', NULL, 'cashier', 2, 1, 'will@gmail.com', '09120912091', '65d37849c897e.png', NULL, '', NULL, '', NULL, NULL),
@@ -65,7 +65,7 @@ INSERT INTO `account` (`acc_id`, `acc_code`, `acc_created`, `acc_username`, `acc
 (271, '09611271', '2024-09-17', 'akosiadmin2', 'e7b4e4c5399117f0598f8ad03599646ed90b17ae3470edade11aa69dfe15b58c', 'ako si', 'admin', NULL, 'administrator', 0, 0, 'akosiadmin@gmail.com', '09454454744', '66e8ebf842aa7.jpg', NULL, '', NULL, '', NULL, NULL),
 (277, '89868277', '2024-10-07', 'ZyrineCashier', 'bf851b05275aadb143bae1913224f920e7719056b97dfe930d8fb821e8739a31', 'Zyrine', 'Alcarez', NULL, 'cashier', 0, 0, 'Cashier1@gmail.com', '09123456789', '670316b07dd89.jpg', NULL, '', NULL, '', NULL, NULL),
 (278, '40681278', '2024-10-07', 'JoshuaCashier', '3d5249419f27520249d4fd4cab2ea828a5de17ffc0c7cba17f4a04bea4ab4c86', 'Joshua Anderson', 'Padilla', NULL, 'cashier', 0, 0, 'Cashier2@gmail.com', '09123456789', '670316bb861b6.jpg', NULL, '', NULL, '', NULL, NULL),
-(292, 'ACC03771292', '2024-09-29', 'masterparj', '2448a34d49ecbe9f7c4293fcd3b5e359817322d4a615009158241bd0ab1a3547', 'christin', 'bermas', '2006-05-31', 'customer', 0, 0, 'masterparj@gmail.com', '09454454744', 'profile_67a46cbe392c73.22158487.png', NULL, '', NULL, '', 0, '2024-09-30 18:14:36'),
+(292, 'ACC03771292', '2024-09-29', 'masterparj', '2448a34d49ecbe9f7c4293fcd3b5e359817322d4a615009158241bd0ab1a3547', 'christin', 'bermas', '2006-05-31', 'customer', 0, 0, 'masterparj@gmail.com', '09454454744', 'profile_67d1705d975ae2.90337812.jpg', NULL, '', NULL, '', 0, '2024-09-30 18:14:36'),
 (294, '49708294', '2024-09-29', 'christinsamson', '267bfa680a5819a0b7e145896b9b4268cfbf8ac0c2804e17e6706bb91e7a49b0267bfa680a5819a0b7e145896b9b4268cfbf8ac0c2804e17e6706bb91e7a49b0', 'christine', 'samson', NULL, 'cashier', 2, 0, 'christinsamson@gmail.com', '09454454746', '66f84601da7c9.jpeg', NULL, '', NULL, '', NULL, NULL),
 (301, 'ACC06596301', '2024-09-30', 'msMaloi2025', '9fac863470452c7ffc40117250176bb8ca002a199f114611902427200d2efc74', 'Mary Loi', 'Ricalde', '2002-05-27', 'customer', 0, 0, 'joshuaandersonpadilla8@gmail.com', '09454454744', 'profile_66fc171d36c0c5.94870671.jpg', NULL, '', NULL, '0', NULL, '2024-09-30 20:12:46'),
 (302, 'ACC42718302', '2024-09-30', 'Joe123', 'a5b4e89f9f0a84e8ce20eb595ea154ded9436ad93b704cf9c2058c46ecfa34fe', 'Joe', 'Nuck', '1996-05-31', 'customer', 1, 0, 'rickandandmorty0224@gmail.com', '09127856747', '', NULL, '', NULL, '1071', NULL, '2024-09-30 20:30:27'),
@@ -181,7 +181,7 @@ CREATE TABLE `maintinance` (
 --
 
 INSERT INTO `maintinance` (`system_id`, `system_name`, `system_banner`, `system_logo`, `system_content`, `system_address`, `system_contact`, `system_tax`, `system_last_update`) VALUES
-(1, 'RDPOS', '66fb4e12b929c.png', '6534e356c9783.png', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, error esse, eos necessitatibus saepe temporibus aliquam aperiam quas reiciendis possimus laborum voluptates magni ad. Quam tempore officiis eligendi sed aut', 'Paso bagbaguin near highway road sta.maria bulacan', '09876543211', 12, '2024-10-14 14:38:03');
+(1, 'RDPOS', '67d1702b96b29.png', '6534e356c9783.png', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, error esse, eos necessitatibus saepe temporibus aliquam aperiam quas reiciendis possimus laborum voluptates magni ad. Quam tempore officiis eligendi sed aut', 'Paso bagbaguin near highway road sta.maria bulacan', '09876543211', 12, '2025-03-12 19:29:47');
 
 -- --------------------------------------------------------
 
@@ -277,8 +277,7 @@ CREATE TABLE `new_cart` (
 INSERT INTO `new_cart` (`cart_id`, `prod_id`, `qty`, `user_id`) VALUES
 (273, 271, 1, 312),
 (274, 280, 1, 312),
-(277, 318, 1, 312),
-(384, 288, 1, 292);
+(277, 318, 1, 312);
 
 -- --------------------------------------------------------
 
@@ -304,55 +303,57 @@ CREATE TABLE `new_tbl_orders` (
   `t_status` int(1) NOT NULL DEFAULT 0,
   `c_status` varchar(30) NOT NULL DEFAULT 'Not_Collected',
   `cancel_reason` text NOT NULL,
-  `unsucessful_reason` text NOT NULL
+  `unsucessful_reason` text NOT NULL,
+  `estimated_delivery` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `new_tbl_orders`
 --
 
-INSERT INTO `new_tbl_orders` (`order_id`, `cust_id`, `payment_id`, `pof`, `subtotal`, `vat`, `sf`, `total`, `order_date`, `delivered_date`, `rider_id`, `status`, `reject_reason`, `proof_of_del`, `t_status`, `c_status`, `cancel_reason`, `unsucessful_reason`) VALUES
-('ORD-131785', 321, 'COD', NULL, 55.00, 0.55, 50.00, 105.00, '2024-10-13 22:36:17', '2024-10-13 22:36:49', 16, 'Delivered', NULL, 'proof_of_del_2970113711.jpg', 0, 'Collected', '', ''),
-('ORD-134508', 292, 'COD', NULL, 38400.00, 384.00, 50.00, 38450.00, '2024-10-10 22:46:23', NULL, 236, 'Rejected', NULL, '', 0, 'Collected', '', ''),
-('ORD-13742', 301, 'COD', NULL, 105.00, 1.05, 140.00, 245.00, '2024-10-02 00:37:10', '2024-10-02 00:38:15', 250, 'Delivered', NULL, 'proof_of_del_7435705635.png', 0, 'Collected', '', ''),
-('ORD-162910', 320, '57', 'ORD-162910.jpg', 1293.00, 12.93, 140.00, 1433.00, '2024-10-12 22:41:13', '2024-10-12 22:47:30', 250, 'Delivered', NULL, 'proof_of_del_0609765276.jpg', 0, 'Collected', '', ''),
-('ORD-170617', 292, '57', 'ORD-170617.jpeg', 1561.00, 15.61, 50.00, 1611.00, '2024-10-13 23:36:01', '2024-10-13 23:37:25', 16, 'Delivered', NULL, 'proof_of_del_6203960084.png', 0, 'Collected', '', ''),
-('ORD-174675', 292, 'COD', NULL, 26.00, 0.26, 50.00, 76.00, '2024-10-03 14:49:01', '2024-10-06 20:59:20', 250, 'Delivered', NULL, 'proof_of_del_2453130996.png', 0, 'Collected', '', ''),
-('ORD-186210', 292, '57', 'ORD-186210.jpeg', 240.00, 2.40, 50.00, 290.00, '2024-09-29 03:18:59', '2024-09-29 03:36:18', 236, 'Delivered', NULL, 'proof_of_del_0404628840.png', 0, 'Collected', '', ''),
-('ORD-2096', 321, 'COD', NULL, 960.00, 9.60, 50.00, 1010.00, '2024-10-14 03:09:49', '2024-10-14 03:10:12', 250, 'Delivered', NULL, 'proof_of_del_7041745151.webp', 0, 'Not_Collected', '', ''),
-('ORD-231658', 322, 'COD', NULL, 4414.00, 44.14, 140.00, 4554.00, '2024-10-14 02:35:32', '2024-10-14 02:36:09', 236, 'Delivered', NULL, 'proof_of_del_1526277995.png', 0, 'Not_Collected', '', ''),
-('ORD-29258', 322, 'COD', NULL, 8432.50, 84.33, 130.00, 8562.50, '2024-10-14 02:31:43', '2024-10-14 02:32:15', 227, 'Delivered', NULL, 'proof_of_del_9878876425.jpg', 0, 'Not_Collected', '', ''),
-('ORD-303567', 320, 'COD', NULL, 163.00, 1.63, 140.00, 303.00, '2024-10-14 01:49:03', '2024-10-14 01:49:43', 16, 'Delivered', NULL, 'proof_of_del_4486748914.png', 0, 'Collected', '', ''),
-('ORD-314468', 301, '57', 'ORD-314468.jpeg', 320.00, 3.20, 140.00, 460.00, '2024-10-01 23:51:43', '2024-10-02 00:32:11', 16, 'Delivered', NULL, 'proof_of_del_1624166664.png', 0, 'Collected', '', ''),
-('ORD-332213', 292, 'COD', NULL, 70.00, 0.70, 50.00, 120.00, '2024-10-14 14:05:11', '2024-10-14 14:22:54', 250, 'Delivered', NULL, 'proof_of_del_5246680124.jpg', 1, 'Not_Collected', '', ''),
-('ORD-332534', 301, '57', 'ORD-332534.jpeg', 3243.00, 32.43, 140.00, 3383.00, '2024-10-02 01:15:55', '2024-10-02 01:16:34', 16, 'Delivered', NULL, 'proof_of_del_7592106828.png', 0, 'Collected', '', ''),
-('ORD-337882', 311, '57', 'ORD-337882.png', 70.00, 0.70, 130.00, 200.00, '2024-10-02 00:11:01', '2024-10-13 23:20:12', 227, 'Delivered', NULL, 'proof_of_del_0338655768.jpg', 0, 'Collected', '', ''),
-('ORD-341909', 292, 'COD', NULL, 124.00, 1.24, 50.00, 174.00, '2024-10-12 21:54:15', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
-('ORD-40470', 292, 'COD', NULL, 3000.00, 30.00, 60.00, 3060.00, '2024-09-29 01:05:54', '2024-09-29 01:30:51', 250, 'Delivered', NULL, 'proof_of_del_9829125581.png', 0, 'Collected', '', ''),
-('ORD-405539', 292, 'COD', NULL, 385.00, 3.85, 50.00, 435.00, '2024-10-12 23:53:01', '2024-10-13 00:04:16', 250, 'Delivered', NULL, 'proof_of_del_1647460354.jpg', 0, 'Collected', '', ''),
-('ORD-465438', 315, 'COD', NULL, 1413.00, 14.13, 50.00, 1463.00, '2024-10-14 01:56:19', '2024-10-14 01:56:44', 16, 'Delivered', NULL, 'proof_of_del_9084266991.jpeg', 0, 'Collected', '', ''),
-('ORD-503589', 292, 'COD', NULL, 80.00, 0.80, 50.00, 130.00, '2024-10-14 14:00:03', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
-('ORD-51149', 305, 'COD', NULL, 160.00, 1.60, 130.00, 290.00, '2024-09-30 20:55:37', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
-('ORD-521894', 301, 'COD', NULL, 4448.50, 44.49, 140.00, 4588.50, '2024-10-14 02:18:44', '2024-10-14 02:19:06', 227, 'Delivered', NULL, 'proof_of_del_7713906935.jpeg', 0, 'Not_Collected', '', ''),
-('ORD-541780', 313, 'COD', NULL, 13.00, 0.13, 140.00, 153.00, '2024-10-03 14:18:47', '2024-10-03 14:21:44', 16, 'Delivered', NULL, 'proof_of_del_0299477265.png', 0, 'Collected', '', ''),
-('ORD-560814', 313, '57', 'ORD-560814.jpg', 183.00, 1.83, 140.00, 323.00, '2024-10-03 14:43:18', '2024-10-03 14:45:05', 250, 'Delivered', NULL, 'proof_of_del_0920503602.png', 0, 'Collected', '', ''),
-('ORD-574587', 292, 'COD', NULL, 1600.00, 16.00, 50.00, 1650.00, '2024-10-10 23:17:54', '2024-10-13 22:38:12', 16, 'Delivered', NULL, 'proof_of_del_9490841162.png', 0, 'Collected', '', ''),
-('ORD-582396', 292, '57', 'ORD-582396.jpeg', 534.00, 5.34, 50.00, 584.00, '2024-09-29 03:00:44', '2024-09-29 03:38:02', 250, 'Delivered', NULL, 'proof_of_del_4219063463.jpg', 0, 'Collected', '', ''),
-('ORD-621865', 320, 'COD', NULL, 360.00, 3.60, 140.00, 500.00, '2024-10-12 22:57:56', '2024-10-13 22:37:20', 250, 'Delivered', NULL, 'proof_of_del_2169005129.jpg', 0, 'Collected', '', ''),
-('ORD-622808', 313, 'COD', NULL, 35.00, 0.35, 140.00, 175.00, '2024-10-06 20:23:25', '2024-10-06 20:30:00', 227, 'Delivered', NULL, 'proof_of_del_5265756913.jpg', 0, 'Collected', '', ''),
-('ORD-635283', 314, 'COD', NULL, 1757.50, 17.58, 60.00, 1817.50, '2024-10-14 00:44:40', '2024-10-14 00:45:28', 16, 'Delivered', NULL, 'proof_of_del_6845958442.png', 0, 'Collected', '', ''),
-('ORD-674480', 315, 'COD', NULL, 3836.00, 38.36, 50.00, 3886.00, '2024-10-14 02:00:29', '2024-10-14 02:01:08', 236, 'Delivered', NULL, 'proof_of_del_9468975667.webp', 0, 'Not_Collected', '', ''),
-('ORD-766363', 292, '58', 'ORD-766363.jpg', 774.00, 7.74, 50.00, 824.00, '2024-09-29 10:05:31', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
-('ORD-777559', 292, 'COD', NULL, 495.00, 4.95, 50.00, 545.00, '2024-10-10 23:35:29', '2024-10-13 22:37:48', 240, 'Delivered', NULL, 'proof_of_del_9471131568.jpg', 0, 'Collected', '', ''),
-('ORD-780811', 292, 'COD', NULL, 609.00, 6.09, 50.00, 659.00, '2024-10-12 21:48:00', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', ''),
-('ORD-829289', 327, 'COD', NULL, 175.00, 1.75, 130.00, 305.00, '2024-10-14 13:54:08', NULL, NULL, 'Rejected', NULL, '', 0, 'Not_Collected', '', ''),
-('ORD-883131', 292, 'COD', NULL, 800.00, 8.00, 50.00, 850.00, '2024-09-29 03:41:22', '2024-09-29 03:49:20', 250, 'Delivered', NULL, 'proof_of_del_8087379779.jpg', 0, 'Collected', '', ''),
-('ORD-885157', 321, '57', 'ORD-885157.jpeg', 865.00, 8.65, 50.00, 915.00, '2024-10-13 19:12:21', '2024-10-13 19:15:46', 236, 'Delivered', NULL, 'proof_of_del_0296985028.png', 1, 'Collected', '', ''),
-('ORD-925374', 292, 'COD', NULL, 297.50, 2.98, 50.00, 347.50, '2024-10-10 23:55:31', '2024-10-13 23:31:06', 250, 'Delivered', NULL, 'proof_of_del_3774448954.jpeg', 0, 'Collected', '', ''),
-('ORD-946452', 311, '57', 'ORD-946452.png', 80.00, 0.80, 60.00, 140.00, '2024-10-01 23:59:58', '2024-10-02 00:00:44', 16, 'Delivered', NULL, 'proof_of_del_6665233805.png', 0, 'Collected', '', ''),
-('ORD-947240', 314, 'COD', NULL, 339.00, 3.39, 60.00, 399.00, '2024-10-14 00:52:10', '2024-10-14 00:52:37', 236, 'Delivered', NULL, 'proof_of_del_3177772974.jpg', 0, 'Collected', '', ''),
-('ORD-953842', 301, 'COD', NULL, 223.00, 2.23, 140.00, 363.00, '2024-10-13 23:59:38', '2024-10-14 00:03:21', 240, 'Delivered', NULL, 'proof_of_del_7509560819.png', 0, 'Collected', '', ''),
-('ORD-986815', 301, 'COD', NULL, 5920.00, 59.20, 140.00, 6060.00, '2024-10-02 01:00:24', '2024-10-02 01:01:01', 240, 'Delivered', NULL, 'proof_of_del_9247892975.png', 0, 'Collected', '', '');
+INSERT INTO `new_tbl_orders` (`order_id`, `cust_id`, `payment_id`, `pof`, `subtotal`, `vat`, `sf`, `total`, `order_date`, `delivered_date`, `rider_id`, `status`, `reject_reason`, `proof_of_del`, `t_status`, `c_status`, `cancel_reason`, `unsucessful_reason`, `estimated_delivery`) VALUES
+('ORD-131785', 321, 'COD', NULL, 55.00, 0.55, 50.00, 105.00, '2024-10-13 22:36:17', '2024-10-13 22:36:49', 16, 'Delivered', NULL, 'proof_of_del_2970113711.jpg', 0, 'Collected', '', '', NULL),
+('ORD-134508', 292, 'COD', NULL, 38400.00, 384.00, 50.00, 38450.00, '2024-10-10 22:46:23', NULL, 236, 'Rejected', NULL, '', 0, 'Collected', '', '', NULL),
+('ORD-13742', 301, 'COD', NULL, 105.00, 1.05, 140.00, 245.00, '2024-10-02 00:37:10', '2024-10-02 00:38:15', 250, 'Delivered', NULL, 'proof_of_del_7435705635.png', 0, 'Collected', '', '', NULL),
+('ORD-162910', 320, '57', 'ORD-162910.jpg', 1293.00, 12.93, 140.00, 1433.00, '2024-10-12 22:41:13', '2024-10-12 22:47:30', 250, 'Delivered', NULL, 'proof_of_del_0609765276.jpg', 0, 'Collected', '', '', NULL),
+('ORD-170617', 292, '57', 'ORD-170617.jpeg', 1561.00, 15.61, 50.00, 1611.00, '2024-10-13 23:36:01', '2024-10-13 23:37:25', 16, 'Delivered', NULL, 'proof_of_del_6203960084.png', 0, 'Collected', '', '', NULL),
+('ORD-174675', 292, 'COD', NULL, 26.00, 0.26, 50.00, 76.00, '2024-10-03 14:49:01', '2024-10-06 20:59:20', 250, 'Delivered', NULL, 'proof_of_del_2453130996.png', 0, 'Collected', '', '', NULL),
+('ORD-186210', 292, '57', 'ORD-186210.jpeg', 240.00, 2.40, 50.00, 290.00, '2024-09-29 03:18:59', '2024-09-29 03:36:18', 236, 'Delivered', NULL, 'proof_of_del_0404628840.png', 0, 'Collected', '', '', NULL),
+('ORD-2096', 321, 'COD', NULL, 960.00, 9.60, 50.00, 1010.00, '2024-10-14 03:09:49', '2024-10-14 03:10:12', 250, 'Delivered', NULL, 'proof_of_del_7041745151.webp', 0, 'Not_Collected', '', '', NULL),
+('ORD-231658', 322, 'COD', NULL, 4414.00, 44.14, 140.00, 4554.00, '2024-10-14 02:35:32', '2024-10-14 02:36:09', 236, 'Delivered', NULL, 'proof_of_del_1526277995.png', 0, 'Not_Collected', '', '', NULL),
+('ORD-29258', 322, 'COD', NULL, 8432.50, 84.33, 130.00, 8562.50, '2024-10-14 02:31:43', '2024-10-14 02:32:15', 227, 'Delivered', NULL, 'proof_of_del_9878876425.jpg', 0, 'Not_Collected', '', '', NULL),
+('ORD-303567', 320, 'COD', NULL, 163.00, 1.63, 140.00, 303.00, '2024-10-14 01:49:03', '2024-10-14 01:49:43', 16, 'Delivered', NULL, 'proof_of_del_4486748914.png', 0, 'Collected', '', '', NULL),
+('ORD-314468', 301, '57', 'ORD-314468.jpeg', 320.00, 3.20, 140.00, 460.00, '2024-10-01 23:51:43', '2024-10-02 00:32:11', 16, 'Delivered', NULL, 'proof_of_del_1624166664.png', 0, 'Collected', '', '', NULL),
+('ORD-332213', 292, 'COD', NULL, 70.00, 0.70, 50.00, 120.00, '2024-10-14 14:05:11', '2024-10-14 14:22:54', 250, 'Delivered', NULL, 'proof_of_del_5246680124.jpg', 1, 'Not_Collected', '', '', NULL),
+('ORD-332534', 301, '57', 'ORD-332534.jpeg', 3243.00, 32.43, 140.00, 3383.00, '2024-10-02 01:15:55', '2024-10-02 01:16:34', 16, 'Delivered', NULL, 'proof_of_del_7592106828.png', 0, 'Collected', '', '', NULL),
+('ORD-337882', 311, '57', 'ORD-337882.png', 70.00, 0.70, 130.00, 200.00, '2024-10-02 00:11:01', '2024-10-13 23:20:12', 227, 'Delivered', NULL, 'proof_of_del_0338655768.jpg', 0, 'Collected', '', '', NULL),
+('ORD-341909', 292, 'COD', NULL, 124.00, 1.24, 50.00, 174.00, '2024-10-12 21:54:15', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', '', NULL),
+('ORD-40470', 292, 'COD', NULL, 3000.00, 30.00, 60.00, 3060.00, '2024-09-29 01:05:54', '2024-09-29 01:30:51', 250, 'Delivered', NULL, 'proof_of_del_9829125581.png', 0, 'Collected', '', '', NULL),
+('ORD-405539', 292, 'COD', NULL, 385.00, 3.85, 50.00, 435.00, '2024-10-12 23:53:01', '2024-10-13 00:04:16', 250, 'Delivered', NULL, 'proof_of_del_1647460354.jpg', 0, 'Collected', '', '', NULL),
+('ORD-465438', 315, 'COD', NULL, 1413.00, 14.13, 50.00, 1463.00, '2024-10-14 01:56:19', '2024-10-14 01:56:44', 16, 'Delivered', NULL, 'proof_of_del_9084266991.jpeg', 0, 'Collected', '', '', NULL),
+('ORD-503589', 292, 'COD', NULL, 80.00, 0.80, 50.00, 130.00, '2024-10-14 14:00:03', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', '', NULL),
+('ORD-51149', 305, 'COD', NULL, 160.00, 1.60, 130.00, 290.00, '2024-09-30 20:55:37', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', '', NULL),
+('ORD-521894', 301, 'COD', NULL, 4448.50, 44.49, 140.00, 4588.50, '2024-10-14 02:18:44', '2024-10-14 02:19:06', 227, 'Delivered', NULL, 'proof_of_del_7713906935.jpeg', 0, 'Not_Collected', '', '', NULL),
+('ORD-541780', 313, 'COD', NULL, 13.00, 0.13, 140.00, 153.00, '2024-10-03 14:18:47', '2024-10-03 14:21:44', 16, 'Delivered', NULL, 'proof_of_del_0299477265.png', 0, 'Collected', '', '', NULL),
+('ORD-560814', 313, '57', 'ORD-560814.jpg', 183.00, 1.83, 140.00, 323.00, '2024-10-03 14:43:18', '2024-10-03 14:45:05', 250, 'Delivered', NULL, 'proof_of_del_0920503602.png', 0, 'Collected', '', '', NULL),
+('ORD-574587', 292, 'COD', NULL, 1600.00, 16.00, 50.00, 1650.00, '2024-10-10 23:17:54', '2024-10-13 22:38:12', 16, 'Delivered', NULL, 'proof_of_del_9490841162.png', 0, 'Collected', '', '', NULL),
+('ORD-582396', 292, '57', 'ORD-582396.jpeg', 534.00, 5.34, 50.00, 584.00, '2024-09-29 03:00:44', '2024-09-29 03:38:02', 250, 'Delivered', NULL, 'proof_of_del_4219063463.jpg', 0, 'Collected', '', '', NULL),
+('ORD-621865', 320, 'COD', NULL, 360.00, 3.60, 140.00, 500.00, '2024-10-12 22:57:56', '2024-10-13 22:37:20', 250, 'Delivered', NULL, 'proof_of_del_2169005129.jpg', 0, 'Collected', '', '', NULL),
+('ORD-622808', 313, 'COD', NULL, 35.00, 0.35, 140.00, 175.00, '2024-10-06 20:23:25', '2024-10-06 20:30:00', 227, 'Delivered', NULL, 'proof_of_del_5265756913.jpg', 0, 'Collected', '', '', NULL),
+('ORD-635283', 314, 'COD', NULL, 1757.50, 17.58, 60.00, 1817.50, '2024-10-14 00:44:40', '2024-10-14 00:45:28', 16, 'Delivered', NULL, 'proof_of_del_6845958442.png', 0, 'Collected', '', '', NULL),
+('ORD-674480', 315, 'COD', NULL, 3836.00, 38.36, 50.00, 3886.00, '2024-10-14 02:00:29', '2024-10-14 02:01:08', 236, 'Delivered', NULL, 'proof_of_del_9468975667.webp', 0, 'Not_Collected', '', '', NULL),
+('ORD-766363', 292, '58', 'ORD-766363.jpg', 774.00, 7.74, 50.00, 824.00, '2024-09-29 10:05:31', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', '', NULL),
+('ORD-777559', 292, 'COD', NULL, 495.00, 4.95, 50.00, 545.00, '2024-10-10 23:35:29', '2024-10-13 22:37:48', 240, 'Delivered', NULL, 'proof_of_del_9471131568.jpg', 0, 'Collected', '', '', NULL),
+('ORD-780811', 292, 'COD', NULL, 609.00, 6.09, 50.00, 659.00, '2024-10-12 21:48:00', NULL, NULL, 'Cancelled', NULL, '', 0, 'Not_Collected', '', '', NULL),
+('ORD-794240', 292, 'COD', NULL, 135.00, 16.20, 140.00, 275.00, '2025-03-12 19:32:00', '2025-03-12 19:39:03', 250, 'Delivered', NULL, 'proof_of_del_2352720780.jpg', 0, 'Not_Collected', '', '', '2025-03-12'),
+('ORD-829289', 327, 'COD', NULL, 175.00, 1.75, 130.00, 305.00, '2024-10-14 13:54:08', NULL, NULL, 'Rejected', NULL, '', 0, 'Not_Collected', '', '', NULL),
+('ORD-883131', 292, 'COD', NULL, 800.00, 8.00, 50.00, 850.00, '2024-09-29 03:41:22', '2024-09-29 03:49:20', 250, 'Delivered', NULL, 'proof_of_del_8087379779.jpg', 0, 'Collected', '', '', NULL),
+('ORD-885157', 321, '57', 'ORD-885157.jpeg', 865.00, 8.65, 50.00, 915.00, '2024-10-13 19:12:21', '2024-10-13 19:15:46', 236, 'Delivered', NULL, 'proof_of_del_0296985028.png', 1, 'Collected', '', '', NULL),
+('ORD-925374', 292, 'COD', NULL, 297.50, 2.98, 50.00, 347.50, '2024-10-10 23:55:31', '2024-10-13 23:31:06', 250, 'Delivered', NULL, 'proof_of_del_3774448954.jpeg', 0, 'Collected', '', '', NULL),
+('ORD-946452', 311, '57', 'ORD-946452.png', 80.00, 0.80, 60.00, 140.00, '2024-10-01 23:59:58', '2024-10-02 00:00:44', 16, 'Delivered', NULL, 'proof_of_del_6665233805.png', 0, 'Collected', '', '', NULL),
+('ORD-947240', 314, 'COD', NULL, 339.00, 3.39, 60.00, 399.00, '2024-10-14 00:52:10', '2024-10-14 00:52:37', 236, 'Delivered', NULL, 'proof_of_del_3177772974.jpg', 0, 'Collected', '', '', NULL),
+('ORD-953842', 301, 'COD', NULL, 223.00, 2.23, 140.00, 363.00, '2024-10-13 23:59:38', '2024-10-14 00:03:21', 240, 'Delivered', NULL, 'proof_of_del_7509560819.png', 0, 'Collected', '', '', NULL),
+('ORD-986815', 301, 'COD', NULL, 5920.00, 59.20, 140.00, 6060.00, '2024-10-02 01:00:24', '2024-10-02 01:01:01', 240, 'Delivered', NULL, 'proof_of_del_9247892975.png', 0, 'Collected', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -490,7 +491,9 @@ INSERT INTO `new_tbl_order_items` (`id`, `order_id`, `product_id`, `qty`) VALUES
 (284, 'ORD-829289', 266, 1),
 (285, 'ORD-503589', 257, 1),
 (286, 'ORD-332213', 288, 1),
-(287, 'ORD-332213', 268, 1);
+(287, 'ORD-332213', 268, 1),
+(288, 'ORD-794240', 272, 1),
+(289, 'ORD-794240', 259, 1);
 
 -- --------------------------------------------------------
 
@@ -609,10 +612,11 @@ INSERT INTO `pos_orders` (`orders_orders_id`, `orders_tcode`, `orders_prod_id`, 
 (946, 'RD74232', 296, 50.00, 3, 150.00, 0, '', 11.51, '2024-10-14 01:06:36', 1151.00, 1200.00, 49.00, 16, 0, 0, 'RD74232.png'),
 (947, 'RD74232', 262, 267.00, 3, 801.00, 0, '', 11.51, '2024-10-14 01:06:36', 1151.00, 1200.00, 49.00, 16, 0, 0, 'RD74232.png'),
 (948, 'RD74232', 273, 40.00, 5, 200.00, 0, '', 11.51, '2024-10-14 01:06:36', 1151.00, 1200.00, 49.00, 16, 0, 0, 'RD74232.png'),
-(949, 'RD36073', 299, 1886.50, 1, 1886.50, 0, '', 20.87, '2024-10-14 01:08:15', 2086.50, 2500.00, 413.50, 16, 0, 0, 'RD36073.png'),
-(950, 'RD36073', 274, 100.00, 2, 200.00, 0, '', 20.87, '2024-10-14 01:08:15', 2086.50, 2500.00, 413.50, 16, 0, 0, 'RD36073.png'),
+(949, 'RD36073', 299, 1886.50, 1, 1886.50, 0, '', 20.87, '2024-10-14 01:08:15', 2086.50, 2500.00, 413.50, 16, 1, 0, 'RD36073.png'),
+(950, 'RD36073', 274, 100.00, 2, 200.00, 0, '', 20.87, '2024-10-14 01:08:15', 2086.50, 2500.00, 413.50, 16, 1, 0, 'RD36073.png'),
 (951, 'RD87952', 272, 100.00, 1, 100.00, 5, 'PWD', 1.03, '2024-10-14 04:36:02', 102.60, 500.00, 397.40, 16, 0, 0, 'RD87952.png'),
-(952, 'RD87952', 288, 8.00, 1, 8.00, 5, 'PWD', 1.03, '2024-10-14 04:36:02', 102.60, 500.00, 397.40, 16, 0, 0, 'RD87952.png');
+(952, 'RD87952', 288, 8.00, 1, 8.00, 5, 'PWD', 1.03, '2024-10-14 04:36:02', 102.60, 500.00, 397.40, 16, 0, 0, 'RD87952.png'),
+(953, 'RD27421', 259, 35.00, 4, 140.00, 0, '', 16.8, '2025-03-12 19:42:23', 140.00, 500.00, 360.00, 16, 0, 0, 'RD27421.png');
 
 -- --------------------------------------------------------
 
@@ -662,7 +666,7 @@ INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `prod_currprice`, `p
 (254, 'PROD73180', 'Feeds', 100.00, 0, 0, 0, 2, 10, 'Pagkain sa manok', 0, '65d0addb07e17.png', '2024-02-17 21:00:11', NULL, 2, 'PROD73180.png', 1, 0, 'N/A', 'kg', 0, 0),
 (255, 'PROD86430', 'Pagkain ng Manok  Feeds', 100.00, 500, 1000, 0, 2, 10, 'Scientifically formulated with SPLIT peas for easier digestion. To increase fighting speed, Vigor and sharpness of your game birds.\r\n\r\n\r\nNUTRITIONAL FACTS\r\n\r\nCrude Protein not lower than...................16\r\n\r\nCrude Fat not lower than..........................2.5\r\n\r\nCrude Fiber not more than.......................10\r\n\r\nAsh not more than......................................4\r\n\r\n\r\nINGREDIENTS\r\n\r\nAustrian Peas, Feed Wheat, Feed Barley, Bamboo Beans, Cracked Corn, Dari, Jockey Oats, Split Green Peas, Split Yellow Peas, Black Sunflower, Red Sorghum, Safflower and Vetch.', 0, '65d0c966aa04a.jpeg', '2024-02-17 21:02:34', '2024-02-17 22:57:42', 2, 'PROD86430.png', 1, 0, 'N/A', 'kg', 0, 0),
 (256, 'PROD41364', 'milo', 123.00, 0, 0, 0, 3, 15, 'awdwadwawadwadwadwa', 0, '65d6f3eaeb499.png', '2024-02-22 15:12:42', NULL, 2, 'PROD41364.png', 1, 0, 'withExpi', 'kg', 0, 0),
-(257, 'PROD84296', 'Bayong Big', 80.00, 0, 0, 0, 1, 10, 'A bayong is a traditional Filipino bag, usually woven from indigenous materials like rattan or buri leaves. It is commonly used for carrying groceries, clothes, or other items. The bags design is simple and versatile, making it a popular choice for everyday use in the Philippines.', 0, '66fa6cc1757a9.jpg', '2024-02-22 17:25:57', '2024-09-30 17:17:53', 0, 'PROD84296.png', 1, 0, 'N/A', 'pcs', 0, 0),
+(257, 'PROD84296', 'Bayong Big', 80.00, 0, 0, 0, 1, 10, 'A bayong is a traditional Filipino bag, usually woven from indigenous materials like rattan or buri leaves. It is commonly used for carrying groceries, clothes, or other items. The bags design is simple and versatile, making it a popular choice for everyday use in the Philippines.', 0, '67d17125d1df7.jpg', '2024-02-22 17:25:57', '2025-03-12 19:33:57', 0, 'PROD84296.png', 1, 0, 'N/A', 'pcs', 0, 0),
 (258, 'PROD5091', 'Cat Litter', 160.00, 0, 0, 0, 1, 20, 'Cat litter is a granular substance used in litter boxes to absorb moisture and control odors from cat waste. It can be made from various materials like clay, silica gel, wood, or recycled paper. Litter is essential for maintaining a clean and hygienic environment for indoor cats.', 0, '65d713763820a.jpg', '2024-02-22 17:27:18', '2024-10-07 08:19:02', 0, 'PROD5091.png', 1, 0, 'N/A', 'pcs', 0, 0),
 (259, 'PROD21129', 'Chewing Toy Bone  Small', 35.00, 0, 0, 0, 1, 50, '\r\nThe chewing toy bone for dogs is a durable, often rubberbased, boneshaped toy designed to satisfy a dogs natural urge to chew. It helps promote dental health by cleaning teeth and massaging gums. These toys come in various sizes and textures, catering to different breeds and chewing preferences.', 0, '65d713eb6909c.jpg', '2024-02-22 17:29:15', NULL, 0, 'PROD21129.png', 1, 0, 'N/A', 'pcs', 0, 0),
 (260, 'PROD48973', 'Chicken Cage', 360.00, 0, 0, 0, 1, 50, '\r\nA chicken cage, also known as a chicken coop or hen house, is a shelter used to house chickens. It provides a safe and secure environment for the birds to roost, lay eggs, and seek protection from predators. Coops vary in size and design, from small backyard structures to large commercial operations.', 0, '65d714aa5099b.jpg', '2024-02-22 17:32:26', NULL, 0, 'PROD48973.png', 1, 0, 'N/A', 'pcs', 0, 0),
@@ -721,17 +725,17 @@ INSERT INTO `product` (`prod_id`, `prod_code`, `prod_name`, `prod_currprice`, `p
 (313, 'PROD75249', 'Top Breed Adult', 1570.50, 0, 0, 0, 2, 5, 'INGREDIENTS\r\nMeat Meal, Wheat Grains and Wheatbyproducts, Rice MiddlingBran, Soya Meal, Beef Tallow Preserved with Tocopherol, Vegetable Oil, Nutritional Yeast, Animal Digest, Salt, Amino Acids, Yucca Extract, Vitamin and Mineral Premix, Omega 3 and 6 Fatty Acids, Antioxidants, Antimold, Enzymes', 0, '6703a81029246.jpg', '2024-10-07 17:21:20', NULL, 0, 'PROD75249.png', 1, 0, 'N/A', 'kg', 0, 0),
 (314, 'PROD86607', 'Vitakraf sauce ', 60.00, 0, 0, 85, 2, 4, 'These tasty appetizers with delicious cod fish , tender chicken, or beef a lot of fine sauce are a true culinary treat for your cat and are irresistible in the taste.', 0, '6703a8807c989.jpg', '2024-10-07 17:23:12', '2024-10-07 17:23:27', 0, 'PROD86607.png', 1, 0, 'withExpi', 'pcs', 0, 0),
 (315, 'PROD76174', 'BowWow Adult', 1672.00, 0, 0, 0, 2, 5, ' All Breed Beef Adult Dog food 20kg \r\nComplete and Balanced diet for your dogs\r\nFortified with vitamins and minerals ', 0, '6703a97ca1b86.jpg', '2024-10-07 17:27:24', NULL, 0, 'PROD76174.png', 1, 0, 'N/A', 'kg', 0, 0),
-(316, 'PROD99235', 'Dextrose Powder', 180.00, 0, 0, 0, 3, 6, ' Dextrose  a highgrade medicinal glucose for rapid energy and effective for rapid relief and prevention of fatigue', 0, '6703aa3319d72.jpg', '2024-10-07 17:30:27', NULL, 0, 'PROD99235.png', 1, 0, 'withExpi', 'kg', 0, 0),
+(316, 'PROD99235', 'Dextrose Powder', 180.00, 0, 0, 0, 3, 6, ' Dextrose  a highgrade medicinal glucose for rapid energy and effective for rapid relief and prevention of fatigue', 0, '67d1716022f0e.png', '2024-10-07 17:30:27', '2025-03-12 19:34:56', 0, 'PROD99235.png', 1, 0, 'withExpi', 'kg', 0, 0),
 (317, 'PROD11766', 'PAKYAW Tablet', 7.00, 75, 0, 0, 3, 7, 'Antihelmintics , Immature  mature stages of gastrointestinal namatodes, kidney  lungworms in chicken and pigs.', 0, '6703aaa7cd6c7.png', '2024-10-07 17:32:23', '2024-10-10 21:34:44', 0, 'PROD11766.png', 1, 0, 'withExpi', 'pcs', 0, 0),
-(318, 'PROD26909', 'Ivermectin', 480.00, 0, 0, 0, 3, 5, 'Ivermectin is a medication that treats some parasitic diseases.', 0, '6703ac165664d.jpg', '2024-10-07 17:38:30', NULL, 0, 'PROD26909.png', 1, 0, 'withExpi', 'pcs', 0, 0),
+(318, 'PROD26909', 'Ivermectin', 480.00, 0, 0, 0, 3, 5, 'Ivermectin is a medication that treats some parasitic diseases.', 0, '67d1710648e4d.jpg', '2024-10-07 17:38:30', '2025-03-12 19:33:26', 0, 'PROD26909.png', 1, 0, 'withExpi', 'pcs', 0, 0),
 (319, 'PROD26196', 'BastoneroPlus', 200.00, 0, 0, 0, 3, 20, 'For the control and treatment of larval and adult stages of internal parasites.', 0, '6707df4e88f12.jpg', '2024-10-10 22:06:06', NULL, 0, 'PROD26196.png', 1, 0, 'withExpi', 'pack ', 0, 0),
 (320, 'PROD13254', 'Wash out intense', 216.00, 0, 700, 0, 3, 20, 'A Shampoo that kills and controls lice and mites.\r\nCan be used for fighting cocks, goats, dogs, and other animals.\r\n', 0, '6707e091a63e6.png', '2024-10-10 22:11:29', '2024-10-14 13:52:06', 0, 'PROD13254.png', 1, 0, 'N/A', 'btl', 0, 0),
-(321, 'PROD41571', 'Apralyte', 27.00, 0, 0, 0, 3, 10, 'APRALYTE is the fastacting antiscouring antibiotic against piglet diarrhea. It has 4 gutactive formula, APRAMYCIN, ATTAPULGITE, ELECTROLYTES and GLYCINEGLUCOSE that provides total scouring solution', 0, '6707e164241ab.jpg', '2024-10-10 22:15:00', '2024-10-10 22:25:23', 0, 'PROD41571.png', 1, 0, 'withExpi', 'sach', 0, 0),
+(321, 'PROD41571', 'Apralyte', 27.00, 0, 0, 0, 3, 10, 'APRALYTE is the fastacting antiscouring antibiotic against piglet diarrhea. It has 4 gutactive formula, APRAMYCIN, ATTAPULGITE, ELECTROLYTES and GLYCINEGLUCOSE that provides total scouring solution', 0, '67d171424938a.jpg', '2024-10-10 22:15:00', '2025-03-12 19:34:26', 0, 'PROD41571.png', 1, 0, 'withExpi', 'sach', 0, 0),
 (322, 'PROD51966', 'Belamyl 50ml', 572.00, 0, 50, 0, 3, 10, 'Foods, drugs, devices and cosmetic act prohibit dispensing without prescription of a duly licensed veterinarian', 0, '6707e1ed6be89.jpg', '2024-10-10 22:17:17', NULL, 2, 'PROD51966.png', 1, 0, 'withExpi', 'btl', 0, 0),
 (323, 'PROD24860', 'Belamyl 100ml', 1094.50, 0, 100, 0, 3, 15, 'Dietary supplement for all animals with Bcomplex deficiencies and anemia associated with lack of Vitamin B12', 0, '6707e2fa3baf0.jpg', '2024-10-10 22:21:46', NULL, 2, 'PROD24860.png', 1, 0, 'withExpi', 'pcs', 0, 0),
 (324, 'PROD95733', 'Ambroxitil', 24.00, 0, 0, 0, 3, 10, ' Indicated for the prevention and treatment of Respiratory, Intestinal and Urinary track infection of poultry, swine and calves.', 0, '6707e3a896a72.jpg', '2024-10-10 22:24:40', NULL, 0, 'PROD95733.png', 1, 0, 'withExpi', 'sach', 0, 0),
 (325, 'PROD99203', 'NutriVit Plus 12x', 99.00, 0, 120, 0, 3, 10, 'VITAMINS\r\nMINERAL\r\nLYSINE\r\nTAURINE\r\nCHLORELLA GROWTH FACTOR  CGF\r\nwith free Syringe 3ml', 0, '6707e61eeaeb6.png', '2024-10-10 22:35:10', '2024-10-13 22:27:09', 0, 'PROD99203.png', 1, 0, 'withExpi', 'btl', 0, 0),
-(326, 'PROD94210', 'Multivitamin B12 Capsule', 59.50, 0, 0, 0, 3, 10, 'One tab daily for fighting cocks and racing pigeons Two tablets daily for dogs and cats', 0, '6707e7381ad71.jpg', '2024-10-10 22:39:52', '2024-10-13 22:24:58', 0, 'PROD94210.png', 1, 0, 'withExpi', 'pcs', 0, 0);
+(326, 'PROD94210', 'Multivitamin B12 Capsule', 59.50, 0, 0, 0, 3, 10, 'One tab daily for fighting cocks and racing pigeons Two tablets daily for dogs and cats', 0, '67d171988d5fb.jpg', '2024-10-10 22:39:52', '2025-03-12 19:35:52', 0, 'PROD94210.png', 1, 0, 'withExpi', 'pcs', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -961,7 +965,8 @@ INSERT INTO `return_pos_table` (`id`, `rdate`, `rcode`, `rreason`, `rtype`, `sel
 (16, '2024-10-06', 'RD22077', 'Defective', 'Replace', '{\"288\":{\"prodName\":\"B 50 Forten\",\"quantity\":\"2\",\"price\":8}}', 0, '758b2baed00632e448eacb4d47feb1a8.jpg', 'Zyrine Alcarez'),
 (17, '2024-10-13', 'ORD-885157', 'Expired', 'Replace', '{\"325\":{\"prodName\":\"NutriVit Plus 12x120ml\",\"quantity\":\"1\",\"price\":99}}', 1, '6a02bcd772807eae176eb1e6b3deb8b1.jpeg', 'Joshua Padilla'),
 (18, '2024-10-13', 'RD18899', 'Defective', 'Replace', '{\"266\":{\"prodName\":\"Hair Brush\",\"quantity\":\"1\",\"price\":60}}', 0, 'cfeefd459671ce5cc365857dbafbc04b.jpeg', 'Joshua Anderson'),
-(19, '2024-10-14', 'ORD-332213', 'Defective', 'Replace', '{\"268\":{\"prodName\":\"Lori Soap\",\"quantity\":\"1\",\"price\":62}}', 1, 'f0e4a841a511fb44ac9cb0b8d9b9fe1d.jpg', 'joshua padilla');
+(19, '2024-10-14', 'ORD-332213', 'Defective', 'Replace', '{\"268\":{\"prodName\":\"Lori Soap\",\"quantity\":\"1\",\"price\":62}}', 1, 'f0e4a841a511fb44ac9cb0b8d9b9fe1d.jpg', 'joshua padilla'),
+(20, '2025-03-12', 'RD36073', 'Expired', 'Replace', '{\"274\":{\"prodName\":\"Water Bottle Bird\",\"quantity\":\"2\",\"price\":100}}', 0, '5b0e0597299d131511cc979434f9fefe.png', 'Joshua padilla');
 
 -- --------------------------------------------------------
 
@@ -991,7 +996,7 @@ INSERT INTO `stocks` (`s_id`, `s_stockin_date`, `s_invoice`, `s_expiration`, `s_
 (444, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 0, 72.00, 42, NULL, 1),
 (445, '2024-02-22', 'INV0001', '0000-00-00', 258, 500, 458, 160.00, 42, NULL, 1),
 (446, '2024-02-22', 'INV0001', '0000-00-00', 257, 500, 471, 80.00, 42, NULL, 0),
-(447, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 506, 31.50, 42, NULL, 1),
+(447, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 501, 31.50, 42, NULL, 1),
 (448, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 489, 31.50, 42, NULL, 1),
 (449, '2024-02-22', 'INV0001', '0000-00-00', 259, 500, 491, 31.50, 42, NULL, 1),
 (450, '2024-02-22', 'INV002', '0000-00-00', 261, 500, 450, 540.00, 42, NULL, 1),
@@ -1060,7 +1065,7 @@ INSERT INTO `stocks` (`s_id`, `s_stockin_date`, `s_invoice`, `s_expiration`, `s_
 (513, '2024-10-10', 'INV00059', '2028-07-17', 302, 24, 29, 90.00, 43, NULL, 1),
 (514, '2024-10-10', 'INV00059', '0000-00-00', 262, 2, 0, 260.00, 43, NULL, 1),
 (515, '2024-10-10', 'INV00059', '0000-00-00', 298, 21, 21, 1950.00, 43, NULL, 1),
-(516, '2024-10-10', 'INV00059', '0000-00-00', 272, 21, 16, 90.00, 43, NULL, 1),
+(516, '2024-10-10', 'INV00059', '0000-00-00', 272, 21, 15, 90.00, 43, NULL, 1),
 (517, '2024-10-10', 'INV00059', '0000-00-00', 309, 21, 21, 450.00, 43, NULL, 1),
 (518, '2024-10-10', 'INV00059', '2028-08-14', 297, 25, 23, 67.50, 43, NULL, 1),
 (519, '2024-10-10', 'INV00059', '2027-10-15', 296, 21, 25, 40.00, 43, NULL, 1),
@@ -1576,7 +1581,9 @@ INSERT INTO `users_log` (`act_id`, `act_account_id`, `act_activity`, `act_date`,
 (4252, 292, 'Gave 1 Stars and commented on B 50 Forten : bad item', '2024-10-14 14:24:54', 'Feedback', '288', 1),
 (4253, 16, 'Disabled: Mary Loi Ricalde account', '2024-10-14 14:27:49', 'account', '301', 1),
 (4254, 16, 'Enabled: Mary Loi Ricalde account', '2024-10-14 14:28:01', 'account', '301', 1),
-(4255, 16, ' update vat from 1 changed to 12', '2024-10-14 14:38:03', 'maintinance', '1', 1);
+(4255, 16, ' update vat from 1 changed to 12', '2024-10-14 14:38:03', 'maintinance', '1', 1),
+(4256, 16, 'update system banner', '2025-03-12 19:29:47', 'maintinance', '1', 0),
+(4257, 16, 'Updated Freddie mark Santiago`s Profile picture', '2025-03-12 19:32:45', 'account', '16', 0);
 
 -- --------------------------------------------------------
 
@@ -1607,7 +1614,7 @@ INSERT INTO `user_address` (`id`, `user_acc_code`, `user_address_fullname`, `use
 (242, 'ACC60360281', 'andy anderson', '09454454744', 'joshuaandersonpadilla8@gmail.com', '031411011', 'Region III (Central Luzon) Bulacan Marilao Prenza I bayanbayan', 1, 1, 1),
 (243, 'ACC50299283', 'Juan Doe', '09120912091', 'andersonandy046@gmail.com', '031411008', 'Region III (Central Luzon) Bulacan Marilao Patubig Block 1 Lot 3', 1, 1, 1),
 (244, 'ACC26869284', 'Daniel Villegas', '09123456789', 'dummy1stapador@gmail.com', '031404011', 'Region III (Central Luzon) Bulacan Bocaue Duhat T?!:\"\"()/-_$1', 1, 1, 1),
-(247, 'ACC03771292', 'christin bermas', '09454454744', 'masterparj@gmail.com', '031423001', 'Region III (Central Luzon) Bulacan Santa Maria Bagbaguin street 30', 1, 1, 1),
+(247, 'ACC03771292', 'christin bermas', '09454454744', 'masterparj@gmail.com', '031411008', 'Region III (Central Luzon) Bulacan Marilao Patubig bonifacio', 1, 1, 1),
 (248, 'ACC93237293', 'joe doe', '09120912091', 'floterina@gmail.com', '031411008', 'Region III (Central Luzon) Bulacan Marilao Patubig block1 lot 3', 1, 1, 1),
 (249, 'ACC06596301', 'aprila jane', '09454454744', 'joshuaandersonpadilla8@gmail.com', '031411008', 'Region III (Central Luzon) Bulacan Marilao Patubig Nlex', 1, 1, 1),
 (250, 'ACC31069305', 'Joe Doe', '09120912091', 'floterina@gmail.com', '031411011', 'Region III (Central Luzon) Bulacan Marilao Prenza I block1 lot 3', 1, 1, 1),
@@ -1883,13 +1890,13 @@ ALTER TABLE `mode_of_payment`
 -- AUTO_INCREMENT for table `new_cart`
 --
 ALTER TABLE `new_cart`
-  MODIFY `cart_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=385;
+  MODIFY `cart_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=387;
 
 --
 -- AUTO_INCREMENT for table `new_tbl_order_items`
 --
 ALTER TABLE `new_tbl_order_items`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=288;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -1907,13 +1914,13 @@ ALTER TABLE `pickup`
 -- AUTO_INCREMENT for table `pos_cart`
 --
 ALTER TABLE `pos_cart`
-  MODIFY `pos_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1095;
+  MODIFY `pos_cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1096;
 
 --
 -- AUTO_INCREMENT for table `pos_orders`
 --
 ALTER TABLE `pos_orders`
-  MODIFY `orders_orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=953;
+  MODIFY `orders_orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=954;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -1943,7 +1950,7 @@ ALTER TABLE `return_ordering`
 -- AUTO_INCREMENT for table `return_pos_table`
 --
 ALTER TABLE `return_pos_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `stocks`
@@ -1979,7 +1986,7 @@ ALTER TABLE `unit`
 -- AUTO_INCREMENT for table `users_log`
 --
 ALTER TABLE `users_log`
-  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4256;
+  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4258;
 
 --
 -- AUTO_INCREMENT for table `user_address`
