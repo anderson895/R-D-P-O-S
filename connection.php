@@ -1,8 +1,13 @@
 <?php
 $host = "localhost";
-$user = "u293217990_rdpos";
-$password = "Rdpos2025";
-$database = "u293217990_rdpos";
+$user = "root";
+$password = "";
+$database = "u547077750_rdpos";
+
+// $host = "localhost";
+// $user = "u293217990_rdpos";
+// $password = "Rdpos2025";
+// $database = "u293217990_rdpos";
 
 // Create a connection
 $connections = mysqli_connect($host, $user, $password, $database);
